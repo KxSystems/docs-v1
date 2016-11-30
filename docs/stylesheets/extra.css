@@ -1,0 +1,31 @@
+/* 
+	Title: extra CSS rules for code.kx.com ported to MkDocs using Materials theme
+	Author: stephen@kx.com
+ */
+
+
+ .palette-primary-blue .article a, 
+ .palette-primary-blue .drawer .toc a.current, 
+ .palette-primary-blue .article code, 
+ .palette-primary-blue .article h1, 
+ .palette-primary-blue .article h2, 
+ .palette-primary-blue .article h3
+ {
+ 	color: #0070cd;
+ } 
+
+ .palette-primary-blue .footer, 
+ .palette-primary-blue .header 
+ {
+ 	background: #0070cd; 
+ }
+
+ .palette-primary-blue .article table th 
+ {
+ 	backgound: #0971ce;
+ }
+
+/* enlarge code within tables */
+ table tbody td code {
+ 	font-size: 14px !important;
+ }

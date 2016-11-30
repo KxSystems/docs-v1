@@ -1,15 +1,15 @@
 dev_addr: 127.0.0.1:8000
 docs_dir: docs
 # extra_css for red links
-# extra_css: [extra.css]
+extra_css: [stylesheets/extra.css]
 site_dir: site
 site_author: Kx Systems
 site_description: Resources for kdb+ programmers
 site_name: code.kx.com
 site_url: http://5jt.github.io/
 remote_branch: gh-pages
-repo_name: 'GitHub'
-repo_url: 'https://github.com/5jt/kx'
+# repo_name: 'GitHub'
+# repo_url: 'https://github.com/5jt/kx'
 theme: 'material'
 # theme_dir for favicon
 #theme_dir: 'theme'
@@ -18,7 +18,7 @@ extra:
   palette: 
     primary: 'blue'
     accent: 'red'
-  version: '0.1.0'
+  # version: '0.1.0'
 pages:
   - Home: index.md
   - Get started: learn.md
