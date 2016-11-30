@@ -5,6 +5,7 @@ extra_css: [stylesheets/extra.css]
 site_dir: site
 site_author: Kx Systems
 site_description: Resources for kdb+ programmers
+site_favicon: img/favicon.ico
 site_name: code.kx.com
 site_url: http://5jt.github.io/
 remote_branch: gh-pages
