@@ -1,13 +1,10 @@
-code.kx.com
-===========
-
 _The home of kdb+ resources_
 
-This is the beginning of an incremental conversion of the documentation on the Kx Wiki to a [GitHub repository](http://github.com/kxsystems/docs). Contribute to the repository by forking it and submitting pull requests.
+The documentation on the Kx Wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests.)
 
 | [**Download**](https://kx.com/software-download.php) | [**Get started**](/learn/) | [**Build systems**](/developer/) |
-| --- | --- | --- | 
-| a free 32-bit version of kdb+ | [Install kdb+](http://code.kx.com/wiki/Tutorials/Installation). Learn the functional q language and its SQL-like handling of tables and dictionaries. Discover the interpreter&rsquo;s powers, documented in the [Reference](/reference/) section. | In our Developer section, find cookbooks for building systems, and our [Developer Briefs](/developer/#briefs) for advanced designs and performance optimization. |
+| ---- | ---- | ---- | 
+| a free 32-bit version of kdb+ for Windows, macOS, Linux or the Raspberry Pi| [Install kdb+](http://code.kx.com/wiki/Tutorials/Installation). Learn the functional q language and its SQL-like handling of tables and dictionaries. Read [_Q Shock and Awe_](http://code.kx.com/wiki/QforMortals3). Discover the interpreter&rsquo;s powers in the [Reference](/reference/) section. | In our Developer section, find cookbooks for building systems, and our [Developer Briefs](/developer/#briefs) for advanced designs and performance optimization. |
 
 
 Find kdb+ **utilities and development tools** in the [GitHub repositories](http://kxsys.github.io/). 
