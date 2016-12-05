@@ -9,8 +9,8 @@ site_favicon: img/favicon.ico
 site_name: code.kx.com
 site_url: http://code.kx.com
 remote_branch: gh-pages
-repo_name: 'GitHub'
-repo_url: 'https://github.com/kxsystems/docs'
+# repo_name: 'GitHub'
+# repo_url: 'https://github.com/kxsystems/docs'
 theme: 'material'
 # theme_dir for favicon
 #theme_dir: 'theme'
@@ -18,7 +18,7 @@ extra:
   logo: 'img/Kx_Logo_blue.png'
   palette: 
     primary: 'blue'
-    accent: 'red'
+    accent: 'deep orange'
   # version: '0.1.0'
 pages:
   - Home: index.md
