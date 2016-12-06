@@ -21,7 +21,7 @@
 These originally appeared as the _q for Gods_ series of white papers from [First Derivatives](http://firstderivatives.com).
 
 * [A natural query interface for distributed systems](db/DB_A_Natural_Query_Interface_for_Distributed_Systems.pdf)
-* [An introduction to graphical interfaces for kdb+ using C#](db/DB_An_Introduction_to_Graphical_Interfaces_for_kdb+_using_c#.pdf)
+* [An introduction to graphical interfaces for kdb+ using C#](db/DB_An_Introduction_to_Graphical_Interfaces_for_kdb+_using_csharp.pdf)
 * [An introduction to neural networks with kdb+](db/DB_An_Introduction_to_Neural_Networks_with_kdb+.pdf)
 * [Building realtime tick subscribers](db/DB_Building_Realtime_tick_subscribers.pdf)
 * [Columnar database and query optimization](db/DB_Columnar_Database_and_Query_Optimization.pdf)

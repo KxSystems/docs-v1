@@ -1,14 +1,16 @@
-dev_addr: 127.0.0.1:8000
-docs_dir: docs
+copyright: "Kx Systems 1995-2016"
+dev_addr: '127.0.0.1:8000'
+docs_dir: 'docs'
 # extra_css for red links
 extra_css: [stylesheets/extra.css]
-site_dir: site
-site_author: Kx Systems
+google_analytics: ['UA-3462586-1','kx.com']
+site_dir: 'site'
+site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
-site_favicon: img/favicon.ico
-site_name: code.kx.com
-site_url: http://code.kx.com
-remote_branch: gh-pages
+site_favicon: 'img/favicon.ico'
+site_name: 'code.kx.com'
+site_url: 'http://code.kx.com'
+remote_branch: 'master'
 repo_name: 'GitHub'
 repo_url: 'https://github.com/kxsystems/docs'
 theme: 'material'
