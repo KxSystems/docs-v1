@@ -138,7 +138,7 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 
 ## GitHub repositories
 
-See the [kdb+ GitHub repository index](https://kxsys.github.io/).
+See the [kdb+ GitHub repository index](https://kxsystems.github.io/).
 
 
 ## Utilities

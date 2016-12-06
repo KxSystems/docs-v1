@@ -26,6 +26,11 @@
  	backgound: #0971ce;
  }
 
+ /* override accent background colour on repo download and star buttons */
+.scrollable .wrapper .repo a {
+ 	background: #8099fd;
+ }
+
 /* enlarge code within tables */
  table tbody td code {
  	font-size: 14px !important;
