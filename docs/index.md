@@ -13,3 +13,5 @@ Look in our [**Library**](/library/) for articles on kdb+ and links to developer
 
 Explore the [Kx community and events](https://kx.com/connect-with-us/) to connect with others using kdb+.
 
+See the [terms and conditions](http://code.kx.com/wiki/TermsAndConditions) for use of this site. 
+
