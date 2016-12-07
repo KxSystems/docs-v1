@@ -36,6 +36,14 @@
  	font-size: 14px !important;
  }
 
- body{
+/* body{
  	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
+ }*/
+
+ .article {
+ 	font-size: 15px;
+ }
+
+ .article table {
+ 	font-size: 14px;
  }
