@@ -116,7 +116,7 @@ Summaries of [command-line options](http://code.kx.com/wiki/Reference/Cmdline) a
 | `-[lL]`|log updates |[`\l`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)|load |
 | `-o`, `\o`|local time offset | `-p`, `\p`|port |
 |[`-P`](http://code.kx.com/wiki/Reference/CmdlineP), `\P`|float precision |[`-q`](http://code.kx.com/wiki/Reference/Cmdlineq)|quiet |
-| `-r`|replicate from host/post |`\r`|replication master |
+| `-r`|replicate from host/port |`\r`|replication master |
 |`\r`|rename file | `-s`|use slaves |
 |`\s`|number of slaves | `-S`, `\S`|prng seed |
 |`\t`|time expression | `-t`, `\t`|timer |
