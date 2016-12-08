@@ -43,7 +43,9 @@
  .article {
  	font-size: 15px;
  }
-
  .article table {
  	font-size: 14px;
  }
+.article code {
+	background: #ffc;
+}

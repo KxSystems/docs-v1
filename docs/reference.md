@@ -3,29 +3,29 @@
 
 |&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|
 |---|---|---|---|---|---|
-|[`()`](http://code.kx.com/wiki/Reference/Parentheses)|precedence/list/table |[`[]`](http://code.kx.com/wiki/Reference/Brackets)|block/arguments |[`{}`](http://code.kx.com/wiki/Reference/CurlyBraces)|function |
-|[`=`](http://code.kx.com/wiki/Reference/EqualsSymbol)|equal |[`<>`](http://code.kx.com/wiki/Reference/LeftRightAngleBracket)|not equal |[`>`](http://code.kx.com/wiki/Reference/Comparatives)|less/greater.. |
-|[`+`](http://code.kx.com/wiki/Reference/PlusSymbol)|plus |[`-`](http://code.kx.com/wiki/Reference/MinusSymbol)|minus |[`*`](http://code.kx.com/wiki/Reference/Asterisk)|times |
-|[`%`](http://code.kx.com/wiki/Reference/PercentSymbol)|divided by |[`;`](http://code.kx.com/wiki/Reference/Semicolon)|separator |[`` ` ``](http://code.kx.com/wiki/Reference/Backtick)|symbol |
-|[`?`](http://code.kx.com/wiki/Reference/QuestionSymbol)|find/rand/select/exec |[`.`](http://code.kx.com/wiki/Reference/DotSymbol)|index/apply/[trap](http://code.kx.com/wiki/Reference/trap) |[`@`](http://code.kx.com/wiki/Reference/AtSymbol)|index/apply/[trap](http://code.kx.com/wiki/Reference/trap) |
-|[`^`](http://code.kx.com/wiki/Reference/Caret)|fill/coalesce |[`$`](http://code.kx.com/wiki/Reference/DollarSign)|cond/cast/enum.. |[`~`](http://code.kx.com/wiki/Reference/Tilde)|match |
-|[`#`](http://code.kx.com/wiki/Reference/NumberSign)|take |[`_`](http://code.kx.com/wiki/Reference/Underscore)|drop/cut |[`,`](http://code.kx.com/wiki/Reference/Comma)|join |
-|[`!`](http://code.kx.com/wiki/Reference/BangSymbol)|dict/update/delete |[`|`](http://code.kx.com/wiki/Reference/Bar)|max |[`&`](http://code.kx.com/wiki/Reference/Ampersand)|min |
-|[`/`](http://code.kx.com/wiki/Reference/Slash)|comment/over/converge |[`\`](http://code.kx.com/wiki/Reference/BackSlash)|abort/scan/iterate |[`\\`](http://code.kx.com/wiki/Reference/BackSlashBackSlash)|quit |
-|[`/:`](http://code.kx.com/wiki/Reference/SlashColon)|each right |[`\:`](http://code.kx.com/wiki/Reference/BackSlashColon)|each left |[`':`](http://code.kx.com/wiki/Reference/ApostropheColon)|each prior/peach |
-|[`' `](http://code.kx.com/wiki/Reference/Apostrophe)|signal/each both |[`:`](http://code.kx.com/wiki/Reference/Colon)|amend/return |[`::`](http://code.kx.com/wiki/Reference/ColonColon)|generic null/global amend |
+|[`()`](http://code.kx.com/wiki/Reference/Parentheses)|[precedence/list/table ](http://code.kx.com/wiki/Reference/Parentheses)|[`[]`](http://code.kx.com/wiki/Reference/Brackets)|[block/arguments ](http://code.kx.com/wiki/Reference/Brackets)|[`{}`](http://code.kx.com/wiki/Reference/CurlyBraces)|[function ](http://code.kx.com/wiki/Reference/CurlyBraces)|
+|[`=`](http://code.kx.com/wiki/Reference/EqualsSymbol)|[equal ](http://code.kx.com/wiki/Reference/EqualsSymbol)|[`<>`](http://code.kx.com/wiki/Reference/LeftRightAngleBracket)|[not equal ](http://code.kx.com/wiki/Reference/LeftRightAngleBracket)|[`>`](http://code.kx.com/wiki/Reference/Comparatives)|[less/greater.. ](http://code.kx.com/wiki/Reference/Comparatives)|
+|[`+`](http://code.kx.com/wiki/Reference/PlusSymbol)|[plus ](http://code.kx.com/wiki/Reference/PlusSymbol)|[`-`](http://code.kx.com/wiki/Reference/MinusSymbol)|[minus ](http://code.kx.com/wiki/Reference/MinusSymbol)|[`*`](http://code.kx.com/wiki/Reference/Asterisk)|[times ](http://code.kx.com/wiki/Reference/Asterisk)|
+|[`%`](http://code.kx.com/wiki/Reference/PercentSymbol)|[divided by ](http://code.kx.com/wiki/Reference/PercentSymbol)|[`;`](http://code.kx.com/wiki/Reference/Semicolon)|[separator ](http://code.kx.com/wiki/Reference/Semicolon)|[`` ` ``](http://code.kx.com/wiki/Reference/Backtick)|[symbol](http://code.kx.com/wiki/Reference/Backtick) |
+|[`?`](http://code.kx.com/wiki/Reference/QuestionSymbol)|[find/rand/select/exec ](http://code.kx.com/wiki/Reference/QuestionSymbol)|[`.`](http://code.kx.com/wiki/Reference/DotSymbol)|[index/apply](http://code.kx.com/wiki/Reference/DotSymbol)/[trap](http://code.kx.com/wiki/Reference/trap)|[`@`](http://code.kx.com/wiki/Reference/AtSymbol)|[index/apply](http://code.kx.com/wiki/Reference/AtSymbol)/[trap](http://code.kx.com/wiki/Reference/trap)|
+|[`^`](http://code.kx.com/wiki/Reference/Caret)|[fill/coalesce ](http://code.kx.com/wiki/Reference/Caret)|[`$`](http://code.kx.com/wiki/Reference/DollarSign)|[cond/cast/enum.. ](http://code.kx.com/wiki/Reference/DollarSign)|[`~`](http://code.kx.com/wiki/Reference/Tilde)|[match ](http://code.kx.com/wiki/Reference/Tilde)|
+|[`#`](http://code.kx.com/wiki/Reference/NumberSign)|[take ](http://code.kx.com/wiki/Reference/NumberSign)|[`_`](http://code.kx.com/wiki/Reference/Underscore)|[drop/cut ](http://code.kx.com/wiki/Reference/Underscore)|[`,`](http://code.kx.com/wiki/Reference/Comma)|[join ](http://code.kx.com/wiki/Reference/Comma)|
+|[`!`](http://code.kx.com/wiki/Reference/BangSymbol)|[dict/update/delete ](http://code.kx.com/wiki/Reference/BangSymbol)|[`|`](http://code.kx.com/wiki/Reference/Bar)|[max ](http://code.kx.com/wiki/Reference/Bar)|[`&`](http://code.kx.com/wiki/Reference/Ampersand)|[min ](http://code.kx.com/wiki/Reference/Ampersand)|
+|[`/`](http://code.kx.com/wiki/Reference/Slash)|[comment/over/converge ](http://code.kx.com/wiki/Reference/Slash)|[`\`](http://code.kx.com/wiki/Reference/BackSlash)|[abort/scan/iterate ](http://code.kx.com/wiki/Reference/BackSlash)|[`\\`](http://code.kx.com/wiki/Reference/BackSlashBackSlash)|[quit ](http://code.kx.com/wiki/Reference/BackSlashBackSlash)|
+|[`/:`](http://code.kx.com/wiki/Reference/SlashColon)|[each right ](http://code.kx.com/wiki/Reference/SlashColon)|[`\:`](http://code.kx.com/wiki/Reference/BackSlashColon)|[each left ](http://code.kx.com/wiki/Reference/BackSlashColon)|[`':`](http://code.kx.com/wiki/Reference/ApostropheColon)|[each prior/peach ](http://code.kx.com/wiki/Reference/ApostropheColon)|
+|[`' `](http://code.kx.com/wiki/Reference/Apostrophe)|[signal/each both ](http://code.kx.com/wiki/Reference/Apostrophe)|[`:`](http://code.kx.com/wiki/Reference/Colon)|[amend/return ](http://code.kx.com/wiki/Reference/Colon)|[`::`](http://code.kx.com/wiki/Reference/ColonColon)|[generic null/global amend ](http://code.kx.com/wiki/Reference/ColonColon)|
 
 
 ## Numbers
 
 |&nbsp;|&nbsp;|
 |---|---|
-|[`0:`](http://code.kx.com/wiki/Reference/ZeroColon)|prepare/save/load text |
-|[`1:`](http://code.kx.com/wiki/Reference/OneColon)|binary/save binary |
-|[`2:`](http://code.kx.com/wiki/Reference/TwoColon)|dynamic load |
-|[`1`](http://code.kx.com/wiki/Reference/One), [`-1`](http://code.kx.com/wiki/Reference/One)|write to stdout |
-|[`2`](http://code.kx.com/wiki/Reference/Two), [`-2`](http://code.kx.com/wiki/Reference/Two)|write to stderr |
-|[`n`](http://code.kx.com/wiki/Reference/Number), [`-n`](http://code.kx.com/wiki/Reference/Number)|send to handle |
+|[`0:`](http://code.kx.com/wiki/Reference/ZeroColon)|[prepare/save/load text](http://code.kx.com/wiki/Reference/ZeroColon)|
+|[`1:`](http://code.kx.com/wiki/Reference/OneColon)|[binary/save binary](http://code.kx.com/wiki/Reference/OneColon)|
+|[`2:`](http://code.kx.com/wiki/Reference/TwoColon)|[dynamic load](http://code.kx.com/wiki/Reference/TwoColon)|
+|[`1`, `-1`](http://code.kx.com/wiki/Reference/One)|[write to stdout](http://code.kx.com/wiki/Reference/One) |
+|[`2`, `-2`](http://code.kx.com/wiki/Reference/Two)|[write to stderr](http://code.kx.com/wiki/Reference/Two) |
+|[`n`, `-n`](http://code.kx.com/wiki/Reference/Number)|[send to handle](http://code.kx.com/wiki/Reference/Number) |
 
 
 ## Reserved names
@@ -42,7 +42,7 @@ Reserved names denote primitive q constants, verbs and adverbs.
 |F |[`fby`](http://code.kx.com/wiki/Reference/fby "filter-by"), [`fills`](http://code.kx.com/wiki/Reference/fills "forward-fill nulls"), [`first`](http://code.kx.com/wiki/Reference/first "first element"), [`fkeys`](http://code.kx.com/wiki/Reference/fkeys "foreign-key columns mapped to their tables"), [`flip`](http://code.kx.com/wiki/Reference/flip "transpose"), [`floor`](http://code.kx.com/wiki/Reference/floor "greatest integer less than argument") |
 |G |[`get`](http://code.kx.com/wiki/Reference/get "get a q data file"), [`getenv`](http://code.kx.com/wiki/Reference/getenv "value of an environment variable"), [`group`](http://code.kx.com/wiki/Reference/group "dictionary of distinct elements"), [`gtime`](http://code.kx.com/wiki/Reference/gtime "UTC timestamp") |
 |H |[`hclose`](http://code.kx.com/wiki/Reference/hclose "close a file or process"), [`hcount`](http://code.kx.com/wiki/Reference/hcount "size of a file"), [`hdel`](http://code.kx.com/wiki/Reference/hdel "delete a file"), [`hopen`](http://code.kx.com/wiki/Reference/hopen "open a file"), [`hsym`](http://code.kx.com/wiki/Reference/hsym "convert symbol to filename or IP address") |
-|I |[`iasc`](http://code.kx.com/wiki/Reference/iasc "indices of ascending sort"), [`idesc`](http://code.kx.com/wiki/Reference/idesc "indices of descending sort"), [`if`](http://code.kx.com/wiki/Reference/if "control word: conditional"), [`ij`](http://code.kx.com/wiki/Reference/ij "verb: inner join"), [`in`](http://code.kx.com/wiki/Reference/in "verb: membership"), [`insert`](http://code.kx.com/wiki/Reference/insert "verb: append records to a table"), [`inter`](http://codinnere.kx.com/wiki/Reference/inter "verb: elements cmmon to both arguments"), [`inv`](http://code.kx.com/wiki/Reference/inv "function: matrix inverse") |
+|I |[`iasc`](http://code.kx.com/wiki/Reference/iasc "indices of ascending sort"), [`idesc`](http://code.kx.com/wiki/Reference/idesc "indices of descending sort"), [`if`](http://code.kx.com/wiki/Reference/if "control word: conditional"), [`ij`](http://code.kx.com/wiki/Reference/ij "verb: inner join"), [`in`](http://code.kx.com/wiki/Reference/in "verb: membership"), [`insert`](http://code.kx.com/wiki/Reference/insert "verb: append records to a table"), [`inter`](http://code.kx.com/wiki/Reference/inter "verb: elements cmmon to both arguments"), [`inv`](http://code.kx.com/wiki/Reference/inv "function: matrix inverse") |
 |K |[`key`](http://code.kx.com/wiki/Reference/key "function: keys of a dictionary etc."), [`keys`](http://code.kx.com/wiki/Reference/keys "function: names of a table's columns") |
 |L |[`last`](http://code.kx.com/wiki/Reference/last "function: last element"), [`like`](http://code.kx.com/wiki/Reference/like "verb: pattern matching"), [`lj`](http://code.kx.com/wiki/Reference/lj "verb: left join"), [`ljf`](http://code.kx.com/wiki/Reference/lj "verb: left join"), [`load`](http://code.kx.com/wiki/Reference/load "function: load binary data"), [`log`](http://code.kx.com/wiki/Reference/log "function: natural logarithm"), [`lower`](http://code.kx.com/wiki/Reference/lower "function: lower case"), [`lsq`](http://code.kx.com/wiki/Reference/lsq "verb: least squares -- matrix divide"), [`ltime`](http://code.kx.com/wiki/Reference/ltime "function: local timestamp"), [`ltrim`](http://code.kx.com/wiki/Reference/ltrim "function remove leading spaces") |
 |M |[`mavg`](http://code.kx.com/wiki/Reference/mavg "verb: moving average"), [`max`](http://code.kx.com/wiki/Reference/max "function: maximum"), [`maxs`](http://code.kx.com/wiki/Reference/maxs "function: maxima of preceding elements"), [`mcount`](http://code.kx.com/wiki/Reference/mcount "verb: moving count"), [`md5`](http://code.kx.com/wiki/Reference/md5 "function: MD5 hash"), [`mdev`](http://code.kx.com/wiki/Reference/mdev "verb: moving deviation"), [`med`](http://code.kx.com/wiki/Reference/med "function: median"), [`meta`](http://code.kx.com/wiki/Reference/meta "function: metadata of a table"), [`min`](http://code.kx.com/wiki/Reference/min "function: minimum"), [`mins`](http://code.kx.com/wiki/Reference/mins "minim of preceding elements"), [`mmax`](http://code.kx.com/wiki/Reference/mmax "verb: moving maxima"), [`mmin`](http://code.kx.com/wiki/Reference/mmin "verb: moving minima"), [`mmu`](http://code.kx.com/wiki/Reference/mmu "verb: matrix multiplication"), [`mod`](http://code.kx.com/wiki/Reference/mod "verb: remainder"), [`msum`](http://code.kx.com/wiki/Reference/msum "verb: moving sum") |
@@ -77,28 +77,28 @@ for functions in the `.Q` namespace see the [.Q unreference](http://code.kx.com/
 
 |&nbsp;|&nbsp;|&nbsp;|&nbsp;|
 |---|---|---|---|
-|[`.z.a`](http://code.kx.com/wiki/Reference/dotzdota)|address|[`.z.ac`](http://code.kx.com/wiki/Reference/dotzdotac)|auth from cookie |
-|[`.z.b`](http://code.kx.com/wiki/Reference/dotzdotb)|dependencies|[`.z.bm`](Releases/ChangesIn2.7#IPCMessageValidator "wikilink")|bad message |
-|`.z.c`|physical core count|[`.z.e`](http://code.kx.com/wiki/Reference/dotzdote)|tls connection status |
-|[`.z.exit`](http://code.kx.com/wiki/Reference/dotzdotexit)|action on exit|[`.z.f`](http://code.kx.com/wiki/Reference/dotzdotf)|file |
-|[`.z.h`](http://code.kx.com/wiki/Reference/dotzdoth)|host|[`.z.i`](http://code.kx.com/wiki/Reference/dotzdoti)|PID |
-|[`.z.k`](http://code.kx.com/wiki/Reference/dotzdotk)|release date|[`.z.K`](http://code.kx.com/wiki/Reference/dotzdotK)|version |
-|[`.z.l`](http://code.kx.com/wiki/Reference/dotzdotl)|license|[`.z.n`](http://code.kx.com/wiki/Reference/dotzdotn)|gmt (timespan) |
-|[`.z.N`](http://code.kx.com/wiki/Reference/dotzdotN)|local (timespan)|[`.z.o`](http://code.kx.com/wiki/Reference/dotzdoto)|OS |
-|[`.z.p`](http://code.kx.com/wiki/Reference/dotzdotp)|gmt (timestamp)|[`.z.P`](http://code.kx.com/wiki/Reference/dotzdotP)|local (timestamp) |
-|[`.z.pc`](http://code.kx.com/wiki/Reference/dotzdotpc)|close|[`.z.pg`](http://code.kx.com/wiki/Reference/dotzdotpg)|get |
-|[`.z.pd`](http://code.kx.com/wiki/Reference/dotzdotpd)|peach handles|[`.z.ph`](http://code.kx.com/wiki/Reference/dotzdotph)|http get |
-|[`.z.pi`](http://code.kx.com/wiki/Reference/dotzdotpi)|input|[`.z.pm`](http://code.kx.com/wiki/Reference/dotzdotpm)|http OPTIONS method |
-|[`.z.po`](http://code.kx.com/wiki/Reference/dotzdotpo)|open|[`.z.pp`](http://code.kx.com/wiki/Reference/dotzdotpp)|http post |
-|[`.z.ps`](http://code.kx.com/wiki/Reference/dotzdotps)|set|[`.z.pw`](http://code.kx.com/wiki/Reference/dotzdotpw)|validate user |
-|`.z.q`|quiet mode|[`.z.s`](http://code.kx.com/wiki/Reference/dotzdots)|self |
-|[`.z.ts`](http://code.kx.com/wiki/Reference/dotzdotts)|timer|[`.z.u`](http://code.kx.com/wiki/Reference/dotzdotu)|userid |
-|[`.z.vs`](http://code.kx.com/wiki/Reference/dotzdotvs)|value set|[`.z.w`](http://code.kx.com/wiki/Reference/dotzdotw)|handle |
-|[`.z.wc`](http://code.kx.com/wiki/Reference/dotzdotwc)|websocket close|[`.z.wo`](http://code.kx.com/wiki/Reference/dotzdotwo)|websocket open |
-|[`.z.W`](http://code.kx.com/wiki/Reference/dotzdotW)|handles|[`.z.ws`](http://code.kx.com/wiki/Reference/dotzdotws)|websockets |
-|[`.z.x`](http://code.kx.com/wiki/Reference/dotzdotx)|argv|[`.z.X`](http://code.kx.com/wiki/Reference/dotzdotX)|raw command line |
-|[`.z.z`](http://code.kx.com/wiki/Reference/dotzdotz)|gmt time (datetime)|[`.z.Z`](http://code.kx.com/wiki/Reference/dotzdotZ)|local time (datetime) |
-|[`.z.[tTdD]`](http://code.kx.com/wiki/Releases/ChangesIn2.4#a.z.t.z.d)|time/date shortcuts|[`.z.zd`](http://code.kx.com/wiki/Reference/dotzdotzd)|zip defaults |}
+|[`.z.a`](http://code.kx.com/wiki/Reference/dotzdota)|[address](http://code.kx.com/wiki/Reference/dotzdota)|[`.z.ac`](http://code.kx.com/wiki/Reference/dotzdotac)|[auth from cookie ](http://code.kx.com/wiki/Reference/dotzdotac)|
+|[`.z.b`](http://code.kx.com/wiki/Reference/dotzdotb)|[dependencies](http://code.kx.com/wiki/Reference/dotzdotb)|[`.z.bm`](Releases/ChangesIn2.7#IPCMessageValidator "wikilink")|[bad message ](Releases/ChangesIn2.7#IPCMessageValidator "wikilink")|
+|`.z.c`|physical core count|[`.z.e`](http://code.kx.com/wiki/Reference/dotzdote)|[tls connection status ](http://code.kx.com/wiki/Reference/dotzdote)|
+|[`.z.exit`](http://code.kx.com/wiki/Reference/dotzdotexit)|[action on exit](http://code.kx.com/wiki/Reference/dotzdotexit)|[`.z.f`](http://code.kx.com/wiki/Reference/dotzdotf)|[file ](http://code.kx.com/wiki/Reference/dotzdotf)|
+|[`.z.h`](http://code.kx.com/wiki/Reference/dotzdoth)|[host](http://code.kx.com/wiki/Reference/dotzdoth)|[`.z.i`](http://code.kx.com/wiki/Reference/dotzdoti)|[PID ](http://code.kx.com/wiki/Reference/dotzdoti)|
+|[`.z.k`](http://code.kx.com/wiki/Reference/dotzdotk)|[release date](http://code.kx.com/wiki/Reference/dotzdotk)|[`.z.K`](http://code.kx.com/wiki/Reference/dotzdotK)|[version ](http://code.kx.com/wiki/Reference/dotzdotK)|
+|[`.z.l`](http://code.kx.com/wiki/Reference/dotzdotl)|[license](http://code.kx.com/wiki/Reference/dotzdotl)|[`.z.n`](http://code.kx.com/wiki/Reference/dotzdotn)|[gmt (timespan) ](http://code.kx.com/wiki/Reference/dotzdotn)|
+|[`.z.N`](http://code.kx.com/wiki/Reference/dotzdotN)|[local (timespan)](http://code.kx.com/wiki/Reference/dotzdotN)|[`.z.o`](http://code.kx.com/wiki/Reference/dotzdoto)|[OS ](http://code.kx.com/wiki/Reference/dotzdoto)|
+|[`.z.p`](http://code.kx.com/wiki/Reference/dotzdotp)|[gmt (timestamp)](http://code.kx.com/wiki/Reference/dotzdotp)|[`.z.P`](http://code.kx.com/wiki/Reference/dotzdotP)|[local (timestamp) ](http://code.kx.com/wiki/Reference/dotzdotP)|
+|[`.z.pc`](http://code.kx.com/wiki/Reference/dotzdotpc)|[close](http://code.kx.com/wiki/Reference/dotzdotpc)|[`.z.pg`](http://code.kx.com/wiki/Reference/dotzdotpg)|[get ](http://code.kx.com/wiki/Reference/dotzdotpg)|
+|[`.z.pd`](http://code.kx.com/wiki/Reference/dotzdotpd)|[peach handles](http://code.kx.com/wiki/Reference/dotzdotpd)|[`.z.ph`](http://code.kx.com/wiki/Reference/dotzdotph)|[http get ](http://code.kx.com/wiki/Reference/dotzdotph)|
+|[`.z.pi`](http://code.kx.com/wiki/Reference/dotzdotpi)|[input](http://code.kx.com/wiki/Reference/dotzdotpi)|[`.z.pm`](http://code.kx.com/wiki/Reference/dotzdotpm)|[http OPTIONS method ](http://code.kx.com/wiki/Reference/dotzdotpm)|
+|[`.z.po`](http://code.kx.com/wiki/Reference/dotzdotpo)|[open](http://code.kx.com/wiki/Reference/dotzdotpo)|[`.z.pp`](http://code.kx.com/wiki/Reference/dotzdotpp)|[http post ](http://code.kx.com/wiki/Reference/dotzdotpp)|
+|[`.z.ps`](http://code.kx.com/wiki/Reference/dotzdotps)|[set](http://code.kx.com/wiki/Reference/dotzdotps)|[`.z.pw`](http://code.kx.com/wiki/Reference/dotzdotpw)|[validate user ](http://code.kx.com/wiki/Reference/dotzdotpw)|
+|`.z.q`|quiet mode|[`.z.s`](http://code.kx.com/wiki/Reference/dotzdots)|[self ](http://code.kx.com/wiki/Reference/dotzdots)|
+|[`.z.ts`](http://code.kx.com/wiki/Reference/dotzdotts)|[timer](http://code.kx.com/wiki/Reference/dotzdotts)|[`.z.u`](http://code.kx.com/wiki/Reference/dotzdotu)|[userid ](http://code.kx.com/wiki/Reference/dotzdotu)|
+|[`.z.vs`](http://code.kx.com/wiki/Reference/dotzdotvs)|[value set](http://code.kx.com/wiki/Reference/dotzdotvs)|[`.z.w`](http://code.kx.com/wiki/Reference/dotzdotw)|[handle ](http://code.kx.com/wiki/Reference/dotzdotw)|
+|[`.z.wc`](http://code.kx.com/wiki/Reference/dotzdotwc)|[websocket close](http://code.kx.com/wiki/Reference/dotzdotwc)|[`.z.wo`](http://code.kx.com/wiki/Reference/dotzdotwo)|[websocket open ](http://code.kx.com/wiki/Reference/dotzdotwo)|
+|[`.z.W`](http://code.kx.com/wiki/Reference/dotzdotW)|[handles](http://code.kx.com/wiki/Reference/dotzdotW)|[`.z.ws`](http://code.kx.com/wiki/Reference/dotzdotws)|[websockets ](http://code.kx.com/wiki/Reference/dotzdotws)|
+|[`.z.x`](http://code.kx.com/wiki/Reference/dotzdotx)|[argv](http://code.kx.com/wiki/Reference/dotzdotx)|[`.z.X`](http://code.kx.com/wiki/Reference/dotzdotX)|[raw command line ](http://code.kx.com/wiki/Reference/dotzdotX)|
+|[`.z.z`](http://code.kx.com/wiki/Reference/dotzdotz)|[gmt time (datetime)](http://code.kx.com/wiki/Reference/dotzdotz)|[`.z.Z`](http://code.kx.com/wiki/Reference/dotzdotZ)|[local time (datetime) ](http://code.kx.com/wiki/Reference/dotzdotZ)|
+|[`.z.[tTdD]`](http://code.kx.com/wiki/Releases/ChangesIn2.4#a.z.t.z.d)|[time/date shortcuts](http://code.kx.com/wiki/Releases/ChangesIn2.4#a.z.t.z.d)|[`.z.zd`](http://code.kx.com/wiki/Reference/dotzdotzd)|[zip defaults ](http://code.kx.com/wiki/Reference/dotzdotzd)|}
 
 
 ## Command-line options and system commands
@@ -107,24 +107,24 @@ Summaries of [command-line options](http://code.kx.com/wiki/Reference/Cmdline) a
 
 |&nbsp;|&nbsp;|&nbsp;|&nbsp;|
 |---|---|---|---|
-|[`\a`](http://code.kx.com/wiki/Reference/Sysa)|tables |[`-b`](http://code.kx.com/wiki/Reference/Cmdlineb)|block client write access |
-|[`\b`](http://code.kx.com/wiki/Reference/Sysb)|views |`\B`|pending views |
-|[`-c`](http://code.kx.com/wiki/Reference/Cmdlinec), [`\c`](http://code.kx.com/wiki/Reference/Syscmdc)|q console size |[`-C`](http://code.kx.com/wiki/Reference/CmdlineC), `\C`|web console size |
+|[`\a`](http://code.kx.com/wiki/Reference/Sysa)|[tables ](http://code.kx.com/wiki/Reference/Sysa)|[`-b`](http://code.kx.com/wiki/Reference/Cmdlineb)|[block client write access ](http://code.kx.com/wiki/Reference/Cmdlineb)|
+|[`\b`](http://code.kx.com/wiki/Reference/Sysb)|[views ](http://code.kx.com/wiki/Reference/Sysb)|`\B`|pending views |
+|[`-c`, `\c`](http://code.kx.com/wiki/Reference/Syscmdc)|[q console size](http://code.kx.com/wiki/Reference/Cmdlinec) |[`-C`](http://code.kx.com/wiki/Reference/CmdlineC), `\C`|[web console size](http://code.kx.com/wiki/Reference/CmdlineC) |
 |`\cd`|current directory |`\d`|namespace |
-|`\e`|error trap clients |[`-E`](http://code.kx.com/wiki/Cookbook/SSL#TLS_Server_Mode)|TLS server mode |
-|[`\f`](http://code.kx.com/wiki/Reference/Sysf)|functions | `-g`, `\g`|garbage collect |
-| `-[lL]`|log updates |[`\l`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)|load |
+|`\e`|error trap clients |[`-E`](http://code.kx.com/wiki/Cookbook/SSL#TLS_Server_Mode)|[TLS server mode ](http://code.kx.com/wiki/Cookbook/SSL#TLS_Server_Mode)|
+|[`\f`](http://code.kx.com/wiki/Reference/Sysf)|[functions ](http://code.kx.com/wiki/Reference/Sysf)| `-g`, `\g`|garbage collect |
+| `-[lL]`|log updates |[`\l`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)|[load ](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)|
 | `-o`, `\o`|local time offset | `-p`, `\p`|port |
-|[`-P`](http://code.kx.com/wiki/Reference/CmdlineP), `\P`|float precision |[`-q`](http://code.kx.com/wiki/Reference/Cmdlineq)|quiet |
+|[`-P`](http://code.kx.com/wiki/Reference/CmdlineP), `\P`|[float precision](http://code.kx.com/wiki/Reference/CmdlineP) |[`-q`](http://code.kx.com/wiki/Reference/Cmdlineq)|[quiet ](http://code.kx.com/wiki/Reference/Cmdlineq)|
 | `-r`|replicate from host/port |`\r`|replication master |
 |`\r`|rename file | `-s`|use slaves |
 |`\s`|number of slaves | `-S`, `\S`|prng seed |
 |`\t`|time expression | `-t`, `\t`|timer |
 | `-T`, `\T`|timeout |`\ts`|time and space of expression |
 | `-u 1`|disable system exits |`\u`|reload password file |
-| `-[uU]`|usr:pwd file |[`\v`](http://code.kx.com/wiki/Reference/Sysv)|variables |
-|[`-w`, `\w`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cw_.5B0.5D_-_workspace)|workspace size | `-W`, `\W`|week offset |
-|`\x`|expunge handler |[`-z`, `\z`](http://code.kx.com/wiki/JB:QforMortals2/commands_and_system_variables#Date_Format_.28-z.29)|date format |
+| `-[uU]`|usr:pwd file |[`\v`](http://code.kx.com/wiki/Reference/Sysv)|[variables ](http://code.kx.com/wiki/Reference/Sysv)|
+|[`-w`, `\w`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cw_.5B0.5D_-_workspace)|[workspace size](http://code.kx.com/wiki/Reference/SystemCommands#.5Cw_.5B0.5D_-_workspace) | `-W`, `\W`|week offset |
+|`\x`|expunge handler |[`-z`, `\z`](http://code.kx.com/wiki/JB:QforMortals2/commands_and_system_variables#Date_Format_.28-z.29)|[date format](http://code.kx.com/wiki/JB:QforMortals2/commands_and_system_variables#Date_Format_.28-z.29) |
 |`\1`, `\2`|redirect stdout/stderr |`\_`|hide q code |
 
 
