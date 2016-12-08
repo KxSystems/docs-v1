@@ -2,7 +2,8 @@ copyright: "Kx Systems 1995-2016"
 dev_addr: '127.0.0.1:8000'
 docs_dir: 'docs'
 extra_css: [stylesheets/extra.css]
-google_analytics: ['UA-3462586-1','kx.com']
+extra_javascript: [scripts/fdtracker.js,scripts/googleanalytics.js]
+# google_analytics: ['UA-3462586-1','kx.com', 'code.kx.com']
 site_dir: 'site'
 site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
