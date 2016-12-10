@@ -78,7 +78,7 @@ for functions in the `.Q` namespace see the [.Q unreference](http://code.kx.com/
 |&nbsp;|&nbsp;|&nbsp;|&nbsp;|
 |---|---|---|---|
 |[`.z.a`](http://code.kx.com/wiki/Reference/dotzdota)|[address](http://code.kx.com/wiki/Reference/dotzdota)|[`.z.ac`](http://code.kx.com/wiki/Reference/dotzdotac)|[auth from cookie ](http://code.kx.com/wiki/Reference/dotzdotac)|
-|[`.z.b`](http://code.kx.com/wiki/Reference/dotzdotb)|[dependencies](http://code.kx.com/wiki/Reference/dotzdotb)|[`.z.bm`](Releases/ChangesIn2.7#IPCMessageValidator "wikilink")|[bad message ](Releases/ChangesIn2.7#IPCMessageValidator "wikilink")|
+|[`.z.b`](http://code.kx.com/wiki/Reference/dotzdotb)|[dependencies](http://code.kx.com/wiki/Reference/dotzdotb)|[`.z.bm`](http://code.kx.com/wiki/Releases/ChangesIn2.7#IPCMessageValidator)|[bad message ](http://code.kx.com/wiki/Releases/ChangesIn2.7#IPCMessageValidator)|
 |`.z.c`|physical core count|[`.z.e`](http://code.kx.com/wiki/Reference/dotzdote)|[tls connection status ](http://code.kx.com/wiki/Reference/dotzdote)|
 |[`.z.exit`](http://code.kx.com/wiki/Reference/dotzdotexit)|[action on exit](http://code.kx.com/wiki/Reference/dotzdotexit)|[`.z.f`](http://code.kx.com/wiki/Reference/dotzdotf)|[file ](http://code.kx.com/wiki/Reference/dotzdotf)|
 |[`.z.h`](http://code.kx.com/wiki/Reference/dotzdoth)|[host](http://code.kx.com/wiki/Reference/dotzdoth)|[`.z.i`](http://code.kx.com/wiki/Reference/dotzdoti)|[PID ](http://code.kx.com/wiki/Reference/dotzdoti)|
@@ -133,14 +133,14 @@ Summaries of [command-line options](http://code.kx.com/wiki/Reference/Cmdline) a
 |&nbsp;|&nbsp;|
 |---|---|
 |[adverbs](http://code.kx.com/wiki/Reference/Adverb) | [associations and dictionaries](http://code.kx.com/wiki/Reference/AssocDict) |
-|[atoms and lists](http://code.kx.com/wiki/Reference/AtomList) | [boolean shifts and scans](http://code.kx.com/wiki/Reference/BooleanShiftsScans)|
+|[atoms and lists](http://code.kx.com/wiki/Reference/AtomList) | [boolean shifts and scans](http://code.kx.com/wiki/BooleanShiftsScans)|
 |[`!` internal functions](http://code.kx.com/wiki/Reference/BangSymbolInternalFunction) | [console size](http://code.kx.com/wiki/Reference/ConsoleSize)|
 |[datatypes](http://code.kx.com/wiki/Reference/Datatypes) | [display precision](http://code.kx.com/wiki/Reference/DisplayPrecision) |
 |[common errors](http://code.kx.com/wiki/Errors) | [functions](http://code.kx.com/wiki/Reference/Function) |
 |[grammar](http://code.kx.com/wiki/Reference/Grammar) | [glossary](http://code.kx.com/wiki/Reference/glossary) |
-|[idioms](http://code.kx.com/wiki/Reference/Qidioms) &ndash; after [Eugene McDonnell](https://en.wikipedia.org/wiki/Eugene_McDonnell)&rsquo;s k idioms | [IPC protocol](http://code.kx.com/wiki/Reference/ipcprotocol) |
+|[idioms](http://code.kx.com/wiki/Qidioms) &ndash; after [Eugene McDonnell](https://en.wikipedia.org/wiki/Eugene_McDonnell)&rsquo;s k idioms | [IPC protocol](http://code.kx.com/wiki/Reference/ipcprotocol) |
 |[joins](http://code.kx.com/wiki/Reference/joins) | [language](http://code.kx.com/wiki/Reference/language) |
 |[nouns](http://code.kx.com/wiki/Reference/Nouns) |[`par.txt`](http://code.kx.com/wiki/Reference/pardottxt) |
-|[parse trees](http://code.kx.com/wiki/Reference/parse_tree) |[pivot tables](http://code.kx.com/wiki/Reference/Pivot) |
+|[parse trees](http://code.kx.com/wiki/Reference/parse_tree) |[pivot tables](http://code.kx.com/wiki/Pivot) |
 |[syntax](http://code.kx.com/wiki/Reference/Syntax) | [table](http://code.kx.com/wiki/Reference/Table) |
-|[verbs](http://code.kx.com/wiki/Reference/Verb) | [views](http://code.kx.com/wiki/Reference/Views) |
+|[verbs](http://code.kx.com/wiki/Reference/Verb) | [views](http://code.kx.com/wiki/Views) |
