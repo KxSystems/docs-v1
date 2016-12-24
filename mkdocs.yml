@@ -4,6 +4,8 @@ docs_dir: 'docs'
 extra_css: [stylesheets/extra.css]
 extra_javascript: [scripts/fdtracker.js,scripts/googleanalytics.js]
 # google_analytics: ['UA-3462586-1','kx.com', 'code.kx.com']
+markdown_extensions:
+    - extra
 site_dir: 'site'
 site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers

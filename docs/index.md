@@ -1,25 +1,31 @@
+<!-- Announce Q4M3 online -->
+<div style="position: absolute; margin: 0; padding: 0; right: 50px; top: 50px;">
+<table style="background: #ffe; margin: 0; padding: 0;">
+<tr>
+<td><a href="/qformortals3/" style="border: none; text-decoration: none;"><img src="/img/qfm3.jpg" style="box-shadow: 0 1.5px 3px rgba(0,0,0,.24); width: 50px"/></a></td>
+<td><strong>New!</strong><br/><em>Q for Mortals version 3</em><br/>now <a href="/qformortals3/">online</a>.</td> 
+</tr>
+</table>
+</div>
+
 _The home of kdb+ resources_
 
-The documentation on the Kx Wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) 
+<div style="clear: both; height: 1px;">&nbsp;</div>
 
-<!--
-<aside markdown="1" class="new">
-<span class="aside-type">New</span> _Q for Mortals version 3_ is now [published online](/q4m3/).
-</aside> 
--->
+<table markdown="1" id="front-page" style="clear: both">
+<tr>
+    <td width="33%">**Get kdb+**<br/>Download a [free 32-bit version of kdb+](https://kx.com/download) for Windows, macOS, Linux or the Raspberry Pi. [Install kdb+](http://code.kx.com/wiki/Tutorials/Installation). </td>
+    <td width="33%">**Get started**<br/>Learn the functional q language and its SQL-like handling of tables and dictionaries. Study [_Q for Mortals_](/qformortals3/). Discover the interpreter’s powers in the [Reference](/reference/) section.</td>
+    <td width="33%">**Build systems**<br/>[Find cookbooks](/developer/) for building systems, and our [Developer Briefs](/developer/#briefs) for advanced designs and performance optimization.</td>
+</tr>
+<tr>
+    <td>**Get tools**<br/>Find utilities and development tools in the [GitHub repositories](http://kxsystems.github.io/).</td>
+    <td>**Read more**<br/>Browse our [Library](/library/) for articles, and links to developer blogs.</td>
+    <td>**Connect**<br/>Join the [Kx community and events](https://kx.com/connect-with-us/) to connect with others using kdb+.</td>
+</tr>
+</table>
 
-| [**Download**](https://kx.com/download) | [**Get started**](/learn/) | [**Build systems**](/developer/) |
-| ---- | ---- | ---- | 
-| a free 32-bit version of kdb+ for Windows, macOS, Linux or the Raspberry Pi| [Install kdb+](http://code.kx.com/wiki/Tutorials/Installation). Learn the functional q language and its SQL-like handling of tables and dictionaries. Read [_Q for Mortals_](http://code.kx.com/wiki/QforMortals3). Discover the interpreter&rsquo;s powers in the [Reference](/reference/) section. | In our Developer section, find cookbooks for building systems, and our [Developer Briefs](/developer/#briefs) for advanced designs and performance optimization. |
+The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) 
 
-
-Find kdb+ **utilities and development tools** in the [GitHub repositories](http://kxsystems.github.io/). 
-
-Look in our [Library](/library/) for **articles on kdb+** and links to **developer blogs**. 
-
-Explore the [Kx community and events](https://kx.com/connect-with-us/) to connect with **others using kdb+**.
-
-<aside class="info" role="note">
-See the <a href="http://code.kx.com/wiki/TermsAndConditions">terms and conditions</a> for use of this site. 
-</aside>
+See the [terms and conditions](http://code.kx.com/wiki/TermsAndConditions) for use of this site. 
 
