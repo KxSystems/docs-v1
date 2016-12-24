@@ -34,7 +34,7 @@ Download [a free 32-bit version of kdb+](https://kx.com/software-download.php).
 
 |&nbsp;|&nbsp;|
 |---|---|
-|![q for Mortals Version 3](/img/qfm3.jpg)|_Q for Mortals Version 3_ by Jeffry A. Borror, available from [Amazon.com](https://www.createspace.com/5843336) or [Amazon.co.uk](https://www.amazon.co.uk/d/Books/q-Mortals-Version-3-Introduction-Programming/0692573674/). Covers up to kdb+ version 3.3. If you are a new kdb+ user, this is the book for you! [Chapter 1: Q Shock and Awe](http://code.kx.com/wiki/QforMortals3) is an excerpt.|
+|![q for Mortals Version 3](/img/qfm3.jpg)|_Q for Mortals Version 3_ by Jeffry A. Borror, available from [Amazon.com](https://www.createspace.com/5843336) or [Amazon.co.uk](https://www.amazon.co.uk/d/Books/q-Mortals-Version-3-Introduction-Programming/0692573674/). Covers up to kdb+ version 3.3. If you are a new kdb+ user, this is the book for you! |
 |![Q Tips](/img/qtips.jpg)|_Q Tips: Fast, scalable and maintainable kdb+_ by Nick Psaris, available from [Amazon.co.uk](https://www.amazon.co.uk/d/Books/Tips-Fast-Scalable-Maintainable-Kdb/9881389909/). &ldquo;`*****` There is information that if you are learning by yourself, would take years to work out.&rdquo; (review)|
 
 

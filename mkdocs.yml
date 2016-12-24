@@ -1,5 +1,5 @@
 copyright: "Kx Systems 1995-2016"
-dev_addr: '127.0.0.1:8000'
+dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: [stylesheets/extra.css]
 extra_javascript: [scripts/fdtracker.js,scripts/googleanalytics.js]
@@ -26,7 +26,7 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
+  - Q for Mortals: qformortals3.md
   - Reference: reference.md
   - Developer: developer.md
   - Library: library.md
-

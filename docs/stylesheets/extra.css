@@ -4,7 +4,8 @@
  */
 
 
- 
+ /* palette
+--------------------------------------------- */
  .palette-primary-blue .article a, 
  .palette-primary-blue .drawer .toc a.current, 
  .palette-primary-blue .article code, 
@@ -31,6 +32,9 @@
  	background: #8099fd;
  }
 
+/* type
+--------------------------------------------- */
+
 /* enlarge code within tables */
  table tbody td code {
  	font-size: 15px !important;
@@ -46,6 +50,54 @@
  .article table {
  	font-size: 14px;
  }
-.article code {
-	background: #ffc;
+
+ /* code
+--------------------------------------------- */
+ .palette-primary-blue .article code {
+	background: rgba(0,0,0,0.05);
+	color: #733;
+}
+ .palette-primary-blue .article pre code {
+	background: transparent;
+	color: #733;
+}
+.palette-primary-blue .article h3 code {
+	background: transparent;
+	color: inherit;
+	font-family: inherit;
+}
+
+/* asides
+--------------------------------------------- */
+.palette-primary-blue aside {
+	background: #ddf;
+	border-radius: 3px;
+	box-shadow: 0 1.5px 3px rgba(0,0,0,.24);
+	margin-top: 1em;
+	padding: .3em 1em .5em;
+	}
+.palette-primary-blue aside.copyright {
+	background: #5677fc;
+}
+.palette-primary-blue aside.copyright a {
+	color: inherit;
+}
+aside p {
+	padding: 0 0 0.8em;
+}
+.article aside ul {
+	margin-top: 0;
+}
+aside .aside-type {
+	display: block;
+	float: left;
+	font-weight: bold;
+	margin: 0 .5em 1em 0;
+	}
+.palette-primary-blue aside a {
+	color: orange;
+}
+.article aside pre {
+	background: rgba(0,0,0,0);
+	margin-top: 0;
 }
