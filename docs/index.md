@@ -2,8 +2,8 @@
 <div style="position: absolute; margin: 0; padding: 0; right: 50px; top: 50px;">
 <table style="background: #ffe; margin: 0; padding: 0;">
 <tr>
-<td><a href="/q4m3/" style="border: none; text-decoration: none;"><img src="/img/qfm3.jpg" style="box-shadow: 0 1.5px 3px rgba(0,0,0,.24); width: 50px"/></a></td>
-<td><strong>New!</strong><br/><em>Q for Mortals version 3</em><br/>now <a href="/qformortals3/">online</a>.</td> 
+<td><a href="/mkdocs/qformortals3/" style="border: none; text-decoration: none;"><img src="/img/qfm3.jpg" style="box-shadow: 0 1.5px 3px rgba(0,0,0,.24); width: 50px"/></a></td>
+<td><strong>New!</strong><br/><em>Q for Mortals version 3</em><br/>now <a href="/mkdocs/qformortals3/">online</a>.</td> 
 </tr>
 </table>
 </div>
