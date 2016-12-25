@@ -40,10 +40,6 @@
  	font-size: 15px !important;
  }
 
-/* body{
- 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
- }*/
-
  .article {
  	font-size: 15px;
  }
@@ -55,11 +51,10 @@
 --------------------------------------------- */
  .palette-primary-blue .article code {
 	background: rgba(0,0,0,0.05);
-	color: #733;
+	color: #633;
 }
  .palette-primary-blue .article pre code {
 	background: transparent;
-	color: #733;
 }
 .palette-primary-blue .article h3 code {
 	background: transparent;
@@ -77,10 +72,8 @@
 	padding: .3em 1em .5em;
 	}
 .palette-primary-blue aside.copyright {
-	background: #5677fc;
-}
-.palette-primary-blue aside.copyright a {
-	color: inherit;
+	margin-bottom: 1em;
+	margin-top: 5em;
 }
 aside p {
 	padding: 0 0 0.8em;
