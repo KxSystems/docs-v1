@@ -38,6 +38,6 @@ Download [a free 32-bit version of kdb+](https://kx.com/software-download.php).
 |![Q Tips](/img/qtips.jpg)|_Q Tips: Fast, scalable and maintainable kdb+_ by Nick Psaris, available from [Amazon.co.uk](https://www.amazon.co.uk/d/Books/Tips-Fast-Scalable-Maintainable-Kdb/9881389909/). &ldquo;`*****` There is information that if you are learning by yourself, would take years to work out.&rdquo; (review)|
 
 
-See the [Library archive](/library/#archive) for older documents.
+See the [Archive](/library/#older-documents) for older documents.
 
 Please send comments on tutorials to <librarian@kx.com>.

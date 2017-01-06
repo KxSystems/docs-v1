@@ -20,7 +20,7 @@ _The home of kdb+ resources_
 </tr>
 <tr>
     <td>**Get tools**<br/>Find utilities and development tools in the [GitHub repositories](http://kxsystems.github.io/).</td>
-    <td>**Read more**<br/>Browse our [Library](/library/) for articles, and links to developer blogs.</td>
+    <td>**Read more**<br/>Browse our [Archive](/archive/) for articles, and links to developer blogs.</td>
     <td>**Connect**<br/>Join the [Kx community and events](https://kx.com/connect-with-us#support/) to connect with others using kdb+.</td>
 </tr>
 </table>

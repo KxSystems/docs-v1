@@ -29,7 +29,7 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
-  - Q for Mortals: qformortals3.md
   - Reference: reference.md
   - Developer: developer.md
-  - Library: library.md
+  - Q for Mortals 3: qformortals3.md
+  - Archive: archive.md
