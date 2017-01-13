@@ -1,3 +1,4 @@
+# code.kx.com
 <!-- Announce Q4M3 online -->
 <div style="position: absolute; margin: 0; padding: 0; right: 50px; top: 50px;">
 <table style="background: #ffe; margin: 0; padding: 0;">
@@ -10,22 +11,20 @@
 
 _The home of kdb+ resources_
 
-<div style="clear: both; height: 1px;">&nbsp;</div>
-
 <table markdown="1" id="front-page" style="clear: both">
 <tr>
-    <td width="33%">**Get kdb+**<br/>Download a [free 32-bit version of kdb+](https://kx.com/download) for Windows, macOS, Linux or the Raspberry Pi. [Install kdb+](http://code.kx.com/wiki/Tutorials/Installation). </td>
-    <td width="33%">**Get started**<br/>Learn the functional q language and its SQL-like handling of tables and dictionaries. Study [_Q for Mortals_](/qformortals3/). Discover the interpreter’s powers in the [Reference](/reference/) section.</td>
-    <td width="33%">**Build systems**<br/>[Find cookbooks](/developer/) for building systems, and our [Developer Briefs](/developer/#developer-briefs) for advanced designs and performance optimization.</td>
+    <td width="30%">**Get kdb+**<br/>Download a [free 32-bit version of kdb+](https://kx.com/download) for Windows, macOS, Linux or the Raspberry Pi. [Install kdb+](http://code.kx.com/wiki/Tutorials/Installation). </td>
+    <td width="30%">**Get started**<br/>Learn the functional q language and its SQL-like handling of tables and dictionaries. Study [_Q for Mortals_](/qformortals3/). Explore kdb+’s power in the [Reference](/reference/) section.</td>
+    <td width="30%">**Build systems**<br/>[Find cookbooks](/developer/) for building systems, and our [Developer Briefs](/developer/#developer-briefs) for advanced designs and performance optimization.</td>
 </tr>
 <tr>
-    <td>**Get tools**<br/>Find utilities and development tools in the [GitHub repositories](http://kxsystems.github.io/).</td>
+    <td>**Get tools**<br/>Find utilities and development tools in the [kdb+ GitHub repositories](http://kxsystems.github.io/).</td>
     <td>**Read more**<br/>Browse our [Archive](/archive/) for articles, and links to developer blogs.</td>
     <td>**Connect**<br/>Join the [Kx community and events](https://kx.com/connect-with-us#support/) to connect with others using kdb+.</td>
 </tr>
 </table>
 
-The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) 
+<small markdown="1">The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) </small>
 
-See the [terms and conditions](http://code.kx.com/wiki/TermsAndConditions) for use of this site. 
+<small markdown="1">See the [terms and conditions](http://code.kx.com/wiki/TermsAndConditions) for use of this site.</small>
 

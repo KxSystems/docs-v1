@@ -1,4 +1,4 @@
-copyright: "©1985-2016 Kx Systems, Inc. Kx® and kdb+ are registered trademarks of Kx Systems, Inc., a subsidiary of First Derivatives plc."
+copyright: "©1985-2017 Kx Systems, Inc. Kx® and kdb+ are registered trademarks of Kx Systems, Inc., a subsidiary of First Derivatives plc."
 dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: [stylesheets/extra.css]
@@ -21,7 +21,7 @@ theme: 'material'
 # theme_dir for favicon
 #theme_dir: 'theme'
 extra:
-  logo: 'img/Kx_Logo_blue.png'
+  logo: 'img/kx.jpeg'
   palette: 
     primary: 'blue'
     accent: 'deep orange'
