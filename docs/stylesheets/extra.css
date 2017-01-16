@@ -1,5 +1,5 @@
-/* 
-	Title: extra CSS rules for code.kx.com ported to MkDocs using Materials theme
+/*
+	Title: Extra CSS for Q for Mortals 3 in MkDocs
 	Author: stephen@kx.com
  */
 
@@ -50,18 +50,29 @@
 
  /* code
 --------------------------------------------- */
- .palette-primary-blue .article code {
+.md-typeset code,
+.md-typeset pre {
 	background: rgba(0,0,0,0.05);
 	color: #633;
 }
- .palette-primary-blue .article pre code {
+.md-typeset aside code {
+	box-shadow: none;
+	padding: 0 .25em;
+}
+.md-typeset pre>code {
 	background: transparent;
 }
+.md-typeset a>code {
+	background-color: rgba(0,0,0,0.05);
+	padding: 0 .15em;
+}
+/*
 .palette-primary-blue .article h3 code {
 	background: transparent;
 	color: inherit;
 	font-family: inherit;
 }
+*/
 
 /* front page
 --------------------------------------------- */
@@ -73,20 +84,15 @@
 	font-size: 1.2em;
 }
 
-
 /* asides
 --------------------------------------------- */
-.palette-primary-blue aside {
+aside {
 	background: #ddf;
 	border-radius: 3px;
 	box-shadow: 0 1.5px 3px rgba(0,0,0,.24);
 	margin-top: 1em;
-	padding: .3em 1em .5em;
+	padding: .3em 1em 0;
 	}
-.palette-primary-blue aside.copyright {
-	margin-bottom: 1em;
-	margin-top: 5em;
-}
 aside p {
 	padding: 0 0 0.8em;
 }
