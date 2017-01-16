@@ -1,4 +1,5 @@
-# code.kx.com
+# Get going with kdb+
+
 <!-- Announce Q4M3 online -->
 <div style="position: absolute; margin: 0; padding: 0; right: 50px; top: 50px;">
 <table style="background: #ffe; margin: 0; padding: 0;">
@@ -9,7 +10,7 @@
 </table>
 </div>
 
-_The home of kdb+ resources_
+Kdb+, from [Kx Systems](http://kx.com) is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
 
 <table markdown="1" id="front-page" style="clear: both">
 <tr>
@@ -26,5 +27,5 @@ _The home of kdb+ resources_
 
 <small markdown="1">The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) </small>
 
-<small markdown="1">See the [terms and conditions](http://code.kx.com/wiki/TermsAndConditions) for use of this site.</small>
+<small markdown="1">See the [terms and conditions](about/TermsAndConditions) for use of this site.</small>
 

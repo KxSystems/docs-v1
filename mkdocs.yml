@@ -29,7 +29,21 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
-  - Reference: reference.md
+  - Reference: 
+    - Overview: reference/index.md
+    - Releases:
+      - Changes in 2.4: reference/releases/ChangesIn2.4.md
+      - Changes in 2.5: reference/releases/ChangesIn2.5.md
+      - Changes in 2.6: reference/releases/ChangesIn2.6.md
+      - Changes in 2.7: reference/releases/ChangesIn2.7.md
+      - Changes in 2.8: reference/releases/ChangesIn2.8.md
+      - Changes in 3.0: reference/releases/ChangesIn3.0.md
+      - Changes in 3.1: reference/releases/ChangesIn3.1.md
+      - Changes in 3.2: reference/releases/ChangesIn3.2.md
+      - Changes in 3.3: reference/releases/ChangesIn3.3.md
+      - Changes in 3.4: reference/releases/ChangesIn3.4.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md
+  - About: 
+    - Terms & conditions: about/TermsAndConditions.md
