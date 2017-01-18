@@ -1,4 +1,4 @@
-copyright: "©1985-2017 Kx Systems, Inc. Kx® and kdb+ are registered trademarks of Kx Systems, Inc., a subsidiary of First Derivatives plc."
+copyright: "©1993-2017 Kx Systems, Inc. Kx® and kdb+ are registered trademarks of Kx Systems, Inc., a subsidiary of First Derivatives plc."
 dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: [stylesheets/extra.css]
