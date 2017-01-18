@@ -10,13 +10,13 @@
 </table>
 </div>
 
-Kdb+, from [Kx Systems](http://kx.com) is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
+Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
 
 <table markdown="1" id="front-page" style="clear: both">
 <tr>
     <td width="30%">**Get kdb+**<br/>Download a [free 32-bit version of kdb+](https://kx.com/download) for Windows, macOS, Linux or the Raspberry Pi. [Install kdb+](http://code.kx.com/wiki/Tutorials/Installation). </td>
     <td width="30%">**Get started**<br/>Learn the functional q language and its SQL-like handling of tables and dictionaries. Study [_Q for Mortals_](/qformortals3/). Explore kdb+’s power in the [Reference](/reference/) section.</td>
-    <td width="30%">**Build systems**<br/>[Find cookbooks](/developer/) for building systems, and our [Developer Briefs](/developer/#developer-briefs) for advanced designs and performance optimization.</td>
+    <td width="30%">**Build systems**<br/>[Find cookbooks](/developer/) for building systems, and our [Technical white papers](/developer/#technical-white-papers) for advanced designs and performance optimization.</td>
 </tr>
 <tr>
     <td>**Get tools**<br/>Find utilities and development tools in the [kdb+ GitHub repositories](http://kxsystems.github.io/).</td>
@@ -25,7 +25,7 @@ Kdb+, from [Kx Systems](http://kx.com) is a high-performance historical time-ser
 </tr>
 </table>
 
-<small markdown="1">The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) </small>
+<small markdown="1">The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) **Watch out**: Until this migration is complete _the new URLs will be volatile_. Your bookmarks to the wiki will continue to work.</small>
 
 <small markdown="1">See the [terms and conditions](about/TermsAndConditions) for use of this site.</small>
 

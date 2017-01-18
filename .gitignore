@@ -1,3 +1,5 @@
+.gitignore
+refindex.txt
 site/
 docs/sandbox.md
 docs/reref.md
