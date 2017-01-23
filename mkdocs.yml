@@ -6,7 +6,22 @@ extra_javascript: [scripts/fdtracker.js,scripts/googleanalytics.js]
 # extra_javascript: [scripts/fdtracker.js]
 # google_analytics: ['UA-3462586-4','kx.com', 'code.kx.com']
 markdown_extensions:
+    - admonition
     - extra
+    - pymdownx.arithmatex
+    # - pymdownx.betterem(smart_enable=all)
+    # - pymdownx.caret
+    # - pymdownx.critic
+    # - pymdownx.emoji:
+        # emoji_generator: !!python/name:pymdownx.emoji.to_svg
+#    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    # - pymdownx.mark
+    # - pymdownx.smartsymbols
+    - pymdownx.superfences
+    # - pymdownx.tasklist(custom_checkbox=true)
+    # - pymdownx.tilde
+    - toc(permalink=true)
 site_dir: 'site'
 site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
@@ -29,7 +44,7 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
-  - Reference: reference.md
+  - Reference summary: reference.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md

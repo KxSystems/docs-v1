@@ -6,6 +6,7 @@
 
  /* palette
 --------------------------------------------- */
+ /*
  .palette-primary-blue .article a, 
  .palette-primary-blue .drawer .toc a.current, 
  .palette-primary-blue .article code, 
@@ -18,16 +19,18 @@
 
  .palette-primary-blue .footer, 
  .palette-primary-blue .header,
+ */
  [data-md-color-primary=blue] .md-header
  {
  	background: #0070cd; 
  }
 
+/*
  .palette-primary-blue .article table th 
  {
  	backgound: #0971ce;
  }
-
+*/
  /* override accent background colour on repo download and star buttons */
 .scrollable .wrapper .repo a {
  	background: #8099fd;
@@ -105,10 +108,36 @@ aside .aside-type {
 	font-weight: bold;
 	margin: 0 .5em 1em 0;
 	}
+/*
 .palette-primary-blue aside a {
 	color: orange;
 }
+*/
 .article aside pre {
 	background: rgba(0,0,0,0);
 	margin-top: 0;
+}
+
+/* Kx classes
+--------------------------------------------- */
+table.kx-compact {
+	border: .1rem solid rgba(0,0,0,.07);
+	border-collapse: collapse;
+	border-radius: .2rem;
+}
+.kx-compact td,
+.kx-compact th {
+	font-size: .8em;
+	padding: .4em;
+	text-align: left;
+}
+.kx-compact th {
+	background-color: rgba(0,0,0,.54);
+	color: #FFF;
+}
+.kx-compact td {
+	border-top: .1rem solid rgba(0,0,0,.07);
+}
+.kx-compact table tr:first-child {
+	border-top: 0;
 }

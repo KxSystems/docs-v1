@@ -25,7 +25,10 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </tr>
 </table>
 
-<small markdown="1">The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) **Watch out**: Until this migration is complete _the new URLs will be volatile_. Your bookmarks to the wiki will continue to work.</small>
+<small markdown="1">The documentation on the [Kx wiki](http://code.kx.com/wiki) is migrating to a [GitHub repository](http://github.com/kxsystems/docs).</small>
 
-<small markdown="1">See the [terms and conditions](http://code.kx.com/wiki/TermsAndConditions) for use of this site.</small>
+!!! caution "During migration"
+    While this migration is in progress the new URLs will be volatile. Your bookmarks to the wiki will continue to work. The search engine here searches only the new site.
+
+<small markdown="1">See the [terms and conditions](about/TermsAndConditions) for use of this site.</small>
 
