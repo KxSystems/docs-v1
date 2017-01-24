@@ -24,7 +24,7 @@ t    4     19   00:00:00.000         time      time       Time       TimeSpan
            100                       lambda
            101                       unary prim
            102                       binary prim
-           103                       ternary(operator)
+           103                       adverb
            104                       projection
            105                       composition
            106                       f'
