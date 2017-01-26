@@ -21,6 +21,7 @@
 These originally appeared as the _q for Gods_ series of white papers from [First Derivatives](http://firstderivatives.com).
 
 * [Efficient use of **adverbs**](wp/efficient_use_of_adverbs.pdf)
+* [Kdb+ in **astronomy**](wp/kdb_in_astronomy.pdf)
 * [**Compression** in kdb+](wp/compression_in_kdb.pdf)
 * [Temporal Data: a kdb+ framework for **corporate actions**](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)
 * [Kdb+ **data-management sample customisation** techniques with amendments](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)
