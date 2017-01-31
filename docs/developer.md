@@ -24,7 +24,7 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 * [Kdb+ in **astronomy**](wp/kdb_in_astronomy.pdf)
 * [**Compression** in kdb+](wp/compression_in_kdb.pdf)
 * [Temporal Data: a kdb+ framework for **corporate actions**](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)
-* [Kdb+ **data-management sample customisation** techniques with amendments](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)
+* [Kdb+ **data-management sample customisation** techniques](wp/kdb_data_management_sample_customisation_techniques.pdf)
 * [**Data recovery** for kdb+tick](wp/data_recovery_for_kdb_tick.pdf)
 * [A natural query interface for **distributed systems**](wp/a_natural_query_interface_for_distributed_systems.pdf)
 * [Kdb+ and **FIX** messaging](wp/kdb_and_fix_messaging.pdf)
