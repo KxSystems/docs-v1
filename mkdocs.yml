@@ -44,7 +44,7 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
-  - Reference summary: reference.md
+  - Reference card: reference.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md
