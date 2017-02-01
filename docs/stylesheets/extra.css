@@ -6,26 +6,9 @@
 
  /* palette
 --------------------------------------------- */
- .palette-primary-blue .article a, 
- .palette-primary-blue .drawer .toc a.current, 
- .palette-primary-blue .article code, 
- .palette-primary-blue .article h1, 
- .palette-primary-blue .article h2, 
- .palette-primary-blue .article h3
- {
- 	color: #0070cd;
- } 
-
- .palette-primary-blue .footer, 
- .palette-primary-blue .header,
  [data-md-color-primary=blue] .md-header
  {
  	background: #0070cd; 
- }
-
- .palette-primary-blue .article table th 
- {
- 	backgound: #0971ce;
  }
 
  /* override accent background colour on repo download and star buttons */
@@ -53,11 +36,6 @@
 .md-typeset code,
 .md-typeset pre {
 	background: rgba(0,0,0,0.05);
-	color: #633;
-}
-.md-typeset aside code {
-	box-shadow: none;
-	padding: 0 .25em;
 }
 .md-typeset pre>code {
 	background: transparent;
@@ -66,13 +44,6 @@
 	background-color: rgba(0,0,0,0.05);
 	padding: 0 .15em;
 }
-/*
-.palette-primary-blue .article h3 code {
-	background: transparent;
-	color: inherit;
-	font-family: inherit;
-}
-*/
 
 /* front page
 --------------------------------------------- */
@@ -86,8 +57,9 @@
 
 /* asides
 --------------------------------------------- */
+/*lose them*/
 aside {
-	background: #ddf;
+	background: yellow; 
 	border-radius: 3px;
 	box-shadow: 0 1.5px 3px rgba(0,0,0,.24);
 	margin-top: 1em;
@@ -105,10 +77,40 @@ aside .aside-type {
 	font-weight: bold;
 	margin: 0 .5em 1em 0;
 	}
-.palette-primary-blue aside a {
-	color: orange;
-}
 .article aside pre {
 	background: rgba(0,0,0,0);
 	margin-top: 0;
+}
+
+/* Kx classes
+--------------------------------------------- */
+table.kx-compact {
+	border: .1rem solid rgba(0,0,0,.07);
+	border-collapse: collapse;
+	border-radius: .2rem;
+}
+.kx-compact td,
+.kx-compact th {
+	font-size: .8em;
+	padding: .4em;
+	text-align: left;
+}
+.kx-compact th {
+	background-color: rgba(0,0,0,.54);
+	color: #FFF;
+}
+.kx-compact td {
+	border-top: .1rem solid rgba(0,0,0,.07);
+}
+.kx-compact table tr:first-child {
+	border-top: 0;
+}
+.kx-zero {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+/* decomment for production deployment
+.kx-developer {
+	/*display: none;*/
 }

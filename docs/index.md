@@ -8,7 +8,14 @@
 <td><strong>New!</strong><br/><em>Q for Mortals version 3</em><br/>now <a href="/mkdocs/qformortals3/">online</a>.</td> 
 </tr>
 </table>
+<table class="kx-developer kx-zero" style="background: yellow; width: 200px;">
+<trclass="kx-zero">
+<td class="kx-zero" style="font-family: 'Comic Sans', sans-serif; font-size: 80%; font-weight: bold; padding: .3em 1em;"><em>Fake! This is a fake website! Too bad!</em></td>
+<td><img src="img/trump.png" style="width: 100px"/></td>
+</tr>
+</table>
 </div>
+
 
 Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
 
@@ -25,7 +32,19 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </tr>
 </table>
 
-<small markdown="1">The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs). (You can contribute to the migrated documentation by forking the repository and submitting pull requests. Or write to [librarian@kx.com](mailto:librarian@kx.com).) **Watch out**: Until this migration is complete _the new URLs will be volatile_. Your bookmarks to the wiki will continue to work.</small>
+<aside markdown="1" class="comment kx-developer">
+Reference material supports a user in two distinct ways:
+
+1. to read
+2. to write
+
+(1) requires a description of syntax, and a mapping from symbols, punctuation and reserved words to their uses. (2) requires a categorisation of uses, so the user can find the right tools for her job. Unlike tutorial material, which prioritises understanding and insight, reference material prioritises completeness and precision and presumes some prior familiarity.  
+</aside>
+
+<small markdown="1">The documentation on the [Kx wiki](http://code.kx.com/wiki) is migrating to a [GitHub repository](http://github.com/kxsystems/docs).</small>
+
+!!! caution "During migration"
+    While this migration is in progress the new URLs will be volatile. Your bookmarks to the wiki will continue to work. The search engine here searches only the new site.
 
 <small markdown="1">See the [terms and conditions](about/TermsAndConditions) for use of this site.</small>
 
