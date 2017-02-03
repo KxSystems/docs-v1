@@ -1,6 +1,6 @@
 ## Reserved names
 
-Reserved names denote primitive q constants, functions, operators and adverbs.
+Reserved names denote primitive constants, functions, operators and adverbs.
 
 ### Alphabetised
 
