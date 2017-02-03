@@ -1,5 +1,7 @@
 .gitignore
+5jt.txt
 refindex.txt
+scrap/
 site/
 docs/sandbox.md
 docs/reref.md

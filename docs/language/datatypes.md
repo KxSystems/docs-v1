@@ -1,22 +1,22 @@
-The type of an object is given by a short int.
+> Ontology asks _What exists?_, to which the answer is _Everything_.  
+> — W.V.O. Quine, _Word and Object_ 
 
-## List type
 
-A mixed list has type `0h`:
-
-    q)type (2;3 5f;"hello")
-    0h
-    q)type each (2;3 5f;"hello")
-    -6 9 10h
+The _datatype_ of an object is given as a short int: positive for an homogeneous list, negative for an atom. A mixed list has type `0h`. 
+```q
+q)type 5                      / integer atom
+-6h
+q)type 2 3 5                  / integer list
+6h
+q)type (2;3 5f;"hello")       / mixed list
+0h
+q)type each (2;3 5f;"hello")
+-6 9 10h
+```
 
 ## Primitive types
 
-Primitive datatypes are in the range +/- `1h` to `19h`. A negative type is an atom, and a positive type a simple list. For example:
-
-    q)type 5         / integer atom
-    -6h
-    q)type 2 3 5     / integer list
-    6h
+Primitive datatypes are in the range ± `1h` to `19h`. 
 
 <div markdown="1" class="kx-compact">
 | char | size | num | literal              | null         | name      | sql       | java      | .net                 |
@@ -130,21 +130,21 @@ Dictionary is `99h` and table is `98h`:
 Function
 --------
 
-| num     | type/example       |
-|---------|--------------------|
-| 100     | lambda             |
-| 101     | unary primitive    |
-| 102     | binary primitive   |
-| 103     | adverb             |
-| 104     | projection         |
-| 105     | composition        |
-| 106     | `f'`               |
-| 107     | `f/`               |
-| 108     | `f\`               |
-| 109     | `f':`              |
-| 110     | `f/:`              |
-| 111     | `f\:`              |
-| 112     | dynamic load       |
+| num     | type/example           |
+|---------|------------------------|
+| 100     | lambda                 |
+| 101     | unary primitive        |
+| 102     | binary primitive       |
+| 103     | higher-order primitive |
+| 104     | projection             |
+| 105     | composition            |
+| 106     | `f'`                   |
+| 107     | `f/`                   |
+| 108     | `f\`                   |
+| 109     | `f':`                  |
+| 110     | `f/:`                  |
+| 111     | `f\:`                  |
+| 112     | dynamic load           |
 
 For example:
 
@@ -157,7 +157,7 @@ Guid
 
 The kdb+ guid type  (from v3.0) is a 16-byte type, and can be used for storing arbitrary 16-byte values, typically transaction IDs.
 
-**Generation** Use _deal_ to generate a guid (global unique: uses `.z.a .z.i .z.p`). e.g.
+**Generation** Use [_deal_](FIXME) to generate a guid (global unique: uses `.z.a .z.i .z.p`). e.g.
 
 ```q
 q)-2?0Ng
@@ -181,3 +181,29 @@ q)null 0Ng
 1b
 ```
 There is no literal entry for a guid, it has no conversions, and the only scalar primitives are `=`, `<` and `>` (similar to sym). In general, since v3.0, there should be no need for char vectors for IDs. IDs should be int, sym or guid. Guids are faster (much faster for `=`) than the 16-byte char vecs and take 2.5 times less storage (16 per instead of 40 per).
+
+
+Parse tree
+----------
+
+A _parse tree_ represents an expression, not immediately evaluated. Its virtue is that the expression can be evaluated whenever and in whatever context it is needed. The two main functions dealing with parse trees are [`eval`](evaluation#eval), which evaluates a parse tree, and [`parse`](evaluation#parse), which returns one from a string containing a valid q expression.
+
+The simplest parse tree is a single constant expression. Note that, in a parse tree, a variable is represented by a symbol containing its name. To represent a symbol or a list of symbols, you will need to use [`enlist`](enlist) on that expression.
+```q
+q)eval 45
+45
+q)x:4
+q)eval `x
+4
+q)eval enlist `x
+`x
+```
+Any other parse tree takes a form of a list, of which the first item is a function and the remaining items are its arguments. Any of these items can be parse trees. Parse trees may be arbitrarily deep (up to thousands of layers), so any expression can be represented.
+```q
+q)eval (til;4)
+0 1 2 3
+q)eval (/;+)
++/
+q)eval ((/;+);(til;(+;2;2)))
+6
+```
