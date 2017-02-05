@@ -2,7 +2,7 @@ A function takes one or more arguments and returns a result.
 
 Q has primitive functions; you can also define your own, known as _lambdas_. These can be given names, or simply applied anonymously where they are defined. 
 
-Functions in q are first-class objects and can be passed as arguments to other functions. Functions that take other functions as arguments are known as [_higher-order functions_](higher-order-functions). 
+Functions are first-class objects and can be passed as arguments to other functions. Functions that take other functions as arguments are known as [_higher-order functions_](higher-order-functions). 
 
 
 Syntax
@@ -22,12 +22,12 @@ There are two classes of exceptions to this.
 Explicit definition
 -------------------
 
-A function is defined explicitly as a list of (up to 8) argument names followed by a list of expressions enclosed in curly braces and separated by semicolons. 
+A function is defined explicitly as a _signature_ (a list of up to 8 argument names) followed by a list of expressions enclosed in curly braces and separated by semicolons. 
 ```q
 q){[a;b] a2:a*a; b2:b*b; a2+b2+2*a*b}[20;4]  / binary function
 576
 ```
-Functions with 3 or fewer arguments may elide the list of argument names, and instead use default names `x`, `y` and `z`. 
+Functions with 3 or fewer arguments may elide the signature and instead use default names `x`, `y` and `z`. 
 ```q
 q){(x*x)+(y*y)+2*x*y}[20;4]
 576
@@ -63,7 +63,7 @@ q)distinct 2 3 5 7 2 5      / none of the above
 Arguments
 ---------
 
-The canonical form of the arguments is a bracketed list separated by semicolons. 
+In applying a function, the canonical form of its arguments is a bracketed list separated by semicolons. 
   
 f\[a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>\]
 
@@ -127,7 +127,7 @@ A function is defined implicitly
 Projection
 ----------
 
-Passing a function a subset of its arguments _projects_ a new function. In the new function, the arguments already passed have the values supplied. The new function thus becomes a function of the _undefined_ argument/s only. 
+Passing a function a subset of its arguments _projects_ a new function. In the new function, the arguments already passed have the values supplied. The projected function has in its signature only the _undefined_ argument/s. 
 ```q
 q)f:{x + 2 * y - z}       / f has 3 arguments
 q)f[100;10;2 3 5]
@@ -155,24 +155,24 @@ q)double 5                / unary function
 Ending evaluation
 -----------------
 
-### Return
+### Return :
 
 Syntax: `:x`
 
 Terminates evaluation, returning `x`.
 ```q
-q)f:{a:3*x;:a;a+10}            / the final a+10 is never executed
+q)f:{a:3*x;:a;a+10}            / the final a+10 is never evaluated
 q)f 1
 3
 ```
 
-### Signal
+### Signal '
 
 Syntax: `'e`
 
 where `e` is a symbol or char list, terminates evaluation without result and signals an error with `e`.
 ```q
-q)f:{a:3*x;'"end here";a+10}   / the final a+10 is never executed
+q)f:{a:3*x;'"end here";a+10}   / the final a+10 is never evaluated
 q)f 1
 'end here
 10

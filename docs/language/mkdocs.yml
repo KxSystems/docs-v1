@@ -191,8 +191,20 @@ pages:
       - Handling errors: language/handlingerrors.md
       - Iteration: language/higher-order-functions.md
       - Parallel each: language/peach.md
-      - Parse trees: language/handlingparsetrees.md
-    - Files: language/files.md
+    # - Files:
+    #   - dsave: language/dsave.md
+    #   - get: language/get.md
+    #   - hclose: language/hclose.md
+    #   - hcount: language/hcount.md
+    #   - hdel: language/hdel.md
+    #   - hopen: language/hopen.md
+    #   - hsym: language/hsym.md
+    #   - load: language/load.md
+    #   - read0: language/read0.md
+    #   - read1: language/read1.md
+    #   - rload: language/rload.md
+    #   - rsave: language/rsave.md
+    #   - save: language/save.md
     # - Numbers and logic: 
     #   - abs: language/abs.md
     #   - acos: language/acos.md
@@ -210,6 +222,7 @@ pages:
     #   - floor: language/floor.md
     #   - inv: language/inv.md
     #   - log: language/log.md
+    #   - lower: language/lower.md
     #   - lsq: language/lsq.md
     #   - mavg: language/mavg.md
     #   - max: language/max.md
@@ -256,9 +269,20 @@ pages:
     #   - ltime: language/ltime.md
     #   - setenv: language/setenv.md
     #   - system: language/system.md
-    - Text: language/textfunctions.md
+    # - Text: 
+    #   - csv: language/csv.md
+    #   - like: language/like.md
+    #   - ltrim: language/ltrim.md
+    #   - md5: language/md5.md
+    #   - rtrim: language/rtrim.md
+    #   - ss: language/ss.md
+    #   - ssr: language/ssr.md
+    #   - string: language/string.md
+    #   - trim: language/trim.md
+    #   - upper: language/upper.md
     # - Values: 
     #   - attr: language/attr.md
+    #   - set: language/set.md
     #   - show: language/show.md
     #   - type: language/type.md
     #   - value: language/value.md
@@ -341,8 +365,6 @@ pages:
     #   - IPC protocol: language/ipcprotocol.md
     #   - Joins: language/joins.md
     #   - par.txt: language/pardottxt.md
-  - Cookbook:
-    - Regular expressions: cookbook/regex.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md

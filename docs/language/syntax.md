@@ -46,7 +46,10 @@ q)`ibm        / a symbol
 `ibm
 ```
 
-There is no string datatype; the closest equivalents are symbols and lists of characters. The `$` operator [casts](datatypes/#casting) between datatypes. Filepaths are a special form of symbol. 
+!!! note "Strings"
+    There is no _string_ datatype. The nearest equivalent to a string is a symbol or a char list. A reference to a _string_ should be understood as referring to a char list.
+
+The `$` operator [casts](datatypes/#casting) between datatypes. Filepaths are a special form of symbol. 
 ```q
 q)count read0 `:path/to/myfile.txt  / count lines in myfile.txt
 ```

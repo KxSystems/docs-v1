@@ -1,7 +1,4 @@
-Higher-order functions
-======================
-
-A _higher-order function_ is a [function](functions) that takes a function or function as argument/s. 
+A _higher-order function_ has one or more functions in its signature. They are much used to iterate functions over their arguments. 
 
 Primitive higher-order functions use prefix, postfix or infix form. Some are represented by both glyphs and reserved words. 
 
@@ -13,11 +10,11 @@ The primitive higher-order functions are as follows.
 
 ## compose '
 
-Prefix syntax: `'[g;f]`
+Syntax: `'[g;f]` 
 
 where `f` is a multi-argument function and `g` is a unary function.
 
-Composes its argument functions to produce a new function with the same function signature as the original function. 
+Composes `f` and `g` to produce a new function with the signature of `f`. 
 ```q
 q)f:{[w;x;y;z]w+x+y+z}
 q)g:{2*x}
@@ -36,7 +33,7 @@ q)h1[1;2;3;4]
 
 ## each 
 
-Postfix syntax: `f each`
+Syntax: `f each` 
 
 Applies a unary function `f` to each item in its argument.
 ```q
@@ -49,9 +46,14 @@ q)count each (1 2 3;"hello")  // count is the argument of each
 
 ## each-both '
 
-Postfix syntax: `x f' y`
+Syntax: `x f' y` 
 
-Applies binary function `f` between corresponding items of `x` and `y`. 
+Where 
+
+- `f` is a binary function 
+- `x` and `y` are lists of the same length
+
+applies `f` between corresponding items of `x` and `y`. 
 ```q
 q)0 1 2 3 ,' 10 20 30 40
 0 10
@@ -69,11 +71,17 @@ q)0 1 2 3 ,' 10
 ```
 
 
-## each-left /:
+## each-left \:
 
-Postfix syntax: `x f\: y`
+Syntax: `x f\: y`
 
-Applies operator `f` between `y` and each item of list `x`; `y` is an atom or list.
+Where 
+
+- `f` is a binary function 
+- `x` ia a list
+- `y` is an atom or a list
+
+applies `f` between `y` and each item of list `x`. 
 ```q
 q)(til 5),\:0 1
 0 0 1
@@ -86,9 +94,15 @@ q)(til 5),\:0 1
 
 ## each-right /:
 
-Postfix syntax: `x f/: y`
+Syntax: `x f/: y`
 
-Applies operator `f` between each item of list `y` and `x`; `x` is an atom or list.
+Where 
+
+- `f` is a binary function 
+- `x` is an atom or a list
+- `y` is a list
+
+applies `f` between `x` and each item of `y`.
 ```q
 q)(til 5),/:0 1
 0 1 2 3 4 0
@@ -110,17 +124,24 @@ q)(til 5),/:0 1
 
 ## fby
 
-Infix syntax: `(f;x) fby y`
+Syntax: `(f;x) fby y` 
 
 where `f` is an [aggregate](functions#actions-on-lists) function. See [`fby`](language/fby).
 
 
 ## over /
 
-Postfix syntax: `(f/)x`  or `f over x`  
-Prefix syntax: `over[f;x]` 
+Syntax: `(f/)x`  
+Syntax: `f over x`  
+Syntax: `over[f;x]` 
 
-Applies binary function `f` between successive elements of `x`. If `f` is an operator, parenthesise it.
+Where 
+
+- `f` is a binary function
+- `x` is a list
+
+applies `f` between successive elements of `x`. 
+If `f` is an operator, parenthesise it with `over`.
 ```q
 q){x+2*y} over 2 3 5 7
 32
@@ -147,27 +168,83 @@ r = f\[r;x<sub>i</sub>\] for i = 1…n
 
 ## peach ':
 
-Postfix syntax: `f':`
-Postfix syntax: `f peach`
+Syntax: `f': x`  
+Syntax: `f peach x` 
 
-Applies **unary** function `f` …FIXME see <http://code.kx.com/wiki/Reference/ApostropheColon#peach>
+Where 
+
+- `f` is a unary function
+- `x` is a list, of which each item is a list of arguments to `f`
+
+assigns the items of `x` to separate slave tasks and in each task applies `f` to each item of the sublist. 
+
+```q
+$ q -s 2
+KDB+ 3.0 2012.11.13 Copyright (C) 1993-2012 Kx Systems
+l32/ 2()core 3539MB jack sff 127.0.0.1 PLAY 2013.02.11
+q)\t ({sum exp x?1.0}' )2#1000000  / each
+163
+q)\t ({sum exp x?1.0}':)2#1000000  / peach
+114
+
+q)peach
+k){x':y}
+```
+
+| form       | example                         |
+|------------|---------------------------------|
+| `f':[y]`   | `-':[  1 4 9 16]`               |
+| `(f':)y`   | `(-':)  1 4 9 16`               |
+| `x f': y`  | `9-':   1 4 9 16`               |
+| `f':[x;y]` | `-':[9; 1 4 9 16]`              |
+| `f':[x;]y` | `-':[9;]1 4 9 16   /projection` |
+
+```q
+q)"abc",':"xyz"
+("xabc";"yx";"zy")
+q)0 1-':2 5 9
+(2 1;3;4)
+q)0-':2 5 9
+2 3 4
+q)-':[2 5 9]     /deltas
+2 3 4
+```
+
+See [Parallel each](peach)
 
 
 ## prior ':
 
-Postfix syntax: `f':`  
-Postfix syntax: `f peach`
+Syntax: `f': `  
+Syntax: `f prior x` 
 
-Applies **binary** function `f` between each item of `x` and its predecessor.
+Where 
+
+- `f` is a binary function
+- `x` is a list
+
+applies `f` between each item of `x` and its predecessor.
+If `f` is an operator, parenthesise it with `prior`.
+```q
+q)(-)prior 2 3 4   / e.g. same as deltas 2 3 4
+2 1 1
+```
 
 
 ## trap . @
 
-Prefix syntax: `@[f;x;e]` or `.[f;x;e]` 
+Syntax: `@[f;x;e]`  
+Syntax: `.[g;y;e]`
 
-where `f` is a unary function, `x` its argument and `e` an error message. 
+Where 
 
-See [Controlling evaluation](evaluation#trap).
+- `f` is a unary function and `x` its argument
+- `g` is a non-unary function and `y` a list of its arguments
+- `e` an expression
+
+evaluates `e` if `f[x]` fails. 
+
+See [Handling errors](handlingerrors#trap).
 
 
 
