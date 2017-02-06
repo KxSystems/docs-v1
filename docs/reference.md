@@ -5,13 +5,13 @@
 <aside markdown="1" class="comment kx-developer">
 List every use of every symbol and token.
 
-Each symbol maps to one or more uses. Each use will have an article.
+Each glyph maps to one or more roles. Each role will have an article.
 So, for example, the single article on `@` divides into articles on _index_, _amend_, _apply_ and _trap_. These articles will appear in the nav grouped by usage, e.g. _index_ under _Lists_; _trap_ under _Execution_.
 
 Some of the remarks drafted below are attempts to establish a consistent terminology and will migrate to the linked articles. 
 </aside>
 
-Q is a bigger language than it looks: many symbols play different roles, according to context. Here is a complete guide. 
+Q is a bigger language than it looks: many glyphs play different roles, according to context. Here is a complete guide. 
 
 
 Reserved words
@@ -33,7 +33,7 @@ Reserved words
 <tr><td>N</td><td>[`neg`](http://code.kx.com/wiki/Reference/neg "negate"), [`next`](http://code.kx.com/wiki/Reference/next "next elements"), [`not`](http://code.kx.com/wiki/Reference/not "logical not"), [`null`](http://code.kx.com/wiki/Reference/null "is argument a null")</td></tr>
 <tr><td>O</td><td>[`or`](http://code.kx.com/wiki/Reference/or "maximum of arguments"), [`over`](http://code.kx.com/wiki/Reference/over "reduce an array with a function")</td></tr>
 <tr><td>P</td><td>[`parse`](http://code.kx.com/wiki/Reference/parse "parse a string"), [`peach`](http://code.kx.com/wiki/Reference/peach "parallel each"), [`pj`](http://code.kx.com/wiki/Reference/pj "plus join"), [`prd`](http://code.kx.com/wiki/Reference/prd "– product"), [`prds`](http://code.kx.com/wiki/Reference/prds "cumulative products"), [`prev`](http://code.kx.com/wiki/Reference/prev "previous elements"), [`prior`](http://code.kx.com/wiki/Reference/prior "apply function between each element and its predecessor")</td></tr>
-<tr><td>R</td><td>[`rand`](http://code.kx.com/wiki/Reference/rand "random number"), [`rank`](http://code.kx.com/wiki/Reference/rank "grade up"), [`ratios`](http://code.kx.com/wiki/Reference/ratios "ratios of consecutive pairs"), [`raze`](http://code.kx.com/wiki/Reference/raze "join elements"), [`read0`](http://code.kx.com/wiki/Reference/read0 "read file as lines"), [`read1`](http://code.kx.com/wiki/Reference/read1 "read file as bytes"), [`reciprocal`](http://code.kx.com/wiki/Reference/reciprocal "reciprocal of a number"), [`reval`](http://code.kx.com/wiki/Reference/reval "– variatiant of eval"), [`reverse`](http://code.kx.com/wiki/Reference/reverse "reverse the order of elements"), [`rload`](http://code.kx.com/wiki/Reference/rload "load a splayed table"), [`rotate`](http://code.kx.com/wiki/Reference/rotate "rotate elements"), [`rsave`](http://code.kx.com/wiki/Reference/rsave), [`rtrim`](http://code.kx.com/wiki/Reference/rtrim "remove trailing spaces")</td></tr>
+<tr><td>R</td><td>[`rand`](http://code.kx.com/wiki/Reference/rand "random number"), [`rank`](http://code.kx.com/wiki/Reference/rank "grade up"), [`ratios`](http#://code.kx.com/wiki/Reference/ratios "ratios of consecutive pairs"), [`raze`](http://code.kx.com/wiki/Reference/raze "join elements"), [`read0`](http://code.kx.com/wiki/Reference/read0 "read file as lines"), [`read1`](http://code.kx.com/wiki/Reference/read1 "read file as bytes"), [`reciprocal`](http://code.kx.com/wiki/Reference/reciprocal "reciprocal of a number"), [`reval`](http://code.kx.com/wiki/Reference/reval "– variatiant of eval"), [`reverse`](http://code.kx.com/wiki/Reference/reverse "reverse the order of elements"), [`rload`](http://code.kx.com/wiki/Reference/rload "load a splayed table"), [`rotate`](http://code.kx.com/wiki/Reference/rotate "rotate elements"), [`rsave`](http://code.kx.com/wiki/Reference/rsave), [`rtrim`](http://code.kx.com/wiki/Reference/rtrim "remove trailing spaces")</td></tr>
 <tr><td>S</td><td>[`save`](http://code.kx.com/wiki/Reference/save "save global data to file"), [`scan`](http://code.kx.com/wiki/Reference/scan "apply function to successive elements"), [`scov`](http://code.kx.com/wiki/Reference/scov "statistical covariance"), [`sdev`](http://code.kx.com/wiki/Reference/sdev "statistical standard deviation"), [`select`](http://code.kx.com/wiki/Reference/select "select columns from a table"), [`set`](http://code.kx.com/wiki/Reference/set "asign a value to a name"), [`setenv`](http://code.kx.com/wiki/Reference/setenv "set an environment variable"), [`show`](http://code.kx.com/wiki/Reference/show "format to the console"), [`signum`](http://code.kx.com/wiki/Reference/signum "sign of its argument/s"), [`sin`](http://code.kx.com/wiki/Reference/sin "sine"), [`sqrt`](http://code.kx.com/wiki/Reference/sqrt "square root"), [`ss`](http://code.kx.com/wiki/Reference/ss "string search"), [`ssr`](http://code.kx.com/wiki/Reference/ssr "string search and replace"), [`string`](http://code.kx.com/wiki/Reference/string "cast to string"), [`sublist`](http://code.kx.com/wiki/Reference/sublist "sublist of a list"), [`sum`](http://code.kx.com/wiki/Reference/sum "sum of a list"), [`sums`](http://code.kx.com/wiki/Reference/sums "cumulative sums of a list"), [`sv`](http://code.kx.com/wiki/Reference/sv "atom from a list"), [`svar`](http://code.kx.com/wiki/Reference/svar "statistical variance"), [`system`](http://code.kx.com/wiki/Reference/system "execute system command")</td></tr>
 <tr><td>T</td><td>[`tables`](http://code.kx.com/wiki/Reference/tables "sorted list of tables"), [`tan`](http://code.kx.com/wiki/Reference/tan "tangent"), [`til`](http://code.kx.com/wiki/Reference/til "integers up to x"), [`trim`](http://code.kx.com/wiki/Reference/trim "remove leading and trailing spaces"), [`type`](http://code.kx.com/wiki/Reference/type "– data type")</td></tr>
 <tr><td>U</td><td>[`uj`](http://code.kx.com/wiki/Reference/uj "union join"), [`ungroup`](http://code.kx.com/wiki/Reference/ungroup "flattened table"), [`union`](http://code.kx.com/wiki/Reference/union "distinct elements of combination of two lists"), [`update`](http://code.kx.com/wiki/Reference/update "insert or replace table records"), [`upper`](http://code.kx.com/wiki/Reference/upper "upper-case"), [`upsert`](http://code.kx.com/wiki/Reference/upsert "add table records")</td></tr>
@@ -60,72 +60,64 @@ Punctuation
 Operators
 ---------
 
-The operators tabulated below can be used in both infix and postfix forms, e.g.
+The operators tabulated below can be used in both infix and prefix forms.
 ```q
 q)2|3     / maximum
 3
 q)|[2;3]  / maximum
 3
 ```
-Some can also be used _encapsulated_ (parenthesised), when they represent other functions, used in postfix form, e.g.
+Some can also be used _encapsulated_ (parenthesised), when they represent other functions, used in prefix form.
 ```q
 q)(|)2 3  / reverse
 3 2
 ```
 
-| symbol | operator       | encapsulated |            |
-|--------|----------------|--------------|------------|
-| `=`    | equal          | `(=)`        | enumerate  |
-| `<>`   | not equal      |              ||
-| `<`    | less than      | `(<)`        | FIXME |
-| `>`    | greater than   | `(>)`        | FIXME |
-| `~`    | match          | `(~)`        | FIXME |
-| `|`    | maximum        | `(|)`        | [`reverse`](reverse)    |
-| `+`    | plus           |              | FIXME |
-| `-`    | minus          | `(-)`        | [`negate`](negate)     |
-| `*`    | times          | `(*)`        | FIXME |
-| `%`    | divided by     | `(%)`        | [`reciprocal`](reciprocal) |
-| `#`    | take           | `(#)`        | [`count`](count)      |
-| `,`    | join           | `(,)`        | FIXME |
-| `^`    | fill; coalesce | `(^)`        | FIXME |
-| `_`    | drop; cut      | `(_)`        | FIXME |
-| `!`    | dict; key; enum; update; delete | | |
+| symbol | operator              | encapsulated |            |
+|--------|-----------------------|--------------|------------|
+| `=`    | equal                 | `(=)`        | enumerate  |
+| `<>`   | not equal             |              ||
+| `<`    | less than             | `(<)`        | FIXME |
+| `<=`   | less than or equal    | `(<=)`       | FIXME |
+| `>`    | greater than          | `(>)`        | FIXME |
+| `>=`   | greater than or equal | `(>=)`       | FIXME |
+| `~`    | match                 | `(~)`        | FIXME |
+| `|`    | maximum               | `(|)`        | [`reverse`](reverse)    |
+| `+`    | plus                  |              | FIXME |
+| `-`    | minus                 | `(-)`        | [`negate`](negate)     |
+| `*`    | times                 | `(*)`        | FIXME |
+| `%`    | divided by            | `(%)`        | [`reciprocal`](reciprocal) |
+| `#`    | take                  | `(#)`        | [`count`](count)      |
+| `,`    | join                  | `(,)`        | FIXME |
+| `^`    | fill; coalesce        | `(^)`        | FIXME |
+| `_`    | drop; cut             | `(_)`        | FIXME |
+| `!`    | dict; key; enum; update; delete |    | |
 
 
 Functions
 ---------
 
-Functions are used in postfix form, e.g. 
+A [function](language/functions) is used in prefix form, followed by a bracketed list of its arguments.
 ```q
 q){x+y}[2;3]
 5
 ```
 
-The number of arguments to a function is its _valence_. Functions with valence 1, 2 or 3 are known respectively as _monadic_, _dyadic_ and _triadic_. E.g
-```q
-q){x*x}[2 3 4]    /monadic
-4 9 16
-q){x*y}[2;3 4]    /dyadic
-6 8
-q){x*y+z}[2;3;4]  /triadic
-14
-```
 
+Higher-order functions
+----------------------
 
-Adverbs
--------
-
-The following symbols represent _adverbs_. Adverbs are used in prefix form and take an operator of function as an argument. The result of the combination is always a _function_, which must be encapsulated, e.g.
+The following glyphs represent _higher-order functions_, which take a function as an argument in postfix form, and return a _function_.
 ```q
 q)(+/)2 3 4  / sum
 9
 ```
 
-| symbol | with operator | with function/s |
-|--------|---------------|-----------------|
-| `/`    | over          | over; converge  |
-| `':`   | peach         | each-prior      |
-| `/:`   | each-right    | each-right      |
+| glyph | role                                                                                               |
+|-------|----------------------------------------------------------------------------------------------------|
+| `/`   | [`over`](language/higher-order-functions/#over); converge                                          |
+| `':`  | [`peach`](language/higher-order-functions/#peach), [`prior`](language/higher-order-functions/#prior) |
+| `/:`  | [each-right](language/higher-order-functions/#each-right)                                          |
 
 !!! Note "Other uses of `/`"
 
@@ -133,24 +125,24 @@ q)(+/)2 3 4  / sum
     - in a script, followed by a newline, begins a multiline comment 
 
 
-Ambivalent symbols
+Overloaded symbols
 ------------------
 
-The following symbols represent operators, functions or adverbs – according to context.
+The following glyphs represent operators, functions or higher-order functions – according to context.
 
-| symbol | infix                         | postfix                          | encapsulated | prefix |
-|--------|-------------------------------|----------------------------------|--------------|----------------------|------------------------|
-| `&`    | minimum                       | where                            | replicate    |       |
-| `'`    | case                          | signal error                     | FIXME        | each-both; composition            |
-| `@`    | index                         | amend                            | FIXME        | apply; trap            |
-| `.`    | index                         |                                  |              | 1apply                  |
-| `\`    | (see note below)              |                                  |              | scan                 | iterate                |
-| `?`    | find; rand                    | vector conditional; exec; select | FIXME        |                      |                        |
-| `$`    | cast; tok; enum; pad; product | cond                             | cast each    |                      |                        |
-| `\:`   | integer to byte               |                                  | FIXME        | each-left            | each-left              |
+| symbol | infix                                | prefix                           | encapsulated | postfix               |
+|--------|--------------------------------------|----------------------------------|--------------|----------------------|
+| `&`    | [`and`](language/listfunctions/#and)          | where                            | replicate    |                      |
+| `'`    | [case](language/higher-order-functions/#case) | [signal error](language/handlingerrors/#signal) | FIXME        | [each-both](language/higher-order-functions/#each-both); [compose](language/higher-order-functions/#compose)   |
+| `@`    | index                                | amend                            | FIXME        | apply; [trap](language/handling errors/#trap)          |
+| `.`    | index                                |                                  |              | apply                |
+| `\`    | (see note below)                     |                                  |              | [`scan`](language/higher-order-functions/#scan)                 | 
+| `?`    | find; rand                           | vector conditional; exec; select | FIXME        |                      | 
+| `$`    | cast; tok; enum; pad; product        | cond                             | cast each    |                      | 
+| `\:`   | integer to byte                      |                                  | FIXME        | [each-left](language/higher-order-functions/#each-left)            | 
 
 
-!!! Note "Other uses of `\`"
+!!! Note "Other roles of `\`"
     
     - as a _command_ in the debugger, aborts evaluation and returns to the q session
     - as a _command_ in the session, `\` toggles between the q and k parsers
@@ -161,11 +153,11 @@ The following symbols represent operators, functions or adverbs – according to
 Mavericks
 ---------
 
-| symbol | use                          |
-|--------|------------------------------|
-| `:`    | assign; return; amend; monad |
-| `::`   | null; identity               |
-| `csv`  | comma as record delimiter    |
+| glyph  | role                                                      |
+|--------|-----------------------------------------------------------|
+| `:`    | assign; return; amend; monad                              |
+| `::`   | null; identity                                            |
+| `csv`  | [comma as record delimiter](language/textfuncgtions/#csv) |
 
 
 Numbers

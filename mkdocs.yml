@@ -31,7 +31,7 @@ markdown_extensions:
 site_dir: 'site'
 site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
-site_favicon: 'img/favicon.ico'
+site_favicon: './img/favicon.ico'
 # config.site_name: 'code.kx.com'
 site_name: 'code.kx.com'
 site_url: 'http://code.kx.com'
@@ -110,19 +110,12 @@ pages:
     #   - OneColon: language/OneColon.md
     #   - Two: language/Two.md
     #   - TwoColon: language/TwoColon.md
-    # - Higher-order functions:
-    #   - each: language/each.md
-    #   - over: language/over.md
-    #   - peach: language/peach.md
-    #   - prior: language/prior.md
-    #   - scan: language/scan.md
-    # - Lists:
+    - Handling lists: language/listfunctions.md
     #   - all: language/all.md
     #   - and: language/and.md
     #   - any: language/any.md
     #   - asc: language/asc.md
     #   - bin: language/bin.md
-    #   - case: language/case.md 
     #   - count: language/count.md
     #   - cross: language/cross.md
     #   - cut: language/cut.md
