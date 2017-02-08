@@ -149,6 +149,7 @@ pages:
     #   - asin: language/asin.md
     #   - asof: language/asof.md
     #   - atan: language/atan.md
+    #   - coalesce: http://code.kx.com/wiki/JB:QforMortals2/tables#Coalesce_.28.5E.29
     #   - cols: language/cols.md
     #   - delete: language/delete.md
     #   - ej: language/ej.md
@@ -182,7 +183,7 @@ pages:
     - Controlling evaluation: 
       - Control words: language/controlwords.md
       - Handling errors: language/handlingerrors.md
-      - Iteration: language/higher-order-functions.md
+      - Iteration: language/iteration.md
       - Parallel each: language/peach.md
       - Parse trees: language/handlingparsetrees.md
     - Files: language/files.md

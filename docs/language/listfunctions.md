@@ -1,3 +1,10 @@
+<aside class="comment" markdown="1">
+Lists **underlying functions** irrespective of whether denoted by a glyph, a reserved word, or both.
+
+Divide this page into shorter pages such as _Sorting and searching_, _Selecting items_
+</aside>
+
+
 `all`
 -----
 
@@ -548,6 +555,645 @@ IBM  10.2  100
 MSFT 23.45 100
 q)D~flip flip D
 1b
+```
+
+
+`iasc`
+------
+
+Syntax: `iasc x` (unary, uniform)
+
+Returns the indices needed to sort list `x` in ascending order. (See [`asc`](#asc).)
+```q
+q)L:2 1 3 4 2 1 2
+q)iasc L
+1 5 0 4 6 2 3
+q)L iasc L
+1 1 2 2 2 3 4
+q)(asc L)~L iasc L
+1b
+```
+
+
+`idesc`
+-------
+
+Syntax: `idesc x`
+
+Returns the indices needed to sort list `x` in descending order. (See [`desc`](#desc).)
+```q
+q)L:2 1 3 4 2 1 2
+q)idesc L
+3 2 0 4 6 1 5
+q)L idesc L
+4 3 2 2 2 1 1
+q)(desc L)~L idesc L
+1b
+```
+
+
+`in`
+----
+
+Syntax: `x in y` (binary)
+
+Returns a boolean indicating: 
+
+- where the first item of `y` is an atom, which items of `x` are also items of `y` (list, same count as `x`)
+- otherwise, whether `x` is an item of `y` (atom) 
+
+```q
+q)1 3 7 6 4 in 5 4 1 6        / which of x are in y
+10011b
+q)1 2 in (9;(1 2;3 4))        / none of x are in y
+00b
+q)1 2 in (1 2;9)              / 1 2 is an item of y
+1b
+q)1 2 in ((1 2;3 4);9)        / 1 2 is not an item of y
+0b
+q)(1 2;3 4) in ((1 2;3 4);9)  / x is an item of y
+1b
+```
+
+!!! tip "`in` is often used with `select`"
+    ```q
+    q)\l sp.q
+    q)select from p where city in `paris`rome
+    p | name  color weight city
+    --| ------------------------
+    p2| bolt  green 17     paris
+    p3| screw blue  17     rome
+    p5| cam   blue  12     paris
+    ```
+
+
+
+`inter`
+-------
+
+Syntax: `x inter y` (binary)
+
+Returns all items of `x` found in `y`, using the result of `x in y` to select items from `x`.
+
+```q
+q)1 3 4 2 inter 2 3 5 7 11
+3 2
+```
+Returns common values from dictionaries:
+```q
+q)show x:(`a`b)!(1 2 3;`x`y`z)
+a| 1 2 3
+b| x y z
+q)show y:(`a`b`c)!(1 2 3;2 3 5;`x`y`z)
+a| 1 2 3
+b| 2 3 5
+c| x y z
+q)
+q)x inter y
+1 2 3
+x y z
+q)
+```
+Returns common rows from unkeyed tables.
+```q
+q)show x:([]a:`x`y`z`t;b:10 20 30 40)
+a b
+----
+x 10
+y 20
+z 30
+t 40
+q)show y:([]a:`y`t`x;b:50 40 10)
+a b
+----
+y 50
+t 40
+x 10
+q)x inter y
+a b
+----
+x 10
+t 40
+```
+
+
+`last`
+------
+
+Syntax: `last x` (unary)
+
+Returns the last item of `x`, or last value where `x` is a dictionary.
+```q
+q)last til 10
+9
+q)last `a`b`c!1 2 3
+3
+```
+
+
+`next`
+------
+
+Syntax: `next x` (unary, uniform)
+
+For each item in `x`, returns the next item. For the last item, it returns a null if the list is simple (a homogeneous list), and an empty list `()` otherwise.
+```q
+q)next 2 3 5 7 11
+3 5 7 11 0N
+q)next (1 2;"abc";`ibm)
+"abc"
+`ibm
+`int$()
+```
+Duration of a quote:
+```q
+q)update (next time)-time by sym from quote
+```
+
+
+`prev`
+------
+
+Syntax: `prev x` (unary, uniform)
+
+For each item in `x`, returns the previous item. For the first item, it returns a null if the list is simple (a homogeneous list), and an empty list `()` otherwise.
+```q
+q)prev 2 3 5 7 11
+0N 2 3 5 7
+q)prev (1 2;"abc";`ibm)
+`int$()
+1 2
+"abc"
+```
+Shift the times in a table:
+```q
+q)update time:prev time by sym from t
+```
+
+
+`rank`
+------
+
+Syntax: `rank x` (unary, uniform)
+
+For each item in `x` returns the index of where it would occur in the sorted list. 
+
+This is the same as calling `iasc` twice on the list.
+```q
+q)rank 2 7 3 2 5
+0 4 2 1 3
+q)iasc 2 7 3 2 5
+0 3 2 4 1
+q)iasc iasc 2 7 3 2 5            / same as rank
+0 4 2 1 3
+q)asc[2 7 3 2 5] rank 2 7 3 2 5  / identity
+2 7 3 2 5
+q)iasc idesc 2 7 3 2 5           / descending rank
+3 0 2 4 1
+```
+
+
+`raze`
+------
+
+Syntax: `raze x` (unary)
+
+Returns the items of `x` joined, collapsing one level of nesting. 
+
+To collapse all levels, use [converge](higher-order-functions#converge) i.e. `raze/[x]`.
+```q
+q)raze (1 2;3 4 5)
+1 2 3 4 5
+q)b:(1 2;(3 4;5 6);7;8)
+q)raze b                 / flatten one level
+1
+2
+3 4
+5 6
+7
+8
+q)raze/[b]               / flatten all levels
+1 2 3 4 5 6 7 8
+q)raze 42                / atom returned as a list
+,42
+```
+Returns the flattened values from a dictionary.
+```q
+q)d:`q`w`e!(1 2;3 4;5 6)
+q)value d
+1 2
+3 4
+5 6
+q)raze d
+1 2 3 4 5 6
+```
+
+!!! warning "Use only on items that can be joined"
+    `raze` is defined in k as `,/` and requires items that can be joined together. 
+    ```q
+    q)d:`a`b!(1 2;3 5)
+    q)10,d          / cannot join integer and dictionary
+    'type
+    q)raze (10;d)   / raze will not work
+    'type
+    ```
+
+
+`reverse` (|)
+-------------
+
+Syntax: `reverse x` (unary, uniform)
+
+Returns the items of `x` in reverse order.
+```q
+q)reverse 1 2 3 4
+4 3 2 1
+q)(|)1 2 3 4
+4 3 2 1
+```
+On atoms, returns the atom; on dictionaries, reverses the keys; and on tables, reverses the columns:
+```q
+q)d:`a`b!(1 2 3;"xyz")
+q)reverse d
+b| x y z
+a| 1 2 3
+q)reverse each d
+a| 3 2 1
+b| z y x
+q)reverse flip d
+a b
+---
+3 z
+2 y
+1 x
+```
+
+
+`rotate`
+--------
+
+Syntax: `x rotate y` (binary, uniform)
+
+Returns list or table `y` rotated by `x` items: to the ‘left’ for positive `x`, to the ‘right’ for negative `x`.
+```q
+q)2 rotate 2 3 5 7 11    / rotate a list
+5 7 11 2 3
+q)-2 rotate 2 3 5 7 11
+7 11 2 3 5
+q)t:([]a:1 2 3;b:"xyz")
+q)1 rotate t             / rotate a table
+a b
+---
+2 y
+3 z
+1 x
+```
+
+
+`sublist`
+---------
+
+Syntax: `x sublist y` (binary)
+
+Returns a sublist of `y`. The result contains only as many items as are available in `y`.
+
+Where 
+
+- `x` is an integer atom, it returns `x` items from the beginning of `y` if positive, or from the end if negative.
+```q
+q)p:2 3 5 7 11
+q)3 sublist p                           / 3 from the front
+2 3 5
+q)10 sublist p                          / only available values
+2 3 5 7 11
+q)2 sublist `a`b`c!(1 2 3;"xyz";2 3 5)  / 2 keys from a dictionary
+a| 1 2 3
+b| x y z
+q)-3 sublist sp                         / last 3 rows of a table
+s p qty
+-------
+3 1 200
+3 3 300
+0 4 400
+```
+- `x` is an integer pair, it returns `x[1]` items from `y`, starting at item `x[0]`.
+```q
+q)1 2 sublist p  / 2 items starting from position 1
+3 5
+```
+
+
+`sv`
+----
+
+Syntax: `x sv y` (binary)
+
+Scalar from vector: returns an atom. Where:
+
+- (**join strings**) `y` is a list of strings, and `x` is a character or string, returns the strings in `y`, separated by `x`. Where `x` is the back tick `` ` ``, the strings are separated by the host line separator  – `\n` on Unix, `\r\n` on Windows.
+```q
+q)"," sv ("one";"two";"three")    / comma separated
+"one,two,three"
+q)"\t" sv ("one";"two";"three")   / tab separated
+"one\ttwo\tthree"
+q)", " sv ("one";"two";"three")   / x may be a string
+"one, two, three"
+q)"." sv string 192 168 1 23      / form IP address
+"192.168.1.23"
+q)` sv ("one";"two";"three")      / use host line separator
+"one\ntwo\nthree\n"
+```
+
+- (**join path components**) `y` is a symbol list of which the first item is a file handle, it returns a file handle where the items of the list are joined, separated by slashes. This is useful when building file paths.
+```q
+q)` sv `:/home/kdb/q`data`2010.03.22`trade
+`:/home/kdb/q/data/2010.03.22/trade
+```
+If the first element is not a file handle, returns a symbol where the elements are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
+```q
+q)` sv `mywork`dat
+`mywork.dat
+```
+
+- (**base conversion**) `x` and `y` are numeric, `y` is evaluated to base `x`, which may be a list.
+```q
+q)10 sv 2 3 5 7
+2357
+q)100 sv 2010 3 17
+20100317
+```q)0 24 60 60 sv 2 3 5 7   / 2 days, 3 hours, 5 minutes, 7 seconds
+183907
+```
+
+!!! note 
+    when `X` is a list, the first number is not used. The calculation is done as:
+    ```q
+    q)baseval:{y wsum reverse prds 1,reverse 1_x}
+    q)baseval[0 24 60 60;2 3 5 7]
+    183907f
+    ```
+
+- (**bytes to integer**) `x` is `0x0` and `y` is a list of bytes of length 2, 4 or 8, the result is `y` converted to the corresponding integer.
+```q
+q)0x0 sv "x" $0 255           / short
+255h
+q)0x0 sv "x" $128 255
+-32513h
+q)0x0 sv "x" $0 64 128 255    / int
+4227327
+q)0x0 sv "x" $til 8           / long
+283686952306183j
+q)256j sv til 8               / same calculation
+283686952306183j
+```
+
+!!! tip "Converting non integers" 
+    Use [`1:`](Reference/OneColon "wikilink") – eg:
+    ```q
+    q)show a:0x0 vs 3.1415
+    0x400921cac083126f
+    q)(enlist 8;enlist "f")1: a   /float
+    3.1415
+    ```
+
+- (**bits to integer**) `x` is `0b` and `y` is a list of booleans of length 8, 16, 32, or 64 the result is `y` converted to the corresponding integer or — in the case of 8 bits — a byte value
+```q
+q)0b sv 64#1b
+-1
+q)0b sv 32#1b
+-1i
+q)0b sv 16#1b
+-1h
+q)0b sv 8#1b
+0xff
+```
+
+
+`vs`
+----
+
+Syntax: `x vs y` (binary)
+
+Vector from scalar: returns a list (vector) from each atom (scalar) in its argument, or may return a list of lists from a list.
+
+Where: 
+
+- (**partitioned string**) `y` is a string, and `x` is a character or string, the result is a list of strings: `y` cut using `X` as the delimiter.
+```q
+q)"," vs "one,two,three"
+"one"
+"two"
+"three"
+q)", " vs "spring, summer, autumn, winter"
+"spring"
+"summer"
+"autumn"
+"winter"
+q)"|" vs "red|green||blue"
+"red"
+"green"
+""
+"blue"
+```
+If `x` is the back tick `` ` ``, then the result (a) splits symbols on `` `.` ``, (b) breaks file handles into directory and file parts, and (c) breaks a string with embedded line terminators into lines (both Unix `\n` and Windows `\r\n` terminators).
+```q
+q)` vs `mywork.dat                   / symbol y
+`mywork`dat
+q)` vs `:/home/kdb/data/mywork.dat   / file handle y
+`:/home/kdb/data`mywork.dat
+q)` vs "abc\ndef\nghi"               / filestring y
+"abc"
+"def"
+"ghi"
+q)` vs "abc\r\ndef\r\nghi"           / filestring y
+"abc"
+"def"
+"ghi"
+```
+
+- (**bit representation**) `x` is `0b` and `y` is an integer, the result is the bit representation of `y`.
+```q
+q)0b vs 23173h
+0101101010000101b
+q)0b vs 23173
+00000000000000000101101010000101b
+```
+
+- (**hex representation**) `x` is `0x0` and `y` is a number, the result is the internal representation of `y`, with each byte in hex.
+```q
+q)0x0 vs 2413h
+0x096d
+q)0x0 vs 2413
+0x0000096d
+q)0x0 vs 2413e
+0x4516d000
+q)0x0 vs 2413f
+0x40a2da0000000000
+q)"."sv string"h"$0x0 vs .z.a / ip address string from .z.a
+"192.168.1.213"
+```
+
+- (**base representation**) `x` and `y` are integer, the result is the representation of `y` in base `x`. (Since V3.4t 2015.12.13.)
+```q
+q)10 vs 1995
+1 9 9 5
+q)2 vs 9
+1 0 0 1
+q)24 60 60 vs 3805
+1 3 25
+q)"." sv string 256 vs .z.a / ip address string from .z.a
+"192.168.1.213"
+```
+If the right argument is an integer list then the result is a matrix with `count[x]` items whose ith column `(x vs y)[;i]` is identical to `x vs y[i]`. More generally, `y` can be any list of integers, and each item of the result is identical to `y` in structure.
+```q
+q)a:10 vs 1995 1996 1997
+q)a
+1 1 1
+9 9 9
+9 9 9
+5 6 7
+q)a[;0]
+1 9 9 5
+q)10 vs(1995;1996 1997)
+1 1 1
+9 9 9
+9 9 9
+5 6 7
+```
+
+
+
+`where`
+-------
+
+Syntax: `where x` (unary)
+
+Where `x` is: 
+
+- a list of non-zero integers, the result is a simple list containing, for each item of `x`, that number of copies of its index. 
+```q
+q)where 2 3 0 1
+0 0 1 1 1 3
+q)raze x #' til count x:2 3 0 1
+0 0 1 1 1 3
+```
+
+!!! tip 
+    Where `x` is a boolean list, the result is the indices of the 1s. Thus `where` is often used after a logical test:
+    ```q
+    q)where 0 1 1 0 1
+    1 2 4
+    q)x:1 5 6 8 11 17 20 21
+    q)where 0 = x mod 2        / indices of even numbers
+    2 3 6
+    q)x where 0 = x mod 2      / select even numbers from list
+    6 8 20
+    ```
+
+- a dictionary whose values are non-negative integers, the result is a list of keys repeated as many times as the corresponding value. (If a list is viewed as a mapping from indices to entries, than the definition for the integer list above is a special case.)
+    ```q
+    q)d:`amr`ibm`msft!2 3 1
+    q)where d
+    `amr`amr`ibm`ibm`ibm`msft
+    q)where 2 3 0 1               / usual operation on integer list
+    0 0 1 1 1 3
+    q)where 0 1 2 3 ! 2 3 0 1     / same on dictionary with indices as keys
+    0 0 1 1 1 3
+    ```
+
+See also [where in q-SQL](FIXME)
+
+
+`within`
+--------
+
+Syntax: `x within y` (binary, uniform)
+
+Where `x` is an atom or list of sortable type/s and
+
+- `y` is an ordered pair (i.e. `(</)y` is true) of the same type, the result is a boolean for each item of `x` indicating whether it is within the inclusive bounds given by `y`.
+```q
+q)1 3 10 6 4 within 2 6
+01011b
+q)"acyxmpu" within "br"  / chars are ordered
+0100110b
+q)select sym from ([]sym:`dd`ccc`ccc) where sym within `c`d
+sym
+---
+ccc
+ccc
+```
+
+- `y` is a pair of lists of length _n_, and `x` a list of length _n_ or an atom, the result is a boolean list of length _n_. 
+```q
+q)5 within (1 2 6;3 5 7)
+010b
+q)2 5 6 within (1 2 6;3 5 7)
+111b
+q)(1 3 10 6 4;"acyxmpu") within ((2;"b");(6;"r"))
+01011b
+0100110b
+```
+
+
+`xprev`
+------
+
+Syntax: `x xprev y` (binary, uniform)
+
+Where `x` is an integer atom and `y` is a list, returns for each item of `y` the item `x` indices before it. The first `x` elements of the result are null, empty or blank as appropriate.
+
+!!! Tip 
+    There is no `xnext` function. Fortunately `xprev` with a negative number on the left can achieve this.
+
+```q
+q)2 xprev 2 7 5 3 11
+0N 0N 2 7 5
+q)-2 xprev 2 7 5 3 11
+5 3 11 0N 0N
+q)1 xprev "abcde"
+" abcd"
+```
+
+
+`xrank`
+-------
+
+Syntax: `x xrank y` (binary)
+
+Where `x` is an integer, and `y` is of sortable type, the result is a list of length `x` containing the items of `y` grouped by value. If the total number of items is evenly divisible by `x`, then each item of the result will have the same length; otherwise the first items are longer.
+
+```q
+q)4 xrank til 8          / equal size buckets
+0 0 1 1 2 2 3 3
+q)4 xrank til 9          / first bucket has extra
+0 0 0 1 1 2 2 3 3
+q)
+q)3 xrank 1 37 5 4 0 3   / outlier 37 does not get its own bucket
+0 2 2 1 0 1
+q)3 xrank 1 7 5 4 0 3    / same as above
+0 2 2 1 0 1
+```
+Example using stock data:
+```q
+q)show t:flip `val`name!((20?20);(20?(`MSFT`ORCL`CSCO)))
+val name
+--------
+17  MSFT
+1   CSCO
+14  CSCO
+13  ORCL
+13  ORCL
+9   ORCL
+...
+
+q)select Min:min val,Max:max val,Count:count i by bucket:4 xrank val from t
+bucket| Min Max Count
+------| -------------
+0     | 0   7   5
+1     | 9   12  5
+2     | 13  15  5
+3     | 15  17  5
 ```
 
 
