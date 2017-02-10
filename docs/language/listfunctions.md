@@ -7,7 +7,6 @@ Lists **underlying functions** irrespective of whether denoted by a glyph, a res
 -------
 
 Syntax: `count x` (unary, aggregate)  
-Syntax: `(#)x` (unary, aggregate)
 
 Returns the number of items in `x` (rows for a table and entries for dictionary). 
 Use with `each` to count the number of elements at each level of a list or dictionary.

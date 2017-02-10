@@ -230,32 +230,18 @@ Opens a file or a process handle, where `x` is one of
 
 and returns a positive integer handle.
 
-### TCP
+Where `x` has the form:
 
-The process argument is a symbol in the form `` `:host:port[:user:password]``. `host` can be a hostname or IP address. Left empty, it denotes the localhost.
+- (**TCP**) `` `:host:port[:user:password]``. `host` can be a hostname or IP address. (Left empty, it denotes the localhost.)
 
-### Unix domain sockets
+- (**Unix domain socket**) `` `:unix://port[:user:password] ``. 
+(Since V3.4.) Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection.
 
-V3.4 also supports Unix domain sockets, where the `hopen` argument has the form `` `:unix://port[:user:password] ``. 
-
-Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection.
-
-### SSL/TLS
-
-V3.4 also supports SSL/TLS connections, where the `hopen` argument has the form`` `:tcps://host:port[:user:password] ``. 
-
-See [Secure connections with SSL/TLS](Cookbook/SSL "wikilink")
-
-### usernames and passwords
+- (**SSL/TLS connection**) `` `:tcps://host:port[:user:password] ``. See [Secure connections with SSL/TLS](Cookbook/SSL "wikilink")
 
 User and password are required if the server session has been started with the `-u` or `-U` command line options, and are passed to `.z.pw` for (optional) additional processing.
 
-### timeouts
-
 The optional timeout is in milliseconds and applies to the initial connection, not subsequent use of the connection.
-
-### examples
-
 ```q
 q)h:hopen `:10.43.23.198:5010                    / IP address
 q)h:hopen `:mydb.us.com:5010                     / hostname
@@ -278,29 +264,27 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
 ```
 See the [Client-Server Cookbook](Cookbook/ClientServer "wikilink").
 
-### file
+!!! note "File handles"
+    A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
+    ```q
+    q)hdat:hopen `:f.dat             / data file (bytes)
+    q)htxt:hopen `:c:/q/test.txt     / text file
+    ```
+    To append to these files, the syntax is the same as for IPC:
+    ```q
+    q)r:hdat 0x2324
+    q)r:htxt "some text\n"
+    q)r:htxt ` sv("asdf";"qwer")
+    ```
 
-A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
-```q
-q)hdat:hopen `:f.dat             / data file (bytes)
-q)htxt:hopen `:c:/q/test.txt     / text file
-```
-To append to these files, the syntax is the same as for IPC:
-```q
-q)r:hdat 0x2324
-q)r:htxt "some text\n"
-q)r:htxt ` sv("asdf";"qwer")
-```
-
-### Fifo/named pipes
-
-V3.4 Unix builds have support for reading from a Fifo/named pipe, where the `hopen` argument has the form `` `:fifo://filename``.
-
-See also:
-
-- [Fifo/Named Pipes](Cookbook/NamedPipes "wikilink").
-- [Client-Server Cookbook](Cookbook/ClientServer "wikilink")
-- [Secure connections with SSL/TLS](Cookbook/SSL "wikilink")
+!!! tip "Fifo/named pipes"
+    V3.4 Unix builds have support for reading from a Fifo/named pipe, where the `hopen` argument has the form `` `:fifo://filename``.
+    
+    See also:
+    
+    - [Fifo/Named Pipes](Cookbook/NamedPipes "wikilink").
+    - [Client-Server Cookbook](Cookbook/ClientServer "wikilink")
+    - [Secure connections with SSL/TLS](Cookbook/SSL "wikilink")
 
 
 `hsym`
@@ -371,11 +355,9 @@ s5| adams 30     athens
 
 Syntax: `read0 x`
 
-Returns data from text file or handle. 
+Returns data from text file or handle. Where `x` is
 
-### lines from a text file
-
-Where `x` is a filename, returns the lines of the file as a list of strings. Lines are assumed delimited by either LF or CRLF, and the delimiters are removed.
+- a filename, returns the lines of the file as a list of strings. Lines are assumed delimited by either LF or CRLF, and the delimiters are removed.
 ```q
 q)`:test.txt 0:("hello";"goodbye")  / write some text to a file
 q)read0`:test.txt
@@ -385,9 +367,7 @@ q)/ read 500000 lines, chunks of (up to) 100000 at a time
 q)d:raze{read0(`:/tmp/data;x;100000)}each 100000*til 5
 ```
 
-### line from a handle
-
-Where `x` is a [handle](Reference/Number "wikilink") or the [console](Reference/Zero "wikilink"), returns a line of text from it.
+- a [handle](Reference/Number "wikilink") or the [console](Reference/Zero "wikilink"), returns a line of text from it.
 ```q
 q)rl:{1">> ";read0 0}
 q)rl`
@@ -395,9 +375,7 @@ q)rl`
 "xiskso"
 ```
 
-### bytes from a text file
-
-Where `x` is a list of the form `(file; offset; length)`, returns bytes from `file`.
+- a list of the form `(file; offset; length)`, returns bytes from `file`.
 ```q
 q)`:foo 0: enlist "hello world"
 q)read0 (`:foo;6;5)
@@ -505,48 +483,33 @@ Save global data to file: where `x` is the filename as a symbol, returns the fil
 
 ```q
 q)t:([]x:2 3 5;y:`ibm`amd`intel;z:"npn")
-```
-### binary
-```q
-q)save `t
+q)save `t            / binary
 `:t
 q)read0 `:t
 "\377\001b\000c\013\000\003\000\000\000x\000y\000z\000\000\..
 "\000\003\000\000\000npn"
-```
-### CSV
-```q
-q)save `t.csv
+q)save `t.csv        / CSV
 `:t.csv
 q)read0 `:t.csv
 "x,y,z"
 "2,ibm,n"
 "3,amd,p"
 "5,intel,n"
-```
-### text
-```q
-q)save `t.txt
+q)save `t.txt        / text
 `:t.txt
 q)read0 `:t.txt      / columns are tab separated
 "x\ty\tz"
 "2\tibm\tn"
 "3\tamd\tp"
 "5\tintel\tn"
-```
-### Excel
-```q
-q)save `t.xls
+q)save `t.xls        / Excel
 `:t.xls
 q)read0 `:t.xls
 "<?xml version=\"1.0\"?><?mso-application progid=\"Excel.Sheet\"?>"
 "<Workbook xmlns=\"urn:schemas-microsoft-com:office:spreadsheet\" x...
-```
-### XML
-```q
-q)save `t.xml
+q)save `t.xml       / XML
 `:t.xml
-q)read0 `:t.xml   / tab separated
+q)read0 `:t.xml    / tab separated
 "<R>"
 "<r><x>2</x><y>ibm</y><z>n</z></r>"
 "<r><x>3</x><y>amd</y><z>p</z></r>"

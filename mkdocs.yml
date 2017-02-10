@@ -112,6 +112,9 @@ pages:
     #   - OneColon: language/OneColon.md
     #   - Two: language/Two.md
     #   - TwoColon: language/TwoColon.md
+    - Arithmetic (integer): language/arithmetic-integer.md
+    - Arithmetic (float): language/arithmetic-float.md
+    - Comparison: language/comparisonfunctions.md
     - Controlling evaluation: 
       - Control words: language/controlwords.md
       - Handling errors: language/handlingerrors.md
@@ -120,142 +123,108 @@ pages:
       - Parse trees: language/handlingparsetrees.md
     - Files: language/files.md
     - Lists: language/listfunctions.md
+    # - Numbers:
     - Logic: language/logicfunctions.md
-    - Select from list: language/selectionfunctions.md
-    - Sort & search: language/sortandsearchfunctions.md
-    #   - all: language/all.md
-    #   - and: language/and.md
-    #   - any: language/any.md
-    #   - asc: language/asc.md
-    #   - bin: language/bin.md
-    #   - count: language/count.md
-    #   - cross: language/cross.md
-    #   - cut: language/cut.md
-    #   - desc: language/desc.md
-    #   - differ: language/differ.md
-    #   - distinct: language/distinct.md
-    #   - enlist: language/enlist.md
-    #   - except: language/except.md
-    #   - fills: language/fills.md
-    #   - first: language/first.md
-    #   - flip: language/flip.md
-    #   - iasc: language/iasc.md
-    #   - idesc: language/idesc.md
-    #   - in: language/in.md
-    #   - inter: language/inter.md
-    #   - last: language/last.md
-    #   - next: language/next.md
-    #   - prev: language/prev.md
-    #   - rank: language/rank.md
-    #   - raze: language/raze.md
-    #   - reverse: language/reverse.md
-    #   - rotate: language/rotate.md
-    #   - sublist: language/sublist.md
-    #   - sv: language/sv.md
-    #   - vs: language/vs.md
-    #   - where: language/where.md
-    #   - within: language/within.md
-    #   - xprev: language/xprev.md
+    - Selection: language/selectionfunctions.md
+    - Search: language/searchfunctions.md
+    - Sort: language/sortfunctions.md
+    - Text: language/textfunctions.md
     # - Dictionaries and tables:
-    #   - aj: language/aj.md
-    #   - asin: language/asin.md
-    #   - asof: language/asof.md
-    #   - atan: language/atan.md
-    #   - coalesce: http://code.kx.com/wiki/JB:QforMortals2/tables#Coalesce_.28.5E.29
-    #   - cols: language/cols.md
-    #   - delete: language/delete.md
-    #   - ej: language/ej.md
-      # - exec: language/exec.md
-    #   - fby: language/fby.md
-    #   - fkeys: language/fkeys.md
-    #   - group: language/group.md
-    #   - ij: language/ij.md
-    #   - insert: language/insert.md
-    #   - key: language/key.md
-    #   - keys: language/keys.md
-    #   - lj: language/lj.md
-    #   - meta: language/meta.md
-    #   - pj: language/pj.md
-    #   - select: language/select.md
-    #   - tables: language/tables.md
-    #   - uj: language/uj.md
-    #   - ungroup: language/ungroup.md
-    #   - union: language/union.md
-    #   - update: language/update.md
-    #   - upsert: language/upsert.md
-    #   - view: language/view.md
-    #   - views: language/views.md
-    #   - wj: language/wj.md
-    #   - xasc: language/xasc.md
-    #   - xcol: language/xcol.md
-    #   - xcols: language/xcols.md
-    #   - xdesc: language/xdesc.md
-    #   - xgroup: language/xgroup.md
-    #   - xkey: language/xkey.md
-    # - Numbers and logic: 
-    #   - abs: language/abs.md
-    #   - acos: language/acos.md
-    #   - avg: language/avg.md
-    #   - avgs: language/avgs.md
-    #   - ceiling: language/ceiling.md
-    #   - cor: language/cor.md
-    #   - cos: language/cos.md
-    #   - cov: language/cov.md
-    #   - deltas: language/deltas.md
-    #   - dev: language/dev.md
-    #   - div: language/div.md
-    #   - ema: language/ema.md
-    #   - exp: language/exp.md
-    #   - floor: language/floor.md
-    #   - inv: language/inv.md
-    #   - log: language/log.md
-    #   - lsq: language/lsq.md
-    #   - mavg: language/mavg.md
-    #   - max: language/max.md
-    #   - maxs: language/maxs.md
-    #   - mcount: language/mcount.md
-    #   - mdev: language/mdev.md
-    #   - med: language/med.md
-    #   - min: language/min.md
-    #   - mins: language/mins.md
-    #   - mmax: language/mmax.md
-    #   - mmin: language/mmin.md
-    #   - mmu: language/mmu.md
-    #   - mod: language/mod.md
-    #   - msum: language/msum.md
-    #   - neg: language/neg.md
-    #   - not: language/not.md
-    #   - null: language/null.md
-    #   - or: language/or.md
-    #   - prd: language/prd.md
-    #   - prds: language/prds.md
-    #   - rand: language/rand.md
-    #   - ratios: language/ratios.md
-    #   - reciprocal: language/reciprocal.md
-    #   - scov: language/scov.md
-    #   - sdev: language/sdev.md
-    #   - signum: language/signum.md
-    #   - sin: language/sin.md
-    #   - sqrt: language/sqrt.md
-    #   - sum: language/sum.md
-    #   - sums: language/sums.md
-    #   - svar: language/svar.md
-    #   - tan: language/tan.md
-    #   - til: language/til.md
-    #   - var: language/var.md
-    #   - wavg: language/wavg.md
-    #   - wsum: language/wsum.md
-    #   - xbar: language/xbar.md
-    #   - xexp: language/xexp.md
-    #   - xlog: language/xlog.md
-    #   - xrank: language/xrank.md
+        # - Joins:
+        #   - aj: language/aj.md
+        #   - asof: language/asof.md
+        #   - coalesce: http://code.kx.com/wiki/JB:QforMortals2/tables#Coalesce_.28.5E.29
+        #   - column join: http://code.kx.com/wiki/JB:QforMortals2/tables#Coalesce_.28.5E.29
+        #   - ej: language/ej.md
+        #   - ij: language/ij.md
+        #   - lj: language/lj.md
+        #   - pj: language/pj.md
+        #   - uj: language/uj.md
+        #   - wj: language/wj.md
+        # - Q-SQL functions:
+          # - exec: language/exec.md
+        #   - delete: language/delete.md
+        #   - insert: language/insert.md
+        #   - select: language/select.md
+        #   - update: language/update.md
+        #   - upsert: language/upsert.md
+        # - Meta:
+        #   - cols: language/cols.md
+        #   - fkeys: language/fkeys.md
+        #   - key: language/key.md
+        #   - keys: language/keys.md
+        #   - meta: language/meta.md
+        #   - tables: language/tables.md
+        #   - view: language/view.md
+        #   - views: language/views.md
+        # - Sort & group:    
+        #   - fby: language/fby.md
+        #   - group: language/group.md
+        #   - ungroup: language/ungroup.md
+        #   - union: language/union.md
+        #   - where: language/where.md
+        #   - xasc: language/xasc.md
+        #   - xcol: language/xcol.md
+        #   - xcols: language/xcols.md
+        #   - xdesc: language/xdesc.md
+        #   - xgroup: language/xgroup.md
+        #   - xkey: language/xkey.md
+    # - Numbers: 
+        # - Arithmetic – real: 
+        #   - div: language/div.md
+        #   - exp: language/exp.md
+        #   - log: language/log.md
+        #   - prd: language/prd.md
+        #   - prds: language/prds.md
+        #   - ratios: language/ratios.md
+        #   - reciprocal: language/reciprocal.md
+        #   - sqrt: language/sqrt.md
+        #   - xexp: language/xexp.md
+        #   - xlog: language/xlog.md
+        # - Other 
+        #   - inv: language/inv.md
+        #   - mmu: language/mmu.md
+        #   - rand: language/rand.md
+        #   - til: language/til.md
+        # - Statistics: 
+        #   - avg: language/avg.md
+        #   - avgs: language/avgs.md
+        #   - cor: language/cor.md
+        #   - cov: language/cov.md
+        #   - dev: language/dev.md
+        #   - ema: language/ema.md
+        #   - lsq: language/lsq.md
+        #   - mavg: language/mavg.md
+        #   - max: language/max.md
+        #   - maxs: language/maxs.md
+        #   - mcount: language/mcount.md
+        #   - mdev: language/mdev.md
+        #   - med: language/med.md
+        #   - min: language/min.md
+        #   - mins: language/mins.md
+        #   - mmax: language/mmax.md
+        #   - mmin: language/mmin.md
+        #   - msum: language/msum.md
+        #   - scov: language/scov.md
+        #   - sdev: language/sdev.md
+        #   - svar: language/svar.md
+        #   - var: language/var.md
+        #   - wavg: language/wavg.md
+        #   - wsum: language/wsum.md
+        #   - xbar: language/xbar.md
+        # - Trigonometry: 
+        #   - acos: language/acos.md
+        #   - asin: language/asin.md
+        #   - atan: language/atan.md
+        #   - cos: language/cos.md
+        #   - sin: language/sin.md
+        #   - tan: language/tan.md
     # - OS: 
     #   - getenv: language/getenv.md
     #   - gtime: language/gtime.md
     #   - ltime: language/ltime.md
     #   - setenv: language/setenv.md
     #   - system: language/system.md
-    - Text: language/textfunctions.md
     # - Values: 
     #   - attr: language/attr.md
     #   - show: language/show.md

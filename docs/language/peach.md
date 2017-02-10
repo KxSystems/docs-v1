@@ -1,6 +1,6 @@
 
-Syntax: `f peach x`  
-Syntax: `.[g;] peach y`
+Syntax: `f peach x`  (binary, uniform)  
+Syntax: `.[g;] peach y`  (binary, uniform)
 
 where 
 

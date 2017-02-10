@@ -11,6 +11,9 @@ q)1 2 3 4 1 3 except 2 3
 1 4 1
 ```
 
+See also: [`in`](sortandsearchfunctions/#in) [`inter`](#inter) [`union`](#union) [`within`](sortandsearchfunctions/#within) 
+
+
 
 `first`
 -------
@@ -103,6 +106,9 @@ x 10
 t 40
 ```
 
+See also: [`except`](#except) [`in`](sortandsearchfunctions/#in) [`union`](#union) [`within`](sortandsearchfunctions/#within) 
+
+
 
 `last`
 ------
@@ -189,6 +195,33 @@ s p qty
 q)1 2 sublist p  / 2 items starting from position 1
 3 5
 ```
+
+
+`union`
+-------
+
+Syntax: `x union y` (binary)
+
+Returns a list of the distinct items of its combined arguments, i.e. `distinct x,y`.
+```q
+q)1 2 3 3 6 union 2 4 6 8
+1 2 3 6 4 8
+q)distinct 1 2 3 3 6, 2 4 6 8      / same as distinct on join
+1 2 3 6 4 8
+q)t0:([]x:2 3 5;y:"abc")
+q)t1:([]x:2 4;y:"ad")
+q)t0 union t1                      / also on tables
+x y
+---
+2 a
+3 b
+5 c
+4 d
+q)(distinct t0,t1)~t0 union t1
+1b
+```
+
+See also: [`except`](#except) [`in`](sortandsearchfunctions/#in) [`inter`](#inter) [`within`](sortandsearchfunctions/#within) 
 
 
 `where`

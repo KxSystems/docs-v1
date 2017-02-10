@@ -1,64 +1,3 @@
-`asc`
------
-
-Syntax: `asc x` (unary, uniform)
-
-Returns `x` sorted:
-
--   on a simple list `asc` acts as expected, and sets the `` `s# `` attribute indicating that the list is sorted.
--   on a mixed list, it sorts within datatype.
--   on a dictionary, it sorts by the values and applies the `` `s# `` attribute.
--   on a table, it sorts by the first non-key column and applies the `` `s# `` attribute.
-
-The sort is stable, i.e. it preserves order among equals.
-```q
-q)asc 2 1 3 4 2 1 2
-`s#1 1 2 2 2 3 4
-```
-In a mixed list the boolean is returned first, then the sorted integers, the sorted characters, and then the date.
-```q
-q)asc (1;1b;"b";2009.01.01;"a";0)
-1b
-0
-1
-"a"
-"b"
-2009.01.01
-```
-Note how the type numbers are used in a mixed list.
-```q
-q)asc(2f;3j;4i;5h)
-5h
-4i
-3
-2f
-q){(asc;x iasc abs t)fby t:type each x}(2f;3j;4i;5h)  / kind of what asc does
-5h
-4i
-3
-2f
-```
-Sorting a table:
-```q
-q)t:([]a:3 4 1;b:`a`d`s)
-q)asc t
-a b
----
-1 s
-3 a
-4 d
-
-q)a:0 1
-q)b:a
-q)asc b
-`s#0 1
-q)a
-`s#0 1
-```
-
-See also: [`desc`](#desc) [`iasc`](#iasc) [`idesc`](#idesc) [`rank`](#rank)
-
-
 `bin`, `binr`
 -------------
 
@@ -98,82 +37,6 @@ q)1 2 3 3 4 bin 2 3
 1 3
 q)1 2 3 3 4 ? 2 3
 1 2
-```
-
-
-`desc`
-------
-
-Syntax: `desc x` (unary, uniform)
-
-Returns `x` sorted into descending order. The sort is stable: it preserves order among equals. Where `x` is
-
--   a simple list the result is sorted, and the `` `s# `` attribute is set.
-```q
-q)desc 2 1 3 4 2 1 2
-4 3 2 2 2 1 1
-```
--   a mixed list, the result is sorted within datatype.
-```q
-q)desc (1;1b;"b";2009.01.01;"a";0)
-2009.01.01
-"b"
-"a"
-1
-0
-1b
-```
--   a dictionary or table, the result has the `` `s# `` attribute set on the first key value or column respectively (if possible), and is sorted by that key or column.
-```q
-q)t:([]a:3 4 1;b:`a`d`s)
-q)desc t
-a b
----
-4 d
-3 a
-1 s
-```
-
-See also: [`asc`](#asc) [`iasc`](#iasc) [`idesc`](#idesc) [`rank`](#rank)
-
-
-`differ`
---------
-
-Syntax: `differ x` (unary, uniform)
-
-Returns a boolean list indicating where consecutive pairs of items in `x` differ. 
-It applies to all data types.
-The first item of the result is always `1b`:
-
-    r[i]=1b                 for i=0
-    r[i]=not A[i]~A[i-1]    otherwise
-
-```
-q)differ`IBM`IBM`MSFT`CSCO`CSCO
-10110b
-q)differ 1 3 3 4 5 6 6
-1101110b
-```
-Split a table with multiple dates into a list of tables with distinct dates.
-```q
-q)d:2009.10.01+asc 100?30
-q)s:100?`IBM`MSFT`CSCO
-q)t:([]date:d;sym:s;price:100?100f;size:100?1000)
-q)i:where differ t[`date]    / indices where dates differ
-q)tlist:i _ t                / list of tables with one date per table
-q)tlist 0
-date       sym  price    size
------------------------------
-2009.10.01 IBM  37.95179 710
-2009.10.01 CSCO 52.908   594
-2009.10.01 MSFT 32.87258 250
-2009.10.01 CSCO 75.15704 592
-q)tlist 1
-date       sym  price   size
-----------------------------
-2009.10.02 MSFT 18.9035 26
-2009.10.02 CSCO 12.7531 760
 ```
 
 
@@ -285,44 +148,6 @@ Where is _rank_ defined?
     ```
 
 
-`iasc`
-------
-
-Syntax: `iasc x` (unary, uniform)
-
-Returns the indices needed to sort list `x` in ascending order. (See [`asc`](#asc).)
-```q
-q)L:2 1 3 4 2 1 2
-q)iasc L
-1 5 0 4 6 2 3
-q)L iasc L
-1 1 2 2 2 3 4
-q)(asc L)~L iasc L
-1b
-```
-
-See also: [`asc`](#asc) [`desc`](#desc) [`idesc`](#idesc) [`rank`](#rank)
-
-
-`idesc`
--------
-
-Syntax: `idesc x`
-
-Returns the indices needed to sort list `x` in descending order. (See [`desc`](#desc).)
-```q
-q)L:2 1 3 4 2 1 2
-q)idesc L
-3 2 0 4 6 1 5
-q)L idesc L
-4 3 2 2 2 1 1
-q)(desc L)~L idesc L
-1b
-```
-
-See also: [`asc`](#asc) [`desc`](#desc) [`iasc`](#iasc) [`rank`](#rank)
-
-
 `in`
 ----
 
@@ -360,32 +185,6 @@ q)(1 2;3 4) in ((1 2;3 4);9)  / x is an item of y
 See also: [`except`](selectionfunctions/#except) [`inter`](selectionfunctions/#inter) [`union`](selectionfunctions/#union) [`within`](#within)
 
 
-
-`rank`
-------
-
-Syntax: `rank x` (unary, uniform)
-
-For each item in `x` returns the index of where it would occur in the sorted list. 
-
-This is the same as calling `iasc` twice on the list.
-```q
-q)rank 2 7 3 2 5
-0 4 2 1 3
-q)iasc 2 7 3 2 5
-0 3 2 4 1
-q)iasc iasc 2 7 3 2 5            / same as rank
-0 4 2 1 3
-q)asc[2 7 3 2 5] rank 2 7 3 2 5  / identity
-2 7 3 2 5
-q)iasc idesc 2 7 3 2 5           / descending rank
-3 0 2 4 1
-```
-
-See also: [`asc`](#asc) [`desc`](#desc) [`iasc`](#iasc) [`idesc`](#idesc)
-
-
-
 `within`
 --------
 
@@ -418,46 +217,5 @@ q)(1 3 10 6 4;"acyxmpu") within ((2;"b");(6;"r"))
 ```
 
 See also: [`except`](selectionfunctions/#except) [`in`](#in) [`inter`](selectionfunctions/#inter) [`union`](selectionfunctions/#union) 
-
-
-`xrank`
--------
-
-Syntax: `x xrank y` (binary)
-
-Where `x` is an integer, and `y` is of sortable type, the result is a list of length `x` containing the items of `y` grouped by value. If the total number of items is evenly divisible by `x`, then each item of the result will have the same length; otherwise the first items are longer.
-
-```q
-q)4 xrank til 8          / equal size buckets
-0 0 1 1 2 2 3 3
-q)4 xrank til 9          / first bucket has extra
-0 0 0 1 1 2 2 3 3
-q)
-q)3 xrank 1 37 5 4 0 3   / outlier 37 does not get its own bucket
-0 2 2 1 0 1
-q)3 xrank 1 7 5 4 0 3    / same as above
-0 2 2 1 0 1
-```
-Example using stock data:
-```q
-q)show t:flip `val`name!((20?20);(20?(`MSFT`ORCL`CSCO)))
-val name
---------
-17  MSFT
-1   CSCO
-14  CSCO
-13  ORCL
-13  ORCL
-9   ORCL
-...
-
-q)select Min:min val,Max:max val,Count:count i by bucket:4 xrank val from t
-bucket| Min Max Count
-------| -------------
-0     | 0   7   5
-1     | 9   12  5
-2     | 13  15  5
-3     | 15  17  5
-```
 
 

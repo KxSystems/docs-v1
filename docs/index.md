@@ -45,7 +45,7 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 <tr>
     <td style="text-align: center; width: 30%">
         [<i class="fa fa-map-o fa-border fa-5x"></i><br/>
-        Whitepapers](http://kxsystems.github.io/)
+        Whitepapers](/developer/#technical-white-papers)
     </td>
     <td style="text-align: center; width: 30%">
         [<i class="fa fa-github fa-border fa-5x"></i><br/>
