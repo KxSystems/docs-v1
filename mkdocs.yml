@@ -5,6 +5,7 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript: 
   - 'https://code.jquery.com/jquery-3.1.1.min.js'
+  - 'https://use.fontawesome.com/3dbf29ed12.js'
   - scripts/fdtracker.js
   - scripts/googleanalytics.js
   - scripts/theme.js
@@ -14,6 +15,7 @@ markdown_extensions:
     - admonition
     - codehilite(guess_lang=false)
     - extra
+    - fontawesome_markdown
     - pymdownx.arithmatex
     # - pymdownx.betterem(smart_enable=all)
     # - pymdownx.caret
@@ -110,7 +112,17 @@ pages:
     #   - OneColon: language/OneColon.md
     #   - Two: language/Two.md
     #   - TwoColon: language/TwoColon.md
-    - Handling lists: language/listfunctions.md
+    - Controlling evaluation: 
+      - Control words: language/controlwords.md
+      - Handling errors: language/handlingerrors.md
+      - Iteration: language/iteration.md
+      - Parallel each: language/peach.md
+      - Parse trees: language/handlingparsetrees.md
+    - Files: language/files.md
+    - Lists: language/listfunctions.md
+    - Logic: language/logicfunctions.md
+    - Select from list: language/selectionfunctions.md
+    - Sort & search: language/sortandsearchfunctions.md
     #   - all: language/all.md
     #   - and: language/and.md
     #   - any: language/any.md
@@ -180,13 +192,6 @@ pages:
     #   - xdesc: language/xdesc.md
     #   - xgroup: language/xgroup.md
     #   - xkey: language/xkey.md
-    - Controlling evaluation: 
-      - Control words: language/controlwords.md
-      - Handling errors: language/handlingerrors.md
-      - Iteration: language/iteration.md
-      - Parallel each: language/peach.md
-      - Parse trees: language/handlingparsetrees.md
-    - Files: language/files.md
     # - Numbers and logic: 
     #   - abs: language/abs.md
     #   - acos: language/acos.md

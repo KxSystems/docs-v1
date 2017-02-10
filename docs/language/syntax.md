@@ -5,8 +5,12 @@ Syntax
 - Define the terms in which the elements of q are discussed
 - Enable the reader to parse any q expression
 
-Although this article is not a tutorial, it everywhere tries to avoid using terms not previously introduced. 
+Although this article is not a tutorial, it everywhere tries to introduce terms before using them. 
 </aside>
+
+> It is a privilege to learn a language,  
+> a journey into the immediate  
+> — _Marilyn Hacker_, “Learning Distances”
 
 
 Comments
@@ -21,8 +25,8 @@ q)2+2  / I know this one
 In a script (see below) an empty comment line begins a multi-line comment, which a `\` ends.
 ```q
 /
-    Oh what a lovely morning
-    Oh what a beautiful day
+    Oh what a beautiful morning
+    Oh what a wonderful day
 \
 ```
 
@@ -180,7 +184,8 @@ q)2+3               / infix
 5
 q)reverse 2 3       / prefix
 3 2
-q)(+/)2 3 4          / postfix
+q)total:+/          / postfix
+q)total 2 3 4
 9
 ```
 Functions are applied in prefix form. _Indexing lists_ and _applying functions to arguments_ use the same syntax, e.g.
@@ -192,6 +197,8 @@ q){x*x}[1 4 3]      / apply a function
 q){x+y}[2;3]        / multiple arguments
 5
 ```
+See also the use of `.` and `@` for [applying functions](FIXME).
+
 The number of arguments to a function is its _arity_. Functions with arity 1 or 2 are known respectively as _unary_ or _binary_.
 ```q
 q){x*x}[2 3 4]      / unary
@@ -246,30 +253,7 @@ q)ovr[+;2 3 4]
 9
 q)ovr[*;2 3 4]
 24
-q)(aggr;data) fby group  / infix primitive
-...
 ```
-
-
-Overloaded glyphs
------------------
-
-Certain glyphs are overloaded to denote both an operator and a unary function. By default they denote the operator, eg `2&3`. The unary function can be selected by a colon or by parentheses. 
-```q
-q)2|3       / maximum (operator, infix)
-3
-q)|[2;3]    / maximum (dyadic function, prefix)
-3
-q)|:[2 3]   / reverse (monadic)
-3 2
-q)(|)2 3    / brackets elided
-3 2
-q)(|)2 3    / reverse (monadic, elided)
-3 2
-```
-
-!!! warning "Watch out"
-    Where parentheses are used to select the unary function the argument brackets _must_ be elided; where colon is used, they _cannot_ be. 
 
 
 Q-SQL

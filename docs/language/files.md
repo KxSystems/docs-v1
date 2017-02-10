@@ -1,11 +1,19 @@
 Files
 =====
 
-Besides the functions in this section, see also the [IO primitives](FIXME). 
+See also the [IO primitives](FIXME). 
 
 
-dsave
+`csv`
 -----
+
+Syntax: `csv` (constant)
+
+A synonym for `","` for use in preparing text for CSV files, or reading them. 
+
+
+`dsave`
+-------
 
 Syntax: `x dsave y`
 
@@ -135,8 +143,8 @@ See also:
 
 
 
-get
----
+`get`
+-----
 
 Syntax: `get x`
 
@@ -165,8 +173,8 @@ q)s:get`:SNewTrade/                     / s has columns mapped on demand
 FIXME: describe other uses.
 
 
-hclose
-------
+`hclose`
+--------
 
 Syntax: `hclose x`
 
@@ -181,8 +189,8 @@ q)h"til 5"
 ```
 
 
-hcount
-------
+`hcount`
+--------
 
 Syntax: `hcount x`
 
@@ -195,8 +203,8 @@ On a compressed file returns the size of the original uncompressed file.
 
 
 
-hdel
-----
+`hdel`
+------
 
 Syntax: `hdel x`
 
@@ -209,8 +217,8 @@ q)hdel`:test.txt   / should generate an error
 ```
 
 
-hopen
------
+`hopen`
+-------
 
 Syntax: `hopen x`
 
@@ -295,8 +303,8 @@ See also:
 - [Secure connections with SSL/TLS](Cookbook/SSL "wikilink")
 
 
-hsym
-----
+`hsym`
+------
 
 Syntax: `hsym x`
 
@@ -309,8 +317,8 @@ q)hsym`10.43.23.197
 ```
 
 
-load
-----
+`load`
+------
 
 Syntax: `load x`
 
@@ -358,8 +366,8 @@ s5| adams 30     athens
 ```
 
 
-read0
------
+`read0`
+-------
 
 Syntax: `read0 x`
 
@@ -405,8 +413,8 @@ q)read0(h;8)
 ```
 
 
-read1
------
+`read1`
+-------
 
 Syntax: `read1 x`
 
@@ -433,8 +441,8 @@ q)"c"$read1(h;8)
 ```
 
 
-rload
------
+`rload`
+-------
 
 Syntax: `rload x`
 
@@ -461,8 +469,8 @@ q)sp:get `:sp/        / equivalent to rload `sp
 ```
 
 
-rsave
------
+`rsave`
+-------
 
 Syntax: `rsave x`
 
@@ -482,8 +490,8 @@ q)`:sp/ set sp        / equivalent to rsave `sp
 ```
 
 
-save
-----
+`save`
+------
 
 Syntax: `save x`
 
@@ -564,8 +572,8 @@ q)save `$"/tmp/t"
     q)`:t.xls 0:.h.tx[`xls;t] / save in xls format
     ```
 
-set
----
+`set`
+-----
 
 Syntax: `x set y`
 

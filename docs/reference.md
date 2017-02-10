@@ -11,7 +11,7 @@ So, for example, the single article on `@` divides into articles on _index_, _am
 Some of the remarks drafted below are attempts to establish a consistent terminology and will migrate to the linked articles. 
 </aside>
 
-Q is a bigger language than it looks: many glyphs play different roles, according to context. Here is a complete guide. 
+Q is bigger than it looks: tokens play different roles, according to context. Here is a complete guide. 
 
 
 Reserved words
@@ -42,82 +42,48 @@ Reserved words
 <tr><td>X</td><td>[`xasc`](http://code.kx.com/wiki/Reference/xasc "table sorted ascending by columns"), [`xbar`](http://code.kx.com/wiki/Reference/xbar "interval bar"), [`xcol`](http://code.kx.com/wiki/Reference/xcol "rename table columns"), [`xcols`](http://code.kx.com/wiki/Reference/xcols "re-order table columns"), [`xdesc`](http://code.kx.com/wiki/Reference/xdesc "table sorted decending by columns"), [`xexp`](http://code.kx.com/wiki/Reference/xexp "raised to a power"), [`xgroup`](http://code.kx.com/wiki/Reference/xgroup "table grouped by keys"), [`xkey`](http://code.kx.com/wiki/Reference/xkey "set primary keys of a table"), [`xlog`](http://code.kx.com/wiki/Reference/xlog "base-x logarithm"), [`xprev`](http://code.kx.com/wiki/Reference/xprev "previous elements"), [`xrank`](http://code.kx.com/wiki/Reference/xrank "items assigned to buckets")</td></tr>
 </table>
 
+Glyphs
+------
 
-Punctuation
------------
+### Punctuation
 
-| symbol  | use                                           |
+<div class="kx-compact" markdown="1">
+
+| glyphs  | use                                           |
 |---------|-----------------------------------------------|
 | `()`    | precedence; list definition; table definition |
 | `[]`    | expression block / arguments                  |
 | `{}`    | function definition (lambda)                  |
 | `;`     | separator                                     |
 | `` ` `` | symbol                                        |
-| `` `:`` | filepath                                      |
+| `` `:`` | filepath symbol                               |
+
+</div>
+
+### Operators
+
+<div class="kx-compact" markdown="1">
+
+| glyph | operator  | glyph | operator           | glyph | operator       | glyph | operator              |
+|-------|-----------|-------|--------------------|-------|----------------|-------|-----------------------|
+| `=`   | equal     | `<>`  | not equal          | `~`   | match          |
+| `<`   | less than | `<=`  | less than or equal | `>`   | greater than   | `>=`  | greater than or equal |
+| `+`   | plus      | `-`   | minus              | `*`   | times          | `%`   | divided by            |
+| `&`   | minimum   | `|`   | maximum            |
+| `#`   | take      | `,`   | join               | `^`   | fill; coalesce | `_`   | drop; cut             |
+| `!`   | dict; key; enum; update; delete | 
+
+</div>
 
 
+### Higher-order functions
 
-Operators
----------
+<table class="kx-compact" markdown="1">
+<tr><td>`/`</td><td>[fold](language/higher-order-functions/#fold)</td></tr>
+<tr><td>`':`</td><td>[each-parallel](language/higher-order-functions/#each-parallel), [each-prior](language/higher-order-functions/#each-prior)</td></tr>
+<tr><td>`/:`</td><td>[each-right](language/higher-order-functions/#each-right)</td></tr>
+</table>
 
-The operators tabulated below can be used in both infix and prefix forms.
-```q
-q)2|3     / maximum
-3
-q)|[2;3]  / maximum
-3
-```
-Some can also be used _encapsulated_ (parenthesised), when they represent other functions, used in prefix form.
-```q
-q)(|)2 3  / reverse
-3 2
-```
-
-| symbol | operator              | encapsulated |            |
-|--------|-----------------------|--------------|------------|
-| `=`    | equal                 | `(=)`        | enumerate  |
-| `<>`   | not equal             |              ||
-| `<`    | less than             | `(<)`        | FIXME |
-| `<=`   | less than or equal    | `(<=)`       | FIXME |
-| `>`    | greater than          | `(>)`        | FIXME |
-| `>=`   | greater than or equal | `(>=)`       | FIXME |
-| `~`    | match                 | `(~)`        | FIXME |
-| `|`    | maximum               | `(|)`        | [`reverse`](reverse)    |
-| `+`    | plus                  |              | FIXME |
-| `-`    | minus                 | `(-)`        | [`negate`](negate)     |
-| `*`    | times                 | `(*)`        | FIXME |
-| `%`    | divided by            | `(%)`        | [`reciprocal`](reciprocal) |
-| `#`    | take                  | `(#)`        | [`count`](count)      |
-| `,`    | join                  | `(,)`        | FIXME |
-| `^`    | fill; coalesce        | `(^)`        | FIXME |
-| `_`    | drop; cut             | `(_)`        | FIXME |
-| `!`    | dict; key; enum; update; delete |    | |
-
-
-Functions
----------
-
-A [function](language/functions) is used in prefix form, followed by a bracketed list of its arguments.
-```q
-q){x+y}[2;3]
-5
-```
-
-
-Higher-order functions
-----------------------
-
-The following glyphs represent _higher-order functions_, which take a function as an argument in postfix form, and return a _function_.
-```q
-q)(+/)2 3 4  / sum
-9
-```
-
-| glyph | role                                                                                               |
-|-------|----------------------------------------------------------------------------------------------------|
-| `/`   | [`over`](language/higher-order-functions/#over); converge                                          |
-| `':`  | [`peach`](language/higher-order-functions/#peach), [`prior`](language/higher-order-functions/#prior) |
-| `/:`  | [each-right](language/higher-order-functions/#each-right)                                          |
 
 !!! Note "Other uses of `/`"
 
@@ -125,22 +91,23 @@ q)(+/)2 3 4  / sum
     - in a script, followed by a newline, begins a multiline comment 
 
 
-Overloaded symbols
-------------------
+### Overloaded glyphs
 
 The following glyphs represent operators, functions or higher-order functions â€“ according to context.
 
-| symbol | infix                                | prefix                           | encapsulated | postfix               |
-|--------|--------------------------------------|----------------------------------|--------------|----------------------|
-| `&`    | [`and`](language/listfunctions/#and)          | where                            | replicate    |                      |
-| `'`    | [case](language/higher-order-functions/#case) | [signal error](language/handlingerrors/#signal) | FIXME        | [each-both](language/higher-order-functions/#each-both); [compose](language/higher-order-functions/#compose)   |
-| `@`    | index                                | amend                            | FIXME        | apply; [trap](language/handling errors/#trap)          |
-| `.`    | index                                |                                  |              | apply                |
-| `\`    | (see note below)                     |                                  |              | [`scan`](language/higher-order-functions/#scan)                 | 
-| `?`    | find; rand                           | vector conditional; exec; select | FIXME        |                      | 
-| `$`    | cast; tok; enum; pad; product        | cond                             | cast each    |                      | 
-| `\:`   | integer to byte                      |                                  | FIXME        | [each-left](language/higher-order-functions/#each-left)            | 
+<div class="kx-compact" markdown="1">
 
+| glyph | infix                                         | prefix                                          | postfix                                                 |
+|-------|-----------------------------------------------|-------------------------------------------------|---------------------------------------------------------|
+| `'`   | [case](language/higher-order-functions/#case) | [signal error](language/handlingerrors/#signal) | [each-both](language/higher-order-functions/#each-both); [compose](language/higher-order-functions/#compose)   |
+| `@`   | index                                         | amend                                           | apply; [trap](language/handling errors/#trap)           | 
+| `.`   | index                                         |                                                 | apply                                                   |
+| `\`   |                                               | (see note below)                                | [`scan`](language/higher-order-functions/#scan)         | 
+| `?`   | find; rand                                    | vector conditional; exec; select                |                                                         | 
+| `$`   | cast; tok; enum; pad; product                 | cond                                            | cast each                                               | 
+| `\:`  | integer to byte                               |                                                 | [each-left](language/higher-order-functions/#each-left) | 
+
+</div>
 
 !!! Note "Other roles of `\`"
     
@@ -150,8 +117,9 @@ The following glyphs represent operators, functions or higher-order functions â€
     - as _punctuation_ in a script, (on a line by itself) marks the end of executable program 
 
 
-Mavericks
----------
+### Mavericks
+
+<div class="kx-compact" markdown="1">
 
 | glyph  | role                                                      |
 |--------|-----------------------------------------------------------|
@@ -159,6 +127,7 @@ Mavericks
 | `::`   | null; identity                                            |
 | `csv`  | [comma as record delimiter](language/textfuncgtions/#csv) |
 
+</div>
 
 Numbers
 -------
@@ -172,6 +141,69 @@ Numbers
 <tr><td>[`n`, `-n`](http://code.kx.com/wiki/Reference/Number)</td><td>[send to handle](http://code.kx.com/wiki/Reference/Number)</td></tr>
 </table>
 
+
+Namespaces
+----------
+
+!!! warning "Watch out"
+    _All_ single-letter namespaces (upper- and lower-case) are reserved for Kx use and should not be used to contain user-written code or data.
+
+For functions in the `.h` and `.Q` namespaces see the [.h unreference](http://code.kx.com/wiki/Doth) and [.Q unreference](http://code.kx.com/wiki/DotQ)
+
+### .z
+
+<table markdown="1" class="kx-compact">
+<tr><td>[`.z.a`](http://code.kx.com/wiki/Reference/dotzdota)</td><td>[address](http://code.kx.com/wiki/Reference/dotzdota)</td><td>[`.z.ac`](http://code.kx.com/wiki/Reference/dotzdotac)</td><td>[auth from cookie](http://code.kx.com/wiki/Reference/dotzdotac)</td></tr>
+<tr><td>[`.z.b`](http://code.kx.com/wiki/Reference/dotzdotb)</td><td>[dependencies](http://code.kx.com/wiki/Reference/dotzdotb)</td><td>[`.z.bm`](http://code.kx.com/wiki/Releases/ChangesIn2.7#IPCMessageValidator)</td><td>[bad message](http://code.kx.com/wiki/Releases/ChangesIn2.7#IPCMessageValidator)</td></tr>
+<tr><td>`.z.c`</td><td>physical core count</td><td>[`.z.e`](http://code.kx.com/wiki/Reference/dotzdote)</td><td>[TLS connection status](http://code.kx.com/wiki/Reference/dotzdote)</td></tr>
+<tr><td>[`.z.exit`](http://code.kx.com/wiki/Reference/dotzdotexit)</td><td>[action on exit](http://code.kx.com/wiki/Reference/dotzdotexit)</td><td>[`.z.f`](http://code.kx.com/wiki/Reference/dotzdotf)</td><td>[file](http://code.kx.com/wiki/Reference/dotzdotf)</td></tr>
+<tr><td>[`.z.h`](http://code.kx.com/wiki/Reference/dotzdoth)</td><td>[host](http://code.kx.com/wiki/Reference/dotzdoth)</td><td>[`.z.i`](http://code.kx.com/wiki/Reference/dotzdoti)</td><td>[PID](http://code.kx.com/wiki/Reference/dotzdoti)</td></tr>
+<tr><td>[`.z.k`](http://code.kx.com/wiki/Reference/dotzdotk)</td><td>[release date](http://code.kx.com/wiki/Reference/dotzdotk)</td><td>[`.z.K`](http://code.kx.com/wiki/Reference/dotzdotK)</td><td>[version](http://code.kx.com/wiki/Reference/dotzdotK)</td></tr>
+<tr><td>[`.z.l`](http://code.kx.com/wiki/Reference/dotzdotl)</td><td>[license](http://code.kx.com/wiki/Reference/dotzdotl)</td><td>[`.z.n`](http://code.kx.com/wiki/Reference/dotzdotn)</td><td>[GMT (timespan)](http://code.kx.com/wiki/Reference/dotzdotn)</td></tr>
+<tr><td>[`.z.N`](http://code.kx.com/wiki/Reference/dotzdotN)</td><td>[local (timespan)](http://code.kx.com/wiki/Reference/dotzdotN)</td><td>[`.z.o`](http://code.kx.com/wiki/Reference/dotzdoto)</td><td>[OS](http://code.kx.com/wiki/Reference/dotzdoto)</td></tr>
+<tr><td>[`.z.p`](http://code.kx.com/wiki/Reference/dotzdotp)</td><td>[GMT (timestamp)](http://code.kx.com/wiki/Reference/dotzdotp)</td><td>[`.z.P`](http://code.kx.com/wiki/Reference/dotzdotP)</td><td>[local (timestamp)](http://code.kx.com/wiki/Reference/dotzdotP)</td></tr>
+<tr><td>[`.z.pc`](http://code.kx.com/wiki/Reference/dotzdotpc)</td><td>[close](http://code.kx.com/wiki/Reference/dotzdotpc)</td><td>[`.z.pg`](http://code.kx.com/wiki/Reference/dotzdotpg)</td><td>[get](http://code.kx.com/wiki/Reference/dotzdotpg)</td></tr>
+<tr><td>[`.z.pd`](http://code.kx.com/wiki/Reference/dotzdotpd)</td><td>[`peach` handles](http://code.kx.com/wiki/Reference/dotzdotpd)</td><td>[`.z.ph`](http://code.kx.com/wiki/Reference/dotzdotph)</td><td>[HTTP get](http://code.kx.com/wiki/Reference/dotzdotph)</td></tr>
+<tr><td>[`.z.pi`](http://code.kx.com/wiki/Reference/dotzdotpi)</td><td>[input](http://code.kx.com/wiki/Reference/dotzdotpi)</td><td>[`.z.pm`](http://code.kx.com/wiki/Reference/dotzdotpm)</td><td>[HTTP OPTIONS method](http://code.kx.com/wiki/Reference/dotzdotpm)</td></tr>
+<tr><td>[`.z.po`](http://code.kx.com/wiki/Reference/dotzdotpo)</td><td>[open](http://code.kx.com/wiki/Reference/dotzdotpo)</td><td>[`.z.pp`](http://code.kx.com/wiki/Reference/dotzdotpp)</td><td>[HTTP post](http://code.kx.com/wiki/Reference/dotzdotpp)</td></tr>
+<tr><td>[`.z.ps`](http://code.kx.com/wiki/Reference/dotzdotps)</td><td>[set](http://code.kx.com/wiki/Reference/dotzdotps)</td><td>[`.z.pw`](http://code.kx.com/wiki/Reference/dotzdotpw)</td><td>[validate user](http://code.kx.com/wiki/Reference/dotzdotpw)</td></tr>
+<tr><td>`.z.q`</td><td>quiet mode</td><td>[`.z.s`](http://code.kx.com/wiki/Reference/dotzdots)</td><td>[self](http://code.kx.com/wiki/Reference/dotzdots)</td></tr>
+<tr><td>[`.z.ts`](http://code.kx.com/wiki/Reference/dotzdotts)</td><td>[timer](http://code.kx.com/wiki/Reference/dotzdotts)</td><td>[`.z.u`](http://code.kx.com/wiki/Reference/dotzdotu)</td><td>[userid](http://code.kx.com/wiki/Reference/dotzdotu)</td></tr>
+<tr><td>[`.z.vs`](http://code.kx.com/wiki/Reference/dotzdotvs)</td><td>[value set](http://code.kx.com/wiki/Reference/dotzdotvs)</td><td>[`.z.w`](http://code.kx.com/wiki/Reference/dotzdotw)</td><td>[handle](http://code.kx.com/wiki/Reference/dotzdotw)</td></tr>
+<tr><td>[`.z.wc`](http://code.kx.com/wiki/Reference/dotzdotwc)</td><td>[WebSocket close](http://code.kx.com/wiki/Reference/dotzdotwc)</td><td>[`.z.wo`](http://code.kx.com/wiki/Reference/dotzdotwo)</td><td>[WebSocket open](http://code.kx.com/wiki/Reference/dotzdotwo)</td></tr>
+<tr><td>[`.z.W`](http://code.kx.com/wiki/Reference/dotzdotW)</td><td>[handles](http://code.kx.com/wiki/Reference/dotzdotW)</td><td>[`.z.ws`](http://code.kx.com/wiki/Reference/dotzdotws)</td><td>[WebSockets](http://code.kx.com/wiki/Reference/dotzdotws)</td></tr>
+<tr><td>[`.z.x`](http://code.kx.com/wiki/Reference/dotzdotx)</td><td>[argv](http://code.kx.com/wiki/Reference/dotzdotx)</td><td>[`.z.X`](http://code.kx.com/wiki/Reference/dotzdotX)</td><td>[raw command line](http://code.kx.com/wiki/Reference/dotzdotX)</td></tr>
+<tr><td>[`.z.z`](http://code.kx.com/wiki/Reference/dotzdotz)</td><td>[GMT time (datetime)](http://code.kx.com/wiki/Reference/dotzdotz)</td><td>[`.z.Z`](http://code.kx.com/wiki/Reference/dotzdotZ)</td><td>[local time (datetime)](http://code.kx.com/wiki/Reference/dotzdotZ)</td></tr>
+<tr><td>[`.z.[tTdD]`](http://code.kx.com/wiki/Releases/ChangesIn2.4#a.z.t.z.d)</td><td>[time/date shortcuts](http://code.kx.com/wiki/Releases/ChangesIn2.4#a.z.t.z.d)</td><td>[`.z.zd`](http://code.kx.com/wiki/Reference/dotzdotzd)</td><td>[ZIP defaults](http://code.kx.com/wiki/Reference/dotzdotzd)</td></tr>
+</table>
+
+
+Command-line options and system commands
+----------------------------------------
+
+See summaries of [command-line options](http://code.kx.com/wiki/Reference/Cmdline) and [system commands](http://code.kx.com/wiki/Reference/SystemCommands).
+
+<table markdown="1" class="kx-compact">
+<tr><td>[`\a`](http://code.kx.com/wiki/Reference/Sysa)</td><td>[tables](http://code.kx.com/wiki/Reference/Sysa)</td><td>[`-b`](http://code.kx.com/wiki/Reference/Cmdlineb)</td><td>[block client write access](http://code.kx.com/wiki/Reference/Cmdlineb)</td></tr>
+<tr><td>[`\b`](http://code.kx.com/wiki/Reference/Sysb)</td><td>[views](http://code.kx.com/wiki/Reference/Sysb)</td><td>`\B`</td><td>pending views</td></tr>
+<tr><td>[`-c`, `\c`](http://code.kx.com/wiki/Reference/Syscmdc)</td><td>[q console size](http://code.kx.com/wiki/Reference/Cmdlinec)</td><td>[`-C`](http://code.kx.com/wiki/Reference/CmdlineC), `\C`</td><td>[web console size](http://code.kx.com/wiki/Reference/CmdlineC)</td></tr>
+<tr><td>`\cd`</td><td>current directory</td><td>`\d`</td><td>namespace</td></tr>
+<tr><td>`\e`</td><td>error trap clients</td><td>[`-E`](http://code.kx.com/wiki/Cookbook/SSL#TLS_Server_Mode)</td><td>[TLS server mode](http://code.kx.com/wiki/Cookbook/SSL#TLS_Server_Mode)</td></tr>
+<tr><td>[`\f`](http://code.kx.com/wiki/Reference/Sysf)</td><td>[functions](http://code.kx.com/wiki/Reference/Sysf)</td><td> `-g`, `\g`</td><td>garbage collect</td></tr>
+<tr><td> `-[lL]`</td><td>log updates</td><td>[`\l`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)</td><td>[load](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)</td></tr>
+<tr><td> `-o`, `\o`</td><td>local time offset</td><td> `-p`, `\p`</td><td>port</td></tr>
+<tr><td>[`-P`](http://code.kx.com/wiki/Reference/CmdlineP), `\P`</td><td>[float precision](http://code.kx.com/wiki/Reference/CmdlineP)</td><td>[`-q`](http://code.kx.com/wiki/Reference/Cmdlineq)</td><td>[quiet](http://code.kx.com/wiki/Reference/Cmdlineq)</td></tr>
+<tr><td> `-r`</td><td>replicate from host/port</td><td>`\r`</td><td>replication master</td></tr>
+<tr><td>`\r`</td><td>rename file</td><td> `-s`</td><td>use slaves</td></tr>
+<tr><td>`\s`</td><td>number of slaves</td><td> `-S`, `\S`</td><td>prng seed</td></tr>
+<tr><td>`\t`</td><td>time expression</td><td> `-t`, `\t`</td><td>timer</td></tr>
+<tr><td> `-T`, `\T`</td><td>timeout</td><td>`\ts`</td><td>time and space of expression</td></tr>
+<tr><td> `-u 1`</td><td>disable system exits</td><td>`\u`</td><td>reload password file</td></tr>
+<tr><td> `-[uU]`</td><td>usr:pwd file</td><td>[`\v`](http://code.kx.com/wiki/Reference/Sysv)</td><td>[variables](http://code.kx.com/wiki/Reference/Sysv)</td></tr>
+<tr><td>[`-w`, `\w`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cw_.5B0.5D_-_workspace)</td><td>[workspace size](http://code.kx.com/wiki/Reference/SystemCommands#.5Cw_.5B0.5D_-_workspace)</td><td>`-W`, `\W`</td><td>week offset</td></tr>
+<tr><td>`\x`</td><td>expunge handler</td><td>[`-z`, `\z`](http://code.kx.com/wiki/JB:QforMortals2/commands_and_system_variables#Date_Format_.28-z.29)</td><td>[date format](http://code.kx.com/wiki/JB:QforMortals2/commands_and_system_variables#Date_Format_.28-z.29)</td></tr>
+<tr><td>`\1`, `\2`</td><td>redirect stdout/stderr</td><td>`\_`</td><td>hide q code</td></tr>
+</table>
 
 Datatypes
 ---------
@@ -214,76 +246,4 @@ Rest use type extensions, e.g. `0Nd`. No boolean or byte nulls.
 `time.(minute second mm ss)`  
 `milliseconds: time mod 1000`
 
-
-Namespaces
-----------
-
-!!! warning "Watch out"
-    _All_ single-letter namespaces (upper- and lower-case) are reserved for Kx use and should not be used to contain user-written code or data.
-
-
-### .h
-  
-for functions in the `.h` namespace see the [.h unreference](http://code.kx.com/wiki/Doth)
-
-
-### .Q 
-  
-for functions in the `.Q` namespace see the [.Q unreference](http://code.kx.com/wiki/DotQ)
-
-
-### .z
-
-<table markdown="1" class="kx-compact">
-<tr><td>[`.z.a`](http://code.kx.com/wiki/Reference/dotzdota)</td><td>[address](http://code.kx.com/wiki/Reference/dotzdota)</td><td>[`.z.ac`](http://code.kx.com/wiki/Reference/dotzdotac)</td><td>[auth from cookie](http://code.kx.com/wiki/Reference/dotzdotac)</td></tr>
-<tr><td>[`.z.b`](http://code.kx.com/wiki/Reference/dotzdotb)</td><td>[dependencies](http://code.kx.com/wiki/Reference/dotzdotb)</td><td>[`.z.bm`](http://code.kx.com/wiki/Releases/ChangesIn2.7#IPCMessageValidator)</td><td>[bad message](http://code.kx.com/wiki/Releases/ChangesIn2.7#IPCMessageValidator)</td></tr>
-<tr><td>`.z.c`</td><td>physical core count</td><td>[`.z.e`](http://code.kx.com/wiki/Reference/dotzdote)</td><td>[TLS connection status](http://code.kx.com/wiki/Reference/dotzdote)</td></tr>
-<tr><td>[`.z.exit`](http://code.kx.com/wiki/Reference/dotzdotexit)</td><td>[action on exit](http://code.kx.com/wiki/Reference/dotzdotexit)</td><td>[`.z.f`](http://code.kx.com/wiki/Reference/dotzdotf)</td><td>[file](http://code.kx.com/wiki/Reference/dotzdotf)</td></tr>
-<tr><td>[`.z.h`](http://code.kx.com/wiki/Reference/dotzdoth)</td><td>[host](http://code.kx.com/wiki/Reference/dotzdoth)</td><td>[`.z.i`](http://code.kx.com/wiki/Reference/dotzdoti)</td><td>[PID](http://code.kx.com/wiki/Reference/dotzdoti)</td></tr>
-<tr><td>[`.z.k`](http://code.kx.com/wiki/Reference/dotzdotk)</td><td>[release date](http://code.kx.com/wiki/Reference/dotzdotk)</td><td>[`.z.K`](http://code.kx.com/wiki/Reference/dotzdotK)</td><td>[version](http://code.kx.com/wiki/Reference/dotzdotK)</td></tr>
-<tr><td>[`.z.l`](http://code.kx.com/wiki/Reference/dotzdotl)</td><td>[license](http://code.kx.com/wiki/Reference/dotzdotl)</td><td>[`.z.n`](http://code.kx.com/wiki/Reference/dotzdotn)</td><td>[GMT (timespan)](http://code.kx.com/wiki/Reference/dotzdotn)</td></tr>
-<tr><td>[`.z.N`](http://code.kx.com/wiki/Reference/dotzdotN)</td><td>[local (timespan)](http://code.kx.com/wiki/Reference/dotzdotN)</td><td>[`.z.o`](http://code.kx.com/wiki/Reference/dotzdoto)</td><td>[OS](http://code.kx.com/wiki/Reference/dotzdoto)</td></tr>
-<tr><td>[`.z.p`](http://code.kx.com/wiki/Reference/dotzdotp)</td><td>[GMT (timestamp)](http://code.kx.com/wiki/Reference/dotzdotp)</td><td>[`.z.P`](http://code.kx.com/wiki/Reference/dotzdotP)</td><td>[local (timestamp)](http://code.kx.com/wiki/Reference/dotzdotP)</td></tr>
-<tr><td>[`.z.pc`](http://code.kx.com/wiki/Reference/dotzdotpc)</td><td>[close](http://code.kx.com/wiki/Reference/dotzdotpc)</td><td>[`.z.pg`](http://code.kx.com/wiki/Reference/dotzdotpg)</td><td>[get](http://code.kx.com/wiki/Reference/dotzdotpg)</td></tr>
-<tr><td>[`.z.pd`](http://code.kx.com/wiki/Reference/dotzdotpd)</td><td>[`peach` handles](http://code.kx.com/wiki/Reference/dotzdotpd)</td><td>[`.z.ph`](http://code.kx.com/wiki/Reference/dotzdotph)</td><td>[HTTP get](http://code.kx.com/wiki/Reference/dotzdotph)</td></tr>
-<tr><td>[`.z.pi`](http://code.kx.com/wiki/Reference/dotzdotpi)</td><td>[input](http://code.kx.com/wiki/Reference/dotzdotpi)</td><td>[`.z.pm`](http://code.kx.com/wiki/Reference/dotzdotpm)</td><td>[HTTP OPTIONS method](http://code.kx.com/wiki/Reference/dotzdotpm)</td></tr>
-<tr><td>[`.z.po`](http://code.kx.com/wiki/Reference/dotzdotpo)</td><td>[open](http://code.kx.com/wiki/Reference/dotzdotpo)</td><td>[`.z.pp`](http://code.kx.com/wiki/Reference/dotzdotpp)</td><td>[HTTP post](http://code.kx.com/wiki/Reference/dotzdotpp)</td></tr>
-<tr><td>[`.z.ps`](http://code.kx.com/wiki/Reference/dotzdotps)</td><td>[set](http://code.kx.com/wiki/Reference/dotzdotps)</td><td>[`.z.pw`](http://code.kx.com/wiki/Reference/dotzdotpw)</td><td>[validate user](http://code.kx.com/wiki/Reference/dotzdotpw)</td></tr>
-<tr><td>`.z.q`</td><td>quiet mode</td><td>[`.z.s`](http://code.kx.com/wiki/Reference/dotzdots)</td><td>[self](http://code.kx.com/wiki/Reference/dotzdots)</td></tr>
-<tr><td>[`.z.ts`](http://code.kx.com/wiki/Reference/dotzdotts)</td><td>[timer](http://code.kx.com/wiki/Reference/dotzdotts)</td><td>[`.z.u`](http://code.kx.com/wiki/Reference/dotzdotu)</td><td>[userid](http://code.kx.com/wiki/Reference/dotzdotu)</td></tr>
-<tr><td>[`.z.vs`](http://code.kx.com/wiki/Reference/dotzdotvs)</td><td>[value set](http://code.kx.com/wiki/Reference/dotzdotvs)</td><td>[`.z.w`](http://code.kx.com/wiki/Reference/dotzdotw)</td><td>[handle](http://code.kx.com/wiki/Reference/dotzdotw)</td></tr>
-<tr><td>[`.z.wc`](http://code.kx.com/wiki/Reference/dotzdotwc)</td><td>[WebSocket close](http://code.kx.com/wiki/Reference/dotzdotwc)</td><td>[`.z.wo`](http://code.kx.com/wiki/Reference/dotzdotwo)</td><td>[WebSocket open](http://code.kx.com/wiki/Reference/dotzdotwo)</td></tr>
-<tr><td>[`.z.W`](http://code.kx.com/wiki/Reference/dotzdotW)</td><td>[handles](http://code.kx.com/wiki/Reference/dotzdotW)</td><td>[`.z.ws`](http://code.kx.com/wiki/Reference/dotzdotws)</td><td>[WebSockets](http://code.kx.com/wiki/Reference/dotzdotws)</td></tr>
-<tr><td>[`.z.x`](http://code.kx.com/wiki/Reference/dotzdotx)</td><td>[argv](http://code.kx.com/wiki/Reference/dotzdotx)</td><td>[`.z.X`](http://code.kx.com/wiki/Reference/dotzdotX)</td><td>[raw command line](http://code.kx.com/wiki/Reference/dotzdotX)</td></tr>
-<tr><td>[`.z.z`](http://code.kx.com/wiki/Reference/dotzdotz)</td><td>[GMT time (datetime)](http://code.kx.com/wiki/Reference/dotzdotz)</td><td>[`.z.Z`](http://code.kx.com/wiki/Reference/dotzdotZ)</td><td>[local time (datetime)](http://code.kx.com/wiki/Reference/dotzdotZ)</td></tr>
-<tr><td>[`.z.[tTdD]`](http://code.kx.com/wiki/Releases/ChangesIn2.4#a.z.t.z.d)</td><td>[time/date shortcuts](http://code.kx.com/wiki/Releases/ChangesIn2.4#a.z.t.z.d)</td><td>[`.z.zd`](http://code.kx.com/wiki/Reference/dotzdotzd)</td><td>[ZIP defaults](http://code.kx.com/wiki/Reference/dotzdotzd)</td></tr>
-</table>
-
-
-Command-line options and system commands
-----------------------------------------
-
-Summaries of [command-line options](http://code.kx.com/wiki/Reference/Cmdline) and [system commands](http://code.kx.com/wiki/Reference/SystemCommands)
-
-<table markdown="1" class="kx-compact">
-<tr><td>[`\a`](http://code.kx.com/wiki/Reference/Sysa)</td><td>[tables](http://code.kx.com/wiki/Reference/Sysa)</td><td>[`-b`](http://code.kx.com/wiki/Reference/Cmdlineb)</td><td>[block client write access](http://code.kx.com/wiki/Reference/Cmdlineb)</td></tr>
-<tr><td>[`\b`](http://code.kx.com/wiki/Reference/Sysb)</td><td>[views](http://code.kx.com/wiki/Reference/Sysb)</td><td>`\B`</td><td>pending views</td></tr>
-<tr><td>[`-c`, `\c`](http://code.kx.com/wiki/Reference/Syscmdc)</td><td>[q console size](http://code.kx.com/wiki/Reference/Cmdlinec)</td><td>[`-C`](http://code.kx.com/wiki/Reference/CmdlineC), `\C`</td><td>[web console size](http://code.kx.com/wiki/Reference/CmdlineC)</td></tr>
-<tr><td>`\cd`</td><td>current directory</td><td>`\d`</td><td>namespace</td></tr>
-<tr><td>`\e`</td><td>error trap clients</td><td>[`-E`](http://code.kx.com/wiki/Cookbook/SSL#TLS_Server_Mode)</td><td>[TLS server mode](http://code.kx.com/wiki/Cookbook/SSL#TLS_Server_Mode)</td></tr>
-<tr><td>[`\f`](http://code.kx.com/wiki/Reference/Sysf)</td><td>[functions](http://code.kx.com/wiki/Reference/Sysf)</td><td> `-g`, `\g`</td><td>garbage collect</td></tr>
-<tr><td> `-[lL]`</td><td>log updates</td><td>[`\l`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)</td><td>[load](http://code.kx.com/wiki/Reference/SystemCommands#.5Cl_name_-_load_file_or_directory)</td></tr>
-<tr><td> `-o`, `\o`</td><td>local time offset</td><td> `-p`, `\p`</td><td>port</td></tr>
-<tr><td>[`-P`](http://code.kx.com/wiki/Reference/CmdlineP), `\P`</td><td>[float precision](http://code.kx.com/wiki/Reference/CmdlineP)</td><td>[`-q`](http://code.kx.com/wiki/Reference/Cmdlineq)</td><td>[quiet](http://code.kx.com/wiki/Reference/Cmdlineq)</td></tr>
-<tr><td> `-r`</td><td>replicate from host/port</td><td>`\r`</td><td>replication master</td></tr>
-<tr><td>`\r`</td><td>rename file</td><td> `-s`</td><td>use slaves</td></tr>
-<tr><td>`\s`</td><td>number of slaves</td><td> `-S`, `\S`</td><td>prng seed</td></tr>
-<tr><td>`\t`</td><td>time expression</td><td> `-t`, `\t`</td><td>timer</td></tr>
-<tr><td> `-T`, `\T`</td><td>timeout</td><td>`\ts`</td><td>time and space of expression</td></tr>
-<tr><td> `-u 1`</td><td>disable system exits</td><td>`\u`</td><td>reload password file</td></tr>
-<tr><td> `-[uU]`</td><td>usr:pwd file</td><td>[`\v`](http://code.kx.com/wiki/Reference/Sysv)</td><td>[variables](http://code.kx.com/wiki/Reference/Sysv)</td></tr>
-<tr><td>[`-w`, `\w`](http://code.kx.com/wiki/Reference/SystemCommands#.5Cw_.5B0.5D_-_workspace)</td><td>[workspace size](http://code.kx.com/wiki/Reference/SystemCommands#.5Cw_.5B0.5D_-_workspace)</td><td>`-W`, `\W`</td><td>week offset</td></tr>
-<tr><td>`\x`</td><td>expunge handler</td><td>[`-z`, `\z`](http://code.kx.com/wiki/JB:QforMortals2/commands_and_system_variables#Date_Format_.28-z.29)</td><td>[date format](http://code.kx.com/wiki/JB:QforMortals2/commands_and_system_variables#Date_Format_.28-z.29)</td></tr>
-<tr><td>`\1`, `\2`</td><td>redirect stdout/stderr</td><td>`\_`</td><td>hide q code</td></tr>
-</table>
 

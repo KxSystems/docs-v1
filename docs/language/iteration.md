@@ -78,6 +78,8 @@ Syntax: `f':`  (unary, postfix)
 
 Where `f` is a binary function, returns a unary function that applies `f` between each item of `x` and its predecessor.
 
+<div class="kx-compact" markdown="1">
+
 | form       | example                         |
 |------------|---------------------------------|
 | `f':[y]`   | `-':[   1 4 9 16]`              |
@@ -85,6 +87,8 @@ Where `f` is a binary function, returns a unary function that applies `f` betwee
 | `x f': y`  | `9-':   1 4 9 16`               |
 | `f':[x;y]` | `-':[9; 1 4 9 16]`              |
 | `f':[x;]y` | `-':[9;]1 4 9 16   /projection` |
+
+</div>
 
 ```q
 q)"abc",':"xyz"
