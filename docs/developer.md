@@ -1,4 +1,4 @@
-## Basics
+## <i class="fa fa-mortar-board"></i> Basics
 
 * [Interactive help](http://code.kx.com/wiki/Cookbook/GettingStarted)
 * [Frequently-asked questions](http://code.kx.com/wiki/FAQ) from the listbox
@@ -16,9 +16,7 @@
 * [Using disk logging](http://code.kx.com/wiki/Cookbook/Logging)
 
 
-## Technical white papers
-
-These originally appeared as the _q for Gods_ series of white papers from [First Derivatives](http://firstderivatives.com).
+## <i class="fa fa-map-o"></i> Technical white papers
 
 * [Efficient use of **adverbs**](wp/efficient_use_of_adverbs.pdf)
 * [Kdb+ in **astronomy**](wp/kdb_in_astronomy.pdf)
@@ -50,10 +48,12 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 * [**Transaction-cost** analysis using kdb+](wp/transaction_cost_analysis_using_kdb.pdf)
 * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
 
+These whitepapers originally appeared as the _q for Gods_ series of white papers from [First Derivatives](http://firstderivatives.com).
 
 
 
-## Big Data
+
+## <i class="fa fa-database"></i> Big Data
 
 * [Changing the scheme of a splayed table](http://code.kx.com/wiki/Cookbook/SplayedSchemaChange)
 * [Database partitioning with par.txt](http://code.kx.com/wiki/Reference/pardottxt)
@@ -65,7 +65,7 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 * [Temporal data](http://code.kx.com/wiki/Cookbook/TemporalData)
 
 
-## Tick
+## <i class="fa fa-sitemap"></i> Tick
 
 * [Basic example of kdb+tick](http://code.kx.com/wiki/Startingkdbplus/tick)
 * [Publish and subscribe](http://code.kx.com/wiki/Cookbook/publishsubscribe)
@@ -76,14 +76,14 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 * [Utility scripts and example schemas (some examples may need to change time types to timespan)](http://code.kx.com/wsvn/code/kx/kdb%2B/tick/)
 
 
-## How-tos
+## <i class="fa fa-map-o"></i> How-tos
 
 * [Callbacks in q](http://code.kx.com/wiki/Cookbook/Callbacks)
 * [Float precision and equality](http://code.kx.com/wiki/Cookbook/FloatPrecision)
 * [Linking columns](http://code.kx.com/wiki/Cookbook/LinkingColumns)
 
 
-## Foreign interfaces
+## <i class="fa fa-language"></i> Foreign interfaces
 
 * [Managed ADO.Net provider for kdb+](http://kpnet.codeplex.com/)
 * [Interfacing with C](http://code.kx.com/wiki/Cookbook/InterfacingWithC)
@@ -114,7 +114,7 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 * [Interfacing with Scala](http://code.kx.com/wiki/Cookbook/InterfacingWithScala)
 
 
-### Interprocess communication (IPC)
+### <i class="fa fa-exchange"></i> Interprocess communication (IPC)
 
 * [Starting kdb+: IPC](http://code.kx.com/wiki/Startingkdbplus/ipc)
 * [IPC in a nutshell](http://code.kx.com/wiki/Cookbook/IPCInANutshell)
@@ -127,7 +127,11 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 * [Using Modified `.z` functions to trace, monitor and control execution](http://code.kx.com/wiki/Contrib/UsingDotz)
 
 
-### Exxeleron repositories on GitHub
+## <i class="fa fa-github"></i> GitHub 
+
+See the [kdb+ GitHub repository index](https://kxsystems.github.io/).
+
+### Exxeleron repositories 
 
 * [enterprise-components](https://github.com/exxeleron/enterprise-components) Enterprise Components
 * [qErlang](https://github.com/exxeleron/qErlang/) Erlang interface
@@ -137,12 +141,8 @@ These originally appeared as the _q for Gods_ series of white papers from [First
 * [qXL](https://github.com/exxeleron/qXL) Excel Interface
 
 
-## GitHub repositories
 
-See the [kdb+ GitHub repository index](https://kxsystems.github.io/).
-
-
-## Utilities
+## <i class="fa fa-wrench"></i> Utilities
 
 * [Babel for kdb+](http://github.com/CharlesSkelton/babel)
 * [`cmd.exe` replacement for Windows users](http://code.kx.com/wiki/Cookbook/cmdAlternative)
@@ -154,7 +154,7 @@ See the [kdb+ GitHub repository index](https://kxsystems.github.io/).
 * [User-contributed code](http://code.kx.com/wiki/Contrib)
 
 
-## Miscellaneous
+## <i class="fa fa-map-o"></i> Miscellaneous
 
 * [Authentication and access control](http://code.kx.com/wiki/Cookbook/AuthenticationAndAccessControl)
 * [Bloomberg feed handler](http://code.kx.com/wiki/Cookbook/BloombergFeedHandler)
@@ -174,12 +174,7 @@ See the [kdb+ GitHub repository index](https://kxsystems.github.io/).
 * [Unicode](http://code.kx.com/wiki/Cookbook/Unicode)
 
 
-## Release notes / change list
-
-* Full change list at [downloads.kx.com](http://downloads.kx.com)
-
-
-## Versions &ndash; new features
+## <i class="fa fa-calendar"></i> Versions – new features
 
 * [v3.4](http://code.kx.com/wiki/Releases/ChangesIn3.4)
 * [v3.3](http://code.kx.com/wiki/Releases/ChangesIn3.3)
@@ -191,3 +186,5 @@ See the [kdb+ GitHub repository index](https://kxsystems.github.io/).
 * [v2.6](http://code.kx.com/wiki/Releases/ChangesIn2.6)
 * [v2.5](http://code.kx.com/wiki/Releases/ChangesIn2.5)
 * [v2.4](http://code.kx.com/wiki/Releases/ChangesIn2.4)
+
+Full change list at [downloads.kx.com](http://downloads.kx.com)

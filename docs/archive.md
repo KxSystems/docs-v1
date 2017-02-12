@@ -1,4 +1,4 @@
-## Articles
+## <i class="fa fa-book"></i> Articles
 
 * [A conversation with Arthur Whitney](http://mags.acm.org/queue/20090203?pg=12) 2009
 * [An interview with Arthur Whitney](http://kx.com/media-coverage-arthur-2004.php) 2004
@@ -15,7 +15,7 @@
 * [Vector processing languages: the future of Big Data analytics and real-time business intelligence](http://conceptualorigami.blogspot.com/2010/12/vector-processing-languages-future-of.html) Conceptual Origami
 
 
-### Financial Math in Q
+### <i class="fa fa-bank"></i> Financial Math in Q
 
 A series by Jan Karman in [_Vector_](https://www.vector.org.uk) (mostly k3 with some k4):
 
@@ -24,7 +24,7 @@ A series by Jan Karman in [_Vector_](https://www.vector.org.uk) (mostly k3 with 
 3. [The annuity](http://archive.vector.org.uk/art10500660) _Vector_ 25\#1
 
 
-## Older documents
+## <i class="fa fa-book"></i> Older documents
 
 * [Abridged q language manual](http://www.kx.com/q/d/q.htm), Arthur Whitney, 2009
 * [Abridged kdb+ database manual](http://www.kx.com/q/d/kdb+.htm), Arthur Whitney, 2006
@@ -37,7 +37,7 @@ A series by Jan Karman in [_Vector_](https://www.vector.org.uk) (mostly k3 with 
 
 
 
-## Websites
+## <i class="fa fa-laptop"></i> Websites
 
 * [Dennis Shasha&rsquo;s research summary](http://cs.nyu.edu/shasha/papers)
 * [Gordon Baker&rsquo;s professional website](http://www.gbkr.com)
@@ -46,7 +46,7 @@ A series by Jan Karman in [_Vector_](https://www.vector.org.uk) (mostly k3 with 
 * [no stinking loops](http://www.nsl.com) Stevan Apter
 
 
-## Blogs
+## <i class="fa fa-tablet"></i> Blogs
 
 * [A Programming Language](http://www.aprogramminglanguage.com/) Catherine Lathwell
 * [me, q and kdb+](http://lifeisalist.wordpress.com) Anne

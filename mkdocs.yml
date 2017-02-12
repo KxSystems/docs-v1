@@ -9,8 +9,7 @@ extra_javascript:
   - scripts/fdtracker.js
   - scripts/googleanalytics.js
   - scripts/theme.js
-  # - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'
-# google_analytics: ['UA-3462586-4','kx.com', 'code.kx.com']
+  - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'
 markdown_extensions:
     - admonition
     - codehilite(guess_lang=false)
@@ -70,7 +69,7 @@ pages:
       - Changes in 2.6: language/releases/ChangesIn2.6.md
       - Changes in 2.5: language/releases/ChangesIn2.5.md
       - Changes in 2.4: language/releases/ChangesIn2.4.md
-  - Functions by use:
+  - Toolbox:
       # - ampersand: language/Ampersand.md
       # - apostrophe: language/Apostrophe.md
       # - apostrophecolon: language/ApostropheColon.md
@@ -125,12 +124,22 @@ pages:
     - Lists: language/listfunctions.md
     # - Numbers:
     - Logic: language/logicfunctions.md
+    - Matrixes: language/matrixes.md
+        #   - inv: language/inv.md
+        #   - mmu: language/mmu.md
     - Selection: language/selectionfunctions.md
     - Search: language/searchfunctions.md
     - Sort: language/sortfunctions.md
+    # - Statistics: language/statistics.md
+    - Statistics: 
+      - Aggregates: language/stats-aggregates.md
+      - Moving: language/stats-moving.md
+    - System commands: language/SystemCommands.md
     - Text: language/textfunctions.md
+    - Trigonometry: language/trigonometry.md
     # - Dictionaries and tables:
         # - Joins:
+        #   - Joins: language/joins.md
         #   - aj: language/aj.md
         #   - asof: language/asof.md
         #   - coalesce: http://code.kx.com/wiki/JB:QforMortals2/tables#Coalesce_.28.5E.29
@@ -170,55 +179,8 @@ pages:
         #   - xgroup: language/xgroup.md
         #   - xkey: language/xkey.md
     # - Numbers: 
-        # - Arithmetic – real: 
-        #   - div: language/div.md
-        #   - exp: language/exp.md
-        #   - log: language/log.md
-        #   - prd: language/prd.md
-        #   - prds: language/prds.md
-        #   - ratios: language/ratios.md
-        #   - reciprocal: language/reciprocal.md
-        #   - sqrt: language/sqrt.md
-        #   - xexp: language/xexp.md
-        #   - xlog: language/xlog.md
         # - Other 
-        #   - inv: language/inv.md
-        #   - mmu: language/mmu.md
         #   - rand: language/rand.md
-        #   - til: language/til.md
-        # - Statistics: 
-        #   - avg: language/avg.md
-        #   - avgs: language/avgs.md
-        #   - cor: language/cor.md
-        #   - cov: language/cov.md
-        #   - dev: language/dev.md
-        #   - ema: language/ema.md
-        #   - lsq: language/lsq.md
-        #   - mavg: language/mavg.md
-        #   - max: language/max.md
-        #   - maxs: language/maxs.md
-        #   - mcount: language/mcount.md
-        #   - mdev: language/mdev.md
-        #   - med: language/med.md
-        #   - min: language/min.md
-        #   - mins: language/mins.md
-        #   - mmax: language/mmax.md
-        #   - mmin: language/mmin.md
-        #   - msum: language/msum.md
-        #   - scov: language/scov.md
-        #   - sdev: language/sdev.md
-        #   - svar: language/svar.md
-        #   - var: language/var.md
-        #   - wavg: language/wavg.md
-        #   - wsum: language/wsum.md
-        #   - xbar: language/xbar.md
-        # - Trigonometry: 
-        #   - acos: language/acos.md
-        #   - asin: language/asin.md
-        #   - atan: language/atan.md
-        #   - cos: language/cos.md
-        #   - sin: language/sin.md
-        #   - tan: language/tan.md
     # - OS: 
     #   - getenv: language/getenv.md
     #   - gtime: language/gtime.md
@@ -283,7 +245,6 @@ pages:
     #   - Sysb: language/Sysb.md
     #   - Syscmdc: language/Syscmdc.md
     #   - Sysf: language/Sysf.md
-    #   - System Commands: language/SystemCommands.md
     #   - Sysv: language/Sysv.md
     # - Cmdline: 
     #   - Overview: language/Cmdline.md
@@ -307,7 +268,6 @@ pages:
     #   - Console Size: language/ConsoleSize.md
     #   - Display Precision: language/DisplayPrecision.md
     #   - IPC protocol: language/ipcprotocol.md
-    #   - Joins: language/joins.md
     #   - par.txt: language/pardottxt.md
   - Cookbook:
     - Regular expressions: cookbook/regex.md

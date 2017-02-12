@@ -210,7 +210,7 @@ Syntax: `hdel x`
 
 Deletes file `x`.
 ```q
-q)hdel`:test.txt   / delete a file called test.txt in the current working directory
+q)hdel`:test.txt   / delete test.txt in current working directory
 `:test.txt
 q)hdel`:test.txt   / should generate an error
 'test.txt: No such file or directory

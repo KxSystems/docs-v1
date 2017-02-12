@@ -1,14 +1,16 @@
-## Download
+## <i class="fa fa-download"></i> Download
 
-Download [a free 32-bit version of kdb+](https://kx.com/software-download.php). 
+Download the [free 32-bit version of kdb+](https://kx.com/software-download.php) for 
+<i class="fa fa-apple"></i> macOS,
+<i class="fa fa-linux"></i> Linux or
+<i class="fa fa-windows"></i> Windows.
+
+## <i class="fa fa-map-o"></i> Install
+
+[Install](http://code.kx.com/wiki/Tutorials/Installation) the free 32-bit version of kdb+.
 
 
-## Install
-
-[Install](http://code.kx.com/wiki/Tutorials/Installation) the free 32-bit version of kdb+ on Windows, Linux or MacOS.
-
-
-## Tutorials for beginners
+## <i class="fa fa-mortar-board"></i> Tutorials for beginners
 
 * [The Basics](http://code.kx.com/wiki/Tutorials/The_Basics)
 * [Datatypes](http://code.kx.com/wiki/Tutorials/Datatypes)
@@ -19,7 +21,7 @@ Download [a free 32-bit version of kdb+](https://kx.com/software-download.php).
 * [Tables II](http://code.kx.com/wiki/Tutorials/Tables_II)
 
 
-## Database tutorials
+## <i class="fa fa-database"></i> Database tutorials
 
 [A brief introduction to kdb+](http://code.kx.com/wiki/A_Brief_Introduction_to_kdb%2B) is a very quick overview of downloading kdb+ and running your first query.
 
@@ -30,7 +32,7 @@ Download [a free 32-bit version of kdb+](https://kx.com/software-download.php).
 [_Kdb+ for Mortals_, Chapter 1](http://code.kx.com/wiki/JB:KdbplusForMortals/contents) by Jeffry A. Borror, gives a detailed explanation of how kdb+ databases are created, stored on disk and accessed from q.
 
 
-## Books
+## <i class="fa fa-book"></i> Books
 
 |&nbsp;|&nbsp;|
 |---|---|
@@ -38,6 +40,6 @@ Download [a free 32-bit version of kdb+](https://kx.com/software-download.php).
 |![Q Tips](/img/qtips.jpg)|_Q Tips: Fast, scalable and maintainable kdb+_ by Nick Psaris, available from [Amazon.co.uk](https://www.amazon.co.uk/d/Books/Tips-Fast-Scalable-Maintainable-Kdb/9881389909/). &ldquo;`*****` There is information that if you are learning by yourself, would take years to work out.&rdquo; (review)|
 
 
-See the [Archive](/library/#older-documents) for older documents.
+See the [Archive](/archive/) for older documents.
 
 Please send comments on tutorials to <librarian@kx.com>.

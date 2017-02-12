@@ -3,7 +3,7 @@
 
 Syntax: `all x` (unary, aggregate)
 
-Returns a boolean atom `1b` if all values in its argument are non-zero, and otherwise `0b`. 
+Returns a boolean atom `1b` if **all** values in its argument are non-zero, and otherwise `0b`. 
 
 It applies to all data types except symbol, first converting the type to boolean if necessary.
 ```q
@@ -22,7 +22,7 @@ q)if[all x in y;....]   / use in control structure
 Syntax: `x and y` (binary, atomic)
 Syntax: `x & y` (binary, atomic)
 
-Returns the minima of the items in its arguments; applies to all data types except symbol.
+Returns the minimum of its arguments; applies to all data types except symbol.
 ```q
 q)1100b and 1010b
 1000b
@@ -45,7 +45,7 @@ q)1b and 0b
 
 Syntax: `any x` (unary, aggregate)
 
-Returns a boolean atom `1b` if any value in `x` is non-zero, and otherwise `0b`; applies to all data types except symbol, first converting the type to boolean if necessary.
+Returns a boolean atom `1b` if **any** value in `x` is non-zero, and otherwise `0b`; applies to all data types except symbol, first converting the type to boolean if necessary.
 ```q
 q)any 1 2 3=10 20 4
 0b
@@ -63,7 +63,7 @@ q)if[any x in y;....]   / use in control structure
 
 Syntax: `not x` (unary, atomic) 
 
-Returns `0b` where `x` not equal to zero, and `1b` otherwise.
+Returns `0b` where `x` **not** equal to zero, and `1b` otherwise.
 
 Applies to all data types except sym, and to items of lists, dict values and table columns.
 ```q
@@ -82,7 +82,7 @@ b| 0001b
 
 Syntax: `null x` (unary, atomic)
 
-Returns `1b` where `x` is null.
+Returns `1b` where `x` is **null**.
 
 Applies to all data types except enums, and to items of lists, dict values and table columns.
 ```q
@@ -117,7 +117,7 @@ q)null 0 0n 0w 1 0n
 
 Syntax: `x or y` (binary, infix, atomic)
 
-Returns the maximum of `x` and `y`. It applies to all data types except symbol.
+Returns the **maximum** of `x` and `y`. It applies to all data types except symbol.
 ```q
 q)1100b or 1010b
 1110b

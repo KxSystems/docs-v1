@@ -1,4 +1,4 @@
-Six comparative operators:
+Six comparison operators:
 
 ## equal `=`
 ## greater than `>`

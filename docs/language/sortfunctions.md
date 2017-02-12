@@ -3,14 +3,14 @@
 
 Syntax: `asc x` (unary, uniform)
 
-Returns `x` sorted:
+**Ascending sort**: where `x` is:
 
--   on a simple list `asc` acts as expected, and sets the `` `s# `` attribute indicating that the list is sorted.
--   on a mixed list, it sorts within datatype.
--   on a dictionary, it sorts by the values and applies the `` `s# `` attribute.
--   on a table, it sorts by the first non-key column and applies the `` `s# `` attribute.
+- a simple list, the result is its items in ascending order of value, with the `` `s# `` attribute set, indicating the list is sorted.
+- a mixed list, the result items are sorted within datatype.
+- a dictionary, the result is sorted by the values and has the `` `s# `` attribute set.
+- a table, the result is sorted by the first non-key column and has the `` `s# `` attribute set.
 
-The sort is stable, i.e. it preserves order among equals.
+The sort is stable: it preserves order between equals.
 ```q
 q)asc 2 1 3 4 2 1 2
 `s#1 1 2 2 2 3 4
@@ -62,7 +62,7 @@ q)a
 
 Syntax: `desc x` (unary, uniform)
 
-Returns `x` sorted into descending order. The sort is stable: it preserves order among equals. Where `x` is
+**Descending sort**: returns `x` sorted into descending order. The sort is stable: it preserves order between equals. Where `x` is
 
 -   a simple list the result is sorted, and the `` `s# `` attribute is set.
 ```q
@@ -96,7 +96,7 @@ a b
 
 Syntax: `iasc x` (unary, uniform)
 
-Returns the indices needed to sort list `x` in ascending order. (See [`asc`](#asc).)
+**Indexes of ascending sort**: returns the indices needed to sort list `x` in ascending order. 
 ```q
 q)L:2 1 3 4 2 1 2
 q)iasc L
@@ -107,13 +107,15 @@ q)(asc L)~L iasc L
 1b
 ```
 
+<i class="fa fa-hand-o-right"></i> [`asc`](#asc)
+
 
 `idesc`
 -------
 
 Syntax: `idesc x`
 
-Returns the indices needed to sort list `x` in descending order. (See [`desc`](#desc).)
+**Indices of descending sort**: returns the indices needed to sort list `x` in descending order. 
 ```q
 q)L:2 1 3 4 2 1 2
 q)idesc L
@@ -124,15 +126,17 @@ q)(desc L)~L idesc L
 1b
 ```
 
+<i class="fa fa-hand-o-right"></i> [`desc`](#desc)
+
 
 `rank`
 ------
 
 Syntax: `rank x` (unary, uniform)
 
-For each item in `x` returns the index of where it would occur in the sorted list. 
+**Rank**: returns for each item in `x` the index of where it would occur in the sorted list. 
 
-This is the same as calling `iasc` twice on the list.
+This is the same as calling [`iasc`](#iasc) twice on the list.
 ```q
 q)rank 2 7 3 2 5
 0 4 2 1 3
@@ -146,14 +150,15 @@ q)iasc idesc 2 7 3 2 5           / descending rank
 3 0 2 4 1
 ```
 
+<i class="fa fa-hand-o-right"></i> [`iasc`](#iasc)
+
 
 `xrank`
 -------
 
 Syntax: `x xrank y` (binary)
 
-Where `x` is an integer, and `y` is of sortable type, the result is a list of length `x` containing the items of `y` grouped by value. If the total number of items is evenly divisible by `x`, then each item of the result will have the same length; otherwise the first items are longer.
-
+**Group by value**: where `x` is an integer, and `y` is of sortable type, returns a list of length `x` containing the items of `y` grouped by value. If the total number of items is evenly divisible by `x`, then each item of the result will have the same length; otherwise the first items of the result are longer.
 ```q
 q)4 xrank til 8          / equal size buckets
 0 0 1 1 2 2 3 3
