@@ -57,7 +57,7 @@ pages:
     - Datatypes: language/datatypes.md
     - Operators: language/operators.md
     - Functions: language/functions.md
-    - Higher-order functions: language/higher-order-functions.md
+    - Adverbs: language/adverbs.md
     - Releases:
       - Changes in 3.4: language/releases/ChangesIn3.4.md
       - Changes in 3.3: language/releases/ChangesIn3.3.md
@@ -114,26 +114,24 @@ pages:
     - Arithmetic (integer): language/arithmetic-integer.md
     - Arithmetic (float): language/arithmetic-float.md
     - Comparison: language/comparisonfunctions.md
-    - Controlling evaluation: 
-      - Control words: language/controlwords.md
-      - Handling errors: language/handlingerrors.md
-      - Iteration: language/iteration.md
-      - Parallel each: language/peach.md
-      - Parse trees: language/handlingparsetrees.md
+    - Control words: language/controlwords.md
+    - Errors handling: language/handlingerrors.md
     - Files: language/files.md
+    - Iteration: language/iteration.md
     - Lists: language/listfunctions.md
     # - Numbers:
     - Logic: language/logicfunctions.md
     - Matrixes: language/matrixes.md
         #   - inv: language/inv.md
         #   - mmu: language/mmu.md
+    - Parallel processing: language/peach.md
+    - Parse trees: language/handlingparsetrees.md
     - Selection: language/selectionfunctions.md
     - Search: language/searchfunctions.md
     - Sort: language/sortfunctions.md
     # - Statistics: language/statistics.md
-    - Statistics: 
-      - Aggregates: language/stats-aggregates.md
-      - Moving: language/stats-moving.md
+    - Statistics (aggregates): language/stats-aggregates.md
+    - Statistics (moving): language/stats-moving.md
     - System commands: language/SystemCommands.md
     - Text: language/textfunctions.md
     - Trigonometry: language/trigonometry.md

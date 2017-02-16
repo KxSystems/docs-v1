@@ -16,18 +16,36 @@ Although this article is not a tutorial, it everywhere tries to introduce terms 
 Comments
 --------
 
-The parser ignores anything to the right of `/ ` (slash space).
+### Line comment
+
+The parser ignores any line that begins with a `/` (slash).
 ```q
 q)/ Oh what a lovely day
+```
+
+### Trailing comment
+
+The parser ignores anything to the right of ` /` (space slash).
+```q
 q)2+2  / I know this one
 4
 ```
-In a script (see below) an empty comment line begins a multi-line comment, which a `\` ends.
+
+### Multiline comment
+
+As first and only non-whitespace char on a line:
+
+- `/` starts a multiline comment
+- `\` terminates a multiline comment or, if not in a comment, comments to end of script
 ```q
 /
     Oh what a beautiful morning
     Oh what a wonderful day
 \
+a:42
+\
+goodbye to all that
+après moi the restroom at the end of the universe
 ```
 
 
@@ -99,18 +117,18 @@ A list with 1 item is not an atom. The `enlist` function makes a 1-list from an 
 q)42~enlist 42
 0b
 ```
-The items of a _homogenous list_ are all of the same dataype. For a homogeneous list, the parentheses and semicolons may be elided. 
+A _vector_ is a _simple list_: all its items are of the same dataype. For a vector, parentheses and semicolons may be omitted. 
 ```q
-q)(42;43;44;45)~42 43 44 45    / homogeneous 4-lists
+q)42 43 44 45~(42;43;44;45)    / simple 4-lists
 1b
-q)("a";"b";"c")~"abc"
+q)("a";"b";"c")~"abc"          / char vectors
 1b
-q)3<til 10                     / result is a list of booleans
+q)3<til 10                     / boolean vector
 0000111111b
 ```
 A list item may be any data structure.
 ```q
-q)count("abc";0000111111b;42)  / list of 2 lists and an atom
+q)count("abc";0000111111b;42)  / list of 2 vectors and an atom
 3
 ```
 
@@ -175,10 +193,10 @@ alice SFO | 44
 ```
 
 
-Operators and functions
------------------------
+Functions
+---------
 
-Q primitives use [infix](https://en.wikipedia.org/wiki/Infix_notation), [prefix](https://en.wikipedia.org/wiki/Polish_notation) and [postfix](https://en.wikipedia.org/wiki/Reverse_Polish_notation) notations. e.g.
+Q primitives are applied [infix](https://en.wikipedia.org/wiki/Infix_notation), [prefix](https://en.wikipedia.org/wiki/Polish_notation) and [postfix](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 ```q
 q)2+3               / infix
 5
@@ -188,45 +206,35 @@ q)total:+/          / postfix
 q)total 2 3 4
 9
 ```
-Functions are applied in prefix form. _Indexing lists_ and _applying functions to arguments_ use the same syntax, e.g.
+Functions are applied prefix. 
 ```q
-q)"abcde"[1 4 0 3]  / index a list
-"bead"
-q){x*x}[1 4 3]      / apply a function
+q){x*x}[1 4 3]      / one (vector) argument 
 1 16 9
-q){x+y}[2;3]        / multiple arguments
+q){x+y}[2;3]        / two (atom) arguments
 5
 ```
 See also the use of `.` and `@` for [applying functions](FIXME).
 
-The number of arguments to a function is its _arity_. Functions with arity 1 or 2 are known respectively as _unary_ or _binary_.
+!!! important "Infix is optional"
+    Wherever a function can be used infix, it may alternatively be used prefix.
+    ```q
+    q)2+3
+    5
+    q)+[2;3]
+    5
+    ```
+    Only [operators](operators) and (some) [derived functions](adverbs/#derivatives) can be used infix. 
+
+The number of arguments to a function is its _rank_. Functions with rank 1 or 2 are known respectively as _unary_ or _binary_.
 ```q
 q){x*x}[2 3 4]      / unary
 4 9 16
 q){x*y}[2;3 4]      / binary
 6 8
-q){x*y+z}[2;3;4 5]  / arity 3
+q){x*y+z}[2;3;4 5]  / rank 3
 14 16
 ```
-Brackets may be elided for a list or a unary function.
-```q
-q)"abcde"1 4 3      / list
-"bed"
-q){x*x}1 4 3        / monadic function
-1 16 9
-```
-Operators are binary functions which can also be applied in infix form. 
-```q
-q)|[2;3]                / binary function
-3
-q)2|3                   / infix form
-3
-q)rotate[2;2 3 4 5 6]   / binary function
-4 5 6 2 3
-q)2 rotate 2 3 4 5 6    / infix form
-4 5 6 2 3
-```
-First-order and higher-order functions can be defined within curly braces and may be assigned names. They are known as _lambdas_. The definition begins by listing the local names of the arguments (up to eight) and continues with a list of one or more expressions. For unary, binary and arity-3 functions, argument names may be elided and the default names `x`, `y` and `z` used instead.
+Functions can be defined within curly braces. This is the _lambda notation_ and functions so defined are known as _lambdas_. They may be assigned names. A lambda definition begins by listing the local names of the arguments (up to eight) and continues with a list of one or more expressions. For unary, binary and rank-3 functions, argument names may be omitted and the default names `x`, `y` and `z` used instead.
 ```q
 q){[a;b](a*a)+(b*b)+2*a*b}[20;4]  / argument names specified
 576
@@ -236,23 +244,83 @@ q)bsquare:{(x*x)+(y*y)+2*x*y}
 q)bsquare[20;4]
 576
 ```
-There is no way to use this notation to define an operator: all lambdas are used in prefix form.
+There is no way to use this notation to define an operator: all lambdas are used prefix.
 
 
-Higher-order functions
-----------------------
+Juxtaposition
+-------------
 
-[Higher-order functions](FIXME) take operators, primitive functions or lambdas as arguments. Some higher-order primitives are used in postfix or infix forms.
+A list can be considered as a function of its indexes. So indexing a list and applying a function to its arguments use the same syntax.
 ```q
-q)total:(+/)2 3 4        / postfix primitive
+q)0 1 4 9 16 25 36[1 4 3]  / index a list
+1 16 9
+q){x*x}[1 4 3]             / apply function to argument
+1 16 9
+```
+Juxtaposition is indexing for lists; application for a unary function and its argument: brackets may be omitted.
+```q
+q)"abcde"1 4 3      / list
+"bed"
+q){x*x}1 4 3        / unary function
+1 16 9
+```
+
+
+
+Operators
+---------
+
+Operators are binary functions which can also be applied infix. 
+```q
+q)|[2;3]                / binary function
+3
+q)2|3                   / infix
+3
+q)rotate[2;2 3 4 5 6]   / binary function
+4 5 6 2 3
+q)2 rotate 2 3 4 5 6    / infix
+4 5 6 2 3
+```
+
+
+
+Adverbs
+-------
+
+_Higher-order functions_ are functions that return functions as results. 
+
+The primitive higher-order functions are applied postfix and are known as [_adverbs_](adverbs). ([_Compose_](adverbs/#compose) is the single exception).
+
+The function returned by an adverb is _ambivalent_ – its rank is not fixed. Where it has a binary form, it may be applied infix. Parentheses fix the unary form. 
+```q
+q)+/[2 3 4]          / unary function
 9
-q)over[+;2 3 4]          / prefix primitive
+q)+/[10;2 3 4]       / binary
+19
+q)+/[10;2 3 4;1000]  / no rank-3 form
+'rank'
+q)10+/2 3 4          / binary, infix
+19
+q)(+/)2 3 4          / unary
+```
+
+
+Parenthesesing functions
+------------------------
+
+Functions may be passed as arguments to other functions. Parentheses allow a function to be _referred to_ instead of being _applied_.
+```q
+q)(+) over 2 3 4
+```
+Parenthesesing a function is not required for assignment. It also allows immediate application by juxtaposition.
+```q
+q)total:+/      / assignment
+q)total 2 3 4
 9
-q)ovr:{(x/)y}            / higher-order lambda
-q)ovr[+;2 3 4]
+q)+/[2 3 4]     / application by brackets
 9
-q)ovr[*;2 3 4]
-24
+q)(+/)2 3 4     / application by juxtaposition
+9
 ```
 
 
@@ -265,7 +333,7 @@ Expressions beginning with `insert`, `select` or `update` employ [q-SQL syntax](
 Control words
 -------------
 
-The _control words_ govern execution. They are FIXME `do`, `if`, `where`
+The _control words_ govern execution. They are FIXME `do`, `if`, `while`
 
 
 System commands

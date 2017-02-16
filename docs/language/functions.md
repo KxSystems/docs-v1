@@ -1,8 +1,9 @@
+
 A function takes one or more arguments and returns a result. 
 
 Q has primitive functions; you can also define your own, known as _lambdas_. These can be given names, or simply applied anonymously where they are defined. 
 
-Functions are first-class objects and can be passed as arguments to other functions. Functions that take other functions as arguments are known as [_higher-order functions_](higher-order-functions). 
+Functions are first-class objects and can be passed as arguments to other functions. Functions that take other functions as arguments are known as _higher-order functions_.
 
 
 Syntax
@@ -13,16 +14,13 @@ Functions use prefix form: their [arguments](#Arguments) are written on the righ
 q)foo[a;b;42;d]  / function foo, with four arguments
 …
 ```
-There are two classes of exceptions to this.
-
-1. [Operators](operators) are primitive binary (two-argument) functions which may also be written in infix form, e.g. `2+2` rather than +[2;2].
-2. Primitive [higher-order functions](FIXME), which are used in prefix or infix form. 
+Operators are an exception to this: primitive binary functions which may also be written in infix form, e.g. `2+3` or `2 and 3` rather than `+[2;3]` or `and[2;3]`.
 
 
 Explicit definition
 -------------------
 
-A function is defined explicitly as a _signature_ (a list of up to 8 argument names) followed by a list of expressions enclosed in curly braces and separated by semicolons. 
+A function is defined explicitly as a _signature_ (a list of up to 8 argument names) followed by a list of expressions enclosed in curly braces and separated by semicolons. THis is known as the _lambda notation_. 
 ```q
 q){[a;b] a2:a*a; b2:b*b; a2+b2+2*a*b}[20;4]  / binary function
 576
@@ -63,15 +61,17 @@ q)distinct 2 3 5 7 2 5      / none of the above
 Arguments
 ---------
 
+The number of arguments a function takes is its _rank_. Applying the function to more arguments than its rank signals a rank error. Applying it to fewer results in a [_projection_](#projection). 
+
 In applying a function, the canonical form of its arguments is a bracketed list separated by semicolons. 
-  
+
 f\[a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>\]
 
 The expression in brackets lists parameters to the function, but is _not_ itself a list, i.e. it is not the same as:
-  
+
 (a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>)
 
-Functions that take 1 or 2 arguments are known respectively as _unary_ and _binary_. 
+Functions of rank 1 or 2 are known respectively as _unary_ and _binary_. 
 
 A unary function can be applied without argument brackets.
 ```q
@@ -120,7 +120,7 @@ Implicit definition
 
 A function is defined implicitly 
 
-- by a [higher-order primitive](FIXME)
+- by an [adverb](adverbs)
 - by projection
 
 
@@ -129,7 +129,7 @@ Projection
 
 Passing a function a subset of its arguments _projects_ a new function. In the new function, the arguments already passed have the values supplied. The projected function has in its signature only the _undefined_ argument/s. 
 ```q
-q)f:{x + 2 * y - z}       / f has 3 arguments
+q)f:{x + 2 * y - z}       / f has rank 3
 q)f[100;10;2 3 5]
 116 114 110
 

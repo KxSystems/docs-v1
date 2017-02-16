@@ -12,6 +12,7 @@ q)rotate[2;0 1 2 3 4 5]  / prefix form
 q)2 rotate 0 1 2 3 4 5   / infix form
 2 3 4 5 0 1
 ```
+Operators cannot be defined using the [lambda notation](functions/#explicit-definition). 
 
 
 ## Glyphs
@@ -29,7 +30,8 @@ q)2 rotate 0 1 2 3 4 5   / infix form
 
 </div>
 
-The _minimum_ operator is denoted by both the `&` glyph and the reserved word `and`. The _maximum_ operator is denoted by both the `|` glyph and the reserved word `or`. 
+!!! note "Minimum and maximum"
+    The _minimum_ operator is denoted by both the `&` glyph and the reserved word `and`. The _maximum_ operator is denoted by both the `|` glyph and the reserved word `or`. 
 
 
 ## Reserved words
