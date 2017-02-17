@@ -53,11 +53,13 @@ pages:
   - Get started: learn.md
   - Reference card: reference.md
   - Language: 
+    - Elements: language/elements.md
     - Syntax: language/syntax.md
     - Datatypes: language/datatypes.md
     - Operators: language/operators.md
     - Functions: language/functions.md
     - Adverbs: language/adverbs.md
+    - Glossary: language/glossary.md
     - Releases:
       - Changes in 3.4: language/releases/ChangesIn3.4.md
       - Changes in 3.3: language/releases/ChangesIn3.3.md
@@ -113,6 +115,7 @@ pages:
     #   - TwoColon: language/TwoColon.md
     - Arithmetic (integer): language/arithmetic-integer.md
     - Arithmetic (float): language/arithmetic-float.md
+    - Casting: language/casting.md
     - Comparison: language/comparisonfunctions.md
     - Control words: language/controlwords.md
     - Errors handling: language/handlingerrors.md
@@ -125,7 +128,7 @@ pages:
         #   - inv: language/inv.md
         #   - mmu: language/mmu.md
     - Parallel processing: language/peach.md
-    - Parse trees: language/handlingparsetrees.md
+    - Parse trees: language/parsetrees.md
     - Selection: language/selectionfunctions.md
     - Search: language/searchfunctions.md
     - Sort: language/sortfunctions.md

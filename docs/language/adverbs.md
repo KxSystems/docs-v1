@@ -1,8 +1,8 @@
-Adverbs are primitive higher-order functions (they return functions) applied postfix (except for [_compose_](#compose)). They are much used for [iteration](iteration). 
+Adverbs are primitives that take function arguments and return functions. They are applied postfix, except for [_compose_](#compose). They are much used for [iteration](iteration). 
 ```q
-q)+/[2 3 4]      / 2+3+4
+q)+/[2 3 4]      / iterate + over 2 3 4
 9
-q)*/[2 3 4]      / 2*3*4
+q)*/[2 3 4]      / iterate * over 2 3 4
 24
 ```
 
@@ -13,7 +13,7 @@ q)*/[2 3 4]      / 2*3*4
 Derivatives
 -----------
 
-The _derived function_, or _derivative_, returned by an adverb might be _ambivalent_: it might have _two ranks_. Its rank is finally determined by how you apply it.
+The rank of the derived function, or _derivative_, returned by an adverb is finally determined by how you apply it.
 ```q
 q)+/[2 3 4]      / unary
 9
@@ -35,6 +35,8 @@ q)2+/2 3 4
 11
 q)2 tot 2 3 4    / but not once assigned
 'type
+q)(+/)2 3 4      / parens compel unary
+9
 ```
 
 !!! note "Operators and derivatives"
@@ -49,7 +51,7 @@ q)2 tot 2 3 4    / but not once assigned
     - the binary form of a derivative cannot be projected with an omitted semicolon: `tot[2]` is a unary application; `tot[2;]` is a projection.
 
 
-The six glyphs `'`, `':` `\:`, `/:`, `/` and `\` denote the following adverbs, according to context.
+The glyphs `'`, `':` `\:`, `/:`, `/` and `\` denote the following adverbs, according to context.
 
 
 ## `'` case

@@ -1,42 +1,22 @@
-Syntax
-======
-
-<aside markdown="1" class="comment kx-developer">
-- Define the terms in which the elements of q are discussed
-- Enable the reader to parse any q expression
-
-Although this article is not a tutorial, it everywhere tries to introduce terms before using them. 
-</aside>
-
 > It is a privilege to learn a language,  
 > a journey into the immediate  
 > — _Marilyn Hacker_, “Learning Distances”
 
 
-Comments
---------
+## Comments
 
-### Line comment
+Line comment
+: The parser ignores any line that begins with a `/` (slash).  
+`q)/Oh what a lovely day`
 
-The parser ignores any line that begins with a `/` (slash).
-```q
-q)/ Oh what a lovely day
-```
+Trailing comment
+: The parser ignores anything to the right of ` /` (space slash).  
+`q)2+2  /I know this one`
 
-### Trailing comment
-
-The parser ignores anything to the right of ` /` (space slash).
-```q
-q)2+2  / I know this one
-4
-```
-
-### Multiline comment
-
-As first and only non-whitespace char on a line:
-
-- `/` starts a multiline comment
-- `\` terminates a multiline comment or, if not in a comment, comments to end of script
+Multiline comment
+: As first and only non-whitespace char on a line:  
+* `/` starts a multiline comment  
+* `\` terminates a multiline comment or, if not in a comment, comments to end of script  
 ```q
 /
     Oh what a beautiful morning
@@ -49,36 +29,7 @@ après moi the restroom at the end of the universe
 ```
 
 
-Datatypes
----------
-
-Data are symbols, characters, or of the several datetime or numeric [datatypes](datatypes). 
-```q
-q)42          / a number
-42
-q)42%6        / a float
-7f
-q)2=3         / a lie
-0b
-q)2001.09.11  / a bad day
-2001.09.11
-q)"y"         / a character
-"y"
-q)`ibm        / a symbol
-`ibm
-```
-
-!!! note "Strings"
-    There is no _string_ datatype. The nearest equivalent to a string is a symbol or a char list. A reference to a _string_ should be understood as referring to a char list.
-
-The `$` operator [casts](datatypes/#casting) between datatypes. Filepaths are a special form of symbol. 
-```q
-q)count read0 `:path/to/myfile.txt  / count lines in myfile.txt
-```
-
-
-Names
------
+## Names
 
 Values may be given names, using single or double colons. The double colon binds the value to a name in the session root; the single colon binds the name in the local context. In a session with no evaluation suspended their effects are the same.
 ```q
@@ -91,8 +42,7 @@ q)foo
 ```
 
 
-Data structures
----------------
+## Data structures
 
 ### Atoms and lists
 
@@ -193,37 +143,18 @@ alice SFO | 44
 ```
 
 
-Functions
----------
+## Functions
 
-Q primitives are applied [infix](https://en.wikipedia.org/wiki/Infix_notation), [prefix](https://en.wikipedia.org/wiki/Polish_notation) and [postfix](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
-```q
-q)2+3               / infix
-5
-q)reverse 2 3       / prefix
-3 2
-q)total:+/          / postfix
-q)total 2 3 4
-9
-```
 Functions are applied prefix. 
 ```q
+q)til[5]            / one (atom) argument
+0 1 2 3 4
 q){x*x}[1 4 3]      / one (vector) argument 
 1 16 9
 q){x+y}[2;3]        / two (atom) arguments
 5
 ```
-See also the use of `.` and `@` for [applying functions](FIXME).
-
-!!! important "Infix is optional"
-    Wherever a function can be used infix, it may alternatively be used prefix.
-    ```q
-    q)2+3
-    5
-    q)+[2;3]
-    5
-    ```
-    Only [operators](operators) and (some) [derived functions](adverbs/#derivatives) can be used infix. 
+<i class="fa fa-hand-o-right"></i> `.` and `@` for [applying functions](FIXME).
 
 The number of arguments to a function is its _rank_. Functions with rank 1 or 2 are known respectively as _unary_ or _binary_.
 ```q
@@ -234,17 +165,17 @@ q){x*y}[2;3 4]      / binary
 q){x*y+z}[2;3;4 5]  / rank 3
 14 16
 ```
-Functions can be defined within curly braces. This is the _lambda notation_ and functions so defined are known as _lambdas_. They may be assigned names. A lambda definition begins by listing the local names of the arguments (up to eight) and continues with a list of one or more expressions. For unary, binary and rank-3 functions, argument names may be omitted and the default names `x`, `y` and `z` used instead.
+Functions can be defined within curly braces. This is the _lambda notation_ and functions so defined are known as _lambdas_. They may be assigned names. A lambda definition begins with a _signature_ – a list of the local names of the arguments (up to eight) – and continues with a list of one or more expressions. For unary, binary and rank-3 functions, the signature may be omitted and the default names `x`, `y` and `z` used instead.
 ```q
-q){[a;b](a*a)+(b*b)+2*a*b}[20;4]  / argument names specified
+q){[a;b](a*a)+(b*b)+2*a*b}[20;4]  / signature specified
 576
-q){(x*x)+(y*y)+2*x*y}[20;4]       / default argument names
+q){(x*x)+(y*y)+2*x*y}[20;4]       / unsigned function
 576
 q)bsquare:{(x*x)+(y*y)+2*x*y}
 q)bsquare[20;4]
 576
 ```
-There is no way to use this notation to define an operator: all lambdas are used prefix.
+There is no way to use the lambda notation to define an operator: all lambdas are used prefix.
 
 
 Juxtaposition
@@ -267,8 +198,7 @@ q){x*x}1 4 3        / unary function
 
 
 
-Operators
----------
+## Operators
 
 Operators are binary functions which can also be applied infix. 
 ```q
@@ -282,12 +212,19 @@ q)2 rotate 2 3 4 5 6    / infix
 4 5 6 2 3
 ```
 
+!!! important "Infix is optional"
+    Wherever a function can be used infix, it may alternatively be used prefix.
+    ```q
+    q)2+3
+    5
+    q)+[2;3]
+    5
+    ```
+    Only [operators](operators) and (some) [derived functions](adverbs/#derivatives) can be used infix. 
 
 
-Adverbs
--------
 
-_Higher-order functions_ are functions that return functions as results. 
+## Adverbs
 
 The primitive higher-order functions are applied postfix and are known as [_adverbs_](adverbs). ([_Compose_](adverbs/#compose) is the single exception).
 
@@ -305,10 +242,9 @@ q)(+/)2 3 4          / unary
 ```
 
 
-Parenthesesing functions
-------------------------
+## Parenthesising functions
 
-Functions may be passed as arguments to other functions. Parentheses allow a function to be _referred to_ instead of being _applied_.
+Functions may be passed as arguments to other functions. Parentheses allow a function to be used in noun syntax. 
 ```q
 q)(+) over 2 3 4
 ```
@@ -324,47 +260,11 @@ q)(+/)2 3 4     / application by juxtaposition
 ```
 
 
-Q-SQL
------
+## Q-SQL
 
 Expressions beginning with `insert`, `select` or `update` employ [q-SQL syntax](FIXME). 
 
 
-Control words
--------------
+## Control words
 
 The _control words_ govern execution. They are FIXME `do`, `if`, `while`
-
-
-System commands
----------------
-
-Expressions beginning with `\` are system commands, e.g.
-```q
-q)/ load the script in file my_app.q
-q)\l my_app.q
-```
-
-
-Scripts
--------
-
-A script is a text file; its lines a list of expressions and/or commands to be executed in sequence. By convention, script files have the extension `q`.
-
-Within a script 
-
-- function definitions may extend over multiple lines
-- an empty comment begins a _multiline comment_. 
-
-
-Namespaces
-----------
-
-> What in the world is a namespace? — Kenneth E. Iverson
-
-A [namespace](https://en.wikipedia.org/wiki/Namespace) is a container or context within which a name resolves to a unique value. Namespaces are children of the _root namespace_ (usually just _root_) and are designated by a dot prefix. The root namespace of a q session is parent to multiple namespaces, e.g. `h`, `Q` and `z`. Namespaces with 1-character names (of either case) are reserved for use by Kx. 
-```q
-q).z.p                         / GMT timestamp
-2017.02.01D14:58:38.579614000
-```
-

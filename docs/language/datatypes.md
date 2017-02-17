@@ -1,8 +1,4 @@
-> Ontology asks _What exists?_, to which the answer is _Everything_.  
-> — W.V.O. Quine, _Word and Object_ 
-
-
-The _datatype_ of an object is given as a short int: positive for an homogeneous list, negative for an atom. A mixed list has type `0h`. 
+The _datatype_ of an object is given as a short int: positive for a vector, negative for an atom. A mixed list has type `0h`. 
 ```q
 q)type 5                      / integer atom
 -6h
@@ -42,30 +38,14 @@ Primitive datatypes are in the range ± `1h` to `19h`.
 </div>
 
 !!! note "Strings"
-    There is no _string_ datatype. The nearest equivalent to a string is a symbol or a char list. A reference to a _string_ should be understood as referring to a char list.
+    There is no _string_ datatype. The nearest equivalent to a string is a symbol, or a char vector. A reference to a _string_ should be understood as referring to a char vector.
 
+Filepaths are a special form of symbol. 
+```q
+q)count read0 `:path/to/myfile.txt  / count lines in myfile.txt
+```
 
-Casting
--------
-
-To convert character to symbol, use `` `$ `` as in:
-
-    q)`$"ibm"
-    `ibm
-
-Otherwise, use any of char, num or name to convert types (where possible):
-
-    q)"f"$2 3 5
-    2 3 5f
-    q)9h$2 3 5
-    2 3 5f
-    q)`float$2 3 5
-    2 3 5f
-
-To convert a string to an atom type, use uppercase char:
-
-    q)"F"$"23"
-    23f
+<i class="fa fa-hand-o-right"></i> [Casting between types](casting)
 
 
 Infinities
@@ -186,27 +166,3 @@ q)null 0Ng
 There is no literal entry for a guid, it has no conversions, and the only scalar primitives are `=`, `<` and `>` (similar to sym). In general, since v3.0, there should be no need for char vectors for IDs. IDs should be int, sym or guid. Guids are faster (much faster for `=`) than the 16-byte char vecs and take 2.5 times less storage (16 per instead of 40 per).
 
 
-Parse tree
-----------
-
-A _parse tree_ represents an expression, not immediately evaluated. Its virtue is that the expression can be evaluated whenever and in whatever context it is needed. The two main functions dealing with parse trees are [`eval`](handlingparsetrees#eval), which evaluates a parse tree, and [`parse`](handlingparsetrees#parse), which returns one from a string containing a valid q or k expression.
-
-Parse trees may be the result of applying `parse`, or constructed explicitly. The simplest parse tree is a single constant expression. Note that, in a parse tree, a variable is represented by a symbol containing its name. To represent a symbol or a list of symbols, you will need to use [`enlist`](enlist) on that expression.
-```q
-q)eval 45
-45
-q)x:4
-q)eval `x
-4
-q)eval enlist `x
-`x
-```
-Any other parse tree takes a form of a list, of which the first item is a function and the remaining items are its arguments. Any of these items can be parse trees. Parse trees may be arbitrarily deep (up to thousands of layers), so any expression can be represented.
-```q
-q)eval (til;4)
-0 1 2 3
-q)eval (/;+)
-+/
-q)eval ((/;+);(til;(+;2;2)))
-6
-```

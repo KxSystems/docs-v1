@@ -1,55 +1,85 @@
-#### Adverb
+Adverb
+: A primitive higher-order function that returns a _derived function_
+<i class="fa fa-hand-o-right"></i> [Adverbs](adverbs)
 
-"Adverbs modify the verb" (and the [function](#Function "wikilink")). An adverb is any function where the [x](#x "wikilink") parameter is a function. eg: `filter:{y` `where` `x` `y}`.
+Apply
+: As in _apply a function to its arguments_:  pass to a function the value of its arguments for evaluation. A function is applied to an argument list, e.g. `{x+y*z}[3;4;5]`. A unary function can be applied by juxtaposition, e.g. `count 3 4 5`. An operator is a primitive binary function that can also be applied by infix, e.g. `2+3`, `2 rotate 3 4 5`. <i class="fa fa-hand-o-right"></i> [Apply](FIXME)
 
-The primitive adverbs are `'` `/` `\` `':` `/:` `\:`. For convenience, q defines the adverbs [each](Reference/each "wikilink"), [over](Reference/over "wikilink"), [scan](Reference/scan "wikilink") and [prior](Reference/prior "wikilink") (corresponding to the adverbs `'` `/` `\` `':`).
+Argument, argument list
+: A value passed to a function. In `3+4` the arguments are 3 and 4, respectively the left- and right-arguments. In `{x+y*z}[3;4;5]` the three arguments are separated by semicolons and bracketed: `[3;4;5]` is an argument list. 
 
-see [Adverb](Reference/Adverb "wikilink")
+Atom
+: A single instance of a [datatype](datatypes)
 
-#### Apply
+Binary function 
+: A function with _rank_ 2, i.e. that takes 2 arguments, e.g. `+`
 
-Apply evaluates a function (and indexes lists and dictionaries). Usually, a space is apply, as in `neg` `1`. To apply more than one argument to a function, use [dot](Reference/DotSymbol "wikilink") `(+).(1` `2)`. Dyadic `.` and [`@`](Reference/AtSymbol "wikilink") are both known as apply.
+Control word
+: Control words interrupt the usual evaluation rules, e.g. by omitting expressions, signalling an error, defining a result and terminating evaluation 
 
-#### Argument
+Derivative, derived function
+: The function returned by an _adverb_.
+<i class="fa fa-hand-o-right"></i> [Derivatives](adverbs/#derivatives)
 
-An argument is a value passed to a function. In 3+4, the arguments are 3 and 4. 3 is referred to as *x* and 4 as *y*.
+Dictionary
+: A map of a list of keys to a list of values
 
-#### Control Word
+Higher-order function
+: A function that returns a function as its result
 
-Control words like `if`, `:` (return), `'` (signal) break the usual evaluation rules by
+Infix
+: _Applying_ an operator to its _arguments_ by writing it between them, e.g.  
+`2+3`   
+`2 cut 3 4 5 6 7`
 
--   not evaluating all arguments
--   causing an expression to result in a value and aborting further evaluation
+Lambda, lambda notation
+: The notation in which a function is defined: an optional _signature_ followed by a list of expressions, separated by semicolons, e.g.  
+`{[a;b](a*a)+(b*b)+2*a*b}`. A lambda is a function defined in the lambda notation. 
 
-or
+List
+: Zero, one, or more items separated by semicolons and enclosed by parentheses, e.g. ``("abc";`John;2012.09.15)`` and `()`. A list item may an atom or itself a list. <i class="fa fa-hand-o-right"></i> _Vector_
 
--   aborting evaluation of an expression
+Matrix
+: A list in which all items are lists of the same count
 
-#### Function
+Noun
+: A noun is an atom, list, dictionary, table or a lambda. To test for a noun, use `{101>abs type x}`
 
-A function is a catchall term for a lambda, verb, projection, composition, bound adverb or dynamically loaded code. [Apply](#Apply "wikilink") operates on tables, dictionaries and lists and so these types can be used in place of a function.
+Operator
+: A _primitive_ _binary_ function that may be applied _infix_ as well as _prefix_, e.g. `+`, `rotate`
 
-#### Lambda
+Postfix
+: _Applying_ an _adverb_ to its _argument_ by writing it to the right, e.g. `+/` 
 
-A lambda is defined using the syntax of matching braces. eg `{x+y}`. A lambda is syntactically a noun, has type 100h and it is a function.
+Prefix
+: _Applying_ a function to its _argument/s_ by writing it to the left of them, e.g. `+[2;3]` 
 
-#### Noun
+Primitive
+: Defined in the q language, not by the programmer
 
-A noun is an atom, list, dictionary, table or a lambda. To test for a noun, use `{101>abs` `type` `x}`
+Rank
+: The number of _arguments_ a function takes, given by the count of arguments in its _signature_, or, where the signature is omitted, by the highest-numbered of the three default argument names `x` (1), `y` (2) and `z` (3) used in the function definition, e.g. `{x+z}` has rank 3.
 
-#### Parameter
+Signature
+: The list of up to 8 _argument_ names that (optionally) begins a function definition in the _lambda notation_, e.g. in `{[a;b](a*a)+(b*b)+2*a*b}`, the argument list `[a;b]` is the signature
 
-`q){x+y}[3;4]              /x and y are parameters`
-`q)c:{[a;b]sqrt (a*a)+b*b} /a and b are parameters`
+Table
+: A map of a list of keys to a list of values, which are all lists of the same count
 
-#### Verb
+Unary function
+: A function with rank 2, i.e. that takes 1 argument, e.g. `count`
 
-A verb is a primitive [function](#Function "wikilink") like +,-,div,deltas,group. Dyadic verbs permit the x parameter to appear to the left as in `3+4`. Dyadic lambdas must apply their arguments. eg: `{x+y}[3;4]`.
+Unsigned function
+: A function defined in the _lambda notation_ without a _signature_
 
-#### x
+Vector
+: A _list_ in which all the items have the same [datatype](datatypes). May be written without parentheses and semicolons. <i class="fa fa-hand-o-right"></i> [Nouns](elements/#nouns)
 
-x is short for "the first argument". x is 3 in `3+4` and in `til` `3`
+x
+: Default name of the first or only _argument_ of an _unsigned_ function
 
-#### y
+y
+: Default name of the second _argument_ of an _unsigned_ function, or right-argument to an _operator_
 
-y is short for "the second argument". y is 4 in `3+4`.
+z
+: Default name of the third _argument_ of an _unsigned_ function
