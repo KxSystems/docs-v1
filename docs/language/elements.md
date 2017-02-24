@@ -5,7 +5,7 @@
 
 ## Comments
 
-### Line comment
+: Line comment
 ```q
 q)/Oh what a lovely day
 ```
@@ -38,15 +38,15 @@ the restroom at the end of the universe
 | atom                 | `42`; `"a"`; `1b`; `2012.08.04`; `` `ibm``                           |
 | vector               | `(43;44;45)`; `"abc"`; `0101b`; `` `ibm`goo``; `2012.09.15 2012.07.05` |
 | list                 | `(43;"44";45)`; `("abc";0101b;)`;``(("abc";1 2 3); `ibm`abc)``       |
-| dictionary           | `` `a`b`c!42 43 44``; `` `name`age!(`john`carol`ted;42 43 44)``      |
+| dictionary           | `` `a`b`c!42 43 44``; `` `name`age!(`john`carol`ted;42 43)``      |
 | table                | ``([]name:`john`carol`ted; age:42 43 44)``                           | 
 | keyed table          | ``([name:`john`carol`ted] age:42 43 44)``                            | 
 
 </div>
 
-Lists are enclosed in parentheses with their items separated by semicolons. 
+Lists are zero or more items, separated by semicolons, and enclosed in parentheses. An item can be any noun. 
 
-A _vector_ is a list with all items of the same datatype. It can be represented without parentheses. Numeric, boolean, char and symbol vectors have their own forms.
+A _vector_ is a list in which all items are of the same datatype. It can be represented without parentheses. Numeric, boolean, char and symbol vectors have their own forms.
 <div class="kx-compact" markdown="1">
 
 | type    | example                 |
@@ -81,6 +81,7 @@ q).z.p                         / GMT timestamp
 2017.02.01D14:58:38.579614000
 ```
 
+<a class="fa fa-hand-o-right"></a> [Names in context](FIXME)
 
 
 ## Functions
@@ -89,13 +90,13 @@ Functions are:
 
 1. primitive [operators](operators) and [functions](functions), eg `+`, `count`
 2. as defined in the [lambda notation](functions/#lambda-notation), eg `{x+2*y}`
-3. derived from (1) and (2) by adverbs, eg `+/`, `count'`
-4. q-SQL functions, eg `select`
+3. as derived from (1) and (2) by adverbs, eg `+/`, `count'`
+4. q-SQL functions, e.g. `select`
 
 
 ## Adverbs 
 
-[Adverbs](adverbs) are primitive higher-order functions: they return functions. They are denoted by six glyphs: `'`, `/`, `\`, `':`, `/:` and `\:`. 
+[Adverbs](adverbs) are primitive higher-order functions: they return [derivatives](FIXME) (derived functions). They are denoted by six glyphs: `'`, `/`, `\`, `':`, `/:` and `\:`. 
 ```q
 q)+/[2 3 4]  / reduce 2 3 4 with +
 9
@@ -106,14 +107,14 @@ q)*/[2 3 4]  / reduce 2 3 4 with *
 
 ## Control words
 
-The [control words](control-words) govern execution. They are `do`, `if` and `while`. 
+[Control words](control-words) govern execution. They are `do`, `exit`, `if` and `while`; also `:` (_return_) and `'` (_signal_).
 
 
 ## Etc…
 
 ### System commands
 
-Expressions beginning with `\` are [system commands](system-commands).
+Expressions beginning with `\` are [system commands](system-commands) or multiline comments (see above). 
 ```q
 q)/ load the script in file my_app.q
 q)\l my_app.q
@@ -122,7 +123,7 @@ q)\l my_app.q
 
 ### Scripts
 
-A script is a text file; its lines a list of expressions and/or system commands to be executed in sequence. By convention, script files have the extension `q`.
+A script is a text file; its lines a list of expressions and/or system commands, to be executed in sequence. By convention, script files have the extension `q`.
 
 Within a script 
 

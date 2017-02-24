@@ -118,7 +118,7 @@ pages:
     - Casting: language/casting.md
     - Comparison: language/comparisonfunctions.md
     - Control words: language/controlwords.md
-    - Errors handling: language/handlingerrors.md
+    - Error handling: language/handlingerrors.md
     - Files: language/files.md
     - Iteration: language/iteration.md
     - Lists: language/listfunctions.md

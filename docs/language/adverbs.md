@@ -1,94 +1,54 @@
-Adverbs are primitives that take function arguments and return functions. They are applied postfix, except for [_compose_](#compose). They are much used for [iteration](iteration). 
+Adverbs are primitives that take function arguments and return functions.  They are much used for [iteration](iteration). Unary adverbs are applied postfix. 
 ```q
-q)+/[2 3 4]      / iterate + over 2 3 4
+q)+/[2 3 4]      /reduce 2 3 4 with +
 9
-q)*/[2 3 4]      / iterate * over 2 3 4
+q)*/[2 3 4]      /reduce 2 3 4 with *
 24
 ```
 
-!!! Important "Stay close" 
-    Never separate an adverb from its function argument. For example, `+/` but never `+ /`.
 
+## Derivatives
 
-Derivatives
------------
-
-The rank of the derived function, or _derivative_, returned by an adverb is finally determined by how you apply it.
-```q
-q)+/[2 3 4]      / unary
-9
-q)+/[2;2 3 4]    / binary
-11
-q)+/[2;2 3 4;5]  / no rank-3 form!
-'rank
-q)tot:+/
-q)tot 2 3 4      / unary
-9
-q)tot[2 3 4]     / unary
-9
-q)tot[2;2 3 4]   / binary: tot is ambivalent
-11
-```
-A binary derivative can be applied infix. 
+Applying an adverb yields a derived function: the _derivative_.
+Except for derivatives of _compose_, binary derivatives can be applied infix. 
 ```q
 q)2+/2 3 4
 11
-q)2 tot 2 3 4    / but not once assigned
-'type
-q)(+/)2 3 4      / parens compel unary
-9
 ```
 
-!!! note "Operators and derivatives"
-    Derivatives are _like_ operators:
-
-    - a binary form can be used infix 
-
-    and _unlike_ operators:
-
-    - ambivalent, not just binary 
-    - the binary form of a derivative cannot be projected with a juxtaposed left-argument,so `p:tot[2;]` but not `p:2 tot`
-    - the binary form of a derivative cannot be projected with an omitted semicolon: `tot[2]` is a unary application; `tot[2;]` is a projection.
-
-
 The glyphs `'`, `':` `\:`, `/:`, `/` and `\` denote the following adverbs, according to context.
+
+!!! warning "Stay close"
+    A space preceding `/` begins a trailing comment. So, `+/`, never `+ /`
 
 
 ## `'` case
 
-Syntax: `x'` (unary, postfix)  
-Derivative: `d x` (unary, prefix) 
+Syntax: `x'` (unary)  
+Derivative: `d x` (unary) 
 
 Where `x` is an integer vector, the derivative returns `r` such that
 ```q
-r[i] ~ y[x[i]] i
+r[i] ~ y[x i] i
 ```
 Atom items of `y` are treated as infinitely repeated values.
 ```q
 q)0 1 0'["abc";"xyz"]
 "ayc"
-q)/ extra arguments don't signal a rank error
+q)/extra arguments don't signal a rank error
 q)0 2 0'["abc";"xyz";"123";"789"]
 "a2c"
-q)0 1 0'["a";"xyz"]  / atom "a" repeated as needed
+q)0 1 0'["a";"xyz"]  /atom "a" repeated as needed
 "aya"
-```
-The derivative can be projected in the usual way. 
-```q
-q)g:(0 2 0')["abc";;]
-q)g["xyz";"123"]
-"a2c"
 ```
 
 
 ## `'` compose
 
-Syntax: `'[g;f]` (binary, prefix)  
-Derivative: `d[x;y;z;…]` (same rank as `f`; prefix, also infix if `f` is binary)
+Syntax: `'[g;f]` (binary)  
+Derivative: `d[x;y;z;…]` (same rank as `f`)
 
-**Watch out** The only adverb not applied prefix.
-
-Where `f` is a multi-argument function and `g` is a unary function, the derivative has rank `f` and returns `g f[x;y;z;…]`. 
+Where `f` is a **multi-argument** function and `g` is a **unary** function, the derivative has rank `f` and returns `g f[x;y;z;…]`. 
 ```q
 q)f:{[w;x;y;z]w+x+y+z}
 q)g:{2*x}
@@ -108,10 +68,10 @@ q)d[1;2;3;4]               / g f[1;2;3;4]
 
 ## `'` each-both
 
-Syntax: `f'` (unary, postfix)  
-Derivative: `x d y` (binary, infix, uniform)
+Syntax: `f'` (unary)  
+Derivative: `x d y` (binary, uniform)
 
-Where `f` is a **binary** function, the derivative applies `f` between corresponding items of `x` and `y`. 
+Where `f` is a **binary** function, and `x` and `y` conform, the derivative applies `f` between corresponding items of `x` and `y`. 
 ```q
 q)0 1 2 3 ,' 10 20 30 40
 0 10
@@ -131,8 +91,8 @@ q)0 1 2 3 ,' 10
 
 ## `\:` each-left
 
-Syntax: `f\:` (unary, postfix)  
-Derivative: `x d y`(binary, infix, uniform)
+Syntax: `f\:` (unary)  
+Derivative: `x d y`(binary, uniform)
 
 Where `f` is a **binary** function, the derivative applies `f` between `y` and each item of `x` where 
 
@@ -151,8 +111,8 @@ q)(til 5),\:0 1
 
 ## `/:`  each-right
 
-Syntax: `f/:` (unary, postfix) 
-Derivative: `x d y` (binary, infix, uniform)
+Syntax: `f/:` (unary)  
+Derivative: `x d y` (binary, uniform)
 
 Where `f` is a **binary** function, the derivative applies `f` between `x` and each item of `y` where 
 
@@ -180,7 +140,7 @@ q)(til 5),/:0 1
 
 ## `':` each-parallel
 
-Syntax: `f':` (unary, postfix)  
+Syntax: `f':` (unary)  
 Derivative: `d x` (unary, uniform) 
 
 Where `f` is a **unary** function, the derivative assigns the items of `x` to separate slave tasks, and in each task applies `f` to each item of the sublist. 
@@ -197,13 +157,13 @@ q)peach
 k){x':y}
 ```
 
-<i class="fa fa-hand-o-right"></i> [parallel processing](peach), [`peach`](iteration/#peach)
+<i class="fa fa-hand-o-right"></i> [command-line options](FIXME), [parallel processing](peach), [`peach`](iteration/#peach)
 
 
 ## `':` each-prior
 
-Syntax: `f':`  (unary, postfix)  
-Derivative: `d x` (unary, uniform)
+Syntax: `f':`  (unary)  
+Derivative: `d x` (ambivalent, uniform)
 
 Where `f` is a **binary** function, the derivative applies `f` between each item of `x` and its predecessor.
 <div class="kx-compact" markdown="1">
@@ -232,8 +192,8 @@ q)-':[2 5 9]     /deltas
 
 ## `/` iterate
 
-Syntax: `f/`  (unary, postfix)  
-Derivative: `x d y` (binary, infix)
+Syntax: `f/`  (unary)  
+Derivative: `x d y` (binary)
 
 Where `f` is a **unary** function, `f/` the derivative returns the result of `x` successive applications of `f` to `y`:
 `f f f … f f y`
@@ -251,46 +211,72 @@ q)fibonacci 10
 
 ## `/` over
 
-Syntax: `f/`  (unary, postfix)  
-Derivative: `x d y` (binary, infix, aggregate)
+Syntax: `f/`  (unary)  
+Derivative: `x d y` (ambivalent, aggregate)
 
-Where `f` is a **binary** function the derivative is _ambivalent_: where applied as
+Where `f` is a **binary** function the derivative returns
 
-- unary its result is `x[0] f x[1] f … f x[n-1] f x[n]`
-- binary its result is `x f (f/)y` 
+<code>f[x;f[y<sub>0</sub>;f[y<sub>1</sub>;…]]]</code>
 
 ```q
-q)+/[1 2 3]
-6
-q)+/[10;1 2 3]
-16
+q)(+/)2 3 4  /unary
+9
+q)0+/2 3 4   /binary
+9
 ```
 
-<i class="fa fa-hand-o-right"></i> [`over`](iteration/#over) operator.
+<i class="fa fa-hand-o-right"></i> [ambivalent functions](#ambivalent-functions), [`over`](iteration/#over) operator.
 
 
 ## `/` fold
 
-Syntax: `f/`  (unary, postfix)  
-Derivative: `d[x;y;z;…]` (same rank as `f`; prefix)
+Syntax: `f/`  (unary)  
+Derivative: `d[x;y;z;…]` (same rank as `f`)
 
-Where `f` is a **function with rank above 2** the derivative has the same rank as `f` and (e.g. for rank 3) returns  
+Where `f` is a **function with rank above 2** and `y`, `z`, etc. conform, the derivative has the same rank as `f` and (e.g. for rank 3 and `y` and `z` of count `n`) returns  
 <code>f[f[… f[f[x;y<sub>0</sub>;z<sub>0</sub>];y<sub>1</sub>;z<sub>1</sub>]; … y<sub>n-1</sub>;z<sub>n-1</sub>];y<sub>n</sub>;z<sub>n</sub>]</code>
 ```q
 q){x+y+z}/[1 5 6;2 22;3 33]
 61 65 66
 ```
 
-<aside class="comment" markdown="1">Is _over_ a special case of _fold_?</aside>
+!!! note "_Fold_ and _over_"
+    _Over_ is _fold_ as applied to a binary function. 
 
 
 ## `\` scan
 
-Syntax: `f\`  (unary, postfix)  
-Derivative: `d x` (unary, prefix, uniform)
+Syntax: `f\`  (unary)  
+Derivative: `d x` (unary, uniform)
 
-Where `f` is a **binary** function, the derivative applies `f/` to successive items of `x`. Its result is a list of the same length, built up as follows:
+Where `f` is a **binary** function, the derivative applies `f/` to successive items of `x`. Its result is a list of the same count, built up as follows:
 <code><pre>r<sub>0</sub> = x<sub>0</sub>
 r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
 
-<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](iteration/#over), [`scan`](iteration/#scan) operator
+<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](iteration/#over), [`scan` operator](iteration/#scan) 
+
+
+## Ambivalent functions
+
+Some binary derivatives are _ambivalent_: unary application does not return a unary projection but takes the binary function’s identity element as `x`. 
+```q
+q)+/[2 3 4]
+9
+q)+/[0;2 3 4]  /0 is identity element for +
+9
+q)*/[2 3 4]
+24
+q)*/[1;2 3 4]  /1 is identity element for *
+24
+```
+The _identity element_ of a function is the value `x` such that, for all `y`, `y~f[x;y]`. 
+
+In noun syntax, applying an ambivalent function by juxtaposition applies it as a unary function – there is no infix application in noun syntax. 
+```q
+q)10+/2 3 4    /infix in function syntax
+19
+q)(+/)2 3 4    /derivative in noun syntax applied by juxtaposition
+9
+q)10(+/)2 3 4  /no infix in noun syntax
+'Cannot write to handle 10. OS reports: Bad file descriptor
+```

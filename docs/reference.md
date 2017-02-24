@@ -99,7 +99,7 @@ The following glyphs represent operators, functions or higher-order functions â€
 
 | glyph | infix                                         | prefix                                          | postfix                                                 |
 |-------|-----------------------------------------------|-------------------------------------------------|---------------------------------------------------------|
-| `'`   | [case](language/higher-order-functions/#case) | [signal error](language/handlingerrors/#signal) | [each-both](language/higher-order-functions/#each-both); [compose](language/higher-order-functions/#compose)   |
+| `'`   | [case](language/higher-order-functions/#case) | [signal](language/handlingerrors/#signal) | [each-both](language/higher-order-functions/#each-both); [compose](language/higher-order-functions/#compose)   |
 | `@`   | index                                         | amend                                           | apply; [trap](language/handling errors/#trap)           | 
 | `.`   | index                                         |                                                 | apply                                                   |
 | `\`   |                                               | (see note below)                                | [`scan`](language/higher-order-functions/#scan)         | 
