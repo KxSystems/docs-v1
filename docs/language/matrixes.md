@@ -2,7 +2,7 @@
 
 Syntax: `inv x` (unary)
 
-**Matrix inverse**: returns the inverse of non-singular numeric matrix `x`.
+**Matrix inverse**: returns the inverse of non-singular _float_ matrix `x`.
 ```q
 q)a:3 3#2 4 8 3 5 6 0 7 1f
 q)inv a
@@ -27,7 +27,7 @@ Syntax: `x lsq y` (binary)
 
 **Matrix divide**: where: 
 
-- `x` and `y` are float matrices with the same number of columns
+- `x` and `y` are _float_ matrices with the same number of columns
 - the number of rows of `y` do not exceed the number of columns
 - the rows of `y` are linearly independent
 
@@ -78,7 +78,7 @@ q)a - (a lsq b) mmu b     / minimum squared difference
 
 Syntax: `x mmu y` (binary)
 
-**Matrix multiply**: returns the matrix product of numeric matrixes `x` and `y`, which must conform in the usual way, i.e. the columns of `x` must correspond to the rows of `y`.
+**Matrix multiply**: returns the matrix product of _float_ matrixes `x` and `y`, which must conform in the usual way, i.e. the columns of `x` must correspond to the rows of `y`.
 ```q
 q)a:2 4#2 4 8 3 5 6 0 7f
 q)b:4 3#"f"$til 12

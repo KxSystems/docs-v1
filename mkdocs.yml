@@ -121,36 +121,22 @@ pages:
     - Error handling: language/handlingerrors.md
     - Files: language/files.md
     - Iteration: language/iteration.md
+    - Joins: language/joins.md
     - Lists: language/listfunctions.md
     # - Numbers:
     - Logic: language/logicfunctions.md
     - Matrixes: language/matrixes.md
-        #   - inv: language/inv.md
-        #   - mmu: language/mmu.md
     - Parallel processing: language/peach.md
     - Parse trees: language/parsetrees.md
     - Selection: language/selectionfunctions.md
     - Search: language/searchfunctions.md
     - Sort: language/sortfunctions.md
-    # - Statistics: language/statistics.md
     - Statistics (aggregates): language/stats-aggregates.md
     - Statistics (moving): language/stats-moving.md
     - System commands: language/SystemCommands.md
     - Text: language/textfunctions.md
     - Trigonometry: language/trigonometry.md
-    # - Dictionaries and tables:
-        # - Joins:
-        #   - Joins: language/joins.md
-        #   - aj: language/aj.md
-        #   - asof: language/asof.md
-        #   - coalesce: http://code.kx.com/wiki/JB:QforMortals2/tables#Coalesce_.28.5E.29
-        #   - column join: http://code.kx.com/wiki/JB:QforMortals2/tables#Coalesce_.28.5E.29
-        #   - ej: language/ej.md
-        #   - ij: language/ij.md
-        #   - lj: language/lj.md
-        #   - pj: language/pj.md
-        #   - uj: language/uj.md
-        #   - wj: language/wj.md
+    # - Q-SQL:
         # - Q-SQL functions:
           # - exec: language/exec.md
         #   - delete: language/delete.md
