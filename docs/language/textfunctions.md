@@ -1,8 +1,4 @@
-Text functions
-==============
-
-csv
----
+### `csv`
 
 Syntax: `csv`
 
@@ -14,8 +10,7 @@ q)csv~","
 See [`0:`](language/zerocolon).
 
 
-like
-----
+## `like`
 
 Syntax: `x like y`
 
@@ -39,8 +34,7 @@ Special characters can be matched by bracketing them.
 See also [Regular expressions](/cookbook/regex)
 
 
-lower
------
+## `lower`
 
 Syntax: `lower x`
 
@@ -53,8 +47,7 @@ q)lower`IBM
 ```
 
 
-ltrim
------
+## `ltrim`
 
 Syntax: `ltrim x`
 
@@ -65,8 +58,7 @@ q)ltrim"   IBM   "
 ```
 
 
-md5
----
+## `md5`
 
 Syntax `md5 x`
 
@@ -79,8 +71,20 @@ q)md5 "this is a not so secret message"
 ```
 
 
-rtrim
------
+## `$` pad
+
+Syntax: `x $ y`
+
+Where `x` is a long, and `y` a string, returns `y` padded to length `x`.
+```q
+q)10$"foo"
+"foo       "
+q)-10$"foo"
+"       foo"
+```
+
+
+## `rtrim`
 
 Syntax: `rtrim x`
 
@@ -91,8 +95,7 @@ q)rtrim"   IBM   "
 ```
 
 
-ss
---
+## `ss`
 
 Syntax: `x ss y`
 
@@ -114,8 +117,7 @@ q)s ss "t?r"
 See also [Regular expressions](/cookbook/regex)
 
 
-ssr
----
+## `ssr`
 
 Syntax: `ssr[x;y;z]`
 
@@ -139,41 +141,7 @@ q)ssr[s;"t?r";upper]    / replace matches by their uppercase
 See also [Regular expressions](/cookbook/regex)
 
 
-string
-------
-
-Syntax: `string x`
-
-Casts each atom in `x` to a string, i.e. char list. It applies to all data types.
-```q
-q)string `ibm`goog
-"ibm"
-"goog"
-q)string 2 7 15
-,"2"
-,"7"
-"15"
-q)string (2 3;"abc")
-(,"2";,"3")
-(,"a";,"b";,"c")
-```
-It applies to the values of a dictionary, and the columns of a table:
-```q
-q)string `a`b`c!2002 2004 2010
-a| "2002"
-b| "2004"
-c| "2010"
-q)string ([]a:1 2 3;b:`ibm`goog`aapl)
-a    b
------------
-,"1" "ibm"
-,"2" "goog"
-,"3" "aapl"
-```
-
-
-trim
-----
+## `trim`
 
 Syntax: `trim x`
 
@@ -183,15 +151,7 @@ q)trim"   IBM   "
 "IBM"
 ```
 
-!!! Note "Casting string to symbol"
-    When converting a string to a symbol, leading and trailing blanks are automatically trimmed:
-    ```q
-    `$"   IBM   "
-    `IBM
-    ```
-
-upper
------
+## `upper`
 
 Syntax: `upper x`
 

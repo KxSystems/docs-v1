@@ -1,4 +1,21 @@
-## exit
+## abort
+
+System command: type `\` at the debugger prompt `q))` prompt to return to the interactive session.
+```q
+q)f:{g[]}
+q)g:{'`xyz}
+q)f[]
+{g[]}
+'xyz
+@
+{'`xyz}
+::
+q))\
+q)
+```
+
+
+## `exit`
 
 Syntax: `exit x`
 
@@ -13,7 +30,7 @@ guest@localhost:~$ echo $?
 ```
 
 
-## Signal '
+## `'` signal
 
 Syntax: `'emsg`
 
@@ -50,7 +67,7 @@ Trap always receives a string regardless of the type of `x`.
     ```
 
 
-## Trap . @
+## `.` `@` trap
 
 Syntax: `@[f;x;e]`  
 Syntax: `.[g;y;e]`

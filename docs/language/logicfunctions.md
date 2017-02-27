@@ -1,9 +1,8 @@
-`all`
------
+## `all`
 
 Syntax: `all x` (unary, aggregate)
 
-Returns a boolean atom `1b` if **all** values in its argument are non-zero, and otherwise `0b`. 
+Returns a boolean atom `1b` if all items of `x` are non-zero, and otherwise `0b`. 
 
 It applies to all data types except symbol, first converting the type to boolean if necessary.
 ```q
@@ -16,36 +15,22 @@ q)if[all x in y;....]   / use in control structure
     `all` is defined as `min` after converting to boolean, i.e. `all x` is equivalent to `min "b"$x`.
 
 
-`and` `&`
----------
+## `&` `and` 
 
+Syntax: `x & y` (binary, atomic)  
 Syntax: `x and y` (binary, atomic)
-Syntax: `x & y` (binary, atomic)
 
-Returns the minimum of its arguments; applies to all data types except symbol.
-```q
-q)1100b and 1010b
-1000b
-q)1b & 10b
-10b
-q)1b and 0b
-0b
-```
+Returns the [minimum](arithmetic-integer/#and-minimum) of its arguments; applies to all data types except symbol.
 
 !!! Note "And numbers"
-    The name `and` is used because it behaves as logical AND on boolean arguments, but is extended to _minimum_ on other data types:
-    ```q
-    q)-2 0 3 7 & 0 1 3 4
-    -2 0 3 4
-    ```
+    The name `and` is used because it behaves as logical AND on boolean arguments, but is extended to _minimum_ on other data types
 
 
-`any`
------
+## `any`
 
 Syntax: `any x` (unary, aggregate)
 
-Returns a boolean atom `1b` if **any** value in `x` is non-zero, and otherwise `0b`; applies to all data types except symbol, first converting the type to boolean if necessary.
+Returns a boolean atom `1b` if any item of `x` is non-zero, and otherwise `0b`; applies to all data types except symbol, first converting the type to boolean if necessary.
 ```q
 q)any 1 2 3=10 20 4
 0b
@@ -112,25 +97,13 @@ q)null 0 0n 0w 1 0n
     ```
 
 
-`or` `|`
---------
+## `|` `or`
 
-Syntax: `x or y` (binary, infix, atomic)
+Syntax: `x|y` (binary, atomic)  
+Syntax: `x or y` (binary, atomic)
 
-Returns the **maximum** of `x` and `y`. It applies to all data types except symbol.
-```q
-q)1100b or 1010b
-1110b
-q)0b or 10b
-10b
-q)0b | 10b        / glyph
-10b
-```
+Returns the [maximum](arithmetic-integer/#or-maximum) of `x` and `y`. It applies to all data types except symbol.
 
 !!! note "Or numbers" 
     The name `or` is used because it behaves as logical OR on boolean arguments, but is extended to _maximum_ on other data types.
-    ```q
-    q)-2 0 3 7 or 0 1 3 4
-    0 1 3 7
-    ```
 

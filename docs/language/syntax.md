@@ -90,7 +90,7 @@ q)count(+;rotate;/)            / 2 operators and an adverb
 
 ### Vectors
 
-A _vector_ is a _simple list_: all its items are of the same dataype. In writing a vector, parentheses and semicolons may be omitted. 
+A _vector_ is a _simple list_: all its items are of the same dataype. In writing a vector, parentheses and semicolons may be omitted. Char vectors are also known as _strings_.
 ```q
 q)42 43 44 45~(42;43;44;45)    / simple 4-lists
 1b
@@ -99,6 +99,19 @@ q)("a";"b";"c")~"abc"          / char vectors
 q)3<til 10                     / boolean vector
 0000111111b
 ```
+
+!!! note "Escape characters in strings"
+    When `\` is used inside character or string displays, it serves as an escape character.
+    
+    |       |                                           |
+    |-------|-------------------------------------------|
+    | \\"   | double quote                              |
+    | \\NNN | character with octal value NNN (3 digits) |
+    | \\\\  | backslash                                 |
+    | \\n   | new line                                  |
+    | \\r   | carriage return                           |
+    | \\t   | horizontal tab                            |
+
 
 
 ### Dictionaries and tables
@@ -306,3 +319,28 @@ Expressions beginning with `insert`, `select` or `update` employ [q-SQL syntax](
 ## Control words
 
 The _control words_ govern execution. They are FIXME `do`, `if`, `while`
+
+
+## K syntax
+
+!!! warning "K is deprecated"
+    Q is a domain-specific language for finance embedded in the k programming language. Many reserved words in q expose definitions in k. 
+    ```q
+    q)show rotate
+    k){$[0h>@y;'`rank;98h<@y;'`type;#y;,/|(0;mod[x;#y])_y;y]}[k){1 .Q.s x;}]
+    ```
+    Because of this, there are k expressions that work in the q interpreter, but which are not defined as part of the q language. 
+    
+    Although q provides a toggle for switching in and out of k, k is currently undocumented and its use in q scripts is deprecated and unsupported.
+    
+    If you find a k expression in a q script, you should be able to replace it with a q expression.
+    ```q
+    q)(-)1 2 3       /k - deprecated
+    -1 -2 -3
+    q)neg 1 2 3      /q equivalent
+    -1 -2 -3
+    q)(|)1 2 3       /k - deprecated
+    3 2 1
+    q)reverse 1 2 3  /q equivalent
+    3 2 1
+    ```

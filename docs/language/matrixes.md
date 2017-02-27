@@ -1,3 +1,6 @@
+!!! warning "Matrix functions work on floats"
+    Any other datatype signals a type error.
+
 ## `inv`
 
 Syntax: `inv x` (unary)
@@ -74,9 +77,10 @@ q)a - (a lsq b) mmu b     / minimum squared difference
     1 5 -3 2
     ```
 
-## `mmu`
+## `$` `mmu`
 
-Syntax: `x mmu y` (binary)
+Syntax: `x mmu y` (binary)  
+Syntax: `x $ y` (binary)
 
 **Matrix multiply**: returns the matrix product of _float_ matrixes `x` and `y`, which must conform in the usual way, i.e. the columns of `x` must correspond to the rows of `y`.
 ```q
@@ -90,6 +94,9 @@ q)1=c mmu inv c
 100b
 010b
 001b
+q)(1 2 3f;4 5 6f)$(7 8f;9 10f;11 12f)
+58  64
+139 154
 ```
 
 !!! tip "Parallel lines"
@@ -100,3 +107,12 @@ q)1=c mmu inv c
     81 99  117
     ```
 
+## `$` product
+
+Syntax: `x$y`
+
+Where `x` and `y` are conforming _float_ lists, returns their ‘dot product’.
+```q
+q)1 2 3f$4 5 6f
+32f
+```

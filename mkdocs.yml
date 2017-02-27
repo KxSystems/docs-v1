@@ -72,30 +72,19 @@ pages:
       - Changes in 2.5: language/releases/ChangesIn2.5.md
       - Changes in 2.4: language/releases/ChangesIn2.4.md
   - Toolbox:
-      # - ampersand: language/Ampersand.md
-      # - apostrophe: language/Apostrophe.md
-      # - apostrophecolon: language/ApostropheColon.md
-      # - asterisk: language/Asterisk.md
-      # - at: language/AtSymbol.md
-      # - backslash: language/BackSlash.md
       # - backslash backslash: language/BackSlashBackSlash.md
       # - backslash colon: language/BackSlashColon.md
       # - backtick: language/Backtick.md
       # - bang: language/BangSymbol.md
       # - bang internal function: language/BangSymbolInternalFunction.md
-      # - bar: language/Bar.md
       # - brackets: language/Brackets.md
       # - caret: language/Caret.md
       # - colon: language/Colon.md
       # - colon colon: language/ColonColon.md
       # - comma: language/Comma.md
-      # - Comparatives: language/Comparatives.md
       # - curly braces: language/CurlyBraces.md
-      # - dollar: language/DollarSign.md
       # - dot: language/DotSymbol.md
-      # - equals: language/EqualsSymbol.md
       # - LeftRightAngleBracket: language/LeftRightAngleBracket.md
-      # - MinusSymbol: language/MinusSymbol.md
       # - NumberSign: language/NumberSign.md
       # - Parentheses: language/Parentheses.md
       # - PercentSymbol: language/PercentSymbol.md
@@ -117,8 +106,8 @@ pages:
     - Arithmetic (float): language/arithmetic-float.md
     - Casting: language/casting.md
     - Comparison: language/comparisonfunctions.md
-    - Control words: language/controlwords.md
-    - Error handling: language/handlingerrors.md
+    - Evaluation control: language/evaluationcontrol.md
+    - Error handling: language/errors.md
     - Files: language/files.md
     - Iteration: language/iteration.md
     - Joins: language/joins.md

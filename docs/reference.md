@@ -69,7 +69,6 @@ Glyphs
 | `=`   | equal     | `<>`  | not equal          | `~`   | match          |
 | `<`   | less than | `<=`  | less than or equal | `>`   | greater than   | `>=`  | greater than or equal |
 | `+`   | plus      | `-`   | minus              | `*`   | times          | `%`   | divided by            |
-| `&`   | minimum   | `|`   | maximum            |
 | `#`   | take      | `,`   | join               | `^`   | fill; coalesce | `_`   | drop; cut             |
 | `!`   | dict; key; enum; update; delete | 
 
@@ -93,7 +92,7 @@ Glyphs
 
 ### Overloaded glyphs
 
-The following glyphs represent operators, functions or higher-order functions – according to context.
+The following glyphs represent operators, functions or adverbs – according to context.
 
 <div class="kx-compact" markdown="1">
 
@@ -102,6 +101,8 @@ The following glyphs represent operators, functions or higher-order functions �
 | `'`   | [case](language/higher-order-functions/#case) | [signal](language/handlingerrors/#signal) | [each-both](language/higher-order-functions/#each-both); [compose](language/higher-order-functions/#compose)   |
 | `@`   | index                                         | amend                                           | apply; [trap](language/handling errors/#trap)           | 
 | `.`   | index                                         |                                                 | apply                                                   |
+| `&`   | minimum                                       | where                                           |                                                         |
+| `|`   | maximum                                       | reverse                                         |                                                         |
 | `\`   |                                               | (see note below)                                | [`scan`](language/higher-order-functions/#scan)         | 
 | `?`   | find; rand                                    | vector conditional; exec; select                |                                                         | 
 | `$`   | cast; tok; enum; pad; product                 | cond                                            | cast each                                               | 

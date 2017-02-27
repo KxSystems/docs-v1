@@ -190,7 +190,7 @@ q)-':[2 5 9]     /deltas
 ```
 
 
-## `/` iterate
+## `/` repeat
 
 Syntax: `f/`  (unary)  
 Derivative: `x d y` (binary)
@@ -244,14 +244,82 @@ q){x+y+z}/[1 5 6;2 22;3 33]
     _Over_ is _fold_ as applied to a binary function. 
 
 
+## `\` iterate
+
+Syntax: `d:f\` (unary)  
+Derivative: `d y` (unary)
+Derivative: `x d y` (binary)
+
+Where `f` is a **unary** function, the derivative `d`
+
+- applied **unary** calls `f` on `y` repeatedly until a value matching the `y` or the last result is produced. The result is `y` followed by all the results except the last.
+```q
+q)(neg\)1
+1 -1
+q)(rotate[1]\)"abcd"
+("abcd";"bcda";"cdab";"dabc")
+q)({x*x}\)0.1
+0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
+q){x*x}\[0.1]   / alternate syntax
+0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
+```
+
+- applied **binary**, `x` can be either an integer number of iterations or a while-condition that returns an int or boolean which can be applied to the result of `f`. 
+```q
+q)f:1+
+q)f\[3;100]
+100 101 102 103
+q)f\[105>;100]
+100 101 102 103 104 105
+q)f\[105>sum@;84 20]
+84 20
+85 21
+q)3 f\100 /applied infix
+100 101 102 103
+```
+
+
 ## `\` scan
 
-Syntax: `f\`  (unary)  
-Derivative: `d x` (unary, uniform)
+Syntax: `d:f\`  (unary)  
+Derivative: `d y` (unary, uniform)  
+Derivative: `x d y` (binary, uniform)  
+Derivative: `d[x;y;z;…]` (uniform)
 
-Where `f` is a **binary** function, the derivative applies `f/` to successive items of `x`. Its result is a list of the same count, built up as follows:
+Where `f` is a **binary** function, the derivative `d` applies `f/` to successive items of `x`. Its result is a list of the same count, built up as follows:
 <code><pre>r<sub>0</sub> = x<sub>0</sub>
 r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
+
+- Where `d` is applied **unary**
+```q
+q)(+\)til 10
+0 1 3 6 10 15 21 28 36 45
+q)+\[til 10]
+0 1 3 6 10 15 21 28 36 45
+```
+
+- Where `d` is applied **binary**, `x` is used as the initial value.
+```q
+q)1+\1 2 3
+2 4 7
+q)+\[1;1 2 3]
+2 4 7
+```
+
+- Where `d` is applied as **&gt;rank 2**, `x` is used as the initial value and other arguments are corresponding items from the lists.
+```q
+q){(x;y;z)}\[0;1 2 3;4 5 6]
+0           1 4
+0 1 4       2 5
+(0 1 4;2;5) 3 6
+```
+As of V3.1 2013.07.07, `scan` has a built-in function for the following.
+```q
+q){{z+y*x}\[x;y;z]}
+{{z+y*x}\[x;y;z]}
+q){x y\z}           /alternative syntax using built-in function
+```
+Note that for the built-in version it is for floats.
 
 <i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](iteration/#over), [`scan` operator](iteration/#scan) 
 
@@ -271,12 +339,12 @@ q)*/[1;2 3 4]  /1 is identity element for *
 ```
 The _identity element_ of a function is the value `x` such that, for all `y`, `y~f[x;y]`. 
 
-In noun syntax, applying an ambivalent function by juxtaposition applies it as a unary function – there is no infix application in noun syntax. 
+In noun syntax, applying an ambivalent function by juxtaposition applies it as a unary function. 
 ```q
 q)10+/2 3 4    /infix in function syntax
 19
-q)(+/)2 3 4    /derivative in noun syntax applied by juxtaposition
+q)(+/)2 3 4    /derivative applied by juxtaposition in noun syntax
 9
-q)10(+/)2 3 4  /no infix in noun syntax
+q)10(+/)2 3 4  /noun syntax precludes infix
 'Cannot write to handle 10. OS reports: Bad file descriptor
 ```

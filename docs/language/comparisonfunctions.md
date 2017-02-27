@@ -1,11 +1,14 @@
-Six comparison operators:
+## Six comparison operators
 
-## equal `=`
-## greater than `>`
-## greater than or equal `>=`
-## less than `<`
-## less than or equal `<=`
-## not equal `<>`
+<div class="kx-compact" markdown="1">
+
+| glyph | function     | glyph | function              |
+|-------|--------------|-------|-----------------------|
+| `=`   | equal        | `<>`  | not-equal             |
+| `>`   | greater-than | `>=`  | greater-than-or-equal |
+| `<`   | less-than    | `<=`  | less-than-or-equal    |
+
+</div>
 
 Syntax: (eg) `x = y` (binary, atomic) 
 

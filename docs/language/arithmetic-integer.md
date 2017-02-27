@@ -16,15 +16,6 @@ q)abs 10 -43 0N
 ```
 
 
-`and` `&`
----------
-
-Syntax: `x and y` (binary, atomic)  
-Syntax: `x & y` (binary, atomic)
-
-Returns the minimum of `x` and `y`. See [Logic/`and`](logicfunctions/#and)
-
-
 `ceiling`
 ---------
 
@@ -96,10 +87,12 @@ q)deltas 1 4 9 16
 See also: [each-prior](higher-order-functions/#each-prior), [differ](searchfunctions/#differ), [ratios](arithmetic-real/#ratios)
 
 
-`div`
------
+## `%` `div`
 
-Integer division: returns `floor x%y`.
+Syntax: `x%y` (binary, atomic)  
+Syntax: `x div y` (binary, atomic) 
+
+**Integer division**: returns `floor x%y`.
 ```q
 q)7 div 3
 2
@@ -123,9 +116,11 @@ q)"\023" div 8
 2i
 ```
 
+!!! warning "Not your familiar `%`"
+    This is different from `%` in some other programming languages, e.g. C++.
 
-`floor`
--------
+
+## `floor`
 
 Syntax: `floor x` (unary, atomic)
 
@@ -152,8 +147,30 @@ q)floor -2.1 0 2.1
 See also: [`ceiling`](#ceiling)
 
 
-`mod`
-----
+## `|` `or` maximum
+
+Syntax: `x | y` (binary, atomic)  
+Syntax: `x or y` (binary, atomic) 
+
+Returns the maximum of `x` and `y`. 
+```q
+q)2|3
+3
+q)1010b or 1100b  /logical OR with booleans
+1110b
+```
+
+<i class="fa fa-hand-o-right"></i> [`or` in Logic](logicfunctions/#or)
+
+
+## `-` minus
+
+Syntax: `x - y`
+
+Returns the difference between conforming numerics `x` and `y`. Slower than `+`.
+
+
+## `mod`
 
 Syntax: `x mod y` (binary, atomic) 
 
@@ -164,8 +181,30 @@ q)-3 -2 -1 0 1 2 3 4 mod 3
 ```
 
 
-`neg`
------
+## `&` `and` minimum
+
+Syntax: `x and y` (binary, atomic)  
+Syntax: `x & y` (binary, atomic)
+
+Returns the minimum of `x` and `y`. 
+```q
+q)2&3
+2
+q)1010b and 1100b  /logical AND with booleans
+1000b
+```
+
+<i class="fa fa-hand-o-right"></i> [`and` in Logic](logicfunctions/#and)
+
+
+## `*` multiply
+
+Syntax: `x * y`
+
+Returns the product of conforming numeric atoms or lists `x` and `y`. 
+
+
+## `neg`
 
 Syntax: `neg x` (unary, atomic)
 
@@ -179,17 +218,7 @@ q)neg -1 0 1 2
     This is needed because q has no ambivalence, and `-` is already in use as an operator, i.e. in infix form. 
 
 
-`or` `|`
---------
-
-Syntax: `x or y` (binary, atomic)  
-Syntax: `x | y` (binary, atomic)
-
-Returns the minimum of `x` and `y`. See [Logic/`or`](logicfunctions/#or)
-
-
-`signum`
---------
+## `signum`
 
 Syntax: `signum x` (unary, atomic)
 
@@ -208,8 +237,7 @@ q)signum (0n;0N;0Nt;0Nd;0Nz;0Nu;0Nv;0Nm;0Nh;0Nj;0Ne)
     ```
 
 
-`sum`
------
+## `sum`
 
 Syntax: `sum x` (unary, aggregate)
 

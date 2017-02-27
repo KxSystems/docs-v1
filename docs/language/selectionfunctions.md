@@ -1,5 +1,4 @@
-`except`
---------
+## `except`
 
 Syntax: `x except y` (binary)
 
@@ -15,8 +14,7 @@ See also: [`in`](sortandsearchfunctions/#in) [`inter`](#inter) [`union`](#union)
 
 
 
-`first`
--------
+## `first`
 
 Syntax: `first x` (unary, aggregate)
 
@@ -57,9 +55,27 @@ q)a~first first enlist enlist 10
 ```
 
 
+## `@` index
 
-`inter`
--------
+Syntax: `x@y` (binary)
+
+Where `x` is a list or table and `y` is a float vector, returns items selected from `y`.
+```q
+q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
+q)d@1
+(8 9;10;11 12)
+q)d@1 2 / selects 2 items at the top level
+((8 9;10;11 12);(13 14;15 16 17 18;19 20))
+q)t:([]name:`bob`ted`dan;age:42 43 44)
+q)t@2 0
+name age
+--------
+dan  44
+bob  42
+```
+
+
+## `inter`
 
 Syntax: `x inter y` (binary)
 
@@ -224,14 +240,13 @@ q)(distinct t0,t1)~t0 union t1
 See also: [`except`](#except) [`in`](sortandsearchfunctions/#in) [`inter`](#inter) [`within`](sortandsearchfunctions/#within) 
 
 
-`where`
--------
+## `where`
 
-Syntax: `where x` (unary)
+Syntax: `where x` (unary) 
 
-Where `x` is: 
+Where `x` is:
 
-- a list of non-zero integers, the result is a simple list containing, for each item of `x`, that number of copies of its index. 
+- a vector of non-zero integers, returns a vector containing, for each item of `x`, that number of copies of its index. 
 ```q
 q)where 2 3 0 1
 0 0 1 1 1 3
@@ -240,7 +255,7 @@ q)raze x #' til count x:2 3 0 1
 ```
 
 !!! tip 
-    Where `x` is a boolean list, the result is the indices of the 1s. Thus `where` is often used after a logical test:
+    Where `x` is boolean, the result is the indices of the 1s. Thus `where` is often used after a logical test:
     ```q
     q)where 0 1 1 0 1
     1 2 4

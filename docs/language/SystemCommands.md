@@ -24,7 +24,7 @@ Some system commands have equivalent command-line parameters.
     ```
 
 
-## `\a [namespace]` - tables
+## `\a [namespace]` – tables
 
 Lists tables in the given namespace, default current namespace.
 ```q
@@ -37,7 +37,7 @@ q)\a .o               / tables in .o
 ```
 
 
-## `\b` - views/dependencies
+## `\b` – views/dependencies
 
 Lists all dependencies (views). See also [.z.b](Reference/dotzdotb "wikilink").
 ```q
@@ -48,7 +48,7 @@ q)\b
 ```
 
 
-## `\B` - pending views/dependencies
+## `\B` – pending views/dependencies
 
 Lists all pending dependencies (views), i.e. dependencies not yet referenced, or not referenced after their referents have changed.
 ```q
@@ -426,7 +426,67 @@ q)read1`:t1.q_          / file contents are scrambled
 ```
 
 
-## `\` - terminate
+## `system`
+
+Syntax: `system x`
+
+Where `x` is a system command as a string, without its `\` prefix.
+
+The benefit of using `system` rather than `\` is that it can be used as an ordinary function, and returns a result. For example, the following shows that the result of `\w` (workspace information) cannot be assigned, but the result can be obtained using `system`
+```q
+q)\w
+107728 67108864 67108864 0 0j
+q)a:\w
+'w
+q)a:system "w"
+q)a
+107872 67108864 67108864 0 0j
+```
+As with `\`, if the argument is not a q command, it is executed in the shell.
+```
+q)system "pwd"
+"/home/guest/q"
+```
+When redirecting output to a file, for efficiency purposes, avoiding using /tmp needlessly, append a semi-colon to the command:
+```q
+q)system"cat x"
+```
+is essentially the same as the shell command
+```q
+$cat x > tmpout
+```
+as q tries to capture the output. So if you do
+```q
+q)system"cat x > y"
+```
+under the covers that looks like
+```q
+$cat x > y > tmpout
+```
+not good. So if you add the semi colon
+```q
+q)system"cat x > y;"
+```
+the shell interpreter considers it as 2 statements
+```q
+$cat x > y; > tmpout
+```
+Can I capture the stderr output from the system call? Not directly, but a workaround is
+```q
+/ force capture to a file, and cat the file
+q)system"ls egg > file 2>&amp;1;cat file"
+"ls: egg: No such file or directory"
+/ try and fails to capture the text
+q)@[system;"ls egg";{0N!"error - ",x;}]
+ls: egg: No such file or directory
+"error - os"
+```
+
+!!! warning "Changing working directory in Windows"
+    In the event of an unexpected change to the working directory, Windows users please note <http://blogs.msdn.com/b/oldnewthing/archive/2007/11/21/6447771.aspx>
+
+
+## `\` – terminate
 
 If there is a suspension, this exits one level of the suspension. Otherwise, it toggles between q and k mode. (To switch languages from inside a suspension, type "`\`".)
 ```q

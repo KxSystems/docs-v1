@@ -1,5 +1,5 @@
 Ambivalent function
-: A _binary_ _derivative_ that, when _applied_ as a _unary_ function, _projects_ its _identity element_.
+: A function that may be _applied_ to either one or two _arguments_; i.e. has both _unary_ and _binary_ applications, e.g. [`deltas`](arithmetic-integer/#deltas)
 : <i class="fa fa-hand-o-right"></i> [Derivatives](adverbs/#derivatives), [each-prior](adverbs/#each-prior), [over](adverbs/#over) 
 
 Adverb
@@ -32,7 +32,11 @@ Derivative
 <i class="fa fa-hand-o-right"></i> [Derivatives](adverbs/#derivatives)
 
 Dictionary
-: A map of a list of keys to a list of values
+: A map of a _list_ of keys to a list of values
+
+Enumeration
+: A space-saving representation of a _list_: a list of the indexes of its _items_ in its _nub_.
+"<i class="fa fa-hand-o-right"></i> [_enum_](listfunctions/#enum)
 
 Higher-order function
 : A function that returns a function as its result
@@ -44,6 +48,9 @@ Identity element
 Infix
 : _Applying_ an operator to its _arguments_ by writing it between them, e.g.  
 `2+3`  applies `+` to 2 and 3
+
+Item, list item
+: A member of a _list_: a _noun_, function or _adverb_. 
 
 Juxtaposition
 : Literally, ‘putting beside’. Juxtaposing a list with a list or atom indexes the former with the latter, e.g. `"abcde"1 4 3`. Juxtaposing a _unary_ function and a noun applies the former to the latter, e.g. `til 5`.
@@ -57,9 +64,6 @@ Lambda notation
 List
 : Zero, one, or more _items_ separated by semicolons and enclosed by parentheses, e.g. ``("abc";`John;2012.09.15)`` and `()`. Parentheses and semicolons may be omitted in writing a _vector_
 
-List item
-: A member of a _list_: a _noun_, function or _adverb_
-
 Matrix
 : A _list_ in which all items are lists of the same _count_
 
@@ -71,6 +75,9 @@ Noun
 
 Noun syntax
 : Functions and _adverbs_ are not nouns, but parenthesised or as _list items)_ have the syntactic class of nouns and may be treated as such, e.g. `count(+;rotate;/)`
+
+Nub
+: The unique items of a list. <i class="fa fa-hand-o-right"></i> [`distinct`](listfunctions/#distinct)
 
 Operator
 : A _primitive_ _binary_ function that may be applied _infix_ as well as _prefix_, e.g. `+`, `rotate`
@@ -93,6 +100,9 @@ Rank
 Signature
 : The list of up to 8 _argument_ names that (optionally) begins a _lambda_, e.g. in `{[a;b](a*a)+(b*b)+2*a*b}`, the argument list `[a;b]` is the signature
 
+String
+: There is no string datatype in q. “String” in q means a char _vector_, e.g. "abc". 
+
 Table
 : A map of a _list_ of keys to a list of values, which are all lists of the same _count_
 
@@ -103,7 +113,7 @@ Unsigned function
 : A _lambda_ without a _signature_, eg `{x*x}`
 
 Vector
-: A _list_ in which all the items have the same [datatype](datatypes). May be written without parentheses and semicolons. <i class="fa fa-hand-o-right"></i> [Nouns](elements/#nouns)
+: A _list_ in which all the items have the same [datatype](datatypes). May be written without parentheses and semicolons. A char vector is known as a _string_. <i class="fa fa-hand-o-right"></i> [Nouns](elements/#nouns)
 
 x
 : Default name of the first or only _argument_ of an _unsigned_ function

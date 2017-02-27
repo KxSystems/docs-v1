@@ -1,10 +1,32 @@
-<aside class="comment" markdown="1">
-Lists **underlying functions** irrespective of whether denoted by a glyph, a reserved word, or both.
-</aside>
+## `@` amend
 
+Syntax: `@[x;y;f;z]`
 
-`count`
--------
+Where
+
+- `x` is a list (or file symbol, see Tip)
+- `y` is an int vector of indexes of `x`
+- `f` is a binary function
+- `z` is a value in the domain of the second argument of `f`
+
+returns `x` with its values at indexes `y` changed: for `i` in `til count y`, `x[y i]` becomes `f[x[y i];z]` 
+```q
+q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
+q)@[d;1 1 1;+;3]
+((1 2 3;4 5 6 7);(17 18;19;20 21);(13 14;15 16 17 18;19 20))
+```
+<i class="fa fa-hand-o-right"></i> [Functional Forms of Amend](FIXME)
+
+!!! tip "Do it on disk"
+    Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, and not compressed. e.g.
+    ```q
+    q)`:data set til 20;
+    q)@[`:data;3 6 8;:;100 200 300]; 
+    q)get`:data 
+    0 1 2 100 4 5 200 7 300 9 10 11 12 13 14 15 16 17 18 19
+    ```
+
+## `count`
 
 Syntax: `count x` (unary, aggregate)  
 
@@ -150,6 +172,74 @@ a b c
 ```
 
 
+## `$` enum
+
+Syntax: `x $ y`
+
+Where `x` and `y` are lists, `x~distinct x`, and `distinct y` are all items of `x`, returns `y` as an enumeration of `x`.
+
+!!! note "What is an enumeration?"
+    For a long list containing few distinct values, an enumeration can reduce storage requirements. The ‘manual’ way to create an enum (for understanding, not recommended):
+    ```q
+    q)y:`a`b`c`b`a`b`c`c`c`c`c`c`c
+    q)x:`a`b`c
+    q)show e:"i"$x?y;
+    0 1 2 1 0 1 2 2 2 2 2 2 2i  /these values are what we store instead of y.
+    q)x e                       /get back the symbols any time from x and e.
+    `a`b`c`b`a`b`c`c`c`c`c`c`c
+    q)`x!e / same result as `x$y 
+    `x$`a`b`c`b`a`b`c`c`c`c`c`c`c
+    ```
+
+Using built-in _enum_:
+```q
+q)show e:`x$y;
+`x$`a`b`c`b`a`b`c`c`c`c`c`c`c
+```
+Values are stored as indexes and so need less space.
+```q
+q)"i"$e
+0 1 2 1 0 1 2 2 2 2 2 2 2i
+```
+Changing one lookup value (in `x`) has the same effect as changing those values in the enumeration, while the indexes backing `e` are unchanged.
+```q
+q)x[0]:`o
+q)e
+x$`o`b`c`b`o`b`c`c`c`c`c`c`c
+q)"i"$e
+0 1 2 1 0 1 2 2 2 2 2 2 2i
+```
+To get `x` and `y` from `e`:
+```q
+q)(key;value)@\:e
+`x
+`o`b`c`b`o`b`c`c`c`c`c`c`c
+```
+
+!!! warning "Ensure all items of `y` are in `x`"
+    When creating an enumeration using `$`, the domain of the enumeration must be in `x`, otherwise a cast error will be signalled.
+    ```q
+    q)y:`a`b`c`b`a`b`c`c`c`c`c`c`c
+    q)x:`a`b
+    q)`x$y
+    'cast
+    ```
+    to expand the domain, use `?` instead of `$`.
+    ```q
+    q)`x?y
+    `x$`a`b`c`b`a`b`c`c`c`c`c`c`c
+    q)x
+    `a`b`c
+    ```
+    Note that `?` retains the attr of the right-argument but `$` does not.
+    ```q
+    q)`x?`g#y
+    `g#`x$`g#`a`b`c`b`a`b`c`c`c`c`c`c`c
+    q)`x$`g#y
+    `x$`a`b`c`b`a`b`c`c`c`c`c`c`c
+    ```
+<i class="fa fa-hand-o-right"></i> [Q for Mortals: Enumerations](FIXME)
+
 
 ## `^` fill 
 
@@ -188,8 +278,8 @@ c| 30
 
 <i class="fa fa-hand-o-right"></i> [`^` _coalesce_](joins/#coalesce) where `x` and `y` are keyed tables
 
-`fills`
--------
+
+## `fills`
 
 Syntax: `fills x` (uniform)
 
@@ -300,9 +390,7 @@ _Join_ for keyed tables is strict; both the key and data columns must match in n
 <i class="fa fa-hand-o-right"></i> [Joins](joins)
 
 
-
-`raze`
-------
+## `raze`
 
 Syntax: `raze x` (unary)
 
@@ -347,16 +435,13 @@ q)raze d
     ```
 
 
-`reverse`
----------
+## `reverse`
 
-Syntax: `reverse x` (unary, uniform)
+Syntax: `reverse x` (unary, uniform) 
 
 Returns the items of `x` in reverse order.
 ```q
 q)reverse 1 2 3 4
-4 3 2 1
-q)(|)1 2 3 4
 4 3 2 1
 ```
 On atoms, returns the atom; on dictionaries, reverses the keys; and on tables, reverses the columns:
@@ -395,6 +480,183 @@ a b
 2 y
 3 z
 1 x
+```
+
+
+## `#` take
+
+Syntax: `x # y`
+
+Returns `y` as a list, dict ionary or table described or selected by `x`. 
+
+Where `x` is 
+
+- an int atom, and `y` is an atom or list, returns a list of length `x` filled from `y`, starting at the front if `x` is positive and the end if negative.
+```q
+q)5#0 1 2 3 4 5 6 7 8      /take the first 5 items
+0 1 2 3 4
+q)-5#0 1 2 3 4 5 6 7 8     /take the last 5 items
+4 5 6 7 8
+```
+If `x>count y`, `y` is treated as circular.
+```q
+q)5#`Arthur`Steve`Dennis
+`Arthur`Steve`Dennis`Arthur`Steve
+q)-5#`Arthur`Steve`Dennis
+`Steve`Dennis`Arthur`Steve`Dennis
+q)3#9
+9 9 9
+q)2#`a
+`a`a
+```
+If `x` is 0, an empty list is returned.
+```q
+q)trade:([]time:();sym:();price:();size:())  /columns can hold anything
+q)trade
++`time`sym`price`size!(();();();())
+q)/idiomatic way to initialise columns to appropriate types
+q)trade:([]time:0#0Nt;sym:0#`;price:0#0n;size:0#0N)
+q)trade
++`time`sym`price`size!(`time$();`symbol$();`float$();`int$())
+```
+
+- an int atom and `y` is a dictionary, `x` entries are returned.
+```q
+q)d:`a`b`c!1 2 3
+q)2#d
+a| 1
+b| 2
+```
+
+- an int atom and `y` is a table, `x` rows are returned.
+```q
+q)\l sp.q
+..
+q)5#sp
+s  p  qty
+---------
+s1 p1 300
+s1 p2 200
+s1 p3 400
+s1 p4 200
+s4 p5 100
+```
+
+- an int vector and `y` is an atom or list, returns a matrix or higher-dimensional array; `count x` gives the number of dimensions. (Since V2.3)
+```q
+q)2 5#"!"
+"!!!!!"
+"!!!!!"
+q)2 3#til 6
+(0 1 2;3 4 5)
+```
+A 2&times;4 matrix taken from the list `` `Arthur`Steve`Dennis``
+```q
+q)2 4#`Arthur`Steve`Dennis
+(`Arthur`Steve`Dennis`Arthur;`Steve`Dennis`Arthur`Steve)
+```
+Higher dimensions are not always easy to see.
+```q
+q)2 3 4#"a"
+"aaaa" "aaaa" "aaaa"
+"aaaa" "aaaa" "aaaa"
+q)show five3d:2 3 4#til 5
+0 1 2 3 4 0 1 2 3 4 0 1
+2 3 4 0 1 2 3 4 0 1 2 3
+q)count each five3d
+3 3
+q)first five3d
+0 1 2 3
+4 0 1 2
+3 4 0 1
+```
+A null in `x` will cause that dimension to be maximal.
+```q
+q)0N 3#til 10
+0 1 2
+3 4 5
+6 7 8
+,9
+```
+
+!!! note "Changes since V3.3"
+    From V3.4, if `x` is a list of length 1, the result has a single dimension. 
+    ```q
+    q)enlist[2]#til 10
+    0 1
+    ```
+    From V3.4, `x` can have length greater than 2 – but may not contain nulls.
+    ```q
+    q)(2 2 3#til 5)~((0 1 2;3 4 0);(1 2 3;4 0 1))
+    1b
+    q)(enlist("";""))~1 2 0#"a"
+    1b
+    q)all`domain=@[;1 2;{`$x}]each(#)@'(1 0 2;2 3 0N;0N 2 1;-1 2 3)
+    1b
+    ```
+    The effect of nulls in `x` changed in V3.3.
+        
+    Prior to v3.3:
+    ```q
+    q)3 0N # til 10
+    (0 1 2 3;4 5 6 7;8 9)
+    q)(10 0N)#(),10
+    10
+    q)4 0N#til 9
+    0 1 2
+    3 4 5
+    6 7 8
+    ```
+    From V3.3:
+    ```q
+    q)3 0N#til 10
+    (0 1 2;3 4 5;6 7 8 9)
+    q)2 0N#0#0
+    (`long$();`long$())
+    q)(10 0N)#(),10
+    (`long$();`long$();`long$();`long$();`long$();`long$();`long$();`long$();`long$();,10)
+    q)4 0N#til 9
+    0 1
+    2 3
+    4 5
+    6 7 8
+    ```
+
+- a symbol vector and `y` is a dictionary, returns entries for `x`.
+```q
+q)d:`a`b`c!1 2 3
+q)`a`b#d
+a| 1
+b| 2
+```
+
+- a symbol vector and `y` is a table, returns columns `x`.
+```q
+q)`p`qty#sp
+p  qty
+------
+p1 300
+p2 200
+p3 400
+p4 200
+p5 100
+p6 100
+p1 300
+p2 400
+p2 200
+p2 200
+p4 300
+p5 400
+```
+
+- a table and `y` is a table, returns matching rows, together with the respective keys. This is similar to retrieving multiple records through the square brackets syntax, except _take_ also returns the keys. 
+<i class="fa fa-hand-o-right"></i> Q4M: [Retrieving Multiple Records](FIXME)
+```q
+q)([]s:`s1`s2)#s
+s | name  status city  
+--| -------------------
+s1| smith 20     london
+s2| jones 10     paris 
 ```
 
 

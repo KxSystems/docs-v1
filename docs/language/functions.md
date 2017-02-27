@@ -58,26 +58,25 @@ q)distinct 2 3 5 7 2 5      / none of the above
 ```
 
 
-Arguments
----------
-
-The number of arguments a function takes is its _rank_. Applying the function to more arguments than its rank signals a rank error. Applying it to fewer results in a [_projection_](#projection). 
+## Application
 
 In applying a function, the canonical form of its arguments is a bracketed list separated by semicolons. 
 
-f\[a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>\]
+<code>f[a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>]</code>
 
 The expression in brackets lists parameters to the function, but is _not_ itself a list, i.e. it is not the same as:
 
-(a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>)
+<code>(a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>)</code>
 
-Functions of rank 1 or 2 are known respectively as _unary_ and _binary_. 
+A function’s _rank_ is the number of arguments it takes. Functions of rank 1 or 2 are known respectively as _unary_ and _binary_. 
 
-A unary function can be applied without argument brackets.
+A unary function can be applied by juxtaposition.
 ```q
-q)reverse[0 1 2]
+q)reverse[0 1 2]    /function syntax
 2 1 0
-q)reverse 0 1 2
+q)(reverse)(0 1 2)  /juxtaposition is application
+2 1 0
+q)reverse 0 1 2     /the parens are redundant
 2 1 0
 ```
 
@@ -89,6 +88,21 @@ q)reverse 0 1 2
     q)0 1 4 9 16 25 36 49[3 4 5]
     9 16 25
     ```
+
+A unary function `g` with argument `d` can be evaluated by `g@d` or `g.enlist d`.
+```q
+q)f:{x*2}
+q)f@42
+84
+```
+Functions with no arguments require special handling. For example, if `f:{2+3}` then `f` can be evaluated with `@` and any argument.
+```q
+q)f:{2+3}
+q)f[]
+5
+q)f@0
+5
+```
 
 
 Name scope
@@ -124,10 +138,11 @@ A function is defined implicitly
 - by projection
 
 
-Projection
-----------
+## Projection
 
-Passing a function a subset of its arguments _projects_ a new function. In the new function, the arguments already passed have the values supplied. The projected function has in its signature only the _undefined_ argument/s. 
+The number of arguments a function takes is its _rank_. Applying the function to more arguments than its rank signals a rank error. Applying it to fewer projects (returns) a new function, a [_projection_](#projection). 
+
+In the new function, the arguments already passed have the values supplied. The projected function has in its signature only the _undefined_ argument/s. 
 ```q
 q)f:{x + 2 * y - z}       / f has rank 3
 q)f[100;10;2 3 5]
