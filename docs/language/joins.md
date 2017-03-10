@@ -323,7 +323,7 @@ MSFT 0.5433888 CME 250
     ```
 
 
-## `lj` left-join
+## `lj` `ljf` left-join
 
 Syntax: `t1 lj t2`
 

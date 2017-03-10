@@ -1,8 +1,20 @@
 These functions return floating-point results.
 
+## `%` divide
+
+Syntax: `x%y` (atomic)  
+
+where `x` and `y` are numeric, returns a float. Note that this is different from some other programming languages, e.g. C++.
+```q
+q)2%3
+0.6666667
+```
+<i class="fa fa-hand-o-right"></i> [`div` integer division](arithmetic-integer/#div),  [Q for Mortals](JB:QforMortals2/primitive_operations#Basic_Arithmetic:_.2B.2C_-.2C_.2A.2C_.25 "wikilink")
+
+
 ## `exp`
 
-Syntax: ``exp x`` (unary, atomic)
+Syntax: ``exp x`` (atomic)
 
 Returns _e_<sup>x</sup>, where _e_ is the base of natural logarithms.
 ```q
@@ -19,7 +31,7 @@ See also: [`log`](#log), [`xexp`](#xexp), [`xlog`](#xlog)
 
 ## `log`
 
-Syntax: `log x` (unary, atomic)
+Syntax: `log x` (atomic)
 
 Returns the natural logarithm of `x`. Null is returned if the argument is negative, and negative infinity where x is 0.
 ```q
@@ -38,7 +50,7 @@ See also: [`exp`](#exp), [`xexp`](#xexp), [`xlog`](#xlog)
 
 ## `prd`
 
-Syntax: `prd x` (unary, aggregate)
+Syntax: `prd x` (aggregate)
 
 Product: where x is
 
@@ -65,7 +77,7 @@ See also: [`prds`](#prds), [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic
 
 ## `prds`
 
-Syntax: `prds x` (unary, atomic)
+Syntax: `prds x` (atomic)
 
 Returns the cumulative products of the items of `x`. The product of an atom is itself. Nulls are treated as 1s.
 ```q
@@ -87,8 +99,8 @@ See also: [`prd`](#prd), [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic-i
 
 ## `ratios`
 
-Syntax: `ratios y` (unary, uniform)  
-Syntax: `ratios[x;y]` (binary, uniform)
+Syntax: `ratios y` (uniform)  
+Syntax: `ratios[x;y]` (uniform)
 
 Returns the ratios of consecutive pairs of items of numeric list `y`.
 
@@ -121,7 +133,7 @@ See also: [`deltas`](#deltas), [each-prior](higher-order-functions/#eachprior), 
 
 ## `reciprocal`
 
-Syntax: `reciprocal x` (unary, atomic)
+Syntax: `reciprocal x` (atomic)
 
 Returns the reciprocal of `x`.
 ```q
@@ -132,7 +144,7 @@ q)reciprocal 0 0w 0n 3 10
 
 ## `sqrt`
 
-Syntax: `sqrt x` (unary, atomic)
+Syntax: `sqrt x` (atomic)
 
 Returns the square root of `x`. Where `x` is negative or null, the result is null.
 ```q
@@ -143,7 +155,7 @@ q)sqrt -1 0n 0 25 50
 
 ## `xexp`
 
-Syntax: `x xexp y` (binary, atomic)
+Syntax: `x xexp y` (atomic)
 
 _To the power_: returns x<sup>y</sup>.
 ```q
@@ -172,7 +184,7 @@ See also: [`exp`](#exp), [`log`](#log), [`xlog`](#xlog)
 
 ## `xlog`
 
-Syntax: `x xlog y` (binary, atomic)
+Syntax: `x xlog y` (atomic)
 
 Returns the base-x logarithm of `y`. Where `y` is negative or zero, the result is null and negative infinity respectively.
 ```q

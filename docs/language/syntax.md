@@ -1,3 +1,4 @@
+
 > It is a privilege to learn a language,  
 > a journey into the immediate  
 > — _Marilyn Hacker_, “Learning Distances”
@@ -29,7 +30,32 @@ the restroom at the end of the universe
 ```
 
 
-## Naming
+## Separation
+
+The semicolon `;` is an all-purpose separator. It separates expressions, function arguments, list items, and so on.
+```q
+q)a:5;b:3   /expressions
+q)a
+5
+q)(1;2;3)   /items of a list
+1 2 3
+q)+[2;3]    /function arguments
+5
+```
+
+!!! tip "Evaluating a sequence of expressions"
+    When a _sequence_ of expressions is evaluated, only the last one returns a result. (They may all have side effects, such as setting a variable.) Evaluating a sequence of expressions is not the same as evaluating a _list_ of expressions.
+    ```q
+    q)1+1;b:2+2;3+3
+    6
+    q)b
+    4
+    q)(1+1;b:2+2;3+3)
+    2 4 6
+    ```
+
+
+## Naming and assignment
 
 Values may be named, using single or double colons. The double colon binds the value to a name in the session root; the single colon binds the name in the local context. In a session with no evaluation suspended their effects are the same.
 ```q
@@ -40,9 +66,31 @@ q)foo::103
 q)foo
 103
 ```
+Named values can be _amended_, either entirely or selectively. 
+```q
+q)show foo:42 43 44
+42 43 44
+q)foo[1]:100
+q)foo
+42 100 43
+```
+Amendment through assignment can be modified by any operator. 
+```q
+q)foo*:2
+q)foo
+84 200 86
+q)foo[2]+:4
+q)foo
+84 200 90
+```
+
+!!! warning "Amending vectors"
+    Amending vectors through modified selective assignment requires an operator that returns the same datatype. 
+
+<i class="fa fa-hand-o-right"></i> [_amend_ function](listfunctions/#amend)
 
 
-## Noun syntax
+## Nouns
 
 ### Atoms 
 
@@ -53,16 +101,16 @@ An _atom_ is a single number, character, boolean, symbol, timestamp… a single
 
 A _list_ is enclosed in parentheses, its items – if any – separated by semicolons. 
 ```q
-q)count(42;`ibm;2012.08.17)    / list of 3 items
+q)count(42;`ibm;2012.08.17)    /list of 3 items
 3
 ```
 A list may have 0, 1 or more items. 
 ```q
-q)count()              / empty list
+q)count()              /empty list
 0
-q)count enlist 42      / 1-list
+q)count enlist 42      /1-list
 1
-q)count(42;43;44;45)   / 4-list
+q)count(42;43;44;45)   /4-list
 4
 ```
 A list with 1 item is not an atom. The `enlist` function makes a 1-list from an atom.
@@ -72,9 +120,9 @@ q)42~enlist 42
 ```
 A list item may be a noun, function or adverb.
 ```q
-q)count("abc";0000111111b;42)  / 2 vectors and an atom
+q)count("abc";0000111111b;42)  /2 vectors and an atom
 3
-q)count(+;rotate;/)            / 2 operators and an adverb
+q)count(+;rotate;/)            /2 operators and an adverb
 3
 ```
 
@@ -199,39 +247,35 @@ Bob   SFO  42
 ```
 
 
-## Function syntax
+## Functions
+
+### Rank
+
+A function’s _rank_ is the number of arguments it takes. Functions of rank 1 or 2 are known respectively as _unary_ and _binary_. 
+
 
 ### Application
 
-A list can be considered a function of its indexes. Applying a function to its arguments uses the same notation as indexing a list.
-```q
-q)0 1 4 9 16 25 36[1 4 3]  / noun syntax
-1 16 9
-q){x*x}[1 4 3]             / function syntax
-1 16 9
-```
-<i class="fa fa-hand-o-right"></i> `.` and `@` for [applying functions](FIXME).
+In applying a function, the canonical form of its arguments is a bracketed list separated by semicolons. 
 
+<code>f[a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>]</code>
 
-### Prefix 
+The expression in brackets lists parameters to the function, but is _not_ itself a list, i.e. it is not the same as:
+
+<code>(a<sub>1</sub>;a<sub>2</sub>;…;a<sub>n</sub>)</code>
 
 All functions can be applied prefix. 
 ```q
-q)til[5]            / one (atom) argument
+q)til[5]            /one (atom) argument
 0 1 2 3 4
-q)count[1 4 3]      / one (vector) argument 
+q)count[1 4 3]      /one (vector) argument 
 1 16 9
-q)+[2;3 4]          / two arguments
+q)+[2;3 4]          /two arguments
 5 6
-q){x+y+2*z}[2;3;4]  / three (atom) arguments
+q){x+y+2*z}[2;3;4]  /three (atom) arguments
 13
 ```
-<i class="fa fa-hand-o-right"></i> [lambda notation](functions/#lambda-notation)
-
-
-### Infix
-
-[Operators](operartors) and some [derivatives](adverbs/#derivatives) can also be applied infix. 
+[Operators](elements/#operators) and some [derivatives](elements/#adverbs) can also be applied infix. 
 ```q
 q)2|3                 /operator
 3
@@ -240,7 +284,6 @@ q)2 rotate 2 3 4 5 6  /operator
 q)2+/2 3 4 5 6        /derivative
 22
 ```
-
 
 !!! note "Infix is always optional"
     ```q
@@ -251,23 +294,135 @@ q)2+/2 3 4 5 6        /derivative
     q)+/[2;2 3 4 5 6]
     22
     ```
-
-
-### Juxtaposing functions
-
-In function syntax, juxtaposition is application.
+A unary function can be applied by juxtaposition.
 ```q
-q)"abcde"1 4 3      / noun syntax (indexing)
-"bed"
-q){x*x}1 4 3        / function syntax (application)
-1 16 9
+q)reverse[0 1 2]    /function syntax
+2 1 0
+q)(reverse)(0 1 2)  /juxtaposition is application
+2 1 0
+q)reverse 0 1 2     /the parens are redundant
+2 1 0
+```
+A unary function `g` with argument `d` can be evaluated by `g@d` or `g.enlist d`.
+```q
+q)f:{x*2}
+q)f@42
+84
+```
+<i class="fa fa-hand-o-right"></i> [`.` _apply_](unclassified/#apply) and [`@` for applying functions](FIXME).
+
+When applied infix or by juxtaposition, a function’s right argument is the result of the _entire_ expression to its right. When applied infix, its left argument is the noun _immediately_ on its left.
+```q
+q}double:2*
+q)double 1 2 3 4 + 5   /arg of double is 6 7 8 9
+12 14 16 18
+q)double[1 2 3 4] + 5  /left-arg of + is 2 4 6 8
+7 9 11 13
+```
+Parentheses can be used conventionally to modify this order of evaluation.
+```q
+q)2 * 1 2 3 4 + 5
+12 14 16 18
+q)(2 * 1 2 3 4) + 5
+7 9 11 13
+```
+
+!!! note "No hierarchy"
+    There is no hierarchy of precedence in evaluating functions. 
+    For example, neither `*` nor `%` has precedence over `+` and `-`.
+
+Functions with no arguments require special handling. For example, if `f:{2+3}` then `f` can be evaluated with `@` and with any argument.
+```q
+q)f:{2+3}
+q)f[]
+5
+q)f@0
+5
+```
+
+!!! note "Function arguments and list indexes"
+    A function is a mapping from its arguments to its result. A list is a mapping from its indexes to its values. They use the same syntax, including – for unary functions – juxtaposition. 
+    ```q
+    q){x*x}[3 4 5]
+    9 16 25
+    q)0 1 4 9 16 25 36 49[3 4 5]
+    9 16 25
+    q){x*x} 3 4 5
+    9 16 25
+    q)x:0 1 4 9 16 25 36 49
+    q)x 3 4 5
+    9 16 25
+    ```
+
+
+### Definition
+
+A function is defined explicitly as a _signature_ (a list of up to 8 argument names) followed by a list of expressions enclosed in curly braces and separated by semicolons. This is known as the _lambda notation_, and functions so defined as _lambdas_.
+```q
+q){[a;b] a2:a*a; b2:b*b; a2+b2+2*a*b}[20;4]  / binary function
+576
+```
+Functions with 3 or fewer arguments may elide the signature and instead use default names `x`, `y` and `z`. 
+```q
+q){(x*x)+(y*y)+2*x*y}[20;4]
+576
+```
+The result of the function is the result of the last statement evaluated. If the last statement is empty, the result is the generic null, which is not displayed.
+```q
+q)f:{2*x;}      / last statement is empty
+q)f 10          / no result shown
+q)(::)~f 10     / matches generic null
+1b
+```
+To terminate evaluation successfully and return a value, use an empty assignment, which is `:` with a value to its right and no variable to its left.
+```q
+q)c:0
+q)f:a:6;b:7;:a*b;c::98}
+q)f 0
+42
+q)c
+0
+```
+To abort evaluation immediately, use _signal_, which is `'` with a value to its right.
+```q
+q)c:0
+q)g:{a:6;b:7;'`TheEnd;c::98}
+q)g 0
+{a:6;b:7;'`TheEnd;c::98}
+'TheEnd
+q)c
+0
+```
+<i class="fa fa-hand-o-right"></i> [error handling](error-handling), [evaluation control](evaluation-control)
+
+
+### Name scope
+
+Within the context of a function, name assignments with `:` are _local_ to it and end after evaluation. Assignments with `::` are _global_ (in the session root) and persist after evaluation.
+```q
+q)a:b:0                      / set globals a and b to 0
+q)f:{a:10+3*x;b::100+a;}     / f sets local a, global b
+q)f 1 2 3                    / apply f
+q)a                          / global a is unchanged
+0
+q)b                          / global b is updated
+113 116 119
+```
+References to names _not_ assigned locally are resolved in the session root. Local assignments are _strictly local_: invisible to other functions applied during evaluation. 
+```q
+q)a:42           / assigned in root
+q)f:{a+x}
+q)f 1            / f reads a in root
+43
+q){a:1000;f x}1  / f reads a in root
+43
 ```
 
 
 ### Projection
 
 A function applied to more arguments than its rank signals a rank error. 
-A function applied to fewer arguments than its rank returns a _projection_. A projection fixes the value/s of the specified argument/s: the projection is a function only of its _unspecified_ argument/s.
+A function applied to fewer arguments than its rank returns a _projection_ of the function on the specified argument/s, in which their value/s are fixed. The projection is a function only of the _unspecified_ argument/s.
 ```q
 q)foo:{x+y+2*z}
 q)bar:foo[;;1000]  /bar is a projection of foo on z:1000
@@ -276,21 +431,83 @@ q)bar[2;3]
 ```
 Where `f` is a function of rank $N$, and `g` is a projection of `f` on $m$ arguments (where $N \gt m$) `g` has rank $N-m$.
 
+Operators can be [projected](FIXME) in the usual way; but also by eliding the right-argument. 
+```q
+q)double:*[2]
+q)halve:%[;2]
+q)treble:3*
+q)total:(+)over
+```
+
+
+### Operators as left arguments
+
+Some operators take functions as left-arguments. To pass an _operator_ `f` as the left-argument of operator `g`, parenthesise it.
+```q
+q)(+)over til 10
+45
+q)(and)over til 10
+0
+q){x+y}over til 10  / parens required only for operators
+45
+```
+
 
 ## Adverbs
 
-[Adverbs](adverbs) are primitive higher-order functions that return derived functions (_derivatives_). Unary adverbs are applied postfix. 
+[Adverbs](adverbs) are primitive higher-order functions that return _derivatives_ (derived functions). Unary adverbs are applied postfix. 
 ```q
-q)double:2*
-q)double/[3;2 3 4] /iterate: apply double 3 times
+q)double:2*         /unary projection of * 
+q)double/[3;2 3 4]  /repeat: apply double 3 times
 16 24 32
 ```
-Binary derivatives can be applied infix.
+
+!!! warning "Stay close"
+    A space preceding `/` begins a trailing comment so, for example, `+/`, never `+ /`.
+
+
+### Derivatives
+
+Except for derivatives of _compose_, binary derivatives can also be applied infix. 
 ```q
-q)3 double/2 3 4
+q)10+/2 3 4
+19
+q)3 double/2 3 4    /repeat: apply double 3 times
 16 24 32
 ```
-Some binary derivatives are [_ambivalent_](adverbs/#ambivalent-functions): applied to a single argument, instead of projecting the function, a default `x` is assumed. 
+Some derivatives are _ambivalent_: they can be be applied with different ranks.
+```q
+q)+/[2 3 4]         /+ over: unary 
+9
+q)+/[10;2 3 4]      /+ over: binary 
+19
+```
+
+<div class="kx-compact" markdown="1">
+
+| form       | adverb                                | derivative rank/s |
+|------------|---------------------------------------|-------------------|
+| `int'`     | [case](adverbs/#case)                 | `1+max int`       |
+| `'[fn;g1]` | [compose](adverbs/#compose)           | n                 |
+| `f1'`      | [each-both](adverbs/#each-both)       | 2                 |
+| `f2\:`     | [each-left](adverbs/#each-left)       | 2                 |
+| `f2/:`     | [each-right](adverbs/#each-right)     | 2                 |
+| `f1':`     | [each-parallel](adverbs/#each-right)  | 1                 |
+| `f2':`     | [each-prior](adverbs/#each-prior)     | 1, 2              |
+| `f1/`      | [repeat](adverbs/#repeat)             | 2                 |
+| `f2/`      | [over](adverbs/#over)                 | 1, 2              |
+| `fn/`      | [fold](adverbs/#fold)                 | n                 |
+| `f1\`      | [converge](adverbs/#converge-iterate) | 1                 |
+| `f1\`      | [iterate](adverbs/#converge-iterate)  | 2                 |
+| `f2\`      | [scan](adverbs/#scan)                 | 1, 2, …           |
+
+</div>
+Key: `int`: int vector; `f1`: unary function; `g1`: unary function; `f2`: binary function; `fn`: function of rank n&gt;2.
+
+
+### Ambivalent derivatives
+
+When an ambivalent derivative is applied to a single argument, instead of projecting the function, a default `x` is assumed. 
 ```q
 q)+/[0;2 3 4]
 9
@@ -307,9 +524,16 @@ q)tot[2 3 4]         /unary application
 q)tot[10;2 3 4]      /binary application
 19
 ```
-<aside class="comment kx-developer" markdown="1">
-This seems to refute the identity-element account of ambivalence: `(double/)2 3 4` evaluates to `0N 0N 0N` and not `2 3 4`. :-(
-</aside>
+Applying an ambivalent function by juxtaposition (in noun syntax) applies it as a unary function. 
+```q
+q)10+/2 3 4    /infix in function syntax
+19
+q)(+/)2 3 4    /derivative applied by juxtaposition in noun syntax
+9
+q)10(+/)2 3 4  /noun syntax precludes infix
+'Cannot write to handle 10. OS reports: Bad file descriptor
+```
+
 
 ## Q-SQL
 
@@ -318,7 +542,12 @@ Expressions beginning with `insert`, `select` or `update` employ [q-SQL syntax](
 
 ## Control words
 
-The _control words_ govern execution. They are FIXME `do`, `if`, `while`
+The control words `do`, `if`, `while` [govern evaluation](evaluation-control). 
+A control word is followed by a bracketed list of expressions:
+
+<code>[e<sub>0</sub>;e<sub>1</sub>;e<sub>2</sub>; … ;e<sub>n</sub>]</code>
+
+Expression <code>e<sub>0</sub></code> is always evaluated. Whether any other expression is evaluated is governed by the control word. 
 
 
 ## K syntax

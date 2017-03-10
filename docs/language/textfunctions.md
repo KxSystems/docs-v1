@@ -1,4 +1,4 @@
-### `csv`
+## `csv`
 
 Syntax: `csv`
 
@@ -31,7 +31,7 @@ In pattern `y` certain characters have special meaning:
 
 Special characters can be matched by bracketing them.
 
-See also [Regular expressions](/cookbook/regex)
+<i class="fa fa-hand-o-right"></i> [Regular expressions](/cookbook/regex)
 
 
 ## `lower`
@@ -114,7 +114,7 @@ q)s ss "[ir]o"
 q)s ss "t?r"
 0 10
 ```
-See also [Regular expressions](/cookbook/regex)
+<i class="fa fa-hand-o-right"></i> [Regular expressions](/cookbook/regex)
 
 
 ## `ssr`
@@ -138,7 +138,7 @@ q)ssr[s;"ont";"x"]      / replace "ont" by "x"
 q)ssr[s;"t?r";upper]    / replace matches by their uppercase
 "TORonto onTARio"
 ```
-See also [Regular expressions](/cookbook/regex)
+<i class="fa fa-hand-o-right"></i> [Regular expressions](/cookbook/regex)
 
 
 ## `trim`
@@ -150,6 +150,7 @@ Returns string `x` with any leading or trailing spaces removed.
 q)trim"   IBM   "
 "IBM"
 ```
+<i class="fa fa-hand-o-right"></i> [_drop_](listfunctions/#_-drop)
 
 ## `upper`
 
@@ -164,3 +165,4 @@ q)upper`ibm
 ```
 
 
+<i class="fa fa-hand-o-right"></i> 

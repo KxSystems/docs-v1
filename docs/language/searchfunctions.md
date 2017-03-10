@@ -1,8 +1,7 @@
-`bin`, `binr`
--------------
+## `bin`, `binr`
 
-Syntax: `x bin  y` (binary, atomic)  
-Syntax: `x binr y` (binary, atomic)
+Syntax: `x bin  y` (atomic)  
+Syntax: `x binr y` (atomic)
 
 _Binary search_ returns the index of the _last_ element in `x` which is `<=y`. The result is `-1` for `y` less than the first element of `x`.
 `binr` _binary search right_, introduced in V3.0 2012.07.26, gives the index of the _first_ element in `x` which is `>=y`.
@@ -40,10 +39,9 @@ q)1 2 3 3 4 ? 2 3
 ```
 
 
-`distinct`
-----------
+## `distinct`
 
-Syntax: `distinct x` (unary)
+Syntax: `distinct x`
 
 Returns the distinct (unique) elements of `x`.
 ```q
@@ -66,10 +64,9 @@ q)distinct 2 + 0f,10 xexp -13
 ```
 
 
-find `?`
---------
+## `?` find
 
-Syntax: `x?y` (binary)
+Syntax: `x?y` 
 
 Where: 
 
@@ -148,10 +145,9 @@ Where is _rank_ defined?
     ```
 
 
-`in`
-----
+## `in`
 
-Syntax: `x in y` (binary)
+Syntax: `x in y`
 
 Returns a boolean indicating: 
 
@@ -185,10 +181,10 @@ q)(1 2;3 4) in ((1 2;3 4);9)  / x is an item of y
 See also: [`except`](selectionfunctions/#except) [`inter`](selectionfunctions/#inter) [`union`](selectionfunctions/#union) [`within`](#within)
 
 
-`within`
---------
+## `within`
 
-Syntax: `x within y` (binary, uniform)
+
+Syntax: `x within y` (uniform)
 
 Where `x` is an atom or list of sortable type/s and
 

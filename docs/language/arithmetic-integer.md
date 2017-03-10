@@ -2,10 +2,9 @@ These functions return integer results from integer arguments.
 (Many will also accept non-integer arguments.) 
 
 
-`abs`
------
+## `abs`
 
-Syntax: `abs x` (unary, atomic)
+Syntax: `abs x` (atomic)
 
 Returns the absolute value of `x`. Null is returned if `x` is null.
 ```q
@@ -16,10 +15,24 @@ q)abs 10 -43 0N
 ```
 
 
-`ceiling`
----------
+## `+` add
 
-Syntax: `ceiling x` (unary, atomic)
+Syntax: `x + y` (atomic) 
+
+Where `x` and `y` are numerics, returns their sum.
+```q
+q)2+3 4 5
+5 6 7
+q)2000.11.22 + 03:44:55.666
+2000.11.22T03:44:55.666
+```
+`+` is faster than `-`.
+
+
+
+## `ceiling`
+
+Syntax: `ceiling x` (atomic)
 
 Returns the least integer greater than or equal to `x`. 
 ```q
@@ -47,8 +60,8 @@ See also: [`floor`](#floor)
 `deltas`
 --------
 
-Syntax: `deltas y` (unary, uniform)  
-Syntax: `deltas[x;y]` (binary, uniform)
+Syntax: `deltas y` (uniform)  
+Syntax: `deltas[x;y]` (uniform)
 
 Returns differences between consecutive pairs of items of `y`. It applies to all numeric and date types.
 
@@ -89,8 +102,7 @@ See also: [each-prior](higher-order-functions/#each-prior), [differ](searchfunct
 
 ## `%` `div`
 
-Syntax: `x%y` (binary, atomic)  
-Syntax: `x div y` (binary, atomic) 
+Syntax: `x div y` (atomic) 
 
 **Integer division**: returns `floor x%y`.
 ```q
@@ -122,7 +134,7 @@ q)"\023" div 8
 
 ## `floor`
 
-Syntax: `floor x` (unary, atomic)
+Syntax: `floor x` (atomic)
 
 Returns the greatest integer less than or equal to `x`. 
 ```q
@@ -147,10 +159,10 @@ q)floor -2.1 0 2.1
 See also: [`ceiling`](#ceiling)
 
 
-## `|` `or` maximum
+## `|`/`or` maximum
 
-Syntax: `x | y` (binary, atomic)  
-Syntax: `x or y` (binary, atomic) 
+Syntax: `x | y` (atomic)  
+Syntax: `x or y` (atomic) 
 
 Returns the maximum of `x` and `y`. 
 ```q
@@ -172,7 +184,7 @@ Returns the difference between conforming numerics `x` and `y`. Slower than `+`.
 
 ## `mod`
 
-Syntax: `x mod y` (binary, atomic) 
+Syntax: `x mod y` (atomic) 
 
 Where `x` and `y` are numeric types, returns the remainder of `x%y`.
 ```q
@@ -181,10 +193,10 @@ q)-3 -2 -1 0 1 2 3 4 mod 3
 ```
 
 
-## `&` `and` minimum
+## `&`/`and` minimum
 
-Syntax: `x and y` (binary, atomic)  
-Syntax: `x & y` (binary, atomic)
+Syntax: `x and y` (atomic)  
+Syntax: `x & y` (atomic)
 
 Returns the minimum of `x` and `y`. 
 ```q
@@ -206,7 +218,7 @@ Returns the product of conforming numeric atoms or lists `x` and `y`.
 
 ## `neg`
 
-Syntax: `neg x` (unary, atomic)
+Syntax: `neg x` (atomic)
 
 Returns the negation of `x`. Applies to all data types except sym and char. Applies item-wise to lists, dict values and table columns.
 ```q
@@ -218,9 +230,61 @@ q)neg -1 0 1 2
     This is needed because q has no ambivalence, and `-` is already in use as an operator, i.e. in infix form. 
 
 
+## `?` rand
+
+rand
+----
+
+rand produces random sequences of ints and floats. For example, the expression `20?5` produces an int vector of length 20 whose items are random ints between 0 and 4, as follows
+
+    q)20?5
+    4 3 3 4 1 2 2 0 1 3 1 4 0 2 2 1 4 4 2 4
+
+If the right argument is a float, say 4.5, then the result is a simple float list whose items are random floats between 0.0 and 4.5. For example,
+
+    q)10?4.5
+    3.13239 1.699364 2.898484 1.334554 3.085937 2.437705 2.540967 3.445748 1.838425 0.6240313
+
+If the right argument is a list, then values will be selected at random from that list. For example,
+
+    q)10?`Arthur`Steve`Dennis
+    `Arthur`Arthur`Steve`Dennis`Arthur`Arthur`Arthur`Dennis`Arthur`Dennis
+
+If the left hand argument is negative, the random values generated are unique, **on condition that the right hand argument is a vector of unique values, or a scalar default int type**. The left hand argument must have a smaller or equal magnitude than the length of the right hand argument. For example,
+
+    q)-20?20
+    10 18 4 6 0 5 1 11 3 16 13 17 15 14 19 8 9 2 7 12
+    q)-3?`Arthur`Steve`Dennis
+    `Steve`Arthur`Dennis
+    q)-4?`Arthur`Steve`Dennis
+    'length
+
+There is a shorthand special case for generating short symbols (length between 1 and 8).
+
+    q)10?`3
+    `bon`dec`nei`jem`pgm`kei`lpn`bjh`flj`npo
+
+Please note that rand function uses a constant seed on q invocation. You can see and change the value of the seed by using system command ["\\S"](Reference/SystemCommands#.5CS_.5Bn.5D_-_random_seed "wikilink").
+
+`?` deals out [GUIDs](Reference/Datatypes#Guid_(from_kdb.v3.0) "wikilink"):
+
+`q)-1?0Ng`
+`,fd2db048-decb-0008-0176-01714e5eeced`
+
+To use GUIDs as identifiers, give a negative left hand side. If you use a positive value, you will get duplicates, given the same seed:
+
+`$ q`
+`q)1?0Ng`
+`,8c6b8b64-6815-6084-0a3e-178401251b68`
+`q)\\`
+`$ q `
+`q)1?0Ng`
+`,8c6b8b64-6815-6084-0a3e-178401251b68`
+
+
 ## `signum`
 
-Syntax: `signum x` (unary, atomic)
+Syntax: `signum x` (atomic)
 
 Returns -1, 0 or 1 where `x` is negative, zero or positive respectively. Applies item-wise to lists, dictionaries and tables, and to all data types except symbol. Returns -1 for nulls. 
 ```q
@@ -239,7 +303,7 @@ q)signum (0n;0N;0Nt;0Nd;0Nz;0Nu;0Nv;0Nm;0Nh;0Nj;0Ne)
 
 ## `sum`
 
-Syntax: `sum x` (unary, aggregate)
+Syntax: `sum x` (aggregate)
 
 Where `x` is
 
@@ -278,10 +342,9 @@ q)sum each flip(0n 8;8 0n) /do this to fall back to vector case
 See also: [prd](arithmetic-real/#prd), [prds](arithmetic-real/#prds), [`sums`](#sums)
 
 
-`sums`
-------
+## `sums`
 
-Syntax: `sums x` (unary, uniform)
+Syntax: `sums x` (uniform)
 
 Returns the cumulative sums of the items of `x`. The sum of an atom is itself. Nulls are treated as zeros.
 ```q
@@ -309,9 +372,9 @@ q)sums "abc"                    / type error if list is not numeric
 <i class="fa fa-hand-o-right"></i> [prd](arithmetic-real/#prd), [prds](arithmetic-real/#prds), [`sum`](#sum)
 
 
-`til`
+## `til`
 
-Syntax: `til x` (unary)
+Syntax: `til x` 
 
 **Natural numbers till**: where `x` is a non-negative integer, returns the first `x` integers. 
 ```q
@@ -328,10 +391,9 @@ q)til 5h
 <i class="fa fa-hand-o-right"></i> [`key`](FIXME)
 
 
-`xbar`
-------
+## `xbar`
 
-Syntax: `x xbar y` (binary)
+Syntax: `x xbar y` 
 
 **Round down**: returns numeric `y` rounded down to the nearest multiple of integer `x`; `y` can be any numeric or temporal type.
 ```q

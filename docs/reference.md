@@ -2,20 +2,10 @@
 <img src="../img/hieroglyphics.png" style="width: 100%"/>
 </div>
 
-<aside markdown="1" class="comment kx-developer">
-List every use of every symbol and token.
-
-Each glyph maps to one or more roles. Each role will have an article.
-So, for example, the single article on `@` divides into articles on _index_, _amend_, _apply_ and _trap_. These articles will appear in the nav grouped by usage, e.g. _index_ under _Lists_; _trap_ under _Execution_.
-
-Some of the remarks drafted below are attempts to establish a consistent terminology and will migrate to the linked articles. 
-</aside>
-
 Q is bigger than it looks: tokens play different roles, according to context. Here is a complete guide. 
 
 
-Reserved words
---------------
+## Reserved words
 
 <table markdown="1" class="kx-compact">
 <tr><td>A</td><td>[`abs`](http://code.kx.com/wiki/Reference/abs "absolute value"), [`acos`](http://code.kx.com/wiki/Reference/acos "arc cosine"), [`aj`](http://code.kx.com/wiki/Reference/aj "as-of join"), [`aj0`](http://code.kx.com/wiki/Reference/aj "as-of join"), [`all`](http://code.kx.com/wiki/Reference/all "all nonzero"), [`and`](http://code.kx.com/wiki/Reference/and "minimum"), [`any`](http://code.kx.com/wiki/Reference/any "any element is non-zero"), [`asc`](http://code.kx.com/wiki/Reference/asc "ascending sort"), [`asin`](http://code.kx.com/wiki/Reference/asin "arc sine"), [`asof`](http://code.kx.com/wiki/Reference/asof "as-of verb"), [`atan`](http://code.kx.com/wiki/Reference/atan "arc tangent"), [`attr`](http://code.kx.com/wiki/Reference/attr "attributes"), [`avg`](http://code.kx.com/wiki/Reference/avg "arithmetic mean"), [`avgs`](http://code.kx.com/wiki/Reference/avgs "running averages")</td></tr>

@@ -153,8 +153,23 @@ q)iasc idesc 2 7 3 2 5           / descending rank
 <i class="fa fa-hand-o-right"></i> [`iasc`](#iasc)
 
 
-`xrank`
--------
+## set/unset an attribute
+
+```q
+q)`s#1 2 3
+`s#1 2 3
+q)`#`s#1 2 3
+1 2 3
+```
+Setting/unsetting an attribute other than `s`, i.e. `upg`, causes a copy of the object to be made. Setting/unsetting the `s` attribute on a list which is already sorted will not cause a copy to be made, and hence will affect the original list in-place. Setting the `s` attr on a dictionary or table, where the key is already in sorted order, in order to obtain a step-function, causes the `s` attribute to be set in place for the key but copies the outer object. 
+```q
+q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
+``s
+```
+<i class="fa fa-hand-o-right"></i> [`asc`](#asc), [`_` drop/cut](FIXME)
+
+
+## `xrank`
 
 Syntax: `x xrank y` (binary)
 

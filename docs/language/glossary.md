@@ -6,8 +6,11 @@ Adverb
 : A primitive higher-order function that returns a _derivative_ (derived function)
 <i class="fa fa-hand-o-right"></i> [Adverbs](adverbs)
 
+Aggregate function
+: A function that reduces its argument, typically a list to an atom, e.g. `sum`
+
 Apply
-: As in _apply a function to its arguments_:  pass to a function the value of its _arguments_ for evaluation. A function is applied to an argument list, e.g. `{x+y*z}[3;4;5]`. A _unary_ function can be applied by juxtaposition, e.g. `count 3 4 5`. An _operator_ can also be applied by _infix_, e.g. `2+3`, `2 rotate 3 4 5`. <i class="fa fa-hand-o-right"></i> [Apply](FIXME)
+: As in _apply a function to its arguments_:  pass to a function the value of its _arguments_ for evaluation. A function is applied to an argument list, e.g. `{x+y*z}[3;4;5]`. A _unary_ function can be applied by juxtaposition, e.g. `count 3 4 5`. An _operator_ can also be applied by _infix_, e.g. `2+3`, `2 rotate 3 4 5`. <i class="fa fa-hand-o-right"></i> [application](syntax/#application)
 
 Argument, argument list
 : A value passed to a function. In `3+4` the arguments are 3 and 4, respectively the left- and right-arguments. In `{x+y*z}[3;4;5]` the three arguments are separated by semicolons and bracketed: `[3;4;5]` is an argument list. 
@@ -15,11 +18,14 @@ Argument, argument list
 Atom
 : A single instance of a [datatype](datatypes), eg `42`, `"a"`, `1b`, `2012.09.15`
 
+Atomic function 
+: A function that evaluates each item of its argument independently, eg `signum`
+
 Binary function 
 : A function with _rank_ 2, i.e. that takes 2 arguments, e.g. `+`, `rotate`
 
 Conform
-: Nouns conform if they are all either atoms or lists of the same _count_
+: [Nouns](syntax/#nouns) conform if they are all either atoms or lists of the same _count_
 
 Control word
 : Control words interrupt the usual evaluation rules, e.g. by omitting expressions, signalling an error, defining a result and terminating evaluation 
@@ -33,6 +39,10 @@ Derivative
 
 Dictionary
 : A map of a _list_ of keys to a list of values
+
+Domain
+: The domain of a function is the complete set of possible values of its argument.
+: <i class="fa fa-hand-o-right"></i> [Interactive Mathematics](http://www.intmath.com/functions-and-graphs/2a-domain-and-range.php)
 
 Enumeration
 : A space-saving representation of a _list_: a list of the indexes of its _items_ in its _nub_.
@@ -94,8 +104,13 @@ Primitive
 Project, projection
 : A function passed fewer _arguments_ than its _rank_ projects those arguments and returns a projection: a function of the unspecified argument/s. <i class="fa fa-hand-o-right"></i> [Projection](FIXME)
 
+Range 
+: The range of a function is the complete set of all its possible resulting values.
+: <i class="fa fa-hand-o-right"></i> [Interactive Mathematics](http://www.intmath.com/functions-and-graphs/2a-domain-and-range.php)
+
 Rank
-: The number of _arguments_ a function takes. For a _lambda_, the _count_ of arguments in its _signature_, or, where the signature is omitted, by the here highest-numbered of the three default argument names `x` (1), `y` (2) and `z` (3) used in the function definition, e.g. `{x+z}` has rank 3.
+: Of a **function**, the number of _arguments_ it takes. For a _lambda_, the _count_ of arguments in its _signature_, or, where the signature is omitted, by the here highest-numbered of the three default argument names `x` (1), `y` (2) and `z` (3) used in the function definition, e.g. `{x+z}` has rank 3.
+: Of a **list**, the depth to which it is nested. A _vector_ has rank 1.
 
 Signature
 : The list of up to 8 _argument_ names that (optionally) begins a _lambda_, e.g. in `{[a;b](a*a)+(b*b)+2*a*b}`, the argument list `[a;b]` is the signature
@@ -108,6 +123,9 @@ Table
 
 Unary function
 : A function with _rank_ 2, i.e. that takes 1 _argument_, e.g. `count`
+
+Uniform function
+: A non-_atomic_ function that returns a result for each item in ts argument, e.g. `deltas`
 
 Unsigned function
 : A _lambda_ without a _signature_, eg `{x*x}`

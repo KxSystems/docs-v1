@@ -1,6 +1,6 @@
 ## `except`
 
-Syntax: `x except y` (binary)
+Syntax: `x except y` 
 
 Returns all items of list `x` that are not (items of) list or atom `y`.
 ```q
@@ -16,7 +16,7 @@ See also: [`in`](sortandsearchfunctions/#in) [`inter`](#inter) [`union`](#union)
 
 ## `first`
 
-Syntax: `first x` (unary, aggregate)
+Syntax: `first x` (aggregate)
 
 Returns the first item of `x`.
 
@@ -55,17 +55,20 @@ q)a~first first enlist enlist 10
 ```
 
 
-## `@` index
+## `@` index-at
 
-Syntax: `x@y` (binary)
+Syntax: `x @ y`
 
-Where `x` is a list or table and `y` is a float vector, returns items selected from `y`.
+Where `x` is a list or table and `y` is an int vector, returns items of `x` selected by `y`.
 ```q
 q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
 q)d@1
-(8 9;10;11 12)
+8 9
+10
+11 12
 q)d@1 2 / selects 2 items at the top level
-((8 9;10;11 12);(13 14;15 16 17 18;19 20))
+8 9   10          11 12
+13 14 15 16 17 18 19 20
 q)t:([]name:`bob`ted`dan;age:42 43 44)
 q)t@2 0
 name age
@@ -73,11 +76,33 @@ name age
 dan  44
 bob  42
 ```
+<i class="fa fa-hand-o-right"></i> [apply](FIXME)
+
+
+## `.` index-to
+
+Syntax: `x . y`
+
+Where `x` is a list and `y` is an int vector, returns items of `x` selected by `y`.
+
+> _Everything starts from a dot._ — Wassily Kandinsky 
+
+All indexing and [application](FIXME) can be done with the `.` operator.
+```q
+q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
+q)d . 1 2        / same as d[1;2]
+11 12
+q)d . 1 2 0      / same as d[1;2;0]
+11
+q)d . enlist 1   / same as d[1]
+(8 9;10;11 12)
+```
+`y[i]` selects from the `i`<sup>th</sup> level of `x`. To index at the top level only, use a one-item list.
 
 
 ## `inter`
 
-Syntax: `x inter y` (binary)
+Syntax: `x inter y`
 
 Returns all items of `x` found in `y`, using the result of `x in y` to select items from `x`.
 
@@ -126,10 +151,9 @@ See also: [`except`](#except) [`in`](sortandsearchfunctions/#in) [`union`](#unio
 
 
 
-`last`
-------
+## `last`
 
-Syntax: `last x` (unary)
+Syntax: `last x` 
 
 Returns the last item of `x`, or last value where `x` is a dictionary.
 ```q
@@ -140,10 +164,9 @@ q)last `a`b`c!1 2 3
 ```
 
 
-`next`
-------
+## `next`
 
-Syntax: `next x` (unary, uniform)
+Syntax: `next x` (uniform)
 
 For each item in `x`, returns the next item. For the last item, it returns a null if the list is simple (a homogeneous list), and an empty list `()` otherwise.
 ```q
@@ -160,10 +183,9 @@ q)update (next time)-time by sym from quote
 ```
 
 
-`prev`
-------
+## `prev`
 
-Syntax: `prev x` (unary, uniform)
+Syntax: `prev x` (uniform)
 
 For each item in `x`, returns the previous item. For the first item, it returns a null if the list is simple (a homogeneous list), and an empty list `()` otherwise.
 ```q
@@ -180,10 +202,9 @@ q)update time:prev time by sym from t
 ```
 
 
-`sublist`
----------
+## `sublist`
 
-Syntax: `x sublist y` (binary)
+Syntax: `x sublist y` 
 
 Returns a sublist of `y`. The result contains only as many items as are available in `y`.
 
@@ -213,10 +234,9 @@ q)1 2 sublist p  / 2 items starting from position 1
 ```
 
 
-`union`
--------
+## `union`
 
-Syntax: `x union y` (binary)
+Syntax: `x union y`
 
 Returns a list of the distinct items of its combined arguments, i.e. `distinct x,y`.
 ```q
@@ -242,7 +262,7 @@ See also: [`except`](#except) [`in`](sortandsearchfunctions/#in) [`inter`](#inte
 
 ## `where`
 
-Syntax: `where x` (unary) 
+Syntax: `where x` 
 
 Where `x` is:
 
@@ -280,10 +300,9 @@ q)raze x #' til count x:2 3 0 1
 See also [where in q-SQL](FIXME)
 
 
-`xprev`
-------
+## `xprev`
 
-Syntax: `x xprev y` (binary, uniform)
+Syntax: `x xprev y` (uniform)
 
 Where `x` is an integer atom and `y` is a list, returns for each item of `y` the item `x` indices before it. The first `x` elements of the result are null, empty or blank as appropriate.
 

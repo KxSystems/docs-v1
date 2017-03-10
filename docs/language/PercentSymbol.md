@@ -1,1 +1,0 @@
-% divides two numeric values, and will always return a float. Note that this is different from some other programming languages (e.g. C++). See [Q for Mortals](JB:QforMortals2/primitive_operations#Basic_Arithmetic:_.2B.2C_-.2C_.2A.2C_.25 "wikilink").

@@ -52,14 +52,50 @@ pages:
   - Home: index.md
   - Get started: learn.md
   - Reference card: reference.md
-  - Language: 
+  - Reference: 
     - Elements: language/elements.md
     - Syntax: language/syntax.md
     - Datatypes: language/datatypes.md
-    - Operators: language/operators.md
-    - Functions: language/functions.md
-    - Adverbs: language/adverbs.md
     - Glossary: language/glossary.md
+    - Semantics:
+      - Adverbs: language/adverbs.md
+      - Arithmetic (integer): language/arithmetic-integer.md
+      - Arithmetic (float): language/arithmetic-float.md
+      - Casting: language/casting.md
+      - Comparison: language/comparisonfunctions.md
+      - Developer tools: language/developertools.md
+      - Dictionaries & tables: language/dictionariesandtables.md
+      - Enumeration: language/enumeration.md
+      - Evaluation control: language/evaluationcontrol.md
+      - Error handling: language/errors.md
+      - Files (numbers): language/filenumbers.md
+      - Files (words): language/filewords.md
+      - Functional SQL: language/functionalsql.md
+      - Internal functions: language/internalfunctions.md
+      - Joins: language/joins.md
+      - Lists: language/listfunctions.md
+      - Logic: language/logicfunctions.md
+      - Matrixes: language/matrixes.md
+      - OS: language/os.md
+      - Parallel processing: language/peach.md
+      - Parse trees: language/parsetrees.md
+      - Q-SQL functions: language/qsqlfunctions.md
+          #   - exec: language/exec.md
+      - Randomness: language/randomness.md
+      - Selection: language/selectionfunctions.md
+      - Search: language/searchfunctions.md
+      - Sort: language/sortfunctions.md
+      - Statistics (aggregates): language/stats-aggregates.md
+      - Statistics (moving): language/stats-moving.md
+      - Text: language/textfunctions.md
+      - Trigonometry: language/trigonometry.md
+      - Unclassified: language/unclassified.md
+    - Command line: language/commandline.md
+    - System commands: language/SystemCommands.md
+    - System utilities:
+        - .h namespace: language/doth.md
+        - .Q namespace: language/dotq.md
+        - .z namespace: language/dotz.md
     - Releases:
       - Changes in 3.4: language/releases/ChangesIn3.4.md
       - Changes in 3.3: language/releases/ChangesIn3.3.md
@@ -71,75 +107,19 @@ pages:
       - Changes in 2.6: language/releases/ChangesIn2.6.md
       - Changes in 2.5: language/releases/ChangesIn2.5.md
       - Changes in 2.4: language/releases/ChangesIn2.4.md
-  - Toolbox:
-      # - backslash backslash: language/BackSlashBackSlash.md
-      # - backslash colon: language/BackSlashColon.md
-      # - backtick: language/Backtick.md
-      # - bang: language/BangSymbol.md
-      # - bang internal function: language/BangSymbolInternalFunction.md
-      # - brackets: language/Brackets.md
-      # - caret: language/Caret.md
-      # - colon: language/Colon.md
-      # - colon colon: language/ColonColon.md
-      # - comma: language/Comma.md
-      # - curly braces: language/CurlyBraces.md
-      # - dot: language/DotSymbol.md
-      # - LeftRightAngleBracket: language/LeftRightAngleBracket.md
-      # - NumberSign: language/NumberSign.md
-      # - Parentheses: language/Parentheses.md
-      # - PercentSymbol: language/PercentSymbol.md
-      # - PlusSymbol: language/PlusSymbol.md
-      # - QuestionSymbol: language/QuestionSymbol.md
-      # - Semicolon: language/Semicolon.md
-      # - Slash: language/Slash.md
-      # - SlashColon: language/SlashColon.md
-      # - Tilde: language/Tilde.md
-      # - Underscore: language/Underscore.md
-    # - Numbers:
-    #   - Zero: language/Zero.md
-    #   - ZeroColon: language/ZeroColon.md
-    #   - One: language/One.md
-    #   - OneColon: language/OneColon.md
-    #   - Two: language/Two.md
-    #   - TwoColon: language/TwoColon.md
-    - Arithmetic (integer): language/arithmetic-integer.md
-    - Arithmetic (float): language/arithmetic-float.md
-    - Casting: language/casting.md
-    - Comparison: language/comparisonfunctions.md
-    - Evaluation control: language/evaluationcontrol.md
-    - Error handling: language/errors.md
-    - Files: language/files.md
-    - Iteration: language/iteration.md
-    - Joins: language/joins.md
-    - Lists: language/listfunctions.md
-    # - Numbers:
-    - Logic: language/logicfunctions.md
-    - Matrixes: language/matrixes.md
-    - Parallel processing: language/peach.md
-    - Parse trees: language/parsetrees.md
-    - Selection: language/selectionfunctions.md
-    - Search: language/searchfunctions.md
-    - Sort: language/sortfunctions.md
-    - Statistics (aggregates): language/stats-aggregates.md
-    - Statistics (moving): language/stats-moving.md
-    - System commands: language/SystemCommands.md
-    - Text: language/textfunctions.md
-    - Trigonometry: language/trigonometry.md
+      - Withdrawn: language/withdrawn.md
     # - Q-SQL:
-        # - Q-SQL functions:
-          # - exec: language/exec.md
-        #   - delete: language/delete.md
-        #   - insert: language/insert.md
-        #   - select: language/select.md
-        #   - update: language/update.md
-        #   - upsert: language/upsert.md
         # - Meta:
+        #   - attr: language/attr.md
         #   - cols: language/cols.md
         #   - fkeys: language/fkeys.md
         #   - key: language/key.md
         #   - keys: language/keys.md
         #   - meta: language/meta.md
+        #   - show: language/show.md
         #   - tables: language/tables.md
+        #   - type: language/type.md
+        #   - value: language/value.md
         #   - view: language/view.md
         #   - views: language/views.md
         # - Sort & group:    
@@ -154,25 +134,7 @@ pages:
         #   - xdesc: language/xdesc.md
         #   - xgroup: language/xgroup.md
         #   - xkey: language/xkey.md
-    # - Numbers: 
-        # - Other 
-        #   - rand: language/rand.md
-    # - OS: 
-    #   - getenv: language/getenv.md
-    #   - gtime: language/gtime.md
-    #   - ltime: language/ltime.md
-    #   - setenv: language/setenv.md
-    #   - system: language/system.md
     # - Values: 
-    #   - attr: language/attr.md
-    #   - show: language/show.md
-    #   - type: language/type.md
-    #   - value: language/value.md
-    # - Deprecated or disabled:
-    #   - list: language/list.md
-    #   - ljf: language/lj.md
-    #   - plist: language/plist.md
-    #   - txf: language/txf.md
     # - Namespaces:
     #   - doth:
     #     - PLACEHOLDER: dummy.md
@@ -232,12 +194,9 @@ pages:
     #   - Adverb: language/Adverb.md
     #   - Atoms and Lists: language/AtomList.md
     #   - Associations and Dictionaries: language/AssocDict.md
-    #   - Function: language/Function.md
-    #   - Glossary: language/glossary.md
     #   - Grammar: language/Grammar.md
     #   - Language: language/language.md
     #   - Nouns: language/Nouns.md
-    #   - Number: language/Number.md
     #   - Parse tree: language/parse_tree.md
     #   - Table: language/Table.md
     # - Unclassified:
@@ -251,5 +210,6 @@ pages:
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md
   - About: 
+    - This site: about/thissite.md
     - Kx technology: about/kxtechnology.md
     - Terms & conditions: about/TermsAndConditions.md

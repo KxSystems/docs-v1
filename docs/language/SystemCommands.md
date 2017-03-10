@@ -505,16 +505,27 @@ q)
 ```
 
 
-## `\\` – exit
+## `\` – toggle q/k 
 
-Exit from q.
+In the interactive session `\` toggles between the q and k interpreters.
+```q
+q)\
+  \
+q)
+```
+
+## `\\` – quit 
+
+In the interactive session type `\\` at the prompt to quit the session. Inside a function, use `value"\\\\"` or `exit 0` for the same result.
+
+Note that the text following `\\` and white space is ignored by q. This is often useful in scripts where `\\` can be followed by comments or usage examples.
+
+<i class="fa fa-hand-o-right"></i> [`exit`](errors/#exit) 
 
 
 ## OS Commands
 
 If an expression begins with `\` but is not recognized as a system command, then it is executed as an OS command.
-
-For example:
 ```q
 q)\ls                 / usual ls command
 "help.q"
@@ -528,3 +539,5 @@ q)\ls                 / usual ls command
 
 !!! warning
     This means that typos can get passed to the OS.
+
+> When you are run `rm -r /` you are have of many problem, but Big Data is not one of them. — @DEVOPS_BORAT

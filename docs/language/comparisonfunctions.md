@@ -58,7 +58,7 @@ q)(1 + 1e-13) = 1
 
 ## `differ`
 
-Syntax: `differ x` (unary, uniform)
+Syntax: `differ x` (uniform)
 
 Returns a boolean list indicating where consecutive pairs of items in `x` differ. 
 It applies to all data types.
@@ -95,9 +95,9 @@ date       sym  price   size
 ```
 
 
-## match `~`
+## `~` match
 
-Syntax: `x ~ y` (binary)
+Syntax: `x ~ y` 
 
 Returns `0b` unless `x` and `y` are identical. Comparison tolerance is used when matching floats. 
 ```q

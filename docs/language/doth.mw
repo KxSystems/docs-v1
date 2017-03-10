@@ -1,0 +1,353 @@
+== .h unreference ==
+
+The .h namespace contains many functions for converting files into various formats and for web console display. These routines are subject to change, so be careful.
+
+=== <tt>.h.br</tt> ===
+
+The string "&lt;br&gt;".
+
+=== <tt>.h.c0</tt> ===
+
+A web color used by the web console.
+
+=== <tt>.h.c1</tt> ===
+
+A web color used by the web console.
+
+=== <tt>.h.cd</tt> ===
+
+csv from data
+
+converts a table or a list of columns to comma separated values.
+
+==== Examples: ====
+
+<pre>
+q).h.cd ([]a:1 2 3;b:`x`y`z)
+"a,b"
+"1,x"
+"2,y"
+"3,z"
+</pre>
+
+<pre>
+q).h.cd (`a`b`c;1 2 3;"xyz")
+"a,1,x"
+"b,2,y"
+"c,3,z"
+</pre>
+
+=== <tt>.h.code</tt> ===
+
+TBD
+
+=== <tt>.h.data</tt> ===
+
+TBD
+
+=== <tt>.h.eb</tt> ===
+
+Creates part of an Excel workbook. Used by <tt>.h.ed</tt>.
+
+=== <tt>.h.ec</tt> ===
+
+Creates part of an Excel workbook. Used by <tt>.h.ed</tt>.
+
+=== <tt>.h.ed</tt> ===
+
+Excel workbook from Data.
+
+For example:
+
+<pre>
+q).h.ed ([]a:1 2 3;b:`x`y`z)
+"<?xml version=\"1.0\"?><?mso-application progid=\"Excel.Sheet\"?>"
+"<Workbook xmlns=\"urn:schemas-microsoft-com:office:spreadsheet\" xmlns:o=\"u..
+q)
+</pre>
+
+=== <tt>.h.edsn</tt> ===
+
+TBD
+
+=== <tt>.h.es</tt> ===
+
+Creates part of an Excel workbook. Used by <tt>.h.ed</tt>.
+
+=== <tt>.h.ex</tt> ===
+
+Creates part of an Excel workbook. Used by <tt>.h.ed</tt>.
+
+=== <tt>.h.fram</tt> ===
+
+Creates an HTML page with two frames. Takes three string arguments: the title; the location of the left frame; the location of the right frame.
+
+=== <tt>.h.ha</tt> ===
+
+Insert HTML hyperlink tag with a anchor, like <a href="ANCHOR">TEXT<a>.
+
+Takes two parameters:
+* ANCHOR which can be symbol or string;
+* TEXT which is a string only.
+
+For example:
+
+<pre>
+q) .h.ha[`http://www.example.com;"Example.com Main Page"]
+<a href=http://www.example.com>Example.com Main Page</a>
+q) .h.ha["http://www.example.com";"Example.com Main Page"]
+<a href="http://www.example.com">Example.com Main Page</a>
+</pre>
+
+=== <tt>.h.hb</tt> ===
+
+Same as .h.ha, but adds a "target=v" parameter to the tag.
+
+=== <tt>.h.hc</tt> ===
+
+HTML escape for "&lt;":
+
+<pre>
+q).h.hc "&lt;foo>"
+"&amp;lt;foo>"
+q)
+</pre>
+
+=== <tt>.h.he</tt> ===
+
+Takes one string argument. Escapes "<" characters, adds a "'" at the front, and then creates an HTTP 400 error (Bad Request) with that content.
+
+=== <tt>.h.hn</tt> ===
+
+Creates an HTTP error from three arguments: a string containing the type of error; a symbol holding the response type (e.g. `csv), and a string containing the content.
+
+=== <tt>.h.hp</tt> ===
+
+Contains the string "html".
+
+=== <tt>.h.hp</tt> ===
+
+Takes one argument, a list of strings. Creates a valid HTTP response displaying these strings, for the web console.
+
+=== <tt>.h.hr</tt> ===
+
+Takes one argument, a strnig, and creates a horizontal rule with one "-" for each character in the string. Used for displaying tables.
+
+=== <tt>.h.ht</tt> ===
+
+HTML documentation generator for http://kx.com/q/d/
+
+:::* edit <tt>src/mydoc.txt</tt>
+:::* <tt>q) .h.ht`mydoc</tt>
+:::* browse mydoc.htm (<tt>a/_mydoc.htm</tt> is navigation frame, <tt>a/mydoc.htm</tt> is content frame)
+
+Basic formatting rules:
+:::* Paragraph text starts at the beginning of the line.
+:::* Lines beginning with <tt>"."</tt> are treated as section headings.
+:::* Lines beginning with <tt>"\t"</tt> get wrapped in <tt>&#60;code&#62;<nobr></tt>.
+:::* Line data beginning with <tt>" "</tt> get wrapped in <tt><xmp></tt>.
+:::* If second line of data starts with <tt>"-"</tt>, draw a horizontal rule to format the header.
+:::* Aligns two column data if 2nd column starts with <tt>"\t "</tt>.
+
+=== <tt>.h.hta</tt> ===
+
+Insert start tag declaration with set of attributes like: <TAG ATTR1="VAL1" ATTR2="VAL2">.
+This function does not insert end tag declaration. Please see .h.htac to insert full tag declaration.
+Takes two parameters:
+is a TAG name
+are parameters dictionary where keys are names of attributes and values are values of attributes.
+For example:
+
+<pre>
+q) .h.hta[`a;(`href`target)!("http://www.example.com";"_blank")]
+<a href="http://www.example.com" target="_blank">
+</pre>
+
+=== <tt>.h.htac</tt> ===
+
+Insert tag declaration with set of attributes like: <TAG ATTR1="VAL1" ATTR2="VAL2">BODY</TAG>.
+This function inserts full tag declaration with start tag, attributes, body and end tag.
+Takes three parameters:
+is a TAG name
+are parameters dictionary where keys are names of attributes and values are values of attributes
+is a BODY of the tag
+For example:
+
+<pre>
+q) .h.htac[`a;(`href`target)!("http://www.example.com";"_blank");"Example.com Main Page"]
+<a href="http://www.db.com" target="_blank">Example.com Main Page</a>
+</pre>
+
+=== <tt>.h.htc</tt> ===
+
+Inserts simple tag with body without attributes like: <TAG>BODY</TAG>
+To insert tag with attrbiutes see .h.htac.
+Takes two parameters:
+a TAG name of type symbol, and
+a BODY of the tag of type string.
+
+For example:
+
+<pre>
+q) .h.htc[`tag;"value"]
+<tag>value</tag>
+</pre>
+
+=== <tt>.h.html</tt> ===
+
+Inserts simple HTML structure:
+
+<pre>
+<html>
+  <head>
+    <style>
+      a{text-decoration:none}a:link{color:024C7E}a:visited{color:024C7E}a:active{color:958600}body{font:10pt verdana;text-align:justify}
+    </style>
+   </head>
+   <body>
+     BODY
+   </body>
+</html>
+</pre>
+
+Function takes only one argument: BODY of html.
+
+=== <tt>.h.http</tt> ===
+
+Replaces all text started in http:// to html hyperlink.
+
+Takes only one parameter text to be processed.
+
+For example:
+
+<pre>
+q) .h.http "The main page is http://www.example.com"
+"The main page is <a href="http://www.example.com">http://www.example.com</a>"
+</pre>
+
+=== <tt>.h.hu</tt> ===
+
+Hex URI (escaping): Replace URI-unsafe characters with <tt>%</tt>''xx''.
+
+For example:
+
+<pre>
+q).h.hu "http://www.kx.com"
+"http%3a%2f%2fwww.kx.com"
+</pre>
+
+=== <tt>.h.hug</tt> ===
+
+Hex URI (table) Generator: Generate a mapping from characters to <tt>%</tt>''xx'' escape sequences ''except'' for the set of characters passed as the argument (which get mapped to themselves).
+
+=== <tt>.h.hy</tt> ===
+
+Takes two arguments, a symbol and a string. Creates a valid HTTP response, with content type determined by that symbol, and with the string as the content.
+
+=== <tt>.h.iso8601</tt> ===
+
+Takes one numeric argument. Converts it to a timestamp, and returns it as a string in ISO 8601 style.
+
+=== <tt>.h.jx</tt> ===
+
+Renders HTML pagers for tables. Given:
+
+ q)a:([] a:til 1000;b:1000?1000;c:1000?1000)
+
+then:
+
+ q)first .h.jx[0;`a]
+ "<a href=\"?[0\">home</a> <a href=\"?[0\">up</a> <a href=\"?[32\">down</a> <a..
+
+=== <tt>.h.logo</tt> ===
+
+A kx.com logo in HTML format.
+
+=== <tt>.h.nbr</tt> ===
+
+Takes one string argument. Returns a "<nobr>" HTML tag with that argument inside.
+
+=== <tt>.h.pre</tt> ===
+
+Takes one argument, a list of strings. Returns a "<<nowiki />pre>" HTML tag displaying those strings, with appropriate newlines.
+
+=== <tt>.h.sa</tt> ===
+
+Some CSS styling used in the web console.
+
+=== <tt>.h.sb</tt> ===
+
+Some CSS styling used in the web console.
+
+=== <tt>.h.sc</tt> ===
+
+List of characters that do not need to be escaped in URIs. See <tt>.h.hu</tt>.
+
+=== <tt>.h.td</tt> ===
+
+TSV from Data.
+
+For example:
+
+<pre>
+q).h.td ([]a:1 2 3;b:`x`y`z)
+"a\tb"
+"1\tx"
+"2\ty"
+"3\tz"
+</pre>
+
+=== <tt>.h.text</tt> ===
+
+Takes one argument, a list of strings. Returns HTML code with each string in its own "<p>" tag.
+
+=== <tt>.h.tx</tt> ===
+
+A dictionary of file types (`csv, `txt, `xml, `xls) and corresponding conversion functions (.h.cd, .h.td, .h.xd, .h.ed).
+
+=== <tt>.h.ty</tt> ===
+
+A dictionary of response types (e.g. `csv, `bmp, `doc) and corresponding Media Types.
+
+=== <tt>.h.uh</tt> ===
+
+URI Hex (unescaping): Replace <tt>%</tt>''xx'' sequences with character equivalents.
+
+For example:
+
+<pre>
+q).h.uh "http%3a%2f%2fwww.kx.com"
+"http://www.kx.com"
+</pre>
+
+=== <tt>.h.xd</tt> ===
+
+XML from Data.
+
+For example:
+
+<pre>
+q).h.xd ([]a:1 2 3;b:`x`y`z)
+"<R>"
+"<r><a>1</a><b>x</b></r>"
+"<r><a>2</a><b>y</b></r>"
+"<r><a>3</a><b>z</b></r>"
+"</R>"
+</pre>
+
+=== <tt>.h.xmp</tt> ===
+
+Takes one argument, a list of strings. Returns HTML code displaying the strings, separated by newlines, inside an "xmp" tag.
+
+=== <tt>.h.xs</tt> ===
+
+XML substitutions for entities:
+
+<pre>
+.h.xs "Arthur & Co."
+"Arthur &amp;amp; Co."
+</pre>
+
+=== <tt>.h.xt</tt> ===
+
+Signals 'nyi (as of v3.0).

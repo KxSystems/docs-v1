@@ -1,13 +1,14 @@
 
+Syntax: `f ': x`  ([each-parallel](adverbs/#each-parallel))  
 Syntax: `f peach x`  (binary, uniform)  
 Syntax: `.[g;] peach y`  (binary, uniform)
 
-where 
+Where 
 
 - `f` is a unary function and `x` is a list of arguments
 - `g` is a binary function and `y` is a list of argument pairs
 
-`peach` is used for parallel execution of a function over data. For example, this can be useful for computationally expensive functions, or for accessing several drives at once from a single CPU.
+`peach`, or the derivative `f':`, is used for parallel execution of a function over data. For example, this can be useful for computationally expensive functions, or for accessing several drives at once from a single CPU.
 
 In order to execute in parallel, q must be started with multiple slaves, using `-s` in the command line.
 

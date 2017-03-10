@@ -57,6 +57,34 @@ Identity:
 ```
 q)("*";0h)$1
 10 10
+q)("*";0h)$\:"2012-02-02"
+"2012-02-02"
+"2012-02-02"
+```
+``
+
+## `0x0\:` Integer to byte vector
+
+Syntax: `0x0\:x`
+
+Where `x` is an int.
+```q
+q)0x0\:1234605616436508552
+0x1122334455667788
+```
+
+==FIXME Signals `'\:` in V3.4.==
+
+
+## `!` integers to enumerated symbols
+
+Syntax: `` `x!y``
+
+Where `` `x`` is the name of a symbol list and `y` is a non-negative int list, returns an enumerated symbol list.
+```q
+q)x:`a`b`c`d
+q)`x!1 2 3
+`x$`b`c`d
 ```
 
 
@@ -89,6 +117,66 @@ a    b
 ,"1" "ibm"
 ,"2" "goog"
 ,"3" "aapl"
+```
+
+
+## `sv`
+
+Syntax: `x sv y` 
+
+Decode – where
+
+- (**base to integer**) `x` and `y` are numeric, `y` is evaluated to base `x`, which may be a list.
+```q
+q)10 sv 2 3 5 7
+2357
+q)100 sv 2010 3 17
+20100317
+```q)0 24 60 60 sv 2 3 5 7   / 2 days, 3 hours, 5 minutes, 7 seconds
+183907
+```
+
+!!! note 
+    when `x` is a list, the first number is not used. The calculation is done as:
+    ```q
+    q)baseval:{y wsum reverse prds 1,reverse 1_x}
+    q)baseval[0 24 60 60;2 3 5 7]
+    183907f
+    ```
+
+- (**bytes to integer**) `x` is `0x0` and `y` is a vector of **bytes** of length 2, 4 or 8, returns `y` converted to the corresponding integer.
+```q
+q)0x0 sv "x" $0 255           / short
+255h
+q)0x0 sv "x" $128 255
+-32513h
+q)0x0 sv "x" $0 64 128 255    / int
+4227327
+q)0x0 sv "x" $til 8           / long
+283686952306183j
+q)256j sv til 8               / same calculation
+283686952306183j
+```
+
+!!! tip "Converting non integers" 
+    Use [`1:`](Reference/OneColon "wikilink") – eg:
+    ```q
+    q)show a:0x0 vs 3.1415
+    0x400921cac083126f
+    q)(enlist 8;enlist "f")1: a   /float
+    3.1415
+    ```
+
+- (**bits to integer**) `x` is `0b` and `y` is a boolean vector of length 8, 16, 32, or 64, returns `y` converted to the corresponding integer or — in the case of 8 bits — a byte value.
+```q
+q)0b sv 64#1b
+-1
+q)0b sv 32#1b
+-1i
+q)0b sv 16#1b
+-1h
+q)0b sv 8#1b
+0xff
 ```
 
 
@@ -178,9 +266,62 @@ dd/[mm|MMM]/[yy]yy  / \z 1
 
 <i class="fa fa-hand-o-right"></i> [`\z` (date format)](FIXME)
 
-Identity:
+
+## `vs`
+
+Syntax: `x vs y` 
+
+Encode – where: 
+
+- `x` is `0b` and `y` is an integer, returns the **bit** representation of `y`.
 ```q
-q)("*";0h)$\:"2012-02-02"
-"2012-02-02"
-"2012-02-02"
+q)0b vs 23173h
+0101101010000101b
+q)0b vs 23173
+00000000000000000101101010000101b
 ```
+
+- `x` is `0x0` and `y` is a number, returns the **internal** representation of `y`, with each byte in hex.
+```q
+q)0x0 vs 2413h
+0x096d
+q)0x0 vs 2413
+0x0000096d
+q)0x0 vs 2413e
+0x4516d000
+q)0x0 vs 2413f
+0x40a2da0000000000
+q)"."sv string"h"$0x0 vs .z.a / ip address string from .z.a
+"192.168.1.213"
+```
+
+- `x` and `y` are integer, the result is the representation of `y` in **base** `x`. (Since V3.4t 2015.12.13.)
+```q
+q)10 vs 1995
+1 9 9 5
+q)2 vs 9
+1 0 0 1
+q)24 60 60 vs 3805
+1 3 25
+q)"." sv string 256 vs .z.a / ip address string from .z.a
+"192.168.1.213"
+```
+If `y` is an integer vector then the result is a matrix with `count[x]` items whose `i`<sup>th</sup> column `(x vs y)[;i]` is identical to `x vs y[i]`. More generally, `y` can be any list of integers, and each item of the result is identical to `y` in structure.
+```q
+q)a:10 vs 1995 1996 1997
+q)a
+1 1 1
+9 9 9
+9 9 9
+5 6 7
+q)a[;0]
+1 9 9 5
+q)10 vs(1995;1996 1997)
+1 1 1
+9 9 9
+9 9 9
+5 6 7
+```
+
+
+

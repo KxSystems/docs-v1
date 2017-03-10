@@ -10,6 +10,7 @@ q)type each (2;3 5f;"hello")
 -6 9 10h
 ```
 
+
 ## Primitive types
 
 Primitive datatypes are in the range ± `1h` to `19h`. 
@@ -40,12 +41,35 @@ Primitive datatypes are in the range ± `1h` to `19h`.
 !!! note "Strings"
     There is no _string_ datatype. The nearest equivalent to a string is a symbol, or a char vector. A reference to a _string_ should be understood as referring to a char vector.
 
+
+### Symbols
+
+A back tick `` ` `` followed by a series of characters represents a _symbol_, which is not the same as a string. 
+
+<i class="fa fa-hand-o-right"></i> [Q for Mortals](JB:QforMortals2/atoms#Character_Data "wikilink")
+```q
+q)s:`symbol
+q)s ~ "symbol"
+0b
+```
+A back tick without characters after it represents the _empty symbol_. The empty symbol can be used with [_cast_](casting/#cast) to cast a string into a symbol, creating symbols whose names could not otherwise be written, such as symbols containing spaces. `` `$x`` is shorthand for `"S"$x`. 
+```q
+q)s:`hello world
+'world
+q)s:`$"hello world"
+q)s
+`hello world
+```
+
+
+### Filepaths
+
 Filepaths are a special form of symbol. 
 ```q
 q)count read0 `:path/to/myfile.txt  / count lines in myfile.txt
 ```
 
-<i class="fa fa-hand-o-right"></i> [Casting between types](casting)
+<i class="fa fa-hand-o-right"></i> [casting between types](casting)
 
 
 Infinities

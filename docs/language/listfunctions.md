@@ -55,8 +55,7 @@ q)count sp
 ```
 
 
-`cross`
--------
+## `cross`
 
 Syntax: `x cross y`
 
@@ -93,46 +92,166 @@ AAPL 2
 ```
 
 
-`cut`
------
+## `cut`
 
 Syntax: `x cut y`
 
-Returns `y` split according to `x`:
+Where 
 
--  if `x` is a single integer, `cut` splits `y` into a list of items, each of count `x`, for example:
+- `x` is an integer atom, returns `y` splits into a list of items, all (except perhaps the last) of count `x`.
 ```q
 q)4 cut til 10
 0 1 2 3
 4 5 6 7
 8 9
 ```
--  if `x` is a non-decreasing list of integers, it cuts `y` at the indices given in `x`. The result is a list with the same count as `x`.
+
+- otherwise `cut` is synonymous with `_` _cut_.
+
+
+
+## `_` cut
+
+Syntax: `x _ y` 
+
+Where `x` is a non-decreasing list of integers, and `y` is a list or table, returns `y` cut at the indexes given in `x`. The result is a list with the same count as `x`.
 ```q
-q)2 4 9 cut til 10           / the first result item starts at index 2
+q)2 4 9 _ til 10           /first result item starts at index 2
 2 3
 4 5 6 7 8
 ,9
 q)
-q)2 4 4 9 cut til 10         / cuts are empty for duplicate indices
+q)2 4 4 9 _ til 10         /cuts are empty for duplicate indexes
 2 3
-`int$()
+`long$()
 4 5 6 7 8
 ,9
 ```
+If the number of items to cut is larger than the list specified, the empty list is returned. 
+```
+q)show each 2 5 7 _ til 12
+2 3 4
+5 6
+7 8 9 10 11
+::
+::
+::
+q)\l sp.q
+q)count sp
+12
+q)count 1_sp
+11
+q)show 10_sp
+s  p  qty
+---------
+s4 p4 300
+s1 p5 400
+q)show each 2 5 7_sp
+s  p  qty
+---------
+s1 p3 400
+s1 p4 200
+s4 p5 100
+s  p  qty
+---------
+s1 p6 100
+s2 p1 300
+s  p  qty
+---------
+s2 p2 400
+s3 p2 200
+s4 p2 200
+s4 p4 300
+s1 p5 400
+::
+::
+::
+```
 
-!!! note
-    `cut` is a simple derivative of the primitive `_` (drop/cut). Where `x` is an atom, it cuts `y` into equal-sized parts; otherwise it behaves like `_`.
+
+## `_` drop
+
+Syntax: `x _ y`
+
+Drops items from a list, entries from a dictionary or columns from a table. Where
+
+- `x` is an int atom and `y` a list or dictionary, returns `y` without the first or last `x` items.
+```q
+q)5_0 1 2 3 4 5 6 7 8      /drop the first 5 items
+5 6 7 8
+q)-5_0 1 2 3 4 5 6 7 8     /drop the last 5 items
+0 1 2 3
+q)1 _ `a`b`c!1 2 3
+b| 2
+c| 3
+```
+
+!!! tip "Drop strings"
     ```q
-    q)"abcde" _ 3                / drop element with index 3
-    "abce"
-    q)"abcde" cut 3              / cut works the same
-    "abce"
+    q)b:"apple: banana: cherry"
+    q)/find the first ":" and remove the prior portion of the sentence.
+    q)(b?":") _ b
+    ": banana: cherry"
     ```
 
+- `x` is a list or dictionary and `y` is an index or key of `x`, returns `x` without `y`.
+```q
+q)0 1 2 3 4 5 6 7 8_5      /drop the 5th item
+0 1 2 3 4 6 7 8
+q)(`a`b`c!1 2 3)_`a        /drop the entry for `a`
+b| 2
+c| 3
+```
 
-`enlist`
---------
+- `x` is an atom or vector of keys to dictionary `y`, returns `y` without the entries for `x`.
+```q
+q)`a _`a`b`c!1 2 3
+b| 2
+c| 3
+q)`a`b _`a`b`c!1 2 3
+c| 3
+q)(`a`b`c!1 2 3)_`a`b
+'type
+```
+
+!!! warning "Dropping dictionary entries with integer arguments"
+    With dictionaries, distinguish the roles of integer arguments to _drop_.
+    ```q
+    q)d:100 200!`a`b
+    q)1 _ d            /drop the first entry
+    200| b
+    q)d _ 1            /drop where key=1
+    100| a
+    200| b
+    q)d _ 100          /drop where key=100
+    200| b
+    q)enlist[1] _ d    /drop where key=1
+    100| a
+    200| b
+    q)enlist[100] _ d  /drop where key=100
+    200| b
+    q)100 _ d          /drop first 100 entries
+    ```
+
+- `x` is a vector of keys and `y` is a table returns `y` without columns `x`.
+```q
+q)t:([]a:1 2 3;b:4 5 6;c:`d`e`f)
+q)`a`b _t
+c
+-
+d
+e
+f
+q)t _`a`b
+'type
+q)`a _t
+'type
+q)t _`a
+'type
+```
+
+
+## `enlist`
 
 Syntax: `enlist x` 
 
@@ -172,78 +291,9 @@ a b c
 ```
 
 
-## `$` enum
-
-Syntax: `x $ y`
-
-Where `x` and `y` are lists, `x~distinct x`, and `distinct y` are all items of `x`, returns `y` as an enumeration of `x`.
-
-!!! note "What is an enumeration?"
-    For a long list containing few distinct values, an enumeration can reduce storage requirements. The ‘manual’ way to create an enum (for understanding, not recommended):
-    ```q
-    q)y:`a`b`c`b`a`b`c`c`c`c`c`c`c
-    q)x:`a`b`c
-    q)show e:"i"$x?y;
-    0 1 2 1 0 1 2 2 2 2 2 2 2i  /these values are what we store instead of y.
-    q)x e                       /get back the symbols any time from x and e.
-    `a`b`c`b`a`b`c`c`c`c`c`c`c
-    q)`x!e / same result as `x$y 
-    `x$`a`b`c`b`a`b`c`c`c`c`c`c`c
-    ```
-
-Using built-in _enum_:
-```q
-q)show e:`x$y;
-`x$`a`b`c`b`a`b`c`c`c`c`c`c`c
-```
-Values are stored as indexes and so need less space.
-```q
-q)"i"$e
-0 1 2 1 0 1 2 2 2 2 2 2 2i
-```
-Changing one lookup value (in `x`) has the same effect as changing those values in the enumeration, while the indexes backing `e` are unchanged.
-```q
-q)x[0]:`o
-q)e
-x$`o`b`c`b`o`b`c`c`c`c`c`c`c
-q)"i"$e
-0 1 2 1 0 1 2 2 2 2 2 2 2i
-```
-To get `x` and `y` from `e`:
-```q
-q)(key;value)@\:e
-`x
-`o`b`c`b`o`b`c`c`c`c`c`c`c
-```
-
-!!! warning "Ensure all items of `y` are in `x`"
-    When creating an enumeration using `$`, the domain of the enumeration must be in `x`, otherwise a cast error will be signalled.
-    ```q
-    q)y:`a`b`c`b`a`b`c`c`c`c`c`c`c
-    q)x:`a`b
-    q)`x$y
-    'cast
-    ```
-    to expand the domain, use `?` instead of `$`.
-    ```q
-    q)`x?y
-    `x$`a`b`c`b`a`b`c`c`c`c`c`c`c
-    q)x
-    `a`b`c
-    ```
-    Note that `?` retains the attr of the right-argument but `$` does not.
-    ```q
-    q)`x?`g#y
-    `g#`x$`g#`a`b`c`b`a`b`c`c`c`c`c`c`c
-    q)`x$`g#y
-    `x$`a`b`c`b`a`b`c`c`c`c`c`c`c
-    ```
-<i class="fa fa-hand-o-right"></i> [Q for Mortals: Enumerations](FIXME)
-
-
 ## `^` fill 
 
-Syntax: `x^y` (binary, atomic) 
+Syntax: `x^y` (atomic) 
 
 Returns `y` with any nulls replaced by the corresponding item of `x`.
 ```q
@@ -302,8 +352,7 @@ q)fills 0N 2 3 0N 0N 7 0N
     ```
 
 
-`flip`
-------
+## `flip`
 
 Syntax: `flip x`
 
@@ -392,11 +441,11 @@ _Join_ for keyed tables is strict; both the key and data columns must match in n
 
 ## `raze`
 
-Syntax: `raze x` (unary)
+Syntax: `raze x` 
 
 Returns the items of `x` joined, collapsing one level of nesting. 
 
-To collapse all levels, use [converge](higher-order-functions#converge) i.e. `raze/[x]`.
+To collapse all levels, use [converge](adverbs/#converge-iterate) i.e. `raze/[x]`.
 ```q
 q)raze (1 2;3 4 5)
 1 2 3 4 5
@@ -437,7 +486,7 @@ q)raze d
 
 ## `reverse`
 
-Syntax: `reverse x` (unary, uniform) 
+Syntax: `reverse x` (uniform) 
 
 Returns the items of `x` in reverse order.
 ```q
@@ -465,7 +514,7 @@ a b
 `rotate`
 --------
 
-Syntax: `x rotate y` (binary, uniform)
+Syntax: `x rotate y` (uniform)
 
 Returns list or table `y` rotated by `x` items: to the ‘left’ for positive `x`, to the ‘right’ for negative `x`.
 ```q
@@ -660,10 +709,9 @@ s2| jones 10     paris
 ```
 
 
-`sv`
-----
+## `sv`
 
-Syntax: `x sv y` (binary)
+Syntax: `x sv y` 
 
 Scalar from vector: returns an atom. Where:
 
@@ -692,70 +740,47 @@ q)` sv `mywork`dat
 `mywork.dat
 ```
 
-- (**base conversion**) `x` and `y` are numeric, `y` is evaluated to base `x`, which may be a list.
+
+
+## `?` vector conditional
+
+Syntax: `?[x;y;z]`
+
+Where `x`, `y` and `z` are conforming vectors or atoms, `x` is boolean, and `y` and `z` are of the same type, returns a vector with items of `y` where `x` is `1b`, otherwise of `z`. All three arguments are evaluated.
 ```q
-q)10 sv 2 3 5 7
-2357
-q)100 sv 2010 3 17
-20100317
-```q)0 24 60 60 sv 2 3 5 7   / 2 days, 3 hours, 5 minutes, 7 seconds
-183907
+q)?[1100b;"abcd";"ABCD"]
+"abCD"
+q)?[1100b;"a";"ABCD"]
+"aaCD"
+q)?[1100b;"abcd";"X"]
+"abXX"
+q)?[1b;"abcd";"X"]
+"abcd"
+q)?[0b;"abcd";"X"]
+"X"
+q)?[0b;"abcd";"ABCD"]
+"ABCD"
 ```
 
-!!! note 
-    when `X` is a list, the first number is not used. The calculation is done as:
+!!! tip "Not this, not that"
+    It can be useful to have more than just a true/false selection, e.g. match1/match2/match3/others mapping to result1/result2/result3/default. This can be achieved with _find_.
     ```q
-    q)baseval:{y wsum reverse prds 1,reverse 1_x}
-    q)baseval[0 24 60 60;2 3 5 7]
-    183907f
+    q)input:10?`m1`m2`m3`other`yetanother
+    q)input
+    `yetanother`m1`m3`m2`m3`m2`m3`other`m3`yetanother
+    q)`r1`r2`r3`default `m1`m2`m3?input
+    `default`r1`r3`r2`r3`r2`r3`default`r3`default
     ```
-
-- (**bytes to integer**) `x` is `0x0` and `y` is a list of bytes of length 2, 4 or 8, the result is `y` converted to the corresponding integer.
-```q
-q)0x0 sv "x" $0 255           / short
-255h
-q)0x0 sv "x" $128 255
--32513h
-q)0x0 sv "x" $0 64 128 255    / int
-4227327
-q)0x0 sv "x" $til 8           / long
-283686952306183j
-q)256j sv til 8               / same calculation
-283686952306183j
-```
-
-!!! tip "Converting non integers" 
-    Use [`1:`](Reference/OneColon "wikilink") – eg:
-    ```q
-    q)show a:0x0 vs 3.1415
-    0x400921cac083126f
-    q)(enlist 8;enlist "f")1: a   /float
-    3.1415
-    ```
-
-- (**bits to integer**) `x` is `0b` and `y` is a list of booleans of length 8, 16, 32, or 64 the result is `y` converted to the corresponding integer or — in the case of 8 bits — a byte value
-```q
-q)0b sv 64#1b
--1
-q)0b sv 32#1b
--1i
-q)0b sv 16#1b
--1h
-q)0b sv 8#1b
-0xff
-```
+    This avoids nesting _vector conditional_, and scales better.
 
 
-`vs`
-----
+## `vs`
 
-Syntax: `x vs y` (binary)
+Syntax: `x vs y` 
 
-Vector from scalar: returns a list (vector) from each atom (scalar) in its argument, or may return a list of lists from a list.
+Partition: returns list `y` partitioned according to `x`.
 
-Where: 
-
-- (**partitioned string**) `y` is a string, and `x` is a character or string, the result is a list of strings: `y` cut using `X` as the delimiter.
+- Where `x` is a char atom or string, and `y` is a **string**, returns a list of strings: `y` cut using `x` as the delimiter.
 ```q
 q)"," vs "one,two,three"
 "one"
@@ -772,71 +797,26 @@ q)"|" vs "red|green||blue"
 ""
 "blue"
 ```
-If `x` is the back tick `` ` ``, then the result (a) splits symbols on `` `.` ``, (b) breaks file handles into directory and file parts, and (c) breaks a string with embedded line terminators into lines (both Unix `\n` and Windows `\r\n` terminators).
+
+- Where `x` is the empty symbol `` ` ``, and `y` is a **symbol**, returns as a symbol vector `y` split on `` `.` ``.
 ```q
-q)` vs `mywork.dat                   / symbol y
+q)` vs `mywork.dat 
 `mywork`dat
-q)` vs `:/home/kdb/data/mywork.dat   / file handle y
+```
+- Where `x` is the empty symbol `` ` ``, and `y` is a **file handle**, returns as a symbol vector `y` split into directory and  file parts.
+```q
+q)` vs `:/home/kdb/data/mywork.dat
 `:/home/kdb/data`mywork.dat
-q)` vs "abc\ndef\nghi"               / filestring y
+```
+- Where `x` is the empty symbol `` ` ``, and `y` is a **string**, returns as a list of strings `y` partitioned on embedded line terminators into lines. (Recognizes both Unix `\n` and Windows `\r\n` terminators).
+```q
+q)` vs "abc\ndef\nghi"
 "abc"
 "def"
 "ghi"
-q)` vs "abc\r\ndef\r\nghi"           / filestring y
+q)` vs "abc\r\ndef\r\nghi"
 "abc"
 "def"
 "ghi"
 ```
-
-- (**bit representation**) `x` is `0b` and `y` is an integer, the result is the bit representation of `y`.
-```q
-q)0b vs 23173h
-0101101010000101b
-q)0b vs 23173
-00000000000000000101101010000101b
-```
-
-- (**hex representation**) `x` is `0x0` and `y` is a number, the result is the internal representation of `y`, with each byte in hex.
-```q
-q)0x0 vs 2413h
-0x096d
-q)0x0 vs 2413
-0x0000096d
-q)0x0 vs 2413e
-0x4516d000
-q)0x0 vs 2413f
-0x40a2da0000000000
-q)"."sv string"h"$0x0 vs .z.a / ip address string from .z.a
-"192.168.1.213"
-```
-
-- (**base representation**) `x` and `y` are integer, the result is the representation of `y` in base `x`. (Since V3.4t 2015.12.13.)
-```q
-q)10 vs 1995
-1 9 9 5
-q)2 vs 9
-1 0 0 1
-q)24 60 60 vs 3805
-1 3 25
-q)"." sv string 256 vs .z.a / ip address string from .z.a
-"192.168.1.213"
-```
-If the right argument is an integer list then the result is a matrix with `count[x]` items whose ith column `(x vs y)[;i]` is identical to `x vs y[i]`. More generally, `y` can be any list of integers, and each item of the result is identical to `y` in structure.
-```q
-q)a:10 vs 1995 1996 1997
-q)a
-1 1 1
-9 9 9
-9 9 9
-5 6 7
-q)a[;0]
-1 9 9 5
-q)10 vs(1995;1996 1997)
-1 1 1
-9 9 9
-9 9 9
-5 6 7
-```
-
-
 
