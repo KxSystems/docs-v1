@@ -24,20 +24,44 @@ Some system commands have equivalent command-line parameters.
     ```
 
 
-## `\a [namespace]` – tables
+## `\a` – tables
+
+Syntax: `\a`
+
+Syntax: `\a [namespace]`
 
 Lists tables in the given namespace, default current namespace.
 ```q
-q)\l sp.q
-...
-q)\a                  / tables in default namespace
-`p`s`sp
-q)\a .o               / tables in .o
-,`TI
+q)\a
+`symbol$()
+q)aa:bb:23
+q)\a
+`symbol$()
+q)tt:([]dd:12 34)
+q)\a
+,`tt
+q).nn.vv:([]uu:12 45)
+q)\a
+,`tt
+q)\a .n
+'.n
+q)\a .nn
+,`vv
+q)\d .nn
+q.nn)\a
+,`vv
+q.nn)vv
+uu
+--
+12
+45
+q.nn)
 ```
 
 
-## `\b` – views/dependencies
+## `\b` – views
+
+Syntax: `\b [namespace]`
 
 Lists all dependencies (views). See also [.z.b](Reference/dotzdotb "wikilink").
 ```q
@@ -48,7 +72,9 @@ q)\b
 ```
 
 
-## `\B` – pending views/dependencies
+## `\B` – pending views
+
+Syntax: `\B [namespace]`
 
 Lists all pending dependencies (views), i.e. dependencies not yet referenced, or not referenced after their referents have changed.
 ```q
@@ -65,17 +91,47 @@ q)\B              / no longer pending
 ```
 
 
-## `\c [h,w]` – console height,width
+## `\c` – console size
+
+Syntax: `\c`
+
+Syntax: `\c [h,w]`
 
 Sets console height and width. This is the same as the `-c` command line parameter, see [Console Size](Reference/ConsoleSize "wikilink")
 
+These settings determine when q elides output with `..`
 
-## `\C [h,w]` – http height,width
+!!! note 
+    You usually don't need to set this. If the environment variables `LINES` and `COLUMNS` are found they'll be taken as the default value. See Bash documentation for `shopt` parameter `checkwinsize` to make sure they're reset as needed.
+
+```q
+q)\c
+45 160
+q)\c 5 5
+q)\c
+10 10
+q)til each 20+til 10
+0 1 2 3..
+0 1 2 3..
+0 1 2 3..
+0 1 2 3..
+0 1 2 3..
+0 1 2 3..
+0 1 2 3..
+..
+```
+
+
+## `\C` – HTTP size
+
+Syntax: `\C [h,w]`
 
 Sets the HTTP height and width. This is the same as the `-C` command line parameter, see [Console Size](Reference/ConsoleSize "wikilink")
 
 
-## `\cd [name]` – change directory
+## `\cd` – change directory
+
+Syntax: `\cd [name]` 
 
 Changes the current directory.
 ```q
@@ -90,7 +146,9 @@ q)\cd
 ```
 
 
-## `\d [namespace]` – directory
+## `\d` – directory
+
+Syntax: `\d [namespace]`
 
 Sets the current namespace (also known as directory or context). The namespace can be empty, and a new namespace is created when an object is defined in it. The prompt indicates the current namespace. 
 ```q
@@ -111,7 +169,9 @@ q.s)key`
 ```
 
 
-## `\e [0|1]` – error trap clients
+## `\e` – error trap clients
+
+Syntax: `\e [0|1]`
 
 This enables error trapping for client requests. The default is 0 (off).
 
@@ -120,24 +180,32 @@ When a client request has an error, by default the server clears the stack. This
 For development, you can set `\e 1` to enable debugging on the server. In this case, the server suspends on an error, and does not process other requests until the stack is cleared.
 
 
-## `\f [namespace]` – functions
+## `\f` – functions
+
+Syntax: `\f [namespace]`
 
 Lists functions in the given namespace, default current namespace.
 ```q
 q)f:g:h:{x+2*y}
 q)\f
 `f`g`h
-q)\f .q
-`aj`aj0`all`and`any`asc`asof`attr`avgs`ceiling`cols..
+q)\f .h
+`cd`code`data`eb`ec`ed`es`estr`fram`ha`hb`hc`he`hn`hp`hr`ht`hta`htac`htc`html`http`hu`hug`hy`jx`nbr`pre`td`text`uh`xd`xmp`xs`xt
+q){x where x like"ht??"}system"f .h"
+`htac`html`http
 ```
 
 
-## `\g [mode]` – garbage collection mode
+## `\g` – garbage collection mode
+
+Syntax: `\g [mode]`
 
 Since V2.7 2011.02.04. Switch garbage collection between immediate (1) and deferred (0) modes. See also [-g](Reference/Cmdline "wikilink").
 
 
-## `\l name` – load file or directory
+## `\l` – load file or directory
+
+Syntax: `\l name`
 
 The parameter can be a script filename or a directory. A script is loaded, and a directory database is opened. When q opens a directory, it changes its current directory to it. This allows reloading the current database using `\l .`. If the directory is specified as `.`, any scripts in that directory will be ignored; this is to allow (re)loading of data only.
 ```q
@@ -151,7 +219,9 @@ q)\a                 / with tables quote and trade
 ```
 
 
-## `\o [n]` – offset from GMT
+## `\o` – offset from GMT
+
+Syntax: `\o [n]`
 
 Sets the local time offset, as hours from GMT, or as minutes if abs[n]&gt;23. Initially, the value is 0N, meaning that the machine's offset is used.
 ```q
@@ -171,7 +241,9 @@ q).z.P
 This corresponds to the `-o` command line parameter.
 
 
-## `\p [i]` – port
+## `\p` – port
+
+Syntax: `\p [i]`
 
 Sets the listening port number. The default is 0 (no listening port). The port must be available and the process must have permission for the port.
 
@@ -191,27 +263,37 @@ q)\p 0        / turn off listening port
 This corresponds to the `-p` command line parameter.
 
 
-## `\P [n]` – precision
+## `\P` – precision
+
+Syntax: `\P [n]`
 
 Sets display precision for floating point numbers, i.e. the number of digits shown, see [Display Precision](Reference/DisplayPrecision "wikilink").
 
 
 ## `\r` – replication master
 
+Syntax: `\r`
+
 This should not be executed manually otherwise it can disrupt replication. It is executed automatically by the replicating process on the master process, and returns the log file name and log file count (see [Command Line Reference](Cmdline "wikilink")).
 
 
-## `\r src dst` – rename
+## `\r` – rename
+
+Syntax: `\r src dst`
 
 This renames file `src` to `dst`. It is equivalent to the Unix `mv` command, or the windows `move` command (except that it will not rename to a different disk drive).
 
 
 ## `\s` – number of slaves
 
+Syntax: `\s`
+
 This queries the number of slaves, set with the `-s` command line parameter (query only).
 
 
-## `\S [n]` – random seed
+## `\S` – random seed
+
+Syntax: `\S [n]`
 
 Sets the random number seed. The parameter must be a non-zero integer. Note that `\S` is not updated as the random-number generator is used.
 ```q
@@ -238,7 +320,9 @@ q)\S              / seed is not updated
     Instances started on ports 20000 thru 20099 (slave procs, used with e.g. `q -s -4` have the main thread’s default seed based on the port number.
 
 
-## `\t [p]` – timer
+## `\t` – timer
+
+Syntax: `\t [p]`
 
 This command has two different uses depending on the parameter given.
 
@@ -265,7 +349,9 @@ q)\t:100 log til 100000    / timing for 100 repetitions, new syntax of "\t:n exp
 The tick timer usage corresponds to the `-t` command line parameter.
 
 
-## `\ts exp` – time and space
+## `\ts` – time and space
+
+Syntax: `\ts exp`
 
 Executes the expression and shows the execution time in milliseconds and the space used in bytes.
 ```q
@@ -279,7 +365,9 @@ q)\ts:10000 log til 1000           /same as \ts do[10000; log til 1000]
 ```
 
 
-## `\T [n]` – timeout
+## `\T` – timeout
+
+Syntax: `\T [n]`
 
 This sets the client execution timeout, as the integer number of seconds a client call will execute before timing out, default 0 (no timeout). Note this is in seconds, not milliseconds like `\t`.
 
@@ -288,22 +376,30 @@ This corresponds to the `-T` command line parameter.
 
 ## `\u` – reload user password file
 
+Syntax: `\u`
+
 When q is invoked with the `-u` parameter specifying a user password file, then `\u` will reload the password file. This allows updates to the password file while the server is running.
 
 
-## `\v [namespace]` – variables
+## `\v` – variables
+
+Syntax: `\v [namespace]`
 
 Lists the variables in the given namespace, default current namespace.
 ```q
 q)a:1+b:2
 q)\v
 `a`b
-q)\v .o
-`B0`C0`PS`T`T0`TI`t
+q)\v .h
+`HOME`br`c0`c1`logo`sa`sb`sc`tx`ty
+q){x where x like"????"}system"v .h"
+`HOME`logo
 ```
 
 
-## `\w [0]` – workspace
+## `\w` – workspace
+
+Syntax: `\w [0]`
 
 If there is no parameter, lists current memory usage, as a list of 6 long integers:
   
@@ -339,14 +435,18 @@ symw| 25436
 ```
 
 
-## `\W [n]` – week offset
+## `\W` – week offset
+
+Syntax: `\W [n]`
 
 Specifies the start of week offset, where 0 is Saturday. The default is 2 = Monday.
 
 This corresponds to the `-W` command line parameter.
 
 
-## `\x .z.p\*` – expunge
+## `\x` – expunge
+
+Syntax: `\x .z.p\*`
 
 By default, callbacks like `.z.po` are not defined in the session. After they have been assigned, you can restore the default using `\x` to delete the definition that was made.
 ```q
@@ -360,7 +460,9 @@ q)\x .z.pi                    / restore default
 N.B. This works only for `.z.p*` variables defined in k before q.k is loaded. e.g. as `.z.ph` is defined in `q.k`, there is no default for it to be reset to.
 
 
-## `\z [0|1]` – date parsing
+## `\z` – date parsing
+
+Syntax: `\z [0|1]`
 
 Specifies the format for date parsing. 0 is "mm/dd/yyyy" and 1 is "dd/mm/yyyy".
 ```q
@@ -374,7 +476,10 @@ q)"D"$"06/01/2010"
 ```
 
 
-## `\1 & \2 filename` – redirect
+## `\1` & `\2` – redirect
+
+Syntax: `\1 filename`  
+Syntax: `\2 filename` 
 
 `\1` and `\2` allow redirecting stdout and stderr to files from within the q session. The files and intermediate directories are created if necessary.
 ```
@@ -396,7 +501,9 @@ q)q)'type
 ```
 
 
-## `\_ [scriptname]` – hide q code
+## `\_` – hide q code
+
+Syntax: `\_ [scriptname]`
 
 This command has two different uses depending on whether a parameter is given.
 
@@ -515,6 +622,8 @@ q)
 ```
 
 ## `\\` – quit 
+
+Syntax: `\\`
 
 In the interactive session type `\\` at the prompt to quit the session. Inside a function, use `value"\\\\"` or `exit 0` for the same result.
 

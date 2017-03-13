@@ -1,8 +1,5 @@
 This site is the successor to the Mediawiki site – which for now can still be found at <http://code.kx.com/wiki>. The Reference section has been migrated from the wiki; the Cookbook will follow. 
 
-> I can’t understand why people are frightened of new ideas. I’m frightened of the old ones.  
-— _John Cage_
-
 
 ## Reference
 
@@ -26,9 +23,18 @@ Overloads such as these are distinguished in use by syntax and arguments. Every 
 
 ## Open source
 
-The contribution model for this site is GitHub and <i class="fa fa-external-link-square"></i> <a target="_blank" href="https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow">Forking Workflow</a>. 
-
-The repository for this site is <i class="fa fa-external-link-square"></i> <a target="_blank" href="https://github.com/KxSystems/docs">github.com/KxSystems/docs</a>. To contribute, submit a pull request. 
-
 > A finished work is exactly that, requires resurrection.  
 — _John Cage_, “Lecture on Nothing”, 1949
+
+The repository for this site is <i class="fa fa-external-link-square"></i> <a target="_blank" href="https://github.com/KxSystems/docs">github.com/KxSystems/docs</a>. 
+
+The contribution model for this site is GitHub and <i class="fa fa-external-link-square"></i> <a target="_blank" href="https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow">Forking Workflow</a>. 
+To contribute, submit a pull request. 
+
+
+## Contact
+
+> A librarian’s job is to put information where people can find it. 
+
+This site is maintained by the <i class="fa fa-envelope-o"></i> [Librarian](mailto:librarian@kx.com).
+

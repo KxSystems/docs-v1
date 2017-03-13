@@ -7,11 +7,11 @@
 ## Comments
 
 Line comment
-: The parser ignores any line that begins with a `/` (slash).  
+: Any line that begins with a `/` (slash) is a comment.  
 `q)/Oh what a lovely day`
 
 Trailing comment
-: The parser ignores anything to the right of ` /` (space slash).  
+: Anything to the right of ` /` (space slash) is a comment.  
 `q)2+2  /I know this one`
 
 Multiline comment

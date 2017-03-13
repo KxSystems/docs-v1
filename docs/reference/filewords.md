@@ -4,16 +4,14 @@ Files
 See also the [IO primitives](FIXME). 
 
 
-`csv`
------
+## `csv`
 
 Syntax: `csv` (constant)
 
 A synonym for `","` for use in preparing text for CSV files, or reading them. 
 
 
-`dsave`
--------
+## `dsave`
 
 Syntax: `x dsave y`
 
@@ -143,8 +141,7 @@ See also:
 
 
 
-`get`
------
+## `get`
 
 Syntax: `get x`
 
@@ -161,8 +158,8 @@ q)`:SNewTrade/ set .Q.en[`:.;trade]     / save splayed table
 q)s:get`:SNewTrade/                     / s has columns mapped on demand
 ```
 
-!!! Note
-    `get` has several other uses. However, the function `value` is the same as `get` and by convention is used in other circumstances. The two are interchangeable, for example, evaluate a character string:
+!!! Note "`get` and `value`"
+    `get` has several other uses. However, the function [`value`](metadata/#value) is a synonym for `get` and by convention is used for other purposes. But the two are completely interchangeable.
     ```q
     q)value "2+3"
     5

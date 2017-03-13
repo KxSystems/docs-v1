@@ -65,7 +65,7 @@ Glyphs
 </div>
 
 
-### Higher-order functions
+### Adverbs
 
 <table class="kx-compact" markdown="1">
 <tr><td>`/`</td><td>[fold](language/higher-order-functions/#fold)</td></tr>

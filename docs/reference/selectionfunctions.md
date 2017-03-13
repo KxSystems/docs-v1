@@ -10,7 +10,7 @@ q)1 2 3 4 1 3 except 2 3
 1 4 1
 ```
 
-See also: [`in`](sortandsearchfunctions/#in) [`inter`](#inter) [`union`](#union) [`within`](sortandsearchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i> [`in`](sortandsearchfunctions/#in) [`inter`](#inter), [`within`](sortandsearchfunctions/#within) 
 
 
 
@@ -147,7 +147,7 @@ x 10
 t 40
 ```
 
-See also: [`except`](#except) [`in`](sortandsearchfunctions/#in) [`union`](#union) [`within`](sortandsearchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i>  [`in`](sortandsearchfunctions/#in), [`within`](sortandsearchfunctions/#within) 
 
 
 
@@ -257,7 +257,7 @@ q)(distinct t0,t1)~t0 union t1
 1b
 ```
 
-See also: [`except`](#except) [`in`](sortandsearchfunctions/#in) [`inter`](#inter) [`within`](sortandsearchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i> [`in`](sortandsearchfunctions/#in), [`within`](sortandsearchfunctions/#within) 
 
 
 ## `where`
@@ -297,7 +297,7 @@ q)raze x #' til count x:2 3 0 1
     0 0 1 1 1 3
     ```
 
-See also [where in q-SQL](FIXME)
+<i class="fa fa-hand-o-right"></i> [where in q-SQL](FIXME)
 
 
 ## `xprev`

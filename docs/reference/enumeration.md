@@ -11,7 +11,7 @@ q)`x!e / same result as `x$y
 ```
 
 
-## `$` enum
+## `$` – enum
 
 Syntax: `x $ y`
 
@@ -54,7 +54,7 @@ q)(key;value)@\:e
 <i class="fa fa-hand-o-right"></i> [Q for Mortals: Enumerations](FIXME)
 
 
-## `?` enum-extend
+## `?` – enum-extend
 
 Syntax: `x ? y`
 
@@ -89,3 +89,13 @@ q)bar
 ```
 
 
+## `!` – enumerate
+
+Syntax:`` `x ! y``
+
+Where `x` is a symbol atom naming a variable containing a symbol vector, and `y` is an int vector of indexes into `x`, returns an enumerated symbol list.
+```q
+q)x:`a`b`c`d
+q)`x!1 2 3
+`x$`b`c`d
+```

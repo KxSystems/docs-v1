@@ -1,16 +1,28 @@
 The command line for invoking q has the form:
 ```bash
-    q [f] [-b] [-c r c] [-C r c] [-e 0|1] [-g 0|1] [-l] [-L][-o N] [-p N] 
-        [-P N] [-q] [-r :H:P] [-s N] [-t N] [-T N] [-u|U F] [-w N] [-W N] 
-        [-z 0|1]
+q [file] [-b] [-c r c] [-C r c] [-e 0|1] [-g 0|1] [-l] [-L][-o N] [-p N] 
+    [-P N] [-q] [-r :H:P] [-s N] [-t N] [-T N] [-u|U F] [-w N] [-W N] 
+    [-z 0|1]
 ```
 
-## `f`
+## file
   
 This is either the script to load (\*.q, \*.k, \*.s), or a file or directory
+```bash
+$q sp.q
+```
+```q
+KDB+ 3.5t 2017.02.28 Copyright (C) 1993-2017 Kx Systems
+m32/ 4()core 8192MB sjt mint.local 192.168.0.39 NONEXPIRE
+
++`p`city!(`p$`p1`p2`p3`p4`p5`p6`p1`p2;`london`london`london`london`london`lon..
+(`s#+(,`color)!,`s#`blue`green`red)!+(,`qty)!,900 1000 1200
++`s`p`qty!(`s$`s1`s1`s1`s2`s3`s4;`p$`p1`p4`p6`p2`p2`p4;300 200 100 400 200 300)
+q)
+```
 
 
-## `-b`
+## `-b` – blocked
   
 Block client write-access to a kdb+ database. 
 ```bash
@@ -39,13 +51,14 @@ q)\_
 ```
 
 
-## `-c r c`
+## `-c r c` – console size
   
 Console maxRows maxCols, default 25 80.
 
 These settings determine when q elides output with `..`
 
-You usually don’t need to set this, if the environment variables LINES and COLUMNS are found they’ll be taken as the default value. See bash documentation for `shopt` parameter `checkwinsize` to make sure they are reset as needed.
+!!! note
+    You usually don’t need to set this, if the environment variables LINES and COLUMNS are found they’ll be taken as the default value. See bash documentation for `shopt` parameter `checkwinsize` to make sure they are reset as needed.
 ```bash
 ..$ q -c 10 20
 ```
@@ -63,7 +76,7 @@ q)til each 20+til 10
 <i class="fa fa-hand-o-right"></i> [`\c`](Reference/Syscmdc "wikilink"), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
 
 
-## `-C r c`
+## `-C r c` – HTTP size
   
 HTTP display maxRows maxCols, default 36 2000
 
@@ -73,12 +86,12 @@ The defaults are 36&times;2000, and values are coerced to the range \[10,2000\].
 
 
 
-## `-e B`
+## `-e B` – error traps
   
 Enable client error trapping
 
 
-## `-g B`
+## `-g B` – garbage collection
   
 Allows switching of garbage collect to immediate(1) mode instead of deferred(0).
 
@@ -89,32 +102,32 @@ Immediate mode is the 2.5/2.6 default, deferred is the 2.7 default.
 To use immediate mode, invoke as `q -g 1`. (Since V2.7 2011.02.04.)
 
 
-## `-l`
+## `-l` – log updates
   
 Log updates to filesystem, see [Cookbook/Logging](Cookbook/Logging "wikilink")
 
 
-## `-L`
+## `-L` – log sync
   
 As `-l`, but sync logging, see [Cookbook/Logging](Cookbook/Logging "wikilink")
 
 
-## `-o N`
+## `-o N` – UTC offset
   
-Offset hours from GMT, or minutes if `abs[N]&gt;23` (Affects `.z.Z`)
+Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-localtime))
 
 
-## `-p N`
+## `-p N` – port
   
 Port on which kdb+ server listens. Use for [client/server](Cookbook/ClientServer "wikilink"), e.g. kdbc(/jdbc/odbc), HTTP(HTML XML txt CSV).
 
 
-## `-p -N`
+## `-p -N` – multithread port
   
 Port for [multithreaded input mode](Cookbook/MultithreadedInputMode "wikilink").
 
 
-## `-P N`
+## `-P N` – display precision
   
 Display precision for floating point numbers, where `N` is the _display_ precision for floats and reals, i.e. `N` is the number of significant digits shown in output.
 The default value is 7 and possible values are in the range \[0,17\]. A precision of 0 means use maximum precision. 
@@ -169,15 +182,15 @@ q)\\
 <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://docs.sun.com/source/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a>
 
 
-## `-q`
+## `-q` – quiet mode
   
 Quiet, i.e. no startup banner text or session prompts. Typically used where no console is required.
 ```bash
 ~/q$ q
 ```
 ```q
-KDB+ 2.6 2010.01.14 Copyright (C) 1993-2010 Kx Systems
-..
+KDB+ 3.5t 2017.02.28 Copyright (C) 1993-2017 Kx Systems
+…
 q)2+2
 4
 q)
@@ -192,53 +205,54 @@ and with `-q`
 ```
 
 
-## `-r :H:P[:user[:password]]`
+## `-r :H:P[:user[:password]]` – replicate
   
 Replicate from :host:port
 
 
-## `-s N`
+## `-s N` – slaves
   
 Start `N` slaves for parallel execution
 
 
-## `-t N`
+## `-t N` – timer ticks
   
 Timer in milliseconds between timer ticks. Default is 0, for no timer.
 
 
-## `-T N`
+## `-T N` – timeout
   
 Timeout in seconds for client queries, i.e. maximum time a client call will execute. Default is 0, for no timeout.
 
 
-## `-u 1`
+## `-u 1` – disable syscmds
   
 Disables system commands from a remote (signals `'access`). As such, this includes disabling exit via `"\\"` from a remote.
 
 
-## `-u F`
+## `-u F` – usr-pwd local
   
 Sets usr:pwd file, no access above start directory
 
 
-## `-U F`
+## `-U F` – usr-pwd
   
 As `-u`, but no access restrictions
 
 
-## `-w N`
+## `-w N` – memory
   
 Workspace MB limit (default: 2&times;RAM)
 
 
-## `-W N`
+## `-W N` – start week
   
 Start of week as an offset from Saturday. Default is 2, meaning that Monday is the start of week.
 
 
-## `-z B`
+## `-z B` – date format
   
 Format used for `"D"$` date parsing. 0 is MM/DD/YYYY (default) and 1 is DD/MM/YYYY.
 
-![](../img/xkcd.tar.png)
+[![](../img/xkcd.tar.png)](https://xkcd.com/1168/)  
+_xkcd.com_

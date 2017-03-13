@@ -19,7 +19,7 @@ Atom
 : A single instance of a [datatype](datatypes), eg `42`, `"a"`, `1b`, `2012.09.15`
 
 Atomic function 
-: A function that evaluates each item of its argument independently, eg `signum`
+: An atomic function is a uniform function such that for `r:f[x]`  `r[i]~f x[i]` is true for all `i`, e.g. `signum`. A function `f` of higher _rank_ is atomic if `f` is identical to `f'`. 
 
 Binary function 
 : A function with _rank_ 2, i.e. that takes 2 arguments, e.g. `+`, `rotate`
@@ -112,6 +112,9 @@ Rank
 : Of a **function**, the number of _arguments_ it takes. For a _lambda_, the _count_ of arguments in its _signature_, or, where the signature is omitted, by the here highest-numbered of the three default argument names `x` (1), `y` (2) and `z` (3) used in the function definition, e.g. `{x+z}` has rank 3.
 : Of a **list**, the depth to which it is nested. A _vector_ has rank 1.
 
+Reference
+: _Pass by reference_ means passing the name of an object (as a symbol atom) as an _argument_ to a function, e.g. ``key `.q``.
+
 Signature
 : The list of up to 8 _argument_ names that (optionally) begins a _lambda_, e.g. in `{[a;b](a*a)+(b*b)+2*a*b}`, the argument list `[a;b]` is the signature
 
@@ -124,11 +127,14 @@ Table
 Unary function
 : A function with _rank_ 2, i.e. that takes 1 _argument_, e.g. `count`
 
-Uniform function
-: A non-_atomic_ function that returns a result for each item in ts argument, e.g. `deltas`
+Uniform function 
+: A uniform function returns a result of the same length as its argument, e.g. `deltas`
 
 Unsigned function
 : A _lambda_ without a _signature_, eg `{x*x}`
+
+Value
+: _Pass by value_ means passing an object (not its name) as an _argument_ to a function, e.g. `key .q`.
 
 Vector
 : A _list_ in which all the items have the same [datatype](datatypes). May be written without parentheses and semicolons. A char vector is known as a _string_. <i class="fa fa-hand-o-right"></i> [Nouns](elements/#nouns)

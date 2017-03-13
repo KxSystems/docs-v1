@@ -53,157 +53,66 @@ pages:
   - Get started: learn.md
   - Reference card: reference.md
   - Reference: 
-    - Elements: language/elements.md
-    - Syntax: language/syntax.md
-    - Datatypes: language/datatypes.md
-    - Glossary: language/glossary.md
+    - Elements: reference/elements.md
+    - Syntax: reference/syntax.md
+    - Datatypes: reference/datatypes.md
+    - Glossary: reference/glossary.md
     - Semantics:
-      - Adverbs: language/adverbs.md
-      - Arithmetic (integer): language/arithmetic-integer.md
-      - Arithmetic (float): language/arithmetic-float.md
-      - Casting: language/casting.md
-      - Comparison: language/comparisonfunctions.md
-      - Developer tools: language/developertools.md
-      - Dictionaries & tables: language/dictionariesandtables.md
-      - Enumeration: language/enumeration.md
-      - Evaluation control: language/evaluationcontrol.md
-      - Error handling: language/errors.md
-      - Files (numbers): language/filenumbers.md
-      - Files (words): language/filewords.md
-      - Functional SQL: language/functionalsql.md
-      - Internal functions: language/internalfunctions.md
-      - Joins: language/joins.md
-      - Lists: language/listfunctions.md
-      - Logic: language/logicfunctions.md
-      - Matrixes: language/matrixes.md
-      - OS: language/os.md
-      - Parallel processing: language/peach.md
-      - Parse trees: language/parsetrees.md
-      - Q-SQL functions: language/qsqlfunctions.md
-          #   - exec: language/exec.md
-      - Randomness: language/randomness.md
-      - Selection: language/selectionfunctions.md
-      - Search: language/searchfunctions.md
-      - Sort: language/sortfunctions.md
-      - Statistics (aggregates): language/stats-aggregates.md
-      - Statistics (moving): language/stats-moving.md
-      - Text: language/textfunctions.md
-      - Trigonometry: language/trigonometry.md
-      - Unclassified: language/unclassified.md
-    - Command line: language/commandline.md
-    - System commands: language/SystemCommands.md
+      - Adverbs: reference/adverbs.md
+      - Arithmetic (integer): reference/arithmetic-integer.md
+      - Arithmetic (float): reference/arithmetic-float.md
+      - Casting: reference/casting.md
+      - Comparison: reference/comparisonfunctions.md
+      - Dictionaries & tables: reference/dictionariesandtables.md
+      - Enumeration: reference/enumeration.md
+      - Evaluation control: reference/evaluationcontrol.md
+      - Error handling: reference/errors.md
+      - Files (numbers): reference/filenumbers.md
+      - Files (words): reference/filewords.md
+      - Functional SQL: reference/functionalsql.md
+      - Joins: reference/joins.md
+      - Lists: reference/listfunctions.md
+      - Logic: reference/logicfunctions.md
+      - Matrixes: reference/matrixes.md
+      - Metadata: reference/metadata.md
+      - OS: reference/os.md
+      - Parallel processing: reference/peach.md
+      - Parse trees: reference/parsetrees.md
+      - Q-SQL: reference/qsqlfunctions.md
+          #   - exec: reference/exec.md
+      - Randomness: reference/randomness.md
+      - Selection: reference/selectionfunctions.md
+      - Search: reference/searchfunctions.md
+      - Sort: reference/sortfunctions.md
+      - Statistics (aggregates): reference/stats-aggregates.md
+      - Statistics (moving): reference/stats-moving.md
+      - Text: reference/textfunctions.md
+      - Trigonometry: reference/trigonometry.md
+      - Unclassified: reference/unclassified.md
+    - Command line: reference/commandline.md
+    - IPC protocol: reference/ipcprotocol.md
+    - System commands: reference/systemcommands.md
     - System utilities:
-        - .h namespace: language/doth.md
-        - .Q namespace: language/dotq.md
-        - .z namespace: language/dotz.md
+        - .h namespace: reference/doth.md
+        - .Q namespace: reference/dotq.md
+        - .z namespace: reference/dotz.md
+        - Developer tools: reference/developertools.md
+        - Internal functions: reference/internalfunctions.md
     - Releases:
-      - Changes in 3.4: language/releases/ChangesIn3.4.md
-      - Changes in 3.3: language/releases/ChangesIn3.3.md
-      - Changes in 3.2: language/releases/ChangesIn3.2.md
-      - Changes in 3.1: language/releases/ChangesIn3.1.md
-      - Changes in 3.0: language/releases/ChangesIn3.0.md
-      - Changes in 2.8: language/releases/ChangesIn2.8.md
-      - Changes in 2.7: language/releases/ChangesIn2.7.md
-      - Changes in 2.6: language/releases/ChangesIn2.6.md
-      - Changes in 2.5: language/releases/ChangesIn2.5.md
-      - Changes in 2.4: language/releases/ChangesIn2.4.md
-      - Withdrawn: language/withdrawn.md
-    # - Q-SQL:
-        # - Meta:
-        #   - attr: language/attr.md
-        #   - cols: language/cols.md
-        #   - fkeys: language/fkeys.md
-        #   - key: language/key.md
-        #   - keys: language/keys.md
-        #   - meta: language/meta.md
-        #   - show: language/show.md
-        #   - tables: language/tables.md
-        #   - type: language/type.md
-        #   - value: language/value.md
-        #   - view: language/view.md
-        #   - views: language/views.md
-        # - Sort & group:    
-        #   - fby: language/fby.md
-        #   - group: language/group.md
-        #   - ungroup: language/ungroup.md
-        #   - union: language/union.md
-        #   - where: language/where.md
-        #   - xasc: language/xasc.md
-        #   - xcol: language/xcol.md
-        #   - xcols: language/xcols.md
-        #   - xdesc: language/xdesc.md
-        #   - xgroup: language/xgroup.md
-        #   - xkey: language/xkey.md
-    # - Values: 
-    # - Namespaces:
-    #   - doth:
-    #     - PLACEHOLDER: dummy.md
-    #   - dotQ:
-    #     - dotQ.MAP: language/DotQDotMAP.md
-    #     - qdotfs: language/qdotfs.md
-    #     - dotQ.qp: language/DotQDotqp.md
-    #     - dotQ.view: language/DotQDotview.md
-    #   - dotz:
-    #     - dotzdotN: language/dotzdotN.md
-    #     - dotzdota: language/dotzdota.md
-    #     - dotzdotac: language/dotzdotac.md
-    #     - dotzdotb: language/dotzdotb.md
-    #     - dotzdote: language/dotzdote.md
-    #     - dotzdotexit: language/dotzdotexit.md
-    #     - dotzdotf: language/dotzdotf.md
-    #     - dotzdoth: language/dotzdoth.md
-    #     - dotzdoti: language/dotzdoti.md
-    #     - dotzdotk: language/dotzdotk.md
-    #     - dotzdotl: language/dotzdotl.md
-    #     - dotzdoto: language/dotzdoto.md
-    #     - dotzdotp: language/dotzdotp.md
-    #     - dotzdotpc: language/dotzdotpc.md
-    #     - dotzdotpd: language/dotzdotpd.md
-    #     - dotzdotpg: language/dotzdotpg.md
-    #     - dotzdotph: language/dotzdotph.md
-    #     - dotzdotpi: language/dotzdotpi.md
-    #     - dotzdotpm: language/dotzdotpm.md
-    #     - dotzdotpo: language/dotzdotpo.md
-    #     - dotzdotpp: language/dotzdotpp.md
-    #     - dotzdotps: language/dotzdotps.md
-    #     - dotzdotpw: language/dotzdotpw.md
-    #     - dotzdots: language/dotzdots.md
-    #     - dotzdotts: language/dotzdotts.md
-    #     - dotzdotu: language/dotzdotu.md
-    #     - dotzdotvs: language/dotzdotvs.md
-    #     - dotzdotw: language/dotzdotw.md
-    #     - dotzdotwc: language/dotzdotwc.md
-    #     - dotzdotwo: language/dotzdotwo.md
-    #     - dotzdotws: language/dotzdotws.md
-    #     - dotzdotx: language/dotzdotx.md
-    #     - dotzdotz: language/dotzdotz.md
-    #     - dotzdotzd: language/dotzdotzd.md
-    # - Command-line options and system commands:
-    #   - Sysa: language/Sysa.md
-    #   - Sysb: language/Sysb.md
-    #   - Syscmdc: language/Syscmdc.md
-    #   - Sysf: language/Sysf.md
-    #   - Sysv: language/Sysv.md
-    # - Cmdline: 
-    #   - Overview: language/Cmdline.md
-    #   - CmdlineC: language/CmdlineC.md
-    #   - CmdlineP: language/CmdlineP.md
-    #   - Cmdlineb: language/Cmdlineb.md
-    #   - Cmdlineq: language/Cmdlineq.md
-    # - Notes on grammar:
-    #   - Adverb: language/Adverb.md
-    #   - Atoms and Lists: language/AtomList.md
-    #   - Associations and Dictionaries: language/AssocDict.md
-    #   - Grammar: language/Grammar.md
-    #   - Language: language/language.md
-    #   - Nouns: language/Nouns.md
-    #   - Parse tree: language/parse_tree.md
-    #   - Table: language/Table.md
+      - Changes in 3.4: reference/releases/ChangesIn3.4.md
+      - Changes in 3.3: reference/releases/ChangesIn3.3.md
+      - Changes in 3.2: reference/releases/ChangesIn3.2.md
+      - Changes in 3.1: reference/releases/ChangesIn3.1.md
+      - Changes in 3.0: reference/releases/ChangesIn3.0.md
+      - Changes in 2.8: reference/releases/ChangesIn2.8.md
+      - Changes in 2.7: reference/releases/ChangesIn2.7.md
+      - Changes in 2.6: reference/releases/ChangesIn2.6.md
+      - Changes in 2.5: reference/releases/ChangesIn2.5.md
+      - Changes in 2.4: reference/releases/ChangesIn2.4.md
+      - Withdrawn: reference/withdrawn.md
     # - Unclassified:
-    #   - Console Size: language/ConsoleSize.md
-    #   - Display Precision: language/DisplayPrecision.md
-    #   - IPC protocol: language/ipcprotocol.md
-    #   - par.txt: language/pardottxt.md
+    #   - IPC protocol: reference/ipcprotocol.md
+    #   - par.txt: reference/pardottxt.md
   - Cookbook:
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md

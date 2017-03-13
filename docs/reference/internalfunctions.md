@@ -1,23 +1,25 @@
-`!` with a negative integer as left argument calls a k internal function.
-
-![Neal Stephenson thinks it's cute to name his labels 'dengo'](../img/goto.png "Neal Stephenson thinks it's cute to name his labels 'dengo'")
+`!` with a negative integer as left-argument calls a k internal function.
 
 !!! warning 
-    `-n!` bindings are subject to change. If a cover function is provided in the `.q` or `.Q` locales use that instead!
+    `-n!` bindings are subject to change. If a cover function is provided in the `.q` or `.Q` namespaces – use that instead!
 
-These should rarely – if ever – be used, but since it is useful to be able to recognise them when seen in the wild, here is a partial list:
+[![Neal Stephenson thinks it's cute to name his labels 'dengo'](../img/goto.png "Neal Stephenson thinks it's cute to name his labels 'dengo'")](https://xkcd.com/292/)  
+_xkcd.com_
+
+==These should rarely – if ever – be used==, but in order to recognise them when seen in the wild, here is a partial list.
 
 
-## `-1!x`
+## `-1!x` – `hsym`
 
 <i class="fa fa-hand-o-right"></i> [hsym](Reference/hsym "wikilink")
 
-## `-2!x`
+
+## `-2!x` – `attr`
 
 <i class="fa fa-hand-o-right"></i> [attr](Reference/attr "wikilink")
 
 
-## `-3!x`
+## `-3!x` – `.Q.s`
 
 Returns the string representation of `x`.
 
@@ -25,7 +27,7 @@ Strictly, this is `.Q.s1`, but it's better to use [.Q.s](DotQ/DotQDots "wikilink
 
 
 
-## `-4!x`
+## `-4!x` – tokens
 
 Returns the list of q tokens found in string `x`. (Note the q parsing of names with embedded underscores.)
 ```q
@@ -57,22 +59,22 @@ q)
 ```
 
 
-## `-5!x`
+## `-5!x` – `parse`
 
 <i class="fa fa-hand-o-right"></i> [parse](Reference/parse "wikilink")
 
 
-## `-6!x`
+## `-6!x` – `eval`
 
 <i class="fa fa-hand-o-right"></i> [eval](Reference/eval "wikilink")
 
 
-## `-7!x`
+## `-7!x` – `hcount`
 
 <i class="fa fa-hand-o-right"></i> [hcount](Reference/hcount "wikilink")
 
 
-## `-8!x`
+## `-8!x` – to bytes
 
 return the IPC byte representation of x
 ```q
@@ -82,7 +84,7 @@ q)-8!1 2 3
 
 
 
-## `-9!x`
+## `-9!x` – from bytes
 
 Create data from IPC byte representation `x`
 
@@ -90,9 +92,9 @@ Create data from IPC byte representation `x`
     1 2 3
 
 
-## `-10!x`
+## `-10!x` – type enum
 
-Resolve a type number to an enum vector and check if it's available
+Resolve a type number to an enum vector and check if it’s available
 ```q
 q)-10!20h
 1b
@@ -105,7 +107,7 @@ q)-10!20h
 ```
 
 
-## `-11!x`
+## `-11!x` – streaming execute
 
 Streaming-execute over file `x`, used for example in kdb+tick to replay logfiles in a memory-efficient manner.
 
@@ -144,12 +146,12 @@ q)-11!`:logfile.2013.12.03 / function f no longer defined, so it throws an error
 <i class="fa fa-hand-o-right"></i> [rescuelog.q](https://github.com/simongarland/tickrecover/rescuelog.q) for examples of usage.
 
 
-## `−11!(-1;x)`
+## `−11!(-1;x)` – streaming execute
 
 Same as `−11!x`.
 
 
-## `−11!(n;x)`
+## `−11!(n;x)` – streaming execute
 
 Streaming-execute the first `n` chunks of logfile `x`, return the number of chunks if successful.
 
@@ -171,7 +173,7 @@ q)m:0;M:750;f:0N!;.z.ps:{m+:1;if[m>M;value x;];};-11!(M+5-1;`:log)
 ```
 
 
-## `-11!(-2;x)`
+## `-11!(-2;x)` – logfile chunks
 
 Given a valid logfile, return the number of chunks.
 
@@ -198,27 +200,27 @@ q)-11!(26;logfile)
 
 
 
-## `-12!x`
+## `-12!x` – `.Q.host`
 
 <i class="fa fa-hand-o-right"></i> [.Q.host](DotQ/DotQDothost "wikilink")
 
 
-## `-13!x`
+## `-13!x` – `.Q.addr`
 
 <i class="fa fa-hand-o-right"></i> [.Q.addr](DotQ/DotQDotaddr "wikilink")
 
 
-## `-14!x`
+## `-14!x` – quote escape
 
 Handle `"` escaping in strings: used to prepare data for CSV export.
 
 
-## `-15!x`
+## `-15!x` – `md5`
 
 <i class="fa fa-hand-o-right"></i> [md5](Reference/md5 "wikilink")
 
 
-## `-16!x`
+## `-16!x` – ref count
 
 Return the reference count for a variable
 ```q
@@ -230,37 +232,37 @@ q)-16!a
 ```
 
 
-## `-17!x`
+## `-17!x` – flip endia-ness
 
 Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ v2.6](Releases/ChangesIn2.6 "wikilink")
 
 
 
-## `-18!x`
+## `-18!x` – compress byte
 
 Return compressed IPC byte representation of `x`, see notes about network compression in [Changes in kdb+ v2.6](Releases/ChangesIn2.6 "wikilink")
 
 
 
-## `-19!x`
+## `-19!x` – compress file
 
 compress a file, see [File Compression](Cookbook/FileCompression "wikilink")
 
 
 
-## `-20!0`
+## `-20!0` – `.Q.gc`
 
 <i class="fa fa-hand-o-right"></i> [.Q.gc](DotQ/DotQDotgc "wikilink")
 
 
 
-## `-21!x`
+## `-21!x` – compression stats
 
 Compression statistics for file `x`, see [File Compression](Cookbook/FileCompression "wikilink")
 
 
 
-## `-22!x`
+## `-22!x` – uncompressed length
 
 An optimized shortcut to obtain the length of uncompressed serialized `x`, i.e. `count -8!x`
 ```q
@@ -275,7 +277,7 @@ q)(-22!v)=count -8!v
 
 
 
-## `-23!x`
+## `-23!x` – memory map
 
 Since V3.1t 2013.03.04
 
@@ -287,7 +289,7 @@ q)-23!t:select from get`:t/;
 
 
 
-## `-24!x`
+## `-24!x` – read-only eval
 
 Since V3.3t 2014.10.07.
 
@@ -302,7 +304,7 @@ q)h"a:4"
 ```
 
 
-## `-25!x`
+## `-25!x` – async broadcast
 
 Since V3.4
 
@@ -341,14 +343,14 @@ q)-25!(7 8;0Ng)
 
 
 
-## `-26!x`
+## `-26!x` – SSL
 
 Since V3.4 2016.05.12. View TLS settings on a handle or current process `-26!handle` or `-26!()`
 
 <i class="fa fa-hand-o-right"></i> [SSL](Cookbook/SSL "wikilink")
 
 
-## `-29!x`
+## `-29!x` – parse JSON
 
 Since V3.3t 2015.02.17 underpins the JSON parser, `.j.k`.
 

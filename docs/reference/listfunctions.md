@@ -532,6 +532,38 @@ a b
 ```
 
 
+## `sv`
+
+Syntax: `x sv y` 
+
+Scalar from vector: returns an atom. Where:
+
+- (**join strings**) `y` is a list of strings, and `x` is a character or string, returns the strings in `y`, separated by `x`. Where `x` is the back tick `` ` ``, the strings are separated by the host line separator  – `\n` on Unix, `\r\n` on Windows.
+```q
+q)"," sv ("one";"two";"three")    / comma separated
+"one,two,three"
+q)"\t" sv ("one";"two";"three")   / tab separated
+"one\ttwo\tthree"
+q)", " sv ("one";"two";"three")   / x may be a string
+"one, two, three"
+q)"." sv string 192 168 1 23      / form IP address
+"192.168.1.23"
+q)` sv ("one";"two";"three")      / use host line separator
+"one\ntwo\nthree\n"
+```
+
+- (**join path components**) `y` is a symbol list of which the first item is a file handle, it returns a file handle where the items of the list are joined, separated by slashes. This is useful when building file paths.
+```q
+q)` sv `:/home/kdb/q`data`2010.03.22`trade
+`:/home/kdb/q/data/2010.03.22/trade
+```
+If the first element is not a file handle, returns a symbol where the elements are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
+```q
+q)` sv `mywork`dat
+`mywork.dat
+```
+
+
 ## `#` take
 
 Syntax: `x # y`
@@ -706,38 +738,6 @@ s | name  status city
 --| -------------------
 s1| smith 20     london
 s2| jones 10     paris 
-```
-
-
-## `sv`
-
-Syntax: `x sv y` 
-
-Scalar from vector: returns an atom. Where:
-
-- (**join strings**) `y` is a list of strings, and `x` is a character or string, returns the strings in `y`, separated by `x`. Where `x` is the back tick `` ` ``, the strings are separated by the host line separator  – `\n` on Unix, `\r\n` on Windows.
-```q
-q)"," sv ("one";"two";"three")    / comma separated
-"one,two,three"
-q)"\t" sv ("one";"two";"three")   / tab separated
-"one\ttwo\tthree"
-q)", " sv ("one";"two";"three")   / x may be a string
-"one, two, three"
-q)"." sv string 192 168 1 23      / form IP address
-"192.168.1.23"
-q)` sv ("one";"two";"three")      / use host line separator
-"one\ntwo\nthree\n"
-```
-
-- (**join path components**) `y` is a symbol list of which the first item is a file handle, it returns a file handle where the items of the list are joined, separated by slashes. This is useful when building file paths.
-```q
-q)` sv `:/home/kdb/q`data`2010.03.22`trade
-`:/home/kdb/q/data/2010.03.22/trade
-```
-If the first element is not a file handle, returns a symbol where the elements are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
-```q
-q)` sv `mywork`dat
-`mywork.dat
 ```
 
 
