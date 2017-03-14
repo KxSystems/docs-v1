@@ -232,7 +232,7 @@ q)-16!a
 ```
 
 
-## `-17!x` – flip endia-ness
+## `-17!x` – flip endian-ess
 
 Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ v2.6](Releases/ChangesIn2.6 "wikilink")
 

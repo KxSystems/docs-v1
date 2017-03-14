@@ -1,3 +1,6 @@
+> I can’t understand why people are frightened of new ideas. I’m frightened of the old ones.  
+— _John Cage_
+
 The Kx Systems technology consists of:
 
 * kdb+ – the database

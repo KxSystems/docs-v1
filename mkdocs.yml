@@ -90,6 +90,7 @@ pages:
       - Trigonometry: reference/trigonometry.md
       - Unclassified: reference/unclassified.md
     - Command line: reference/commandline.md
+    - Debugging: reference/debug.md
     - IPC protocol: reference/ipcprotocol.md
     - System commands: reference/systemcommands.md
     - System utilities:

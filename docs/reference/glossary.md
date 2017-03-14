@@ -16,7 +16,7 @@ Argument, argument list
 : A value passed to a function. In `3+4` the arguments are 3 and 4, respectively the left- and right-arguments. In `{x+y*z}[3;4;5]` the three arguments are separated by semicolons and bracketed: `[3;4;5]` is an argument list. 
 
 Atom
-: A single instance of a [datatype](datatypes), eg `42`, `"a"`, `1b`, `2012.09.15`
+: A single instance of a [datatype](datatypes), eg `42`, `"a"`, `1b`, `2012.09.15`. The [`type`](metadata/#type) of an atom is always negative. 
 
 Atomic function 
 : An atomic function is a uniform function such that for `r:f[x]`  `r[i]~f x[i]` is true for all `i`, e.g. `signum`. A function `f` of higher _rank_ is atomic if `f` is identical to `f'`. 
@@ -25,13 +25,13 @@ Binary function
 : A function with _rank_ 2, i.e. that takes 2 arguments, e.g. `+`, `rotate`
 
 Conform
-: [Nouns](syntax/#nouns) conform if they are all either atoms or lists of the same _count_
+: _Lists_, _dictionaries_ and _tables_ conform if they are either _atoms_ or have the same _count_
 
 Control word
-: Control words interrupt the usual evaluation rules, e.g. by omitting expressions, signalling an error, defining a result and terminating evaluation 
+: Control words interrupt the usual evaluation rules, e.g. by omitting expressions, terminating evaluation 
 
 Count 
-: The number of items in a _list_, keys in a _dictionary_ or rows in a _table_
+: The number of items in a _list_, keys in a _dictionary_ or rows in a _table_. The count of an atom is 1
 
 Derivative
 : The derived function returned by an _adverb_.
@@ -45,25 +45,24 @@ Domain
 : <i class="fa fa-hand-o-right"></i> [Interactive Mathematics](http://www.intmath.com/functions-and-graphs/2a-domain-and-range.php)
 
 Enumeration
-: A space-saving representation of a _list_: a list of the indexes of its _items_ in its _nub_.
+: A representation of a _list_ as indexes of the _items_ in its _nub_ or another list.
 "<i class="fa fa-hand-o-right"></i> [_enum_](listfunctions/#enum)
 
-Higher-order function
-: A function that returns a function as its result
-
+<!--
 Identity element
 : For function `f` the value `x` such that `y~f[x;y]` for any `y` 
 : <i class="fa fa-hand-o-right"></i> [Ambivalent functions](FIXME)
+-->
 
 Infix
-: _Applying_ an operator to its _arguments_ by writing it between them, e.g.  
+: Writing an operator between its _arguments_, e.g.  
 `2+3`  applies `+` to 2 and 3
 
 Item, list item
-: A member of a _list_: a _noun_, function or _adverb_. 
+: A member of a _list_
 
 Juxtaposition
-: Literally, ‘putting beside’. Juxtaposing a list with a list or atom indexes the former with the latter, e.g. `"abcde"1 4 3`. Juxtaposing a _unary_ function and a noun applies the former to the latter, e.g. `til 5`.
+: Literally, ‘putting beside’. Juxtaposing a list with a list or atom indexes the former with the latter, e.g. `"abcde"1 4 3`. Juxtaposing a _unary_ function and a noun applies the former to the latter, e.g. `til 5`. “Indexing is application.” 
 
 Lambda
 : A function defined in the _lambda notation_
@@ -72,28 +71,32 @@ Lambda notation
 : The notation in which functions are defined: an optional _signature_ followed by a list of expressions, separated by semicolons, and all embraced by curly braces, e.g. `{[a;b](a*a)+(b*b)+2*a*b}`. 
 
 List
+: An array of one dimension, its _items_ indexed by position
+
+<!--
 : Zero, one, or more _items_ separated by semicolons and enclosed by parentheses, e.g. ``("abc";`John;2012.09.15)`` and `()`. Parentheses and semicolons may be omitted in writing a _vector_
+-->
 
 Matrix
-: A _list_ in which all items are lists of the same _count_
-
-Namespace
-: A context in which a name has either one reference or none
+: A _list_ in which all _items_ are lists of the same _count_
 
 Noun
-: An _atom_, _list_, _dictionary_, _table_ or _lambda_. To test for a noun, use `{101>abs type x}`
 
-Noun syntax
-: Functions and _adverbs_ are not nouns, but parenthesised or as _list items)_ have the syntactic class of nouns and may be treated as such, e.g. `count(+;rotate;/)`
+Noun
+: A syntactic class applicable to data structures: _atom_, _list_, _dictionary_ and _table_, but also _lambda_, functions and _adverbs_ when treated as such, e.g. `count(+;rotate;/)`
 
 Nub
-: The unique items of a list. <i class="fa fa-hand-o-right"></i> [`distinct`](listfunctions/#distinct)
+: The [`distinct`](listfunctions/#distinct) _items_ of a _list_
 
 Operator
 : A _primitive_ _binary_ function that may be applied _infix_ as well as _prefix_, e.g. `+`, `rotate`
 
+Peaceful function
+: A _lambda_ without a _signature_ specifying _argument_ names, eg `{x*x}`. 
+<i class="fa fa-hand-o-right"></i> [_No Need to Argue_](https://www.youtube.com/watch?v=RtTmI4XJyLw)
+
 Postfix
-: _Applying_ an _adverb_ to its _argument_ by writing it to the right, e.g. `+/` applies `/` to `+`
+: _Applying_ an _adverb_ to its _argument_ by writing it to the right, e.g. `+/` applies `/` to `+`. (But for an _operator_, see _projection_.)
 
 Prefix
 : _Applying_ a function to its _argument/s_ by writing it to the left of them, e.g. `+[2;3]` applies `+` to `[2;3]`
@@ -122,22 +125,19 @@ String
 : There is no string datatype in q. “String” in q means a char _vector_, e.g. "abc". 
 
 Table
-: A map of a _list_ of keys to a list of values, which are all lists of the same _count_
+: A _list_ of uniform _dictionaries_ that have the same domain
 
 Unary function
-: A function with _rank_ 2, i.e. that takes 1 _argument_, e.g. `count`
+: A function with _rank_ 1, i.e. that takes 1 _argument_, e.g. `count`
 
 Uniform function 
-: A uniform function returns a result of the same length as its argument, e.g. `deltas`
-
-Unsigned function
-: A _lambda_ without a _signature_, eg `{x*x}`
+: A uniform function `f` such that count[x]~count f x, e.g. `deltas`
 
 Value
 : _Pass by value_ means passing an object (not its name) as an _argument_ to a function, e.g. `key .q`.
 
 Vector
-: A _list_ in which all the items have the same [datatype](datatypes). May be written without parentheses and semicolons. A char vector is known as a _string_. <i class="fa fa-hand-o-right"></i> [Nouns](elements/#nouns)
+: A uniform list of basic types that has a special shorthand notation. A char vector is known as a _string_. 
 
 x
 : Default name of the first or only _argument_ of an _unsigned_ function
