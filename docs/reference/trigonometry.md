@@ -25,10 +25,6 @@ q)asin 0.8
 0.9272952
 ```
 
-!!! note "Disambiguation"
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Asin05.jpg/220px-Asin05.jpg" style="box-shadow: 0 1.5px 3px rgba(0,0,0,.24); width: 100px"/> 
-    Not to be confused with mononymous [Asin](https://en.wikipedia.org/wiki/Asin). 
-
 
 `atan`
 ------

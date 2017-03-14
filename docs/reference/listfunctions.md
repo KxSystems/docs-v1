@@ -1,4 +1,4 @@
-## `@` amend
+## `@` – amend
 
 Syntax: `@[x;y;f;z]`
 
@@ -110,7 +110,7 @@ q)4 cut til 10
 
 
 
-## `_` cut
+## `_` – cut
 
 Syntax: `x _ y` 
 
@@ -169,7 +169,7 @@ s1 p5 400
 ```
 
 
-## `_` drop
+## `_` – drop
 
 Syntax: `x _ y`
 
@@ -291,7 +291,7 @@ a b c
 ```
 
 
-## `^` fill 
+## `^` – fill 
 
 Syntax: `x^y` (atomic) 
 
@@ -378,7 +378,7 @@ q)D~flip flip D
 ```
 
 
-## `,` join
+## `,` – join
 
 Syntax: `x join y`
 
@@ -511,8 +511,7 @@ a b
 ```
 
 
-`rotate`
---------
+## `rotate`
 
 Syntax: `x rotate y` (uniform)
 
@@ -536,7 +535,7 @@ a b
 
 Syntax: `x sv y` 
 
-Scalar from vector: returns an atom. Where:
+Where:
 
 - (**join strings**) `y` is a list of strings, and `x` is a character or string, returns the strings in `y`, separated by `x`. Where `x` is the back tick `` ` ``, the strings are separated by the host line separator  – `\n` on Unix, `\r\n` on Windows.
 ```q
@@ -562,13 +561,14 @@ If the first element is not a file handle, returns a symbol where the elements a
 q)` sv `mywork`dat
 `mywork.dat
 ```
+<i class="fa fa-hand-o-right"></i> [`sv` decode](casting/#sv)
 
 
-## `#` take
+## `#` – take
 
 Syntax: `x # y`
 
-Returns `y` as a list, dict ionary or table described or selected by `x`. 
+Returns `y` as a list, dictionary or table described or selected by `x`. 
 
 Where `x` is 
 
@@ -742,7 +742,7 @@ s2| jones 10     paris
 
 
 
-## `?` vector conditional
+## `?` – vector conditional
 
 Syntax: `?[x;y;z]`
 

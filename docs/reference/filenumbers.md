@@ -32,7 +32,7 @@ A file descriptor is either
 
 ## System file handles
 
-### `0` console
+### `0` – console
 
 File handle zero is the [console](FIXME) process. Writing to it executes an expression in the main thread.
 ```q
@@ -50,7 +50,7 @@ q)a[4+til 4]
 ```
 
 
-### `1` stdout
+### `1` – stdout
 
 File handles `1` and `-1` are stdout. The difference is that `-1` appends a newline after the string, whereas `1` does not. The return value is `1` or `-1` respectively, which will print if not suppressed.
 ```q
@@ -63,7 +63,7 @@ String vector here
 ```
 
 
-### `2` stderr
+### `2` – stderr
 
 File handles `2` and `-2` are stderr. The difference is that `-2` appends a newline after the string, whereas `2` does not. The return value is `2` or `-2` respectively, which will print (to stdout) if not suppressed.
 ```q
@@ -76,7 +76,7 @@ String vector here
 ```
 
 
-## `0:` Text files
+## `0:` – Text files
 
 ### prepare-text
 
@@ -232,7 +232,7 @@ q)(!/)"I=\001"0:s
 <i class="fa fa-hand-o-right"></i> [casting](casting), [datatypes](datatypes), [Importing CSV data](http://code.kx.com/wiki/Cookbook/UsingKdb)
 
 
-## `1:` Binary files
+## `1:` – Binary files
 
 ### read-binary
 
@@ -281,9 +281,9 @@ writes bytes `y` to file `x`.
 ```
 
 
-## `2:` C shared objects
+## `2:` – C shared objects
 
-### load-so
+### dynamic load
 
 Syntax: `x 2: y`
 
@@ -298,3 +298,5 @@ assign it to `read_cycles`:
 read_cycles:`cpu 2:(`q_read_cycles_of_this_cpu;1)
 ```
 <i class="fa fa-hand-o-right"></i> [Extending Kdb+ with C](http://code.kx.com/wiki/Cookbook/ExtendingWithC)
+
+

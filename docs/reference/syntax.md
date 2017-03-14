@@ -162,7 +162,7 @@ q)3<til 10                     / boolean vector
 
 
 
-### Dictionaries and tables
+### Dictionaries
 
 A _dictionary_ is a map from a list of keys to a list of values. (The keys should be unique, though q does not enforce this.) The values of a dictionary can be any data structure. 
 ```q
@@ -177,6 +177,10 @@ q)show kids:`names`ages!(`bob`carol`ted`alice;42 39 51 44)
 names| bob carol ted alice
 ages | 42  39    51  44
 ```
+
+
+### Tables
+
 A dictionary in which the values are all lists of the same count can be flipped into a table. Or the table specified directly using _table syntax_, e.g.
 ```q
 q)count each kids
@@ -309,7 +313,7 @@ q)f:{x*2}
 q)f@42
 84
 ```
-<i class="fa fa-hand-o-right"></i> [`.` _apply_](unclassified/#apply) and [`@` for applying functions](FIXME).
+<i class="fa fa-hand-o-right"></i> [`.` _apply_](unclassified/#apply) 
 
 When applied infix or by juxtaposition, a function’s right argument is the result of the _entire_ expression to its right. When applied infix, its left argument is the noun _immediately_ on its left.
 ```q
@@ -331,7 +335,7 @@ q)(2 * 1 2 3 4) + 5
     There is no hierarchy of precedence in evaluating functions. 
     For example, neither `*` nor `%` has precedence over `+` and `-`.
 
-Functions with no arguments require special handling. For example, if `f:{2+3}` then `f` can be evaluated with `@` and with any argument.
+**Functions with no arguments** require special handling. For example, if `f:{2+3}` then `f` can be evaluated with `@` and with any argument.
 ```q
 q)f:{2+3}
 q)f[]
@@ -339,6 +343,8 @@ q)f[]
 q)f@0
 5
 ```
+Both `.` and `@` are referred to as _index_ and _apply_ according to use. 
+In most cases, `@` can be replaced more readably with whitespace. 
 
 !!! note "Function arguments and list indexes"
     A function is a mapping from its arguments to its result. A list is a mapping from its indexes to its values. They use the same syntax, including – for unary functions – juxtaposition. 

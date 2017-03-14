@@ -1,4 +1,4 @@
-## `!` dict
+## `!` – dict
 
 Syntax: `x ! y`
 
@@ -61,7 +61,7 @@ p| 8
 ```
 
 
-## `!` key
+## `!` – key
 
 Syntax: `x ! y`
 

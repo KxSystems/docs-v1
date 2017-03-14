@@ -17,7 +17,7 @@ q)"i"$0x0 vs .z.a
 ```
 
 
-## `.z.ac` – HTTP authentication
+## `.z.ac` – HTTP auth from cookie
 
 Syntax: `z.ac:x`
 
@@ -40,7 +40,7 @@ Note that if `.z.ac` is defined, `.z.pw` will _not_ be called for HTTP connectio
 <i class="fa fa-hand-o-right"></i> [`.z.pw` password check](#zpw-password check)
 
 
-## `.z.b` – dependency dictionary
+## `.z.b` – dependencies
 
 Syntax: `z.b`
 
@@ -56,6 +56,32 @@ y| ,`a
 <i class="fa fa-hand-o-right"></i> [`\b`](systemcommands/#b-viewsdependencies)
 
 
+## `.z.bm` – msg validator
+
+Syntax: `z.bm:x`
+
+Where `x` is a unary function. 
+
+Kdb+ before V2.7 was sensitive to being fed malformed data structures, sometimes resulting in a crash, but now validates incoming IPC messages to check that data structures are well formed, reporting `'badMsg` and disconnecting senders of malformed data structures. The raw message is captured for analysis via the callback `.z.bm`. The sequence upon receiving such a message is
+
+1. calls `.z.bm` with a 2-item list: `(handle;msgBytes)`
+2. close the handle and call `.z.pc`
+3. throws `'badmsg`
+
+E.g. with the callback defined
+```q
+q).z.bm:{`msg set (.z.p;x);}
+```
+after a bad msg has been received, the global var `msg` will contain the timestamp, the handle and the full message. Note that this check validates only the data structures, it cannot validate the data itself.
+
+
+## `.z.c` – cores
+
+Syntax: `.z.c`
+
+Returns number of physical cores. 
+
+
 ## `.z.e` – TLS connection status
 
 Syntax: `.z.e`
@@ -68,7 +94,7 @@ q)0N!h".z.e";
 Since V3.4 2016.05.16.
 
 
-## `.z.exit` – exit callback
+## `.z.exit` – action on exit
 
 Syntax: `z.exit:f`
 
@@ -120,7 +146,7 @@ os>..
 <i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc), [`exit`](FIXME), [`\\` quit](FIXME)
 
 
-## `.z.f` – script name
+## `.z.f` – file
 
 Syntax: `.z.f`
 
@@ -133,7 +159,7 @@ q).z.f
 <i class="fa fa-hand-o-right"></i> [`.z.x` argv](#zx-argv)
 
 
-## `.z.h` – host name
+## `.z.h` – host
 
 Syntax: `.z.h`
 
@@ -164,7 +190,7 @@ q).Q.host .z.a
 ```
 
 
-## `.z.i` – process ID
+## `.z.i` – PID
 
 Syntax: `.z.i`
 
@@ -217,7 +243,7 @@ The important fields are `(maxCoresAllowed;expiryDate;updateDate;…;bannerText)
 `bannerText` is the custom text displayed at startup, and always contains the license number as the last token.
 
 
-## `.z.n` – GMT
+## `.z.n` – UTC timespan
 
 Syntax: `.z.n`
 
@@ -229,7 +255,7 @@ q).z.n
 ```
 
 
-## `.z.N` – local time
+## `.z.N` – local timespan
 
 Syntax: `.z.N`
 
@@ -255,7 +281,7 @@ Current values are `w32`, `w64`, `l32`, `l64`, `s32`, `s64` (Solaris), `v64` (So
 Note this is the version of the kdb+ executable, NOT the OS itself. You may be running both 32-bit and 64-bit versions of kdb+ on the same machine to support older external interfaces.
 
 
-## `.z.p` – GMT
+## `.z.p` – UTC timestamp
 
 Syntax: `.z.P`
 
@@ -267,7 +293,7 @@ q).z.p
 ```
 
 
-## `.z.P` – local time
+## `.z.P` – local timestamp
 
 Syntax: `.z.P`
 
@@ -279,7 +305,7 @@ q).z.P
 ```
 
 
-## `.z.pc` – port close
+## `.z.pc` – close
 
 Syntax: `.z.pc:f`
 
@@ -335,7 +361,7 @@ Note that the worker processes are not started automatically by kdb+.
 <i class="fa fa-hand-o-right"></i> [Cookbook/LoadBalancing](FIXME)
 
 
-## `.z.pg` – port get
+## `.z.pg` – get
 
 Syntax: `.z.pg:f`
 
@@ -348,7 +374,7 @@ The default behavior is equivalent to setting `.z.pg` to [`value`](FIXME) and ex
 <i class="fa fa-hand-o-right"></i> [`.z.ps`](#zps-port-set)
 
 
-## `.z.ph` – port HTTP get
+## `.z.ph` – HTTP get
 
 Syntax: `.z.ph:f`
 
@@ -388,7 +414,7 @@ Host           | "localhost:5001"
 <i class="fa fa-hand-o-right"></i> [`.z.pp` port post](#zpp-port-post), [.h](doth.md)
 
 
-## `.z.pi` – input handler
+## `.z.pi` – input
 
 Syntax: `.z.pi:f`
 
@@ -417,12 +443,12 @@ q)\x .z.pi
 
 ## `.z.pm` – HTTP options
 
-Pass http OPTIONS method through to `.z.pm` as (`` `OPTIONS;requestText;requestHeaderDict)``
+Pass HTTP OPTIONS method through to `.z.pm` as (`` `OPTIONS;requestText;requestHeaderDict)``
 
 ==FIXME==
 
 
-##`.z.po` – port open
+##`.z.po` – open
 
 Syntax: `.z.po:f`
 
@@ -433,7 +459,7 @@ Its argument is the handle and is typically used to build a dictionary of handle
 <i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-port-close), [`.z.pw` password check](#zpw-password-check)
 
 
-## `.z.pp` – port post
+## `.z.pp` – HTTP post
 
 Syntax: `.z.pp:f`
 
@@ -446,7 +472,7 @@ See [`.z.ph`](#zph-port-http-get) for details of the argument.
 <i class="fa fa-hand-o-right"></i> [`.h`](doth.md)
 
 
-## `.z.ps` – port set
+## `.z.ps` – set
 
 Syntax: `.z.ps:f`
 
@@ -467,7 +493,7 @@ q)0 "2+2"
 <i class="fa fa-hand-o-right"></i> [`.z.pg`](#zpg-port-get)
 
 
-## `.z.pw` – password check
+## `.z.pw` – validate user
 
 Syntax: `.z.pw:f`
 
@@ -482,6 +508,13 @@ If `.z.pw` returns `0b` the task attempting to establish the connection will get
 The default definition is `{[user;pswd]1b}`
 
 <i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-port-open),  [Changes in 2.4](releases/ChangesIn2.4/#zpw)
+
+
+## `z.q` – quiet mode
+
+Syntax: `.z.q`
+
+Returns `1b` if Quiet Mode is set, else `0b`.
 
 
 ## `.z.s` – self
@@ -503,7 +536,7 @@ Note this is purely an example; there are other ways to achieve the same result.
 
 
 
-## `.z.ts` - timer intervals
+## `.z.ts` - timer 
 
 Syntax: `.z.ts:f`
 
@@ -524,7 +557,7 @@ When kdb+ has completed executing a script passed as a command-line argument, an
 <i class="fa fa-hand-o-right"></i> [`\t`](systemcommands#t-p-timer)
 
 
-## `.z.u` – user
+## `.z.u` – user ID
 
 Syntax: `.z.u`
 
@@ -551,7 +584,7 @@ q)m[1;1]:0
 ```
 
 
-## `.z.w` – connection handle
+## `.z.w` – handle
 
 Syntax: `.z.w`
 
@@ -565,7 +598,7 @@ q).z.w
     When called inside a `.z.p?` callback it is the handle of the client session, not the current session.
 
 
-## `.z.W` – IPC handles
+## `.z.W` – handles
 
 Syntax: `.z.W`
 
@@ -608,7 +641,7 @@ The argument is the handle and is typically used to build a dictionary of handle
 <i class="fa fa-hand-o-right"></i> [`.z.wc` websocket close](#zwc-websocket-close), [`.z.po` port open](#zpo-port-open), [`.z.pc` port close](#zpc-port-close), [`.z.pw` password check](#zpw-password-check)
 
 
-## `.z.ws` – websocket message
+## `.z.ws` – websockets
 
 Syntax: `z.ws:f`
 
@@ -664,7 +697,7 @@ efg| `foo
 <i class="fa fa-hand-o-right"></i> [`.z.f`](#zf-script-name)
 
 
-## `.z.X` - command line
+## `.z.X` - raw command line
 
 Syntax: `.z.X`
 
@@ -686,7 +719,7 @@ q).z.X
 ```
 
 
-## `.z.z` – UTC time
+## `.z.z` – UTC datetime
 
 Syntax: `.z.z`
 
@@ -700,7 +733,7 @@ q).z.Z
     `z.z` calls `gettimeofday` and so has microsecond precision. (Unfortunately shoved into a 64-bit float.)
 
 
-## `.z.Z` – local time
+## `.z.Z` – local datetime
 
 Syntax: `.z.Z`
 
@@ -709,9 +742,14 @@ Returns local time as a datetime atom.
 q).z.Z
 2006.11.13T21:16:14.601
 ```
-The offset from UTC is fetched from the OS: kdb+ does not have its own time offset database. 
+The offset from UTC is fetched from the OS: kdb+ does not have its own time-offset database. 
 
 Which avoids problems like <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://it.slashdot.org/article.pl?sid=07/02/25/2038217">this</a>.
+
+
+## `.z.t`, `.z.T`, `.z.d`, `.z.D` – time/date shortcuts
+
+Shorthand for `` `time$.z.z``, similarly `.z.d` <-> `` `date$.z.z``, `.z.T` <-> `` `time$.z.Z``, `.z.D` <-> `` `date$.z.Z``
 
 
 ## `.z.zd` – zip defaults

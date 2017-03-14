@@ -219,22 +219,22 @@ q)\a                 / with tables quote and trade
 ```
 
 
-## `\o` – offset from GMT
+## `\o` – offset from UTC
 
 Syntax: `\o [n]`
 
-Sets the local time offset, as hours from GMT, or as minutes if abs[n]&gt;23. Initially, the value is 0N, meaning that the machine's offset is used.
+Sets the local time offset, as hours from UTC, or as minutes if abs[n]&gt;23. Initially, the value is 0N, meaning that the machine's offset is used.
 ```q
 q)\o
 0N
-q).z.p                        / GMT
+q).z.p                        / UTC
 2010.05.31D23:45:52.086467000
-q).z.P                        / local time is GMT + 8
+q).z.P                        / local time is UTC + 8
 2010.06.01D07:45:53.830469000
-q)\o -5                       / set local time as GMT - 5
+q)\o -5                       / set local time as UTC - 5
 q).z.P
 2010.05.31D18:45:58.470468000
-q)\o 390                      / set local time as GMT + 6:30
+q)\o 390                      / set local time as UTC + 6:30
 q).z.P
 2010.06.01D06:16:06.603981000
 ```
@@ -533,66 +533,6 @@ q)read1`:t1.q_          / file contents are scrambled
 ```
 
 
-## `system`
-
-Syntax: `system x`
-
-Where `x` is a system command as a string, without its `\` prefix.
-
-The benefit of using `system` rather than `\` is that it can be used as an ordinary function, and returns a result. For example, the following shows that the result of `\w` (workspace information) cannot be assigned, but the result can be obtained using `system`
-```q
-q)\w
-107728 67108864 67108864 0 0j
-q)a:\w
-'w
-q)a:system "w"
-q)a
-107872 67108864 67108864 0 0j
-```
-As with `\`, if the argument is not a q command, it is executed in the shell.
-```
-q)system "pwd"
-"/home/guest/q"
-```
-When redirecting output to a file, for efficiency purposes, avoiding using /tmp needlessly, append a semi-colon to the command:
-```q
-q)system"cat x"
-```
-is essentially the same as the shell command
-```q
-$cat x > tmpout
-```
-as q tries to capture the output. So if you do
-```q
-q)system"cat x > y"
-```
-under the covers that looks like
-```q
-$cat x > y > tmpout
-```
-not good. So if you add the semi colon
-```q
-q)system"cat x > y;"
-```
-the shell interpreter considers it as 2 statements
-```q
-$cat x > y; > tmpout
-```
-Can I capture the stderr output from the system call? Not directly, but a workaround is
-```q
-/ force capture to a file, and cat the file
-q)system"ls egg > file 2>&amp;1;cat file"
-"ls: egg: No such file or directory"
-/ try and fails to capture the text
-q)@[system;"ls egg";{0N!"error - ",x;}]
-ls: egg: No such file or directory
-"error - os"
-```
-
-!!! warning "Changing working directory in Windows"
-    In the event of an unexpected change to the working directory, Windows users please note <http://blogs.msdn.com/b/oldnewthing/archive/2007/11/21/6447771.aspx>
-
-
 ## `\` – terminate
 
 If there is a suspension, this exits one level of the suspension. Otherwise, it toggles between q and k mode. (To switch languages from inside a suspension, type "`\`".)
@@ -649,4 +589,61 @@ q)\ls                 / usual ls command
 !!! warning
     This means that typos can get passed to the OS.
 
-> When you are run `rm -r /` you are have of many problem, but Big Data is not one of them. — @DEVOPS_BORAT
+> When you are run `rm -r /` you are have of many problem, but Big Data is not of one of them. — [<i class="fa fa-twitter"></i> DevOps Borat](https://twitter.com/devops_borat)
+
+
+## `system`
+
+Syntax: `system x`
+
+where `x` is a [system command](systemcommands), executes it and returns its result.
+
+The following shows that the result of `\w` (workspace information) cannot be assigned, but the result can be obtained using `system`.
+```q
+```q)\w
+107728 67108864 67108864 0 0j
+q)a:\w
+'w
+q)a:system "w"
+q)a
+107872 67108864 67108864 0 0j
+```
+As with `\`, if the argument is not a q command, it is executed in the shell:
+```q
+q)system "pwd"
+"/home/guest/q"
+```
+
+!!! tip "Directing output to a file"
+    When redirecting output to a file, for efficiency purposes, avoiding using /tmp needlessly, append a semi-colon to the command.
+    ```q
+    q)system"cat x"
+    is essentially the same as the shell command
+    $cat x > tmpout
+    as q tries to capture the output.
+    So if you do
+    q)system"cat x > y"
+    under the covers that looks like
+    $cat x > y > tmpout
+    not good. So if you add the semi colon
+    q)system"cat x > y;"
+    the shell interpreter considers it as 2 statements
+    $cat x > y; > tmpout
+    ```
+
+!!! tip "Capture stderr output"
+    Can I capture the stderr output from the system call? Not directly, but a workaround is
+    ```q
+    / force capture to a file, and cat the file
+    q)system"ls egg > file 2>&amp;1;cat file"                                                                                                         
+    "ls: egg: No such file or directory"
+    
+    / try and fails to capture the text
+    q)@[system;"ls egg";{0N!"error - ",x;}]                                                                                                       
+    ls: egg: No such file or directory
+    "error - os"
+    ```
+
+!!! warning "Changing working directory in Windows"
+    In the event of an unexpected change to the working directory, Windows users please note <http://blogs.msdn.com/b/oldnewthing/archive/2007/11/21/6447771.aspx>
+

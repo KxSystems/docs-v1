@@ -1,8 +1,8 @@
 These functions return floating-point results.
 
-## `%` divide
+## `%` – divide
 
-Syntax: `x%y` (atomic)  
+Syntax: `x % y` (atomic)  
 
 where `x` and `y` are numeric, returns a float. Note that this is different from some other programming languages, e.g. C++.
 ```q
@@ -26,8 +26,6 @@ q)exp -4.2 0 0.1 0n 0w
 0.01499558 1 1.105171 0n 0w
 ```
 
-See also: [`log`](#log), [`xexp`](#xexp), [`xlog`](#xlog)
-
 
 ## `log`
 
@@ -44,8 +42,6 @@ q)log exp 42
 q)log -2 0n 0 0.1 1 42
 0n 0n -0w -2.302585 0 3.73767
 ```
-
-See also: [`exp`](#exp), [`xexp`](#xexp), [`xlog`](#xlog)
 
 
 ## `prd`
@@ -72,7 +68,7 @@ q)prd "abc"
 'type
 ```
 
-See also: [`prds`](#prds), [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic-integer/#sums) 
+<i class="fa fa-hand-o-right"></i> [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic-integer/#sums) 
 
 
 ## `prds`
@@ -94,7 +90,7 @@ q)prds "abc"                 / type error if list is not numeric
 'type
 ```
 
-See also: [`prd`](#prd), [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic-integer/#sums) 
+<i class="fa fa-hand-o-right"></i> [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic-integer/#sums) 
 
 
 ## `ratios`
@@ -128,7 +124,7 @@ q)ratios 1 2 4 6 7 10
     q)select log ratios price from trade
     ```
 
-See also: [`deltas`](#deltas), [each-prior](higher-order-functions/#eachprior), [`differ`](selectionfunctions/#differ)
+<i class="fa fa-hand-o-right"></i> [each-prior](higher-order-functions/#eachprior), [`differ`](selectionfunctions/#differ)
 
 
 ## `reciprocal`
@@ -179,8 +175,6 @@ q)1.5 xexp -4.2 0 0.1 0n 0w
     7.9999999999999982
     ```
 
-See also: [`exp`](#exp), [`log`](#log), [`xlog`](#xlog)
-
 
 ## `xlog`
 
@@ -203,4 +197,3 @@ q)1.5 xlog 0 0.125 1 3 0n
     0n 0 0.125 1 42
     ```
 
-See also: [`exp`](#exp), [`log`](#log), [`xexp`](#xexp)

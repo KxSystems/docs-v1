@@ -30,7 +30,7 @@ Key: `int`: int vector; `f`: function; `g`: function; `x`: data; `y`: data.
 
 
 
-## `'` case
+## `'` – case
 
 Syntax: `x'` (unary)  
 Derivative: `d x` (unary) 
@@ -51,7 +51,7 @@ q)0 1 0'["a";"xyz"]  /atom "a" repeated as needed
 ```
 
 
-## `'` compose
+## `'` – compose
 
 Syntax: `'[g;f]` (binary)  
 Derivative: `d[x;y;z;…]` (same rank as `f`)
@@ -74,7 +74,7 @@ q)d[1;2;3;4]               / g f[1;2;3;4]
     200
     ```
 
-## `'` each-both
+## `'` – each-both
 
 Syntax: `f'` (unary)  
 Derivative: `x d y` (binary, uniform)
@@ -97,7 +97,7 @@ q)0 1 2 3 ,' 10
 ```
 
 
-## `\:` each-left
+## `\:` – each-left
 
 Syntax: `f\:` (unary)  
 Derivative: `x d y`(binary, uniform)
@@ -117,7 +117,7 @@ q)(til 5),\:0 1
 ```
 
 
-## `/:`  each-right
+## `/:`  – each-right
 
 Syntax: `f/:` (unary)  
 Derivative: `x d y` (binary, uniform)
@@ -146,7 +146,7 @@ q)(til 5),/:0 1
     ```
 
 
-## `':` each-parallel
+## `':` – each-parallel
 
 Syntax: `f':` (unary)  
 Derivative: `d x` (unary, uniform) 
@@ -168,7 +168,7 @@ k){x':y}
 <i class="fa fa-hand-o-right"></i> [command-line options](FIXME), [parallel processing](peach), [`peach`](iteration/#peach)
 
 
-## `':` each-prior
+## `':` – each-prior
 
 Syntax: `f':`  (unary)  
 Derivative: `d x` (ambivalent, uniform)
@@ -198,7 +198,7 @@ q)-':[2 5 9]     /deltas
 ```
 
 
-## `/` converge-repeat
+## `/` – converge-repeat
 
 Syntax: `d:f/`  (unary)  
 Derivative: `d y` (unary)  
@@ -234,7 +234,7 @@ q){x*x}/[{x<1000};2]   /prefix: f/[g;y]
 ```
 
 
-## `/` over
+## `/` – over
 
 Syntax: `f/`  (unary)  
 Derivative: `x d y` (ambivalent, aggregate)
@@ -253,7 +253,7 @@ q)0+/2 3 4   /binary
 <i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over`](iteration/#over) operator.
 
 
-## `/` fold
+## `/` – fold
 
 Syntax: `f/`  (unary)  
 Derivative: `d[x;y;z;…]` (same rank as `f`)
@@ -269,7 +269,7 @@ q){x+y+z}/[1 5 6;2 22;3 33]
     _Over_ is _fold_ as applied to a binary function. 
 
 
-## `\` converge-iterate
+## `\` – converge-iterate
 
 Syntax: `d:f\` (unary)  
 Derivative: `d y` (unary)  
@@ -304,7 +304,7 @@ q)3 f\100 /applied infix
 ```
 
 
-## `\` scan
+## `\` – scan
 
 Syntax: `d:f\`  (unary)  
 Derivative: `d y` (unary, uniform)  

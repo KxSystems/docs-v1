@@ -23,6 +23,8 @@ q)
 
 
 ## `-b` – blocked
+
+Syntax: `-b`
   
 Block client write-access to a kdb+ database. 
 ```bash
@@ -51,7 +53,9 @@ q)\_
 ```
 
 
-## `-c r c` – console size
+## `-c` – console size
+
+Syntax: `-c r c`
   
 Console maxRows maxCols, default 25 80.
 
@@ -76,7 +80,9 @@ q)til each 20+til 10
 <i class="fa fa-hand-o-right"></i> [`\c`](Reference/Syscmdc "wikilink"), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
 
 
-## `-C r c` – HTTP size
+## `-C` – HTTP size
+
+Syntax: `-C r c`
   
 HTTP display maxRows maxCols, default 36 2000
 
@@ -86,12 +92,16 @@ The defaults are 36&times;2000, and values are coerced to the range \[10,2000\].
 
 
 
-## `-e B` – error traps
+## `-e` – error traps
+
+Syntax: `-e B`
   
 Enable client error trapping
 
 
-## `-g B` – garbage collection
+## `-g` – garbage collection
+
+Syntax: `-g B`
   
 Allows switching of garbage collect to immediate(1) mode instead of deferred(0).
 
@@ -103,31 +113,43 @@ To use immediate mode, invoke as `q -g 1`. (Since V2.7 2011.02.04.)
 
 
 ## `-l` – log updates
+
+Syntax: `-l`
   
 Log updates to filesystem, see [Cookbook/Logging](Cookbook/Logging "wikilink")
 
 
 ## `-L` – log sync
+
+Syntax: `-L`
   
 As `-l`, but sync logging, see [Cookbook/Logging](Cookbook/Logging "wikilink")
 
 
-## `-o N` – UTC offset
+## `-o` – UTC offset
+
+Syntax: `-o N`
   
 Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-localtime))
 
 
-## `-p N` – port
+## `-p` – port
+
+Syntax: `-p N`
   
 Port on which kdb+ server listens. Use for [client/server](Cookbook/ClientServer "wikilink"), e.g. kdbc(/jdbc/odbc), HTTP(HTML XML txt CSV).
 
 
-## `-p -N` – multithread port
+## `-p` – multithread port
+
+Syntax: `-p -N`
   
 Port for [multithreaded input mode](Cookbook/MultithreadedInputMode "wikilink").
 
 
-## `-P N` – display precision
+## `-P` – display precision
+
+Syntax: `-P N`
   
 Display precision for floating point numbers, where `N` is the _display_ precision for floats and reals, i.e. `N` is the number of significant digits shown in output.
 The default value is 7 and possible values are in the range \[0,17\]. A precision of 0 means use maximum precision. 
@@ -183,6 +205,8 @@ q)\\
 
 
 ## `-q` – quiet mode
+
+Syntax: `-q`
   
 Quiet, i.e. no startup banner text or session prompts. Typically used where no console is required.
 ```bash
@@ -205,52 +229,72 @@ and with `-q`
 ```
 
 
-## `-r :H:P[:user[:password]]` – replicate
+## `-r` – replicate
+  
+Syntax: `-r :H:P[:user[:password]]`
   
 Replicate from :host:port
 
 
-## `-s N` – slaves
+## `-s` – slaves
+  
+Syntax: `-s N
   
 Start `N` slaves for parallel execution
 
 
-## `-t N` – timer ticks
+## `-t` – timer ticks
+
+Syntax: `-t N`
   
 Timer in milliseconds between timer ticks. Default is 0, for no timer.
 
 
-## `-T N` – timeout
+## `-T` – timeout
+
+Syntax: `-T N`
   
 Timeout in seconds for client queries, i.e. maximum time a client call will execute. Default is 0, for no timeout.
 
 
-## `-u 1` – disable syscmds
+## `-u` – disable syscmds
+
+Syntax: `-u 1`
   
 Disables system commands from a remote (signals `'access`). As such, this includes disabling exit via `"\\"` from a remote.
 
 
-## `-u F` – usr-pwd local
+## `-u` – usr-pwd local
+
+Syntax: `-u F`
   
 Sets usr:pwd file, no access above start directory
 
 
-## `-U F` – usr-pwd
+## `-U` – usr-pwd
+
+Syntax: `-U F`
   
 As `-u`, but no access restrictions
 
 
-## `-w N` – memory
+## `-w` – memory
+
+Syntax: `-w N`
   
 Workspace MB limit (default: 2&times;RAM)
 
 
-## `-W N` – start week
+## `-W` – start week
+
+Syntax: `-W N`
   
 Start of week as an offset from Saturday. Default is 2, meaning that Monday is the start of week.
 
 
-## `-z B` – date format
+## `-z` – date format
+
+Syntax: `-z B`
   
 Format used for `"D"$` date parsing. 0 is MM/DD/YYYY (default) and 1 is DD/MM/YYYY.
 

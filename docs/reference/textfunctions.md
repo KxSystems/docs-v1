@@ -1,15 +1,3 @@
-## `csv`
-
-Syntax: `csv`
-
-Constant, equivalent to `","` useful in reading CSV files and preparing text for them.
-```q
-q)csv~","
-1b
-```
-See [`0:`](language/zerocolon).
-
-
 ## `like`
 
 Syntax: `x like y`
@@ -71,7 +59,7 @@ q)md5 "this is a not so secret message"
 ```
 
 
-## `$` pad
+## `$` – pad
 
 Syntax: `x $ y`
 

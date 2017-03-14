@@ -37,7 +37,7 @@ The functional forms of [`delete`](qsqlfunctions/#delete), [`exec`](qsqlfunction
  
 
 
-## `?` select
+## `?` – select
 
 Syntax: `?[t;c;b;a]`
 
@@ -77,7 +77,7 @@ y   | 15 29
     `select from t` is equivalent to functional form `?[t;();0b;()]`.
 
 
-## `?` exec
+## `?` – exec
 
 Syntax: `?[t;c;b;a]`
 
@@ -112,7 +112,7 @@ z| 20 25
 More complex examples of _exec_ seem to reduce to the equivalent _select_.
 
 
-## `?` simple exec
+## `?` – simple exec
 
 Syntax: `?[t;i;p]`
 
@@ -137,7 +137,7 @@ q)?[t;0 1 2;(*;(min;`a);(avg;`c))]
 ```
 
 
-## `!` update
+## `!` – update
 
 Syntax: `![t;c;b;a]`
 
@@ -183,7 +183,7 @@ y 15
     The degenerate cases are the same as in _select_.
 
 
-## `!` delete
+## `!` – delete
 
 The functional form of delete is a simplified form of _update_.
 ```q

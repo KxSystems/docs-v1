@@ -15,7 +15,7 @@ q)abs 10 -43 0N
 ```
 
 
-## `+` add
+## `+` – add
 
 Syntax: `x + y` (atomic) 
 
@@ -54,11 +54,8 @@ q)ceiling -2.1 0 2.1
     2010.05.14
     ```
 
-See also: [`floor`](#floor)
 
-
-`deltas`
---------
+## `deltas`
 
 Syntax: `deltas y` (uniform)  
 Syntax: `deltas[x;y]` (uniform)
@@ -100,7 +97,7 @@ q)deltas 1 4 9 16
 See also: [each-prior](higher-order-functions/#each-prior), [differ](searchfunctions/#differ), [ratios](arithmetic-real/#ratios)
 
 
-## `%` `div`
+## `div`
 
 Syntax: `x div y` (atomic) 
 
@@ -127,9 +124,7 @@ q)0x80 div 16
 q)"\023" div 8
 2i
 ```
-
-!!! warning "Not your familiar `%`"
-    This is different from `%` in some other programming languages, e.g. C++.
+<i class="fa fa-hand-o-right"></i> [`%` float division](arithmetic-float/#divide)
 
 
 ## `floor`
@@ -156,10 +151,8 @@ q)floor -2.1 0 2.1
     2009.10.03
     ```
 
-See also: [`ceiling`](#ceiling)
 
-
-## `|`/`or` maximum
+## `|` `or` – maximum
 
 Syntax: `x | y` (atomic)  
 Syntax: `x or y` (atomic) 
@@ -175,7 +168,7 @@ q)1010b or 1100b  /logical OR with booleans
 <i class="fa fa-hand-o-right"></i> [`or` in Logic](logicfunctions/#or)
 
 
-## `-` minus
+## `-` – minus
 
 Syntax: `x - y`
 
@@ -193,7 +186,7 @@ q)-3 -2 -1 0 1 2 3 4 mod 3
 ```
 
 
-## `&`/`and` minimum
+## `&` `and` – minimum
 
 Syntax: `x and y` (atomic)  
 Syntax: `x & y` (atomic)
@@ -209,7 +202,7 @@ q)1010b and 1100b  /logical AND with booleans
 <i class="fa fa-hand-o-right"></i> [`and` in Logic](logicfunctions/#and)
 
 
-## `*` multiply
+## `*` – multiply
 
 Syntax: `x * y`
 
@@ -228,58 +221,6 @@ q)neg -1 0 1 2
 
 !!! note "Why not `-`?"
     This is needed because q has no ambivalence, and `-` is already in use as an operator, i.e. in infix form. 
-
-
-## `?` rand
-
-rand
-----
-
-rand produces random sequences of ints and floats. For example, the expression `20?5` produces an int vector of length 20 whose items are random ints between 0 and 4, as follows
-
-    q)20?5
-    4 3 3 4 1 2 2 0 1 3 1 4 0 2 2 1 4 4 2 4
-
-If the right argument is a float, say 4.5, then the result is a simple float list whose items are random floats between 0.0 and 4.5. For example,
-
-    q)10?4.5
-    3.13239 1.699364 2.898484 1.334554 3.085937 2.437705 2.540967 3.445748 1.838425 0.6240313
-
-If the right argument is a list, then values will be selected at random from that list. For example,
-
-    q)10?`Arthur`Steve`Dennis
-    `Arthur`Arthur`Steve`Dennis`Arthur`Arthur`Arthur`Dennis`Arthur`Dennis
-
-If the left hand argument is negative, the random values generated are unique, **on condition that the right hand argument is a vector of unique values, or a scalar default int type**. The left hand argument must have a smaller or equal magnitude than the length of the right hand argument. For example,
-
-    q)-20?20
-    10 18 4 6 0 5 1 11 3 16 13 17 15 14 19 8 9 2 7 12
-    q)-3?`Arthur`Steve`Dennis
-    `Steve`Arthur`Dennis
-    q)-4?`Arthur`Steve`Dennis
-    'length
-
-There is a shorthand special case for generating short symbols (length between 1 and 8).
-
-    q)10?`3
-    `bon`dec`nei`jem`pgm`kei`lpn`bjh`flj`npo
-
-Please note that rand function uses a constant seed on q invocation. You can see and change the value of the seed by using system command ["\\S"](Reference/SystemCommands#.5CS_.5Bn.5D_-_random_seed "wikilink").
-
-`?` deals out [GUIDs](Reference/Datatypes#Guid_(from_kdb.v3.0) "wikilink"):
-
-`q)-1?0Ng`
-`,fd2db048-decb-0008-0176-01714e5eeced`
-
-To use GUIDs as identifiers, give a negative left hand side. If you use a positive value, you will get duplicates, given the same seed:
-
-`$ q`
-`q)1?0Ng`
-`,8c6b8b64-6815-6084-0a3e-178401251b68`
-`q)\\`
-`$ q `
-`q)1?0Ng`
-`,8c6b8b64-6815-6084-0a3e-178401251b68`
 
 
 ## `signum`

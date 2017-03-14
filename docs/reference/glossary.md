@@ -1,6 +1,6 @@
 Ambivalent function
-: A function that may be _applied_ to either one or two _arguments_; i.e. has both _unary_ and _binary_ applications, e.g. [`deltas`](arithmetic-integer/#deltas)
-: <i class="fa fa-hand-o-right"></i> [Derivatives](adverbs/#derivatives), [each-prior](adverbs/#each-prior), [over](adverbs/#over) 
+: A function that may be _applied_ to either one or two _arguments_; i.e. has both _unary_ and _binary_ applications, e.g. [`deltas`](arithmetic-integer/#deltas).  
+<i class="fa fa-hand-o-right"></i> [Derivatives](adverbs/#derivatives), [each-prior](adverbs/#each-prior), [over](adverbs/#over) 
 
 Adverb
 : A primitive higher-order function that returns a _derivative_ (derived function)
@@ -41,12 +41,12 @@ Dictionary
 : A map of a _list_ of keys to a list of values
 
 Domain
-: The domain of a function is the complete set of possible values of its argument.
-: <i class="fa fa-hand-o-right"></i> [Interactive Mathematics](http://www.intmath.com/functions-and-graphs/2a-domain-and-range.php)
+: The domain of a function is the complete set of possible values of its argument.  
+<i class="fa fa-hand-o-right"></i> [Interactive Mathematics](http://www.intmath.com/functions-and-graphs/2a-domain-and-range.php)
 
 Enumeration
-: A representation of a _list_ as indexes of the _items_ in its _nub_ or another list.
-"<i class="fa fa-hand-o-right"></i> [_enum_](listfunctions/#enum)
+: A representation of a _list_ as indexes of the _items_ in its _nub_ or another list.  
+<i class="fa fa-hand-o-right"></i> [_enum_](listfunctions/#enum)
 
 <!--
 Identity element
@@ -68,7 +68,8 @@ Lambda
 : A function defined in the _lambda notation_
 
 Lambda notation
-: The notation in which functions are defined: an optional _signature_ followed by a list of expressions, separated by semicolons, and all embraced by curly braces, e.g. `{[a;b](a*a)+(b*b)+2*a*b}`. 
+: The notation in which functions are defined: an optional _signature_ followed by a list of expressions, separated by semicolons, and all embraced by curly braces, e.g.  
+`{[a;b](a*a)+(b*b)+2*a*b}`. 
 
 List
 : An array of one dimension, its _items_ indexed by position
@@ -81,8 +82,6 @@ Matrix
 : A _list_ in which all _items_ are lists of the same _count_
 
 Noun
-
-Noun
 : A syntactic class applicable to data structures: _atom_, _list_, _dictionary_ and _table_, but also _lambda_, functions and _adverbs_ when treated as such, e.g. `count(+;rotate;/)`
 
 Nub
@@ -92,8 +91,8 @@ Operator
 : A _primitive_ _binary_ function that may be applied _infix_ as well as _prefix_, e.g. `+`, `rotate`
 
 Peaceful function
-: A _lambda_ without a _signature_ specifying _argument_ names, eg `{x*x}`. 
-<i class="fa fa-hand-o-right"></i> [_No Need to Argue_](https://www.youtube.com/watch?v=RtTmI4XJyLw)
+: A _lambda_ without a _signature_ specifying _argument_ names, e.g. `{x*x}`.  
+[<i class="fa fa-youtube"></i> _No Need to Argue_](https://www.youtube.com/watch?v=RtTmI4XJyLw)
 
 Postfix
 : _Applying_ an _adverb_ to its _argument_ by writing it to the right, e.g. `+/` applies `/` to `+`. (But for an _operator_, see _projection_.)
@@ -108,8 +107,8 @@ Project, projection
 : A function passed fewer _arguments_ than its _rank_ projects those arguments and returns a projection: a function of the unspecified argument/s. <i class="fa fa-hand-o-right"></i> [Projection](FIXME)
 
 Range 
-: The range of a function is the complete set of all its possible resulting values.
-: <i class="fa fa-hand-o-right"></i> [Interactive Mathematics](http://www.intmath.com/functions-and-graphs/2a-domain-and-range.php)
+: The range of a function is the complete set of all its possible resulting values.  
+<i class="fa fa-hand-o-right"></i> [Interactive Mathematics](http://www.intmath.com/functions-and-graphs/2a-domain-and-range.php)
 
 Rank
 : Of a **function**, the number of _arguments_ it takes. For a _lambda_, the _count_ of arguments in its _signature_, or, where the signature is omitted, by the here highest-numbered of the three default argument names `x` (1), `y` (2) and `z` (3) used in the function definition, e.g. `{x+z}` has rank 3.

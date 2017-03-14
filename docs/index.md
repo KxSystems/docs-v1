@@ -18,7 +18,6 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
     <td style="text-align: center; width: 30%">
         [<i class="fa fa-download fa-border fa-5x"></i><br/>
         Download kdb+<br/>
-        for
         <i class="fa fa-apple"></i>
         <i class="fa fa-linux"></i>
         <i class="fa fa-windows"></i>](https://kx.com/download)
@@ -53,10 +52,14 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </table>
 
 
-!!! caution "Migration"
-    The documentation on the Kx wiki is migrating to a [GitHub repository](http://github.com/kxsystems/docs).
+!!! caution "The Kx wiki"
+    The documentation from the Kx wiki is moving to this new format. 
+
+    During migration, the [wiki](http://code.kx.com/wiki) remains unchanged. 
+    **Your bookmarks work.** 
     
-    During migration, the new URLs will be volatile, but **your bookmarks to the [wiki](http://code.kx.com/wiki) continue to work.** The search engine here searches only the new site.
+    The search engine here searches only the new site.
+    During migration, the new URLs will be volatile.
 
 <small markdown="1">See the [terms and conditions](about/TermsAndConditions) for use of this site.</small>
 

@@ -1,6 +1,6 @@
 Casting converts data from one datatype to another.
 
-## `$` cast
+## `$` – cast
 
 Syntax: `x $ y`
 
@@ -63,7 +63,7 @@ q)("*";0h)$\:"2012-02-02"
 ```
 ``
 
-## `0x0\:` Integer to byte vector
+## `\:` – int to byte
 
 Syntax: `0x0\:x`
 
@@ -73,10 +73,10 @@ q)0x0\:1234605616436508552
 0x1122334455667788
 ```
 
-==FIXME Signals `'\:` in V3.4.==
+==FIXME Signals `'\:`==
 
 
-## `!` integers to enumerated symbols
+## `!` – ints to enum
 
 Syntax: `` `x!y``
 
@@ -178,9 +178,10 @@ q)0b sv 16#1b
 q)0b sv 8#1b
 0xff
 ```
+<i class="fa fa-hand-o-right"></i> [`sv` lists](listfunctions/#sv)
 
 
-## `$` tok
+## `$` – tok
 
 Syntax: `x $ y`
 
