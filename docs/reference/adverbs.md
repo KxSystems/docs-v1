@@ -165,7 +165,7 @@ q)peach
 k){x':y}
 ```
 
-<i class="fa fa-hand-o-right"></i> [command-line options](FIXME), [parallel processing](peach), [`peach`](iteration/#peach)
+<i class="fa fa-hand-o-right"></i> [command-line options](commandline), [parallel processing, `peach`](peach)
 
 
 ## `':` – each-prior
@@ -250,7 +250,7 @@ q)0+/2 3 4   /binary
 9
 ```
 
-<i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over`](iteration/#over) operator.
+<i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over`](evaluationcontrol/#over) operator.
 
 
 ## `/` – fold
@@ -348,7 +348,7 @@ q){x y\z}           /alternative syntax using built-in function
 ```
 Note that for the built-in version it is for floats.
 
-<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](iteration/#over), [`scan` operator](iteration/#scan) 
+<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](evaluationcontrol/#over), [`scan` operator](evaluationcontrol/#scan) 
 
 
 ## Derivatives

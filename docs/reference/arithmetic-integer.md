@@ -94,7 +94,7 @@ q)deltas 1 4 9 16
     1    | 252
     ```
 
-See also: [each-prior](higher-order-functions/#each-prior), [differ](searchfunctions/#differ), [ratios](arithmetic-real/#ratios)
+See also: [each-prior](adverbs/#each-prior), [differ](searchfunctions/#differ), [ratios](arithmetic-real/#ratios)
 
 
 ## `div`
@@ -280,7 +280,7 @@ q)sum each flip(0n 8;8 0n) /do this to fall back to vector case
 8 8f
 ```
 
-See also: [prd](arithmetic-real/#prd), [prds](arithmetic-real/#prds), [`sums`](#sums)
+See also: [prd](arithmetic-float/#prd), [prds](arithmetic-float/#prds)
 
 
 ## `sums`
@@ -310,7 +310,7 @@ q)sums "abc"                    / type error if list is not numeric
 'type
 ```
 
-<i class="fa fa-hand-o-right"></i> [prd](arithmetic-real/#prd), [prds](arithmetic-real/#prds), [`sum`](#sum)
+<i class="fa fa-hand-o-right"></i> [prd](arithmetic-float/#prd), [prds](arithmetic-float/#prds)
 
 
 ## `til`
@@ -329,7 +329,7 @@ q)til 5h
 'type
 ```
 
-<i class="fa fa-hand-o-right"></i> [`key`](FIXME)
+<i class="fa fa-hand-o-right"></i> [`key`](metadata/#key)
 
 
 ## `xbar`

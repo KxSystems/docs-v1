@@ -124,7 +124,7 @@ q)ratios 1 2 4 6 7 10
     q)select log ratios price from trade
     ```
 
-<i class="fa fa-hand-o-right"></i> [each-prior](higher-order-functions/#eachprior), [`differ`](selectionfunctions/#differ)
+<i class="fa fa-hand-o-right"></i> [each-prior](adverbs/#eachprior), [`differ`](selectionfunctions/#differ)
 
 
 ## `reciprocal`

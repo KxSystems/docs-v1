@@ -57,7 +57,6 @@ Syntax: `.Q.cn x`
 
 Where `x` is a partitioned table, passed by value, returns its count. Populates `.Q.pn` cache.
 
-<i class="fa fa-hand-o-right"></i> [`.Q.pn`]
 
 
 ### `.Q.dd` – join symbols

@@ -1,5 +1,5 @@
 These functions engage with the operating system.  
-<i class="fa fa-hand-o-right"></i> [system commands](FIXME)
+<i class="fa fa-hand-o-right"></i> [system commands](systemcommands)
 
 
 ## `getenv`
@@ -19,7 +19,8 @@ q)getenv `UNKNOWN      / returns empty if variable not defined
 
 Syntax: `gtime ts`
 
-where `ts` is a datetime/timestamp, returns the UTC datetime/timestamp. Recall that the UTC and local datetime/timestamps are available as `.z.z`/`.z.p` and `.z.Z`/`.z.P` respectively.
+where `ts` is a datetime/timestamp, returns the UTC datetime/timestamp. 
+Recall that the UTC and local datetime/timestamps are available as [`.z.z`](dotz/#zz-utc-datetime)/[`.z.p`](dotz/#zp-utc-timestamp) and [`.z.Z`](dotz/#zz-local-datetime)/[`.z.P`](dotz/#zp-local-timestamp) respectively.
 ```q
 q).z.p
 2009.10.20D10:52:17.782138000
@@ -32,7 +33,8 @@ q)gtime .z.P                      / same timezone as .z.p
 
 Syntax: `ltime ts`
 
-where `ts` is a datetime/timestamp, returns the local datetime/timestamp. Recall that the UTC and local datetime/timestamps are available as `.z.z`/`.z.p` and `.z.Z`/`.z.P` respectively.
+where `ts` is a datetime/timestamp, returns the local datetime/timestamp. 
+Recall that the UTC and local datetime/timestamps are available as [`.z.z`](dotz/#zz-utc-datetime)/[`.z.p`](dotz/#zp-utc-timestamp) and [`.z.Z`](dotz/#zz-local-datetime)/[`.z.P`](dotz/#zp-local-timestamp) respectively.
 ```q
 q).z.P
 2009.11.05D15:21:10.040666000

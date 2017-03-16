@@ -102,22 +102,23 @@ q)-4?`Arthur`Steve`Dennis
 
 ## Sowing the seed
 
-_Deal_, `rand` and _roll_ use a constant seed on q invocation: scripts using them can be repeated with the same results. You can see and change the value of the seed by using system command ["\S"](Reference/SystemCommands#.5CS_.5Bn.5D_-_random_seed "wikilink").)
+_Deal_, `rand` and _roll_ use a constant seed on q invocation: scripts using them can be repeated with the same results. You can see and change the value of the seed by using system command ["\S"](systemcommands/#s-random-seed).)
 
-To use GUIDs as identifiers, ensure `x` is negative. Otherwise, you will get duplicates, given the same seed:
-```q
-$ q
-q)1?0Ng
-,8c6b8b64-6815-6084-0a3e-178401251b68
-q)\\
-```
+!!! warning
+    To use GUIDs as identifiers, ensure `x` is negative. Otherwise, you will get duplicates, given the same seed:
+    ```q
+    $ q
+    q)1?0Ng
+    ,8c6b8b64-6815-6084-0a3e-178401251b68
+    q)\\
+    ```
 
-```bash
-$q
-```
+    ```bash
+    $q
+    ```
 
-```q
-q)1?0Ng
-,8c6b8b64-6815-6084-0a3e-178401251b68
-```
+    ```q
+    q)1?0Ng
+    ,8c6b8b64-6815-6084-0a3e-178401251b68
+    ```
 

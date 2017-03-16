@@ -20,7 +20,7 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
     q)t1~t2
     0b
     ```
-Q-SQL templates all have [functional forms](functionalqsql), which can be used without performance penalty. 
+Q-SQL templates all have [functional forms](functionalsql), which can be used without performance penalty. 
 
 <i class="fa fa-hand-o-right"></i> [`select` and `exec` templates](http://code.kx.com/wiki/JB:QforMortals2/queries_q_sql#The_select_and_exec_Templates)
 
@@ -280,7 +280,7 @@ t| 50
 !!! tip "Function-local tables"
     `insert` can insert to global variables only, due to the lookup of the symbol name. If you need to insert to function-local tables, use `table,:data` instead.
 
-<i class="fa fa-hand-o-right"></i> [`,` _join_](listfuctions/#join)
+<i class="fa fa-hand-o-right"></i> [`,` _join_](listfunctions/#join)
 
 
 ## `select`
@@ -339,7 +339,7 @@ It uses `peach` for both in-mem and on-disk tables. For single-threaded, this is
 ```q
 select … by sym, … from t where date …, sym in …, …
 ```
-
+<i class="fa fa-hand-o-right"></i> [Parallel processing](peach)
 
 ### Special functions
 

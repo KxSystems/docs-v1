@@ -104,7 +104,7 @@ Primitive
 : Defined in the q language, not by the programmer
 
 Project, projection
-: A function passed fewer _arguments_ than its _rank_ projects those arguments and returns a projection: a function of the unspecified argument/s. <i class="fa fa-hand-o-right"></i> [Projection](FIXME)
+: A function passed fewer _arguments_ than its _rank_ projects those arguments and returns a projection: a function of the unspecified argument/s. <i class="fa fa-hand-o-right"></i> [Projection](syntax/#projection)
 
 Range 
 : The range of a function is the complete set of all its possible resulting values.  

@@ -4,7 +4,7 @@ Syntax: `h x`
 
 Where `x` is a noun and `h` is 
 
-- an integer file handle returned by [`hopen`](files/#hopen), `x` is written to the file.
+- an integer file handle returned by [`hopen`](filewords/#hopen), `x` is written to the file.
 ```q
 q)a:hopen`:file.txt
 q)a "first "
@@ -19,7 +19,7 @@ q)neg[a] "second line"
 q)hclose a
 ```
  
-- a callback number created using a shared library, [the callback is evaluated](Cookbook/InterfacingWithC#Callbacks).
+- a callback number created using a shared library, [the callback is evaluated](http://code.kx.com/wiki/Cookbook/InterfacingWithC#Callbacks).
 
 
 ## File descriptors
@@ -34,14 +34,14 @@ A file descriptor is either
 
 ### `0` – console
 
-File handle zero is the [console](FIXME) process. Writing to it executes an expression in the main thread.
+File handle zero is the console process. Writing to it executes an expression in the main thread.
 ```q
 q)0 "1 \"hello\""
 hello1
 q)0 (+;2;2)
 4
 ```
-Reading from it using [`read0`](filefunctions/#read0) permits interactive input.
+Reading from it using [`read0`](filewords/#read0) permits interactive input.
 ```q
 q)1">> ";a:read0 0
 >> whatever
@@ -113,10 +113,11 @@ qu"ux
 "fred"",barney"
 ```
 
+<!--
 <aside markdown="1" class="kx-develop">
 Test to see if file _handles_ actually work in the following, all the examples are file _symbols_.
 </aside>
-
+-->
 
 ### save-text
 

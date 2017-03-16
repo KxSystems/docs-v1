@@ -265,7 +265,7 @@ yyyy/[mm|MMM]/dd
 dd/[mm|MMM]/[yy]yy  / \z 1
 ```
 
-<i class="fa fa-hand-o-right"></i> [`\z` (date format)](FIXME)
+<i class="fa fa-hand-o-right"></i> [`\z` (date format)](systemcommands/#z-date-parsing)
 
 
 ## `vs`

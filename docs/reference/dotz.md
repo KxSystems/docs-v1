@@ -100,7 +100,7 @@ Syntax: `z.exit:f`
 
 Where `f` is a unary function, `f` is called with the exit parameter as the argument just before exiting the kdb+ session.
 
-The exit parameter is the argument to the [exit](FIXME) function, or 0 if manual exit with [`\\` quit](FIXME)
+The exit parameter is the argument to the [exit](errors/#exit) function, or 0 if manual exit with [`\\` quit](systemcommands/#quit)
 
 `.z.exit` can be unset with `\x .z.exit`, which restores the default behavior.
 
@@ -143,7 +143,7 @@ q))'`up
 ```bash
 os>..
 ```
-<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc), [`exit`](FIXME), [`\\` quit](FIXME)
+<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc), [`exit`](errors/#exit), [`\\` quit](systemcommands/#quit)
 
 
 ## `.z.f` – file
@@ -358,7 +358,7 @@ q)handles:`u#`int$();
 ```
 Note that the worker processes are not started automatically by kdb+.
 
-<i class="fa fa-hand-o-right"></i> [Cookbook/LoadBalancing](FIXME)
+<i class="fa fa-hand-o-right"></i> [Cookbook/LoadBalancing](http://code.kx.com/wiki/Cookbook/LoadBalancing)
 
 
 ## `.z.pg` – get
@@ -369,7 +369,7 @@ Where `f` is a unary function, called with the object that is passed to the q se
 
 `.z.pg` can be unset with `\x .z.pg`, which restores the default behavior.
 
-The default behavior is equivalent to setting `.z.pg` to [`value`](FIXME) and executes in the root context.
+The default behavior is equivalent to setting `.z.pg` to [`value`](metadata/#value) and executes in the root context.
 
 <i class="fa fa-hand-o-right"></i> [`.z.ps`](#zps-port-set)
 
@@ -465,11 +465,11 @@ Syntax: `.z.pp:f`
 
 Where `f` is a unary function, `.z.pp` is evaluated when an HTTP POST request is received in the kdb+ session.
 
-There is no default implementation, but an example would be that it calls [`value`](FIXME) on the first element of its argument and returns the result to the calling task.
+There is no default implementation, but an example would be that it calls [`value`](metadata/#value) on the first element of its argument and returns the result to the calling task.
 
-See [`.z.ph`](#zph-port-http-get) for details of the argument.
+See `.z.ph` for details of the argument.
 
-<i class="fa fa-hand-o-right"></i> [`.h`](doth.md)
+<i class="fa fa-hand-o-right"></i> [`.h`](doth)
 
 
 ## `.z.ps` – set
@@ -480,7 +480,7 @@ Where `f` is a unary function, `.z.ps` is evaluated with the object that is pass
 
 `.z.ps` can be unset with `\x .z.ps`, which restores the default behavior.
 
-The default behavior is equivalent to setting `.z.ps` to [`value`](FIXME).
+The default behavior is equivalent to setting `.z.ps` to [`value`](metadata/#value).
 
 Note that .z.ps is used in preference to .z.pg when messages are sent to the local process using handle 0.
 ```q
@@ -757,11 +757,10 @@ Shorthand for `` `time$.z.z``, similarly `.z.d` <-> `` `date$.z.z``, `.z.T` <-> 
 Syntax: `.z.zd:x`
 
 Where `x` is an int vector of default parameters for logical block size, compression algorithm and compression level that apply when saving to files with no file extension.
-
-See [File Compression](Cookbook/FileCompression "wikilink") for details of the parameters.
 ```q
 q).z.zd:17 2 6        / set zip defaults
 q)\x .z.zd            / unset 
 ```
+<i class="fa fa-hand-o-right"></i> [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression)
 
 

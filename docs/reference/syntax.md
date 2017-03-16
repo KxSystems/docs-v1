@@ -399,7 +399,7 @@ q)g 0
 q)c
 0
 ```
-<i class="fa fa-hand-o-right"></i> [error handling](error-handling), [evaluation control](evaluation-control)
+<i class="fa fa-hand-o-right"></i> [error handling](errors), [evaluation control](evaluationcontrol)
 
 
 ### Name scope
@@ -437,7 +437,7 @@ q)bar[2;3]
 ```
 Where `f` is a function of rank $N$, and `g` is a projection of `f` on $m$ arguments (where $N \gt m$) `g` has rank $N-m$.
 
-Operators can be [projected](FIXME) in the usual way; but also by eliding the right-argument. 
+Operators can be projected in the usual way; but also by eliding the right-argument. 
 ```q
 q)double:*[2]
 q)halve:%[;2]
@@ -543,12 +543,12 @@ q)10(+/)2 3 4  /noun syntax precludes infix
 
 ## Q-SQL
 
-Expressions beginning with `insert`, `select` or `update` employ [q-SQL syntax](FIXME). 
+Expressions beginning with `insert`, `select` or `update` employ [q-SQL template syntax](qsqlfunctions). 
 
 
 ## Control words
 
-The control words `do`, `if`, `while` [govern evaluation](evaluation-control). 
+The control words `do`, `if`, `while` [govern evaluation](evaluationcontrol). 
 A control word is followed by a bracketed list of expressions:
 
 <code>[e<sub>0</sub>;e<sub>1</sub>;e<sub>2</sub>; … ;e<sub>n</sub>]</code>

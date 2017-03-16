@@ -105,7 +105,7 @@ Symbols are internalized from a single memory area common to all threads.
 
 Since v3.1, `peach` can use multiple processes instead of threads, configured through the startup cmd line option `-s` with a negative integer, e.g. `-s -4`. On startup, q will then try to connect to _N_ processes on ports 20000 through 20000+N-1, and use of `peach` with &gt;1 element will use those processes to execute the function given to `peach`. Unlike multiple threads, the distribution of the workload is not precalculated, and is distributed to the slave processes as soon as they complete their allocated elements. All data required by the peached function must either already exist on all slave processes, or be passed as an argument – however, (size of) args should be minimised due to IPC costs. If any of the slave processes are restarted, the master process must also restart to reconnect. The motivating use case for this mode is multiprocess HDBs, combined with non-compressed data and `.Q.MAP[]`.
 
-Slave processes must be started manually and [`.z.pd`](Reference/dotzdotpd "wikilink") must be set to their connection handles (or a function that returns the handles).
+Slave processes must be started manually and [`.z.pd`](dotz/#zpd-peach-handles) must be set to their connection handles (or a function that returns the handles).
 
 These handles must not be used for other messages; `peach` will close them if it receives anything other than a response message. e.g.
 ```q

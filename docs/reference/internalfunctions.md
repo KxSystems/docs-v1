@@ -3,7 +3,7 @@
 !!! warning 
     `-n!` bindings are subject to change. If a cover function is provided in the `.q` or `.Q` namespaces – use that instead!
 
-[![Neal Stephenson thinks it's cute to name his labels 'dengo'](../img/goto.png "Neal Stephenson thinks it's cute to name his labels 'dengo'")](https://xkcd.com/292/)  
+[![Neal Stephenson thinks it's cute to name his labels 'dengo'](/img/goto.png "Neal Stephenson thinks it's cute to name his labels 'dengo'")](https://xkcd.com/292/)  
 _xkcd.com_
 
 ==These should rarely – if ever – be used==, but in order to recognise them when seen in the wild, here is a partial list.
@@ -11,19 +11,19 @@ _xkcd.com_
 
 ## `-1!x` – `hsym`
 
-<i class="fa fa-hand-o-right"></i> [hsym](Reference/hsym "wikilink")
+<i class="fa fa-hand-o-right"></i> [hsym](filewords/#hsym)
 
 
 ## `-2!x` – `attr`
 
-<i class="fa fa-hand-o-right"></i> [attr](Reference/attr "wikilink")
+<i class="fa fa-hand-o-right"></i> [attr](metadata/#attr)
 
 
 ## `-3!x` – `.Q.s`
 
 Returns the string representation of `x`.
 
-Strictly, this is `.Q.s1`, but it's better to use [.Q.s](DotQ/DotQDots "wikilink")
+Strictly, this is `.Q.s1`, but it's better to use [.Q.s](dotq/#qs-plain-text)
 
 
 
@@ -61,17 +61,17 @@ q)
 
 ## `-5!x` – `parse`
 
-<i class="fa fa-hand-o-right"></i> [parse](Reference/parse "wikilink")
+<i class="fa fa-hand-o-right"></i> [parse](parsetrees/#parse)
 
 
 ## `-6!x` – `eval`
 
-<i class="fa fa-hand-o-right"></i> [eval](Reference/eval "wikilink")
+<i class="fa fa-hand-o-right"></i> [eval](parsetrees/#eval)
 
 
 ## `-7!x` – `hcount`
 
-<i class="fa fa-hand-o-right"></i> [hcount](Reference/hcount "wikilink")
+<i class="fa fa-hand-o-right"></i> [hcount](filewords/#hopen)
 
 
 ## `-8!x` – to bytes
@@ -111,9 +111,9 @@ q)-10!20h
 
 Streaming-execute over file `x`, used for example in kdb+tick to replay logfiles in a memory-efficient manner.
 
-A logfile is just a list of lists, and each list is read in turn and executed (see [value](Reference/value "wikilink")) either via value or `.z.ps` if it is defined.
+A logfile is just a list of lists, and each list is read in turn and evaluated, either by [`value`](metadata/#value) or by [`.z.ps`](dotz/#zps-set) if it is defined.
 
-Here, for demonstration purposes, we manually create a logfile, and play it back through `-11!`. This is functionally equivalent to doing `value each get `:logfile`"` but uses far less memory.
+Here, for demonstration purposes, we manually create a logfile, and play it back through `-11!`. This is functionally equivalent to doing ``value each get `:logfile`` but uses far less memory.
 ```q
 q)`:logfile.2013.12.03 set () / create a new,empty log file
 `:logfile.2013.12.03
@@ -202,12 +202,12 @@ q)-11!(26;logfile)
 
 ## `-12!x` – `.Q.host`
 
-<i class="fa fa-hand-o-right"></i> [.Q.host](DotQ/DotQDothost "wikilink")
+<i class="fa fa-hand-o-right"></i> [.Q.host](dotq/#qhost-hostname)
 
 
 ## `-13!x` – `.Q.addr`
 
-<i class="fa fa-hand-o-right"></i> [.Q.addr](DotQ/DotQDotaddr "wikilink")
+<i class="fa fa-hand-o-right"></i> [.Q.addr](dotq/#qaddr-ip-address)
 
 
 ## `-14!x` – quote escape
@@ -217,7 +217,7 @@ Handle `"` escaping in strings: used to prepare data for CSV export.
 
 ## `-15!x` – `md5`
 
-<i class="fa fa-hand-o-right"></i> [md5](Reference/md5 "wikilink")
+<i class="fa fa-hand-o-right"></i> [md5](textfunctions/#md5)
 
 
 ## `-16!x` – ref count
@@ -234,31 +234,31 @@ q)-16!a
 
 ## `-17!x` – flip endian-ess
 
-Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ v2.6](Releases/ChangesIn2.6 "wikilink")
+Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ V2.6](releases/ChangesIn2.6)
 
 
 
 ## `-18!x` – compress byte
 
-Return compressed IPC byte representation of `x`, see notes about network compression in [Changes in kdb+ v2.6](Releases/ChangesIn2.6 "wikilink")
+Return compressed IPC byte representation of `x`, see notes about network compression in [Changes in V2.6](releases/ChangesIn2.6)
 
 
 
 ## `-19!x` – compress file
 
-compress a file, see [File Compression](Cookbook/FileCompression "wikilink")
+compress a file, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression "wikilink")
 
 
 
 ## `-20!0` – `.Q.gc`
 
-<i class="fa fa-hand-o-right"></i> [.Q.gc](DotQ/DotQDotgc "wikilink")
+<i class="fa fa-hand-o-right"></i> [`.Q.gc`](dotq/#qgc-garbage-collect)
 
 
 
 ## `-21!x` – compression stats
 
-Compression statistics for file `x`, see [File Compression](Cookbook/FileCompression "wikilink")
+Compression statistics for file `x`, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression)
 
 
 
@@ -345,9 +345,8 @@ q)-25!(7 8;0Ng)
 
 ## `-26!x` – SSL
 
-Since V3.4 2016.05.12. View TLS settings on a handle or current process `-26!handle` or `-26!()`
-
-<i class="fa fa-hand-o-right"></i> [SSL](Cookbook/SSL "wikilink")
+Since V3.4 2016.05.12. View TLS settings on a handle or current process `-26!handle` or `-26!()`  
+<i class="fa fa-hand-o-right"></i> [Cookbook/SSL](http://code.kx.com/wiki/Cookbook/SSL)
 
 
 ## `-29!x` – parse JSON

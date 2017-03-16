@@ -51,12 +51,27 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
-  - Reference card: reference.md
+  - Reference card: refcard.md
   - Reference: 
-    - Elements: reference/elements.md
-    - Syntax: reference/syntax.md
+    - Command line: reference/commandline.md
     - Datatypes: reference/datatypes.md
+    - Debugging: reference/debug.md
+    - Elements: reference/elements.md
     - Glossary: reference/glossary.md
+    - IPC protocol: reference/ipcprotocol.md
+    - Releases:
+      - Changes in 3.5: reference/releases/ChangesIn3.5.md
+      - Changes in 3.4: reference/releases/ChangesIn3.4.md
+      - Changes in 3.3: reference/releases/ChangesIn3.3.md
+      - Changes in 3.2: reference/releases/ChangesIn3.2.md
+      - Changes in 3.1: reference/releases/ChangesIn3.1.md
+      - Changes in 3.0: reference/releases/ChangesIn3.0.md
+      - Changes in 2.8: reference/releases/ChangesIn2.8.md
+      - Changes in 2.7: reference/releases/ChangesIn2.7.md
+      - Changes in 2.6: reference/releases/ChangesIn2.6.md
+      - Changes in 2.5: reference/releases/ChangesIn2.5.md
+      - Changes in 2.4: reference/releases/ChangesIn2.4.md
+      - Withdrawn: reference/withdrawn.md
     - Semantics:
       - Adverbs: reference/adverbs.md
       - Arithmetic (integer): reference/arithmetic-integer.md
@@ -89,31 +104,14 @@ pages:
       - Text: reference/textfunctions.md
       - Trigonometry: reference/trigonometry.md
       - Unclassified: reference/unclassified.md
-    - Command line: reference/commandline.md
-    - Debugging: reference/debug.md
-    - IPC protocol: reference/ipcprotocol.md
+    - Syntax: reference/syntax.md
     - System commands: reference/systemcommands.md
-    - System utilities:
-        - .h namespace: reference/doth.md
-        - .Q namespace: reference/dotq.md
-        - .z namespace: reference/dotz.md
-        - Developer tools: reference/developertools.md
-        - Internal functions: reference/internalfunctions.md
-    - Releases:
-      - Changes in 3.4: reference/releases/ChangesIn3.4.md
-      - Changes in 3.3: reference/releases/ChangesIn3.3.md
-      - Changes in 3.2: reference/releases/ChangesIn3.2.md
-      - Changes in 3.1: reference/releases/ChangesIn3.1.md
-      - Changes in 3.0: reference/releases/ChangesIn3.0.md
-      - Changes in 2.8: reference/releases/ChangesIn2.8.md
-      - Changes in 2.7: reference/releases/ChangesIn2.7.md
-      - Changes in 2.6: reference/releases/ChangesIn2.6.md
-      - Changes in 2.5: reference/releases/ChangesIn2.5.md
-      - Changes in 2.4: reference/releases/ChangesIn2.4.md
-      - Withdrawn: reference/withdrawn.md
-    # - Unclassified:
-    #   - IPC protocol: reference/ipcprotocol.md
-    #   - par.txt: reference/pardottxt.md
+    - Utilities:
+      - Developer tools: reference/developertools.md
+      - .h namespace: reference/doth.md
+      - Internal functions: reference/internalfunctions.md
+      - .Q namespace: reference/dotq.md
+      - .z namespace: reference/dotz.md
   - Cookbook:
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md

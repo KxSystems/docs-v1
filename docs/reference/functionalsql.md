@@ -31,7 +31,7 @@ The functional forms of [`delete`](qsqlfunctions/#delete), [`exec`](qsqlfunction
     All q entities in `a`, `b` and `c` must be referenced by name, meaning they appear as symbols containing the entity names.
 
 !!! note "Enlist me"
-    Note throughout the use of `enlist` to create singletons to ensure that appropriate entities are lists.
+    Note throughout the use of [`enlist`](listfunctions/#enlist) to create singletons to ensure that appropriate entities are lists.
 
 <i class="fa fa-external-link-square"></i> <a href="http://www.q-ist.com/2012/10/functional-query-functions.html" target="_blank">[q-ist] Functional Query Functions.</a> 
  

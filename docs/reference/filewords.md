@@ -1,7 +1,7 @@
 Files
 =====
 
-See also the [IO primitives](FIXME). 
+See also the [IO primitives](filenumbers). 
 
 
 ## `csv`
@@ -26,7 +26,7 @@ returns the list of table names, having saved the table/s as a side effect.
 
 The first column of each table saved has the `` `p `` attribute applied to it. If the path is a list, the first item is the HDB root (where the sym file, if any, will be stored), while the remaining elements are a path within the HDB (e.g. a partition).
 
-`dsave` provides roughly the same functionality as the combination of [`.Q.en`](/cookbook/SplayedTables#Enumerating_varchar_columns_in_a_table) and [`set`](values/#set) or [`.Q.dpft`](DotQ/DotQDotdpft "wikilink"), but in a simpler form.
+`dsave` provides roughly the same functionality as the combination of [`.Q.en`](dotq/#qen-enumerate-varchar-cols) and [`set`](#set) or [`.Q.dpft`](dotq/#qdpft-save-table), but in a simpler form.
 ```q
 q)t:flip`sym`price`size!100?'(-10?`3;1.0;10)
 q)q:flip`sym`bid`ask`bsize`asize!900?'(distinct t`sym;1.0;1.0;10;10)
@@ -132,12 +132,7 @@ bsize| j
 asize| j    
 ```
 
-See also: 
-
-- [set](values/#set)
-- [.Q.en](Cookbook/SplayedTables#Enumerating_varchar_columns_in_a_table "wikilink")
-- [.Q.dpft](DotQ/DotQDotdpft "wikilink")
-- [.Q.hdpf](DotQ/DotQDotdpft "wikilink")
+<i class="fa fa-hand-o-right"></i> [set](#set), [.Q.en](dotq/#qen-enumerate-varchar-cols), [.Q.dpft](dotq/#qdpft-save-table), [.Q.hdpf](dotq/#qhdpf-save-tables)
 
 
 
@@ -158,7 +153,7 @@ q)`:SNewTrade/ set .Q.en[`:.;trade]     / save splayed table
 q)s:get`:SNewTrade/                     / s has columns mapped on demand
 ```
 
-!!! Note "`get` and `value`"
+!!! Note "get and value"
     `get` has several other uses. However, the function [`value`](metadata/#value) is a synonym for `get` and by convention is used for other purposes. But the two are completely interchangeable.
     ```q
     q)value "2+3"
@@ -234,7 +229,7 @@ Where `x` has the form:
 - (**Unix domain socket**) `` `:unix://port[:user:password] ``. 
 (Since V3.4.) Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection.
 
-- (**SSL/TLS connection**) `` `:tcps://host:port[:user:password] ``. See [Secure connections with SSL/TLS](Cookbook/SSL "wikilink")
+- (**SSL/TLS connection**) `` `:tcps://host:port[:user:password] ``. See [Secure connections with SSL/TLS](http://code.kx.com/wiki/Cookbook/SSL)
 
 User and password are required if the server session has been started with the `-u` or `-U` command line options, and are passed to `.z.pw` for (optional) additional processing.
 
@@ -259,7 +254,7 @@ If only one synchronous query/request is to be run, then the single-shot synchro
 q)`:mydb.us.com:5010:elmo:sesame "1+1"
 2
 ```
-See the [Client-Server Cookbook](Cookbook/ClientServer "wikilink").
+<i class="fa fa-hand-o-right"></i> [Client-Server Cookbook](http://code.kx.com/wiki/Cookbook/ClientServer).
 
 !!! note "File handles"
     A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
@@ -277,11 +272,7 @@ See the [Client-Server Cookbook](Cookbook/ClientServer "wikilink").
 !!! tip "Fifo/named pipes"
     V3.4 Unix builds have support for reading from a Fifo/named pipe, where the `hopen` argument has the form `` `:fifo://filename``.
     
-    See also:
-    
-    - [Fifo/Named Pipes](Cookbook/NamedPipes "wikilink").
-    - [Client-Server Cookbook](Cookbook/ClientServer "wikilink")
-    - [Secure connections with SSL/TLS](Cookbook/SSL "wikilink")
+    <i class="fa fa-hand-o-right"></i> [Fifo/Named Pipes](http://code.kx.com/wiki/Cookbook/NamedPipes), [Client-Server Cookbook](http://code.kx.com/wiki/Cookbook/ClientServer), [Secure connections with SSL/TLS](http://code.kx.com/wiki/Cookbook/SSL)
 
 
 `hsym`
@@ -364,7 +355,7 @@ q)/ read 500000 lines, chunks of (up to) 100000 at a time
 q)d:raze{read0(`:/tmp/data;x;100000)}each 100000*til 5
 ```
 
-- a [handle](Reference/Number "wikilink") or the [console](Reference/Zero "wikilink"), returns a line of text from it.
+- a [handle](filenumbers) or the [console](filenumbers), returns a line of text from it.
 ```q
 q)rl:{1">> ";read0 0}
 q)rl`

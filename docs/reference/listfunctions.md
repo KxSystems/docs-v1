@@ -15,7 +15,7 @@ q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
 q)@[d;1 1 1;+;3]
 ((1 2 3;4 5 6 7);(17 18;19;20 21);(13 14;15 16 17 18;19 20))
 ```
-<i class="fa fa-hand-o-right"></i> [Functional Forms of Amend](FIXME)
+<i class="fa fa-hand-o-right"></i> [Functional amend](listfunctions/#amend)
 
 !!! tip "Do it on disk"
     Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, and not compressed. e.g.
@@ -731,7 +731,7 @@ p5 400
 ```
 
 - a table and `y` is a table, returns matching rows, together with the respective keys. This is similar to retrieving multiple records through the square brackets syntax, except _take_ also returns the keys. 
-<i class="fa fa-hand-o-right"></i> Q4M: [Retrieving Multiple Records](FIXME)
+<i class="fa fa-hand-o-right"></i> Q4M: [Retrieving Multiple Records](http://code.kx.com/wiki/JB:QforMortals2/tables#Retrieving_Multiple_Records)
 ```q
 q)([]s:`s1`s2)#s
 s | name  status city  

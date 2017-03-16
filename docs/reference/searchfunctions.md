@@ -117,10 +117,6 @@ q)u?(2 3;`ab)
 ```
 In this case _find_ matches items of `x` with `2` `3` and `` `ab `` , not `(2 3;`ab) ``.
 
-<aside class="comment" markdown="1">
-Where is _rank_ defined?
-</aside>
-
 !!! Note "_Find_ is rank-sensitive"
     `x?y` can’t deal with mixed-rank `x`. If rank `x` is _n_ then `x?y` looks for objects of rank _n_-1.
     ```q

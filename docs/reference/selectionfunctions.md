@@ -10,7 +10,7 @@ q)1 2 3 4 1 3 except 2 3
 1 4 1
 ```
 
-<i class="fa fa-hand-o-right"></i> [`in`](sortandsearchfunctions/#in) [`inter`](#inter), [`within`](sortandsearchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i> [`in`](searchfunctions/#in), [`within`](searchfunctions/#within) 
 
 
 
@@ -76,7 +76,7 @@ name age
 dan  44
 bob  42
 ```
-<i class="fa fa-hand-o-right"></i> [apply](FIXME)
+<i class="fa fa-hand-o-right"></i> [`.` apply](unclassified/#apply)
 
 
 ## `.` index-to
@@ -87,7 +87,7 @@ Where `x` is a list and `y` is an int vector, returns items of `x` selected by `
 
 > _Everything starts from a dot._ — Wassily Kandinsky 
 
-All indexing and [application](FIXME) can be done with the `.` operator.
+All indexing and [application](syntax/#application) can be done with the `.` operator.
 ```q
 q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
 q)d . 1 2        / same as d[1;2]
@@ -104,7 +104,7 @@ q)d . enlist 1   / same as d[1]
 
 Syntax: `x inter y`
 
-Returns all items of `x` found in `y`, using the result of `x in y` to select items from `x`.
+Intersection: returns all items of `x` found in `y`, using the result of `x in y` to select items from `x`.
 
 ```q
 q)1 3 4 2 inter 2 3 5 7 11
@@ -147,7 +147,7 @@ x 10
 t 40
 ```
 
-<i class="fa fa-hand-o-right"></i>  [`in`](sortandsearchfunctions/#in), [`within`](sortandsearchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i>  [`in`](searchfunctions/#in), [`within`](searchfunctions/#within) 
 
 
 
@@ -257,7 +257,7 @@ q)(distinct t0,t1)~t0 union t1
 1b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`in`](sortandsearchfunctions/#in), [`within`](sortandsearchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i> [`in`](searchfunctions/#in), [`within`](searchfunctions/#within) 
 
 
 ## `where`
@@ -297,7 +297,7 @@ q)raze x #' til count x:2 3 0 1
     0 0 1 1 1 3
     ```
 
-<i class="fa fa-hand-o-right"></i> [where in q-SQL](FIXME)
+<i class="fa fa-hand-o-right"></i> [where in q-SQL](qsqlfunctions)
 
 
 ## `xprev`

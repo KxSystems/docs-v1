@@ -107,7 +107,6 @@ q)(asc L)~L iasc L
 1b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`asc`](#asc)
 
 
 `idesc`
@@ -125,8 +124,6 @@ q)L idesc L
 q)(desc L)~L idesc L
 1b
 ```
-
-<i class="fa fa-hand-o-right"></i> [`desc`](#desc)
 
 
 `rank`
@@ -150,8 +147,6 @@ q)iasc idesc 2 7 3 2 5           / descending rank
 3 0 2 4 1
 ```
 
-<i class="fa fa-hand-o-right"></i> [`iasc`](#iasc)
-
 
 ## set/unset an attribute
 
@@ -166,7 +161,7 @@ Setting/unsetting an attribute other than `s`, i.e. `upg`, causes a copy of the 
 q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
 ``s
 ```
-<i class="fa fa-hand-o-right"></i> [`asc`](#asc), [`_` drop/cut](FIXME)
+<i class="fa fa-hand-o-right"></i> [`_` drop/cut](qsqlfunctions)
 
 
 ## `xasc`
