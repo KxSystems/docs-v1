@@ -27,18 +27,11 @@ q)(2%1+10)ema p
 ```
 
 
-`mavg`
-------
+## `mavg`
 
 Syntax: `x mavg y` (binary, uniform)
 
-Moving average: returns the `x`-item **moving averages** of numeric list `y`, with any nulls after the first element replaced by zero. The first `x` items of the result are the averages of the terms so far, and thereafter the result is the moving average. The result is floating point.
-
-N.B. Infinities (0w) are incompatible with this function.
-<aside class="comment" markdown="1">
-What does this mean? Including `0w` in `y` doesn’t signal an error.
-</aside>
-
+Moving average: where `x` is an int atom (not infinite), returns the `x`-item **moving averages** of numeric list `y`, with any nulls after the first element replaced by zero. The first `x` items of the result are the averages of the terms so far, and thereafter the result is the moving average. The result is floating point.
 ```q
 q)2 mavg 1 2 3 5 7 10
 1 1.5 2.5 4 6 8.5

@@ -77,7 +77,7 @@ q)til each 20+til 10
 0 1 2 3 4 5 6 7 8..
 ..
 ```
-<i class="fa fa-hand-o-right"></i> [`\c`](Reference/Syscmdc "wikilink"), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
+<i class="fa fa-hand-o-right"></i> [`\c`](systemcommands/#c-console-size), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
 
 
 ## `-C` – HTTP size
@@ -88,7 +88,7 @@ HTTP display maxRows maxCols, default 36 2000
 
 The defaults are 36&times;2000, and values are coerced to the range \[10,2000\].
 
-<i class="fa fa-hand-o-right"></i> [`\C`](Reference/Syscmdc "wikilink"), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
+<i class="fa fa-hand-o-right"></i> [`\C`](systemcommands/#c-http-size), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
 
 
 
@@ -116,14 +116,14 @@ To use immediate mode, invoke as `q -g 1`. (Since V2.7 2011.02.04.)
 
 Syntax: `-l`
   
-Log updates to filesystem, see [Cookbook/Logging](Cookbook/Logging "wikilink")
+Log updates to filesystem, see [Cookbook/Logging](http://code.kx.com/wiki/Cookbook/Logging)
 
 
 ## `-L` – log sync
 
 Syntax: `-L`
   
-As `-l`, but sync logging, see [Cookbook/Logging](Cookbook/Logging "wikilink")
+As `-l`, but sync logging, see [Cookbook/Logging](http://code.kx.com/wiki/Cookbook/Logging)
 
 
 ## `-o` – UTC offset
@@ -137,14 +137,14 @@ Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-loca
 
 Syntax: `-p N`
   
-Port on which kdb+ server listens. Use for [client/server](Cookbook/ClientServer "wikilink"), e.g. kdbc(/jdbc/odbc), HTTP(HTML XML txt CSV).
+Port on which kdb+ server listens. Use for [client/server](http://code.kx.com/wiki/Cookbook/ClientServer), e.g. kdbc(/jdbc/odbc), HTTP(HTML XML txt CSV).
 
 
 ## `-p` – multithread port
 
 Syntax: `-p -N`
   
-Port for [multithreaded input mode](Cookbook/MultithreadedInputMode "wikilink").
+Port for [multithreaded input mode](http://code.kx.com/wiki/Cookbook/MultithreadedInputMode).
 
 
 ## `-P` – display precision
@@ -199,7 +199,7 @@ q)\\
     "7817047037.90"
     ```
 
-<i class="fa fa-hand-o-right"></i> [`\P`](Reference/SyscmdP "wikilink"), [.Q.f](DotQ/DotQDotf "wikilink"), [.Q.fmt](DotQ/DotQDotfmt "wikilink"), [Comparison Tolerance](Cookbook/ComparisonTolerance "wikilink"), [Float Precision and Equality](Cookbook/FloatPrecision "wikilink")
+<i class="fa fa-hand-o-right"></i> [`\P`](systemcommands/#p-precision), [.Q.f](dotq/#qf-format), [.Q.fmt](dotq/#qfmt-format), [Comparison Tolerance](http://code.kx.com/wiki/Cookbook/ComparisonTolerance), [Float Precision and Equality](http://code.kx.com/wiki/Cookbook/FloatPrecision)
 
 <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://docs.sun.com/source/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a>
 

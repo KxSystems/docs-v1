@@ -1,4 +1,4 @@
-Adverbs are primitive higher-order functions: they return derived functions, known as [_derivatives_](#derivatives).  They are much used for [iteration](iteration). 
+Adverbs are primitive higher-order functions: they return derived functions, known as [_derivatives_](#derivatives).  They are much used for [iteration](evaluationcontrol). 
 ```q
 q)+/[2 3 4]      /reduce 2 3 4 with +
 9
@@ -66,7 +66,7 @@ q)d[1;2;3;4]               / g f[1;2;3;4]
 ```
 
 !!! Tip "Compose a list of functions"
-    This can be extended with [`over`](iteration/#over) to compose a list of functions.
+    This can be extended with [`over`](evaluationcontrol/#over) to compose a list of functions.
     ```q
     q)g1:{10*x}
     q)d1:('[;]) over (g1;g;f)  / Use ('[;]) so the correct form is used

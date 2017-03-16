@@ -41,7 +41,7 @@ q)ceiling -2.1 0 2.1
 ```
 
 !!! note "Comparison tolerance; datetime"
-    Prior to V3.0, `ceiling` used [comparison tolerance](Cookbook/ComparisonTolerance "wikilink").
+    Prior to V3.0, `ceiling` used [comparison tolerance](http://code.kx.com/wiki/Cookbook/ComparisonTolerance).
     ```q
     q)ceiling 2 + 10 xexp -12 -13
     3 2
@@ -94,7 +94,7 @@ q)deltas 1 4 9 16
     1    | 252
     ```
 
-See also: [each-prior](adverbs/#each-prior), [differ](searchfunctions/#differ), [ratios](arithmetic-real/#ratios)
+See also: [each-prior](adverbs/#each-prior), [differ](searchfunctions/#differ), [ratios](arithmetic-float/#ratios)
 
 
 ## `div`
@@ -138,7 +138,7 @@ q)floor -2.1 0 2.1
 ```
 
 !!! note "Comparison tolerance; datetime"
-    Prior to V3.0, `floor` used [comparison tolerance](Cookbook/ComparisonTolerance "wikilink").
+    Prior to V3.0, `floor` used [comparison tolerance](http://code.kx.com/wiki/Cookbook/ComparisonTolerance).
     ```q
     q)floor 2 - 10 xexp -12 -13
     1 2

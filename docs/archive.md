@@ -17,7 +17,7 @@
 
 ### <i class="fa fa-bank"></i> Financial Math in Q
 
-A series by Jan Karman in [_Vector_](https://www.vector.org.uk) (mostly k3 with some k4):
+A series by Jan Karman in [_Vector_](http://archive.vector.org.uk) (mostly k3 with some k4):
 
 1. [Graduation of mortality](http://archive.vector.org.uk/art10500210) _Vector_ 24\#2
 2. [The price of bonds](http://archive.vector.org.uk/art10500420) _Vector_ 24\#4

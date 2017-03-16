@@ -96,12 +96,12 @@ pages:
       - Q-SQL: reference/qsqlfunctions.md
           #   - exec: reference/exec.md
       - Randomness: reference/randomness.md
-      - Selection: reference/selectionfunctions.md
       - Search: reference/searchfunctions.md
+      - Selection: reference/selectionfunctions.md
       - Sort: reference/sortfunctions.md
       - Statistics (aggregates): reference/stats-aggregates.md
       - Statistics (moving): reference/stats-moving.md
-      - Text: reference/textfunctions.md
+      - Strings: reference/textfunctions.md
       - Trigonometry: reference/trigonometry.md
       - Unclassified: reference/unclassified.md
     - Syntax: reference/syntax.md

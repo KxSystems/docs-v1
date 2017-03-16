@@ -67,7 +67,8 @@ q)count(+;within;\)
 
 ### Attributes
 
-==FIXME==
+Attributes are metadata that apply to lists of special form. They are often used on a dictionary domain or a table column to reduce storage requirements or speed retrieval. 
+
 
 ## Names and namespaces
 
@@ -82,7 +83,7 @@ q).z.p                         / GMT timestamp
 2017.02.01D14:58:38.579614000
 ```
 
-<a class="fa fa-hand-o-right"></a> [Names in context](FIXME)
+<a class="fa fa-hand-o-right"></a> [Names in context](syntax/#name-scope)
 
 
 ## Functions
@@ -135,22 +136,22 @@ They cannot be defined using the [lambda notation](#definition).
 The following reserved words denote operators.
 
 <table markdown="1" class="kx-compact">
-<tr><td>A</td><td>[`and`](reference/logic/#and "minimum"), [`asof`](reference/joins/#asof "as-of verb")</td></tr>
-<tr><td>B</td><td>[`bin`](reference/searchfunctions/#bin-binr "binary search"), [`binr`](reference/searchfunctions/#bin-binr "binary search right")</td></tr>
-<tr><td>C</td><td>[`cor`](reference/stats-aggregates/#cor "correlation"), [`cov`](reference/trigonometry/#cov "statistical covariance"), [`cross`](reference/listfunctions/#cross "cross product"), [`cut`](reference/listfunctions/#cut "cut array into pieces")</td></tr>
-<tr><td>D</td><td>[`div`](reference/arithmetic-integer/#div "integer division"), [`dsave`](reference/filewords/#dsave "save global tables to disk")</td></tr>
-<tr><td>E</td><td>[`each`](reference/evaluationcontrol/#each "apply to each element"), [`ema`](reference/stats-moving/#ema "exponentially-weighted moving average"), [`except`](reference/selectionfunctions/#except "left argument without elements in right argument")</td></tr>
-<tr><td>F</td><td>[`fby`](reference/qsqlfunctions/#fby "filter-by")</td></tr>
-<tr><td>I</td><td>[`ij`](reference/joins/#ij "inner join"), [`in`](reference/searchfunctions/#in "membership"), [`insert`](reference/qsqlfunctions/#insert "append records to a table"), [`inter`](reference/selectionfunctions/#inter "elements common to both arguments")</td></tr>
-<tr><td>L</td><td>[`like`](reference/textfunctions/#like "pattern matching"), [`lj`](reference/joins/#lj "left join"), [`ljf`](reference/joins/#lj "left join"), [`lsq`](reference/matrixes/#lsq "least squares – matrix divide")</td></tr>
-<tr><td>M</td><td>[`mavg`](reference/stats-moving/#mavg "moving average"), [`mcount`](reference/stats-moving/#mcount "moving count"), [`mdev`](reference/stats-moving/#mdev "moving deviation"), [`mmax`](reference/stats-moving/#mmax "moving maxima"), [`mmin`](reference/stats-moving/#mmin "moving minima"), [`mmu`](reference/matrixes/#mmu "matrix multiplication"), [`mod`](reference/arithmetic-integer/#mod "remainder"), [`msum`](reference/stats-moving/#msum "moving sum")</td></tr>
-<tr><td>O</td><td>[`or`](reference/logic/#or "maximum"), [`over`](reference/evaluationcontrol/#over "reduce an array with a function")</td></tr>
-<tr><td>P</td><td>[`peach`](reference/evaluationcontrol/#peach "parallel each"), [`pj`](reference/joins/#pj "plus join"), [`prior`](reference/selectionfunctions/#prior "apply function between each element and its predecessor")</td></tr>
-<tr><td>S</td><td>[`scan`](reference/evaluationcontrol/#scan "apply function to successive elements"), [`scov`](reference/stats-aggregates/#scov "statistical covariance"), [`set`](reference/filewords/#set "asign a value to a name"), [`setenv`](reference/os/#setenv "set an environment variable")[`ss`](reference/textfunctions/#ss "string search"), [`sublist`](reference/selectionfunctions/#sublist "sublist of a list"), [`sv` consolidate](reference/listfunctions/#sv "consolidate")</td></tr>
-<tr><td>U</td><td>[`uj`](reference/joins/#uj "union join"), [`union`](reference/listfunctions/#union "distinct elements of combination of two lists"), [`upsert`](reference/qsqlfunctions/#upsert "add table records")</td></tr>
-<tr><td>V</td><td>[`vs` encode](reference/casting/#vs "encode"), [`vs` split](reference/listfunctions/#vs "split")</td></tr>
-<tr><td>W</td><td>[`wavg`](reference/stats-aggregates/#wavg "weighted average"), [`within`](reference/searchfunctions/#within "flag elements within range"), [`wsum`](reference/stats-aggregates/#wsum "weighted sum")</td></tr>
-<tr><td>X</td><td>[`xasc`](reference/sortfunctions/#xasc "table sorted ascending by columns"), [`xbar`](reference/arithmetic-integer/#xbar "interval bar"), [`xcol`](reference/dictionariesandtables/#xcol "rename table columns"), [`xcols`](reference/dictionariesandtables/#xcols "re-order table columns"), [`xdesc`](reference/sortfunctions/#xdesc "table sorted decending by columns"), [`xexp`](reference/arithmetic-float/#xexp "raised to a power"), [`xgroup`](reference/dictionariesandtables/#xgroup "table grouped by keys"), [`xkey`](reference/dictionariesandtables/#xkey "set primary keys of a table"), [`xlog`](reference/arithmetic-float/#xlog "base-x logarithm"), [`xprev`](reference/selectionfunctions/#xprev "previous elements"), [`xrank`](reference/sortfunctions/#xrank "items assigned to buckets")</td></tr>
+<tr><td>A</td><td>[`and`](logicfunctions/#and-minimum "minimum"), [`asof`](joins/#asof "as-of verb")</td></tr>
+<tr><td>B</td><td>[`bin`](searchfunctions/#bin-binr "binary search"), [`binr`](searchfunctions/#bin-binr "binary search right")</td></tr>
+<tr><td>C</td><td>[`cor`](stats-aggregates/#cor "correlation"), [`cov`](trigonometry/#cov "statistical covariance"), [`cross`](listfunctions/#cross "cross product"), [`cut`](listfunctions/#cut "cut array into pieces")</td></tr>
+<tr><td>D</td><td>[`div`](arithmetic-integer/#div "integer division"), [`dsave`](filewords/#dsave "save global tables to disk")</td></tr>
+<tr><td>E</td><td>[`each`](evaluationcontrol/#each "apply to each element"), [`ema`](stats-moving/#ema "exponentially-weighted moving average"), [`except`](selectionfunctions/#except "left argument without elements in right argument")</td></tr>
+<tr><td>F</td><td>[`fby`](qsqlfunctions/#fby "filter-by")</td></tr>
+<tr><td>I</td><td>[`ij`](joins/#ij "inner join"), [`in`](searchfunctions/#in "membership"), [`insert`](qsqlfunctions/#insert "append records to a table"), [`inter`](selectionfunctions/#inter "elements common to both arguments")</td></tr>
+<tr><td>L</td><td>[`like`](textfunctions/#like "pattern matching"), [`lj`](joins/#lj "left join"), [`ljf`](joins/#lj "left join"), [`lsq`](matrixes/#lsq "least squares – matrix divide")</td></tr>
+<tr><td>M</td><td>[`mavg`](stats-moving/#mavg "moving average"), [`mcount`](stats-moving/#mcount "moving count"), [`mdev`](stats-moving/#mdev "moving deviation"), [`mmax`](stats-moving/#mmax "moving maxima"), [`mmin`](stats-moving/#mmin "moving minima"), [`mmu`](matrixes/#mmu "matrix multiplication"), [`mod`](arithmetic-integer/#mod "remainder"), [`msum`](stats-moving/#msum "moving sum")</td></tr>
+<tr><td>O</td><td>[`or`](logicfunctions/#or-maximum "maximum"), [`over`](evaluationcontrol/#over "reduce an array with a function")</td></tr>
+<tr><td>P</td><td>[`peach`](evaluationcontrol/#peach "parallel each"), [`pj`](joins/#pj "plus join"), [`prior`](selectionfunctions/#prior "apply function between each element and its predecessor")</td></tr>
+<tr><td>S</td><td>[`scan`](evaluationcontrol/#scan "apply function to successive elements"), [`scov`](stats-aggregates/#scov "statistical covariance"), [`set`](filewords/#set "asign a value to a name"), [`setenv`](os/#setenv "set an environment variable")[`ss`](textfunctions/#ss "string search"), [`sublist`](selectionfunctions/#sublist "sublist of a list"), [`sv` consolidate](listfunctions/#sv "consolidate")</td></tr>
+<tr><td>U</td><td>[`uj`](joins/#uj "union join"), [`union`](listfunctions/#union "distinct elements of combination of two lists"), [`upsert`](qsqlfunctions/#upsert "add table records")</td></tr>
+<tr><td>V</td><td>[`vs` encode](casting/#vs "encode"), [`vs` split](listfunctions/#vs "split")</td></tr>
+<tr><td>W</td><td>[`wavg`](stats-aggregates/#wavg "weighted average"), [`within`](searchfunctions/#within "flag elements within range"), [`wsum`](stats-aggregates/#wsum "weighted sum")</td></tr>
+<tr><td>X</td><td>[`xasc`](sortfunctions/#xasc "table sorted ascending by columns"), [`xbar`](arithmetic-integer/#xbar "interval bar"), [`xcol`](dictionariesandtables/#xcol "rename table columns"), [`xcols`](dictionariesandtables/#xcols "re-order table columns"), [`xdesc`](sortfunctions/#xdesc "table sorted decending by columns"), [`xexp`](arithmetic-float/#xexp "raised to a power"), [`xgroup`](dictionariesandtables/#xgroup "table grouped by keys"), [`xkey`](dictionariesandtables/#xkey "set primary keys of a table"), [`xlog`](arithmetic-float/#xlog "base-x logarithm"), [`xprev`](selectionfunctions/#xprev "previous elements"), [`xrank`](sortfunctions/#xrank "items assigned to buckets")</td></tr>
 </table>
 
 
@@ -173,7 +174,7 @@ The control words `do`, `if` and `while` [govern evaluation](evaluationcontrol).
 
 ## System commands
 
-Expressions beginning with `\` are [system commands](system-commands) or multiline comments (see above). 
+Expressions beginning with `\` are [system commands](systemcommands) or multiline comments (see above). 
 ```q
 q)/ load the script in file my_app.q
 q)\l my_app.q

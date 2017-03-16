@@ -127,7 +127,7 @@ q)til each 20+til 10
 
 Syntax: `\C [h,w]`
 
-Sets the HTTP height and width. This is the same as the `-C` command line parameter, see [Console Size](Reference/ConsoleSize "wikilink")
+Sets the HTTP height and width. This is the same as [command-line option `-C`](commandline/#-c-http-size). 
 
 
 ## `\cd` – change directory

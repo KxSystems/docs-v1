@@ -1,4 +1,4 @@
-## `.` apply
+## `.` – apply
 
 Syntax: `f . x` 
 
@@ -16,7 +16,7 @@ q)execFunction[f2;(1 2)]
 ```
 
 
-## `(::)` identity
+## `(::)` – identity
 
 Syntax: `(::) x`
   
@@ -82,7 +82,7 @@ with directories :
 
 
 
-## `::` null
+## `::` – null
 
 Q does not have a dedicated null type. Instead `::` is used to denote a generic null value. For example, functions that return no value, return `::`.
 ```q

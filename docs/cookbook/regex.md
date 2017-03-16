@@ -75,6 +75,5 @@ q)tb like "*[^0-9]"
 00001b
 ```
 
-See also: [`like`](/language/textfunctions/#like)
+<i class="fa fa-hand-o-right"></i> [`like`](/reference/textfunctions/#like), [Cookbook/Regular Expressions](http://code.kx.com/wiki/Cookbook/regex)
 
-FIXME: Cookbook article

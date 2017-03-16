@@ -15,7 +15,7 @@ q)if[all x in y;....]   / use in control structure
     `all` is defined as `min` after converting to boolean, i.e. `all x` is equivalent to `min "b"$x`.
 
 
-## `&` `and` 
+## `&` `and` – minimum
 
 Syntax: `x & y` (binary, atomic)  
 Syntax: `x and y` (binary, atomic)
@@ -43,8 +43,7 @@ q)if[any x in y;....]   / use in control structure
     `any` is defined as `max` after converting to boolean, i.e. `any x` and `max "b"$x` are equivalent. 
 
 
-`not`
------
+## `not`
 
 Syntax: `not x` (unary, atomic) 
 
@@ -62,8 +61,7 @@ b| 0001b
 ```
 
 
-`null`
------
+## `null`
 
 Syntax: `null x` (unary, atomic)
 
@@ -97,7 +95,7 @@ q)null 0 0n 0w 1 0n
     ```
 
 
-## `|` `or`
+## `|` `or` – maximum
 
 Syntax: `x|y` (binary, atomic)  
 Syntax: `x or y` (binary, atomic)
