@@ -10,7 +10,7 @@ q)1 2 3 4 1 3 except 2 3
 1 4 1
 ```
 
-<i class="fa fa-hand-o-right"></i> [`in`](searchfunctions/#in), [`within`](searchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i> [`in`](search/#in), [`within`](search/#within) 
 
 
 
@@ -147,7 +147,7 @@ x 10
 t 40
 ```
 
-<i class="fa fa-hand-o-right"></i>  [`in`](searchfunctions/#in), [`within`](searchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i>  [`in`](search/#in), [`within`](search/#within) 
 
 
 
@@ -257,7 +257,7 @@ q)(distinct t0,t1)~t0 union t1
 1b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`in`](searchfunctions/#in), [`within`](searchfunctions/#within) 
+<i class="fa fa-hand-o-right"></i> [`in`](search/#in), [`within`](search/#within) 
 
 
 ## `where`
@@ -297,7 +297,7 @@ q)raze x #' til count x:2 3 0 1
     0 0 1 1 1 3
     ```
 
-<i class="fa fa-hand-o-right"></i> [where in q-SQL](qsqlfunctions)
+<i class="fa fa-hand-o-right"></i> [where in q-SQL](qsql)
 
 
 ## `xprev`

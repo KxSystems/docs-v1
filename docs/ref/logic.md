@@ -20,7 +20,7 @@ q)if[all x in y;....]   / use in control structure
 Syntax: `x & y` (binary, atomic)  
 Syntax: `x and y` (binary, atomic)
 
-Returns the [minimum](arithmetic-integer/#and-minimum) of its arguments; applies to all data types except symbol.
+Returns the [minimum](arith-integer/#and-minimum) of its arguments; applies to all data types except symbol.
 
 !!! Note "And numbers"
     The name `and` is used because it behaves as logical AND on boolean arguments, but is extended to _minimum_ on other data types
@@ -100,7 +100,7 @@ q)null 0 0n 0w 1 0n
 Syntax: `x|y` (binary, atomic)  
 Syntax: `x or y` (binary, atomic)
 
-Returns the [maximum](arithmetic-integer/#or-maximum) of `x` and `y`. It applies to all data types except symbol.
+Returns the [maximum](arith-integer/#or-maximum) of `x` and `y`. It applies to all data types except symbol.
 
 !!! note "Or numbers" 
     The name `or` is used because it behaves as logical OR on boolean arguments, but is extended to _maximum_ on other data types.

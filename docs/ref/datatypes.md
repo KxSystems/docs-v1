@@ -100,7 +100,7 @@ Arithmetic for float infinities (`0we`,`0w`) behaves as expected.
 The guid type (since V3.0) is a 16-byte type, and can be used for storing arbitrary 16-byte values, typically transaction IDs.
 
 !!! tip "Generation"
-    Use [_deal_](randomness/#deal) to generate a guid (global unique: uses `.z.a .z.i .z.p`).
+    Use [_deal_](random/#deal) to generate a guid (global unique: uses `.z.a .z.i .z.p`).
     ```q
     q)-2?0Ng
     337714f8-3d76-f283-cdc1-33ca89be59e9 0a369037-75d3-b24d-6721-5a1d44d4bed5

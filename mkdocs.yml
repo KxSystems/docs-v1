@@ -51,67 +51,67 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
-  - Reference card: refcard.md
+  - Ref card: ref/card.md
   - Reference: 
-    - Adverbs: reference/adverbs.md
-    - Command line: reference/commandline.md
-    - Datatypes: reference/datatypes.md
-    - Debugging: reference/debug.md
-    - Elements: reference/elements.md
-    - Glossary: reference/glossary.md
-    - IPC protocol: reference/ipcprotocol.md
+    - Adverbs: ref/adverbs.md
+    - Command line: ref/cmdline.md
+    - Datatypes: ref/datatypes.md
+    - Debugging: ref/debug.md
+    - Elements: ref/elements.md
+    - Glossary: ref/glossary.md
+    - IPC protocol: ref/ipc.md
     - Releases:
-      - Changes in 3.5: reference/releases/ChangesIn3.5.md
-      - Changes in 3.4: reference/releases/ChangesIn3.4.md
-      - Changes in 3.3: reference/releases/ChangesIn3.3.md
-      - Changes in 3.2: reference/releases/ChangesIn3.2.md
-      - Changes in 3.1: reference/releases/ChangesIn3.1.md
-      - Changes in 3.0: reference/releases/ChangesIn3.0.md
-      - Changes in 2.8: reference/releases/ChangesIn2.8.md
-      - Changes in 2.7: reference/releases/ChangesIn2.7.md
-      - Changes in 2.6: reference/releases/ChangesIn2.6.md
-      - Changes in 2.5: reference/releases/ChangesIn2.5.md
-      - Changes in 2.4: reference/releases/ChangesIn2.4.md
-      - Withdrawn: reference/withdrawn.md
+      - Changes in 3.5: ref/releases/ChangesIn3.5.md
+      - Changes in 3.4: ref/releases/ChangesIn3.4.md
+      - Changes in 3.3: ref/releases/ChangesIn3.3.md
+      - Changes in 3.2: ref/releases/ChangesIn3.2.md
+      - Changes in 3.1: ref/releases/ChangesIn3.1.md
+      - Changes in 3.0: ref/releases/ChangesIn3.0.md
+      - Changes in 2.8: ref/releases/ChangesIn2.8.md
+      - Changes in 2.7: ref/releases/ChangesIn2.7.md
+      - Changes in 2.6: ref/releases/ChangesIn2.6.md
+      - Changes in 2.5: ref/releases/ChangesIn2.5.md
+      - Changes in 2.4: ref/releases/ChangesIn2.4.md
+      - Withdrawn: ref/withdrawn.md
     - Semantics:
-      - Arithmetic (integer): reference/arithmetic-integer.md
-      - Arithmetic (float): reference/arithmetic-float.md
-      - Casting: reference/casting.md
-      - Comparison: reference/comparisonfunctions.md
-      - Dictionaries & tables: reference/dictionariesandtables.md
-      - Enumeration: reference/enumeration.md
-      - Evaluation control: reference/evaluationcontrol.md
-      - Error handling: reference/errors.md
-      - Files (numbers): reference/filenumbers.md
-      - Files (words): reference/filewords.md
-      - Functional SQL: reference/functionalsql.md
-      - Joins: reference/joins.md
-      - Lists: reference/listfunctions.md
-      - Logic: reference/logicfunctions.md
-      - Matrixes: reference/matrixes.md
-      - Metadata: reference/metadata.md
-      - OS: reference/os.md
-      - Parallel processing: reference/peach.md
-      - Parse trees: reference/parsetrees.md
-      - Q-SQL: reference/qsqlfunctions.md
-          #   - exec: reference/exec.md
-      - Randomness: reference/randomness.md
-      - Search: reference/searchfunctions.md
-      - Selection: reference/selectionfunctions.md
-      - Sort: reference/sortfunctions.md
-      - Statistics (aggregates): reference/stats-aggregates.md
-      - Statistics (moving): reference/stats-moving.md
-      - Strings: reference/textfunctions.md
-      - Trigonometry: reference/trigonometry.md
-      - Unclassified: reference/unclassified.md
-    - Syntax: reference/syntax.md
-    - System commands: reference/systemcommands.md
+      - Arithmetic (integer): ref/arith-integer.md
+      - Arithmetic (float): ref/arith-float.md
+      - Casting: ref/casting.md
+      - Comparison: ref/comparison.md
+      - Dictionaries & tables: ref/dictsandtables.md
+      - Enumeration: ref/enums.md
+      - Evaluation control: ref/control.md
+      - Error handling: ref/errors.md
+      - Files (numbers): ref/filenumbers.md
+      - Files (words): ref/filewords.md
+      - Functional SQL: ref/funsql.md
+      - Joins: ref/joins.md
+      - Lists: ref/lists.md
+      - Logic: ref/logic.md
+      - Matrixes: ref/matrixes.md
+      - Metadata: ref/metadata.md
+      - OS: ref/os.md
+      - Parallel processing: ref/peach.md
+      - Parse trees: ref/parsetrees.md
+      - Q-SQL: ref/qsql.md
+          #   - exec: ref/exec.md
+      - Randomness: ref/random.md
+      - Search: ref/search.md
+      - Selection: ref/select.md
+      - Sort: ref/sort.md
+      - Statistics (aggregates): ref/stats-aggregates.md
+      - Statistics (moving): ref/stats-moving.md
+      - Strings: ref/strings.md
+      - Trigonometry: ref/trig.md
+      - Unclassified: ref/unclassified.md
+    - Syntax: ref/syntax.md
+    - System commands: ref/syscmds.md
     - Utilities:
-      - Developer tools: reference/developertools.md
-      - .h namespace: reference/doth.md
-      - Internal functions: reference/internalfunctions.md
-      - .Q namespace: reference/dotq.md
-      - .z namespace: reference/dotz.md
+      - Developer tools: ref/devtools.md
+      - .h namespace: ref/doth.md
+      - Internal functions: ref/internal.md
+      - .Q namespace: ref/dotq.md
+      - .z namespace: ref/dotz.md
   - Cookbook:
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md

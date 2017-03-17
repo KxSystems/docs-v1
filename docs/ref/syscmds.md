@@ -98,7 +98,7 @@ Syntax: `\c`
 
 Syntax: `\c [h,w]`
 
-Sets console height and width. This is the same as the [`-c` command line parameter](commandline/#-c-console-size).
+Sets console height and width. This is the same as the [`-c` command line parameter](cmdline/#-c-console-size).
 
 These settings determine when q elides output with `..`
 
@@ -127,7 +127,7 @@ q)til each 20+til 10
 
 Syntax: `\C [h,w]`
 
-Sets the HTTP height and width. This is the same as [command-line option `-C`](commandline/#-c-http-size). 
+Sets the HTTP height and width. This is the same as [command-line option `-C`](cmdline/#-c-http-size). 
 
 
 ## `\cd` – change directory
@@ -202,7 +202,7 @@ q){x where x like"ht??"}system"f .h"
 Syntax: `\g [mode]`
 
 Since V2.7 2011.02.04. Switch garbage collection between immediate (1) and deferred (0) modes.  
-<i class="fa fa-hand-o-right"></i> [`-g` command-line option](commandline/#-g-garbage-collection)
+<i class="fa fa-hand-o-right"></i> [`-g` command-line option](cmdline/#-g-garbage-collection)
 
 
 ## `\l` – load file or directory
@@ -270,7 +270,7 @@ This corresponds to the `-p` command line parameter.
 Syntax: `\P [n]`
 
 Sets display precision for floating point numbers, i.e. the number of digits shown.  
-<i class="fa fa-hand-o-right"></i> [`-P` command-line option](commandline/#-p-display-precision)
+<i class="fa fa-hand-o-right"></i> [`-P` command-line option](cmdline/#-p-display-precision)
 
 
 ## `\r` – replication master
@@ -278,7 +278,7 @@ Sets display precision for floating point numbers, i.e. the number of digits sho
 Syntax: `\r`
 
 This should not be executed manually otherwise it can disrupt replication. It is executed automatically by the replicating process on the master process, and returns the log file name and log file count.  
-<i class="fa fa-hand-o-right"></i> [`-r` command-line option](commandline/#-r-replicate)
+<i class="fa fa-hand-o-right"></i> [`-r` command-line option](cmdline/#-r-replicate)
 
 
 ## `\r` – rename
@@ -512,7 +512,7 @@ Syntax: `\_ [scriptname]`
 This command has two different uses depending on whether a parameter is given.
 
 If no parameter, then `\_` checks if client write access is blocked.  
-<i class="fa fa-hand-o-right"></i> [`-b` command-line option](commandline/#-b-blocked)
+<i class="fa fa-hand-o-right"></i> [`-b` command-line option](cmdline/#-b-blocked)
 
 If a parameter is given, it should be a scriptname and `\_` `f.q` makes a runtime script `f.q_`. The q code cannot be viewed or serialized.
 ```
@@ -603,7 +603,7 @@ q)\ls                 / usual ls command
 
 Syntax: `system x`
 
-where `x` is a [system command](systemcommands), executes it and returns its result.
+where `x` is a [system command](syscmds), executes it and returns its result.
 
 The following shows that the result of `\w` (workspace information) cannot be assigned, but the result can be obtained using `system`.
 ```q

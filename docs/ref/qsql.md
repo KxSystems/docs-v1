@@ -20,7 +20,7 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
     q)t1~t2
     0b
     ```
-Q-SQL templates all have [functional forms](functionalsql), which can be used without performance penalty. 
+Q-SQL templates all have [functional forms](funsql), which can be used without performance penalty. 
 
 <i class="fa fa-hand-o-right"></i> [`select` and `exec` templates](http://code.kx.com/wiki/JB:QforMortals2/queries_q_sql#The_select_and_exec_Templates)
 
@@ -280,7 +280,7 @@ t| 50
 !!! tip "Function-local tables"
     `insert` can insert to global variables only, due to the lookup of the symbol name. If you need to insert to function-local tables, use `table,:data` instead.
 
-<i class="fa fa-hand-o-right"></i> [`,` _join_](listfunctions/#join)
+<i class="fa fa-hand-o-right"></i> [`,` _join_](lists/#join)
 
 
 ## `select`
@@ -440,4 +440,4 @@ r| 4  8
 q)`a upsert ([s:`e`r`q]r:30 4 10;u:70 8 50)   / same but updating table in place
 `a
 ```
-<i class="fa fa-hand-o-right"></i> [`,` _join_](listfunctions/#join), [joins](joins)
+<i class="fa fa-hand-o-right"></i> [`,` _join_](lists/#join), [joins](joins)

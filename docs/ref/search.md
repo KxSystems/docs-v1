@@ -174,7 +174,7 @@ q)(1 2;3 4) in ((1 2;3 4);9)  / x is an item of y
     p5| cam   blue  12     paris
     ```
 
-See also: [`except`](selectionfunctions/#except) [`inter`](selectionfunctions/#inter) [`union`](selectionfunctions/#union) [`within`](#within)
+See also: [`except`](select/#except) [`inter`](select/#inter) [`union`](select/#union) [`within`](#within)
 
 
 ## `within`
@@ -208,6 +208,6 @@ q)(1 3 10 6 4;"acyxmpu") within ((2;"b");(6;"r"))
 0100110b
 ```
 
-See also: [`except`](selectionfunctions/#except) [`in`](#in) [`inter`](selectionfunctions/#inter) [`union`](selectionfunctions/#union) 
+See also: [`except`](select/#except) [`in`](#in) [`inter`](select/#inter) [`union`](select/#union) 
 
 

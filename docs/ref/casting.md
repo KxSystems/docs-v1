@@ -178,7 +178,7 @@ q)0b sv 16#1b
 q)0b sv 8#1b
 0xff
 ```
-<i class="fa fa-hand-o-right"></i> [`sv` lists](listfunctions/#sv)
+<i class="fa fa-hand-o-right"></i> [`sv` lists](lists/#sv)
 
 
 ## `$` – tok
@@ -265,7 +265,7 @@ yyyy/[mm|MMM]/dd
 dd/[mm|MMM]/[yy]yy  / \z 1
 ```
 
-<i class="fa fa-hand-o-right"></i> [`\z` (date format)](systemcommands/#z-date-parsing)
+<i class="fa fa-hand-o-right"></i> [`\z` (date format)](syscmds/#z-date-parsing)
 
 
 ## `vs`

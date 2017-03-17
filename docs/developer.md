@@ -121,7 +121,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [The C IPC interface](http://code.kx.com/wiki/Cookbook/InterfacingWithC#Connecting_to_a_Kdb.2B_server)
 * [Async callbacks](http://code.kx.com/wiki/Cookbook/Callbacks)
 * [`hopen` examples](http://code.kx.com/wiki/Reference/hopen#examples)
-* [IPC protocol and message format](http://code.kx.com/wiki/Reference/ipcprotocol)
+* [IPC protocol and message format](http://code.kx.com/wiki/Reference/ipc)
 * [Q4M2 IPC](http://code.kx.com/wiki/JB:QforMortals2/i_o#Interprocess_Communication)
 * [Server calling the client](http://code.kx.com/wiki/Cookbook/Server_Calling_the_Client)
 * [Using Modified `.z` functions to trace, monitor and control execution](http://code.kx.com/wiki/Contrib/UsingDotz)

@@ -217,7 +217,7 @@ Handle `"` escaping in strings: used to prepare data for CSV export.
 
 ## `-15!x` – `md5`
 
-<i class="fa fa-hand-o-right"></i> [md5](textfunctions/#md5)
+<i class="fa fa-hand-o-right"></i> [md5](strings/#md5)
 
 
 ## `-16!x` – ref count

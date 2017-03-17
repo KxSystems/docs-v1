@@ -171,7 +171,7 @@ q)key x
 `ids
 ```
 
-- a **positive integer**, returns the same result as [til](arithmetic-integer/#til).
+- a **positive integer**, returns the same result as [til](arith-integer/#til).
 ```q
 q)key 10
 0 1 2 3 4 5 6 7 8 9
@@ -203,7 +203,7 @@ Where `x` is a table (by value or reference) returns a table keyed by column nam
 
 - `c` – column name
 - `t` – data type
-- `f` – foreign key (enumeration)
+- `f` – foreign key (enums)
 - `a` – attribute
 
 ```q

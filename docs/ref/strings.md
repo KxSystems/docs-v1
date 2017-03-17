@@ -138,7 +138,7 @@ Returns string `x` with any leading or trailing spaces removed.
 q)trim"   IBM   "
 "IBM"
 ```
-<i class="fa fa-hand-o-right"></i> [_drop_](listfunctions/#_-drop)
+<i class="fa fa-hand-o-right"></i> [_drop_](lists/#_-drop)
 
 ## `upper`
 

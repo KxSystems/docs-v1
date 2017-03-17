@@ -24,7 +24,7 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
     </td>
     <td style="text-align: center; width: 30%">
         [<i class="fa fa-life-ring fa-border fa-5x"></i><br/>
-        Reference](/refcard/)
+        Reference](/ref/card/)
     </td>
     <td style="text-align: center; width: 30%">
         [<i class="fa fa-graduation-cap fa-border fa-5x"></i><br/>

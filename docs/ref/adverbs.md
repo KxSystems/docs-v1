@@ -1,4 +1,4 @@
-Adverbs are primitive higher-order functions: they return derived functions, known as [_derivatives_](#derivatives).  They are much used for [iteration](evaluationcontrol). 
+Adverbs are primitive higher-order functions: they return derived functions, known as [_derivatives_](#derivatives).  They are much used for [iteration](control). 
 ```q
 q)+/[2 3 4]      /reduce 2 3 4 with +
 9
@@ -66,7 +66,7 @@ q)d[1;2;3;4]               / g f[1;2;3;4]
 ```
 
 !!! Tip "Compose a list of functions"
-    This can be extended with [`over`](evaluationcontrol/#over) to compose a list of functions.
+    This can be extended with [`over`](control/#over) to compose a list of functions.
     ```q
     q)g1:{10*x}
     q)d1:('[;]) over (g1;g;f)  / Use ('[;]) so the correct form is used
@@ -165,7 +165,7 @@ q)peach
 k){x':y}
 ```
 
-<i class="fa fa-hand-o-right"></i> [command-line options](commandline), [parallel processing, `peach`](peach)
+<i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [parallel processing, `peach`](peach)
 
 
 ## `':` – each-prior
@@ -250,7 +250,7 @@ q)0+/2 3 4   /binary
 9
 ```
 
-<i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over`](evaluationcontrol/#over) operator.
+<i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over`](control/#over) operator.
 
 
 ## `/` – fold
@@ -348,7 +348,7 @@ q){x y\z}           /alternative syntax using built-in function
 ```
 Note that for the built-in version it is for floats.
 
-<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](evaluationcontrol/#over), [`scan` operator](evaluationcontrol/#scan) 
+<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](control/#over), [`scan` operator](control/#scan) 
 
 
 ## Derivatives

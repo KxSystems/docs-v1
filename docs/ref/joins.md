@@ -29,11 +29,11 @@ In each case, the result has the merge of columns from both arguments. Where nec
 [`uj`](#uj-union-join) union-join 
 : Uses all rows from both tables. If the second table is not keyed, the result is the catenation of the two tables. Otherwise, the result is the left join of the tables, catenated with the unmatched rows of the second table.
 
-[`upsert`](qsqlfunctions/#upsert) 
+[`upsert`](qsql/#upsert) 
 : Can be used to join two tables with matching columns (as well as add new records to a table). If the first table is keyed, any records that match on key are updated. The remaining records are appended.
 
 !!! tip "_Join_ operator"
-    The [_join_ operator](listfunctions/#join) `,` joins tables and dictionaries as well as lists. For tables `t1` and `t2`:
+    The [_join_ operator](lists/#join) `,` joins tables and dictionaries as well as lists. For tables `t1` and `t2`:
     
     - `t1,t2` is `t1 upsert t2`
     - `t1,'t2` joins records to records
@@ -463,7 +463,7 @@ a b| c  d
 ```
 
 !!! note "Generalizing the `,` operator"
-    The `uj` verb is a type of union join that generalizes the [`,` _join_ operator](listfunctions/#join)
+    The `uj` verb is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
 
 
 ## `wj` `wj1` – window-join

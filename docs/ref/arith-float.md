@@ -9,7 +9,7 @@ where `x` and `y` are numeric, returns a float. Note that this is different from
 q)2%3
 0.6666667
 ```
-<i class="fa fa-hand-o-right"></i> [`div` integer division](arithmetic-integer/#div),  [Q for Mortals](http://code.kx.com/wiki/JB:QforMortals2/primitive_operations#Basic_Arithmetic:_.2B.2C_-.2C_.2A.2C_.25)
+<i class="fa fa-hand-o-right"></i> [`div` integer division](arith-integer/#div),  [Q for Mortals](http://code.kx.com/wiki/JB:QforMortals2/primitive_operations#Basic_Arithmetic:_.2B.2C_-.2C_.2A.2C_.25)
 
 
 ## `exp`
@@ -68,7 +68,7 @@ q)prd "abc"
 'type
 ```
 
-<i class="fa fa-hand-o-right"></i> [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic-integer/#sums) 
+<i class="fa fa-hand-o-right"></i> [`sum`](arith-integer/#sum), [`sums`](arith-integer/#sums) 
 
 
 ## `prds`
@@ -90,7 +90,7 @@ q)prds "abc"                 / type error if list is not numeric
 'type
 ```
 
-<i class="fa fa-hand-o-right"></i> [`sum`](arithmetic-integer/#sum), [`sums`](arithmetic-integer/#sums) 
+<i class="fa fa-hand-o-right"></i> [`sum`](arith-integer/#sum), [`sums`](arith-integer/#sums) 
 
 
 ## `ratios`
@@ -124,7 +124,7 @@ q)ratios 1 2 4 6 7 10
     q)select log ratios price from trade
     ```
 
-<i class="fa fa-hand-o-right"></i> [each-prior](adverbs/#each-prior), [`differ`](comparisonfunctions/#differ)
+<i class="fa fa-hand-o-right"></i> [each-prior](adverbs/#each-prior), [`differ`](comparison/#differ)
 
 
 ## `reciprocal`

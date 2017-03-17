@@ -1,4 +1,4 @@
-<i class="fa fa-hand-o-right"></i> [Dictionaries & tables](dictionariesandtables)
+<i class="fa fa-hand-o-right"></i> [Dictionaries & tables](dictsandtables)
 
 
 `asc`
@@ -164,7 +164,7 @@ Setting/unsetting an attribute other than `s`, i.e. `upg`, causes a copy of the 
 q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
 ``s
 ```
-<i class="fa fa-hand-o-right"></i> [`_` drop/cut](qsqlfunctions)
+<i class="fa fa-hand-o-right"></i> [`_` drop/cut](qsql)
 
 
 ## `xrank`

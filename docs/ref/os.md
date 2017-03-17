@@ -1,5 +1,5 @@
 These functions engage with the operating system.  
-<i class="fa fa-hand-o-right"></i> [system commands](systemcommands)
+<i class="fa fa-hand-o-right"></i> [system commands](syscmds)
 
 
 ## `getenv`

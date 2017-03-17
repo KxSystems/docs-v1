@@ -648,7 +648,7 @@ checked against [`.z.K`](dotz/#zk-version) at startup.
 
 Syntax: ==FIXME==
 
-Implements [`\l`](systemcommands/#l-load-file-or-directory). 
+Implements [`\l`](syscmds/#l-load-file-or-directory). 
 
 
 ### `.Q.M` – long infinity
@@ -757,7 +757,7 @@ q).Q.res,key`.q
 
 Syntax: `.Q.s x`
 
-Returns `x` formatted to plain text, as used by the console. Obeys console width and height set by [`\c`](systemcommands/#c-console-size).
+Returns `x` formatted to plain text, as used by the console. Obeys console width and height set by [`\c`](syscmds/#c-console-size).
 ```q
 q).Q.s ([h:1 2 3] m: 4 5 6)
 "h| m\n-| -\n1| 4\n2| 5\n3| 6\n"
@@ -815,7 +815,7 @@ Set a subview
 
 Syntax: `.Q.w[]`
 
-Returns the memory stats from [`\w`](systemcommands/#w-workspace) into a more readable dictionary.
+Returns the memory stats from [`\w`](syscmds/#w-workspace) into a more readable dictionary.
 ```q
 q).Q.w[]
 used| 168304

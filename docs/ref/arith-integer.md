@@ -94,7 +94,7 @@ q)deltas 1 4 9 16
     1    | 252
     ```
 
-See also: [each-prior](adverbs/#each-prior), [differ](comparisonfunctions/#differ), [ratios](arithmetic-float/#ratios)
+See also: [each-prior](adverbs/#each-prior), [differ](comparison/#differ), [ratios](arith-float/#ratios)
 
 
 ## `div`
@@ -124,7 +124,7 @@ q)0x80 div 16
 q)"\023" div 8
 2i
 ```
-<i class="fa fa-hand-o-right"></i> [`%` float division](arithmetic-float/#divide)
+<i class="fa fa-hand-o-right"></i> [`%` float division](arith-float/#divide)
 
 
 ## `floor`
@@ -165,7 +165,7 @@ q)1010b or 1100b  /logical OR with booleans
 1110b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`or` in Logic](logicfunctions/#or-maximum)
+<i class="fa fa-hand-o-right"></i> [`or` in Logic](logic/#or-maximum)
 
 
 ## `-` – minus
@@ -199,7 +199,7 @@ q)1010b and 1100b  /logical AND with booleans
 1000b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`and` in Logic](logicfunctions/#and-minimum)
+<i class="fa fa-hand-o-right"></i> [`and` in Logic](logic/#and-minimum)
 
 
 ## `*` – multiply
@@ -280,7 +280,7 @@ q)sum each flip(0n 8;8 0n) /do this to fall back to vector case
 8 8f
 ```
 
-See also: [prd](arithmetic-float/#prd), [prds](arithmetic-float/#prds)
+See also: [prd](arith-float/#prd), [prds](arith-float/#prds)
 
 
 ## `sums`
@@ -310,7 +310,7 @@ q)sums "abc"                    / type error if list is not numeric
 'type
 ```
 
-<i class="fa fa-hand-o-right"></i> [prd](arithmetic-float/#prd), [prds](arithmetic-float/#prds)
+<i class="fa fa-hand-o-right"></i> [prd](arith-float/#prd), [prds](arith-float/#prds)
 
 
 ## `til`

@@ -87,7 +87,7 @@ q)foo
 !!! warning "Amending vectors"
     Amending vectors through modified selective assignment requires an operator that returns the same datatype. 
 
-<i class="fa fa-hand-o-right"></i> [_amend_ function](listfunctions/#amend)
+<i class="fa fa-hand-o-right"></i> [_amend_ function](lists/#amend)
 
 
 ## Nouns
@@ -399,7 +399,7 @@ q)g 0
 q)c
 0
 ```
-<i class="fa fa-hand-o-right"></i> [error handling](errors), [evaluation control](evaluationcontrol)
+<i class="fa fa-hand-o-right"></i> [error handling](errors), [evaluation control](control)
 
 
 ### Name scope
@@ -543,12 +543,12 @@ q)10(+/)2 3 4  /noun syntax precludes infix
 
 ## Q-SQL
 
-Expressions beginning with `insert`, `select` or `update` employ [q-SQL template syntax](qsqlfunctions). 
+Expressions beginning with `insert`, `select` or `update` employ [q-SQL template syntax](qsql). 
 
 
 ## Control words
 
-The control words `do`, `if`, `while` [govern evaluation](evaluationcontrol). 
+The control words `do`, `if`, `while` [govern evaluation](control). 
 A control word is followed by a bracketed list of expressions:
 
 <code>[e<sub>0</sub>;e<sub>1</sub>;e<sub>2</sub>; … ;e<sub>n</sub>]</code>

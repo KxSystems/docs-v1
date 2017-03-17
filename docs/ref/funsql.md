@@ -1,4 +1,4 @@
-The functional forms of [`delete`](qsqlfunctions/#delete), [`exec`](qsqlfunctions/#exec), [`select`](qsqlfunctions/#select) and [`update`](qsqlfunctions/#update) are particularly useful for programmatically generated queries, such as when column names are dynamically produced. (The q interpreter parses `select`, `exec`, `update` and `delete` into their equivalent functional forms, so there is no performance difference.) The functional forms are
+The functional forms of [`delete`](qsql/#delete), [`exec`](qsql/#exec), [`select`](qsql/#select) and [`update`](qsql/#update) are particularly useful for programmatically generated queries, such as when column names are dynamically produced. (The q interpreter parses `select`, `exec`, `update` and `delete` into their equivalent functional forms, so there is no performance difference.) The functional forms are
 ```q
 ![t;c;b;a]                /update and delete
 ?[t;c;b;a]                /select and exec
@@ -31,7 +31,7 @@ The functional forms of [`delete`](qsqlfunctions/#delete), [`exec`](qsqlfunction
     All q entities in `a`, `b` and `c` must be referenced by name, meaning they appear as symbols containing the entity names.
 
 !!! note "Enlist me"
-    Note throughout the use of [`enlist`](listfunctions/#enlist) to create singletons to ensure that appropriate entities are lists.
+    Note throughout the use of [`enlist`](lists/#enlist) to create singletons to ensure that appropriate entities are lists.
 
 <i class="fa fa-external-link-square"></i> <a href="http://www.q-ist.com/2012/10/functional-query-functions.html" target="_blank">[q-ist] Functional Query Functions.</a> 
  

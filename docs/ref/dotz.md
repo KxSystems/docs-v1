@@ -53,7 +53,7 @@ x| `a`b
 y| ,`a
 ```
 
-<i class="fa fa-hand-o-right"></i> [`\b`](systemcommands/#b-views)
+<i class="fa fa-hand-o-right"></i> [`\b`](syscmds/#b-views)
 
 
 ## `.z.bm` – msg validator
@@ -100,7 +100,7 @@ Syntax: `z.exit:f`
 
 Where `f` is a unary function, `f` is called with the exit parameter as the argument just before exiting the kdb+ session.
 
-The exit parameter is the argument to the [exit](errors/#exit) function, or 0 if manual exit with [`\\` quit](systemcommands/#quit)
+The exit parameter is the argument to the [exit](errors/#exit) function, or 0 if manual exit with [`\\` quit](syscmds/#quit)
 
 `.z.exit` can be unset with `\x .z.exit`, which restores the default behavior.
 
@@ -143,7 +143,7 @@ q))'`up
 ```bash
 os>..
 ```
-<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-close), [`exit`](errors/#exit), [`\\` quit](systemcommands/#quit)
+<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-close), [`exit`](errors/#exit), [`\\` quit](syscmds/#quit)
 
 
 ## `.z.f` – file
@@ -554,7 +554,7 @@ Where `f` is a unary function, `.z.ts` is evaluated on intervals of the timer va
 ```
 When kdb+ has completed executing a script passed as a command-line argument, and if there are no open sockets nor a console, kdb+ will exit. The timer alone is not enough to stop the process exiting – it must have an event source which is a file descriptor (socket, console, or some plugin registering a file descriptor and callback via the C API `sd1` function).
 
-<i class="fa fa-hand-o-right"></i> [`\t`](systemcommands/#t-timer)
+<i class="fa fa-hand-o-right"></i> [`\t`](syscmds/#t-timer)
 
 
 ## `.z.u` – user ID

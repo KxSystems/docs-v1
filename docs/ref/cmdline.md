@@ -77,7 +77,7 @@ q)til each 20+til 10
 0 1 2 3 4 5 6 7 8..
 ..
 ```
-<i class="fa fa-hand-o-right"></i> [`\c`](systemcommands/#c-console-size), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
+<i class="fa fa-hand-o-right"></i> [`\c`](syscmds/#c-console-size), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
 
 
 ## `-C` – HTTP size
@@ -88,7 +88,7 @@ HTTP display maxRows maxCols, default 36 2000
 
 The defaults are 36&times;2000, and values are coerced to the range \[10,2000\].
 
-<i class="fa fa-hand-o-right"></i> [`\C`](systemcommands/#c-http-size), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
+<i class="fa fa-hand-o-right"></i> [`\C`](syscmds/#c-http-size), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
 
 
 
@@ -199,7 +199,7 @@ q)\\
     "7817047037.90"
     ```
 
-<i class="fa fa-hand-o-right"></i> [`\P`](systemcommands/#p-precision), [.Q.f](dotq/#qf-format), [.Q.fmt](dotq/#qfmt-format), [Comparison Tolerance](http://code.kx.com/wiki/Cookbook/ComparisonTolerance), [Float Precision and Equality](http://code.kx.com/wiki/Cookbook/FloatPrecision)
+<i class="fa fa-hand-o-right"></i> [`\P`](syscmds/#p-precision), [.Q.f](dotq/#qf-format), [.Q.fmt](dotq/#qfmt-format), [Comparison Tolerance](http://code.kx.com/wiki/Cookbook/ComparisonTolerance), [Float Precision and Equality](http://code.kx.com/wiki/Cookbook/FloatPrecision)
 
 <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://docs.sun.com/source/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a>
 
