@@ -51,7 +51,7 @@ extra:
 pages:
   - Home: index.md
   - Get started: learn.md
-  - Ref card: ref/card.md
+  - Reference card: ref/card.md
   - Reference: 
     - Adverbs: ref/adverbs.md
     - Command line: ref/cmdline.md

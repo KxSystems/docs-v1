@@ -1,5 +1,5 @@
 <div class="kx-zero">
-<img src="/img/hieroglyphics.png" style="width: 100%"/>
+<img src="../../img/hieroglyphics.png" style="width: 100%"/>
 </div>
 
 Q is bigger than it looks: tokens play different roles, according to context. Here is a complete guide. 
