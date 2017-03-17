@@ -500,7 +500,7 @@ q)+/[10;2 3 4]      /+ over: binary
 | `f2/:`     | [each-right](adverbs/#each-right)     | 2                 |
 | `f1':`     | [each-parallel](adverbs/#each-right)  | 1                 |
 | `f2':`     | [each-prior](adverbs/#each-prior)     | 1, 2              |
-| `f1/`      | [repeat](adverbs/#repeat)             | 2                 |
+| `f1/`      | [repeat](adverbs/#converge-repeat)    | 2                 |
 | `f2/`      | [over](adverbs/#over)                 | 1, 2              |
 | `fn/`      | [fold](adverbs/#fold)                 | n                 |
 | `f1\`      | [converge](adverbs/#converge-iterate) | 1                 |

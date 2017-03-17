@@ -63,7 +63,7 @@ q)r
 q)\t do[100;log til 100000]
 396
 ```
-<i class="fa fa-hand-o-right"></i> [_repeat_](adverbs/#repeat)
+<i class="fa fa-hand-o-right"></i> [_repeat_](adverbs/#converge-repeat)
 
 
 ## `each` 
@@ -127,17 +127,6 @@ r = f[r;x<sub>i</sub>] for i = 1…n
 <i class="fa fa-hand-o-right"></i> [_over_ adverb](adverbs/#over)
 
 
-## `prior` 
-
-Syntax: `f prior x` (binary operator) 
-
-```q
-q)(-)prior 2 3 4   / e.g. same as deltas 2 3 4
-2 1 1
-```
-<i class="fa fa-hand-o-right"></i> [_each-prior_](adverbs/#each-prior)
-
-
 ## `peach`
 
 Syntax: `f peach x` (binary operator) 
@@ -147,7 +136,18 @@ q)peach
 {x':y}
 ```
 
-See [_each-parallel_](#each-parallel) and [Parallel processing](peach)
+See [_each-parallel_](adverbs/#each-parallel) and [Parallel processing](peach)
+
+
+## `prior` 
+
+Syntax: `f prior x` (binary operator) 
+
+```q
+q)(-)prior 2 3 4   / e.g. same as deltas 2 3 4
+2 1 1
+```
+<i class="fa fa-hand-o-right"></i> [_each-prior_](adverbs/#each-prior)
 
 
 ## `scan`

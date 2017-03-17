@@ -1,6 +1,4 @@
-## Changes from v2.8
-
-Below is a summary of changes from v2.8. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
+Below is a summary of changes from V2.8. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
 Vectors are no longer limited to 2 billion elements as they now have a 64-bit length.
 

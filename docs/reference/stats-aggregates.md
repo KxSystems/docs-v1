@@ -1,4 +1,4 @@
-These functions return aggregates from their arguments. In most cases, they return an atom from a simple list, but [`avgs`](#avgs), [`maxs`](#maxa) and [`mins`](#mins) return _running aggregations_.
+These functions return aggregates from their arguments. In most cases, they return an atom from a simple list, but [`avgs`](#avgs-averages), [`maxs`](#maxs-maximums) and [`mins`](#mins-minimums) return _running aggregations_.
 
 
 ## `avg` – average
@@ -68,8 +68,6 @@ q)2 3 5 7 cov 4 3 0 2
 q)select price cov size by sym from trade
 ```
 
-<i class="fa fa-hand-o-right"></i> [`cor`](#cor "correlation"), [`scov`](#scov "statistical covariance")
-
 
 ## `dev` – standard deviation
 
@@ -100,8 +98,6 @@ q)max 0N 0N                        / negative infinity if all null
 q)select max price by sym from t   / use in a select statement
 ```
 
-<i class="fa fa-hand-o-right"></i> [`min`](#min "minimum") 
-
 
 ## `maxs` – maximums
 
@@ -116,8 +112,6 @@ q)maxs "genie"
 q)maxs 0N 5 0N 1 3         / initial nulls return negative infinity
 -0W 5 5 5 5
 ```
-
-<i class="fa fa-hand-o-right"></i> [`mins`](#mins "minimums")
 
 
 ## `med` – median
@@ -136,7 +130,6 @@ q)select med price by sym from trade where date=2001.10.10,sym in`AAPL`LEH
     ```q
     q)select med price by sym from select price,sym from trade where date=2001.10.10,sym in`AAPL`LEH
     ```
-<i class="fa fa-hand-o-right"></i> [`avg`](#avg "average")
 
 
 ## `min` – minimum
@@ -164,9 +157,6 @@ q)select min price by sym from t   / use in a select statement
     0n 3
     ```
 
-<i class="fa fa-hand-o-right"></i> [`avg`](#avg), [`max`](#max), [`min`](#min), [`sum`](#sum)
-
-
 
 ## `mins` – minimums
 
@@ -181,8 +171,6 @@ q)mins "genie"
 q)mins 0N 5 0N 1 3         / initial nulls return infinity
 0W 5 5 1 1
 ```
-
-<i class="fa fa-hand-o-right"></i> [`maxs`](#maxs "maximums")
 
 
 ## `scov` – statistical covariance
@@ -202,8 +190,6 @@ q)2 3 5 7 scov 4 3 0 2
 q)select price scov size by sym from trade
 ```
 
-<i class="fa fa-hand-o-right"></i> [`cov`](#cov "covariance"), [`cor`](#cor "correlation")
-
 
 ## `sdev` – statistical standard deviation
 
@@ -219,8 +205,6 @@ q)sdev 10 343 232 55
 155.1322
 q)select sdev price by sym from trade
 ```
-
-<i class="fa fa-hand-o-right"></i> [`cov`](#cov "covariance"), [`scov`](#scov "statistical covariance"), [`mdev`](#mdev "moving deviation"), [`dev`](#dev "deviation") 
 
 
 ## `svar` – statistical variance
@@ -239,8 +223,6 @@ q)svar 2 3 5 7
 q)select svar price by sym from trade where date=2010.10.10,sym in`IBM`MSFT
 ```
 
-<i class="fa fa-hand-o-right"></i> [`var`](#var "variance")
-
 
 ## `var` – variance
 
@@ -254,8 +236,6 @@ q)var 2 3 5 0n 7
 3.6875
 q)select var price by sym from trade where date=2010.10.10,sym in`IBM`MSFT
 ```
-
-<i class="fa fa-hand-o-right"></i> [`svar`](#svar)
 
 
 ## `wavg` – weighted average
@@ -279,8 +259,6 @@ q)2 0N 4 5 wavg 1 2 0N 8  / nulls in either argument ignored
     a  | 10.75
     ```
 
-<i class="fa fa-hand-o-right"></i> [`ema`](#ema "exponential moving average"), [`wsum`](#wsum "weighted sum")
-
 
 ## `wsum` – weighted sum
 
@@ -293,7 +271,5 @@ q)2 3 4 wsum 1 2 4   / equivalent to sum 2 3 4 * 1 2 4f
 q)2 wsum 1 2 4       / equivalent to sum 2 * 1 2 4
 14
 ```
-
-<i class="fa fa-hand-o-right"></i> [`wavg`](#wavg "weighted average")
 
 

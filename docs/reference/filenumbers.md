@@ -139,7 +139,7 @@ Syntax: `(types;delimiter;allowEmbeddedLineReturns) 0: y`
 
 Where `y` is a _file descriptor_, a string, or a list of strings, returns a vector or matrix interpreted from the content of `y`, where
 
-- `types` is a list of [types](datatypes/#primitive-types) in upper case,
+- `types` is a list of [types](datatypes/#primitive-datatypes) in upper case,
 - `delimiter` is a char atom or 1-item list,
 - `allowEmbeddedLineReturns` (optional, default `0b`, since V3.4) is a boolean atom indicating whether line-returns may be embedded in strings. 
 
@@ -171,7 +171,7 @@ Syntax: `(types; widths) 0: y`
 
 Where `y` is a _file descriptor_ (see above) or a list of strings, returns a vector or matrix interpreted from the content of `y`, where 
 
-- `types` is a list of [types](datatypes/#primitive-types) in upper case
+- `types` is a list of [types](datatypes/#primitive-datatypes) in upper case
 - `widths` is an int vector of field widths
 
 ```q

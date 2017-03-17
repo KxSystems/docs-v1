@@ -37,7 +37,7 @@ and `mySSOAuthenticator` is your custom code that authenticates against your SSO
 
 Note that if `.z.ac` is defined, `.z.pw` will _not_ be called for HTTP connections for authentication.
 
-<i class="fa fa-hand-o-right"></i> [`.z.pw` password check](#zpw-password check)
+<i class="fa fa-hand-o-right"></i> [`.z.pw` password check](#zpw-validate-user)
 
 
 ## `.z.b` – dependencies
@@ -53,7 +53,7 @@ x| `a`b
 y| ,`a
 ```
 
-<i class="fa fa-hand-o-right"></i> [`\b`](systemcommands/#b-viewsdependencies)
+<i class="fa fa-hand-o-right"></i> [`\b`](systemcommands/#b-views)
 
 
 ## `.z.bm` – msg validator
@@ -143,7 +143,7 @@ q))'`up
 ```bash
 os>..
 ```
-<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc), [`exit`](errors/#exit), [`\\` quit](systemcommands/#quit)
+<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-close), [`exit`](errors/#exit), [`\\` quit](systemcommands/#quit)
 
 
 ## `.z.f` – file
@@ -371,7 +371,7 @@ Where `f` is a unary function, called with the object that is passed to the q se
 
 The default behavior is equivalent to setting `.z.pg` to [`value`](metadata/#value) and executes in the root context.
 
-<i class="fa fa-hand-o-right"></i> [`.z.ps`](#zps-port-set)
+<i class="fa fa-hand-o-right"></i> [`.z.ps`](#zps-set)
 
 
 ## `.z.ph` – HTTP get
@@ -411,7 +411,7 @@ Accept         | "text/xml,application/xml,application/xhtml+xml,text/ht..
 Connection     | "keep-alive"
 Host           | "localhost:5001"
 ```
-<i class="fa fa-hand-o-right"></i> [`.z.pp` port post](#zpp-port-post), [.h](doth.md)
+<i class="fa fa-hand-o-right"></i> [`.z.pp` port post](#zpp-http-post), [.h](doth.md)
 
 
 ## `.z.pi` – input
@@ -456,7 +456,7 @@ Where `f` is a unary function, `.z.po` is evaluated when a connection to a kdb+ 
 
 Its argument is the handle and is typically used to build a dictionary of handles to session information like the value of `.z.a`, `.z.u`
 
-<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-port-close), [`.z.pw` password check](#zpw-password-check)
+<i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
 ## `.z.pp` – HTTP post
@@ -490,7 +490,7 @@ q)0 "2+2"
 (`zps;"2+2")
 4
 ```
-<i class="fa fa-hand-o-right"></i> [`.z.pg`](#zpg-port-get)
+<i class="fa fa-hand-o-right"></i> [`.z.pg`](#zpg-get)
 
 
 ## `.z.pw` – validate user
@@ -507,7 +507,7 @@ If `.z.pw` returns `0b` the task attempting to establish the connection will get
 
 The default definition is `{[user;pswd]1b}`
 
-<i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-port-open),  [Changes in 2.4](releases/ChangesIn2.4/#zpw)
+<i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-open),  [Changes in 2.4](releases/ChangesIn2.4/#zpw)
 
 
 ## `z.q` – quiet mode
@@ -554,7 +554,7 @@ Where `f` is a unary function, `.z.ts` is evaluated on intervals of the timer va
 ```
 When kdb+ has completed executing a script passed as a command-line argument, and if there are no open sockets nor a console, kdb+ will exit. The timer alone is not enough to stop the process exiting – it must have an event source which is a file descriptor (socket, console, or some plugin registering a file descriptor and callback via the C API `sd1` function).
 
-<i class="fa fa-hand-o-right"></i> [`\t`](systemcommands#t-p-timer)
+<i class="fa fa-hand-o-right"></i> [`\t`](systemcommands/#t-timer)
 
 
 ## `.z.u` – user ID
@@ -626,7 +626,7 @@ As the connection has been closed by the time `.z.wc` is called there are strict
 
 To allow you to clean up things like tables of users keyed by handle the handle that _was_ being used is passed as a parameter to `.z.wc`.
 
-<i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-port-open), [`.z.pc` port close](#zpc-port-close), [`.z.pw` password check](#zpw-pasword-check)
+<i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-open), [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
 ## `.z.wo` – websocket open
@@ -638,7 +638,7 @@ Where `f` is a unary function, `.z.wo` is evaluated when a websocket connection 
 
 The argument is the handle and is typically used to build a dictionary of handles to session information like the value of `.z.a`, `.z.u`.
 
-<i class="fa fa-hand-o-right"></i> [`.z.wc` websocket close](#zwc-websocket-close), [`.z.po` port open](#zpo-port-open), [`.z.pc` port close](#zpc-port-close), [`.z.pw` password check](#zpw-password-check)
+<i class="fa fa-hand-o-right"></i> [`.z.wc` websocket close](#zwc-websocket-close), [`.z.po` port open](#zpo-open), [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
 ## `.z.ws` – websockets
@@ -694,7 +694,7 @@ xyz| 321f
 efg| `foo
 ```
 
-<i class="fa fa-hand-o-right"></i> [`.z.f`](#zf-script-name)
+<i class="fa fa-hand-o-right"></i> [`.z.f` file](#zf-file)
 
 
 ## `.z.X` - raw command line

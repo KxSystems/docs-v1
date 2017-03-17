@@ -94,7 +94,7 @@ q)deltas 1 4 9 16
     1    | 252
     ```
 
-See also: [each-prior](adverbs/#each-prior), [differ](searchfunctions/#differ), [ratios](arithmetic-float/#ratios)
+See also: [each-prior](adverbs/#each-prior), [differ](comparisonfunctions/#differ), [ratios](arithmetic-float/#ratios)
 
 
 ## `div`
@@ -165,7 +165,7 @@ q)1010b or 1100b  /logical OR with booleans
 1110b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`or` in Logic](logicfunctions/#or)
+<i class="fa fa-hand-o-right"></i> [`or` in Logic](logicfunctions/#or-maximum)
 
 
 ## `-` – minus
@@ -199,7 +199,7 @@ q)1010b and 1100b  /logical AND with booleans
 1000b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`and` in Logic](logicfunctions/#and)
+<i class="fa fa-hand-o-right"></i> [`and` in Logic](logicfunctions/#and-minimum)
 
 
 ## `*` – multiply

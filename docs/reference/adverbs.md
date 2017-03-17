@@ -18,7 +18,7 @@ q)*/[2 3 4]      /reduce 2 3 4 with *
 | `x f/:y`        | [each-right](#each-right)     | apply ``f between `x` and items of `y`             |
 | `f':x`          | [each-parallel](#each-right)  | apply `f` to items of `x` in parallel tasks        |
 | `f':x`          | [each-prior](#each-prior)     | apply `f` between successive pairs of items of `x` |
-| `x f/y`         | [repeat](#repeat)             | apply `f` to `y`, `x` times                        |
+| `x f/y`         | [repeat](#converge-repeat)             | apply `f` to `y`, `x` times                        |
 | `x f/y`         | [over](#over)                 | reduce `y` with `f`                                |
 | `f/[x;y;…]`     | [fold](#fold)                 | reduce `[x;y;…]` with `f`                          |
 | `f\x`           | [converge](#converge-iterate) | apply `f` to `x` until converges                   |

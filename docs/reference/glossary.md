@@ -46,7 +46,7 @@ Domain
 
 Enumeration
 : A representation of a _list_ as indexes of the _items_ in its _nub_ or another list.  
-<i class="fa fa-hand-o-right"></i> [_enum_](listfunctions/#enum)
+<i class="fa fa-hand-o-right"></i> [_enum_](enumeration)
 
 <!--
 Identity element
@@ -85,7 +85,7 @@ Noun
 : A syntactic class applicable to data structures: _atom_, _list_, _dictionary_ and _table_, but also _lambda_, functions and _adverbs_ when treated as such, e.g. `count(+;rotate;/)`
 
 Nub
-: The [`distinct`](listfunctions/#distinct) _items_ of a _list_
+: The [`distinct`](searchfunctions/#distinct) _items_ of a _list_
 
 Operator
 : A _primitive_ _binary_ function that may be applied _infix_ as well as _prefix_, e.g. `+`, `rotate`

@@ -53,6 +53,7 @@ pages:
   - Get started: learn.md
   - Reference card: refcard.md
   - Reference: 
+    - Adverbs: reference/adverbs.md
     - Command line: reference/commandline.md
     - Datatypes: reference/datatypes.md
     - Debugging: reference/debug.md
@@ -73,7 +74,6 @@ pages:
       - Changes in 2.4: reference/releases/ChangesIn2.4.md
       - Withdrawn: reference/withdrawn.md
     - Semantics:
-      - Adverbs: reference/adverbs.md
       - Arithmetic (integer): reference/arithmetic-integer.md
       - Arithmetic (float): reference/arithmetic-float.md
       - Casting: reference/casting.md

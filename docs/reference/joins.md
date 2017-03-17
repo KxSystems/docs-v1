@@ -20,7 +20,7 @@ In each case, the result has the merge of columns from both arguments. Where nec
 [`ij`](#ij-inner-join) inner-join 
 : Joins on the key columns of the second table. The result has one row for each row of the first table that matches the key columns of the second table.
 
-[`lj`](#lj-left-join) left-join 
+[`lj` `ljf`](#lj-ljf-left-join) left-join 
 : Joins on the key columns of the second table. The result has one row for each row of the first table. Null values are used where a row of the first table has no match in the second table. This is now built-in to `,\:`.
 
 [`pj`](#pj-plus-join) plus-join 
