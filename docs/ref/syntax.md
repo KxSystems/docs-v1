@@ -383,7 +383,7 @@ q)(::)~f 10     / matches generic null
 To terminate evaluation successfully and return a value, use an empty assignment, which is `:` with a value to its right and no variable to its left.
 ```q
 q)c:0
-q)f:a:6;b:7;:a*b;c::98}
+q)f:{a:6;b:7;:a*b;c::98}
 q)f 0
 42
 q)c
