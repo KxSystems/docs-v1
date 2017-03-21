@@ -56,7 +56,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 ## <i class="fa fa-database"></i> Big Data
 
 * [Changing the scheme of a splayed table](http://code.kx.com/wiki/Cookbook/SplayedSchemaChange)
-* [Database partitioning with par.txt](http://code.kx.com/wiki/Reference/pardottxt)
+* [Database partitioning with par.txt](ref/unclassified/#partxt)
 * [A load-balancing server](http://code.kx.com/wiki/Cookbook/LoadBalancing)
 * [Loading and exporting with bcp](http://code.kx.com/wiki/Cookbook/Bcp)
 * [Loading large CSV files](http://code.kx.com/wiki/Cookbook/LoadingFromLargeFiles)
@@ -120,8 +120,8 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [IPC in a nutshell](http://code.kx.com/wiki/Cookbook/IPCInANutshell)
 * [The C IPC interface](http://code.kx.com/wiki/Cookbook/InterfacingWithC#Connecting_to_a_Kdb.2B_server)
 * [Async callbacks](http://code.kx.com/wiki/Cookbook/Callbacks)
-* [`hopen` examples](http://code.kx.com/wiki/Reference/hopen#examples)
-* [IPC protocol and message format](http://code.kx.com/wiki/Reference/ipc)
+* [`hopen` examples](ref/filewords/#hopen)
+* [IPC protocol and message format](/ref/ipc)
 * [Q4M2 IPC](http://code.kx.com/wiki/JB:QforMortals2/i_o#Interprocess_Communication)
 * [Server calling the client](http://code.kx.com/wiki/Cookbook/Server_Calling_the_Client)
 * [Using Modified `.z` functions to trace, monitor and control execution](http://code.kx.com/wiki/Contrib/UsingDotz)
@@ -176,16 +176,16 @@ See the [kdb+ GitHub repository index](https://kxsystems.github.io/).
 
 ## <i class="fa fa-calendar"></i> Versions – new features
 
-* [V3.5](/reference/releases/ChangesIn3.5)
-* [V3.4](/reference/releases/ChangesIn3.4)
-* [V3.3](/reference/releases/ChangesIn3.3)
-* [V3.2](/reference/releases/ChangesIn3.2)
-* [V3.1](/reference/releases/ChangesIn3.1)
-* [V3.0](/reference/releases/ChangesIn3.0)
-* [V2.8](/reference/releases/ChangesIn2.8)
-* [V2.7](/reference/releases/ChangesIn2.7)
-* [V2.6](/reference/releases/ChangesIn2.6)
-* [V2.5](/reference/releases/ChangesIn2.5)
-* [V2.4](/reference/releases/ChangesIn2.4)
+* [V3.5](/ref/releases/ChangesIn3.5)
+* [V3.4](/ref/releases/ChangesIn3.4)
+* [V3.3](/ref/releases/ChangesIn3.3)
+* [V3.2](/ref/releases/ChangesIn3.2)
+* [V3.1](/ref/releases/ChangesIn3.1)
+* [V3.0](/ref/releases/ChangesIn3.0)
+* [V2.8](/ref/releases/ChangesIn2.8)
+* [V2.7](/ref/releases/ChangesIn2.7)
+* [V2.6](/ref/releases/ChangesIn2.6)
+* [V2.5](/ref/releases/ChangesIn2.5)
+* [V2.4](/ref/releases/ChangesIn2.4)
 
 Full change list at [downloads.kx.com](http://downloads.kx.com)

@@ -1,7 +1,7 @@
 Below is a summary of changes from V3.4. Commercially licensed users may obtain the detailed change list / release notes from <http://downloads.kx.com>
 
 ## Enhanced debugger
-In V3.5, the debugger has been extended to include the backtrace of the q call stack, including the current line being executed, the filename, line and character offset of code, with a visual indicator (caret) pointing to the operator which failed. The operator and arguments may be captured programmatically for further propagation in error reporting. Backtraces may also be printed at any point by inserting the `.Q.bt[]` command in your code. Please see [here](/reference/debug) for further details.
+In V3.5, the debugger has been extended to include the backtrace of the q call stack, including the current line being executed, the filename, line and character offset of code, with a visual indicator (caret) pointing to the operator which failed. The operator and arguments may be captured programmatically for further propagation in error reporting. Backtraces may also be printed at any point by inserting the `.Q.bt[]` command in your code. Please see [here](/ref/debug) for further details.
 
 ## Concurrent memory allocator
 V3.5 has an improved memory allocator which allows memory to be used across threads without the overhead of serialization, hence the use-cases for _peach_ now expand to include large result sets. 
