@@ -317,16 +317,18 @@ q)sums "abc"                    / type error if list is not numeric
 
 Syntax: `til x` 
 
-**Natural numbers till**: where `x` is a non-negative integer, returns the first `x` integers. 
+**Natural numbers until**: where `x` is a non-negative integer, returns the first `x` integers. 
 ```q
 q)til 0
-`int$()
-q)til 1
+`long$()
+q)til 1b
 ,0
 q)til 5
 0 1 2 3 4
-q)til 5h
+q)til 5f
 'type
+  [0]  til 5f
+       ^
 ```
 
 <i class="fa fa-hand-o-right"></i> [`key`](metadata/#key)
@@ -365,7 +367,7 @@ close| sym
 ...
 ```
 
-!!! tip "Grouping at iregular intervals"
+!!! tip "Grouping at irregular intervals"
     To group at irregular intervals, one solution is to use `bin`.
     ```
     q)x:`s#10:00+00:00 00:08 00:13 00:27 00:30 00:36 00:39 00:50
