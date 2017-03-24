@@ -1,5 +1,10 @@
 Below is a summary of changes from v2.6. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
+
+## Production release date
+
+2010.08.05
+
 ## File Compression
 
 Previous versions of kdb+ were already able to exploit file systems such as ZFS and NTFS that feature compression. Kdb+ v2.7 extends this with built-in file compression with a choice of algorithms and compression levels using a common file format across all supported operating systems.

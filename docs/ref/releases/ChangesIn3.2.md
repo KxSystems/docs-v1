@@ -1,6 +1,11 @@
 Below is a summary of changes from v3.1. Commercially-licensed users may obtain the detailed change list / release notes from [downloads.kx.com](http://downloads.kx.com)
 
 
+## Production release date
+
+2014.08.22
+
+
 ## New
 
 -   allow views to use their previous value as part of their recalc.

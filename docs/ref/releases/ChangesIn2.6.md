@@ -1,5 +1,10 @@
 Below is a summary of changes from v2.5. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
+
+## Production release date
+
+2009.09.15
+
 ## IPC Compression
 
 Compresses data over TCP/IP connections if

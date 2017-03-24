@@ -1,5 +1,11 @@
 Below is a summary of changes from v3.3. Commercially licensed users may obtain the detailed change list / release notes from <http://downloads.kx.com>
 
+
+## Production release date
+
+2016.05.31
+
+
 ## New
 
 -   IPC message size limit raised from 2GB to 1TB.

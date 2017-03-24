@@ -1,5 +1,10 @@
 Below is a summary of changes from V2.8. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
+
+## Production release date
+
+2012.05.29
+
 Vectors are no longer limited to 2 billion elements as they now have a 64-bit length.
 
 The default integer is no longer 32-bit, it is 64-bit. i.e. in k/q 0 is shorthand for `0j`. `0i` represents a 32-bit int.

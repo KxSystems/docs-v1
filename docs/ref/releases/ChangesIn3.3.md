@@ -1,5 +1,11 @@
 Below is a summary of changes from v3.2. Commercially-licensed users may obtain the detailed change list / release notes from [downloads.kx.com](http://downloads.kx.com)
 
+
+## Production release date
+
+2015.06.01
+
+
 ## New
 
 -   Many operations are now 10 times faster – performance of `avg … by`, avg for types G H, sum G, grouping by G H. Also `distinct`/`find` for G H.

@@ -1,5 +1,10 @@
 Below is a summary of changes from V3.4. Commercially licensed users may obtain the detailed change list / release notes from <http://downloads.kx.com>
 
+## Production release date
+
+2017.03.15
+
+
 ## Enhanced debugger
 In V3.5, the debugger has been extended to include the backtrace of the q call stack, including the current line being executed, the filename, line and character offset of code, with a visual indicator (caret) pointing to the operator which failed. The operator and arguments may be captured programmatically for further propagation in error reporting. Backtraces may also be printed at any point by inserting the `.Q.bt[]` command in your code. Please see [here](/ref/debug) for further details.
 

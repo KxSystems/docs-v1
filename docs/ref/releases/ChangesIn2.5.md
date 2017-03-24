@@ -1,5 +1,10 @@
 Below is a summary of changes from v2.4. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
+
+## Production release date
+
+2008.12.15
+
 ## `.z.W`
 
 New feature in 2.5 2008.12.31
