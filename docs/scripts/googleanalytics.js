@@ -7,7 +7,24 @@
 // ga('create', 'UA-3462586-4', 'auto');
 ga('create', 'UA-3462586-1', 'auto');
 // ga('send', 'pageview');
-// report bookmarks 
+// report bookmarks in pageview 
 ga('send', 'pageview', {
  'page': location.pathname + location.search  + location.hash
 });
+// report local bookmark change
+// $(window).hashchange(alert("hash changed");
+// http://stackoverflow.com/questions/4811172/is-it-possible-to-track-hash-links-like-pages-with-google-analytics
+/*$(window).hashchange( function(){
+    _gaq.push(['_trackPageview',location.pathname + location.search  + location.hash]);
+})
+*/
+// WITHOUT overriding 
+// https://developer.mozilla.org/en/docs/Web/API/WindowEventHandlers/onhashchange
+// https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference
+window.addEventListener("hashchange", function(){
+	// alert("hash changed");
+	ga('send', 'pageview', {
+	 'page': location.pathname + location.search  + location.hash
+	});
+    // _gaq.push(['_trackPageview',location.pathname + location.search  + location.hash]);
+}, false);

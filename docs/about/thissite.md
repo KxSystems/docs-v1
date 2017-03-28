@@ -1,5 +1,11 @@
 This site is the successor to the Mediawiki site – which for now can still be found at <http://code.kx.com/wiki>. The Reference section has been migrated from the wiki; the Cookbook will follow. 
 
+## Keyboard shortcuts for Search
+
+In Chrome, Firefox, Safari and Internet Explorer 11, one or more tabs will take you to the site Search box. Results appear as you type. 
+
+In Chrome you can select a result with the arrow keys; in Internet Explorer 11, with the Tab key. 
+
 
 ## Reference
 
