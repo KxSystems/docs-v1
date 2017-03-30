@@ -384,7 +384,8 @@ q)2 total 3 4 5   /but not infix
     q)tenandsum:+/[10;]
     q)tenandsum 2 3 4
     19
-    '''
+    ```
+
 
 <!-- ## Ambivalent functions
 
