@@ -22,7 +22,7 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
     ```
 Q-SQL templates all have [functional forms](funsql), which can be used without performance penalty. 
 
-<i class="fa fa-hand-o-right"></i> [`select` and `exec` templates](http://code.kx.com/wiki/JB:QforMortals2/queries_q_sql#The_select_and_exec_Templates)
+<i class="fa fa-hand-o-right"></i> [_Q for Mortals_: The `select` template](http://code.kx.com/q4m3/9_Queries_q-sql/#93-the-select-template)
 
 
 
@@ -310,12 +310,12 @@ This would return the three best prices for symbol `s` with a size greater than 
 
 This construct works on in-memory tables but not on memory-mapped tables loaded from splayed or partitioned files. Another technique for limiting results from partitioned tables is to apply an additional final constraint
 ```q
-select … where …,(n&amp;count i)#1b
+select … where …,(n&count i)#1b
 ```
 which limits the results to `n` per partition.
 
 !!! tip "Performance characteristic"
-    `select[n]` applies the where-clause on all rows of the table, and takes the first `n` rows, before applying the select-clause. So if you are paging it is better to store the result of the query somewhere and `select[n,m]` from there. rather than run the filter again.
+    `select[n]` applies the where-clause on all rows of the table, and takes the first `n` rows, before applying the select-clause. So if you are paging it is better to store the result of the query somewhere and `select[n,m]` from there, rather than run the filter again.
 
 
 ### Performance 
@@ -411,7 +411,7 @@ a b
 
 ## `update`
 
-<i class="fa fa-hand-o-right"></i> [`update` template](http://code.kx.com/wiki/JB:QforMortals2/queries_q_sql#The_update_Template)
+<i class="fa fa-hand-o-right"></i> [_Q for Mortals_: The `update` template](http://code.kx.com/q4m3/9_Queries_q-sql/#95-the-update-template)
 
 
 ## `upsert`

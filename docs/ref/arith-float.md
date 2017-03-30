@@ -9,7 +9,7 @@ where `x` and `y` are numeric, returns a float. Note that this is different from
 q)2%3
 0.6666667
 ```
-<i class="fa fa-hand-o-right"></i> [`div` integer division](arith-integer/#div),  [Q for Mortals](http://code.kx.com/wiki/JB:QforMortals2/primitive_operations#Basic_Arithmetic:_.2B.2C_-.2C_.2A.2C_.25)
+<i class="fa fa-hand-o-right"></i> [`div` integer division](arith-integer/#div),  [Q for Mortals](http://code.kx.com/q4m3/4_Operators/#44-basic-arithmetic-)
 
 
 ## `exp`

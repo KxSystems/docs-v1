@@ -51,7 +51,7 @@ q)(key;value)@\:e
     ```
     To expand the domain, use `?` (_enum-extend_) instead of `$`.
 
-<i class="fa fa-hand-o-right"></i> [Q for Mortals: Enumerations](http://code.kx.com/wiki/JB:QforMortals/casting_and_enumerations)
+<i class="fa fa-hand-o-right"></i> [Q for Mortals: Enumerations](http://code.kx.com/q4m3/7_Transforming_Data/#75-enumerations)
 
 
 ## `?` – enum-extend

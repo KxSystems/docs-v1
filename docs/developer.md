@@ -122,7 +122,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [Async callbacks](http://code.kx.com/wiki/Cookbook/Callbacks)
 * [`hopen` examples](ref/filewords/#hopen)
 * [IPC protocol and message format](/ref/ipc)
-* [Q4M2 IPC](http://code.kx.com/wiki/JB:QforMortals2/i_o#Interprocess_Communication)
+* [Q4M3 IPC](http://code.kx.com/q4m3/11_IO/#116-interprocess-communication)
 * [Server calling the client](http://code.kx.com/wiki/Cookbook/Server_Calling_the_Client)
 * [Using Modified `.z` functions to trace, monitor and control execution](http://code.kx.com/wiki/Contrib/UsingDotz)
 

@@ -731,7 +731,6 @@ p5 400
 ```
 
 - a table and `y` is a table, returns matching rows, together with the respective keys. This is similar to retrieving multiple records through the square brackets syntax, except _take_ also returns the keys. 
-<i class="fa fa-hand-o-right"></i> Q4M: [Retrieving Multiple Records](http://code.kx.com/wiki/JB:QforMortals2/tables#Retrieving_Multiple_Records)
 ```q
 q)([]s:`s1`s2)#s
 s | name  status city  
@@ -739,6 +738,7 @@ s | name  status city
 s1| smith 20     london
 s2| jones 10     paris 
 ```
+<i class="fa fa-hand-o-right"></i> [_Q for Mortals_: Retrieving Multiple Records](http://code.kx.com/q4m3/8_Tables/#845-retrieving-multiple-records)
 
 
 

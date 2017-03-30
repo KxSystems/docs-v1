@@ -63,7 +63,7 @@ A back tick without characters after it represents the _empty symbol_: `` ` ``.
     `hello world
     ```
 
-<i class="fa fa-hand-o-right"></i> [Q for Mortals](http://code.kx.com/wiki/JB:QforMortals2/atoms#Character_Data)
+<i class="fa fa-hand-o-right"></i> [Q for Mortals](http://code.kx.com/q4m3/2_Basic_Data_Types_Atoms/#24-text-data)
 
 
 ### Filepaths
