@@ -83,7 +83,7 @@ q)tot[2;til 6]  / binary
 - [x] Substitute _matrixes_ for _matrices_
 - [x] Substitute _simple table_ for _keyed table_
 - [x] Substitute _UTC_ for _GMT_
-- [ ] Replace links from q/ref to V1 and V2 of _Q for Mortals_ with links to code.kx.com/q4m3 
+- [x] Replace links from q/ref to V1 and V2 of _Q for Mortals_ with links to code.kx.com/q4m3 
 - [ ] Tabulate .h and .Q contents on q/ref/card
 - [ ] Distribute throughout the pages under Reference/Semantics references to .h, .Q and .z functions 
 - [ ] Unify q/ref/card and help.q and derive from same source
