@@ -1,4 +1,4 @@
-Below is a summary of changes from v2.7. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
+Below is a summary of changes from V2.7. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
 
 ## Production release date
@@ -8,7 +8,7 @@ Below is a summary of changes from v2.7. Commercially licensed users may obtain 
 
 ## Streaming File Compression
 
-Built-in file compression was added in v2.7, however the compression required that the file existed on disk before it could compress it. This is enhanced in v2.8 which allows files to be compressed as they are written. This is achieved through the overriding of "set", in that the LHS target of set can be a list describing the file or splay target, with the compression parameters. For example
+Built-in file compression was added in V2.7, however the compression required that the file existed on disk before it could compress it. This is enhanced in V2.8 which allows files to be compressed as they are written. This is achieved through the overriding of "set", in that the LHS target of set can be a list describing the file or splay target, with the compression parameters. For example
 
 ```q
 `:ztest;17;2;6) set asc 10000?`3

@@ -125,7 +125,7 @@ q)x inter y
 x y z
 q)
 ```
-Returns common rows from unkeyed tables.
+Returns common rows from simple tables.
 ```q
 q)show x:([]a:`x`y`z`t;b:10 20 30 40)
 a b
@@ -304,7 +304,7 @@ q)raze x #' til count x:2 3 0 1
 
 Syntax: `x xprev y` (uniform)
 
-Where `x` is an integer atom and `y` is a list, returns for each item of `y` the item `x` indices before it. The first `x` elements of the result are null, empty or blank as appropriate.
+Where `x` is an integer atom and `y` is a list, returns for each item of `y` the item `x` indices before it. The first `x` items of the result are null, empty or blank as appropriate.
 
 !!! Tip 
     There is no `xnext` function. Fortunately `xprev` with a negative number on the left can achieve this.

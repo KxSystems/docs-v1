@@ -37,7 +37,7 @@ Use cases include coarse load-balancing and HA/failover.
 
 Kdb+ uses a hybrid sort, selecting the algorithm it deems best for the data type, size and domain of the input. With V3.5, this has been tweaked to improve significantly the sort performance of certain distributions, typically those including a null. e.g.
 ```q
- q)a:@[10000001?100000;0;:;0N];system"t iasc a" / 5x faster than v3.4
+ q)a:@[10000001?100000;0;:;0N];system"t iasc a" / 5x faster than V3.4
 ```
 
 
@@ -45,12 +45,12 @@ Kdb+ uses a hybrid sort, selecting the algorithm it deems best for the data type
 
 V3.5 significantly improves the performance of `bin`, `find`, `distinct` and various joins for large inputs, particularly for multi-column input. The larger the data set, the better the performance improvement compared to previous versions. e.g.
 ```q
-q)nn:166*n:60000;v1:50?v2:neg[100]?`2;t1:`c1`c2`c3#n?t2:([]c1:`g#nn?v1;c2:nn?v1;c3:nn?v2;val:nn?100);system"ts t1 lj 3!t2" / 100x faster than v3.4
-q)a:-1234567890 123456789,100000?10;b:1000?a;system each("ts:100 distinct a";"ts:1000 a?b") / 30% faster than v3.4
+q)nn:166*n:60000;V1.50?V2.neg[100]?`2;t1:`c1`c2`c3#n?t2:([]c1:`g#nn?V1.c2:nn?V1.c3:nn?V2.val:nn?100);system"ts t1 lj 3!t2" / 100x faster than V3.4
+q)a:-1234567890 123456789,100000?10;b:1000?a;system each("ts:100 distinct a";"ts:1000 a?b") / 30% faster than V3.4
 ```
 
 
-## NUCs - not upwardly compatible
+## NUCs – not upwardly compatible
 
 We have tried to make the process of upgrading seamless, however please pay attention to the following NUCs to consider whether they impact your particular installation
 
@@ -59,7 +59,7 @@ We have tried to make the process of upgrading seamless, however please pay atte
 q)([a:1 2 3]b:2 3 7;c:10 20 30;d:"WEC")~([a:1 2]b:2 3;c:5 7;d:"WE")ujf([a:1 2 3]b:2 3 7;c:10 20 30;d:"  C")
 ```
 
-- constants limit in lambdas reduced from 96 to 95; could cause existing user code to throw `'constants` error. e.g.
+- constants limit in lambdas reduced from 96 to 95; could cause existing user code to signal `'constants` error. e.g.
 ```q
 q)value raze"{",(string[10+til 96],\:";"),"}"
 ```
@@ -97,4 +97,4 @@ Even though we have run a wide range of tests on V3.5, and various customers hav
 
 ## Detailed change list
 
-There are also a number of smaller enhancements and fixes; please see the detailed change list (README.txt) on downloads.kx.com - ask your company support representative to download this for you.
+There are also a number of smaller enhancements and fixes; please see the detailed change list (README.txt) on downloads.kx.com –ß∑ ask your company support representative to download this for you.

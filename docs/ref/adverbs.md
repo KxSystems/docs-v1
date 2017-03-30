@@ -353,7 +353,7 @@ Note that for the built-in version it is for floats.
 
 ## Derivatives
 
-The semantics of a derivative – what it does – is determined by 
+The semantics of a derivative – what it does – is determined by 
 
 - the rank of the adverb’s function argument/s
 - how the derivative is applied

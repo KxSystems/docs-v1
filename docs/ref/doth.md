@@ -8,21 +8,21 @@ Syntax: `.h.br`
 Returns the string `"<br>"`. 
 
 
-## `.h.c0` – web color
+## `.h.c0` – web color
 
 Syntax: `.h.c0`
 
 Returns as a symbol a web color used by the web console.
 
 
-## `.h.c1` – web color
+## `.h.c1` – web color
 
 Syntax: `.h.c1`
 
 Returns as a symbol a web color used by the web console.
 
 
-## `.h.cd` – CSV from data
+## `.h.cd` – CSV from data
 
 Syntax: `.h.cd x`
 
@@ -120,7 +120,7 @@ q).h.hb["http://www.example.com";"Example.com Main Page"]
 ```
 
 
-## `.h.hc` – escape lt
+## `.h.hc` – escape lt
 
 Syntax: `.h.hc x`
 
@@ -142,7 +142,7 @@ q).h.he "<rubbish>"
 ```
 
 
-## `.h.hn` – HTTP error
+## `.h.hn` – HTTP error
 
 Syntax: `.h.hn[x;y;z]`
 
@@ -159,7 +159,7 @@ Contains the string “html”.
 -->
 
 
-## `.h.hp`  – HTTP response
+## `.h.hp`  – HTTP response
 
 Syntax: `.h.hp x`
 
@@ -170,7 +170,7 @@ q).h.hp("foo";"bar")
 ```
 
 
-## `.h.hr` – horizontal rule
+## `.h.hr` – horizontal rule
 
 Syntax: `.h.hr x`
 
@@ -181,7 +181,7 @@ q).h.hr "foo"
 ```
 
 
-## `.h.ht` – Marqdown to HTML 
+## `.h.ht` – Marqdown to HTML 
 
 Syntax: `.h.ht x`
 
@@ -280,7 +280,7 @@ q).h.hu "http://www.kx.com"
 ```
 
 
-## `.h.hug` – URI map
+## `.h.hug` – URI map
 
 Syntax: `.h.hug x`
 
@@ -294,7 +294,7 @@ Syntax: `.h.hy[x;y]`
 Where `x` is a symbol atom and `y` is a string, returns as a string `y` as an HTTP response for content-type `x`.
 
 
-## `.h.iso8601` – ISO timestamp
+## `.h.iso8601` – ISO timestamp
 
 Syntax: `.h.iso8601 x`
 
@@ -305,7 +305,7 @@ q).h.iso8601 100
 ```
 
 
-## `.h.jx` – table
+## `.h.jx` – table
 
 Syntax: `.h.jx[x;y]`
 
@@ -355,7 +355,7 @@ Syntax: `.h.logo`
 Returns as a string the kx.com logo in HTML format.
 
 
-## `.h.nbr` – no break
+## `.h.nbr` – no break
 
 Syntax: `.h.nbr x`
 
@@ -366,7 +366,7 @@ q).h.nbr "foo bar"
 ```
 
 
-## `.h.pre` – pre
+## `.h.pre` – pre
 
 Syntax: `.h.pre x`
 
@@ -377,7 +377,7 @@ q).h.pre("foo";"bar")
 ```
 
 
-## `.h.sa` – style
+## `.h.sa` – style
 
 Syntax: `.h.sa`
 
@@ -411,7 +411,7 @@ q).h.sc
 <i class="fa fa-hand-o-right"></i> [`.h.hu`](#hhu-uri-escape)
 
 
-## `.h.td` – TSV
+## `.h.td` – TSV
 
 Syntax: `.h.td x`
 
@@ -425,7 +425,7 @@ q).h.td ([]a:1 2 3;b:`x`y`z)
 ```
 
 
-## `.h.text` – paragraphs
+## `.h.text` – paragraphs
 
 Syntax: `.h.text x`
 
@@ -436,7 +436,7 @@ q).h.text("foo";"bar")
 ```
 
 
-## `.h.tx` – filetypes
+## `.h.tx` – filetypes
 
 Syntax: `.h.tx`
 
@@ -452,7 +452,7 @@ xls | k){ex eb es[`Sheet1]x}
 ```
 
 
-## `.h.ty` – MIME types
+## `.h.ty` – MIME types
 
 Syntax: `.h.ty`
 
@@ -481,7 +481,7 @@ q).h.uh "http%3a%2f%2fwww.kx.com"
 ```
 
 
-## `.h.xd` – XML
+## `.h.xd` – XML
 
 Syntax: `.h.xd x`
 
@@ -496,7 +496,7 @@ q).h.xd ([]a:1 2 3;b:`x`y`z)
 ```
 
 
-## `.h.xmp` – xmp
+## `.h.xmp` – xmp
 
 Syntax: `.h.xmp x`
 
@@ -507,7 +507,7 @@ q).h.xmp("foo";"bar")
 ```
 
 
-## `.h.xs` – XML escape
+## `.h.xs` – XML escape
 
 Syntax: `.h.xs x`
 

@@ -22,7 +22,7 @@ q).Q.addmonths[2006.10.29;4]
 ```
 
 
-### `.Q.addr` – IP address
+### `.Q.addr` – IP address
 
 Syntax: `.Q.host x`
 
@@ -86,11 +86,11 @@ Syntax: `.Q.def[x;y]`
 ==FIXME==
 
 
-### `.Q.dpft` – save table
+### `.Q.dpft` – save table
 
 Syntax: ``.Q.dpft[directory;partition;`p#field;tablename]``
 
-Saves an unkeyed table splayed to a specific `partition` of a database sorted (`` `p#``) on a specified `field`. 
+Saves a simple table splayed to a specific `partition` of a database sorted (`` `p#``) on a specified `field`. 
 
 !!! warning 
     The table cannot be keyed. This will signal an `'unmappable` error if there are columns which are not vectors or simple nested columns (e.g. char vectors for each row).
@@ -134,7 +134,7 @@ t     b
 ```
 
 
-### `.Q.dsftg` – load process save
+### `.Q.dsftg` – load process save
 
 Syntax: `.Q.dsftg[d;s;f;t;g]`
 
@@ -193,7 +193,7 @@ q)10 xlog 0Wj-1
 
 Syntax: `.Q.fc[x;y]`
 
-Where `x` is is a unary atomic function and `y` is a list, returns the result of evaluating `f vec` – using multiple threads if possible. (Since V2.6)
+Where `x` is is a unary atomic function and `y` is a list, returns the result of evaluating `f vec` – using multiple threads if possible. (Since V2.6)
 ```q
 q -s 8
 q)f:{2 xexp x}
@@ -256,7 +256,7 @@ Syntax: `.Q.fk x`
 Where `x` is a table column, returns `` ` `` if the column is not a foreign key or `` `tab`` if the column is a foreign key into `tab`.(Since V2.4t)
 
 
-### `.Q.fmt` – format
+### `.Q.fmt` – format
 
 Syntax: `.q.fmt[x;y;z]`
 
@@ -384,7 +384,7 @@ s4| clark 20     london
 ```
 
 
-### `.Q.fu` – apply unique
+### `.Q.fu` – apply unique
 
 Syntax: `.Q.fu[x;y]`
 
@@ -398,7 +398,7 @@ q)y ~ y2 / returns 1b, the outputs are equal
 ```
 
 
-### `.Q.gc` – garbage collect
+### `.Q.gc` – garbage collect
 
 Syntax: `.Q.gc[]`
 
@@ -490,14 +490,14 @@ symw| 24964
 So if you have many nested data, e.g. columns of char vectors, or an awful lot of grouping you may be fragmenting memory quite heavily.
 
 
-### `.Q.hdpf` – save tables
+### `.Q.hdpf` – save tables
 
 Syntax: ``.Q.hdpf[historicalport;directory;partition;`p#field]``
 
 Saves all tables by calling `.Q.dpft`, clears tables, and sends reload message to HDB.
 
 
-### `.Q.hg` – HTTP get
+### `.Q.hg` – HTTP get
 
 Syntax: `.Q.hg x`
 
@@ -525,7 +525,7 @@ It will utilize proxy settings from the environment, lower-case versions taking 
 N.B. HTTPS is not supported across proxies which require `CONNECT`.
 
 
-### `.Q.host` – hostname
+### `.Q.host` – hostname
 
 Syntax: `.Q.host x`
 
@@ -546,7 +546,7 @@ Where `x` is a URL as a symbol atom, `y` is a MIME type as a string, and `z` is 
 (Since V3.4)
 
 
-### `.Q.id` – purge
+### `.Q.id` – purge
 
 Syntax: `.Q.id x`
 
@@ -568,7 +568,7 @@ a ab
 ```
 
 
-### `.Q.ind` – partitioned index
+### `.Q.ind` – partitioned index
 
 Syntax: `.Q.ind[x;y]`
 
@@ -600,10 +600,10 @@ q)(select from trade where date=2010.01.07)~.Q.ind[trade;(exec first sum x from 
     ```
 
 
-### `.Q.j10` – encode binhex  
-### `.Q.x10` – decode binhex  
+### `.Q.j10` – encode binhex  
+### `.Q.x10` – decode binhex  
 ### `.Q.j12` – encode base64  
-### `.Q.x12` – decode base64 
+### `.Q.x12` – decode base64 
 
 Syntax: `.Q.j10 s`  
 Syntax: `.Q.x10 s`  
@@ -644,14 +644,14 @@ Returns the interpreter version number for which q.k has been written:
 checked against [`.z.K`](dotz/#zk-version) at startup. 
 
 
-### `.Q.l` – load
+### `.Q.l` – load
 
 Syntax: ==FIXME==
 
 Implements [`\l`](syscmds/#l-load-file-or-directory). 
 
 
-### `.Q.M` – long infinity
+### `.Q.M` – long infinity
 
 Syntax: `.Q.M`
 
@@ -692,7 +692,7 @@ Where `x` is ==FIXME==
 <i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv)
 
 
-### `.Q.par` – locate partition
+### `.Q.par` – locate partition
 
 Syntax: `.Q.par[dir;part;table]`
 
@@ -708,7 +708,7 @@ q)all{`p=attr .Q.par[`:.;x;`quote]`sym}each  date
 ```
 
 
-### `.Q.qp` – is partitioned
+### `.Q.qp` – is partitioned
 
 Syntax: `.Q.qp x`
 
@@ -734,7 +734,7 @@ q).Q.qp C
 ```
 
 
-### `.Q.qt` – is table
+### `.Q.qt` – is table
 
 Syntax: `.Q.qt x`
 
@@ -745,7 +745,7 @@ Where `x` is a table, returns `1b`, else `0b`.
 
 Syntax: `.Q.res`
 
-Returns the k control words and verbs defined as symbols. ``key `.q`` returns the functions defined to extend k to the q language. Hence to get the full list of reserved words for the current version:
+Returns the k control words and functions as a symbol vector. ``key `.q`` returns the functions defined to extend k to the q language. Hence to get the full list of reserved words for the current version:
 ```q
 q).Q.res,key`.q
 `abs`acos`asin`atan`avg`bin`binr`cor`cos`cov`delete`dev`div`do`enlist`exec`ex..
@@ -778,7 +778,7 @@ q).Q.ty 1 2.
 ```
 
 
-### `.Q.v` – value
+### `.Q.v` – value
 
 Syntax: `.Q.v x`
 
@@ -811,7 +811,7 @@ Set a subview
 ```
 
 
-### `.Q.w` – memory stats
+### `.Q.w` – memory stats
 
 Syntax: `.Q.w[]`
 
@@ -854,13 +854,13 @@ q)type get`:emptyNestedCharVector
 ## Partitioned database state
 
 
-### `.Q.bv` – build vp
+### `.Q.bv` – build vp
 
 Syntax: `.Q.bv[]`  
 Syntax: ``.Q.bv[`]``
 
 In partitioned DBs, construct the dictionary `.Q.vp` of table schemas for tables with missing partitions. Optionally allow tables to be missing from partitions, by scanning partitions for missing tables and taking the tables’ prototypes from the last partition. After loading/re-loading from the filesystem, invoke `.Q.bv[]` to (re)populate `.Q.vt`/`.Q.vp`, which are used inside `.Q.p1` during the partitioned select `.Q.ps`.
-(Since v2.8 2012.01.20, modified  V3.0 2012.01.26)
+(Since V2.8 2012.01.20, modified  V3.0 2012.01.26)
 
 If your table exists at least in the latest partition (so there is a prototype for the schema), you could use `.Q.bv[]` to create empty tables on the fly at run-time without having to create those empties on disk. ``.Q.bv[`]`` (with argument) will use prototype from first partition instead of last. (Since V3.2 2014.08.22.)
 
@@ -973,7 +973,7 @@ Syntax: `.Q.pt`
 Returns a list of partitioned tables.
 
 
-### `.Q.PV` – partition values
+### `.Q.PV` – partition values
 
 Syntax: `.Q.PV`
 
@@ -994,14 +994,14 @@ q).Q.PV
 ```
 
 
-### `.Q.pv` – modified partition values
+### `.Q.pv` – modified partition values
 
 Syntax: `.Q.pv`
 
 In partitioned DBs, `.Q.PV` as modified by `.Q.view`.
 
 
-### `.Q.vp` – missing partitions
+### `.Q.vp` – missing partitions
 
 Syntax: `.Q.vp`
 
@@ -1030,7 +1030,7 @@ q)@[get;"select from tt";-2@]; / no error
 ## Segmented database state
 
 
-### `.Q.D` – partitions 
+### `.Q.D` – partitions 
 
 Syntax: `.Q.D`
 
@@ -1064,7 +1064,7 @@ q).Q.P
 ```
 
 
-### `.Q.u` – date based
+### `.Q.u` – date based
 
 Syntax: `.Q.u`
 

@@ -152,7 +152,7 @@ q)floor -2.1 0 2.1
     ```
 
 
-## `|` `or` – maximum
+## `|` `or` – maximum
 
 Syntax: `x | y` (atomic)  
 Syntax: `x or y` (atomic) 
@@ -168,7 +168,7 @@ q)1010b or 1100b  /logical OR with booleans
 <i class="fa fa-hand-o-right"></i> [`or` in Logic](logic/#or-maximum)
 
 
-## `-` – minus
+## `-` – minus
 
 Syntax: `x - y`
 
@@ -186,7 +186,7 @@ q)-3 -2 -1 0 1 2 3 4 mod 3
 ```
 
 
-## `&` `and` – minimum
+## `&` `and` – minimum
 
 Syntax: `x and y` (atomic)  
 Syntax: `x & y` (atomic)

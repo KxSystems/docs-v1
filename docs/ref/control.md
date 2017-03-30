@@ -103,7 +103,7 @@ q)r
 
 Syntax: `f over x` (binary operator) 
 
-Where `f` is a binary function, applies `f` between successive elements of its argument. 
+Where `f` is a binary function, applies `f` between successive items of its argument. 
 ```q
 q){x+2*y} over 2 3 5 7
 32
@@ -180,7 +180,7 @@ Syntax: `while[test;e1;e2;e3;…;en]` (control word)
 - `test` is an expression that evaluates to an atom
 - `e1`, `e2`, … `en` are expressions
 
-Unless `test` evaluates to zero, the expressions `e1` to `en` are evaluated, in order. The cycle – evaluate `test`, then the expressions – continues until ``test` evaluates to zero. 
+Unless `test` evaluates to zero, the expressions `e1` to `en` are evaluated, in order. The cycle – evaluate `test`, then the expressions – continues until ``test` evaluates to zero. 
 
 ```q
 q)r:1 1

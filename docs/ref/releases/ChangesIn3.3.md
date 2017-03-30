@@ -1,4 +1,4 @@
-Below is a summary of changes from v3.2. Commercially-licensed users may obtain the detailed change list / release notes from [downloads.kx.com](http://downloads.kx.com)
+Below is a summary of changes from V3.2. Commercially-licensed users may obtain the detailed change list / release notes from [downloads.kx.com](http://downloads.kx.com)
 
 
 ## Production release date
@@ -12,7 +12,7 @@ Below is a summary of changes from v3.2. Commercially-licensed users may obtain 
 -   `+/` `&/` `|/` `=` `<` are 10-20x faster for GH, `avg` is a lot faster for GHIJ.
 -   `+/I` will give `0Ni` on overflow.
 -   Faster and stricter JSON parser. It is approx 50-100x faster and can process Unicode.
--   `` `g`` attr can (again) be created in threads other than main thread. In v3.2, we removed the limit on number of concurrent vectors which can have `` `g`` attr, and a side-effect was that `` `g`` attr could be created on the main thread only. That restriction has now been removed.
+-   `` `g`` attr can (again) be created in threads other than main thread. In V3.2, we removed the limit on number of concurrent vectors which can have `` `g`` attr, and a side-effect was that `` `g`` attr could be created on the main thread only. That restriction has now been removed.
 -   Read-only eval of parse tree. The new keyword `reval`, backed by `-24!`, behaves similarly to `eval` (`-6!`), but evaluates the parse tree in read-only mode, as if the cmd line option `-b` were active for the duration of the reval call. This should prove useful for access control.
 -   Improve performance of on-disk sort for un-cached splayed tables.
 -   Allow processing of `http://host:port/.json?query` requests.

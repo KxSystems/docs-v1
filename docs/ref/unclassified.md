@@ -75,14 +75,14 @@ with directories :
 
 ### Some Considerations
 
--   the data should be partitioned correctly across the partitions - i.e. data for a particular date should reside in the partition for that date (see `.Q.par`).
+-   the data should be partitioned correctly across the partitions – i.e. data for a particular date should reside in the partition for that date (see `.Q.par`).
 -   the slave/directory partitioning is for both read and write.
 -   the directories pointed to in `par.txt` may only contain appropriate database subdirectories. Any other content (file or directory) will give an `` `error ``.
 -   the same subdirectory name may be in multiple `par.txt` partitions. For example, this would allow symbols to be split, as in A-M on /0/db, N-Z on /1/db (e.g. to work around the 2-billion row limit). Aggregations are handled correctly, as long as data is properly split (not duplicated). Note that in this case, the same day would appear on multiple partitions.
 
 
 
-## `::` – null
+## `::` – null
 
 Q does not have a dedicated null type. Instead `::` is used to denote a generic null value. For example, functions that return no value, return `::`.
 ```q
@@ -96,7 +96,7 @@ When a unary function is called with no arguments, `::` is passed in.
 q)enlist {x}[]
 ::
 ```
-Since `::` has a type for which no vector variant exists, it is useful to prevent a mixed list from being coerced into a vector when all elements happen to be of the same type. (This is important when you need to preserve the ability to add non-conforming items later.)
+Since `::` has a type for which no vector variant exists, it is useful to prevent a mixed list from being coerced into a vector when all items happen to be of the same type. (This is important when you need to preserve the ability to add non-conforming items later.)
 ```
 q)x:(1;2;3)
 q)x,:`a

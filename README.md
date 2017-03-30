@@ -34,7 +34,7 @@ Links from the Reference and Cookbook to _Q for Mortals_ will be replaced with l
 
 ## Not upwardly compatible 
 
-Rewriting the Reference material required agreeing the vocabulary in which q is described. 
+Rewriting the Reference material required agreeing the [vocabulary](http://code.kx.com/q/ref/glossary) in which q is described. 
 
 The term _verb_ had been inherited from the [J programming language](http://jsoftware.com) but was an inexact fit for q, besides being a term unfamiliar to programmers generally. 
 
@@ -55,9 +55,7 @@ q)g["abc";"xyz"]  / each-prior derivative is binary
 "yx"
 "zy"
 ```
-
-!!! note "Higher-order functions"
-    Adverbs take functions as arguments but are not alone in doing so: operators such as `fby`, `over`, and `scan` do so, as may any lambda. This is unremarkable in functional languages. 
+Adverbs take functions as arguments but are not alone in doing so: operators such as `fby`, `over`, and `scan` do so, as may any lambda. This is unremarkable in functional languages. 
 
 K has _ambivalent_ primitives, e.g. `-` can be applied infix as the binary function _subtract_ or prefix as the unary function _negate_.
 ```k
@@ -78,6 +76,13 @@ q)tot[2;til 6]  / binary
 
 ## To do
 
+- [x] Substitute _operator_ for _verb_
+- [x] Substitute _item_ for _element_
+- [x] Substitute _signal_ for _throw_
+- [x] Substitute _indexes_ for _indices_
+- [x] Substitute _matrixes_ for _matrices_
+- [x] Substitute _simple table_ for _keyed table_
+- [x] Substitute _UTC_ for _GMT_
 - [ ] Replace links from q/ref to V1 and V2 of _Q for Mortals_ with links to code.kx.com/q4m3 
 - [ ] Tabulate .h and .Q contents on q/ref/card
 - [ ] Distribute throughout the pages under Reference/Semantics references to .h, .Q and .z functions 

@@ -14,11 +14,11 @@ The functional forms of [`delete`](qsql/#delete), [`exec`](qsql/#exec), [`select
 
 `b`
 : is a dictionary of **group-by**-specifications (by phrase). 
-: The domain of `b` is a list of symbols that are the key names for the grouping. The range of `b` is a list of column expressions whose results are used to construct the groups. The grouping is ordered by the domain elements, from major to minor.
+: The domain of `b` is a list of symbols that are the key names for the grouping. The range of `b` is a list of column expressions whose results are used to construct the groups. The grouping is ordered by the domain items, from major to minor.
 
 `a`
 : is a dictionary of **select** specifications (aggregations). 
-: The domain of `a` is a list of symbols containing the names of the produced columns. Each element of the range of `a` is an evaluation list consisting of a function and its argument/s, each of which is a column name or another such result list. For each evaluation list, the function is applied to the specified value(s) for each row and the result is returned. The evaluation lists are resolved recursively when operations are nested.
+: The domain of `a` is a list of symbols containing the names of the produced columns. Each item of the range of `a` is an evaluation list consisting of a function and its argument/s, each of which is a column name or another such result list. For each evaluation list, the function is applied to the specified value(s) for each row and the result is returned. The evaluation lists are resolved recursively when operations are nested.
 
 `i`
 : is a list of indexes

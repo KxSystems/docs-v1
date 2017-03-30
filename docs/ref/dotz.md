@@ -1,7 +1,7 @@
 The `.z` namespace contains system variables and functions, and hooks for calbacks. (The namespace is reserved for use by Kx, as are all single-letter namespaces.) 
 
 
-## `.z.a` – IP address
+## `.z.a` – IP address
 
 Syntax: `.z.a`
 
@@ -17,7 +17,7 @@ q)"i"$0x0 vs .z.a
 ```
 
 
-## `.z.ac` – HTTP auth from cookie
+## `.z.ac` – HTTP auth from cookie
 
 Syntax: `z.ac:x`
 
@@ -40,7 +40,7 @@ Note that if `.z.ac` is defined, `.z.pw` will _not_ be called for HTTP connectio
 <i class="fa fa-hand-o-right"></i> [`.z.pw` password check](#zpw-validate-user)
 
 
-## `.z.b` – dependencies
+## `.z.b` – dependencies
 
 Syntax: `z.b`
 
@@ -56,7 +56,7 @@ y| ,`a
 <i class="fa fa-hand-o-right"></i> [`\b`](syscmds/#b-views)
 
 
-## `.z.bm` – msg validator
+## `.z.bm` – msg validator
 
 Syntax: `z.bm:x`
 
@@ -66,7 +66,7 @@ Kdb+ before V2.7 was sensitive to being fed malformed data structures, sometimes
 
 1. calls `.z.bm` with a 2-item list: `(handle;msgBytes)`
 2. close the handle and call `.z.pc`
-3. throws `'badmsg`
+3. signals `'badmsg`
 
 E.g. with the callback defined
 ```q
@@ -89,12 +89,12 @@ Syntax: `.z.e`
 TLS connection status now reported via `.z.e`
 ```q
 q)0N!h".z.e";
-`CIPHER`PROTOCOL!`AES128-GCM-SHA256`TLSv1.2
+`CIPHER`PROTOCOL!`AES128-GCM-SHA256`TLSV1.2
 ```
 Since V3.4 2016.05.16.
 
 
-## `.z.exit` – action on exit
+## `.z.exit` – action on exit
 
 Syntax: `z.exit:f`
 
@@ -159,7 +159,7 @@ q).z.f
 <i class="fa fa-hand-o-right"></i> [`.z.x` argv](#zx-argv)
 
 
-## `.z.h` – host
+## `.z.h` – host
 
 Syntax: `.z.h`
 
@@ -201,7 +201,7 @@ q).z.i
 ```
 
 
-## `.z.k` – release date
+## `.z.k` – release date
 
 Syntax: `.z.k`
 
@@ -215,7 +215,7 @@ This value is checked against `.Q.k` as part of the startup to make sure that th
 <i class="fa fa-hand-o-right"></i> [`.z.K` version](#zk-version)
 
 
-## `.z.K` – version
+## `.z.K` – version
 
 Syntax: `.z.K`
 
@@ -247,7 +247,7 @@ The important fields are `(maxCoresAllowed;expiryDate;updateDate;…;bannerText)
 
 Syntax: `.z.n`
 
-Returns system GMT time as timespan in nanoseconds.
+Returns system UTC time as timespan in nanoseconds.
 (V2.6 upwards.)
 ```q
 q).z.n
@@ -255,7 +255,7 @@ q).z.n
 ```
 
 
-## `.z.N` – local timespan
+## `.z.N` – local timespan
 
 Syntax: `.z.N`
 
@@ -267,7 +267,7 @@ q).z.N
 ```
 
 
-## `.z.o` – OS version
+## `.z.o` – OS version
 
 Syntax: `.z.o`
 
@@ -334,7 +334,7 @@ q)
 ```
 
 
-## `.z.pd` – peach handles
+## `.z.pd` – peach handles
 
 Syntax: `.z.pd:x`
 
@@ -414,7 +414,7 @@ Host           | "localhost:5001"
 <i class="fa fa-hand-o-right"></i> [`.z.pp` port post](#zpp-http-post), [.h](doth.md)
 
 
-## `.z.pi` – input
+## `.z.pi` – input
 
 Syntax: `.z.pi:f`
 
@@ -441,7 +441,7 @@ q)\x .z.pi
 <i class="fa fa-hand-o-right"></i> [Changes in V2.4](releases/ChangesIn2.4/#zpi)
 
 
-## `.z.pm` – HTTP options
+## `.z.pm` – HTTP options
 
 Pass HTTP OPTIONS method through to `.z.pm` as (`` `OPTIONS;requestText;requestHeaderDict)``
 
@@ -465,7 +465,7 @@ Syntax: `.z.pp:f`
 
 Where `f` is a unary function, `.z.pp` is evaluated when an HTTP POST request is received in the kdb+ session.
 
-There is no default implementation, but an example would be that it calls [`value`](metadata/#value) on the first element of its argument and returns the result to the calling task.
+There is no default implementation, but an example would be that it calls [`value`](metadata/#value) on the first item of its argument and returns the result to the calling task.
 
 See `.z.ph` for details of the argument.
 
@@ -557,7 +557,7 @@ When kdb+ has completed executing a script passed as a command-line argument, an
 <i class="fa fa-hand-o-right"></i> [`\t`](syscmds/#t-timer)
 
 
-## `.z.u` – user ID
+## `.z.u` – user ID
 
 Syntax: `.z.u`
 
@@ -568,7 +568,7 @@ q).z.u
 ```
 
 
-## `.z.vs` – value set
+## `.z.vs` – value set
 
 Syntax: `.z.vs:f`
 
@@ -629,19 +629,19 @@ To allow you to clean up things like tables of users keyed by handle the handle 
 <i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-open), [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
-## `.z.wo` – websocket open
+## `.z.wo` – websocket open
 
 Syntax: `.z.wo:f`
 
 Where `f` is a unary function, `.z.wo` is evaluated when a websocket connection to a kdb+ session has been initialized, i.e. _after_ it's been validated against any `-u`/`-U` file and `.z.pw` checks.
-(Since v3.3t 2014.11.26)
+(Since V3.3t 2014.11.26)
 
 The argument is the handle and is typically used to build a dictionary of handles to session information like the value of `.z.a`, `.z.u`.
 
 <i class="fa fa-hand-o-right"></i> [`.z.wc` websocket close](#zwc-websocket-close), [`.z.po` port open](#zpo-open), [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
-## `.z.ws` – websockets
+## `.z.ws` – websockets
 
 Syntax: `z.ws:f`
 
@@ -652,7 +652,7 @@ Sending a websocket message is limited to async messages only (sync is `'nyi`). 
 The default definition is to echo the message back to the client, i.e. `{neg[.z.w]x}`
 
 
-## `.z.x` – argv
+## `.z.x` – argv
 
 Syntax: `.z.x`
 

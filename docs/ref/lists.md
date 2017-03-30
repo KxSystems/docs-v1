@@ -1,4 +1,4 @@
-## `@` – amend
+## `@` – amend
 
 Syntax: `@[x;y;f;z]`
 
@@ -31,7 +31,7 @@ q)@[d;1 1 1;+;3]
 Syntax: `count x` (unary, aggregate)  
 
 Returns the number of items in `x` (rows for a table and entries for dictionary). 
-Use with `each` to count the number of elements at each level of a list or dictionary.
+Use with `each` to count the number of items at each level of a list or dictionary.
 ```q
 q)count 42  / an atom has 1 item
 1
@@ -110,7 +110,7 @@ q)4 cut til 10
 
 
 
-## `_` – cut
+## `_` – cut
 
 Syntax: `x _ y` 
 
@@ -169,7 +169,7 @@ s1 p5 400
 ```
 
 
-## `_` – drop
+## `_` – drop
 
 Syntax: `x _ y`
 
@@ -291,7 +291,7 @@ a b c
 ```
 
 
-## `^` – fill 
+## `^` – fill 
 
 Syntax: `x^y` (atomic) 
 
@@ -378,7 +378,7 @@ q)D~flip flip D
 ```
 
 
-## `,` – join
+## `,` – join
 
 Syntax: `x join y`
 
@@ -556,7 +556,7 @@ q)` sv ("one";"two";"three")      / use host line separator
 q)` sv `:/home/kdb/q`data`2010.03.22`trade
 `:/home/kdb/q/data/2010.03.22/trade
 ```
-If the first element is not a file handle, returns a symbol where the elements are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
+If the first item is not a file handle, returns a symbol where the items are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
 ```q
 q)` sv `mywork`dat
 `mywork.dat
@@ -564,7 +564,7 @@ q)` sv `mywork`dat
 <i class="fa fa-hand-o-right"></i> [`sv` decode](casting/#sv)
 
 
-## `#` – take
+## `#` – take
 
 Syntax: `x # y`
 
@@ -666,7 +666,7 @@ q)0N 3#til 10
     q)enlist[2]#til 10
     0 1
     ```
-    From V3.4, `x` can have length greater than 2 – but may not contain nulls.
+    From V3.4, `x` can have length greater than 2 – but may not contain nulls.
     ```q
     q)(2 2 3#til 5)~((0 1 2;3 4 0);(1 2 3;4 0 1))
     1b
@@ -677,7 +677,7 @@ q)0N 3#til 10
     ```
     The effect of nulls in `x` changed in V3.3.
         
-    Prior to v3.3:
+    Prior to V3.3:
     ```q
     q)3 0N # til 10
     (0 1 2 3;4 5 6 7;8 9)
@@ -742,7 +742,7 @@ s2| jones 10     paris
 
 
 
-## `?` – vector conditional
+## `?` – vector conditional
 
 Syntax: `?[x;y;z]`
 

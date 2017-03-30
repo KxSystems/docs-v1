@@ -3,8 +3,8 @@
 Syntax: `x bin  y` (atomic)  
 Syntax: `x binr y` (atomic)
 
-_Binary search_ returns the index of the _last_ element in `x` which is `<=y`. The result is `-1` for `y` less than the first element of `x`.
-`binr` _binary search right_, introduced in V3.0 2012.07.26, gives the index of the _first_ element in `x` which is `>=y`.
+_Binary search_ returns the index of the _last_ item in `x` which is `<=y`. The result is `-1` for `y` less than the first item of `x`.
+`binr` _binary search right_, introduced in V3.0 2012.07.26, gives the index of the _first_ item in `x` which is `>=y`.
 
 It uses a binary-search algorithm, which is generally more efficient on large data than the linear-search algorithm used by `?`.
 
@@ -43,7 +43,7 @@ q)1 2 3 3 4 ? 2 3
 
 Syntax: `distinct x`
 
-Returns the distinct (unique) elements of `x`.
+Returns the distinct (unique) items of `x`.
 ```q
 q)distinct 2 3 7 3 5 3
 2 3 7 5

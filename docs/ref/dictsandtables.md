@@ -35,7 +35,7 @@ a b c
 
 Syntax: `group x`
 
-Returns a dictionary in which the keys are the distinct items of `x`, and the values the indices where the distinct elements occur. The order of the keys is the order in which they appear in `x`.
+Returns a dictionary in which the keys are the distinct items of `x`, and the values the indices where the distinct items occur. The order of the keys is the order in which they appear in `x`.
 ```q
 q)group "mississippi"
 m| ,0
@@ -43,7 +43,7 @@ i| 1 4 7 10
 s| 2 3 5 6
 p| 8 9
 ```
-To count the number of occurrences of each distinct element:
+To count the number of occurrences of each distinct item:
 ```q
 q)count each group "mississippi"
 m| 1
@@ -51,7 +51,7 @@ i| 4
 s| 4
 p| 2
 ```
-To get the index of the first occurrence of each distinct element:
+To get the index of the first occurrence of each distinct item:
 ```q
 q)first each group "mississippi"
 m| 0
@@ -67,7 +67,7 @@ Syntax: `x ! y`
 
 Where `x` is a non-negative integer atom and `y` is a table, returns a table:
 
-- if `x` is positive and `y` is unkeyed, returns `y` with `x` key columns.
+- if `x` is positive and `y` is simple, returns `y` with `x` key columns.
 ```q
 q)t:([]a:1 2 3;b:10 20 30;c:`x`y`z)
 q)2!t
@@ -77,7 +77,7 @@ a b | c
 2 20| y
 3 30| z
 ```
-- if `x` is 0, returns an unkeyed table.
+- if `x` is 0, returns a simple table.
 ```q
 q)t:([a:1 2 3]b:10 20 30;c:`x`y`z)
 q)0!t
@@ -270,7 +270,7 @@ q)cols trade
 
 Syntax: `cols xcols table`
 
-Where `table` is an unkeyed table (passed by value) of which symbol vector `xcols` lists some or all of the column names, returns `table` with `cols` as its first column/s.
+Where `table` is a simple table (passed by value) of which symbol vector `xcols` lists some or all of the column names, returns `table` with `cols` as its first column/s.
 ```q
 q)\l trade.q
 q)cols trade

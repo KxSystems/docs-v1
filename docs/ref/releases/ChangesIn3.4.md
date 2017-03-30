@@ -1,4 +1,4 @@
-Below is a summary of changes from v3.3. Commercially licensed users may obtain the detailed change list / release notes from <http://downloads.kx.com>
+Below is a summary of changes from V3.3. Commercially licensed users may obtain the detailed change list / release notes from <http://downloads.kx.com>
 
 
 ## Production release date

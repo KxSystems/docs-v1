@@ -1,4 +1,4 @@
-Below is a summary of changes from v2.6. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
+Below is a summary of changes from V2.6. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
 
 ## Production release date
@@ -7,7 +7,7 @@ Below is a summary of changes from v2.6. Commercially licensed users may obtain 
 
 ## File Compression
 
-Previous versions of kdb+ were already able to exploit file systems such as ZFS and NTFS that feature compression. Kdb+ v2.7 extends this with built-in file compression with a choice of algorithms and compression levels using a common file format across all supported operating systems.
+Previous versions of kdb+ were already able to exploit file systems such as ZFS and NTFS that feature compression. Kdb+ V2.7 extends this with built-in file compression with a choice of algorithms and compression levels using a common file format across all supported operating systems.
 
 For further details, please see the file compression FAQ [Cookbook/FileCompression](http://code.kx.com/wiki/Cookbook/FileCompression "wikilink").
 
@@ -18,7 +18,7 @@ Strings stored as a symbol type have always been internalized in kdb+; this mean
 
 ## Memory Allocator – Garbage Collection
 
-Kdb+ v2.5 returned blocks of memory >32MB back to the operating system immediately when they were no longer referenced. This has now been extended to cache those blocks for reuse, allowing the user to explicitly request garbage collection via the command `.Q.gc[]`. This improves the performance of the allocator to levels seen prior to v2.5, and yet retains the convenience of returning unused memory to the operating system. Garbage collection will automatically be attempted if a memory request causes wsful or if the artificial memory limit (set via cmd line `-w` option) is hit.
+Kdb+ V2.5 returned blocks of memory >32MB back to the operating system immediately when they were no longer referenced. This has now been extended to cache those blocks for reuse, allowing the user to explicitly request garbage collection via the command `.Q.gc[]`. This improves the performance of the allocator to levels seen prior to V2.5, and yet retains the convenience of returning unused memory to the operating system. Garbage collection will automatically be attempted if a memory request causes wsful or if the artificial memory limit (set via cmd line `-w` option) is hit.
 
 <div id="IPCMessageValidator" style="display:none"></div>
 ## IPC Message Validator
@@ -27,7 +27,7 @@ Previous versions of kdb+ were sensitive to being fed malformed data structures,
 
 1. calls `.z.bm` with a single arg, a list of `(handle;msgBytes)`
 2. close the handle and call `.z.pc`
-3. throws `'badmsg`
+3. signals `'badmsg`
 
 e.g. with the callback defined
 

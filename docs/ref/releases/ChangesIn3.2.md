@@ -1,4 +1,4 @@
-Below is a summary of changes from v3.1. Commercially-licensed users may obtain the detailed change list / release notes from [downloads.kx.com](http://downloads.kx.com)
+Below is a summary of changes from V3.1. Commercially-licensed users may obtain the detailed change list / release notes from [downloads.kx.com](http://downloads.kx.com)
 
 
 ## Production release date
@@ -28,7 +28,7 @@ Below is a summary of changes from v3.1. Commercially-licensed users may obtain 
 
 ## Not upwardly compatible
 
--   views cannot be triggered for recalc from socket threads - throws `'threadview`.
+-   views cannot be triggered for recalc from socket threads – signals `'threadview`.
 -   view loop detection is no longer performed during view creation; now is during the view recalc.
 -   `var`, `dev`, `cov`, `cor` and `enlist` are now reserved words.
 -   `` `g`` attr can be set on a vector in main thread only.

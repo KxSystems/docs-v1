@@ -31,7 +31,7 @@ q)(2%1+10)ema p
 
 Syntax: `x mavg y` (binary, uniform)
 
-Moving average: where `x` is an int atom (not infinite), returns the `x`-item **moving averages** of numeric list `y`, with any nulls after the first element replaced by zero. The first `x` items of the result are the averages of the terms so far, and thereafter the result is the moving average. The result is floating point.
+Moving average: where `x` is an int atom (not infinite), returns the `x`-item **moving averages** of numeric list `y`, with any nulls after the first item replaced by zero. The first `x` items of the result are the averages of the terms so far, and thereafter the result is the moving average. The result is floating point.
 ```q
 q)2 mavg 1 2 3 5 7 10
 1 1.5 2.5 4 6 8.5
@@ -47,7 +47,7 @@ q)5 mavg 0N 2 0N 5 7 0N    / nulls after the first are replaced by 0
 
 Syntax: `x mcount y` (binary, uniform)
 
-The `mcount` verb returns the `x`-item **moving counts** of the non-null items of  numeric list `y`. The first `x` items of the result are the counts so far, and thereafter the result is the moving count.
+The `mcount` operator returns the `x`-item **moving counts** of the non-null items of  numeric list `y`. The first `x` items of the result are the counts so far, and thereafter the result is the moving count.
 ```q
 q)3 mcount 0 1 2 3 4 5
 1 2 3 3 3 3
@@ -61,7 +61,7 @@ q)3 mcount 0N 1 2 3 0N 5
 
 Syntax: `x mdev y` (binary, uniform)
 
-Returns the floating-point `x`-item **moving deviations** of numeric list `y`, with any nulls after the first element replaced by zero. The first `x` items of the result are the deviations of the terms so far, and thereafter the result is the moving deviation. 
+Returns the floating-point `x`-item **moving deviations** of numeric list `y`, with any nulls after the first item replaced by zero. The first `x` items of the result are the deviations of the terms so far, and thereafter the result is the moving deviation. 
 ```q
 q)2 mdev 1 2 3 5 7 10
 0 0.5 0.5 1 1 1.5

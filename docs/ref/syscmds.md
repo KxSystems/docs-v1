@@ -251,7 +251,7 @@ Sets the listening port number. The default is 0 (no listening port). The port m
 
 A negative parameter sets a [multi-threaded](peach) port and if used it must be the initial and only mode of operation, i.e. do not dynamically switch between positive port and negative port.
 
-A parameter of `0W` means pick a random available port within the range 32768 - 60999.
+A parameter of `0W` means pick a random available port within the range 32768–60999.
 ```q
 q)\p 5010     / set port 5010
 q)\p
@@ -538,7 +538,7 @@ q)read1`:t1.q_          / file contents are scrambled
 ```
 
 
-## `\` – terminate
+## `\` – terminate
 
 If there is a suspension, this exits one level of the suspension. Otherwise, it toggles between q and k mode. (To switch languages from inside a suspension, type "`\`".)
 ```q
@@ -557,7 +557,7 @@ q)
 ```
 
 
-## `\` – toggle q/k 
+## `\` – toggle q/k 
 
 In the interactive session `\` toggles between the q and k interpreters.
 ```q

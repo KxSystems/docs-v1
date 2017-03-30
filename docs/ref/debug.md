@@ -182,7 +182,7 @@ During abort, the stack is unwound up to the nearest trap (`@` or `.` or `.Q.trp
 `\e` sets the mode applied before async and HTTP callbacks run. Thus, `\e 1` will cause the relevant handlers to break into the debugger, while `\e 2` will dump the backtrace either to the server console (for async), or into the socket (for HTTP).
 ```q
 q)\e 2
-q)'type             / incoming async msg throws 'type
+q)'type             / incoming async msg signals 'type
   [2]  f@:{x*y}
             ^
   [1]  f:{{x*y}[x;3#x]}

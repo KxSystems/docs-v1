@@ -162,7 +162,7 @@ q)grp:`a`b`a`b`c`d`c`d`d`a
 q)(sum;dat) fby grp
 11 4 11 4 10 20 10 20 20 11
 ```
-Collect the items of `data` into sublists according to the elements of `group`.
+Collect the items of `data` into sublists according to the items of `group`.
 ```
 0 2 9  (`a)
 1 3    (`b)
@@ -235,7 +235,7 @@ s1 p5 400
 ```
 
 !!! note "`fby` before V2.7"
-    In V2.6 and below, `fby`’s behaviour is undefined if the aggregation function returns a list; it usually signals an error from the k definition of `fby`. However, if the concatenation of all list results from the aggregation function results `raze` has the same length as the original vectors, a list of some form is returned, but the order of its elements is not clearly defined.
+    In V2.6 and below, `fby`’s behaviour is undefined if the aggregation function returns a list; it usually signals an error from the k definition of `fby`. However, if the concatenation of all list results from the aggregation function results `raze` has the same length as the original vectors, a list of some form is returned, but the order of its items is not clearly defined.
 
 
 ## `insert`
@@ -361,7 +361,7 @@ a
 
 ### Scope
 
-When compiling functions, the implicit args `x`, `y`, `z` are visible to the compiler only when they are not inside the select-, by- and where-clauses. The from-clause is not masked. This can be observed by taking the value of the function and observing the first element (args).
+When compiling functions, the implicit args `x`, `y`, `z` are visible to the compiler only when they are not inside the select-, by- and where-clauses. The from-clause is not masked. This can be observed by taking the value of the function and observing the first item (args).
 ```q
 q)value{} / no explicit args, so x is a default implicit arg of identity (::)
 0x100001

@@ -354,7 +354,7 @@ q)value f
 ``d`e
 5
 "{[a;b]d::neg c:a*b+5;c+e}"
-q)/ Now define in .test context - globals refer to current context of test
+q)/ Now define in .test context – globals refer to current context of test
 q)\d .test
 q.test)f:{[a;b]d::neg c:a*b+5;c+e}
 q.test)value f

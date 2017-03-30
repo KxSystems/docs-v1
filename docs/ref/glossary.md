@@ -64,6 +64,9 @@ Item, list item
 Juxtaposition
 : Literally, ‘putting beside’. Juxtaposing a list with a list or atom indexes the former with the latter, e.g. `"abcde"1 4 3`. Juxtaposing a _unary_ function and a noun applies the former to the latter, e.g. `til 5`. “Indexing is application.” 
 
+Keyed table
+: A table of which one or more columns have been defined as its key. A table’s key/s (if any) are supposed to be distinct: updating the table with rows with existing keys overwrites the previous records with those keys. A table without keys is a _simple table_. 
+
 Lambda
 : A function defined in the _lambda notation_
 
@@ -120,6 +123,9 @@ Reference
 Signature
 : The list of up to 8 _argument_ names that (optionally) begins a _lambda_, e.g. in `{[a;b](a*a)+(b*b)+2*a*b}`, the argument list `[a;b]` is the signature
 
+Simple table 
+: A table with no key/s defined; i.e. not a _keyed table_
+
 String
 : There is no string datatype in q. “String” in q means a char _vector_, e.g. "abc". 
 
@@ -139,10 +145,10 @@ Vector
 : A uniform list of basic types that has a special shorthand notation. A char vector is known as a _string_. 
 
 x
-: Default name of the first or only _argument_ of an _unsigned_ function
+: Default name of the first or only _argument_ of a _peaceful_ function
 
 y
-: Default name of the second _argument_ of an _unsigned_ function, or right-argument to an _operator_
+: Default name of the second _argument_ of a _peaceful_ function, or right-argument to an _operator_
 
 z
-: Default name of the third _argument_ of an _unsigned_ function
+: Default name of the third _argument_ of a _peaceful_ function

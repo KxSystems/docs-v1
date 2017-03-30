@@ -55,7 +55,7 @@ Trap always receives a string regardless of the type of `x`.
     q)f"a"        /q will not signal a char
     "trap:stype"
     ```
-    Using an undefined word throws a signal
+    Using an undefined word signals the word as an error
     ```q
     q)'word
     'word
@@ -96,7 +96,7 @@ q)@[{'x};"signal this";(`e;)]
 `e
 "signal this"
 ```
-This can be used to return a result unambiguously indicating whether the function succeeded. Here, the first element of the pair indicates success or failure, while the second element is either the result or the error. This is useful when `0` or `()` might be valid results. 
+This can be used to return a result unambiguously indicating whether the function succeeded. Here, the first item of the pair indicates success or failure, while the second item is either the result or the error. This is useful when `0` or `()` might be valid results. 
 ```q
 q)@[(1b;){1+x}@;0;(0b;)]
 1b

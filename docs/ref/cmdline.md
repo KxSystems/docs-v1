@@ -229,14 +229,14 @@ and with `-q`
 ```
 
 
-## `-r` – replicate
+## `-r` – replicate
   
 Syntax: `-r :H:P[:user[:password]]`
   
 Replicate from :host:port
 
 
-## `-s` – slaves
+## `-s` – slaves
   
 Syntax: `-s N
   

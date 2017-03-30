@@ -54,14 +54,14 @@ In each case, the time column in the first argument specifies \[) intervals in t
 : A simpler `aj` where all columns (or dictionary keys) of the second argument are used in the join.
 
 
-## `aj` `aj0` – asof-join 
+## `aj` `aj0` – asof-join 
 
 Syntax: <code>aj[c<sub>1</sub>…c<sub>n</sub>;t1;t2]</code>
 
 Where 
 
 - `t1` is a table
-- `t2` is an unkeyed table 
+- `t2` is a simple table 
 - <code>c<sub>1</sub>…c<sub>n</sub></code> is a symbol list of column names, common to `t1` and `t2`, and of matching type
 - column <code>c<sub>n</sub></code> is of a sortable type (typically time)
 
@@ -183,7 +183,7 @@ A   2000.08.04| 00846U101 AGILENT TECHNOLOGIES  INC      0  N  100
 ```
 
 
-## `^` – coalesce
+## `^` – coalesce
 
 Syntax: `t1 ^ t2`
 
@@ -237,7 +237,7 @@ k| c1   c2
     The performance of `^` is slower than that of `,` since each column value of the right operand must be checked for null.
 
 
-## `ej` – equi-join
+## `ej` – equi-join
 
 Syntax: `ej[c;t1;t2]`
 
@@ -268,7 +268,7 @@ IBM  0.2608152 N   1000
 MSFT 0.5433888 CME 250
 ```
 
-## `ij` – inner-join
+## `ij` – inner-join
 
 Syntax: `t1 ij t2`
 
@@ -323,7 +323,7 @@ MSFT 0.5433888 CME 250
     ```
 
 
-## `lj` `ljf` – left-join
+## `lj` `ljf` – left-join
 
 Syntax: `t1 lj t2`
 
@@ -360,7 +360,7 @@ c d
 ```
 
 !!! note "Changes in V3.0"
-    Since V3.0, the `lj` verb is a cover for `,\:` (_comma join_) that allows the left argument to be a keyed table. `,\:` was introduced in V2.7 2011.01.24.
+    Since V3.0, the `lj` operator is a cover for `,\:` (_comma join_) that allows the left argument to be a keyed table. `,\:` was introduced in V2.7 2011.01.24.
 
     Prior to V3.0, `lj` had similar behavior, with one difference - when there are nulls in the right argument, `lj` in V3.0 uses the right-argument null, while the earlier version left the corresponding value in the left argument unchanged:
     ```q
@@ -388,7 +388,7 @@ c d
     Since 2014.05.03, the earlier version is available in all V3.x versions as `ljf`.
 
 
-## `pj` – plus-join
+## `pj` – plus-join
 
 Syntax: `t1 pj t2`
 
@@ -446,7 +446,7 @@ a b c  d
 3 7 30 C
 q)s,t                            / tables do not conform for ,
 'mismatch
-q)s uj t                         / unkeyed, so second table is inserted
+q)s uj t                         / simple, so second table is inserted
 a b c  d
 --------
 1 2 5
@@ -463,16 +463,16 @@ a b| c  d
 ```
 
 !!! note "Generalizing the `,` operator"
-    The `uj` verb is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
+    The `uj` operator is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
 
 
-## `wj` `wj1` – window-join
+## `wj` `wj1` – window-join
 
 Syntax: `wj[w;c;t;(q;(f0;c0);(f1;c1))]`
 
 Where:
 
-- `t` and `q` are unkeyed tables to be joined. (`q` should be sorted `` `sym`time `` with `` `p# `` on sym)
+- `t` and `q` are simple tables to be joined. (`q` should be sorted `` `sym`time `` with `` `p# `` on sym)
 - `w` is a pair of lists of times/timestamps, begin and end
 - `c` are the names of the two common columns, syms and times
 - `f0`,`f1` are aggregation functions applied to values in q columns `c0`,`c1` over the intervals

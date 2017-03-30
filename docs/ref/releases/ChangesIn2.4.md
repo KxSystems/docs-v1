@@ -130,7 +130,7 @@ q)
 
 `-11!` (used to replay logfiles) has been made more robust when dealing with corrupt files.
 
-Previously it would have crashed and exited on encountering corrupt records, now it will truncate the file to remove the invalid records and only process valid elements.
+Previously it would have crashed and exited on encountering corrupt records, now it will truncate the file to remove the invalid records and only process valid items.
 
 Rather than the individual cells being executed directly `.z.ps` is called on each allowing easier customisation of log loaders.
 
@@ -239,7 +239,7 @@ Unfortunately that meant useful information like the client's browser or preferr
 
 With 2.4 the header information is passed back as a dictionary in addition to the body text as before.
 
-This is a change in behaviour, but will only affect those who have customised `.z.ph` or `.z.pp` directly. The previous value is now the first element of a 2-element list, the new header dictionary is the second element.
+This is a change in behaviour, but will only affect those who have customised `.z.ph` or `.z.pp` directly. The previous value is now the first item of a 2-item list, the new header dictionary is the second item.
 
 
 ## Scalars

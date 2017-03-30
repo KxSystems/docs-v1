@@ -1,4 +1,4 @@
-This site is the successor to the Mediawiki site – which for now can still be found at <http://code.kx.com/wiki>. The Reference section has been migrated from the wiki; the Cookbook will follow. 
+This site is the successor to the Mediawiki site – which for now can still be found at <http://code.kx.com/wiki>. The Reference section has been migrated from the wiki; the Cookbook will follow. 
 
 ## Keyboard shortcuts for Search
 

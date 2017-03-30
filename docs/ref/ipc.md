@@ -41,10 +41,10 @@ q)-8!1
 We can break this down as
 
 - `0x01`: architecture used for encoding the message, big endian (0) or little endian (1)
-- `00`: message type (0 - async, 1 – sync, 2 – response)
+- `00`: message type (0 – async, 1 – sync, 2 – response)
 - `0000`
 - `0d000000`: msg length (13)
-- `fa`: type of element following (-6, meaning a 4-byte integer follows)
+- `fa`: type of item following (-6, meaning a 4-byte integer follows)
 - `01000000`: the 4-byte int value (1)
 
 
@@ -61,7 +61,7 @@ q)-8!enlist 1
 - `06`: type (int vector)
 - `00`: attributes (00 – none, 01 – `s`, 02 – `u`, 03 – `p`, 04 – `g`)
 - `01000000`: vector length (1)
-- `01000000`: the element, a 4 byte integer (1)
+- `01000000`: the item, a 4 byte integer (1)
 
 ### byte vector
 ```q
@@ -112,8 +112,8 @@ q)-8!`a`b!2 3
 - `06`: type (6 – integer vector)
 - `00`: attributes
 - `02000000`: vector length
-- `02000000`: 1st element (2)
-- `03000000`: 2nd element (3)
+- `02000000`: 1st item (2)
+- `03000000`: 2nd item (3)
 
 ### sorted dictionary with atom values
 ```q
@@ -133,8 +133,8 @@ q)-8!`s#`a`b!2 3
 - `06`: type (6 – integer vector)
 - `00`: attributes
 - `02000000`: vector length
-- `02000000`: 1st element (2)
-- `03000000`: 2nd element (3)
+- `02000000`: 1st item (2)
+- `03000000`: 2nd item (3)
 
 ### dictionary with vector values
 ```q
@@ -157,11 +157,11 @@ q)-8!`a`b!enlist each 2 3
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `02000000`: 1st element (2)
+- `02000000`: 1st item (2)
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `03000000`: 1st element (3)
+- `03000000`: 1st item (3)
 
 ### table
 
@@ -189,11 +189,11 @@ q)-8!'(flip`a`b!enlist each 2 3;([]a:enlist 2;b:enlist 3))
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `02000000`: 1st element (2)
+- `02000000`: 1st item (2)
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `03000000`: 1st element (3)
+- `03000000`: 1st item (3)
 
 ### sorted table
 
@@ -220,11 +220,11 @@ q)-8!`s#([]a:enlist 2;b:enlist 3)
 - `06`: type (6 – int vector)
 - `03`: attributes (`` `p# ``)
 - `01000000`: vector length (1)
-- `02000000`: 1st element (2)
+- `02000000`: 1st item (2)
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `03000000`: 1st element (3)
+- `03000000`: 1st item (3)
 
 ### keyed table
 ```q
@@ -249,7 +249,7 @@ q)-8!([a:enlist 2]b:enlist 3)
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `02000000`: 1st element (2)
+- `02000000`: 1st item (2)
 - `62`: type (98 – table)
 - `00`: attributes
 - `63`: type (99 – dict)
@@ -263,7 +263,7 @@ q)-8!([a:enlist 2]b:enlist 3)
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `03000000`: 1st element (3)
+- `03000000`: 1st item (3)
 
 ### sorted keyed table
 
@@ -290,7 +290,7 @@ q)-8!([a:enlist 2]b:enlist 3)
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `02000000`: 1st element (2)
+- `02000000`: 1st item (2)
 - `62`: type (98 – table)
 - `00`: attributes
 - `63`: type (99 – dict)
@@ -304,7 +304,7 @@ q)-8!([a:enlist 2]b:enlist 3)
 - `06`: type (6 – int vector)
 - `00`: attributes
 - `01000000`: vector length (1)
-- `03000000`: 1st element (3)
+- `03000000`: 1st item (3)
 
 ### function
 ```q

@@ -31,15 +31,15 @@ q)\ts .[g;]peach flip(2#1000000;2 3)
 
 ### Threads and globals
 
-The function is executed within the slave threads, unless the list `x` is a single element list, in which case the function is executed within the main q thread. **Only the main q thread may update global variables**, hence the function executed with `peach` is restricted to updating local variables only; this explains the following ambiguity
+The function is executed within the slave threads, unless the list `x` is a single-item list, in which case the function is executed within the main q thread. **Only the main q thread may update global variables**, hence the function executed with `peach` is restricted to updating local variables only; this explains the following ambiguity
 ```q
 q){`a set x} peach enlist 0
 ```
-works as single element list shortcuts to execute on the main q thread
+works as single-item list shortcuts to execute on the main q thread
 ```q
 q){`a set x} peach 0 1
 ```
-fails, throws `'noupdate` as it is executed from within slave threads.
+fails, signals `'noupdate` as it is executed from within slave threads.
 
 `peach` defaults to `each` in the case that no slave threads are specified on startup, such that it then executes on the only available thread, the main q thread.
 ```q
@@ -56,7 +56,7 @@ where `object` is the data being passed or returned.
 The algorithm for grouping symbols differs between slave threads and the main q thread. The main q thread uses an optimization not available to the slave threads. E.g. q started with 2 slave threads
 ```q
 q)s:100000000?`3
-q)\t {group s} peach enlist 0 / defaults to main thread as only single element
+q)\t {group s} peach enlist 0 / defaults to main thread as only single item
 2580
 q)\t {group s} peach 0 1 / group in slave threads, can't use optimized algorithm
 9885
@@ -74,12 +74,12 @@ Perfect scaling may not be achieved, because of resource clashes.
 
 ### Number of cores/slave threads
 
-A vector with _n_ elements peached with function `f` with _s_ slaves on _m_ cores is distributed such that threads are preassigned which elements they will be responsible for processing, e.g. for 9 jobs over 4 threads, thread \#0 will be assigned elements 0, 4, 8; if each job takes the same time to complete, then the total execution time of jobs will be quantized according to \#jobs _mod_ \#cores, i.e. with 4 cores, 12 jobs should execute in a similar time as 9 jobs (assuming \#slaves&gt;=\#cores).
+A vector with _n_ items peached with function `f` with _s_ slaves on _m_ cores is distributed such that threads are preassigned which items they will be responsible for processing, e.g. for 9 jobs over 4 threads, thread \#0 will be assigned elements 0, 4, 8; if each job takes the same time to complete, then the total execution time of jobs will be quantized according to \#jobs _mod_ \#cores, i.e. with 4 cores, 12 jobs should execute in a similar time as 9 jobs (assuming \#slaves&gt;=\#cores).
 
 
 ### Sockets/handles with peach
 
-A handle must not be used concurrently between threads as there is no locking around a socket descriptor, and the bytes being read/written from/to the socket will be garbage (due to message interleaving) and most likely result in a crash. Since v3.0, a socket can be used from the main thread only, or if you use the single-shot sync request syntax as
+A handle must not be used concurrently between threads as there is no locking around a socket descriptor, and the bytes being read/written from/to the socket will be garbage (due to message interleaving) and most likely result in a crash. Since V3.0, a socket can be used from the main thread only, or if you use the single-shot sync request syntax as
 ```q
 q)`:localhost:5000 "2+2"
 ```
@@ -94,7 +94,7 @@ This would execute a query for each date in parallel. The multithreaded HDB with
 
 Each slave thread has its own heap, a minimum of 64Mb.
 
-Since v2.7 2011.09.21, `.Q.gc[]` in the main thread executes `gc` in the slave threads too.
+Since V2.7 2011.09.21, `.Q.gc[]` in the main thread executes `gc` in the slave threads too.
 
 Automatic garbage collection within each thread (triggered by a wsful, or hitting the artificial heap limit as specified with -`w` on the command line) is executed only for that particular thread, not across all threads.
 
@@ -103,7 +103,7 @@ Symbols are internalized from a single memory area common to all threads.
 
 ### Peach using multiple processes (Distributed each)
 
-Since v3.1, `peach` can use multiple processes instead of threads, configured through the startup cmd line option `-s` with a negative integer, e.g. `-s -4`. On startup, q will then try to connect to _N_ processes on ports 20000 through 20000+N-1, and use of `peach` with &gt;1 element will use those processes to execute the function given to `peach`. Unlike multiple threads, the distribution of the workload is not precalculated, and is distributed to the slave processes as soon as they complete their allocated elements. All data required by the peached function must either already exist on all slave processes, or be passed as an argument – however, (size of) args should be minimised due to IPC costs. If any of the slave processes are restarted, the master process must also restart to reconnect. The motivating use case for this mode is multiprocess HDBs, combined with non-compressed data and `.Q.MAP[]`.
+Since V3.1, `peach` can use multiple processes instead of threads, configured through the startup cmd line option `-s` with a negative integer, e.g. `-s -4`. On startup, q will then try to connect to _N_ processes on ports 20000 through 20000+N-1, and use of `peach` with &gt;1 element will use those processes to execute the function given to `peach`. Unlike multiple threads, the distribution of the workload is not precalculated, and is distributed to the slave processes as soon as they complete their allocated items. All data required by the peached function must either already exist on all slave processes, or be passed as an argument – however, (size of) args should be minimised due to IPC costs. If any of the slave processes are restarted, the master process must also restart to reconnect. The motivating use case for this mode is multiprocess HDBs, combined with non-compressed data and `.Q.MAP[]`.
 
 Slave processes must be started manually and [`.z.pd`](dotz/#zpd-peach-handles) must be set to their connection handles (or a function that returns the handles).
 

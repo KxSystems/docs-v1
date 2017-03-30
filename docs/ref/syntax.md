@@ -99,7 +99,7 @@ An _atom_ is a single number, character, boolean, symbol, timestamp… a single
 
 ### Lists
 
-A _list_ is enclosed in parentheses, its items – if any – separated by semicolons. 
+A _list_ is enclosed in parentheses, its items – if any – separated by semicolons. 
 ```q
 q)count(42;`ibm;2012.08.17)    /list of 3 items
 3
@@ -210,11 +210,11 @@ alice SFO | 44
 
 ### Indexing
 
-Lists, dictionaries and unkeyed tables can be indexed; keyed tables cannot. 
+Lists, dictionaries and simple tables can be indexed; keyed tables cannot. 
 ```q
 q)l:"abcdef" /list
 q)d:`first`family`date!`John`Doe`1987.09.15 /dict
-q)t:([]name:`Bob`Ted`Carol;city:`SFO`LAX`SEA;age:42 43 45) /unkeyed table
+q)t:([]name:`Bob`Ted`Carol;city:`SFO`LAX`SEA;age:42 43 45) /simple table
 q)l[1 4 0 3]      /list indexes
 "bead"
 q)d[`date`first]  /dict keys

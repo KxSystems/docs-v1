@@ -57,7 +57,7 @@ Now [online](http://code.kx.com/q4m3/): see contents below.
     - [3.7 Nesting](http://code.kx.com/q4m3/3_Lists/#37-nesting)
     - [3.8 Iterated Indexing and Indexing at Depth](http://code.kx.com/q4m3/3_Lists/#38-iterated-indexing-and-indexing-at-depth)
     - [3.9 Indexing with Lists](http://code.kx.com/q4m3/3_Lists/#39-indexing-with-lists)
-    - [3.10 Elided Indices](http://code.kx.com/q4m3/3_Lists/#310-elided-indices)
+    - [3.10 Elided Indexes](http://code.kx.com/q4m3/3_Lists/#310-elided-indices)
     - [3.11 Rectangular Lists and Matrices](http://code.kx.com/q4m3/3_Lists/#311-rectangular-lists-and-matrices)
     - [3.12 Useful List Operations](http://code.kx.com/q4m3/3_Lists/#312-useful-list-operations)
 * [**4 Operators**](http://code.kx.com/q4m3/4_Operators/)

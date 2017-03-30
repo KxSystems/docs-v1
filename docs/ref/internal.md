@@ -9,12 +9,12 @@ _xkcd.com_
 ==These should rarely – if ever – be used==, but in order to recognise them when seen in the wild, here is a partial list.
 
 
-## `-1!x` – `hsym`
+## `-1!x` – `hsym`
 
 <i class="fa fa-hand-o-right"></i> [hsym](filewords/#hsym)
 
 
-## `-2!x` – `attr`
+## `-2!x` – `attr`
 
 <i class="fa fa-hand-o-right"></i> [attr](metadata/#attr)
 
@@ -27,7 +27,7 @@ Strictly, this is `.Q.s1`, but it's better to use [.Q.s](dotq/#qs-plain-text)
 
 
 
-## `-4!x` – tokens
+## `-4!x` – tokens
 
 Returns the list of q tokens found in string `x`. (Note the q parsing of names with embedded underscores.)
 ```q
@@ -59,7 +59,7 @@ q)
 ```
 
 
-## `-5!x` – `parse`
+## `-5!x` – `parse`
 
 <i class="fa fa-hand-o-right"></i> [parse](parsetrees/#parse)
 
@@ -140,7 +140,7 @@ If successful, the number of chunks executed is returned. If the end of the file
 / Continuing the above example
 q)delete f from `.
 `.
-q)-11!`:logfile.2013.12.03 / function f no longer defined, so it throws an error
+q)-11!`:logfile.2013.12.03 / function f no longer defined, so it signals an error
 'f
 ```
 <i class="fa fa-hand-o-right"></i> <i class="fa fa-external-link-square"></i> [rescuelog.q](https://github.com/simongarland/tickrecover/blob/master/rescuelog.q) for examples of usage.
@@ -200,7 +200,7 @@ q)-11!(26;logfile)
 
 
 
-## `-12!x` – `.Q.host`
+## `-12!x` – `.Q.host`
 
 <i class="fa fa-hand-o-right"></i> [.Q.host](dotq/#qhost-hostname)
 
@@ -215,7 +215,7 @@ q)-11!(26;logfile)
 Handle `"` escaping in strings: used to prepare data for CSV export.
 
 
-## `-15!x` – `md5`
+## `-15!x` – `md5`
 
 <i class="fa fa-hand-o-right"></i> [md5](strings/#md5)
 
@@ -238,19 +238,19 @@ Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ V2.6](relea
 
 
 
-## `-18!x` – compress byte
+## `-18!x` – compress byte
 
 Return compressed IPC byte representation of `x`, see notes about network compression in [Changes in V2.6](releases/ChangesIn2.6)
 
 
 
-## `-19!x` – compress file
+## `-19!x` – compress file
 
 compress a file, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression "wikilink")
 
 
 
-## `-20!0` – `.Q.gc`
+## `-20!0` – `.Q.gc`
 
 <i class="fa fa-hand-o-right"></i> [`.Q.gc`](dotq/#qgc-garbage-collect)
 
@@ -308,7 +308,7 @@ q)h"a:4"
 
 Since V3.4
 
-Broadcast data as an async msg to specified handles. The advantage of using `-25!(handles;msg)` over `neg[handles]@\:msg` is that `-25!msg` will serialize `msg` just once - thereby reducing CPU and memory load.
+Broadcast data as an async msg to specified handles. The advantage of using `-25!(handles;msg)` over `neg[handles]@\:msg` is that `-25!msg` will serialize `msg` just once – thereby reducing CPU and memory load.
 
 Use as
 ```q

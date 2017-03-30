@@ -1,4 +1,4 @@
-Below is a summary of changes from v2.5. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
+Below is a summary of changes from V2.5. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
 
 ## Production release date
@@ -110,7 +110,7 @@ sort only if not already sorted. Allows `() xasc t`
 
 ## `.Q.w`
 
-`.Q.w[]` - prints dict of memory stats (`\w` and `\w 0`) for easy reading
+`.Q.w[]` – prints dict of memory stats (`\w` and `\w 0`) for easy reading
 ```q
 q).Q.w[]
 used| 4323152

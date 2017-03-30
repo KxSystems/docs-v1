@@ -282,7 +282,7 @@ writes bytes `y` to file `x`.
 ```
 
 
-## `2:` – C shared objects
+## `2:` – C shared objects
 
 ### dynamic load
 

@@ -30,7 +30,7 @@ Syntax: `x lsq y` (binary)
 
 **Matrix divide**: where: 
 
-- `x` and `y` are _float_ matrices with the same number of columns
+- `x` and `y` are _float_ matrixes with the same number of columns
 - the number of rows of `y` do not exceed the number of columns
 - the rows of `y` are linearly independent
 

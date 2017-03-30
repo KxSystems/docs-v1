@@ -1,4 +1,4 @@
-Below is a summary of changes from v3.0. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
+Below is a summary of changes from V3.0. Commercially licensed users may obtain the detailed change list / release notes from (http://downloads.kx.com)
 
 - improved performance of `select` with intervals.
 - improved performance through using more chip-specific instructions (SSE).

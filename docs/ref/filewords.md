@@ -24,7 +24,7 @@ Where
 
 returns the list of table names, having saved the table/s as a side effect.
 
-The first column of each table saved has the `` `p `` attribute applied to it. If the path is a list, the first item is the HDB root (where the sym file, if any, will be stored), while the remaining elements are a path within the HDB (e.g. a partition).
+The first column of each table saved has the `` `p `` attribute applied to it. If the path is a list, the first item is the HDB root (where the sym file, if any, will be stored), while the remaining ites are a path within the HDB (e.g. a partition).
 
 `dsave` provides roughly the same functionality as the combination of [`.Q.en`](dotq/#qen-enumerate-varchar-cols) and [`set`](#set) or [`.Q.dpft`](dotq/#qdpft-save-table), but in a simpler form.
 ```q
@@ -140,7 +140,7 @@ asize| j
 
 Syntax: `get x`
 
-Reads or memory maps kdb+ data file `x`. A type error is thrown if the file is not a kdb+ data file.
+Reads or memory maps kdb+ data file `x`. A type error is signalled if the file is not a kdb+ data file.
 
 Used to map columns of databases in and out of memory when querying splayed databases, and can be used to read q log files etc.
 ```q

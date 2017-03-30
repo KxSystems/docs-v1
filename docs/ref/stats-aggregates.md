@@ -1,11 +1,11 @@
 These functions return aggregates from their arguments. In most cases, they return an atom from a simple list, but [`avgs`](#avgs-averages), [`maxs`](#maxs-maximums) and [`mins`](#mins-minimums) return _running aggregations_.
 
 
-## `avg` – average
+## `avg` – average
 
 Syntax: `avg x` (unary, aggregate)
 
-Returns the **arithmetic mean** of numeric list `x`. the mean of an atom is itself. Null is returned if `x` is empty, or contains both positive and negative infinity. Any null elements in `x` are ignored.
+Returns the **arithmetic mean** of numeric list `x`. the mean of an atom is itself. Null is returned if `x` is empty, or contains both positive and negative infinity. Any null items in `x` are ignored.
 ```q
 q)avg 1 2 3
 2f
@@ -23,7 +23,7 @@ a  | 10.75
 ```
 
 
-## `avgs` – averages
+## `avgs` – averages
 
 Syntax: `avgs x` (unary, uniform)
 
@@ -34,7 +34,7 @@ q)avgs 1 2 3 0n 4 -0w 0w
 ```
 
 
-## `cor` – correlation
+## `cor` – correlation
 
 Syntax: `x cor y` (binary, aggregate)
 
@@ -55,7 +55,7 @@ q)select price cor size by sym from trade
     Perfectly correlated data results in a `1` or `-1`. When one variable increases as the other increases the correlation is positive; when one decreases as the other increases it is negative. Completely uncorrelated arguments return `0f`. Arguments must be of the same length.
 
 
-## `cov` – covariance
+## `cov` – covariance
 
 Syntax: `x cov y` (binary, aggregate)
 
@@ -69,7 +69,7 @@ q)select price cov size by sym from trade
 ```
 
 
-## `dev` – standard deviation
+## `dev` – standard deviation
 
 Syntax: `dev x` (unary, aggregate)
 
@@ -81,7 +81,7 @@ q)select dev price by sym from trade
 ```
 
 
-## `max` – maximum
+## `max` – maximum
 
 Syntax: `max x` (unary, aggregate)
 
@@ -99,7 +99,7 @@ q)select max price by sym from t   / use in a select statement
 ```
 
 
-## `maxs` – maximums
+## `maxs` – maximums
 
 Syntax: `maxs x` (unary, uniform)
 
@@ -114,7 +114,7 @@ q)maxs 0N 5 0N 1 3         / initial nulls return negative infinity
 ```
 
 
-## `med` – median
+## `med` – median
 
 Syntax: `med x` (unary, aggregate)
 
@@ -132,7 +132,7 @@ q)select med price by sym from trade where date=2001.10.10,sym in`AAPL`LEH
     ```
 
 
-## `min` – minimum
+## `min` – minimum
 
 Syntax: `min x` (unary, aggregate)
 
@@ -158,7 +158,7 @@ q)select min price by sym from t   / use in a select statement
     ```
 
 
-## `mins` – minimums
+## `mins` – minimums
 
 Syntax: `mins x` (unary, uniform) 
 
@@ -173,7 +173,7 @@ q)mins 0N 5 0N 1 3         / initial nulls return infinity
 ```
 
 
-## `scov` – statistical covariance
+## `scov` – statistical covariance
 
 Syntax: `x scov y` (binary, aggregate)
 
@@ -191,7 +191,7 @@ q)select price scov size by sym from trade
 ```
 
 
-## `sdev` – statistical standard deviation
+## `sdev` – statistical standard deviation
 
 Syntax: `sdev x` (unary, aggregate)
 
@@ -207,7 +207,7 @@ q)select sdev price by sym from trade
 ```
 
 
-## `svar` – statistical variance
+## `svar` – statistical variance
 
 Syntax: `svar x` (unary, aggregate)
 
@@ -224,7 +224,7 @@ q)select svar price by sym from trade where date=2010.10.10,sym in`IBM`MSFT
 ```
 
 
-## `var` – variance
+## `var` – variance
 
 Syntax: `var x` (unary, aggregate)
 
@@ -238,7 +238,7 @@ q)select var price by sym from trade where date=2010.10.10,sym in`IBM`MSFT
 ```
 
 
-## `wavg` – weighted average
+## `wavg` – weighted average
 
 Syntax: `x wavg y` (binary, aggregate)
 
@@ -260,7 +260,7 @@ q)2 0N 4 5 wavg 1 2 0N 8  / nulls in either argument ignored
     ```
 
 
-## `wsum` – weighted sum
+## `wsum` – weighted sum
 
 Syntax: `x wsum y` (binary, aggregate)
 

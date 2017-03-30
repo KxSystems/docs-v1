@@ -117,7 +117,7 @@ q)(asc L)~L iasc L
 
 Syntax: `idesc x`
 
-**Indices of descending sort**: returns the indices needed to sort list `x` in descending order. 
+**Indexes of descending sort**: returns the indices needed to sort list `x` in descending order. 
 ```q
 q)L:2 1 3 4 2 1 2
 q)idesc L
