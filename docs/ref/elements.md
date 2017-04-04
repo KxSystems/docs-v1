@@ -69,6 +69,38 @@ q)count(+;within;\)
 
 Attributes are metadata that apply to lists of special form. They are often used on a dictionary domain or a table column to reduce storage requirements or speed retrieval. 
 
+<div class="kx-compact" markdown="1">
+
+| example       |         | overhead               |
+|---------------|---------|------------------------|
+| `` `s#2 2 3`` | sorted  | `0`                    |
+| `` `u#2 4 5`` | unique  | `16*u`                 |
+| `` `p#2 2 1`` | parted  | `(4*u;16*u;4*u+1)`     |
+| `` `g#2 1 2`` | grouped | `(4*u;16*u;4*u+1;4*n)` |
+
+</div>
+
+The byte overheads use `n` (number of elements) and `u` (number of uniques).
+
+* `` `u`` is for unique lists.
+* `` `p`` and `` `g`` are for lists with a lot of repetition.
+
+`` `s#``, `` `u#`` and `` `g#`` are preserved on append in memory, if possible.
+Only `` `s#`` is preserved on append to disk.
+
+To set or unset an attribute:
+```q
+q)`s#1 2 3
+`s#1 2 3
+q)`#`s#1 2 3
+1 2 3
+```
+Setting or unsetting an attribute other than `s`, i.e. `upg`, causes a copy of the object to be made. Setting/unsetting the `s` attribute on a list which is already sorted will not cause a copy to be made, and hence will affect the original list in-place. Setting the `s` attr on a dictionary or table, where the key is already in sorted order, in order to obtain a step-function, causes the `s` attribute to be set in place for the key but copies the outer object. 
+```q
+q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
+``s
+```
+
 
 ## Names and namespaces
 
@@ -92,7 +124,7 @@ Functions are:
 
 1. operators and primitive functions, eg `+`, `count`
 2. as defined in the [lambda notation](#definition), eg `{x+2*y}`
-3. as derived from (1) and (2) by [adverbs](adverbs), eg `+/`, `count'`
+3. as _derived_ from (1) and (2) by [adverbs](adverbs), eg `+/`, `count'`
 4. q-SQL functions, e.g. `select`
 
 Functions are first-class objects and can be passed as arguments to other functions. Functions that take other functions as arguments are known as _higher-order functions_.
@@ -114,24 +146,21 @@ q)2 rotate 0 1 2 3 4 5   / infix form
 Operators are denoted by glyphs or [reserved words](#reserved-words) or both. 
 They cannot be defined using the [lambda notation](#definition). 
 
-<div class="kx-compact" markdown="1">
-
-| glyph | operator  | glyph | operator           | glyph | operator       | glyph | operator              |
-|-------|-----------|-------|--------------------|-------|----------------|-------|-----------------------|
-| `=`   | equal     | `<>`  | not equal          | `~`   | match          |
-| `<`   | less than | `<=`  | less than or equal | `>`   | greater than   | `>=`  | greater than or equal |
-| `+`   | plus      | `-`   | minus              | `*`   | times          | `%`   | divided by            |
-| `&`   | minimum   | `|`   | maximum            |
-| `#`   | take      | `,`   | join               | `^`   | fill; coalesce | `_`   | drop; cut             |
-| `!`   | dict; key; enum; update; delete | 
-
-</div>
+### Glyphs
+<table class="kx-compact" markdown="1">
+<tr><td>[`=`](comparison)</td><td>[equal](comparison)</td><td>[`<>`](comparison)</td><td>[not equal](comparison)</td><td>[`~`](comparison)</td><td>[match](comparison)</td></tr>
+<tr><td>[`<`](comparison)</td><td>[less than](comparison)</td><td>[`<=`](comparison)</td><td>[less than or equal](comparison)</td><td>[`>`](comparison)</td><td>[greater than](comparison)</td><td>[`>=`](comparison)</td><td>[greater than or equal](comparison)</td></tr>
+<tr><td>[`+`](arith-integer/#add)</td><td>[plus](arith-integer/#add)</td><td>[`-`](arith-integer/#minus)</td><td>[minus](arith-integer/#minus)</td><td>[`*`](arith-integer/#multiply])</td><td>[times](arith-integer/#multiply)</td><td>[`%`](arith-float/#divide)</td><td>[divided by](arith-float/#divide)</td></tr>
+<tr><td>[`&`](arith-integer/#and-minimum)</td><td>[minimum](arith-integer/#and-minimum)</td><td>[`|`](arith-integer/#and-maximum)</td><td>[maximum](arith-integer/#and-maximum)</td></tr>
+<tr><td>[`#`](lists/#take)</td><td>[take](lists/#take)</td><td>[`,`](lists/#join)</td><td>[join](lists/#join)</td><td>`^`</td><td>[fill](lists/#fill); [coalesce](joins/#coalesce)</td><td>`_`</td><td>[drop](lists/#drop); [cut](lists/#cut)</td></tr>
+<tr><td>`!`</td><td colspan="7">[dict](dictsandtables/#dict); [key](dictsandtables/#key); [enumerate](enums/#enumerate); [ints to enum](casting/#ints-to-enum); [update](funsql/#update); [delete](funsql/#delete)</td></tr>
+</table>
 
 !!! note "Minimum and maximum"
     The _minimum_ operator is denoted by both the `&` glyph and the reserved word `and`. The _maximum_ operator is denoted by both the `|` glyph and the reserved word `or`. 
 
 
-## Reserved words
+### Reserved words
 
 The following reserved words denote operators.
 

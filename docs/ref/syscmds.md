@@ -24,7 +24,7 @@ Some system commands have equivalent command-line parameters.
     ```
 
 
-## `\a` – tables
+## `\a` (tables)
 
 Syntax: `\a`
 
@@ -59,7 +59,7 @@ q.nn)
 ```
 
 
-## `\b` – views
+## `\b` (views)
 
 Syntax: `\b [namespace]`
 
@@ -73,7 +73,7 @@ q)\b
 <i class="fa fa-hand-o-right"></i> [.z.b](dotz/#zb-dependencies).
 
 
-## `\B` – pending views
+## `\B` (pending views)
 
 Syntax: `\B [namespace]`
 
@@ -92,7 +92,7 @@ q)\B              / no longer pending
 ```
 
 
-## `\c` – console size
+## `\c` (console size)
 
 Syntax: `\c`
 
@@ -123,14 +123,14 @@ q)til each 20+til 10
 ```
 
 
-## `\C` – HTTP size
+## `\C` (HTTP size)
 
 Syntax: `\C [h,w]`
 
 Sets the HTTP height and width. This is the same as [command-line option `-C`](cmdline/#-c-http-size). 
 
 
-## `\cd` – change directory
+## `\cd` (change directory)
 
 Syntax: `\cd [name]` 
 
@@ -147,7 +147,7 @@ q)\cd
 ```
 
 
-## `\d` – directory
+## `\d` (directory)
 
 Syntax: `\d [namespace]`
 
@@ -170,7 +170,7 @@ q.s)key`
 ```
 
 
-## `\e` – error trap clients
+## `\e` (error trap clients)
 
 Syntax: `\e [0|1]`
 
@@ -181,7 +181,7 @@ When a client request has an error, by default the server clears the stack. This
 For development, you can set `\e 1` to enable debugging on the server. In this case, the server suspends on an error, and does not process other requests until the stack is cleared.
 
 
-## `\f` – functions
+## `\f` (functions)
 
 Syntax: `\f [namespace]`
 
@@ -197,7 +197,7 @@ q){x where x like"ht??"}system"f .h"
 ```
 
 
-## `\g` – garbage collection mode
+## `\g` (garbage collection mode)
 
 Syntax: `\g [mode]`
 
@@ -205,7 +205,7 @@ Since V2.7 2011.02.04. Switch garbage collection between immediate (1) and defer
 <i class="fa fa-hand-o-right"></i> [`-g` command-line option](cmdline/#-g-garbage-collection)
 
 
-## `\l` – load file or directory
+## `\l` (load file or directory)
 
 Syntax: `\l name`
 
@@ -221,7 +221,7 @@ q)\a                 / with tables quote and trade
 ```
 
 
-## `\o` – offset from UTC
+## `\o` (offset from UTC)
 
 Syntax: `\o [n]`
 
@@ -243,7 +243,7 @@ q).z.P
 This corresponds to the `-o` command line parameter.
 
 
-## `\p` – port
+## `\p` (port)
 
 Syntax: `\p [i]`
 
@@ -265,7 +265,7 @@ q)\p 0        / turn off listening port
 This corresponds to the `-p` command line parameter.
 
 
-## `\P` – precision
+## `\P` (precision)
 
 Syntax: `\P [n]`
 
@@ -273,7 +273,7 @@ Sets display precision for floating point numbers, i.e. the number of digits sho
 <i class="fa fa-hand-o-right"></i> [`-P` command-line option](cmdline/#-p-display-precision)
 
 
-## `\r` – replication master
+## `\r` (replication master)
 
 Syntax: `\r`
 
@@ -281,21 +281,21 @@ This should not be executed manually otherwise it can disrupt replication. It is
 <i class="fa fa-hand-o-right"></i> [`-r` command-line option](cmdline/#-r-replicate)
 
 
-## `\r` – rename
+## `\r` (rename)
 
 Syntax: `\r src dst`
 
 This renames file `src` to `dst`. It is equivalent to the Unix `mv` command, or the windows `move` command (except that it will not rename to a different disk drive).
 
 
-## `\s` – number of slaves
+## `\s` (number of slaves)
 
 Syntax: `\s`
 
 This queries the number of slaves, set with the `-s` command line parameter (query only).
 
 
-## `\S` – random seed
+## `\S` (random seed)
 
 Syntax: `\S [n]`
 
@@ -324,7 +324,7 @@ q)\S              / seed is not updated
     Instances started on ports 20000 thru 20099 (slave procs, used with e.g. `q -s -4` have the main thread’s default seed based on the port number.
 
 
-## `\t` – timer
+## `\t` (timer)
 
 Syntax: `\t [p]`
 
@@ -353,7 +353,7 @@ q)\t:100 log til 100000    / timing for 100 repetitions, new syntax of "\t:n exp
 The tick timer usage corresponds to the `-t` command line parameter.
 
 
-## `\ts` – time and space
+## `\ts` (time and space)
 
 Syntax: `\ts exp`
 
@@ -369,7 +369,7 @@ q)\ts:10000 log til 1000           /same as \ts do[10000; log til 1000]
 ```
 
 
-## `\T` – timeout
+## `\T` (timeout)
 
 Syntax: `\T [n]`
 
@@ -378,14 +378,14 @@ This sets the client execution timeout, as the integer number of seconds a clien
 This corresponds to the `-T` command line parameter.
 
 
-## `\u` – reload user password file
+## `\u` (reload user password file)
 
 Syntax: `\u`
 
 When q is invoked with the `-u` parameter specifying a user password file, then `\u` will reload the password file. This allows updates to the password file while the server is running.
 
 
-## `\v` – variables
+## `\v` (variables)
 
 Syntax: `\v [namespace]`
 
@@ -401,7 +401,7 @@ q){x where x like"????"}system"v .h"
 ```
 
 
-## `\w` – workspace
+## `\w` (workspace)
 
 Syntax: `\w [0]`
 
@@ -439,7 +439,7 @@ symw| 25436
 ```
 
 
-## `\W` – week offset
+## `\W` (week offset)
 
 Syntax: `\W [n]`
 
@@ -448,7 +448,7 @@ Specifies the start of week offset, where 0 is Saturday. The default is 2 = Mond
 This corresponds to the `-W` command line parameter.
 
 
-## `\x` – expunge
+## `\x` (expunge)
 
 Syntax: `\x .z.p\*`
 
@@ -464,7 +464,7 @@ q)\x .z.pi                    / restore default
 N.B. This works only for `.z.p*` variables defined in k before q.k is loaded. e.g. as `.z.ph` is defined in `q.k`, there is no default for it to be reset to.
 
 
-## `\z` – date parsing
+## `\z` (date parsing)
 
 Syntax: `\z [0|1]`
 
@@ -480,7 +480,7 @@ q)"D"$"06/01/2010"
 ```
 
 
-## `\1` & `\2` – redirect
+## `\1` & `\2` (redirect)
 
 Syntax: `\1 filename`  
 Syntax: `\2 filename` 
@@ -505,7 +505,7 @@ q)q)'type
 ```
 
 
-## `\_` – hide q code
+## `\_` (hide q code)
 
 Syntax: `\_ [scriptname]`
 
@@ -538,7 +538,7 @@ q)read1`:t1.q_          / file contents are scrambled
 ```
 
 
-## `\` – terminate
+## `\` (terminate)
 
 If there is a suspension, this exits one level of the suspension. Otherwise, it toggles between q and k mode. (To switch languages from inside a suspension, type "`\`".)
 ```q
@@ -557,7 +557,7 @@ q)
 ```
 
 
-## `\` – toggle q/k 
+## `\` (toggle q/k) 
 
 In the interactive session `\` toggles between the q and k interpreters.
 ```q
@@ -566,7 +566,7 @@ q)\
 q)
 ```
 
-## `\\` – quit 
+## `\\` (quit)
 
 Syntax: `\\`
 

@@ -15,7 +15,7 @@ q)if[all x in y;....]   / use in control structure
     `all` is defined as `min` after converting to boolean, i.e. `all x` is equivalent to `min "b"$x`.
 
 
-## `&` `and` – minimum
+## `&` `and` (minimum)
 
 Syntax: `x & y` (binary, atomic)  
 Syntax: `x and y` (binary, atomic)
@@ -95,7 +95,7 @@ q)null 0 0n 0w 1 0n
     ```
 
 
-## `|` `or` – maximum
+## `|` `or` (maximum)
 
 Syntax: `x|y` (binary, atomic)  
 Syntax: `x or y` (binary, atomic)

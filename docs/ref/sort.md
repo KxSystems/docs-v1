@@ -1,8 +1,7 @@
-<i class="fa fa-hand-o-right"></i> [Dictionaries & tables](dictsandtables)
+<i class="fa fa-hand-o-right"></i> [Attributes](elements/#attributes), [Dictionaries & tables](dictsandtables)
 
 
-`asc`
------
+## `asc`
 
 Syntax: `asc x` (unary, uniform)
 
@@ -60,8 +59,7 @@ q)a
 ```
 
 
-`desc`
-------
+## `desc`
 
 Syntax: `desc x` (unary, uniform)
 
@@ -94,8 +92,7 @@ a b
 ```
 
 
-`iasc`
-------
+## `iasc`
 
 Syntax: `iasc x` (unary, uniform)
 
@@ -112,8 +109,7 @@ q)(asc L)~L iasc L
 
 
 
-`idesc`
--------
+## `idesc`
 
 Syntax: `idesc x`
 
@@ -129,8 +125,7 @@ q)(desc L)~L idesc L
 ```
 
 
-`rank`
-------
+## `rank`
 
 Syntax: `rank x` (unary, uniform)
 
@@ -149,22 +144,6 @@ q)asc[2 7 3 2 5] rank 2 7 3 2 5  / identity
 q)iasc idesc 2 7 3 2 5           / descending rank
 3 0 2 4 1
 ```
-
-
-## set/unset an attribute
-
-```q
-q)`s#1 2 3
-`s#1 2 3
-q)`#`s#1 2 3
-1 2 3
-```
-Setting/unsetting an attribute other than `s`, i.e. `upg`, causes a copy of the object to be made. Setting/unsetting the `s` attribute on a list which is already sorted will not cause a copy to be made, and hence will affect the original list in-place. Setting the `s` attr on a dictionary or table, where the key is already in sorted order, in order to obtain a step-function, causes the `s` attribute to be set in place for the key but copies the outer object. 
-```q
-q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
-``s
-```
-<i class="fa fa-hand-o-right"></i> [`_` drop/cut](qsql)
 
 
 ## `xrank`

@@ -1,14 +1,10 @@
 ## Six comparison operators
 
-<div class="kx-compact" markdown="1">
-
-| glyph | function     | glyph | function              |
-|-------|--------------|-------|-----------------------|
-| `=`   | equal        | `<>`  | not-equal             |
-| `>`   | greater-than | `>=`  | greater-than-or-equal |
-| `<`   | less-than    | `<=`  | less-than-or-equal    |
-
-</div>
+<table class="kx-compact" markdown="1">
+<tr><td>`=`</td><td>equal</td><td>`<>`</td><td>not-equal</td></tr>
+<tr><td>`>`</td><td>greater-than</td><td>`>=`</td><td>greater-than-or-equal</td></tr>
+<tr><td>`<`</td><td>less-than</td><td>`<=`</td><td>less-than-or-equal</td></tr>
+</table>
 
 Syntax: (eg) `x = y` (binary, atomic) 
 
@@ -95,7 +91,7 @@ date       sym  price   size
 ```
 
 
-## `~` match
+## `~` (match)
 
 Syntax: `x ~ y` 
 

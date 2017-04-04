@@ -1,28 +1,28 @@
 ##The `.h` namespace contains functions for converting files into various formats and for web-console display. 
 
 
-## `.h.br` – linebreak
+## `.h.br` (linebreak)
 
 Syntax: `.h.br`
 
 Returns the string `"<br>"`. 
 
 
-## `.h.c0` – web color
+## `.h.c0` (web color)
 
 Syntax: `.h.c0`
 
 Returns as a symbol a web color used by the web console.
 
 
-## `.h.c1` – web color
+## `.h.c1` (web color)
 
 Syntax: `.h.c1`
 
 Returns as a symbol a web color used by the web console.
 
 
-## `.h.cd` – CSV from data
+## `.h.cd` (CSV from data)
 
 Syntax: `.h.cd x`
 
@@ -61,7 +61,7 @@ Creates part of an Excel workbook. Used by `.h.ed`.
 Creates part of an Excel workbook. Used by `.h.ed`.
 
 
-## `.h.ed` – Excel from data
+## `.h.ed` (Excel from data)
 
 Syntax: `.h.ed x`
 
@@ -88,14 +88,14 @@ Creates part of an Excel workbook. Used by `.h.ed`.
 Creates part of an Excel workbook. Used by `.h.ed`.
 
 
-## `.h.fram` – frame
+## `.h.fram` (frame)
 
 Syntax: `.h.fram[x;y;z]`
 
 Creates an HTML page with two frames. Takes three string arguments: the title; the location of the left frame; the location of the right frame.
 
 
-## `.h.ha` – anchor
+## `.h.ha` (anchor)
 
 Syntax: `.h.ha[x;y]`
 
@@ -108,7 +108,7 @@ q).h.ha["http://www.example.com";"Example.com Main Page"]
 ```
 
 
-## `.h.hb` – anchor target
+## `.h.hb` (anchor target)
 
 Syntax: `.h.hb[x;y]`
 
@@ -120,7 +120,7 @@ q).h.hb["http://www.example.com";"Example.com Main Page"]
 ```
 
 
-## `.h.hc` – escape lt
+## `.h.hc` (escape lt)
 
 Syntax: `.h.hc x`
 
@@ -131,7 +131,7 @@ q).h.hc "<foo>"
 ```
 
 
-## `.h.he` – HTTP 400
+## `.h.he` (HTTP 400)
 
 Syntax: `.h.he x`
 
@@ -142,7 +142,7 @@ q).h.he "<rubbish>"
 ```
 
 
-## `.h.hn` – HTTP error
+## `.h.hn` (HTTP error)
 
 Syntax: `.h.hn[x;y;z]`
 
@@ -159,7 +159,7 @@ Contains the string “html”.
 -->
 
 
-## `.h.hp`  – HTTP response
+## `.h.hp` (HTTP response)
 
 Syntax: `.h.hp x`
 
@@ -170,7 +170,7 @@ q).h.hp("foo";"bar")
 ```
 
 
-## `.h.hr` – horizontal rule
+## `.h.hr` (horizontal rule)
 
 Syntax: `.h.hr x`
 
@@ -181,7 +181,7 @@ q).h.hr "foo"
 ```
 
 
-## `.h.ht` – Marqdown to HTML 
+## `.h.ht` (Marqdown to HTML)
 
 Syntax: `.h.ht x`
 
@@ -202,7 +202,7 @@ Basic Marqdown formatting rules:
 - Aligns two-column data if 2nd column starts with `"\t "`
 
 
-## `.h.hta` – start tag 
+## `.h.hta` (start tag)
 
 Syntax: `.h.hta[x;y]`
 
@@ -213,7 +213,7 @@ q).h.hta[`a;(`href`target)!("http://www.example.com";"_blank")]
 ```
 
 
-## `.h.htac` – element
+## `.h.htac` (element)
 
 Syntax: `.h.tac[x;y;z]`
 
@@ -224,7 +224,7 @@ q).h.htac[`a;(`href`target)!("http://www.example.com";"_blank");"Example.com Mai
 ```
 
 
-## `.h.htc` – element
+## `.h.htc` (element)
 
 Syntax: `.h.htc[x;y]`
 
@@ -235,7 +235,7 @@ q).h.htc[`tag;"value"]
 ```
 
 
-## `.h.html` – document
+## `.h.html` (document)
 
 Syntax: `.h.html x`
 
@@ -258,7 +258,7 @@ q).h.html "<p>Hello world!</p>"
 ```
 
 
-## `.h.http` – hyperlinks
+## `.h.http` (hyperlinks)
 
 Syntax: `.h.http x`
 
@@ -269,7 +269,7 @@ q).h.http "The main page is http://www.example.com"
 ```
 
 
-## `.h.hu` – URI escape
+## `.h.hu` (URI escape)
 
 Syntax: `.h.hu x`
 
@@ -280,21 +280,21 @@ q).h.hu "http://www.kx.com"
 ```
 
 
-## `.h.hug` – URI map
+## `.h.hug` (URI map)
 
 Syntax: `.h.hug x`
 
 Where `x` is a char vector, returns a mapping from characters to `%`*xx* escape sequences *except* for the chars in `x`, which get mapped to themselves. 
 
 
-## `.h.hy` – HTTP response
+## `.h.hy` (HTTP response)
 
 Syntax: `.h.hy[x;y]`
 
 Where `x` is a symbol atom and `y` is a string, returns as a string `y` as an HTTP response for content-type `x`.
 
 
-## `.h.iso8601` – ISO timestamp
+## `.h.iso8601` (ISO timestamp)
 
 Syntax: `.h.iso8601 x`
 
@@ -305,7 +305,7 @@ q).h.iso8601 100
 ```
 
 
-## `.h.jx` – table
+## `.h.jx` (table)
 
 Syntax: `.h.jx[x;y]`
 
@@ -348,14 +348,14 @@ q)1_.h.jx[5;`a]
 ```
 
 
-## `.h.logo` – Kx logo
+## `.h.logo` (Kx logo)
 
 Syntax: `.h.logo`
 
 Returns as a string the kx.com logo in HTML format.
 
 
-## `.h.nbr` – no break
+## `.h.nbr` (no break)
 
 Syntax: `.h.nbr x`
 
@@ -366,7 +366,7 @@ q).h.nbr "foo bar"
 ```
 
 
-## `.h.pre` – pre
+## `.h.pre` (pre)
 
 Syntax: `.h.pre x`
 
@@ -377,7 +377,7 @@ q).h.pre("foo";"bar")
 ```
 
 
-## `.h.sa` – style
+## `.h.sa` (style)
 
 Syntax: `.h.sa`
 
@@ -388,7 +388,7 @@ q).h.sa
 ```
 
 
-## `.h.sb` – style
+## `.h.sb` (style)
 
 Syntax: `.h.sb`
 
@@ -399,7 +399,7 @@ q).h.sb
 ```
 
 
-## `.h.sc` – URI-safe
+## `.h.sc` (URI-safe)
 
 Syntax: `.h.sc`
 
@@ -411,7 +411,7 @@ q).h.sc
 <i class="fa fa-hand-o-right"></i> [`.h.hu`](#hhu-uri-escape)
 
 
-## `.h.td` – TSV
+## `.h.td` (TSV)
 
 Syntax: `.h.td x`
 
@@ -425,7 +425,7 @@ q).h.td ([]a:1 2 3;b:`x`y`z)
 ```
 
 
-## `.h.text` – paragraphs
+## `.h.text` (paragraphs)
 
 Syntax: `.h.text x`
 
@@ -436,7 +436,7 @@ q).h.text("foo";"bar")
 ```
 
 
-## `.h.tx` – filetypes
+## `.h.tx` (filetypes)
 
 Syntax: `.h.tx`
 
@@ -452,7 +452,7 @@ xls | k){ex eb es[`Sheet1]x}
 ```
 
 
-## `.h.ty` – MIME types
+## `.h.ty` (MIME types)
 
 Syntax: `.h.ty`
 
@@ -470,7 +470,7 @@ gif | "image/gif"
 ```
 
 
-## `.h.uh` – URI unescape
+## `.h.uh` (URI unescape)
 
 Syntax: `.h.uh x`
 
@@ -481,7 +481,7 @@ q).h.uh "http%3a%2f%2fwww.kx.com"
 ```
 
 
-## `.h.xd` – XML
+## `.h.xd` (XML)
 
 Syntax: `.h.xd x`
 
@@ -496,7 +496,7 @@ q).h.xd ([]a:1 2 3;b:`x`y`z)
 ```
 
 
-## `.h.xmp` – xmp
+## `.h.xmp` (xmp)
 
 Syntax: `.h.xmp x`
 
@@ -507,7 +507,7 @@ q).h.xmp("foo";"bar")
 ```
 
 
-## `.h.xs` – XML escape
+## `.h.xs` (XML escape)
 
 Syntax: `.h.xs x`
 
@@ -518,7 +518,7 @@ q).h.xs "Arthur & Co."
 ```
 
 
-## `.h.xt` – JSON
+## `.h.xt` (JSON)
 
 Syntax: `.h.xt[x;y]`
 

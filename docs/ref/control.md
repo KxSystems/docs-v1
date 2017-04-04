@@ -4,7 +4,7 @@ Evaluation is controlled by [adverbs](adverbs) and the following control words a
     The control words – `do`, `if` and `while` – do not return results. 
 
 
-## `$` cond
+## `$` (cond)
 
 Syntax: `$[x;y;z]` (function, rank 3)
 

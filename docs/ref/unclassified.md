@@ -1,4 +1,4 @@
-## `.` – apply
+## `.` (apply)
 
 Syntax: `f . x` 
 
@@ -16,7 +16,7 @@ q)execFunction[f2;(1 2)]
 ```
 
 
-## `(::)` – identity
+## `(::)` (identity)
 
 Syntax: `(::) x`
   
@@ -40,6 +40,33 @@ and used in variants thereof for e.g. amends
 ```q
 q)@[til 10;(::;2 3);2+]
 2 3 6 7 6 7 8 9 10 11
+```
+
+
+## `::` (null)
+
+Q does not have a dedicated null type. Instead `::` is used to denote a generic null value. For example, functions that return no value, return `::`.
+```q
+q)enlist {1;}[]
+::
+```
+We use `enlist` to force display of a null result: a pure `::` is not displayed.
+
+When a unary function is called with no arguments, `::` is passed in.
+```q
+q)enlist {x}[]
+::
+```
+Since `::` has a type for which no vector variant exists, it is useful to prevent a mixed list from being coerced into a vector when all items happen to be of the same type. (This is important when you need to preserve the ability to add non-conforming items later.)
+```
+q)x:(1;2;3)
+q)x,:`a
+'type
+```
+but
+```q
+q)x:(::;1;2)
+q)x,:`a  / ok
 ```
 
 
@@ -73,39 +100,11 @@ with directories :
 ...
 ```
 
-### Some Considerations
+### Some considerations
 
--   the data should be partitioned correctly across the partitions – i.e. data for a particular date should reside in the partition for that date (see `.Q.par`).
+-   the data should be partitioned correctly across the partitions – i.e. data for a particular date should reside in the partition for that date.  
+<i class="fa fa-hand-o-right"></i> [`.Q.par`](dotq/#qpar-locate-partition)
 -   the slave/directory partitioning is for both read and write.
 -   the directories pointed to in `par.txt` may only contain appropriate database subdirectories. Any other content (file or directory) will give an `` `error ``.
 -   the same subdirectory name may be in multiple `par.txt` partitions. For example, this would allow symbols to be split, as in A-M on /0/db, N-Z on /1/db (e.g. to work around the 2-billion row limit). Aggregations are handled correctly, as long as data is properly split (not duplicated). Note that in this case, the same day would appear on multiple partitions.
-
-
-
-## `::` – null
-
-Q does not have a dedicated null type. Instead `::` is used to denote a generic null value. For example, functions that return no value, return `::`.
-```q
-q)enlist {1;}[]
-::
-```
-We use `enlist` to force display of a null result: a pure `::` is not displayed.
-
-When a unary function is called with no arguments, `::` is passed in.
-```q
-q)enlist {x}[]
-::
-```
-Since `::` has a type for which no vector variant exists, it is useful to prevent a mixed list from being coerced into a vector when all items happen to be of the same type. (This is important when you need to preserve the ability to add non-conforming items later.)
-```
-q)x:(1;2;3)
-q)x,:`a
-'type
-```
-but
-```q
-q)x:(::;1;2)
-q)x,:`a  / ok
-```
-
 

@@ -55,7 +55,7 @@ q)a~first first enlist enlist 10
 ```
 
 
-## `@` index-at
+## `@` (index-at)
 
 Syntax: `x @ y`
 
@@ -79,7 +79,7 @@ bob  42
 <i class="fa fa-hand-o-right"></i> [`.` apply](unclassified/#apply)
 
 
-## `.` index-to
+## `.` (index-to)
 
 Syntax: `x . y`
 

@@ -11,7 +11,7 @@ q)`x!e / same result as `x$y
 ```
 
 
-## `$` – enum
+## `$` (enum)
 
 Syntax: `x $ y`
 
@@ -54,7 +54,7 @@ q)(key;value)@\:e
 <i class="fa fa-hand-o-right"></i> [Q for Mortals: Enumerations](http://code.kx.com/q4m3/7_Transforming_Data/#75-enumerations)
 
 
-## `?` – enum-extend
+## `?` (enum-extend)
 
 Syntax: `x ? y`
 
@@ -89,7 +89,7 @@ q)bar
 ```
 
 
-## `!` – enumerate
+## `!` (enumerate)
 
 Syntax:`` `x ! y``
 

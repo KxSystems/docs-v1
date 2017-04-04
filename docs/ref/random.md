@@ -31,7 +31,7 @@ q)rand 1 30 45 32
     ```
 
 
-## `?` – roll
+## `?` (roll)
 
 Syntax: `x ? y`
 
@@ -67,7 +67,7 @@ q)2?("a";0101b;`abc;`the`quick;2012.06m)
 
 
 
-## `?` – deal
+## `?` (deal)
 
 Syntax: `-x ? y`
 

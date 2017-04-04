@@ -59,7 +59,7 @@ q)md5 "this is a not so secret message"
 ```
 
 
-## `$` – pad
+## `$` (pad)
 
 Syntax: `x $ y`
 

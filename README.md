@@ -77,7 +77,7 @@ q)tot[2;til 6]  / binary
 ## To do
 
 - [x] Tabulate .h and .Q contents on q/ref/card
-- [ ] Fill lacunae in .h ad .Q pages
+- [ ] Fill lacunae in .h and .Q pages
 - [ ] Distribute throughout the pages under Reference/Semantics references to .h, .Q and .z functions 
 - [ ] Replace central table on home page with responsive version
 - [ ] Migrate Cookbook articles

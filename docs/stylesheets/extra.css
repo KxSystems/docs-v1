@@ -3,6 +3,13 @@
 	Author: stephen@kx.com
  */
 
+/* countermand MkDocs insertion of href attribute after link anchor
+--------------------------------------------- */
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
 
  /* palette
 --------------------------------------------- */

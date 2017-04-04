@@ -9,17 +9,17 @@ _xkcd.com_
 ==These should rarely – if ever – be used==, but in order to recognise them when seen in the wild, here is a partial list.
 
 
-## `-1!x` – `hsym`
+## `-1!x` (`hsym`)
 
 <i class="fa fa-hand-o-right"></i> [hsym](filewords/#hsym)
 
 
-## `-2!x` – `attr`
+## `-2!x` (`attr`)
 
 <i class="fa fa-hand-o-right"></i> [attr](metadata/#attr)
 
 
-## `-3!x` – `.Q.s`
+## `-3!x` (`.Q.s`)
 
 Returns the string representation of `x`.
 
@@ -27,7 +27,7 @@ Strictly, this is `.Q.s1`, but it's better to use [.Q.s](dotq/#qs-plain-text)
 
 
 
-## `-4!x` – tokens
+## `-4!x` (tokens)
 
 Returns the list of q tokens found in string `x`. (Note the q parsing of names with embedded underscores.)
 ```q
@@ -59,22 +59,22 @@ q)
 ```
 
 
-## `-5!x` – `parse`
+## `-5!x` (`parse`)
 
 <i class="fa fa-hand-o-right"></i> [parse](parsetrees/#parse)
 
 
-## `-6!x` – `eval`
+## `-6!x` (`eval`)
 
 <i class="fa fa-hand-o-right"></i> [eval](parsetrees/#eval)
 
 
-## `-7!x` – `hcount`
+## `-7!x` (`hcount`)
 
 <i class="fa fa-hand-o-right"></i> [hcount](filewords/#hopen)
 
 
-## `-8!x` – to bytes
+## `-8!x` (to bytes)
 
 return the IPC byte representation of x
 ```q
@@ -84,7 +84,7 @@ q)-8!1 2 3
 
 
 
-## `-9!x` – from bytes
+## `-9!x` (from bytes)
 
 Create data from IPC byte representation `x`
 
@@ -92,7 +92,7 @@ Create data from IPC byte representation `x`
     1 2 3
 
 
-## `-10!x` – type enum
+## `-10!x` (type enum)
 
 Resolve a type number to an enum vector and check if it’s available
 ```q
@@ -107,7 +107,7 @@ q)-10!20h
 ```
 
 
-## `-11!x` – streaming execute
+## `-11!x` (streaming execute)
 
 Streaming-execute over file `x`, used for example in kdb+tick to replay logfiles in a memory-efficient manner.
 
@@ -146,12 +146,12 @@ q)-11!`:logfile.2013.12.03 / function f no longer defined, so it signals an erro
 <i class="fa fa-hand-o-right"></i> <i class="fa fa-external-link-square"></i> [rescuelog.q](https://github.com/simongarland/tickrecover/blob/master/rescuelog.q) for examples of usage.
 
 
-## `−11!(-1;x)` – streaming execute
+## `−11!(-1;x)` (streaming execute)
 
 Same as `−11!x`.
 
 
-## `−11!(n;x)` – streaming execute
+## `−11!(n;x)` (streaming execute)
 
 Streaming-execute the first `n` chunks of logfile `x`, return the number of chunks if successful.
 
@@ -173,7 +173,7 @@ q)m:0;M:750;f:0N!;.z.ps:{m+:1;if[m>M;value x;];};-11!(M+5-1;`:log)
 ```
 
 
-## `-11!(-2;x)` – logfile chunks
+## `-11!(-2;x)` (logfile chunks)
 
 Given a valid logfile, return the number of chunks.
 
@@ -200,27 +200,27 @@ q)-11!(26;logfile)
 
 
 
-## `-12!x` – `.Q.host`
+## `-12!x` (`.Q.host`)
 
 <i class="fa fa-hand-o-right"></i> [.Q.host](dotq/#qhost-hostname)
 
 
-## `-13!x` – `.Q.addr`
+## `-13!x` (`.Q.addr`)
 
 <i class="fa fa-hand-o-right"></i> [.Q.addr](dotq/#qaddr-ip-address)
 
 
-## `-14!x` – quote escape
+## `-14!x` (quote escape)
 
 Handle `"` escaping in strings: used to prepare data for CSV export.
 
 
-## `-15!x` – `md5`
+## `-15!x` (`md5`)
 
 <i class="fa fa-hand-o-right"></i> [md5](strings/#md5)
 
 
-## `-16!x` – ref count
+## `-16!x` (ref count)
 
 Return the reference count for a variable
 ```q
@@ -232,37 +232,37 @@ q)-16!a
 ```
 
 
-## `-17!x` – flip endian-ess
+## `-17!x` (flip endian-ess)
 
 Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ V2.6](releases/ChangesIn2.6)
 
 
 
-## `-18!x` – compress byte
+## `-18!x` (compress byte)
 
 Return compressed IPC byte representation of `x`, see notes about network compression in [Changes in V2.6](releases/ChangesIn2.6)
 
 
 
-## `-19!x` – compress file
+## `-19!x` (compress file)
 
 compress a file, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression "wikilink")
 
 
 
-## `-20!0` – `.Q.gc`
+## `-20!0` (`.Q.gc`)
 
 <i class="fa fa-hand-o-right"></i> [`.Q.gc`](dotq/#qgc-garbage-collect)
 
 
 
-## `-21!x` – compression stats
+## `-21!x` (compression stats)
 
 Compression statistics for file `x`, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression)
 
 
 
-## `-22!x` – uncompressed length
+## `-22!x` (uncompressed length)
 
 An optimized shortcut to obtain the length of uncompressed serialized `x`, i.e. `count -8!x`
 ```q
@@ -277,7 +277,7 @@ q)(-22!v)=count -8!v
 
 
 
-## `-23!x` – memory map
+## `-23!x` (memory map)
 
 Since V3.1t 2013.03.04
 
@@ -289,7 +289,7 @@ q)-23!t:select from get`:t/;
 
 
 
-## `-24!x` – read-only eval
+## `-24!x` (read-only eval)
 
 Since V3.3t 2014.10.07.
 
@@ -304,7 +304,7 @@ q)h"a:4"
 ```
 
 
-## `-25!x` – async broadcast
+## `-25!x` (async broadcast)
 
 Since V3.4
 
@@ -343,13 +343,13 @@ q)-25!(7 8;0Ng)
 
 
 
-## `-26!x` – SSL
+## `-26!x` (SSL)
 
 Since V3.4 2016.05.12. View TLS settings on a handle or current process `-26!handle` or `-26!()`  
 <i class="fa fa-hand-o-right"></i> [Cookbook/SSL](http://code.kx.com/wiki/Cookbook/SSL)
 
 
-## `-29!x` – parse JSON
+## `-29!x` (parse JSON)
 
 Since V3.3t 2015.02.17 underpins the JSON parser, `.j.k`.
 

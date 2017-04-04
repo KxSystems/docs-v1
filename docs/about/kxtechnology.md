@@ -1,3 +1,7 @@
+<div class="kx-zero">
+<img src="../../img/hieroglyphics.png" style="width: 100%"/>
+</div>
+
 > I can’t understand why people are frightened of new ideas. I’m frightened of the old ones.  
 — _John Cage_
 

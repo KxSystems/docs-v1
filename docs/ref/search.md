@@ -64,7 +64,7 @@ q)distinct 2 + 0f,10 xexp -13
 ```
 
 
-## `?` – find
+## `?` (find)
 
 Syntax: `x?y` 
 

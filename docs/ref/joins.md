@@ -54,7 +54,7 @@ In each case, the time column in the first argument specifies \[) intervals in t
 : A simpler `aj` where all columns (or dictionary keys) of the second argument are used in the join.
 
 
-## `aj` `aj0` – asof-join 
+## `aj` `aj0` (asof-join )
 
 Syntax: <code>aj[c<sub>1</sub>…c<sub>n</sub>;t1;t2]</code>
 
@@ -183,7 +183,7 @@ A   2000.08.04| 00846U101 AGILENT TECHNOLOGIES  INC      0  N  100
 ```
 
 
-## `^` – coalesce
+## `^` (coalesce)
 
 Syntax: `t1 ^ t2`
 
@@ -237,7 +237,7 @@ k| c1   c2
     The performance of `^` is slower than that of `,` since each column value of the right operand must be checked for null.
 
 
-## `ej` – equi-join
+## `ej` (equi-join)
 
 Syntax: `ej[c;t1;t2]`
 
@@ -268,7 +268,7 @@ IBM  0.2608152 N   1000
 MSFT 0.5433888 CME 250
 ```
 
-## `ij` – inner-join
+## `ij` (inner-join)
 
 Syntax: `t1 ij t2`
 
@@ -323,7 +323,7 @@ MSFT 0.5433888 CME 250
     ```
 
 
-## `lj` `ljf` – left-join
+## `lj` `ljf` (left-join)
 
 Syntax: `t1 lj t2`
 
@@ -388,7 +388,7 @@ c d
     Since 2014.05.03, the earlier version is available in all V3.x versions as `ljf`.
 
 
-## `pj` – plus-join
+## `pj` (plus-join)
 
 Syntax: `t1 pj t2`
 
@@ -423,7 +423,7 @@ a b c  d
 In the example above, `pj` is equivalent to `` x+0^y[`a`b#x] `` (compute the value of `y` on `a` and `b` columns of `x`, fill the result with zeros and add to `x`).
 
 
-## `uj` – union-join
+## `uj` (union-join)
 
 Syntax: `t1 uj t2`
 
@@ -466,7 +466,7 @@ a b| c  d
     The `uj` operator is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
 
 
-## `wj` `wj1` – window-join
+## `wj` `wj1` (window-join)
 
 Syntax: `wj[w;c;t;(q;(f0;c0);(f1;c1))]`
 

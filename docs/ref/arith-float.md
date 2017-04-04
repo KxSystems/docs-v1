@@ -1,6 +1,6 @@
 These functions return floating-point results.
 
-## `%` – divide
+## `%` (divide)
 
 Syntax: `x % y` (atomic)  
 

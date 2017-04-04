@@ -1,10 +1,11 @@
+<!-- 
 <div class="kx-zero">
 <img src="../../img/hieroglyphics.png" style="width: 100%"/>
 </div>
 
 Q is bigger than it looks: tokens play different roles, according to context. Here is a complete guide. 
 
-
+ -->
 ## Reserved words
 
 <table markdown="1" class="kx-compact">
@@ -37,42 +38,33 @@ Glyphs
 
 ### Punctuation
 
-<div class="kx-compact" markdown="1">
-
-| glyphs  | use                                           |
-|---------|-----------------------------------------------|
-| `()`    | precedence; [list definition](syntax/#lists); [table definition](syntax/#tables) |
-| `[]`    | expression block; [arguments](syntax/#application); [table definition](syntax/#tables) |
-| `{}`    | [function definition](syntax/#definition) (lambda)                  |
-| `;`     | [separator](syntax/#separation)                                     |
-| `` ` `` | [symbol](datatypes/#symbols)                                        |
-| `` `:`` | [filepath](datatypes/#filepaths)                               |
-
-</div>
+<table class="kx-compact" markdown="1">
+<tr><td>`()`</td><td>precedence; [list definition](syntax/#lists); [table definition](syntax/#tables)</td></tr>
+<tr><td>`[]`</td><td>expression block; [arguments](syntax/#application); [table definition](syntax/#tables)</td></tr>
+<tr><td>`{}`</td><td>[function definition](syntax/#definition) (lambda)</td></tr>
+<tr><td>`;`</td><td>[separator](syntax/#separation)</td></tr>
+<tr><td>`` ` ``</td><td>[symbol](datatypes/#symbols)</td></tr>
+<tr><td>`` `:``</td><td>[filepath](datatypes/#filepaths)</td></tr>
+</table>
 
 ### Operators
 
-<div class="kx-compact" markdown="1">
-
-| glyph | operator  | glyph | operator           | glyph | operator       | glyph | operator              |
-|-------|-----------|-------|--------------------|-------|----------------|-------|-----------------------|
-| [`=`](comparison/#six-comparison-operators)   | [equal](comparison/#six-comparison-operators)     | [`<>`](comparison/#six-comparison-operators)  | [not equal](comparison/#six-comparison-operators)          | [`~`](comparison/#match)   | [match](comparison/#match)          |
-| [`<`](comparison/#six-comparison-operators)   | [less than](comparison/#six-comparison-operators) | [`<=`](comparison/#six-comparison-operators)  | [less than or equal](comparison/#six-comparison-operators) | [`>`](comparison/#six-comparison-operators)   | [greater than](comparison/#six-comparison-operators)   | [`>=`](comparison/#six-comparison-operators)  | [greater than or equal](comparison/#six-comparison-operators) |
-| [`+`](arith-integer/#add)   | [plus](arith-integer/#add)      | [`-`](arith-integer/#-minus)   | [minus](arith-integer/#-minus)              | [`*`](arith-integer/#multiply)   | [times](arith-integer/#multiply)          | [`%`](arith-float/#divide)   | [divided by](arith-float/#divide)            |
-| [`#`](lists/#take)   | [take](lists/#take)      | [`,`](lists/#join)   | [join](lists/#join)               | `^`   | [fill](lists/#fill), [coalesce](joins/#coalesce) | `_`   | [drop](lists/#_-drop); [cut](lists/#_-cut)             |
-| `|`   | [maximum](arith-integer/#or-maximum), [`or`](logic/#or-maximum) | `&` | [minimum](arith-integer/#and-minimum), [`and`](logic/#and-minimum) |
-
-</div>
+<table class="kx-compact" markdown="1">
+<tr><td>[`=`](comparison/#six-comparison-operators)</td><td>[equal](comparison/#six-comparison-operators)</td><td>[`<>`](comparison/#six-comparison-operators)</td><td>[not equal](comparison/#six-comparison-operators)</td><td>[`~`](comparison/#match)</td><td>[match](comparison/#match)</td></tr>
+<tr><td>[`<`](comparison/#six-comparison-operators)</td><td>[less than](comparison/#six-comparison-operators)</td><td>[`<=`](comparison/#six-comparison-operators)</td><td>[less than or equal](comparison/#six-comparison-operators)</td><td>[`>`](comparison/#six-comparison-operators)</td><td>[greater than](comparison/#six-comparison-operators)</td><td>[`>=`](comparison/#six-comparison-operators)</td><td>[greater than or equal](comparison/#six-comparison-operators)</td></tr>
+<tr><td>[`+`](arith-integer/#add)</td><td>[plus](arith-integer/#add)</td><td>[`-`](arith-integer/#-minus)</td><td>[minus](arith-integer/#-minus)</td><td>[`*`](arith-integer/#multiply)</td><td>[times](arith-integer/#multiply)</td><td>[`%`](arith-float/#divide)</td><td>[divided by](arith-float/#divide)</td></tr>
+<tr><td>[`#`](lists/#take)</td><td>[take](lists/#take)</td><td>[`,`](lists/#join)</td><td>[join](lists/#join)</td><td>`^`</td><td>[fill](lists/#fill), [coalesce](joins/#coalesce)</td><td>`_`</td><td>[drop](lists/#_-drop); [cut](lists/#_-cut)</td></tr>
+<tr><td>`|`</td><td>[maximum](arith-integer/#or-maximum), [`or`](logic/#or-maximum)</td><td>`&`</td><td>[minimum](arith-integer/#and-minimum), [`and`](logic/#and-minimum)</td></tr>
+</table>
 
 
+### Overloads
 
-### Overloaded glyphs
-
-The following glyphs represent operators, functions or adverbs – according to context.
+The following glyphs represent operators, functions or adverbs – according to use.
 
 <div class="kx-compact" markdown="1">
 
-| glyph | infix                                         | prefix                                          | postfix                                                                          |
+|       | infix                                         | prefix                                          | postfix                                                                          |
 |-------|-----------------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------------|
 | `'`   | [case](adverbs/#case)               | [signal](errors/#signal)              | [compose](adverbs/#compose), [each-both](adverbs/#each-both) |
 | `@`   | [index/apply](unclassified/#apply)  | [amend](lists/#amend)         | [trap](errors/#trap)                                                   | 
@@ -88,7 +80,7 @@ The following glyphs represent operators, functions or adverbs – according to 
 
 </div>
 
-!!! Note "Other uses of /"
+!!! Note "Other roles of /"
 
     - in a session or script, preceded by a space, begins a trailing [comment](syntax/#comments) 
     - in a script, followed by a newline, begins a multiline [comment](syntax/#comments) 
@@ -104,15 +96,50 @@ The following glyphs represent operators, functions or adverbs – according to 
 
 ### Mavericks
 
+<table class="kx-compact" markdown="1">
+<tr><td>`:` </td><td>[assign/amend](syntax/#naming-and-assignment), [return](syntax/#definition)</td></tr>
+<tr><td>`::`</td><td>[null](unclassified/#null), [identity](unclassified/#identity)</td></tr>
+<tr><td>`csv`</td><td>[comma as record delimiter](filewords/#csv)</td></tr>
+</table>
+
+
+## Iteration
+<table class="kx-compact" markdown="1">
+<tr><td>`f each x`</td><td>[`each`](control/#each)</td><td>apply `f` to each item of `x`</td></tr>
+<tr><td>`x f'y`</td><td>[each-both](adverbs/#each-both)</td><td>apply `f` between items of `x` and `y`</td></tr>
+<tr><td>`x f\:y`</td><td>[each-left](adverbs/#each-left)</td><td>apply `f` between `y` and items of `x`</td></tr>
+<tr><td>`x f/:y`</td><td>[each-right](adverbs/#each-right)</td><td>apply `f` between `x` and items of `y`</td></tr>
+<tr><td>`f':x`</td><td>[each-parallel](adverbs/#each-parallel)</td><td>apply `f` to items of `x` in parallel tasks</td></tr>
+<tr><td>`f peach x`</td><td>[`peach`](control/#peach)</td><td>apply `f` to items of `x` in parallel tasks</td></tr>
+<tr><td>`f':x`</td><td>[each-prior](adverbs/#each-prior)</td><td>apply `f` between successive pairs of items of `x`</td></tr>
+<tr><td>`f prior x`</td><td>[`prior`](control/#prior)</td><td>apply `f` between successive pairs of items of `x`</td></tr>
+<tr><td>`x f/y`</td><td>[repeat](adverbs/#converge-repeat)</td><td>apply `f` to `y`, `x` times</td></tr>
+<tr><td>`{x} f/y`</td><td>[over](adverbs/#over)</td><td>reduce `y` with `f`</td></tr>
+<tr><td>`f over x`</td><td>[`over`](control/#over)</td><td>applies `f` between successive items of `x`</td></tr>
+<tr><td>`f/[x;y;…]`</td><td>[fold](adverbs/#fold)</td><td>reduce `[x;y;…]` with `f`</td></tr>
+<tr><td>`f\x`</td><td>[converge](adverbs/#converge-iterate)</td><td>apply `f` to `x` until converges</td></tr>
+<tr><td>`x f\y`</td><td>[iterate](adverbs/#converge-iterate)</td><td>apply `f` to `y`, `x` times or while `x`</td></tr>
+<tr><td>`f\x`</td><td>[scan](adverbs/#scan)</td><td>apply `f/` to successive items of `x`</td></tr>
+<tr><td>`f scan x`</td><td>[`scan`](control/#scan)</td><td>apply `f/` to successive items of `x`</td></tr>
+<tr><td>`do[count;e1;e2;e3;…;en]`</td><td>[`do`](control/#do)</td><td>evaluate `e1` to `en`, `count` times</td></tr>
+<tr><td>`while[test;e1;e2;e3;…;en]`</td><td>[`while`](control/#while)</td><td>evaluate `e1` to `en` until `test` is false</td></tr>
+</table>
+
+<i class="fa fa-hand-o-right"></i> [Adverbs](adverbs), [Evaluation control](control)
+
+## Attributes
+
 <div class="kx-compact" markdown="1">
 
-| glyph  | role                                                      |
-|--------|-----------------------------------------------------------|
-| `:`    | [assign/amend](syntax/#naming-and-assignment), [return](syntax/#definition) |
-| `::`   | [null](unclassified/#null), [identity](unclassified/#identity) |
-| `csv`  | [comma as record delimiter](filewords/#csv) |
+| example       |         | overhead               |
+|---------------|---------|------------------------|
+| `` `s#2 2 3`` | sorted  | `0`                    |
+| `` `u#2 4 5`` | unique  | `16*u`                 |
+| `` `p#2 2 1`` | parted  | `(4*u;16*u;4*u+1)`     |
+| `` `g#2 1 2`` | grouped | `(4*u;16*u;4*u+1;4*n)` |
 
 </div>
+<i class="fa fa-hand-o-right"></i> [Attributes](elements/#attributes)
 
 ## Numbers
 
@@ -127,112 +154,99 @@ The following glyphs represent operators, functions or adverbs – according to 
 </table>
 
 
-Namespaces
-----------
+## Namespaces
 
 ### .h
 
-<div class="kx-compact" markdown="1">
-
-| obj | meaning | obj | meaning |
-|-----|---------|-----|---------|
-| [`.h.br`](doth/#hbr-linebreak) | [linebreak](doth/#hbr-linebreak) | [`.h.c0`](doth/#hc0-web-color) | [web color](doth/#hc0-web-color) |
-| [`.h.c1`](doth/#hc1-web-color) | [web color](doth/#hc1-web-color) | [`.h.cd`](doth/#hcd-csv-from-data) | [CSV from data](doth/#hcd-csv-from-data) |
-| [`.h.code`](doth/#hcode) | | [`.h.data`](doth/#hdata) | |
-| [`.h.eb`](doth/#heb) | | [`.h.ec`](doth/#hec) | |
-| [`.h.ed`](doth/#hed-excel-from-data) | [Excel from data](doth/#hed-excel-from-data) | [`.h.edsn`](doth/#hedsn) | |
-| [`.h.es`](doth/#hes) | | [`.h.ex`](doth/#hex) | |
-| [`.h.fram`](doth/#hfram-frame) | [frame](doth/#hfram-frame) | [`.h.ha`](doth/#hha-anchor) | [anchor](doth/#hha-anchor) |
-| [`.h.hb`](doth/#hhb-anchor-target) | [anchor target](doth/#hhb-anchor-target) | [`.h.hc`](doth/#hhc-escape-lt) | [escape lt](doth/#hhc-escape-lt) |
-| [`.h.he`](doth/#hhe-http-400) | [HTTP 400](doth/#hhe-http-400) | [`.h.hn`](doth/#hhn-http-error) | [HTTP error](doth/#hhn-http-error) |
-| [`.h.hp`](doth/#hhp-http-response) | [HTTP response](doth/#hhp-http-response) | [`.h.hr`](doth/#hhr-horizontal-rule) | [horizontal rule](doth/#hhr-horizontal-rule)|
-| [`.h.ht`](doth/#hht-marqdown-to-html) | [Marqdown to HTML ](doth/#hht-marqdown-to-html) | [`.h.hta`](doth/#hhta-start-tag) | [start tag ](doth/#hhta-start-tag)|
-| [`.h.htac`](doth/#hhtac-element) | [element](doth/#hhtac-element) | [`.h.htc`](doth/#hhtc-element) | [element](doth/#hhtc-element)|
-| [`.h.html`](doth/#hhtml-document) | [document](doth/#hhtml-document) | [`.h.http`](doth/#hhttp-hyperlinks) | [hyperlinks](doth/#hhttp-hyperlinks)|
-| [`.h.hu`](doth/#hhu-uri-escape) | [URI escape](doth/#hhu-uri-escape) | [`.h.hug`](doth/#hhug-uri-map) | [URI map](doth/#hhug-uri-map)|
-| [`.h.hy`](doth/#hhy-http-response) | [HTTP response](doth/#hhy-http-response) | [`.h.iso8601`](doth/#hiso8601-iso-timestamp) | [ISO timestamp](doth/#hiso8601-iso-timestamp)|
-| [`.h.jx`](doth/#hjx-table) | [table](doth/#hjx-table) | [`.h.logo`](doth/#hlogo-kx-logo) | [Kx logo](doth/#hlogo-kx-logo)|
-| [`.h.nbr`](doth/#hnbr-no-break) | [no break](doth/#hnbr-no-break) | [`.h.pre`](doth/#hpre-pre) | [pre](doth/#hpre-pre)|
-| [`.h.sa`](doth/#hsa-style) | [style](doth/#hsa-style) | [`.h.sb`](doth/#hsb-style) | [style](doth/#hsb-style)|
-| [`.h.sc`](doth/#hsc-uri-safe) | [URI-safe](doth/#hsc-uri-safe) | [`.h.td`](doth/#htd-tsv) | [TSV](doth/#htd-tsv)|
-| [`.h.text`](doth/#htext-paragraphs) | [paragraphs](doth/#htext-paragraphs) | [`.h.tx`](doth/#htx-filetypes) | [filetypes](doth/#htx-filetypes)|
-| [`.h.ty`](doth/#hty-mime-types) | [MIME types](doth/#hty-mime-types) | [`.h.uh`](doth/#huh-uri-unescape) | [URI unescape](doth/#huh-uri-unescape)|
-| [`.h.xd`](doth/#hxd-xml) | [XML](doth/#hxd-xml) | [`.h.xmp`](doth/#hxmp-xmp) | [xmp](doth/#hxmp-xmp)|
-| [`.h.xs`](doth/#hxs-xml-escape) | [XML escape](doth/#hxs-xml-escape) | [`.h.xt`](doth/#hxt-json) | [JSON](doth/#hxt-json) |
-
-</div>
+<table class="kx-compact" markdown="1">
+<tr><td>[`.h.br`](doth/#hbr-linebreak)</td><td>[linebreak](doth/#hbr-linebreak)</td><td>[`.h.c0`](doth/#hc0-web-color)</td><td>[web color](doth/#hc0-web-color)</td></tr>
+<tr><td>[`.h.c1`](doth/#hc1-web-color)</td><td>[web color](doth/#hc1-web-color)</td><td>[`.h.cd`](doth/#hcd-csv-from-data)</td><td>[CSV from data](doth/#hcd-csv-from-data)</td></tr>
+<tr><td>[`.h.code`](doth/#hcode)</td><td></td><td>[`.h.data`](doth/#hdata)</td><td></td></tr>
+<tr><td>[`.h.eb`](doth/#heb)</td><td></td><td>[`.h.ec`](doth/#hec)</td><td></td></tr>
+<tr><td>[`.h.ed`](doth/#hed-excel-from-data)</td><td>[Excel from data](doth/#hed-excel-from-data)</td><td>[`.h.edsn`](doth/#hedsn)</td><td></td></tr>
+<tr><td>[`.h.es`](doth/#hes)</td><td></td><td>[`.h.ex`](doth/#hex)</td><td></td></tr>
+<tr><td>[`.h.fram`](doth/#hfram-frame)</td><td>[frame](doth/#hfram-frame)</td><td>[`.h.ha`](doth/#hha-anchor)</td><td>[anchor](doth/#hha-anchor)</td></tr>
+<tr><td>[`.h.hb`](doth/#hhb-anchor-target)</td><td>[anchor target](doth/#hhb-anchor-target)</td><td>[`.h.hc`](doth/#hhc-escape-lt)</td><td>[escape lt](doth/#hhc-escape-lt)</td></tr>
+<tr><td>[`.h.he`](doth/#hhe-http-400)</td><td>[HTTP 400](doth/#hhe-http-400)</td><td>[`.h.hn`](doth/#hhn-http-error)</td><td>[HTTP error](doth/#hhn-http-error)</td></tr>
+<tr><td>[`.h.hp`](doth/#hhp-http-response)</td><td>[HTTP response](doth/#hhp-http-response)</td><td>[`.h.hr`](doth/#hhr-horizontal-rule)</td><td>[horizontal rule](doth/#hhr-horizontal-rule)</td></tr>
+<tr><td>[`.h.ht`](doth/#hht-marqdown-to-html)</td><td>[Marqdown to HTML ](doth/#hht-marqdown-to-html)</td><td>[`.h.hta`](doth/#hhta-start-tag)</td><td>[start tag ](doth/#hhta-start-tag)</td></tr>
+<tr><td>[`.h.htac`](doth/#hhtac-element)</td><td>[element](doth/#hhtac-element)</td><td>[`.h.htc`](doth/#hhtc-element)</td><td>[element](doth/#hhtc-element)</td></tr>
+<tr><td>[`.h.html`](doth/#hhtml-document)</td><td>[document](doth/#hhtml-document)</td><td>[`.h.http`](doth/#hhttp-hyperlinks)</td><td>[hyperlinks](doth/#hhttp-hyperlinks)</td></tr>
+<tr><td>[`.h.hu`](doth/#hhu-uri-escape)</td><td>[URI escape](doth/#hhu-uri-escape)</td><td>[`.h.hug`](doth/#hhug-uri-map)</td><td>[URI map](doth/#hhug-uri-map)</td></tr>
+<tr><td>[`.h.hy`](doth/#hhy-http-response)</td><td>[HTTP response](doth/#hhy-http-response)</td><td>[`.h.iso8601`](doth/#hiso8601-iso-timestamp)</td><td>[ISO timestamp](doth/#hiso8601-iso-timestamp)</td></tr>
+<tr><td>[`.h.jx`](doth/#hjx-table)</td><td>[table](doth/#hjx-table)</td><td>[`.h.logo`](doth/#hlogo-kx-logo)</td><td>[Kx logo](doth/#hlogo-kx-logo)</td></tr>
+<tr><td>[`.h.nbr`](doth/#hnbr-no-break)</td><td>[no break](doth/#hnbr-no-break)</td><td>[`.h.pre`](doth/#hpre-pre)</td><td>[pre](doth/#hpre-pre)</td></tr>
+<tr><td>[`.h.sa`](doth/#hsa-style)</td><td>[style](doth/#hsa-style)</td><td>[`.h.sb`](doth/#hsb-style)</td><td>[style](doth/#hsb-style)</td></tr>
+<tr><td>[`.h.sc`](doth/#hsc-uri-safe)</td><td>[URI-safe](doth/#hsc-uri-safe)</td><td>[`.h.td`](doth/#htd-tsv)</td><td>[TSV](doth/#htd-tsv)</td></tr>
+<tr><td>[`.h.text`](doth/#htext-paragraphs)</td><td>[paragraphs](doth/#htext-paragraphs)</td><td>[`.h.tx`](doth/#htx-filetypes)</td><td>[filetypes](doth/#htx-filetypes)</td></tr>
+<tr><td>[`.h.ty`](doth/#hty-mime-types)</td><td>[MIME types](doth/#hty-mime-types)</td><td>[`.h.uh`](doth/#huh-uri-unescape)</td><td>[URI unescape](doth/#huh-uri-unescape)</td></tr>
+<tr><td>[`.h.xd`](doth/#hxd-xml)</td><td>[XML](doth/#hxd-xml)</td><td>[`.h.xmp`](doth/#hxmp-xmp)</td><td>[xmp](doth/#hxmp-xmp)</td></tr>
+<tr><td>[`.h.xs`](doth/#hxs-xml-escape)</td><td>[XML escape](doth/#hxs-xml-escape)</td><td>[`.h.xt`](doth/#hxt-json)</td><td>[JSON](doth/#hxt-json)</td></tr>
+</table>
 
 
 ### .Q
 
-<div class="kx-compact" markdown="1">
-
-| obj | meaning | obj | meaning |
-|-----|---------|-----|---------|
-| [`.Q.addmonths`](dotq/#qaddmonths) | | [`.Q.addr`](dotq/#qaddr-ip-address) | [IP address](dotq/#qaddr-ip-address) |
-| [`.Q.bv`](dotq/#qbv-build-vp) | [build vp](dotq/#qbv-build-vp) | [`.Q.chk`](dotq/#qchk-fill-hdb) | [fill HDB](dotq/#qchk-fill-hdb) |
-| [`.Q.cn`](dotq/#qcn-count-partitioned-table) | [count partitioned table](dotq/#qcn-count-partitioned-table) | [`.Q.D`](dotq/#qd-partitions) | [partitions ](dotq/#qd-partitions) |
-| [`.Q.dd`](dotq/#qdd-join-symbols) | [join symbols](dotq/#qdd-join-symbols) | [`.Q.def`](dotq/#qdef) | |
-| [`.Q.dpft`](dotq/#qdpft-save-table) | [save table](dotq/#qdpft-save-table) | [`.Q.dsftg`](dotq/#qdsftg-load-process-save) | [load process save](dotq/#qdsftg-load-process-save) |
-| [`.Q.en`](dotq/#qen-enumerate-varchar-cols) | [enumerate varchar cols](dotq/#qen-enumerate-varchar-cols) | [`.Q.f`](dotq/#qf-format) | [format](dotq/#qf-format) |
-| [`.Q.fc`](dotq/#qfc-parallel-on-cut) | [parallel on cut ](dotq/#qfc-parallel-on-cut) | [`.Q.ff`](dotq/#qff-append-columns) | [append columns](dotq/#qff-append-columns) |
-| [`.Q.fk`](dotq/#qfk-foreign-key) | [foreign key](dotq/#qfk-foreign-key) | [`.Q.fmt`](dotq/#qfmt-format) | [format](dotq/#qfmt-format) |
-| [`.Q.fps`](dotq/#qfps-streaming-algorithm) | [streaming algorithm](dotq/#qfps-streaming-algorithm) | [`.Q.fs`](dotq/#qfs-streaming-algorithm) | [streaming algorithm](dotq/#qfs-streaming-algorithm) |
-| [`.Q.fsn`](dotq/#qfsn-streaming-algorithm) | [streaming algorithm](dotq/#qfsn-streaming-algorithm) | [`.Q.ft`](dotq/#qft-apply-simple) | [apply simple ](dotq/#qft-apply-simple) |
-| [`.Q.fu`](dotq/#qfu-apply-unique) | [apply unique](dotq/#qfu-apply-unique) | [`.Q.gc`](dotq/#qgc-garbage-collect) | [garbage collect](dotq/#qgc-garbage-collect) |
-| [`.Q.hdpf`](dotq/#qhdpf-save-tables) | [save tables](dotq/#qhdpf-save-tables) | [`.Q.hg`](dotq/#qhg-http-get) | [HTTP get](dotq/#qhg-http-get) |
-| [`.Q.host`](dotq/#qhost-hostname) | [hostname](dotq/#qhost-hostname) | [`.Q.hp`](dotq/#qhp-http-post) | [HTTP post](dotq/#qhp-http-post) |
-| [`.Q.id`](dotq/#qid-purge) | [purge](dotq/#qid-purge) | [`.Q.ind`](dotq/#qind-partitioned-index) | [partitioned index](dotq/#qind-partitioned-index) |
-| [`.Q.j10`](dotq/#qj10-encode-binhex) | [encode binhex  ](dotq/#qj10-encode-binhex) | [`.Q.j12`](dotq/#qj12-encode-base64) | [encode base64  ](dotq/#qj12-encode-base64) |
-| [`.Q.k`](dotq/#qk-version) | [version ](dotq/#qk-version) | [`.Q.l`](dotq/#ql-load) | [load](dotq/#ql-load) |
-| [`.Q.M`](dotq/#qm-long-infinity) | [long infinity](dotq/#qm-long-infinity) | [`.Q.MAP`](dotq/#qmap-maps-partitions) | [maps partitions](dotq/#qmap-maps-partitions) |
-| [`.Q.opt`](dotq/#qopt) | | [`.Q.P`](dotq/#qp-segments) | [segments](dotq/#qp-segments) |
-| [`.Q.par`](dotq/#qpar-locate-partition) | [locate partition](dotq/#qpar-locate-partition) | [`.Q.pd`](dotq/#qpd-modified-partition-locations) | [modified partition locations ](dotq/#qpd-modified-partition-locations) |
-| [`.Q.PD`](dotq/#qpd-partition-locations) | [partition locations](dotq/#qpd-partition-locations) | [`.Q.pf`](dotq/#qpf-partition-type) | [partition type](dotq/#qpf-partition-type) |
-| [`.Q.pn`](dotq/#qpn-partition-counts) | [partition counts](dotq/#qpn-partition-counts) | [`.Q.pt`](dotq/#qpt-partitioned-tables) | [partitioned tables](dotq/#qpt-partitioned-tables) |
-| [`.Q.pv`](dotq/#qpv-modified-partition-values) | [modified partition values](dotq/#qpv-modified-partition-values) | [`.Q.PV`](dotq/#qpv-partition-values) | [partition values](dotq/#qpv-partition-values) |
-| [`.Q.qp`](dotq/#qqp-is-partitioned) | [is partitioned](dotq/#qqp-is-partitioned) | [`.Q.qt`](dotq/#qqt-is-table) | [is table](dotq/#qqt-is-table) |
-| [`.Q.res`](dotq/#qres-k-words) | [k words](dotq/#qres-k-words) | [`.Q.s`](dotq/#qs-plain-text) | [plain text](dotq/#qs-plain-text) |
-| [`.Q.ty`](dotq/#qty-type) | [type](dotq/#qty-type) | [`.Q.u`](dotq/#qu-date-based) | [date based](dotq/#qu-date-based) |
-| [`.Q.V`](dotq/#qv-table-to-dict) | [table to dict](dotq/#qv-table-to-dict) | [`.Q.v`](dotq/#qv-value) | [value](dotq/#qv-value) |
-| [`.Q.view`](dotq/#qview-subview) | [subview](dotq/#qview-subview) | [`.Q.vp`](dotq/#qvp-missing-partitions) | [missing partitions](dotq/#qvp-missing-partitions) |
-| [`.Q.w`](dotq/#qw-memory-stats) | [memory stats](dotq/#qw-memory-stats) | [`.Q.x10`](dotq/#qx10-decode-binhex) | [decode binhex  ](dotq/#qx10-decode-binhex) |
-| [`.Q.x12`](dotq/#qx12-decode-base64) | [decode base64 ](dotq/#qx12-decode-base64) | [`.Q.x`](dotq/#qx) | |
-| [`.Q.Xf`](dotq/#qxf-create-file) | [create file](dotq/#qxf-create-file) |
-
-</div>
+<table class="kx-compact" markdown="1">
+<tr><td>[`.Q.addmonths`](dotq/#qaddmonths)</td><td></td><td>[`.Q.addr`](dotq/#qaddr-ip-address)</td><td>[IP address](dotq/#qaddr-ip-address)</td></tr>
+<tr><td>[`.Q.bv`](dotq/#qbv-build-vp)</td><td>[build vp](dotq/#qbv-build-vp)</td><td>[`.Q.chk`](dotq/#qchk-fill-hdb)</td><td>[fill HDB](dotq/#qchk-fill-hdb)</td></tr>
+<tr><td>[`.Q.cn`](dotq/#qcn-count-partitioned-table)</td><td>[count partitioned table](dotq/#qcn-count-partitioned-table)</td><td>[`.Q.D`](dotq/#qd-partitions)</td><td>[partitions ](dotq/#qd-partitions)</td></tr>
+<tr><td>[`.Q.dd`](dotq/#qdd-join-symbols)</td><td>[join symbols](dotq/#qdd-join-symbols)</td><td>[`.Q.def`](dotq/#qdef)</td><td></td></tr>
+<tr><td>[`.Q.dpft`](dotq/#qdpft-save-table)</td><td>[save table](dotq/#qdpft-save-table)</td><td>[`.Q.dsftg`](dotq/#qdsftg-load-process-save)</td><td>[load process save](dotq/#qdsftg-load-process-save)</td></tr>
+<tr><td>[`.Q.en`](dotq/#qen-enumerate-varchar-cols)</td><td>[enumerate varchar cols](dotq/#qen-enumerate-varchar-cols)</td><td>[`.Q.f`](dotq/#qf-format)</td><td>[format](dotq/#qf-format)</td></tr>
+<tr><td>[`.Q.fc`](dotq/#qfc-parallel-on-cut)</td><td>[parallel on cut ](dotq/#qfc-parallel-on-cut)</td><td>[`.Q.ff`](dotq/#qff-append-columns)</td><td>[append columns](dotq/#qff-append-columns)</td></tr>
+<tr><td>[`.Q.fk`](dotq/#qfk-foreign-key)</td><td>[foreign key](dotq/#qfk-foreign-key)</td><td>[`.Q.fmt`](dotq/#qfmt-format)</td><td>[format](dotq/#qfmt-format)</td></tr>
+<tr><td>[`.Q.fps`](dotq/#qfps-streaming-algorithm)</td><td>[streaming algorithm](dotq/#qfps-streaming-algorithm)</td><td>[`.Q.fs`](dotq/#qfs-streaming-algorithm)</td><td>[streaming algorithm](dotq/#qfs-streaming-algorithm)</td></tr>
+<tr><td>[`.Q.fsn`](dotq/#qfsn-streaming-algorithm)</td><td>[streaming algorithm](dotq/#qfsn-streaming-algorithm)</td><td>[`.Q.ft`](dotq/#qft-apply-simple)</td><td>[apply simple ](dotq/#qft-apply-simple)</td></tr>
+<tr><td>[`.Q.fu`](dotq/#qfu-apply-unique)</td><td>[apply unique](dotq/#qfu-apply-unique)</td><td>[`.Q.gc`](dotq/#qgc-garbage-collect)</td><td>[garbage collect](dotq/#qgc-garbage-collect)</td></tr>
+<tr><td>[`.Q.hdpf`](dotq/#qhdpf-save-tables)</td><td>[save tables](dotq/#qhdpf-save-tables)</td><td>[`.Q.hg`](dotq/#qhg-http-get)</td><td>[HTTP get](dotq/#qhg-http-get)</td></tr>
+<tr><td>[`.Q.host`](dotq/#qhost-hostname)</td><td>[hostname](dotq/#qhost-hostname)</td><td>[`.Q.hp`](dotq/#qhp-http-post)</td><td>[HTTP post](dotq/#qhp-http-post)</td></tr>
+<tr><td>[`.Q.id`](dotq/#qid-purge)</td><td>[purge](dotq/#qid-purge)</td><td>[`.Q.ind`](dotq/#qind-partitioned-index)</td><td>[partitioned index](dotq/#qind-partitioned-index)</td></tr>
+<tr><td>[`.Q.j10`](dotq/#qj10-encode-binhex)</td><td>[encode binhex  ](dotq/#qj10-encode-binhex)</td><td>[`.Q.j12`](dotq/#qj12-encode-base64)</td><td>[encode base64  ](dotq/#qj12-encode-base64)</td></tr>
+<tr><td>[`.Q.k`](dotq/#qk-version)</td><td>[version ](dotq/#qk-version)</td><td>[`.Q.l`](dotq/#ql-load)</td><td>[load](dotq/#ql-load)</td></tr>
+<tr><td>[`.Q.M`](dotq/#qm-long-infinity)</td><td>[long infinity](dotq/#qm-long-infinity)</td><td>[`.Q.MAP`](dotq/#qmap-maps-partitions)</td><td>[maps partitions](dotq/#qmap-maps-partitions)</td></tr>
+<tr><td>[`.Q.opt`](dotq/#qopt)</td><td></td><td>[`.Q.P`](dotq/#qp-segments)</td><td>[segments](dotq/#qp-segments)</td></tr>
+<tr><td>[`.Q.par`](dotq/#qpar-locate-partition)</td><td>[locate partition](dotq/#qpar-locate-partition)</td><td>[`.Q.pd`](dotq/#qpd-modified-partition-locations)</td><td>[modified partition locations ](dotq/#qpd-modified-partition-locations)</td></tr>
+<tr><td>[`.Q.PD`](dotq/#qpd-partition-locations)</td><td>[partition locations](dotq/#qpd-partition-locations)</td><td>[`.Q.pf`](dotq/#qpf-partition-type)</td><td>[partition type](dotq/#qpf-partition-type)</td></tr>
+<tr><td>[`.Q.pn`](dotq/#qpn-partition-counts)</td><td>[partition counts](dotq/#qpn-partition-counts)</td><td>[`.Q.pt`](dotq/#qpt-partitioned-tables)</td><td>[partitioned tables](dotq/#qpt-partitioned-tables)</td></tr>
+<tr><td>[`.Q.pv`](dotq/#qpv-modified-partition-values)</td><td>[modified partition values](dotq/#qpv-modified-partition-values)</td><td>[`.Q.PV`](dotq/#qpv-partition-values)</td><td>[partition values](dotq/#qpv-partition-values)</td></tr>
+<tr><td>[`.Q.qp`](dotq/#qqp-is-partitioned)</td><td>[is partitioned](dotq/#qqp-is-partitioned)</td><td>[`.Q.qt`](dotq/#qqt-is-table)</td><td>[is table](dotq/#qqt-is-table)</td></tr>
+<tr><td>[`.Q.res`](dotq/#qres-k-words)</td><td>[k words](dotq/#qres-k-words)</td><td>[`.Q.s`](dotq/#qs-plain-text)</td><td>[plain text](dotq/#qs-plain-text)</td></tr>
+<tr><td>[`.Q.ty`](dotq/#qty-type)</td><td>[type](dotq/#qty-type)</td><td>[`.Q.u`](dotq/#qu-date-based)</td><td>[date based](dotq/#qu-date-based)</td></tr>
+<tr><td>[`.Q.V`](dotq/#qv-table-to-dict)</td><td>[table to dict](dotq/#qv-table-to-dict)</td><td>[`.Q.v`](dotq/#qv-value)</td><td>[value](dotq/#qv-value)</td></tr>
+<tr><td>[`.Q.view`](dotq/#qview-subview)</td><td>[subview](dotq/#qview-subview)</td><td>[`.Q.vp`](dotq/#qvp-missing-partitions)</td><td>[missing partitions](dotq/#qvp-missing-partitions)</td></tr>
+<tr><td>[`.Q.w`](dotq/#qw-memory-stats)</td><td>[memory stats](dotq/#qw-memory-stats)</td><td>[`.Q.x10`](dotq/#qx10-decode-binhex)</td><td>[decode binhex  ](dotq/#qx10-decode-binhex)</td></tr>
+<tr><td>[`.Q.x12`](dotq/#qx12-decode-base64)</td><td>[decode base64 ](dotq/#qx12-decode-base64)</td><td>[`.Q.x`](dotq/#qx)</td><td></td></tr>
+<tr><td>[`.Q.Xf`](dotq/#qxf-create-file)</td><td>[create file](dotq/#qxf-create-file)</td></tr>
+</table>
 
 
 ### .z
 
-<div class="kx-compact" markdown="1">
-
-| obj | meaning | obj | meaning |
-|-----|---------|-----|---------|
-| [`.z.a`](dotz/#za-ip-address) | [IP address](dotz/#za-ip-address) | [`.z.ac`](dotz/#zac-http-auth-from-cookie) | [HTTP auth from cookie](dotz/#zac-http-auth-from-cookie) |
-| [`.z.b`](dotz/#zb-dependencies) | [dependencies](dotz/#zb-dependencies) |  [`.z.bm`](dotz/#zbm-msg-validator) | [msg validator](dotz/#zbm-msg-validator) |
-| [`.z.c`](dotz/#zc-cores) | [cores](dotz/#zc-cores) | [`.z.e`](dotz/#ze-tls-connection-status) | [TLS connection status](dotz/#ze-tls-connection-status) |
-| [`.z.exit`](dotz/#zexit-action-on-exit) | [action on exit](dotz/#zexit-action-on-exit) | [`.z.f`](dotz/#zf-file) | [file](dotz/#zf-file) |
-| [`.z.h`](dotz/#zh-host) | [host](dotz/#zh-host) | [`.z.i`](dotz/#zi-pid) | [PID](dotz/#zi-pid) |
-| [`.z.k`](dotz/#zk-release-date) | [release date](dotz/#zk-release-date) | [`.z.K`](dotz/#zk-version) | [version](dotz/#zk-version) |
-| [`.z.l`](dotz/#zl-license) | [license](dotz/#zl-license) | [`.z.n`](dotz/#zn-utc-timespan) | [UTC timespan](dotz/#zn-utc-timespan) |
-| [`.z.N`](dotz/#zn-local-timespan) | [local timespan](dotz/#zn-local-timespan) | [`.z.o`](dotz/#zo-os-version) | [OS version](dotz/#zo-os-version) |
-| [`.z.p`](dotz/#zp-utc-timestamp) | [UTC timestamp](dotz/#zp-utc-timestamp) | [`.z.P`](dotz/#zp-local-timestamp) | [local timestamp](dotz/#zp-local-timestamp) |
-| [`.z.pc`](dotz/#zpc-close) | [close](dotz/#zpc-close) | [`.z.pd`](dotz/#zpd-peach-handles) | [peach handles](dotz/#zpd-peach-handles) |
-| [`.z.pg`](dotz/#zpg-get) | [get](dotz/#zpg-get) | [`.z.ph`](dotz/#zph-http-get) | [HTTP get](dotz/#zph-http-get) |
-| [`.z.pi`](dotz/#zpi-input) | [input](dotz/#zpi-input) | [`.z.pm`](dotz/#zpm-http-options) | [HTTP options](dotz/#zpm-http-options) |
-| [`.z.pp`](dotz/#zpp-http-post) | [HTTP post](dotz/#zpp-http-post) | [`.z.ps`](dotz/#zps-set) | [set](dotz/#zps-set) |
-| [`.z.pw`](dotz/#zpw-validate-user) | [validate user](dotz/#zpw-validate-user) | [`.z.q`](dotz/#zq-quiet-mode) | [quiet mode](dotz/#zq-quiet-mode) |
-| [`.z.s`](dotz/#zs-self) | [self](dotz/#zs-self) | [`.z.ts`](dotz/#zts-timer) | [timer](dotz/#zts-timer)  |
-| [`.z.u`](dotz/#zu-user-id) | [user ID](dotz/#zu-user-id) | [`.z.vs`](dotz/#zvs-value-set) | [value set](dotz/#zvs-value-set) |
-| [`.z.w`](dotz/#zw-handle) | [handle](dotz/#zw-handle) | [`.z.W`](dotz/#zw-handles) | [handles](dotz/#zw-handles) |
-| [`.z.wc`](dotz/#zwc-websocket-close) | [websocket close](dotz/#zwc-websocket-close) | [`.z.wo`](dotz/#zwo-websocket-open) | [websocket open](dotz/#zwo-websocket-open) |
-| [`.z.ws`](dotz/#zws-websockets) | [websockets](dotz/#zws-websockets) | [`.z.x`](dotz/#zx-argv) | [argv](dotz/#zx-argv) |
-| [`.z.X`](dotz/#zx-raw-command-line) | [raw command line](dotz/#zx-raw-command-line) | [`.z.z`](dotz/#zz-utc-datetime) | [UTC datetime](dotz/#zz-utc-datetime) |
-| [`.z.Z`](dotz/#zz-local-datetime) | [local datetime](dotz/#zz-local-datetime) | [`.z.t`, `.z.T`, `.z.d`, `.z.D`](dotz/#zt-zt-zd-zd-timedate-shortcuts) | [time/date shortcuts](dotz/#zt-zt-zd-zd-timedate-shortcuts) |
-| [`.z.zd`](dotz/#zzd-zip-defaults) | [zip defaults](dotz/#zzd-zip-defaults) |
-
-</div>
+<table class="kx-compact" markdown="1">
+<tr><td>[`.z.a`](dotz/#za-ip-address)</td><td>[IP address](dotz/#za-ip-address)</td><td>[`.z.ac`](dotz/#zac-http-auth-from-cookie)</td><td>[HTTP auth from cookie](dotz/#zac-http-auth-from-cookie)</td></tr>
+<tr><td>[`.z.b`](dotz/#zb-dependencies)</td><td>[dependencies](dotz/#zb-dependencies)</td><td>[`.z.bm`](dotz/#zbm-msg-validator)</td><td>[msg validator](dotz/#zbm-msg-validator)</td></tr>
+<tr><td>[`.z.c`](dotz/#zc-cores)</td><td>[cores](dotz/#zc-cores)</td><td>[`.z.e`](dotz/#ze-tls-connection-status)</td><td>[TLS connection status](dotz/#ze-tls-connection-status)</td></tr>
+<tr><td>[`.z.exit`](dotz/#zexit-action-on-exit)</td><td>[action on exit](dotz/#zexit-action-on-exit)</td><td>[`.z.f`](dotz/#zf-file)</td><td>[file](dotz/#zf-file)</td></tr>
+<tr><td>[`.z.h`](dotz/#zh-host)</td><td>[host](dotz/#zh-host)</td><td>[`.z.i`](dotz/#zi-pid)</td><td>[PID](dotz/#zi-pid)</td></tr>
+<tr><td>[`.z.k`](dotz/#zk-release-date)</td><td>[release date](dotz/#zk-release-date)</td><td>[`.z.K`](dotz/#zk-version)</td><td>[version](dotz/#zk-version)</td></tr>
+<tr><td>[`.z.l`](dotz/#zl-license)</td><td>[license](dotz/#zl-license)</td><td>[`.z.n`](dotz/#zn-utc-timespan)</td><td>[UTC timespan](dotz/#zn-utc-timespan)</td></tr>
+<tr><td>[`.z.N`](dotz/#zn-local-timespan)</td><td>[local timespan](dotz/#zn-local-timespan)</td><td>[`.z.o`](dotz/#zo-os-version)</td><td>[OS version](dotz/#zo-os-version)</td></tr>
+<tr><td>[`.z.p`](dotz/#zp-utc-timestamp)</td><td>[UTC timestamp](dotz/#zp-utc-timestamp)</td><td>[`.z.P`](dotz/#zp-local-timestamp)</td><td>[local timestamp](dotz/#zp-local-timestamp)</td></tr>
+<tr><td>[`.z.pc`](dotz/#zpc-close)</td><td>[close](dotz/#zpc-close)</td><td>[`.z.pd`](dotz/#zpd-peach-handles)</td><td>[peach handles](dotz/#zpd-peach-handles)</td></tr>
+<tr><td>[`.z.pg`](dotz/#zpg-get)</td><td>[get](dotz/#zpg-get)</td><td>[`.z.ph`](dotz/#zph-http-get)</td><td>[HTTP get](dotz/#zph-http-get)</td></tr>
+<tr><td>[`.z.pi`](dotz/#zpi-input)</td><td>[input](dotz/#zpi-input)</td><td>[`.z.pm`](dotz/#zpm-http-options)</td><td>[HTTP options](dotz/#zpm-http-options)</td></tr>
+<tr><td>[`.z.pp`](dotz/#zpp-http-post)</td><td>[HTTP post](dotz/#zpp-http-post)</td><td>[`.z.ps`](dotz/#zps-set)</td><td>[set](dotz/#zps-set)</td></tr>
+<tr><td>[`.z.pw`](dotz/#zpw-validate-user)</td><td>[validate user](dotz/#zpw-validate-user)</td><td>[`.z.q`](dotz/#zq-quiet-mode)</td><td>[quiet mode](dotz/#zq-quiet-mode)</td></tr>
+<tr><td>[`.z.s`](dotz/#zs-self)</td><td>[self](dotz/#zs-self)</td><td>[`.z.ts`](dotz/#zts-timer)</td><td>[timer](dotz/#zts-timer)</td></tr>
+<tr><td>[`.z.u`](dotz/#zu-user-id)</td><td>[user ID](dotz/#zu-user-id)</td><td>[`.z.vs`](dotz/#zvs-value-set)</td><td>[value set](dotz/#zvs-value-set)</td></tr>
+<tr><td>[`.z.w`](dotz/#zw-handle)</td><td>[handle](dotz/#zw-handle)</td><td>[`.z.W`](dotz/#zw-handles)</td><td>[handles](dotz/#zw-handles)</td></tr>
+<tr><td>[`.z.wc`](dotz/#zwc-websocket-close)</td><td>[websocket close](dotz/#zwc-websocket-close)</td><td>[`.z.wo`](dotz/#zwo-websocket-open)</td><td>[websocket open](dotz/#zwo-websocket-open)</td></tr>
+<tr><td>[`.z.ws`](dotz/#zws-websockets)</td><td>[websockets](dotz/#zws-websockets)</td><td>[`.z.x`](dotz/#zx-argv)</td><td>[argv](dotz/#zx-argv)</td></tr>
+<tr><td>[`.z.X`](dotz/#zx-raw-command-line)</td><td>[raw command line](dotz/#zx-raw-command-line)</td><td>[`.z.z`](dotz/#zz-utc-datetime)</td><td>[UTC datetime](dotz/#zz-utc-datetime)</td></tr>
+<tr><td>[`.z.Z`](dotz/#zz-local-datetime)</td><td>[local datetime](dotz/#zz-local-datetime)</td>
+<td>[`.z.zd`](dotz/#zzd-zip-defaults)</td><td>[zip defaults](dotz/#zzd-zip-defaults)</td> </tr> <tr>
+<td colspan="2">[`.z.t`, `.z.T`, `.z.d`, `.z.D`](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td><td colspan="2">[time/date shortcuts](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td> </tr> </table>
 
 !!! warning "Single-letter namespaces"
     _All_ single-letter namespaces (upper- and lower-case) are reserved for Kx use. 
@@ -242,33 +256,52 @@ Namespaces
 
 ## Command-line options and system commands
 
-See summaries of [command-line options](cmdline) and [system commands](syscmds).
+<table markdown="1" class="kx-compact">
+<tr><td>[`\a`](syscmds/#a-tables)</td><td>tables</td><td>[`-b`](cmdline/#-b-blocked)</td><td>blocked</td></tr>
+<tr><td>[`\b`](syscmds/#b-views) [`\B`](syscmds/#b-pending-views)</td><td>views</td><td>[`\c`](syscmds/#c-console-size)  [`-c`](cmdline/#-c-console-size)</td><td>console size</td></tr>
+<tr><td>[`-C`](cmdline/#-c-http-size) [`\C`](syscmds/#c-http-size)</td><td>HTTP size</td><td>[`\cd`](syscmds/#cd-change-directory)</td><td>change directory</td></tr>
+<tr><td>[`\d`](syscmds/#d-directory)</td><td>directory</td><td>[`\e`](syscmds/#e-error-trap-clients) [`-e`](cmdline/#-e-error-traps)</td><td>error traps</td></tr>
+<tr><td>[`\f`](syscmds/#f-functions)</td><td>functions</td><td>[`\g`](syscmds/#g-garbage-collection-mode) [`-g`](cmdline/#-g-garbage-collection)</td><td>garbage collection</td></tr>
+<tr><td>[`\l`](syscmds/#l-load-file-or-directory)</td><td>load file or directory</td><td>[`-l`](cmdline/#-l-log-updates) [`-L`](cmdline/#-l-log-sync)</td><td>log sync</td></tr>
+<tr><td>[`\o`](syscmds/#o-offset-from-utc) [`-o`](cmdline/#-o-utc-offset)</td><td>UTC offset</td><td>[`\p`](syscmds/#p-port) [`-p`](cmdline/#-p-port)</td><td>multithread port</td></tr>
+<tr><td>[`\P`](syscmds/#p-precision) [`-P`](cmdline/#-p-display-precision)</td><td>display precision</td><td>[`-q`](cmdline/#-q-quiet-mode)</td><td>quiet mode</td></tr>
+<tr><td>[`\r`](syscmds/#r-replication-master) [`-r`](cmdline/#-r-replicate)</td><td>replicate</td><td>[`\r`](syscmds/#r-rename)</td><td>rename</td></tr>
+<tr><td>[`\s`](syscmds/#s-number-of-slaves) [`-s`](cmdline/#-s-slaves)</td><td>slaves</td><td>[`\S`](syscmds/#s-random-seed)</td><td>random seed</td></tr>
+<tr><td>[`\t`](syscmds/#t-timer) [`-t`](cmdline/#-t-timer-ticks)</td><td>timer ticks</td><td>[`\ts`](syscmds/#ts-time-and-space)</td><td>time and space</td></tr>
+<tr><td>[`\T`](syscmds/#t-timeout) [`-T`](cmdline/#-t-timeout)</td><td>timeout</td><td>[`\u`](syscmds/#u-reload-user-password-file)  [`-u`](cmdline/#-u-usr-pwd-local) [`-U`](cmdline/#-u-usr-pwd)</td><td>usr-pwd</td></tr>
+<tr><td>[`-u`](cmdline/#-u-disable-syscmds)</td><td>disable syscmds</td><td>[`\v`](syscmds/#v-variables)</td><td>variables</td></tr>
+<tr><td>[`\w`](syscmds/#w-workspace) [`-w`](cmdline/#-w-memory)</td><td>memory</td><td>[`\W`](syscmds/#w-week-offset) [`-W`](cmdline/#-w-start-week)</td><td>week offset</td></tr>
+<tr><td>[`\x`](syscmds/#x-expunge)</td><td>expunge</td><td>[`\z`](syscmds/#z-date-parsing) [`-z`](cmdline/#-z-date-format)</td><td>date format</td></tr>
+<tr><td>[`\1` &amp; `\2`](syscmds/#1-2-redirect)</td><td>redirect</td><td>[`\_`](syscmds/#_-hide-q-code)</td><td>hide q code</td></tr>
+<tr><td>[`\`](syscmds/#terminate)</td><td>terminate</td><td>[`\`](syscmds/#toggle-qk)</td><td>toggle q/k</td></tr>
+<tr><td>[`\\`](syscmds/#quit)</td><td>quit</td><td>[OS Commands](syscmds/#os-commands)</td><td></td></tr>
+<tr><td>[`system`](syscmds/#system)</td><td></td><td>[file](cmdline/#file)</td><td></td></tr>
+</table>
+<i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [system commands](syscmds)
+
+### Environment variables
 
 <div markdown="1" class="kx-compact">
 
-| cmd/opt |   | cmd/opt |   |
-|---------|---|---------|---|
-| [`\a`](syscmds/#a-tables) | tables | [`-b`](cmdline/#-b-blocked) | blocked |
-| [`\b`](syscmds/#b-views) [`\B`](syscmds/#b-pending-views) | views | [`\c`](syscmds/#c-console-size)  [`-c`](cmdline/#-c-console-size) | console size |
-| [`-C`](cmdline/#-c-http-size) [`\C`](syscmds/#c-http-size) | HTTP size | [`\cd`](syscmds/#cd-change-directory) | change directory |
-| [`\d`](syscmds/#d-directory) | directory | [`\e`](syscmds/#e-error-trap-clients) [`-e`](cmdline/#-e-error-traps) | error traps |
-| [`\f`](syscmds/#f-functions) | functions | [`\g`](syscmds/#g-garbage-collection-mode) [`-g`](cmdline/#-g-garbage-collection) | garbage collection |
-| [`\l`](syscmds/#l-load-file-or-directory) | load file or directory | [`-l`](cmdline/#-l-log-updates) [`-L`](cmdline/#-l-log-sync) | log sync |
-| [`\o`](syscmds/#o-offset-from-utc) [`-o`](cmdline/#-o-utc-offset) | UTC offset | [`\p`](syscmds/#p-port) [`-p`](cmdline/#-p-port) | multithread port |
-| [`\P`](syscmds/#p-precision) [`-P`](cmdline/#-p-display-precision) | display precision | [`-q`](cmdline/#-q-quiet-mode) | quiet mode |
-| [`\r`](syscmds/#r-replication-master) [`-r`](cmdline/#-r-replicate) | replicate | [`\r`](syscmds/#r-rename) | rename |
-| [`\s`](syscmds/#s-number-of-slaves) [`-s`](cmdline/#-s-slaves) | slaves | [`\S`](syscmds/#s-random-seed) | random seed |
-| [`\t`](syscmds/#t-timer) [`-t`](cmdline/#-t-timer-ticks) | timer ticks | [`\ts`](syscmds/#ts-time-and-space) | time and space |
-| [`\T`](syscmds/#t-timeout) [`-T`](cmdline/#-t-timeout) | timeout | [`\u`](syscmds/#u-reload-user-password-file)  [`-u`](cmdline/#-u-usr-pwd-local) [`-U`](cmdline/#-u-usr-pwd) | usr-pwd |
-| [`-u`](cmdline/#-u-disable-syscmds) | disable syscmds | [`\v`](syscmds/#v-variables) | variables |
-| [`\w`](syscmds/#w-workspace) [`-w`](cmdline/#-w-memory) | memory | [`\W`](syscmds/#w-week-offset) [`-W`](cmdline/#-w-start-week) | week offset |
-| [`\x`](syscmds/#x-expunge) | expunge | [`\z`](syscmds/#z-date-parsing) [`-z`](cmdline/#-z-date-format) | date format |
-| [`\1` &amp; `\2`](syscmds/#1-2-redirect) | redirect | [`\_`](syscmds/#_-hide-q-code) | hide q code |
-| [`\`](syscmds/#terminate) | terminate | [`\`](syscmds/#toggle-qk) | toggle q/k  |
-| [`\\`](syscmds/#quit) | quit  | [OS Commands](syscmds/#os-commands) |  |
-| [`system`](syscmds/#system) |  | [file](cmdline/#file) |  |
+| var       | default   | use                                                  |
+|-----------|-----------|------------------------------------------------------|
+| `QHOME`   | `$HOME/q` | folder searched for q.k and unqualified script names |
+| `QLIC`    | `$QHOME`  | folder searched for k4.lic license file              |
+| `QINIT`   | `q.q`     | additional file loaded after q.k has initialised     |
+| `LINES`   |           | supplied by OS, used to set `\c`                     |
+| `COLUMNS` |           | `\c $LINES $COLUMNS`                                 |
 
 </div>
+
+Ensure `LINES` and `COLUMNS` are exported. In Bash
+```bash
+export LINES COLUMNS
+```
+before starting q.
+```q
+q)getenv`VARNAME
+q)`VARNAME setenv "NEWVALUE"
+```
 
 
 ## Datatypes

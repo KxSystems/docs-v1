@@ -26,6 +26,8 @@ A series by Jan Karman in [_Vector_](http://archive.vector.org.uk) (mostly k3 wi
 
 ## <i class="fa fa-book"></i> Older documents
 
+![monk](./img/monk.png)
+
 * [Abridged q language manual](http://www.kx.com/q/d/q.htm), Arthur Whitney, 2009
 * [Abridged kdb+ database manual](http://www.kx.com/q/d/kdb+.htm), Arthur Whitney, 2006
 * [Kdb+ database reference manual](http://www.kx.com/q/d/kdb+1.htm), Don Orth, 2006
@@ -33,7 +35,7 @@ A series by Jan Karman in [_Vector_](http://archive.vector.org.uk) (mostly k3 wi
 * [Abridged kdb+tick manual](http://www.kx.com/q/d/tick.htm), Arthur Whitney, 2005
 * [Abridged kdb+taq manual](http://www.kx.com/q/d/taq.htm), Arthur Whitney, 2005
 * [Kdb+ database and language primer](http://www.kx.com/q/d/primer.htm), Dennis Sasha, 2005
-* [_Q for Mortals 2nd edn_](http://code.kx.com/wiki/JB:QforMortals2/contents), a tutorial in q programming by Jeffry A. Borror. This version covers kdb+ version 2.4, and has been superseded by the book&rsquo;s third edition.
+* [_Q for Mortals 2nd edn_](http://code.kx.com/wiki/JB:QforMortals2/contents), a tutorial in q programming by Jeffry A. Borror. This version covers kdb+ version 2.4, and has been superseded by the book&rsquo;s [third edition](http://code.kx.com/q4m3).
 
 
 

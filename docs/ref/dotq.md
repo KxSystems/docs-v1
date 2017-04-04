@@ -22,7 +22,7 @@ q).Q.addmonths[2006.10.29;4]
 ```
 
 
-### `.Q.addr` – IP address
+### `.Q.addr` (IP address)
 
 Syntax: `.Q.host x`
 
@@ -36,7 +36,7 @@ q).Q.host .Q.addr`localhost
 <i class="fa fa-hand-o-right"></i> [`.Q.host`](#qhost-hostname)
 
 
-### `.Q.chk` – fill HDB
+### `.Q.chk` (fill HDB)
 
 Syntax: `.Q.chk x`
 
@@ -51,7 +51,7 @@ Note that q must have write permission for the HDB area so that it can create mi
 then check that the process has write permissions for that filesystem.
 
 
-### `.Q.cn` – count partitioned table
+### `.Q.cn` (count partitioned table)
 
 Syntax: `.Q.cn x`
 
@@ -59,7 +59,7 @@ Where `x` is a partitioned table, passed by value, returns its count. Populates 
 
 
 
-### `.Q.dd` – join symbols
+### `.Q.dd` (join symbols)
 
 Syntax: `.Q.dd[x;y]`
 
@@ -86,7 +86,7 @@ Syntax: `.Q.def[x;y]`
 ==FIXME==
 
 
-### `.Q.dpft` – save table
+### `.Q.dpft` (save table)
 
 Syntax: ``.Q.dpft[directory;partition;`p#field;tablename]``
 
@@ -134,7 +134,7 @@ t     b
 ```
 
 
-### `.Q.dsftg` – load process save
+### `.Q.dsftg` (load process save)
 
 Syntax: `.Q.dsftg[d;s;f;t;g]`
 
@@ -158,14 +158,14 @@ q).Q.dsftg[d;s;f;t;g]
 ```
 
 
-### `.Q.en` – enumerate varchar cols
+### `.Q.en` (enumerate varchar cols)
 
 Syntax: `.Q.en[x;y]`
 
 <i class="fa fa-hand-o-right"></i> [Enumerating varchar columns in a table](http://code.kx.com/wiki/Cookbook/SplayedTables#Enumerating_varchar_columns_in_a_table)
 
 
-### `.Q.f` – format
+### `.Q.f` (format)
 
 Syntax: `.Q.f[x;y]`
 
@@ -189,7 +189,7 @@ q)10 xlog 0Wj-1
 18.964889726830812
 ```
 
-### `.Q.fc` – parallel on cut 
+### `.Q.fc` (parallel on cut)
 
 Syntax: `.Q.fc[x;y]`
 
@@ -210,7 +210,7 @@ q)\t f peach vec
 ```
 
 
-### `.Q.ff` – append columns
+### `.Q.ff` (append columns)
 
 Syntax: `.Q.ff[x;y]`
 
@@ -249,14 +249,14 @@ q).Q.ff[src] enlist `sym`ratioA`ratioB!3#1
 
 
 
-### `.Q.fk` – foreign key
+### `.Q.fk` (foreign key)
 
 Syntax: `.Q.fk x`
 
 Where `x` is a table column, returns `` ` `` if the column is not a foreign key or `` `tab`` if the column is a foreign key into `tab`.(Since V2.4t)
 
 
-### `.Q.fmt` – format
+### `.Q.fmt` (format)
 
 Syntax: `.q.fmt[x;y;z]`
 
@@ -298,7 +298,7 @@ q)fmt[9] each 34.4 343434.358
 ```
 
 
-### `.Q.fps` – streaming algorithm
+### `.Q.fps` (streaming algorithm)
 
 Syntax: `.Q.fps[x;y]`
 
@@ -308,7 +308,7 @@ Reads conveniently sized lumps of complete `"\n"` delimited records from a pipe 
 <i class="fa fa-hand-o-right"></i> [Named Pipes](http://code.kx.com/wiki/Cookbook/NamedPipes)
 
 
-### `.Q.fs` – streaming algorithm
+### `.Q.fs` (streaming algorithm)
 
 Syntax: `.Q.fs[x;y]`
 
@@ -334,7 +334,7 @@ q).Q.fs[{0N!("SSSSSSID";",")0:x}]`:potamus.csv
 <i class="fa fa-hand-o-right"></i> [Loading large CSV files](http://code.kx.com/wiki/Cookbook/LoadingFromLargeFiles)
 
 
-### `.Q.fsn` – streaming algorithm
+### `.Q.fsn` (streaming algorithm)
 
 Syntax: `.Q.fsn[x;y;z]`
 
@@ -343,7 +343,7 @@ Loops over a file and grabs `z`-sized lumps of complete `"\n"` delimited records
 `.Q.fsn` is almost identical to `.Q.fs` but it takes an extra argument: `z` is the size in bytes that chunks will be read in. This is particularly useful for balancing load speed and ram usage. `.Q.fs` is in fact a projection of `.Q.fsn` with the size set to 131000 bytes by default.
 
 
-### `.Q.ft` – apply simple 
+### `.Q.ft` (apply simple)
 
 Syntax: `.Q.ft[x;y]`
 
@@ -384,7 +384,7 @@ s4| clark 20     london
 ```
 
 
-### `.Q.fu` – apply unique
+### `.Q.fu` (apply unique)
 
 Syntax: `.Q.fu[x;y]`
 
@@ -398,7 +398,7 @@ q)y ~ y2 / returns 1b, the outputs are equal
 ```
 
 
-### `.Q.gc` – garbage collect
+### `.Q.gc` (garbage collect)
 
 Syntax: `.Q.gc[]`
 
@@ -490,14 +490,14 @@ symw| 24964
 So if you have many nested data, e.g. columns of char vectors, or an awful lot of grouping you may be fragmenting memory quite heavily.
 
 
-### `.Q.hdpf` – save tables
+### `.Q.hdpf` (save tables)
 
 Syntax: ``.Q.hdpf[historicalport;directory;partition;`p#field]``
 
 Saves all tables by calling `.Q.dpft`, clears tables, and sends reload message to HDB.
 
 
-### `.Q.hg` – HTTP get
+### `.Q.hg` (HTTP get)
 
 Syntax: `.Q.hg x`
 
@@ -525,7 +525,7 @@ It will utilize proxy settings from the environment, lower-case versions taking 
 N.B. HTTPS is not supported across proxies which require `CONNECT`.
 
 
-### `.Q.host` – hostname
+### `.Q.host` (hostname)
 
 Syntax: `.Q.host x`
 
@@ -538,7 +538,7 @@ q).Q.addr`localhost
 ```
 
 
-### `.Q.hp` – HTTP post
+### `.Q.hp` (HTTP post)
 
 Syntax: ``.Q.hp[x;y]"payload"``
 
@@ -546,7 +546,7 @@ Where `x` is a URL as a symbol atom, `y` is a MIME type as a string, and `z` is 
 (Since V3.4)
 
 
-### `.Q.id` – purge
+### `.Q.id` (purge)
 
 Syntax: `.Q.id x`
 
@@ -568,7 +568,7 @@ a ab
 ```
 
 
-### `.Q.ind` – partitioned index
+### `.Q.ind` (partitioned index)
 
 Syntax: `.Q.ind[x;y]`
 
@@ -600,10 +600,10 @@ q)(select from trade where date=2010.01.07)~.Q.ind[trade;(exec first sum x from 
     ```
 
 
-### `.Q.j10` – encode binhex  
-### `.Q.x10` – decode binhex  
-### `.Q.j12` – encode base64  
-### `.Q.x12` – decode base64 
+### `.Q.j10` (encode binhex)
+### `.Q.x10` (decode binhex)
+### `.Q.j12` (encode base64)
+### `.Q.x12` (decode base64)
 
 Syntax: `.Q.j10 s`  
 Syntax: `.Q.x10 s`  
@@ -636,7 +636,7 @@ q).Q.j12 .Q.x12 12345j
 
 
 
-### `.Q.k` – version 
+### `.Q.k` (version)
 
 Syntax: `.Q.k`
 
@@ -644,14 +644,14 @@ Returns the interpreter version number for which q.k has been written:
 checked against [`.z.K`](dotz/#zk-version) at startup. 
 
 
-### `.Q.l` – load
+### `.Q.l` (load)
 
 Syntax: ==FIXME==
 
 Implements [`\l`](syscmds/#l-load-file-or-directory). 
 
 
-### `.Q.M` – long infinity
+### `.Q.M` (long infinity)
 
 Syntax: `.Q.M`
 
@@ -662,7 +662,7 @@ q)0Wj~.Q.M
 ```
 
 
-### `.Q.MAP` – maps partitions
+### `.Q.MAP` (maps partitions)
 
 Syntax: `.Q.MAP[]`
 
@@ -692,7 +692,7 @@ Returns a dictionary, so you can easily see if a key was defined (flag set or no
 <i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv)
 
 
-### `.Q.par` – locate partition
+### `.Q.par` (locate partition)
 
 Syntax: `.Q.par[dir;part;table]`
 
@@ -708,7 +708,7 @@ q)all{`p=attr .Q.par[`:.;x;`quote]`sym}each  date
 ```
 
 
-### `.Q.qp` – is partitioned
+### `.Q.qp` (is partitioned)
 
 Syntax: `.Q.qp x`
 
@@ -734,14 +734,14 @@ q).Q.qp C
 ```
 
 
-### `.Q.qt` – is table
+### `.Q.qt` (is table)
 
 Syntax: `.Q.qt x`
 
 Where `x` is a table, returns `1b`, else `0b`.
 
 
-### `.Q.res` – k words
+### `.Q.res` (k words)
 
 Syntax: `.Q.res`
 
@@ -753,7 +753,7 @@ q).Q.res,key`.q
 <i class="fa fa-hand-o-right"></i> `.Q.id`
 
 
-### `.Q.s` – plain text
+### `.Q.s` (plain text)
 
 Syntax: `.Q.s x`
 
@@ -765,7 +765,7 @@ q).Q.s ([h:1 2 3] m: 4 5 6)
 Occasionally useful for undoing "Studio for kdb+" tabular formatting.
 
 
-### `.Q.ty` – type
+### `.Q.ty` (type)
 
 Syntax: `.Q.ty x`
 
@@ -778,7 +778,7 @@ q).Q.ty 1 2.
 ```
 
 
-### `.Q.v` – value
+### `.Q.v` (value)
 
 Syntax: `.Q.v x`
 
@@ -789,7 +789,7 @@ Where `x` is
 - anything else, returns `x`
 
 
-### `.Q.V` – table to dict
+### `.Q.V` (table to dict)
 
 Syntax: `.Q.V x`
 
@@ -801,7 +801,7 @@ Where `x` is
 <i class="fa fa-hand-o-right"></i> [`meta`](metadata/#meta)
 
 
-### `.Q.view` – subview
+### `.Q.view` (subview)
 
 Syntax: `.Q.view x`
 
@@ -811,7 +811,7 @@ Set a subview
 ```
 
 
-### `.Q.w` – memory stats
+### `.Q.w` (memory stats)
 
 Syntax: `.Q.w[]`
 
@@ -847,7 +847,7 @@ q).Q.x
 <i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv), [`.z.X`](dotz/#zx-raw-command-line)
 
 
-### `.Q.Xf` – create file
+### `.Q.Xf` (create file)
 
 Syntax: `.QXf[x;y]`
 
@@ -862,7 +862,7 @@ q)type get`:emptyNestedCharVector
 ## Partitioned database state
 
 
-### `.Q.bv` – build vp
+### `.Q.bv` (build vp)
 
 Syntax: `.Q.bv[]`  
 Syntax: ``.Q.bv[`]``
@@ -893,7 +893,7 @@ q)@[get;"select from tt";-2@]; / no error
 ```
 
 
-### `.Q.PD` – partition locations
+### `.Q.PD` (partition locations)
 
 Syntax: `.Q.PD`
 
@@ -931,7 +931,7 @@ In partitioned DBs, returns the partition type.
 Possible values are `` `date`month`year`int``.
 
 
-### `.Q.pn` – partition counts
+### `.Q.pn` (partition counts)
 
 Syntax: `.Q.pn`
 
@@ -974,14 +974,14 @@ q).Q.pv!flip .Q.pn
 ```
 
 
-### `.Q.pt` – partitioned tables
+### `.Q.pt` (partitioned tables)
 
 Syntax: `.Q.pt`
 
 Returns a list of partitioned tables.
 
 
-### `.Q.PV` – partition values
+### `.Q.PV` (partition values)
 
 Syntax: `.Q.PV`
 
@@ -1002,14 +1002,14 @@ q).Q.PV
 ```
 
 
-### `.Q.pv` – modified partition values
+### `.Q.pv` (modified partition values)
 
 Syntax: `.Q.pv`
 
 In partitioned DBs, `.Q.PV` as modified by `.Q.view`.
 
 
-### `.Q.vp` – missing partitions
+### `.Q.vp` (missing partitions)
 
 Syntax: `.Q.vp`
 
@@ -1038,7 +1038,7 @@ q)@[get;"select from tt";-2@]; / no error
 ## Segmented database state
 
 
-### `.Q.D` – partitions 
+### `.Q.D` (partitions)
 
 Syntax: `.Q.D`
 
@@ -1061,7 +1061,7 @@ q).Q.P!.Q.D
 ```
 
 
-### `.Q.P` – segments
+### `.Q.P` (segments)
 
 Syntax: `Q.P`
 
@@ -1072,7 +1072,7 @@ q).Q.P
 ```
 
 
-### `.Q.u` – date based
+### `.Q.u` (date based)
 
 Syntax: `.Q.u`
 

@@ -1,4 +1,4 @@
-## `0N!` – display
+## `0N!` (display)
 
 Syntax: `0N!x`
 

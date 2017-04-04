@@ -22,7 +22,7 @@ q)
 ```
 
 
-## `-b` – blocked
+## `-b` (blocked)
 
 Syntax: `-b`
   
@@ -53,7 +53,7 @@ q)\_
 ```
 
 
-## `-c` – console size
+## `-c` (console size)
 
 Syntax: `-c r c`
   
@@ -80,7 +80,7 @@ q)til each 20+til 10
 <i class="fa fa-hand-o-right"></i> [`\c`](syscmds/#c-console-size), <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html">Gnu Shopt documentation</a>
 
 
-## `-C` – HTTP size
+## `-C` (HTTP size)
 
 Syntax: `-C r c`
   
@@ -92,14 +92,14 @@ The defaults are 36&times;2000, and values are coerced to the range \[10,2000\].
 
 
 
-## `-e` – error traps
+## `-e` (error traps)
 
 Syntax: `-e B`
   
 Enable client error trapping
 
 
-## `-g` – garbage collection
+## `-g` (garbage collection)
 
 Syntax: `-g B`
   
@@ -112,42 +112,42 @@ Immediate mode is the 2.5/2.6 default, deferred is the 2.7 default.
 To use immediate mode, invoke as `q -g 1`. (Since V2.7 2011.02.04.)
 
 
-## `-l` – log updates
+## `-l` (log updates)
 
 Syntax: `-l`
   
 Log updates to filesystem, see [Cookbook/Logging](http://code.kx.com/wiki/Cookbook/Logging)
 
 
-## `-L` – log sync
+## `-L` (log sync)
 
 Syntax: `-L`
   
 As `-l`, but sync logging, see [Cookbook/Logging](http://code.kx.com/wiki/Cookbook/Logging)
 
 
-## `-o` – UTC offset
+## `-o` (UTC offset)
 
 Syntax: `-o N`
   
 Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-localtime))
 
 
-## `-p` – port
+## `-p` (port)
 
 Syntax: `-p N`
   
-Port on which kdb+ server listens. Use for [client/server](http://code.kx.com/wiki/Cookbook/ClientServer), e.g. kdbc(/jdbc/odbc), HTTP(HTML XML txt CSV).
+Port on which kdb+ server listens. Use for [client/server](http://code.kx.com/wiki/Cookbook/ClientServer), e.g. kdbc(/jdbc/odbc), HTTP (HTML XML txt CSV).
 
 
-## `-p` – multithread port
+## `-p` (multithread port)
 
 Syntax: `-p -N`
   
 Port for [multithreaded input mode](http://code.kx.com/wiki/Cookbook/MultithreadedInputMode).
 
 
-## `-P` – display precision
+## `-P` (display precision)
 
 Syntax: `-P N`
   
@@ -204,7 +204,7 @@ q)\\
 <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://docs.sun.com/source/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a>
 
 
-## `-q` – quiet mode
+## `-q` (quiet mode)
 
 Syntax: `-q`
   
@@ -229,70 +229,70 @@ and with `-q`
 ```
 
 
-## `-r` – replicate
+## `-r` (replicate)
   
 Syntax: `-r :H:P[:user[:password]]`
   
 Replicate from :host:port
 
 
-## `-s` – slaves
+## `-s` (slaves)
   
 Syntax: `-s N
   
 Start `N` slaves for parallel execution
 
 
-## `-t` – timer ticks
+## `-t` (timer ticks)
 
 Syntax: `-t N`
   
 Timer in milliseconds between timer ticks. Default is 0, for no timer.
 
 
-## `-T` – timeout
+## `-T` (timeout)
 
 Syntax: `-T N`
   
 Timeout in seconds for client queries, i.e. maximum time a client call will execute. Default is 0, for no timeout.
 
 
-## `-u` – disable syscmds
+## `-u` (disable syscmds)
 
 Syntax: `-u 1`
   
 Disables system commands from a remote (signals `'access`). As such, this includes disabling exit via `"\\"` from a remote.
 
 
-## `-u` – usr-pwd local
+## `-u` (usr-pwd local)
 
 Syntax: `-u F`
   
 Sets usr:pwd file, no access above start directory
 
 
-## `-U` – usr-pwd
+## `-U` (usr-pwd)
 
 Syntax: `-U F`
   
 As `-u`, but no access restrictions
 
 
-## `-w` – memory
+## `-w` (memory)
 
 Syntax: `-w N`
   
 Workspace MB limit (default: 2&times;RAM)
 
 
-## `-W` – start week
+## `-W` (start week)
 
 Syntax: `-W N`
   
 Start of week as an offset from Saturday. Default is 2, meaning that Monday is the start of week.
 
 
-## `-z` – date format
+## `-z` (date format)
 
 Syntax: `-z B`
   
