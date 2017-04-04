@@ -130,10 +130,78 @@ The following glyphs represent operators, functions or adverbs – according to 
 Namespaces
 ----------
 
-!!! warning "Watch out"
-    _All_ single-letter namespaces (upper- and lower-case) are reserved for Kx use and should not be used to contain user-written code or data.
+### .h
 
-<i class="fa fa-hand-o-right"></i> [`.h` namespace](doth/), [`.Q` namespace](dotq/)
+<div class="kx-compact" markdown="1">
+
+| obj | meaning | obj | meaning |
+|-----|---------|-----|---------|
+| [`.h.br`](doth/#hbr-linebreak) | [linebreak](doth/#hbr-linebreak) | [`.h.c0`](doth/#hc0-web-color) | [web color](doth/#hc0-web-color) |
+| [`.h.c1`](doth/#hc1-web-color) | [web color](doth/#hc1-web-color) | [`.h.cd`](doth/#hcd-csv-from-data) | [CSV from data](doth/#hcd-csv-from-data) |
+| [`.h.code`](doth/#hcode) | | [`.h.data`](doth/#hdata) | |
+| [`.h.eb`](doth/#heb) | | [`.h.ec`](doth/#hec) | |
+| [`.h.ed`](doth/#hed-excel-from-data) | [Excel from data](doth/#hed-excel-from-data) | [`.h.edsn`](doth/#hedsn) | |
+| [`.h.es`](doth/#hes) | | [`.h.ex`](doth/#hex) | |
+| [`.h.fram`](doth/#hfram-frame) | [frame](doth/#hfram-frame) | [`.h.ha`](doth/#hha-anchor) | [anchor](doth/#hha-anchor) |
+| [`.h.hb`](doth/#hhb-anchor-target) | [anchor target](doth/#hhb-anchor-target) | [`.h.hc`](doth/#hhc-escape-lt) | [escape lt](doth/#hhc-escape-lt) |
+| [`.h.he`](doth/#hhe-http-400) | [HTTP 400](doth/#hhe-http-400) | [`.h.hn`](doth/#hhn-http-error) | [HTTP error](doth/#hhn-http-error) |
+| [`.h.hp`](doth/#hhp-http-response) | [HTTP response](doth/#hhp-http-response) | [`.h.hr`](doth/#hhr-horizontal-rule) | [horizontal rule](doth/#hhr-horizontal-rule)|
+| [`.h.ht`](doth/#hht-marqdown-to-html) | [Marqdown to HTML ](doth/#hht-marqdown-to-html) | [`.h.hta`](doth/#hhta-start-tag) | [start tag ](doth/#hhta-start-tag)|
+| [`.h.htac`](doth/#hhtac-element) | [element](doth/#hhtac-element) | [`.h.htc`](doth/#hhtc-element) | [element](doth/#hhtc-element)|
+| [`.h.html`](doth/#hhtml-document) | [document](doth/#hhtml-document) | [`.h.http`](doth/#hhttp-hyperlinks) | [hyperlinks](doth/#hhttp-hyperlinks)|
+| [`.h.hu`](doth/#hhu-uri-escape) | [URI escape](doth/#hhu-uri-escape) | [`.h.hug`](doth/#hhug-uri-map) | [URI map](doth/#hhug-uri-map)|
+| [`.h.hy`](doth/#hhy-http-response) | [HTTP response](doth/#hhy-http-response) | [`.h.iso8601`](doth/#hiso8601-iso-timestamp) | [ISO timestamp](doth/#hiso8601-iso-timestamp)|
+| [`.h.jx`](doth/#hjx-table) | [table](doth/#hjx-table) | [`.h.logo`](doth/#hlogo-kx-logo) | [Kx logo](doth/#hlogo-kx-logo)|
+| [`.h.nbr`](doth/#hnbr-no-break) | [no break](doth/#hnbr-no-break) | [`.h.pre`](doth/#hpre-pre) | [pre](doth/#hpre-pre)|
+| [`.h.sa`](doth/#hsa-style) | [style](doth/#hsa-style) | [`.h.sb`](doth/#hsb-style) | [style](doth/#hsb-style)|
+| [`.h.sc`](doth/#hsc-uri-safe) | [URI-safe](doth/#hsc-uri-safe) | [`.h.td`](doth/#htd-tsv) | [TSV](doth/#htd-tsv)|
+| [`.h.text`](doth/#htext-paragraphs) | [paragraphs](doth/#htext-paragraphs) | [`.h.tx`](doth/#htx-filetypes) | [filetypes](doth/#htx-filetypes)|
+| [`.h.ty`](doth/#hty-mime-types) | [MIME types](doth/#hty-mime-types) | [`.h.uh`](doth/#huh-uri-unescape) | [URI unescape](doth/#huh-uri-unescape)|
+| [`.h.xd`](doth/#hxd-xml) | [XML](doth/#hxd-xml) | [`.h.xmp`](doth/#hxmp-xmp) | [xmp](doth/#hxmp-xmp)|
+| [`.h.xs`](doth/#hxs-xml-escape) | [XML escape](doth/#hxs-xml-escape) | [`.h.xt`](doth/#hxt-json) | [JSON](doth/#hxt-json) |
+
+</div>
+
+
+### .Q
+
+<div class="kx-compact" markdown="1">
+
+| obj | meaning | obj | meaning |
+|-----|---------|-----|---------|
+| [`.Q.addmonths`](dotq/#qaddmonths) | | [`.Q.addr`](dotq/#qaddr-ip-address) | [IP address](dotq/#qaddr-ip-address) |
+| [`.Q.bv`](dotq/#qbv-build-vp) | [build vp](dotq/#qbv-build-vp) | [`.Q.chk`](dotq/#qchk-fill-hdb) | [fill HDB](dotq/#qchk-fill-hdb) |
+| [`.Q.cn`](dotq/#qcn-count-partitioned-table) | [count partitioned table](dotq/#qcn-count-partitioned-table) | [`.Q.D`](dotq/#qd-partitions) | [partitions ](dotq/#qd-partitions) |
+| [`.Q.dd`](dotq/#qdd-join-symbols) | [join symbols](dotq/#qdd-join-symbols) | [`.Q.def`](dotq/#qdef) | |
+| [`.Q.dpft`](dotq/#qdpft-save-table) | [save table](dotq/#qdpft-save-table) | [`.Q.dsftg`](dotq/#qdsftg-load-process-save) | [load process save](dotq/#qdsftg-load-process-save) |
+| [`.Q.en`](dotq/#qen-enumerate-varchar-cols) | [enumerate varchar cols](dotq/#qen-enumerate-varchar-cols) | [`.Q.f`](dotq/#qf-format) | [format](dotq/#qf-format) |
+| [`.Q.fc`](dotq/#qfc-parallel-on-cut) | [parallel on cut ](dotq/#qfc-parallel-on-cut) | [`.Q.ff`](dotq/#qff-append-columns) | [append columns](dotq/#qff-append-columns) |
+| [`.Q.fk`](dotq/#qfk-foreign-key) | [foreign key](dotq/#qfk-foreign-key) | [`.Q.fmt`](dotq/#qfmt-format) | [format](dotq/#qfmt-format) |
+| [`.Q.fps`](dotq/#qfps-streaming-algorithm) | [streaming algorithm](dotq/#qfps-streaming-algorithm) | [`.Q.fs`](dotq/#qfs-streaming-algorithm) | [streaming algorithm](dotq/#qfs-streaming-algorithm) |
+| [`.Q.fsn`](dotq/#qfsn-streaming-algorithm) | [streaming algorithm](dotq/#qfsn-streaming-algorithm) | [`.Q.ft`](dotq/#qft-apply-simple) | [apply simple ](dotq/#qft-apply-simple) |
+| [`.Q.fu`](dotq/#qfu-apply-unique) | [apply unique](dotq/#qfu-apply-unique) | [`.Q.gc`](dotq/#qgc-garbage-collect) | [garbage collect](dotq/#qgc-garbage-collect) |
+| [`.Q.hdpf`](dotq/#qhdpf-save-tables) | [save tables](dotq/#qhdpf-save-tables) | [`.Q.hg`](dotq/#qhg-http-get) | [HTTP get](dotq/#qhg-http-get) |
+| [`.Q.host`](dotq/#qhost-hostname) | [hostname](dotq/#qhost-hostname) | [`.Q.hp`](dotq/#qhp-http-post) | [HTTP post](dotq/#qhp-http-post) |
+| [`.Q.id`](dotq/#qid-purge) | [purge](dotq/#qid-purge) | [`.Q.ind`](dotq/#qind-partitioned-index) | [partitioned index](dotq/#qind-partitioned-index) |
+| [`.Q.j10`](dotq/#qj10-encode-binhex) | [encode binhex  ](dotq/#qj10-encode-binhex) | [`.Q.j12`](dotq/#qj12-encode-base64) | [encode base64  ](dotq/#qj12-encode-base64) |
+| [`.Q.k`](dotq/#qk-version) | [version ](dotq/#qk-version) | [`.Q.l`](dotq/#ql-load) | [load](dotq/#ql-load) |
+| [`.Q.M`](dotq/#qm-long-infinity) | [long infinity](dotq/#qm-long-infinity) | [`.Q.MAP`](dotq/#qmap-maps-partitions) | [maps partitions](dotq/#qmap-maps-partitions) |
+| [`.Q.opt`](dotq/#qopt) | | [`.Q.P`](dotq/#qp-segments) | [segments](dotq/#qp-segments) |
+| [`.Q.par`](dotq/#qpar-locate-partition) | [locate partition](dotq/#qpar-locate-partition) | [`.Q.pd`](dotq/#qpd-modified-partition-locations) | [modified partition locations ](dotq/#qpd-modified-partition-locations) |
+| [`.Q.PD`](dotq/#qpd-partition-locations) | [partition locations](dotq/#qpd-partition-locations) | [`.Q.pf`](dotq/#qpf-partition-type) | [partition type](dotq/#qpf-partition-type) |
+| [`.Q.pn`](dotq/#qpn-partition-counts) | [partition counts](dotq/#qpn-partition-counts) | [`.Q.pt`](dotq/#qpt-partitioned-tables) | [partitioned tables](dotq/#qpt-partitioned-tables) |
+| [`.Q.pv`](dotq/#qpv-modified-partition-values) | [modified partition values](dotq/#qpv-modified-partition-values) | [`.Q.PV`](dotq/#qpv-partition-values) | [partition values](dotq/#qpv-partition-values) |
+| [`.Q.qp`](dotq/#qqp-is-partitioned) | [is partitioned](dotq/#qqp-is-partitioned) | [`.Q.qt`](dotq/#qqt-is-table) | [is table](dotq/#qqt-is-table) |
+| [`.Q.res`](dotq/#qres-k-words) | [k words](dotq/#qres-k-words) | [`.Q.s`](dotq/#qs-plain-text) | [plain text](dotq/#qs-plain-text) |
+| [`.Q.ty`](dotq/#qty-type) | [type](dotq/#qty-type) | [`.Q.u`](dotq/#qu-date-based) | [date based](dotq/#qu-date-based) |
+| [`.Q.V`](dotq/#qv-table-to-dict) | [table to dict](dotq/#qv-table-to-dict) | [`.Q.v`](dotq/#qv-value) | [value](dotq/#qv-value) |
+| [`.Q.view`](dotq/#qview-subview) | [subview](dotq/#qview-subview) | [`.Q.vp`](dotq/#qvp-missing-partitions) | [missing partitions](dotq/#qvp-missing-partitions) |
+| [`.Q.w`](dotq/#qw-memory-stats) | [memory stats](dotq/#qw-memory-stats) | [`.Q.x10`](dotq/#qx10-decode-binhex) | [decode binhex  ](dotq/#qx10-decode-binhex) |
+| [`.Q.x12`](dotq/#qx12-decode-base64) | [decode base64 ](dotq/#qx12-decode-base64) | [`.Q.x`](dotq/#qx) | |
+| [`.Q.Xf`](dotq/#qxf-create-file) | [create file](dotq/#qxf-create-file) |
+
+</div>
+
 
 ### .z
 
@@ -165,6 +233,11 @@ Namespaces
 | [`.z.zd`](dotz/#zzd-zip-defaults) | [zip defaults](dotz/#zzd-zip-defaults) |
 
 </div>
+
+!!! warning "Single-letter namespaces"
+    _All_ single-letter namespaces (upper- and lower-case) are reserved for Kx use. 
+    Do not use single-letter namespaces as containers for user-written code or data.
+
 
 
 ## Command-line options and system commands

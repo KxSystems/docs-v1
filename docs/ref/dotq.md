@@ -662,7 +662,7 @@ q)0Wj~.Q.M
 ```
 
 
-### .Q.MAP – maps partitions
+### `.Q.MAP` – maps partitions
 
 Syntax: `.Q.MAP[]`
 
@@ -685,9 +685,9 @@ NOT recommended for use with compressed files, as the decompressed maps will be 
 
 ### `.Q.opt`
 
-Syntax: `.Q.opt x`
+Syntax: `.Q.opt .z.x`
 
-Where `x` is ==FIXME==
+Returns a dictionary, so you can easily see if a key was defined (flag set or not) or, if a value is passed, to refer to it by its key.
 
 <i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv)
 
@@ -831,12 +831,20 @@ symw| 25436
 
 ### `.Q.x` 
 
-Syntax: ==FIXME==
+Syntax: `.Q.x`
 
-Set by `.Q.opt`
-
-<i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv)
-
+Set by `.Q.opt`: a list of _non-command_ parameters from the command line, where _command parameters_ are prefixed by `-`.
+```bash
+~$ q taq.k path/to/source path/to/destn
+```
+```q
+q)cla:.Q.opt .z.X /command-line arguments
+q).Q.x
+"/Users/me/q/m64/q"
+"path/to/source"
+"path/to/destn"
+```
+<i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv), [`.z.X`](dotz/#zx-raw-command-line)
 
 
 ### `.Q.Xf` – create file
