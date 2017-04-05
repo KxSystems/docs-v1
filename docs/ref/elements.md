@@ -129,6 +129,35 @@ Functions are:
 
 Functions are first-class objects and can be passed as arguments to other functions. Functions that take other functions as arguments are known as _higher-order functions_.
 
+### Reserved words
+
+The following reserved words denote functions that are _not_ also operators. 
+
+<table markdown="1" class="kx-compact">
+<tr><td>A</td><td>[`abs`](arith-integer/#abs "absolute value"), [`acos`](trig/#acos "arc cosine"), [`aj`](joins/#aj-aj0-asof-join "as-of join"), [`aj0`](joins/#aj-aj0-asof-join "as-of join"), [`all`](logic/#all "all nonzero"), [`any`](logic/#any "any item is non-zero"), [`asc`](sort/#asc "ascending sort"), [`asin`](trig/#asin "arc sine"), [`atan`](trig/#atan "arc tangent"), [`attr`](metadata/#attr "attributes"), [`avg`](stats-aggregates/#avg-average "arithmetic mean"), [`avgs`](stats-aggregates/#avgs-averages "running averages")</td></tr>
+<tr><td>C</td><td>[`ceiling`](arith-integer/#ceiling "lowest integer above"), [`cols`](metadata/#cols "column names of a table"), [`cos`](trig/#cos "cosine"), [`count`](lists/#count "number of items")</td></tr>
+<tr><td>D</td><td>[`delete`](qsql/#delete "delete rows or columns from a table"), [`deltas`](arith-integer/#deltas "differences between consecutive pairs"), [`desc`](sort/#desc "descending sort"), [`dev`](stats-aggregates/#dev-standard-deviation "standard deviation"), [`differ`](comparison/#differ "flag differences in consecutive pairs"), [`distinct`](search/#distinct "unique items")</td></tr>
+<tr><td>E</td><td>[`ej`](joins/#ej-equi-join "equi-join"), [`enlist`](lists/#enlist "arguments as a list"), [`eval`](parsetrees/#eval "evaluate a parse tree"), [`exec`](qsql/#exec), [`exit`](errors/#exit "terminate q"), [`exp`](arith-float/#exp "power of e")</td></tr>
+<tr><td>F</td><td>[`fills`](lists/#fills "forward-fill nulls"), [`first`](select/#first "first item"), [`fkeys`](metadata/#fkeys "foreign-key columns mapped to their tables"), [`flip`](lists/#flip "transpose"), [`floor`](arith-integer/#floor "greatest integer less than argument")</td></tr>
+<tr><td>G</td><td>[`get`](filewords/#get "get a q data file"), [`getenv`](os/#getenv "value of an environment variable"), [`group`](dictsandtables/#group "dictionary of distinct items"), [`gtime`](os/#gtime "UTC timestamp")</td></tr>
+<tr><td>H</td><td>[`hclose`](filewords/#hclose "close a file or process"), [`hcount`](filewords/#hcount "size of a file"), [`hdel`](filewords/#hdel "delete a file"), [`hopen`](filewords/#hopen "open a file"), [`hsym`](filewords/#hsym "convert symbol to filename or IP address")</td></tr>
+<tr><td>I</td><td>[`iasc`](sort/#iasc "indices of ascending sort"), [`idesc`](sort/#idesc "indices of descending sort"), [`inv`](matrixes/#inv "matrix inverse")</td></tr>
+<tr><td>K</td><td>[`key`](metadata/#key "keys of a dictionary etc."), [`keys`](metadata/#keys "names of a table's columns")</td></tr>
+<tr><td>L</td><td>[`last`](select/#last "last item"), [`load`](filewords/#load "load binary data"), [`log`](arith-float/#log "natural logarithm"), [`lower`](strings/#lower "lower case"), [`ltime`](os/#ltime "local timestamp"), [`ltrim`](strings/#ltrim "function remove leading spaces")</td></tr>
+<tr><td>M</td><td>[`max`](stats-aggregates/#max-maximum "maximum"), [`maxs`](stats-aggregates/#maxs-maximums "maxima of preceding items"), [`md5`](strings/#md5 "MD5 hash"), [`med`](stats-aggregates/#med-median "median"), [`meta`](metadata/#meta "metadata of a table"), [`min`](stats-aggregates/#min-minimum "minimum"), [`mins`](stats-aggregates/#mins-minimums "minimum of preceding items")</td></tr>
+<tr><td>N</td><td>[`neg`](arith-integer/#neg "negate"), [`next`](select/#next "next items"), [`not`](logic/#not "logical not"), [`null`](logic/#null "is argument a null")</td></tr>
+<tr><td>P</td><td>[`parse`](parsetrees/#parse "parse a string"), [`prd`](arith-float/#prd "– product"), [`prds`](arith-float/#prds "cumulative products"), [`prev`](select/#prev "previous items")</td></tr>
+<tr><td>R</td><td>[`rand`](random/#rand "random number"), [`rank`](sort/#rank "grade up"), [`ratios`](arith-float/#ratios "ratios of consecutive pairs"), [`raze`](lists/#raze "join items"), [`read0`](filewords/#read0 "read file as lines"), [`read1`](filewords/#read1 "read file as bytes"), [`reciprocal`](arith-float/#reciprocal "reciprocal of a number"), [`reval`](parsetrees/#reval "– variatiant of eval"), [`reverse`](lists/#reverse "reverse the order of items"), [`rload`](filewords/#rload "load a splayed table"), [`rotate`](lists/#rotate "rotate items"), [`rsave`](filewords/#rsave), [`rtrim`](strings/#rtrim "remove trailing spaces")</td></tr>
+<tr><td>S</td><td>[`save`](filewords/#save "save global data to file"), [`sdev`](stats-aggregates/#sdev-statistical-standard-deviation "statistical standard deviation"), [`select`](qsql/#select "select columns from a table"), [`show`](devtools/#show "format to the console"), [`signum`](arith-integer/#signum "sign of its argument/s"), [`sin`](trig/#sin "sine"), [`sqrt`](arith-float/#sqrt "square root"), [`ssr`](strings/#ssr "string search and replace"), [`string`](casting/#string "cast to string"), [`sublist`](select/#sublist "sublist of a list"), [`sum`](arith-integer/#sum "sum of a list"), [`sums`](arith-integer/#sums "cumulative sums of a list"), [`sv` decode](casting/#sv "decode"), [`svar`](stats-aggregates/#svar-statistical-variance "statistical variance"), [`system`](syscmds/#system "execute system command")</td></tr>
+<tr><td>T</td><td>[`tables`](metadata/#tables "sorted list of tables"), [`tan`](trig/#tan "tangent"), [`til`](arith-integer/#til "integers up to x"), [`trim`](strings/#trim "remove leading and trailing spaces"), [`type`](metadata/#type "– data type")</td></tr>
+<tr><td>U</td><td>[`ungroup`](dictsandtables/#ungroup "flattened table"), [`update`](qsql/#update "insert or replace table records"), [`upper`](strings/#upper "upper-case")</td></tr>
+<tr><td>V</td><td>[`value`](metadata/#value "value of a variable or dictionary key; value of an executed sting"), [`var`](stats-aggregates/#var-variance "variance"), [`view`](metadata/#view "definition of a dependency"), [`views`](metadata/#views "list of defined views")</td></tr>
+<tr><td>W</td><td>[`where`](select/#where "replicated items"), [`wj`](joins/#wj-wj1-window-join "window join"), [`wj1`](joins/#wj-wj1-window-join "window join")</td></tr>
+</table>
+
+<i class="fa fa-hand-o-right"></i> [`.Q.res`](dotq/#qres-k-words) (reserved words)
+
+
 
 ## Operators
 
@@ -143,8 +172,8 @@ q)rotate[2;0 1 2 3 4 5]  / prefix form
 q)2 rotate 0 1 2 3 4 5   / infix form
 2 3 4 5 0 1
 ```
-Operators are denoted by glyphs or [reserved words](#reserved-words) or both. 
-They cannot be defined using the [lambda notation](#definition). 
+Operators are denoted by glyphs or reserved words or both – see note below on _minimum_ and _maximum_. 
+(They cannot be defined using the [lambda notation](#definition).) 
 
 ### Glyphs
 <table class="kx-compact" markdown="1">
@@ -176,12 +205,14 @@ The following reserved words denote operators.
 <tr><td>M</td><td>[`mavg`](stats-moving/#mavg "moving average"), [`mcount`](stats-moving/#mcount "moving count"), [`mdev`](stats-moving/#mdev "moving deviation"), [`mmax`](stats-moving/#mmax "moving maxima"), [`mmin`](stats-moving/#mmin "moving minima"), [`mmu`](matrixes/#mmu "matrix multiplication"), [`mod`](arith-integer/#mod "remainder"), [`msum`](stats-moving/#msum "moving sum")</td></tr>
 <tr><td>O</td><td>[`or`](logic/#or-maximum "maximum"), [`over`](control/#over "reduce an array with a function")</td></tr>
 <tr><td>P</td><td>[`peach`](control/#peach "parallel each"), [`pj`](joins/#pj "plus join"), [`prior`](select/#prior "apply function between each item and its predecessor")</td></tr>
-<tr><td>S</td><td>[`scan`](control/#scan "apply function to successive items"), [`scov`](stats-aggregates/#scov "statistical covariance"), [`set`](filewords/#set "asign a value to a name"), [`setenv`](os/#setenv "set an environment variable")[`ss`](strings/#ss "string search"), [`sublist`](select/#sublist "sublist of a list"), [`sv` consolidate](lists/#sv "consolidate")</td></tr>
+<tr><td>S</td><td>[`scan`](control/#scan "apply function to successive items"), [`scov`](stats-aggregates/#scov "statistical covariance"), [`set`](filewords/#set "asign a value to a name"), [`setenv`](os/#setenv "set an environment variable"), [`ss`](strings/#ss "string search"), [`sublist`](select/#sublist "sublist of a list"), [`sv` consolidate](lists/#sv "consolidate")</td></tr>
 <tr><td>U</td><td>[`uj`](joins/#uj "union join"), [`union`](lists/#union "distinct items of combination of two lists"), [`upsert`](qsql/#upsert "add table records")</td></tr>
 <tr><td>V</td><td>[`vs` encode](casting/#vs "encode"), [`vs` split](lists/#vs "split")</td></tr>
 <tr><td>W</td><td>[`wavg`](stats-aggregates/#wavg "weighted average"), [`within`](search/#within "flag items within range"), [`wsum`](stats-aggregates/#wsum "weighted sum")</td></tr>
 <tr><td>X</td><td>[`xasc`](sort/#xasc "table sorted ascending by columns"), [`xbar`](arith-integer/#xbar "interval bar"), [`xcol`](dictsandtables/#xcol "rename table columns"), [`xcols`](dictsandtables/#xcols "re-order table columns"), [`xdesc`](sort/#xdesc "table sorted decending by columns"), [`xexp`](arith-float/#xexp "raised to a power"), [`xgroup`](dictsandtables/#xgroup "table grouped by keys"), [`xkey`](dictsandtables/#xkey "set primary keys of a table"), [`xlog`](arith-float/#xlog "base-x logarithm"), [`xprev`](select/#xprev "previous items"), [`xrank`](sort/#xrank "items assigned to buckets")</td></tr>
 </table>
+
+<i class="fa fa-hand-o-right"></i> [`.Q.res`](dotq/#qres-k-words) (reserved words)
 
 
 ## Adverbs 
@@ -193,12 +224,29 @@ q)+/[2 3 4]  / reduce 2 3 4 with +
 q)*/[2 3 4]  / reduce 2 3 4 with *
 24
 ```
-<i class="fa fa-hand-o-right"></i> [adverb syntax](syntax/#adverbs)
+<i class="fa fa-hand-o-right"></i> [Adverbs](adverbs), [Adverb syntax](syntax/#adverbs)
 
 
 ## Control words
 
 The control words `do`, `if` and `while` [govern evaluation](control).
+
+
+## Views
+
+A view is a calculation that is re-evaluated only if the values of the underlying dependencies have changed since its last evaluation. 
+Views can help avoid expensive calculations by delaying propagation of change until a result is demanded. 
+
+The syntax for the definition is
+```q
+q)viewname::[expression;expression;…]expression
+```
+The act of defining a view does not trigger its evaluation.
+
+A view should not have side-effects, i.e. should not update global variables. 
+
+<i class="fa fa-hand-o-right"></i> [Views tutorial](http://code.kx.com/wiki/Views), [`view`](metadata/#view), [`views`](metadata/#views), [`.Q.view`](dotq/#qview-subview) (subview) 
+
 
 
 ## System commands

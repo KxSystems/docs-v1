@@ -1,7 +1,4 @@
-Files
-=====
-
-See also the [IO primitives](filenumbers). 
+<i class="fa fa-hand-o-right"></i> [Files (numbers)](filenumbers)
 
 
 ## `csv`

@@ -261,13 +261,13 @@ Where `x` is a table column, returns `` ` `` if the column is not a foreign key 
 Syntax: `.q.fmt[x;y;z]`
 
 Where `x` and `y` are integer atoms and `z` is a numeric atom, returns `z` as a string of length `x`, formatted to `y` decimal places. (Since V2.4)
-```q```
+```q
 q).Q.fmt[6;2]each 1 234
 "  1.00"
 "234.00"
 ```
-Q) Is it possible to format the decimal data in a column to 2 decimal places?
-A)yes, through changing it to string
+Q) Is it possible to format the decimal data in a column to 2 decimal places?  
+A) Yes, through changing it to string
 ```
 q)fix:{.Q.fmt'[x+1+count each string floor y;x;y]}
 q)fix[2]1.2 123 1.23445 -1234578.5522
@@ -285,9 +285,9 @@ q)align fix[2]1.2 123 1.23445 -1234578.5522
 "       1.23"
 "-1234578.55"
 ```
-Q)I have a table with float values. Those values have to be persisted to a file as character strings of length 9, e.g. 34.3 --> " 34.3"
-I would also like to keep as much precision as possible, i.e. 343434.3576 should be persisted as "343434.36"
-What is the best way of doing that?
+Q) I have a table with float values. Those values have to be persisted to a file as character strings of length 9, e.g. 34.3 --> `"     34.3"`
+I would also like to keep as much precision as possible, i.e. 343434.3576 should be persisted as `"343434.36"`
+What is the best way of doing that?  
 A)
 ```
 q)fmt:{.Q.fmt[x;(count 2_string y-i)&x-1+count string i:"i"$y]y}
@@ -303,9 +303,9 @@ q)fmt[9] each 34.4 343434.358
 Syntax: `.Q.fps[x;y]`
 
 `.Q.fs` for pipes. (Since V3.4)
-Reads conveniently sized lumps of complete `"\n"` delimited records from a pipe and applies a function to each record. This enables you to implement a streaming algorithm to convert a large CSV file into an on-disk Kdb+ database without holding the data in memory all at once.
+Reads conveniently sized lumps of complete `"\n"` delimited records from a pipe and applies a function to each record. This enables you to implement a streaming algorithm to convert a large CSV file into an on-disk kdb+ database without holding the data in memory all at once.
 
-<i class="fa fa-hand-o-right"></i> [Named Pipes](http://code.kx.com/wiki/Cookbook/NamedPipes)
+<i class="fa fa-hand-o-right"></i> [Cookbook/Named Pipes](http://code.kx.com/wiki/Cookbook/NamedPipes)
 
 
 ### `.Q.fs` (streaming algorithm)
@@ -916,14 +916,14 @@ q).Q.PV!.Q.PD
 ```
 
 
-### `.Q.pd` - modified partition locations 
+### `.Q.pd` (modified partition locations)
 
 Syntax: `.Q.pd`
 
 In partitioned DBs, `.Q.PD` as modified by `.Q.view`.
 
 
-### `.Q.pf` - partition type
+### `.Q.pf` (partition type)
 
 Syntax: ==FIXME==
 

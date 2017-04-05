@@ -33,6 +33,8 @@ Q is bigger than it looks: tokens play different roles, according to context. He
 <tr><td>X</td><td>[`xasc`](dictsandtables/#xasc "table sorted ascending by columns"), [`xbar`](arith-integer/#xbar "interval bar"), [`xcol`](dictsandtables/#xcol "rename table columns"), [`xcols`](dictsandtables/#xcols "re-order table columns"), [`xdesc`](dictsandtables/#xdesc "table sorted decending by columns"), [`xexp`](arith-float/#xexp "raised to a power"), [`xgroup`](dictsandtables/#xgroup "table grouped by keys"), [`xkey`](dictsandtables/#xkey "set primary keys of a table"), [`xlog`](arith-float/#xlog "base-x logarithm"), [`xprev`](select/#xprev "previous items"), [`xrank`](sort/#xrank "items assigned to buckets")</td></tr>
 </table>
 
+<i class="fa fa-hand-o-right"></i> [`.Q.id`](dotq/#qid-purge) (purge), [`.Q.res`](dotq/#qres-k-words) (reserved words)
+
 
 ## Iteration
 <table class="kx-compact" markdown="1">

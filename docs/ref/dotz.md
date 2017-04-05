@@ -420,7 +420,7 @@ Syntax: `.z.pi:f`
 
 Where `f` is a unary function, it is evaluated as the default handler for input.
 
-As this is called on every line of input it can be used to log all console input, or even to modify the output - if for example you prefer the more compact V2.3 way of formatting tables you can reset the output handler.
+As this is called on every line of input it can be used to log all console input, or even to modify the output. For example, if you prefer the more compact V2.3 way of formatting tables, you can reset the output handler.
 ```q
 q)aa:([]a:1 2 3;b:11 22 33)
 q)aa

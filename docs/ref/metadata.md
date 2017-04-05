@@ -467,7 +467,7 @@ q)v
 q)view `v                         / view the dependency expression
 "2+a*3"
 ```
-<i class="fa fa-hand-o-right"></i> [Views](http://code.kx.com/wiki/Views)
+<i class="fa fa-hand-o-right"></i> [Views tutorial](http://code.kx.com/wiki/Views)
 
 
 ## `views`

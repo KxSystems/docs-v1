@@ -1,3 +1,5 @@
+<i class="fa fa-hand-o-right"></i> [Files (words)](filewords)
+
 ## Writing to file handles
 
 Syntax: `h x`
