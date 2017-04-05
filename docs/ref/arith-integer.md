@@ -28,6 +28,7 @@ q)2000.11.22 + 03:44:55.666
 ```
 `+` is faster than `-`.
 
+<i class="fa fa-hand-o-right"></i> [`.Q.addmonths`](dotq/#qaddmonths)
 
 
 ## `ceiling`

@@ -62,7 +62,7 @@ q)\P 14
 q)distinct 2 + 0f,10 xexp -13
 2 2.0000000000001
 ```
-
+<i class="fa fa-hand-o-right"></i> [`.Q.fu`](dotq/#qfu-apply-unique) (apply unique)
 
 ## `?` (find)
 

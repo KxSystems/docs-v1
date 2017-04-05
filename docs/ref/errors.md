@@ -28,7 +28,7 @@ q)exit 42
 guest@localhost:~$ echo $?
 42
 ```
-
+<i class="fa fa-hand-o-right"></i> [`.z.exit`](dotz/#zexit-action-on-exit) (action on exit)
 
 ## `'` (signal)
 

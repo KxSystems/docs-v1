@@ -15,7 +15,6 @@ q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
 q)@[d;1 1 1;+;3]
 ((1 2 3;4 5 6 7);(17 18;19;20 21);(13 14;15 16 17 18;19 20))
 ```
-<i class="fa fa-hand-o-right"></i> [Functional amend](listfunctions/#amend)
 
 !!! tip "Do it on disk"
     Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, and not compressed. e.g.
@@ -291,7 +290,7 @@ a b c
 ```
 
 
-## `^` (fill )
+## `^` (fill)
 
 Syntax: `x^y` (atomic) 
 
@@ -436,7 +435,7 @@ a b c  d
 ```
 _Join_ for keyed tables is strict; both the key and data columns must match in names and datatypes.
 
-<i class="fa fa-hand-o-right"></i> [Joins](joins)
+<i class="fa fa-hand-o-right"></i> [Joins](joins), [`.Q.dd`](dotq/#qdd-join-symbols) (join symbols)
 
 
 ## `raze`

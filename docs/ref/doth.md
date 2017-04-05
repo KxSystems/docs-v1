@@ -1,4 +1,6 @@
-##The `.h` namespace contains functions for converting files into various formats and for web-console display. 
+The `.h` namespace contains functions for converting files into various formats and for web-console display. 
+
+Functions in the .h namespace not documented here belong to its private API; i.e. are for use only by other functions in the namespace.
 
 
 ## `.h.br` (linebreak)
@@ -51,16 +53,6 @@ q).h.cd (`a`b`c;1 2 3;"xyz")
 ==FIXME==
 
 
-## `.h.eb`
-
-Creates part of an Excel workbook. Used by `.h.ed`.
-
-
-## `.h.ec`
-
-Creates part of an Excel workbook. Used by `.h.ed`.
-
-
 ## `.h.ed` (Excel from data)
 
 Syntax: `.h.ed x`
@@ -76,16 +68,6 @@ q).h.ed ([]a:1 2 3;b:`x`y`z)
 ## `.h.edsn`
 
 TBD
-
-
-## `.h.es`
-
-Creates part of an Excel workbook. Used by `.h.ed`.
-
-
-## `.h.ex`
-
-Creates part of an Excel workbook. Used by `.h.ed`.
 
 
 ## `.h.fram` (frame)

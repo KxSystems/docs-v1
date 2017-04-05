@@ -76,10 +76,12 @@ pages:
     - Semantics:
       - Arithmetic (integer): ref/arith-integer.md
       - Arithmetic (float): ref/arith-float.md
-      - Casting: ref/casting.md
+      - Casting & encoding: ref/casting.md
       - Comparison: ref/comparison.md
+      - Database: ref/database.md
       - Dictionaries & tables: ref/dictsandtables.md
       - Enumeration: ref/enums.md
+      - Environment: ref/environment.md
       - Evaluation control: ref/control.md
       - Error handling: ref/errors.md
       - Files (numbers): ref/filenumbers.md
@@ -88,6 +90,7 @@ pages:
       - Joins: ref/joins.md
       - Lists: ref/lists.md
       - Logic: ref/logic.md
+      - Markup: ref/markup.md
       - Matrixes: ref/matrixes.md
       - Metadata: ref/metadata.md
       - OS: ref/os.md

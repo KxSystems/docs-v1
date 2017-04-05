@@ -4,6 +4,7 @@ q [file] [-b] [-c r c] [-C r c] [-e 0|1] [-g 0|1] [-l] [-L][-o N] [-p N]
     [-P N] [-q] [-r :H:P] [-s N] [-t N] [-T N] [-u|U F] [-w N] [-W N] 
     [-z 0|1]
 ```
+<i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv) (argv), [`.z.X`](dotz/#zx-raw-command-line) (raw command line) 
 
 ## file
   
@@ -130,7 +131,7 @@ As `-l`, but sync logging, see [Cookbook/Logging](http://code.kx.com/wiki/Cookbo
 
 Syntax: `-o N`
   
-Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-localtime))
+Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-local-datetime))
 
 
 ## `-p` (port)

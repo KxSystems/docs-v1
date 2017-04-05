@@ -11,7 +11,7 @@ q)type each (2;3 5f;"hello")
 q)type (+)                    /not just data
 102h
 ```
-<i class="fa fa-hand-o-right"></i> [`type`](metadata/#type), [casting between types](casting)
+<i class="fa fa-hand-o-right"></i> [`type`](metadata/#type), [`.Q.ty`](dotq/#qty-type) (type), [Casting](casting)
 
 ## Primitive datatypes
 
@@ -43,6 +43,7 @@ Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, ne
 
 !!! note "Strings"
     There is no _string_ datatype. The nearest equivalent to a string is a symbol, or a char vector. A reference to a _string_ should be understood as referring to a char vector.
+
 
 ### Symbols
 
@@ -93,7 +94,7 @@ Arithmetic for float infinities (`0we`,`0w`) behaves as expected.
     0we
     q)0w + 5
     0w
-
+<i class="fa fa-hand-o-right"></i> [`.Q.M`](dotq/#qm-long-infinity) (long infinity)
 
 ### Guid
 

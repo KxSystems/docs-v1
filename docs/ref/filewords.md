@@ -7,6 +7,8 @@ Syntax: `csv` (constant)
 
 A synonym for `","` for use in preparing text for CSV files, or reading them. 
 
+<i class="fa fa-hand-o-right"></i> [`.h.cd`](doth/#hcd-csv-from-data), [`.h.td`](doth/#htd-tsv) 
+
 
 ## `dsave`
 
@@ -162,8 +164,7 @@ q)s:get`:SNewTrade/                     / s has columns mapped on demand
 FIXME: describe other uses.
 
 
-`hclose`
---------
+## `hclose`
 
 Syntax: `hclose x`
 
@@ -178,8 +179,7 @@ q)h"til 5"
 ```
 
 
-`hcount`
---------
+## `hcount`
 
 Syntax: `hcount x`
 
@@ -192,8 +192,7 @@ On a compressed file returns the size of the original uncompressed file.
 
 
 
-`hdel`
-------
+## `hdel`
 
 Syntax: `hdel x`
 
@@ -206,8 +205,7 @@ q)hdel`:test.txt   / should generate an error
 ```
 
 
-`hopen`
--------
+## `hopen`
 
 Syntax: `hopen x`
 
@@ -251,7 +249,7 @@ If only one synchronous query/request is to be run, then the single-shot synchro
 q)`:mydb.us.com:5010:elmo:sesame "1+1"
 2
 ```
-<i class="fa fa-hand-o-right"></i> [Client-Server Cookbook](http://code.kx.com/wiki/Cookbook/ClientServer).
+<i class="fa fa-hand-o-right"></i> [Client-Server Cookbook](http://code.kx.com/wiki/Cookbook/ClientServer), [`.Q.Xf`](dotq/#qxf-create-file) (create file)
 
 !!! note "File handles"
     A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
@@ -272,8 +270,7 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
     <i class="fa fa-hand-o-right"></i> [Fifo/Named Pipes](http://code.kx.com/wiki/Cookbook/NamedPipes), [Client-Server Cookbook](http://code.kx.com/wiki/Cookbook/ClientServer), [Secure connections with SSL/TLS](http://code.kx.com/wiki/Cookbook/SSL)
 
 
-`hsym`
-------
+## `hsym`
 
 Syntax: `hsym x`
 
@@ -286,8 +283,7 @@ q)hsym`10.43.23.197
 ```
 
 
-`load`
-------
+## `load`
 
 Syntax: `load x`
 
@@ -333,10 +329,9 @@ s3| blake 30     paris
 s4| clark 20     london
 s5| adams 30     athens
 ```
+<i class="fa fa-hand-o-right"></i> [`.Q.dsftg`](dotq/#qdsftg-load-process-save) (load process save), [`.Q.fps`](dotq/#qfps-streaming-algorithm) (streaming algorithm), [`.Q.fs`](dotq/#qfs-streaming-algorithm) (streaming algorithm), [`.Q.fsn`](dotq/#qfsn-streaming-algorithm) (streaming algorithm) 
 
-
-`read0`
--------
+## `read0`
 
 Syntax: `read0 x`
 
@@ -376,8 +371,7 @@ q)read0(h;8)
 ```
 
 
-`read1`
--------
+## `read1`
 
 Syntax: `read1 x`
 
@@ -404,8 +398,7 @@ q)"c"$read1(h;8)
 ```
 
 
-`rload`
--------
+## `rload`
 
 Syntax: `rload x`
 
@@ -430,10 +423,9 @@ s1 p2 200
 s1 p3 400
 q)sp:get `:sp/        / equivalent to rload `sp
 ```
+<i class="fa fa-hand-o-right"></i> [`.Q.v`](dotq/#qv-value) (get splayed table)
 
-
-`rsave`
--------
+## `rsave`
 
 Syntax: `rsave x`
 
@@ -451,10 +443,10 @@ q)\ls sp
 q)`:sp/ set sp        / equivalent to rsave `sp
 `:sp/
 ```
+<i class="fa fa-hand-o-right"></i> [`.Q.dpft`](dotq/#qchk-fill-hdb) (save table)
 
 
-`save`
-------
+## `save`
 
 Syntax: `save x`
 
@@ -520,8 +512,10 @@ q)save `$"/tmp/t"
     q)`:t.xls 0:.h.tx[`xls;t] / save in xls format
     ```
 
-`set`
------
+<i class="fa fa-hand-o-right"></i> [`.Q.Xf`](dotq/#qxf-create-file) (create file)
+
+
+## `set`
 
 Syntax: `x set y`
 

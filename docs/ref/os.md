@@ -57,3 +57,9 @@ q)\echo $RTMP
 ```
 
 
+## `.Q.gc` (garbage collect)
+
+Amount of memory returned to the OS.  
+<i class="fa fa-hand-o-right"></i> [`.Q.gc`](dotq/#qgc-garbage-collect)
+
+

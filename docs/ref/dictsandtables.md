@@ -29,6 +29,7 @@ a b c
     1 2 3
     2 4 6
     ```
+<i class="fa fa-hand-o-right"></i> [`.h.xt`](doth/#hxt-json) (JSON), [`.Q.qt`](dotq/#qqt-is-table) (is table), [`.Q.V`](dotq/#qv-table-to-dict) (table to dictionary) 
 
 
 ## `group`
@@ -101,6 +102,8 @@ a b  c
     2 20 y
     3 30 z
     ```
+
+<i class="fa fa-hand-o-right"></i> [`.Q.fk`](dotq/#qfk-foreign-key) (foreign key), [`.Q.ft`](dotq/#qft-apply-simple) (apply simple), [`.Q.id`](dotq/#qid-purge) (purge)
 
 
 ## `ungroup`
@@ -282,7 +285,7 @@ q)trade:`sym xcols trade                / move sym to the front
 q)cols trade
 `sym`size`price`time
 ```
-
+<i class="fa fa-hand-o-right"></i> [`.Q.V`](dotq/#qv-table-to-dict) (table to dictionary) 
 
 ## `xdesc`
 
@@ -397,3 +400,4 @@ q)keys trade         / sym is now primary key of trade
 ,`sym
 ```
 
+<i class="fa fa-hand-o-right"></i> [`.Q.ff`](dotq/#qff-append-columns) (append columns)

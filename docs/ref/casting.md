@@ -118,6 +118,7 @@ a    b
 ,"2" "goog"
 ,"3" "aapl"
 ```
+<i class="fa fa-hand-o-right"></i> [`.h.iso8601`](doth/#hiso8601-iso-timestamp), [`.Q.addr`](dotq/#qaddr-ip-address) (IP address), [`.Q.f`](dotq/#qf-format) (format), [`.Q.fmt`](dotq/#qfmt-format) (format)
 
 
 ## `sv`
@@ -159,7 +160,7 @@ q)256j sv til 8               / same calculation
 ```
 
 !!! tip "Converting non integers" 
-    Use [`1:`](Reference/OneColon "wikilink") – eg:
+    Use [`1:`](filenumbers/#1-binary-files) – eg:
     ```q
     q)show a:0x0 vs 3.1415
     0x400921cac083126f
@@ -265,7 +266,7 @@ yyyy/[mm|MMM]/dd
 dd/[mm|MMM]/[yy]yy  / \z 1
 ```
 
-<i class="fa fa-hand-o-right"></i> [`\z` (date format)](syscmds/#z-date-parsing)
+<i class="fa fa-hand-o-right"></i> [`\z` (date format)](syscmds/#z-date-parsing), [`.h.iso8601`](doth/#hiso8601-iso-timestamp)
 
 
 ## `vs`
@@ -323,6 +324,8 @@ q)10 vs(1995;1996 1997)
 9 9 9
 5 6 7
 ```
+
+<i class="fa fa-hand-o-right"></i> [`.Q.j10`](dotq/#qj10-encode-binhex) (encode binhex), [`.Q.x10`](dotq/#qx10-decode-binhex) (decode binhex), [`.Q.j12`](dotq/#qj12-encode-base64) (encode base64), [`.Q.x12`](dotq/#qx12-decode-base64) (decode base64)
 
 
 

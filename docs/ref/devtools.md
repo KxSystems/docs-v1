@@ -33,3 +33,16 @@ q)a~(::)
     3
     ```
 
+## `.Q.s` (plain text)
+
+Formats as plain text, as used by console.  
+<i class="fa fa-hand-o-right"></i> [`.Q.s`](dotq/#qs-plain-text)
+
+
+## `.z`
+
+<table class="kx-compact" markdown="1">
+<tr><td>[`.z.pi`](dotz/#zpi-input)</td><td>input handler</td></tr>
+<tr><td>[`.z.ts`](dotz/#zts-timer)</td><td>set timer intervals</td></tr>
+<tr><td>[`.z.vs`](dotz/#zvs-value-set)</td><td>value set</td></tr>
+</table>

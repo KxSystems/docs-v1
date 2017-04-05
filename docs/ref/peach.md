@@ -113,3 +113,7 @@ q).z.pd:{n:abs system"s";$[n=count handles;handles;[hclose each handles;:handles
 q).z.pc:{handles::`u#handles except x;}
 q)handles:`u#`int$();
 ```
+
+
+<i class="fa fa-hand-o-right"></i> [`.Q.fc`](dotq/#qfc-parallel-on-cut) (parallel on cut)
+

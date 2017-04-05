@@ -330,6 +330,7 @@ q)`a
 q)value `a
 1 2 3
 ```
+<i class="fa fa-hand-o-right"></i> [`.Q.v`](dotq/#qv-value) (value)
 
 - an **enumeration**, returns the corresponding symbol vector.
 ```q
@@ -467,17 +468,10 @@ q)v
 q)view `v                         / view the dependency expression
 "2+a*3"
 ```
-<i class="fa fa-hand-o-right"></i> [Views tutorial](http://code.kx.com/wiki/Views)
+<i class="fa fa-hand-o-right"></i> [Views tutorial](http://code.kx.com/wiki/Views), [`views`](environment/#views)
 
 
-## `views`
+##`.z.s` (self)
 
-Syntax: `views[]`
-
-Returns a sorted list of the views currently defined in the root namespace.
-```q
-q)w::b*10
-q)v::2+a*3
-q)views[]
-`s#`v`w
-```
+Returns the current function.  
+<i class="fa fa-hand-o-right"></i> [`.z.s`](dotz/#zvs-value-set)

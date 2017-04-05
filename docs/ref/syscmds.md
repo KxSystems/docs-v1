@@ -2,7 +2,8 @@ System commands control the q environment. They have the form:
 ```
 \cmd [p]
 ```
-for some command `cmd`, and optional parameter list `p`. 
+for some command `cmd`, and optional parameter list `p`.  
+<i class="fa fa-hand-o-right"></i> [`.Q.opt`](dotq/#qopt-command-parameters) (command parameters), [`.Q.x`](dotq/#qx-non-command-parameters) (non-command parameters)
 
 Commands with optional parameters that *set* values, will *show* the current values if the parameters are elided.
 
@@ -219,7 +220,7 @@ q)\l db/tickdata     / load the data found in db/tickdata
 q)\a                 / with tables quote and trade
 `p`quote`s`sp`trade
 ```
-
+<i class="fa fa-hand-o-right"></i> [`.Q.l`](dotq/#ql-load) (load)
 
 ## `\o` (offset from UTC)
 
@@ -350,7 +351,8 @@ q)\t do[100;log til 100000]    / timing for 100 repetitions
 q)\t:100 log til 100000    / timing for 100 repetitions, new syntax of "\t:n expr" since 3.0 2011.11.22
 186
 ```
-The tick timer usage corresponds to the `-t` command line parameter.
+The tick timer usage corresponds to the `-t` command line parameter.  
+<i class="fa fa-hand-o-right"></i> [`.z.ts`](dotz/#zts-timer)
 
 
 ## `\ts` (time and space)
@@ -437,7 +439,7 @@ mphy| 8589934592
 syms| 577
 symw| 25436
 ```
-
+<i class="fa fa-hand-o-right"></i> [`.Q.w`](dotq/#qw-memory-stats) (memory stats)
 
 ## `\W` (week offset)
 
@@ -572,7 +574,7 @@ Syntax: `\\`
 
 - In the interactive session type `\\` at the prompt to quit the session. 
 - Inside a function, use `value"\\\\"` or `exit 0` for the same result.  
-<i class="fa fa-hand-o-right"></i> [`exit`](errors/#exit), [`value`](metadata/#value)
+<i class="fa fa-hand-o-right"></i> [`exit`](errors/#exit), [`value`](metadata/#value), [`.z.exit`](dotz/#zexit-action-on-exit)
 
 !!! tip 
     The text following `\\` and white space is ignored by q. This is often useful in scripts where `\\` can be followed by comments or usage examples.

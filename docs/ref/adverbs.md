@@ -5,7 +5,7 @@ q)+/[2 3 4]      /reduce 2 3 4 with +
 q)*/[2 3 4]      /reduce 2 3 4 with *
 24
 ```
-<i class="fa fa-hand-o-right"></i> [Adverb syntax](syntax/#adverbs)
+<i class="fa fa-hand-o-right"></i> [Adverb syntax](syntax/#adverbs), [`.Q.fu`](dotq/#qfu-apply-unique) (apply unique)
 
 <div class="kx-compact" markdown="1">
 

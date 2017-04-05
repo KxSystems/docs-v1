@@ -683,7 +683,7 @@ NOT recommended for use with compressed files, as the decompressed maps will be 
     You may need to increase the number of available file handles, and also the number of available file maps. For Linux see vm.max_map_count.
 
 
-### `.Q.opt`
+### `.Q.opt` (command parameters)
 
 Syntax: `.Q.opt .z.x`
 
@@ -829,7 +829,7 @@ symw| 25436
 ```
 
 
-### `.Q.x` 
+### `.Q.x` (non-command parameters)
 
 Syntax: `.Q.x`
 
