@@ -33,8 +33,33 @@ Q is bigger than it looks: tokens play different roles, according to context. He
 <tr><td>X</td><td>[`xasc`](dictsandtables/#xasc "table sorted ascending by columns"), [`xbar`](arith-integer/#xbar "interval bar"), [`xcol`](dictsandtables/#xcol "rename table columns"), [`xcols`](dictsandtables/#xcols "re-order table columns"), [`xdesc`](dictsandtables/#xdesc "table sorted decending by columns"), [`xexp`](arith-float/#xexp "raised to a power"), [`xgroup`](dictsandtables/#xgroup "table grouped by keys"), [`xkey`](dictsandtables/#xkey "set primary keys of a table"), [`xlog`](arith-float/#xlog "base-x logarithm"), [`xprev`](select/#xprev "previous items"), [`xrank`](sort/#xrank "items assigned to buckets")</td></tr>
 </table>
 
-Glyphs
-------
+
+## Iteration
+<table class="kx-compact" markdown="1">
+<tr><td>`f each x`</td><td>[`each`](control/#each)</td><td>apply `f` to each item of `x`</td></tr>
+<tr><td>`x f'y`</td><td>[each-both](adverbs/#each-both)</td><td>apply `f` between items of `x` and `y`</td></tr>
+<tr><td>`x f\:y`</td><td>[each-left](adverbs/#each-left)</td><td>apply `f` between `y` and items of `x`</td></tr>
+<tr><td>`x f/:y`</td><td>[each-right](adverbs/#each-right)</td><td>apply `f` between `x` and items of `y`</td></tr>
+<tr><td>`f':x`</td><td>[each-parallel](adverbs/#each-parallel)</td><td>apply `f` to items of `x` in parallel tasks</td></tr>
+<tr><td>`f peach x`</td><td>[`peach`](control/#peach)</td><td>apply `f` to items of `x` in parallel tasks</td></tr>
+<tr><td>`f':x`</td><td>[each-prior](adverbs/#each-prior)</td><td>apply `f` between successive pairs of items of `x`</td></tr>
+<tr><td>`f prior x`</td><td>[`prior`](control/#prior)</td><td>apply `f` between successive pairs of items of `x`</td></tr>
+<tr><td>`x f/y`</td><td>[repeat](adverbs/#converge-repeat)</td><td>apply `f` to `y`, `x` times</td></tr>
+<tr><td>`{x} f/y`</td><td>[over](adverbs/#over)</td><td>reduce `y` with `f`</td></tr>
+<tr><td>`f over x`</td><td>[`over`](control/#over)</td><td>applies `f` between successive items of `x`</td></tr>
+<tr><td>`f/[x;y;…]`</td><td>[fold](adverbs/#fold)</td><td>reduce `[x;y;…]` with `f`</td></tr>
+<tr><td>`f\x`</td><td>[converge](adverbs/#converge-iterate)</td><td>apply `f` to `x` until converges</td></tr>
+<tr><td>`x f\y`</td><td>[iterate](adverbs/#converge-iterate)</td><td>apply `f` to `y`, `x` times or while `x`</td></tr>
+<tr><td>`f\x`</td><td>[scan](adverbs/#scan)</td><td>apply `f/` to successive items of `x`</td></tr>
+<tr><td>`f scan x`</td><td>[`scan`](control/#scan)</td><td>apply `f/` to successive items of `x`</td></tr>
+<tr><td>`do[count;e1;e2;e3;…;en]`</td><td>[`do`](control/#do)</td><td>evaluate `e1` to `en`, `count` times</td></tr>
+<tr><td>`while[test;e1;e2;e3;…;en]`</td><td>[`while`](control/#while)</td><td>evaluate `e1` to `en` until `test` is false</td></tr>
+</table>
+
+<i class="fa fa-hand-o-right"></i> [Adverbs](adverbs), [Evaluation control](control)
+
+
+## Glyphs
 
 ### Punctuation
 
@@ -102,30 +127,6 @@ The following glyphs represent operators, functions or adverbs – according to 
 <tr><td>`csv`</td><td>[comma as record delimiter](filewords/#csv)</td></tr>
 </table>
 
-
-## Iteration
-<table class="kx-compact" markdown="1">
-<tr><td>`f each x`</td><td>[`each`](control/#each)</td><td>apply `f` to each item of `x`</td></tr>
-<tr><td>`x f'y`</td><td>[each-both](adverbs/#each-both)</td><td>apply `f` between items of `x` and `y`</td></tr>
-<tr><td>`x f\:y`</td><td>[each-left](adverbs/#each-left)</td><td>apply `f` between `y` and items of `x`</td></tr>
-<tr><td>`x f/:y`</td><td>[each-right](adverbs/#each-right)</td><td>apply `f` between `x` and items of `y`</td></tr>
-<tr><td>`f':x`</td><td>[each-parallel](adverbs/#each-parallel)</td><td>apply `f` to items of `x` in parallel tasks</td></tr>
-<tr><td>`f peach x`</td><td>[`peach`](control/#peach)</td><td>apply `f` to items of `x` in parallel tasks</td></tr>
-<tr><td>`f':x`</td><td>[each-prior](adverbs/#each-prior)</td><td>apply `f` between successive pairs of items of `x`</td></tr>
-<tr><td>`f prior x`</td><td>[`prior`](control/#prior)</td><td>apply `f` between successive pairs of items of `x`</td></tr>
-<tr><td>`x f/y`</td><td>[repeat](adverbs/#converge-repeat)</td><td>apply `f` to `y`, `x` times</td></tr>
-<tr><td>`{x} f/y`</td><td>[over](adverbs/#over)</td><td>reduce `y` with `f`</td></tr>
-<tr><td>`f over x`</td><td>[`over`](control/#over)</td><td>applies `f` between successive items of `x`</td></tr>
-<tr><td>`f/[x;y;…]`</td><td>[fold](adverbs/#fold)</td><td>reduce `[x;y;…]` with `f`</td></tr>
-<tr><td>`f\x`</td><td>[converge](adverbs/#converge-iterate)</td><td>apply `f` to `x` until converges</td></tr>
-<tr><td>`x f\y`</td><td>[iterate](adverbs/#converge-iterate)</td><td>apply `f` to `y`, `x` times or while `x`</td></tr>
-<tr><td>`f\x`</td><td>[scan](adverbs/#scan)</td><td>apply `f/` to successive items of `x`</td></tr>
-<tr><td>`f scan x`</td><td>[`scan`](control/#scan)</td><td>apply `f/` to successive items of `x`</td></tr>
-<tr><td>`do[count;e1;e2;e3;…;en]`</td><td>[`do`](control/#do)</td><td>evaluate `e1` to `en`, `count` times</td></tr>
-<tr><td>`while[test;e1;e2;e3;…;en]`</td><td>[`while`](control/#while)</td><td>evaluate `e1` to `en` until `test` is false</td></tr>
-</table>
-
-<i class="fa fa-hand-o-right"></i> [Adverbs](adverbs), [Evaluation control](control)
 
 ## Attributes
 
