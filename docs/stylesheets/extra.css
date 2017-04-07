@@ -62,39 +62,17 @@
 
 /* front page
 --------------------------------------------- */
-#front-page {
-	box-shadow: none;
+#kx-flex-grid {
+	display: flex; 
+	flex-direction: row; 
+	flex-wrap: wrap;
+	justify-content: center;
 }
-#front-page td {
-	border: none;
-	font-size: 1.2em;
-}
-
-/* asides
---------------------------------------------- */
-/*lose them*/
-aside {
-	background: yellow; 
-	border-radius: 3px;
-	box-shadow: 0 1.5px 3px rgba(0,0,0,.24);
-	margin-top: 1em;
-	padding: .3em 1em 0;
-	}
-aside p {
-	padding: 0 0 0.8em;
-}
-.article aside ul {
-	margin-top: 0;
-}
-aside .aside-type {
-	display: block;
-	float: left;
-	font-weight: bold;
-	margin: 0 .5em 1em 0;
-	}
-.article aside pre {
-	background: rgba(0,0,0,0);
-	margin-top: 0;
+.kx-box-item {
+	display: inline-flex; 
+	padding: 5px 0;
+	text-align: center; 
+	width: 200px;
 }
 
 /* Kx classes
@@ -127,5 +105,6 @@ table.kx-compact {
 }
 /* decomment for production deployment
 .kx-developer {
-	/*display: none;*/
+	display: none;
 }
+

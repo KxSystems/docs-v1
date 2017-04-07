@@ -116,9 +116,7 @@ qu"ux
 ```
 
 <!--
-<aside markdown="1" class="kx-develop">
 Test to see if file _handles_ actually work in the following, all the examples are file _symbols_.
-</aside>
 -->
 
 ### save-text
