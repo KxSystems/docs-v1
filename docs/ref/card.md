@@ -237,16 +237,16 @@ The following glyphs represent operators, functions or adverbs – according to 
 <tr><td>[`.z.pc`](dotz/#zpc-close)</td><td>[close](dotz/#zpc-close)</td><td>[`.z.pd`](dotz/#zpd-peach-handles)</td><td>[peach handles](dotz/#zpd-peach-handles)</td></tr>
 <tr><td>[`.z.pg`](dotz/#zpg-get)</td><td>[get](dotz/#zpg-get)</td><td>[`.z.ph`](dotz/#zph-http-get)</td><td>[HTTP get](dotz/#zph-http-get)</td></tr>
 <tr><td>[`.z.pi`](dotz/#zpi-input)</td><td>[input](dotz/#zpi-input)</td><td>[`.z.pm`](dotz/#zpm-http-options)</td><td>[HTTP options](dotz/#zpm-http-options)</td></tr>
-<tr><td>[`.z.pp`](dotz/#zpp-http-post)</td><td>[HTTP post](dotz/#zpp-http-post)</td><td>[`.z.ps`](dotz/#zps-set)</td><td>[set](dotz/#zps-set)</td></tr>
-<tr><td>[`.z.pw`](dotz/#zpw-validate-user)</td><td>[validate user](dotz/#zpw-validate-user)</td><td>[`.z.q`](dotz/#zq-quiet-mode)</td><td>[quiet mode](dotz/#zq-quiet-mode)</td></tr>
-<tr><td>[`.z.s`](dotz/#zs-self)</td><td>[self](dotz/#zs-self)</td><td>[`.z.ts`](dotz/#zts-timer)</td><td>[timer](dotz/#zts-timer)</td></tr>
-<tr><td>[`.z.u`](dotz/#zu-user-id)</td><td>[user ID](dotz/#zu-user-id)</td><td>[`.z.vs`](dotz/#zvs-value-set)</td><td>[value set](dotz/#zvs-value-set)</td></tr>
-<tr><td>[`.z.w`](dotz/#zw-handle)</td><td>[handle](dotz/#zw-handle)</td><td>[`.z.W`](dotz/#zw-handles)</td><td>[handles](dotz/#zw-handles)</td></tr>
-<tr><td>[`.z.wc`](dotz/#zwc-websocket-close)</td><td>[websocket close](dotz/#zwc-websocket-close)</td><td>[`.z.wo`](dotz/#zwo-websocket-open)</td><td>[websocket open](dotz/#zwo-websocket-open)</td></tr>
-<tr><td>[`.z.ws`](dotz/#zws-websockets)</td><td>[websockets](dotz/#zws-websockets)</td><td>[`.z.x`](dotz/#zx-argv)</td><td>[argv](dotz/#zx-argv)</td></tr>
-<tr><td>[`.z.X`](dotz/#zx-raw-command-line)</td><td>[raw command line](dotz/#zx-raw-command-line)</td><td>[`.z.z`](dotz/#zz-utc-datetime)</td><td>[UTC datetime](dotz/#zz-utc-datetime)</td></tr>
-<tr><td>[`.z.Z`](dotz/#zz-local-datetime)</td><td>[local datetime](dotz/#zz-local-datetime)</td>
-<td>[`.z.zd`](dotz/#zzd-zip-defaults)</td><td>[zip defaults](dotz/#zzd-zip-defaults)</td> </tr> <tr>
+<tr><td>[`.z.po`](dotz/#zpo-open)</td><td>[open](dotz/#zpo-open)</td><td>[`.z.pp`](dotz/#zpp-http-post)</td><td>[HTTP post](dotz/#zpp-http-post)</td></tr>
+<tr><td>[`.z.ps`](dotz/#zps-set)</td><td>[set](dotz/#zps-set)</td><td>[`.z.pw`](dotz/#zpw-validate-user)</td><td>[validate user](dotz/#zpw-validate-user)</td></tr>
+<tr><td>[`.z.q`](dotz/#zq-quiet-mode)</td><td>[quiet mode](dotz/#zq-quiet-mode)</td><td>[`.z.s`](dotz/#zs-self)</td><td>[self](dotz/#zs-self)</td></tr>
+<tr><td>[`.z.ts`](dotz/#zts-timer)</td><td>[timer](dotz/#zts-timer)</td><td>[`.z.u`](dotz/#zu-user-id)</td><td>[user ID](dotz/#zu-user-id)</td></tr>
+<tr><td>[`.z.vs`](dotz/#zvs-value-set)</td><td>[value set](dotz/#zvs-value-set)</td><td>[`.z.w`](dotz/#zw-handle)</td><td>[handle](dotz/#zw-handle)</td></tr>
+<tr><td>[`.z.W`](dotz/#zw-handles)</td><td>[handles](dotz/#zw-handles)</td><td>[`.z.wc`](dotz/#zwc-websocket-close)</td><td>[websocket close](dotz/#zwc-websocket-close)</td></tr>
+<tr><td>[`.z.wo`](dotz/#zwo-websocket-open)</td><td>[websocket open](dotz/#zwo-websocket-open)</td><td>[`.z.ws`](dotz/#zws-websockets)</td><td>[websockets](dotz/#zws-websockets)</td></tr>
+<tr><td>[`.z.x`](dotz/#zx-argv)</td><td>[argv](dotz/#zx-argv)</td><td>[`.z.X`](dotz/#zx-raw-command-line)</td><td>[raw command line](dotz/#zx-raw-command-line)</td></tr>
+<tr><td>[`.z.z`](dotz/#zz-utc-datetime)</td><td>[UTC datetime](dotz/#zz-utc-datetime)</td><td>[`.z.Z`](dotz/#zz-local-datetime)</td><td>[local datetime](dotz/#zz-local-datetime)</td></tr>
+<tr><td>[`.z.zd`](dotz/#zzd-zip-defaults)</td><td>[zip defaults](dotz/#zzd-zip-defaults)</td></tr> 
 <td colspan="2">[`.z.t`, `.z.T`, `.z.d`, `.z.D`](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td><td colspan="2">[time/date shortcuts](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td> </tr> </table>
 
 !!! warning "Single-letter namespaces"
