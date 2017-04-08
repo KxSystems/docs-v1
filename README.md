@@ -79,8 +79,29 @@ q)tot[2;til 6]  / binary
 - [x] Tabulate .h and .Q contents on q/ref/card
 - [x] Distribute throughout the pages under Reference/Semantics references to .h, .Q and .z functions 
 - [ ] Fill lacunae in .h and .Q pages
-- [ ] Replace central table on home page with responsive version
-- [ ] Migrate Cookbook articles
+- [x] Replace central table on home page with responsive version
+- Migrate Cookbook articles
+  - [x] UsingKdb
+  - [ ] GettingStarted
+  - [ ] InterfacingWithC
+  - [ ] ProgrammingIdioms
+  - [ ] InterfacingWithJava
+  - [ ] SplayedTables
+  - [ ] IntegratingWithR
+  - [ ] LoadingFromLargeFiles
+  - [ ] Websocket
+  - [ ] FileCompression
+  - [ ] IPCInANutshell
+  - [ ] ProgrammingExamples
+  - [ ] PerformanceTips
+  - [ ] ExtendingWithC
+  - [ ] publishsubscribe
+  - [ ] ClientServer
+  - [ ] InterfacingWithCSharp
+  - [ ] Timezones
+  - [ ] Logging
+  - [ ] ODBC/qserver
+
 
 
 ## Contact

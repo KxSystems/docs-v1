@@ -1,8 +1,8 @@
 ## <i class="fa fa-mortar-board"></i> Basics
 
-* [Interactive help](http://code.kx.com/wiki/Cookbook/GettingStarted)
+* [Get started](learn)
+* [Frequently-asked questions](cookbook/faq)
 * [Frequently-asked questions](http://code.kx.com/wiki/FAQ) from the listbox
-* [Using kdb+](http://code.kx.com/wiki/Cookbook/UsingKdb)
 * [Client-server programming](http://code.kx.com/wiki/Cookbook/ClientServer)
 * [Customising the kdb+ webserver](http://code.kx.com/wiki/Cookbook/CustomWeb)
 * [Daemonizing q on Linux](http://code.kx.com/wiki/Cookbook/Daemon)

@@ -14,6 +14,7 @@ markdown_extensions:
     - admonition
     - codehilite(guess_lang=false)
     - extra
+    - fenced_code
     - fontawesome_markdown
     - pymdownx.arithmatex
     # - pymdownx.betterem(smart_enable=all)
@@ -116,6 +117,7 @@ pages:
       - .Q namespace: ref/dotq.md
       - .z namespace: ref/dotz.md
   - Cookbook:
+    - FAQ: cookbook/faq.md
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md

@@ -68,7 +68,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 }
-.kx-box-item {
+#kx-flex-grid div {
 	display: inline-flex; 
 	padding: 5px 0;
 	text-align: center; 
