@@ -82,8 +82,8 @@ q)tot[2;til 6]  / binary
 - [x] Replace central table on home page with responsive version
 - Migrate Cookbook articles
   - [x] UsingKdb
-  - [ ] GettingStarted
-  - [ ] InterfacingWithC
+  - [x] GettingStarted
+  - [x] InterfacingWithC
   - [ ] ProgrammingIdioms
   - [ ] InterfacingWithJava
   - [ ] SplayedTables

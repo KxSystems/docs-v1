@@ -112,12 +112,13 @@ pages:
     - System commands: ref/syscmds.md
     - Utilities:
       - Developer tools: ref/devtools.md
+      - .z namespace: ref/dotz.md
+      - .Q namespace: ref/dotq.md
       - .h namespace: ref/doth.md
       - Internal functions: ref/internal.md
-      - .Q namespace: ref/dotq.md
-      - .z namespace: ref/dotz.md
   - Cookbook:
     - FAQ: cookbook/faq.md
+    - Interfacing from C: cookbook/interfacing-from-c.md
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
