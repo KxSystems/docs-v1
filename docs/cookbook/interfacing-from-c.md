@@ -1,5 +1,3 @@
-## Introduction
-
 The best way to understand the underpinnings of q, and to interact with it from C, is to start with the header file available from 
 <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/interfacing-from-c">KxSystems/interfacing-from-c</a>.
 

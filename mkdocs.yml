@@ -119,6 +119,7 @@ pages:
   - Cookbook:
     - FAQ: cookbook/faq.md
     - Interfacing from C: cookbook/interfacing-from-c.md
+    - Interfacing with Java: cookbook/interfacing-with-java.md
     - Programming idioms: cookbook/programming-idioms.md
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md

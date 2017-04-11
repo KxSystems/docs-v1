@@ -85,7 +85,7 @@ q)tot[2;til 6]  / binary
   - [x] GettingStarted
   - [x] InterfacingWithC
   - [x] ProgrammingIdioms
-  - [ ] InterfacingWithJava
+  - [x] InterfacingWithJava
   - [ ] SplayedTables
   - [ ] IntegratingWithR
   - [ ] LoadingFromLargeFiles
