@@ -1,11 +1,11 @@
 The best way to understand the underpinnings of q, and to interact with it from C, is to start with the header file available from 
-<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/interfacing-from-c">KxSystems/interfacing-from-c</a>.
+<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c/k.h">KxSystems/kxsystems</a>.
 
 This is the file you will need to include in your C or C++ code in order to interact with q from a low level.
 
 !!! warning "Watch out"
     The k struct changed with the release of V3.0, and if you are compiling using the C library (c.o/c.dll) stamped on or after 2012.06.25 you should ensure you use the correct k struct by defining KXVER accordingly, e.g. `gcc -D KXVER=3 …` 
-    If you need to link against earlier releases of the C library, you can obtain those files from the [SVN repository](http://code.kx.com/wsvn/code/kx/kdb%2B/l32/c.o?op=revision&rev=1442), revision 1442.
+    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/commit/e4ebe1099e32249c2078dc24be2707f789d30c42#diff-32a7197d1d5c261002c76b95145db8ad">KxSystems/code.archive</a> 2011-04-20. 
 
 Let’s explore the basic types and their synonyms that you will commonly encounter when programming at this level. First though, it is worth noting the size of data types in 32- versus 64-bit operating systems to avoid a common mistake.
 
