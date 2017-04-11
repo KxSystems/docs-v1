@@ -1,7 +1,7 @@
 ## Introduction
 
 The best way to understand the underpinnings of q, and to interact with it from C, is to start with the header file available from 
-<i class="fa fa-github"></i> [KxSystems/interfacing-from-c](https://github.com/KxSystems/interfacing-from-c).
+<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/interfacing-from-c">KxSystems/interfacing-from-c</a>.
 
 This is the file you will need to include in your C or C++ code in order to interact with q from a low level.
 
@@ -10,8 +10,6 @@ This is the file you will need to include in your C or C++ code in order to inte
     If you need to link against earlier releases of the C library, you can obtain those files from the [SVN repository](http://code.kx.com/wsvn/code/kx/kdb%2B/l32/c.o?op=revision&rev=1442), revision 1442.
 
 Let’s explore the basic types and their synonyms that you will commonly encounter when programming at this level. First though, it is worth noting the size of data types in 32- versus 64-bit operating systems to avoid a common mistake.
-
-64-bit Linux is an “LP64” operating system. This means that an int is 32 bits, while long, long long and pointers are 64 bits. The same is true for Solaris, AIX, HP-UX, and Mac OS X. Microsoft Windows on the EM64T and AMD64 architectures use a different model, LLP64. This is an attempt to maintain better compatibility with existing 32-bit source code which assumes long will be exactly 32 bits. In the LLP64 model, int and long are 32 bit, while long long and pointers are 64 bit. Single-precision floating-point and double-precision are always 32 and 64 bits respectively in all the data type models (ignoring extended or non-standard floating-point formats on certain architectures).
 
 To provide succinct composable names, the q header defines synonyms for the common types as in the following table:
 

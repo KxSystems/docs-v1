@@ -119,6 +119,7 @@ pages:
   - Cookbook:
     - FAQ: cookbook/faq.md
     - Interfacing from C: cookbook/interfacing-from-c.md
+    - Programming idioms: cookbook/programming-idioms.md
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md

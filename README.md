@@ -84,7 +84,7 @@ q)tot[2;til 6]  / binary
   - [x] UsingKdb
   - [x] GettingStarted
   - [x] InterfacingWithC
-  - [ ] ProgrammingIdioms
+  - [x] ProgrammingIdioms
   - [ ] InterfacingWithJava
   - [ ] SplayedTables
   - [ ] IntegratingWithR
