@@ -86,7 +86,7 @@ q)tot[2;til 6]  / binary
   - [x] InterfacingWithC
   - [x] ProgrammingIdioms
   - [x] InterfacingWithJava
-  - [ ] SplayedTables
+  - [x] SplayedTables
   - [ ] IntegratingWithR
   - [ ] LoadingFromLargeFiles
   - [ ] Websocket

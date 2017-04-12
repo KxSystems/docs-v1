@@ -121,6 +121,7 @@ pages:
     - Interfacing from C: cookbook/interfacing-from-c.md
     - Interfacing with Java: cookbook/interfacing-with-java.md
     - Programming idioms: cookbook/programming-idioms.md
+    - Splayed tables: cookbook/splayed-tables.md
     - Regular expressions: cookbook/regex.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
