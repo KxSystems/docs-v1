@@ -80,14 +80,17 @@ q)tot[2;til 6]  / binary
 - [x] Distribute throughout the pages under Reference/Semantics references to .h, .Q and .z functions 
 - [ ] Fill lacunae in .h and .Q pages
 - [x] Replace central table on home page with responsive version
-- Migrate Cookbook articles
+- [ ] Migrate Cookbook articles
   - [x] UsingKdb
   - [x] GettingStarted
   - [x] InterfacingWithC
   - [x] ProgrammingIdioms
   - [x] InterfacingWithJava
   - [x] SplayedTables
-  - [ ] IntegratingWithR
+  - [x] IntegratingWithR
+  - [x] ODBC q server
+  - [x] ODBC3 q server
+  - [x] Pivoting tables
   - [ ] LoadingFromLargeFiles
   - [ ] Websocket
   - [ ] FileCompression
@@ -101,6 +104,8 @@ q)tot[2;til 6]  / binary
   - [ ] Timezones
   - [ ] Logging
   - [ ] ODBC/qserver
+- [ ] Condensed style for larger displays
+- [ ] Control deadword list in search
 
 
 

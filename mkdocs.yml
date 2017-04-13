@@ -120,6 +120,13 @@ pages:
     - FAQ: cookbook/faq.md
     - Interfacing from C: cookbook/interfacing-from-c.md
     - Interfacing with Java: cookbook/interfacing-with-java.md
+    - Interfacing with R: cookbook/interfacing-with-r.md
+    - ODBC:
+      - Introduction: cookbook/odbc.md
+      - Q client: cookbook/odbc-qclient.md
+      - Q server: cookbook/odbc-qserver.md
+      - V3 q server: cookbook/odbc3-qserver.md
+    - Pivoting tables: cookbook/pivoting-tables.md
     - Programming idioms: cookbook/programming-idioms.md
     - Splayed tables: cookbook/splayed-tables.md
     - Regular expressions: cookbook/regex.md
