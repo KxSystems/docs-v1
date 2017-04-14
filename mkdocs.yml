@@ -131,6 +131,7 @@ pages:
     - Programming idioms: cookbook/programming-idioms.md
     - Splayed tables: cookbook/splayed-tables.md
     - Regular expressions: cookbook/regex.md
+    - WebSockets: cookbook/websockets.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md
