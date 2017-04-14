@@ -88,10 +88,11 @@ q)tot[2;til 6]  / binary
   - [x] InterfacingWithJava
   - [x] SplayedTables
   - [x] IntegratingWithR
-  - [x] ODBC q server
+  - [x] ODBC 
+  - [x] ODBC q client
   - [x] ODBC3 q server
   - [x] Pivoting tables
-  - [ ] LoadingFromLargeFiles
+  - [x] LoadingFromLargeFiles
   - [ ] Websocket
   - [ ] FileCompression
   - [ ] IPCInANutshell
@@ -103,7 +104,7 @@ q)tot[2;til 6]  / binary
   - [ ] InterfacingWithCSharp
   - [ ] Timezones
   - [ ] Logging
-  - [ ] ODBC/qserver
+  - [x] ODBC/qserver
 - [ ] Condensed style for larger displays
 - [ ] Control deadword list in search
 

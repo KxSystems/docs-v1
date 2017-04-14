@@ -121,6 +121,7 @@ pages:
     - Interfacing from C: cookbook/interfacing-from-c.md
     - Interfacing with Java: cookbook/interfacing-with-java.md
     - Interfacing with R: cookbook/interfacing-with-r.md
+    - Loading from large files: cookbook/loading-from-large-files.md
     - ODBC:
       - Introduction: cookbook/odbc.md
       - Q client: cookbook/odbc-qclient.md
