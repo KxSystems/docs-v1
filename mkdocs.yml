@@ -118,9 +118,11 @@ pages:
       - Internal functions: ref/internal.md
   - Cookbook:
     - FAQ: cookbook/faq.md
+    - File compression: cookbook/file-compression.md
     - Interfacing from C: cookbook/interfacing-from-c.md
     - Interfacing with Java: cookbook/interfacing-with-java.md
     - Interfacing with R: cookbook/interfacing-with-r.md
+    - Linux production notes: cookbook/linux-production.md
     - Loading from large files: cookbook/loading-from-large-files.md
     - ODBC:
       - Introduction: cookbook/odbc.md

@@ -93,8 +93,9 @@ q)tot[2;til 6]  / binary
   - [x] ODBC3 q server
   - [x] Pivoting tables
   - [x] LoadingFromLargeFiles
-  - [ ] Websocket
-  - [ ] FileCompression
+  - [x] Websocket
+  - [x] FileCompression
+  - [x] Production_Notes
   - [ ] IPCInANutshell
   - [ ] ProgrammingExamples
   - [ ] PerformanceTips
