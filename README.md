@@ -96,7 +96,10 @@ q)tot[2;til 6]  / binary
   - [x] Websocket
   - [x] FileCompression
   - [x] Production_Notes
-  - [ ] IPCInANutshell
+  - [x] IPCInANutshell
+  - [x] Callbacks
+  - [x] Contrib/UsingDotz
+  - [x] Authentication
   - [ ] ProgrammingExamples
   - [ ] PerformanceTips
   - [ ] ExtendingWithC

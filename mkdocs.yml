@@ -117,11 +117,14 @@ pages:
       - .h namespace: ref/doth.md
       - Internal functions: ref/internal.md
   - Cookbook:
+    - Authentication and access: cookbook/authentication.md
+    - Callbacks: cookbook/callbacks.md
     - FAQ: cookbook/faq.md
     - File compression: cookbook/file-compression.md
     - Interfacing from C: cookbook/interfacing-from-c.md
     - Interfacing with Java: cookbook/interfacing-with-java.md
     - Interfacing with R: cookbook/interfacing-with-r.md
+    - Interprocess communication: cookbook/ipc.md
     - Linux production notes: cookbook/linux-production.md
     - Loading from large files: cookbook/loading-from-large-files.md
     - ODBC:
@@ -133,6 +136,7 @@ pages:
     - Programming idioms: cookbook/programming-idioms.md
     - Splayed tables: cookbook/splayed-tables.md
     - Regular expressions: cookbook/regex.md
+    - Using .z: cookbook/using-dotz.md
     - WebSockets: cookbook/websockets.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
