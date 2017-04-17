@@ -24,7 +24,7 @@ q).Q.addmonths[2006.10.29;4]
 
 ### `.Q.addr` (IP address)
 
-Syntax: `.Q.host x`
+Syntax: `.Q.addr x`
 
 Where `x` is a hostname or IP address as a symbol atom, returns the IP address as an integer (same format as [`.z.a`](dotz/#za-ip-address))
 ```q
@@ -32,8 +32,12 @@ q).Q.addr`localhost
 2130706433i
 q).Q.host .Q.addr`localhost
 `localhost
+q).Q.addr`localhost
+2130706433i
+q)256 vs .Q.addr`localhost
+127 0 0 1
 ```
-<i class="fa fa-hand-o-right"></i> [`.Q.host`](#qhost-hostname)
+<i class="fa fa-hand-o-right"></i> [`vs`](casting/#vs), [`.Q.host`](#qhost-hostname) 
 
 
 ### `.Q.chk` (fill HDB)

@@ -100,8 +100,8 @@ q)tot[2;til 6]  / binary
   - [x] Callbacks
   - [x] Contrib/UsingDotz
   - [x] Authentication
-  - [ ] ProgrammingExamples
-  - [ ] PerformanceTips
+  - [x] ProgrammingExamples
+  - [x] PerformanceTips
   - [ ] ExtendingWithC
   - [ ] publishsubscribe
   - [ ] ClientServer

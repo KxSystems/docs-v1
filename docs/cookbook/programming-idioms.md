@@ -1,6 +1,6 @@
 ## How do I select all the columns of a table except one?
 
-If the table has many columns, it is tedious and error prone to write
+If the table has many columns, it is tedious and error-prone to write
 ```q
 q)select c1,c2,... from t
 ```

@@ -132,7 +132,9 @@ pages:
       - Q client: cookbook/odbc-qclient.md
       - Q server: cookbook/odbc-qserver.md
       - V3 q server: cookbook/odbc3-qserver.md
+    - Performance tips: cookbook/performance-tips.md
     - Pivoting tables: cookbook/pivoting-tables.md
+    - Programming examples: cookbook/programming-examples.md
     - Programming idioms: cookbook/programming-idioms.md
     - Splayed tables: cookbook/splayed-tables.md
     - Regular expressions: cookbook/regex.md
