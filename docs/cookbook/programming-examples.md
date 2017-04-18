@@ -73,6 +73,9 @@ q)select reverse each -5#'time, reverse each -5#'price from q where stock=`GOOG
 ```
 This one is also constant-time.
 
+!!! note "Those adverbs…"
+    Why do we use `each` and _each-both_? Because the columns `time` and `price` are lists of lists, not lists of atoms.
+
 
 ## An efficient query to know on which days a symbol appears
 

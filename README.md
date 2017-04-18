@@ -102,9 +102,11 @@ q)tot[2;til 6]  / binary
   - [x] Authentication
   - [x] ProgrammingExamples
   - [x] PerformanceTips
-  - [ ] ExtendingWithC
-  - [ ] publishsubscribe
-  - [ ] ClientServer
+  - [x] ExtendingWithC
+  - [x] PublishSubscribe
+  - [x] Startingkdbplus/tick
+  - [x] Startingkdbplus/ipc
+  - [x] ClientServer
   - [ ] InterfacingWithCSharp
   - [ ] Timezones
   - [ ] Logging
