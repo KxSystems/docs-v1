@@ -1,4 +1,4 @@
-<i class="fa fa-github"></i> [KxSystems/code.archive/kx/kdb+tick](https://github.com/KxSystems/code.archive/tree/master/kx/kdb%2Btick) contains functionality to allow processes to publish data and subscribe to it. A basic example of kdb+tick can be found <!--FIXME--> ==[here](Startingkdbplus/tick "wikilink")== however it is worth highlighting how the publish-and-subscribe code can be used by any process on a standalone basis. The pubsub functionality is supplied in the u.q script of kdb+tick.
+<i class="fa fa-github"></i> [KxSystems/code.archive/kx/kdb+tick](https://github.com/KxSystems/code.archive/tree/master/kx/kdb%2Btick) contains functionality to allow processes to publish data and subscribe to it. It is worth highlighting how the publish-and-subscribe code can be used by any process on a standalone basis. The pubsub functionality is supplied in the u.q script of kdb+tick.
 
 To give the ability to publish data to any process, a few things need to be done:
 
