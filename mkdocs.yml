@@ -119,11 +119,13 @@ pages:
   - Cookbook:
     - Authentication and access: cookbook/authentication.md
     - Callbacks: cookbook/callbacks.md
+    - Client-server: cookbook/client-server.md
     - FAQ: cookbook/faq.md
     - File compression: cookbook/file-compression.md
     - Interprocess communication: cookbook/ipc.md
     - Linux production notes: cookbook/linux-production.md
     - Loading from large files: cookbook/loading-from-large-files.md
+    - Logging : cookbook/logging.md
     - ODBC:
       - Introduction: cookbook/odbc.md
       - Q client: cookbook/odbc-qclient.md
@@ -132,6 +134,7 @@ pages:
     - Other languages:
       - Extending q with C/C++: cookbook/extending-with-c.md
       - Using q from C: cookbook/interfacing-from-c.md
+      - Using q from C#: cookbook/interfacing-from-csharp.md
       - Using q with Java: cookbook/interfacing-with-java.md
       - Using q with R: cookbook/interfacing-with-r.md
     - Performance tips: cookbook/performance-tips.md
@@ -141,6 +144,7 @@ pages:
     - Publish and subscribe: cookbook/publish-subscribe.md
     - Splayed tables: cookbook/splayed-tables.md
     - Regular expressions: cookbook/regex.md
+    - Timezones: cookbook/timezones.md
     - Using .z: cookbook/using-dotz.md
     - WebSockets: cookbook/websockets.md
   - Developer: developer.md

@@ -104,12 +104,10 @@ q)tot[2;til 6]  / binary
   - [x] PerformanceTips
   - [x] ExtendingWithC
   - [x] PublishSubscribe
-  - [x] Startingkdbplus/tick
-  - [x] Startingkdbplus/ipc
   - [x] ClientServer
-  - [ ] InterfacingWithCSharp
-  - [ ] Timezones
-  - [ ] Logging
+  - [x] InterfacingWithCSharp
+  - [x] Timezones
+  - [x] Logging
   - [x] ODBC/qserver
 - [ ] Condensed style for larger displays
 - [ ] Control deadword list in search

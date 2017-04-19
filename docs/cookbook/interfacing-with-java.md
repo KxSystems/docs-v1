@@ -1,4 +1,7 @@
-The Java interface to q is implemented in the c class at <i class="fa fa-github"></i>&nbsp;<a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/kx/c.java">KxSystems/code.archive/kx/kdb+/c/kx/c.java</a>. <!--FIXME-->
+The Java interface to q is implemented in the c class at <i class="fa fa-github"></i>&nbsp;<a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/kx/c.java">kx/kdb+/c/kx/c.java</a>. <!--FIXME-->
+
+!!! note "GitHub"
+    Truncated GitHub URLs are children of http://github.com/KxSystems/code.archive.
 
 The c class implements the q protocol. That is:
 
@@ -209,7 +212,15 @@ while(true)
 ```
 
 
-## What is the default time zone that the Java interface to q uses?
+## Exceptions
+
+The c class throws IOExceptions for typical socket read/write reasons and throws KException objects in higher-level cases. 
+That is, for errors at the q level rather than the Socket level.
+
+
+## Questions 
+
+### What is the default time zone that the Java interface to q uses?
 
 It uses whatever the environment is set to. To override it to be e.g. GMT, use
 ```java
@@ -217,28 +228,22 @@ c.tz=TimeZone.getTimeZone("GMT");
 ```
 
 
-## What is the default date format?
+### What is the default date format?
 
 ```java
 SimpleDateFormat(“yyyy.MM.dd”).
 ```
 
 
-## How do I change the socket a c instance is using?
+### How do I change the socket a c instance is using?
 
 We can change the socket being used to talk to a q server using the `void io(Socket x) throws IOException` method.
 
 
-## Exceptions
-
-The c class throws IOExceptions for typical socket read/write reasons and throws KException objects in higher-level cases. 
-That is, for errors at the q level rather than the Socket level.
-
-
-## Is there a JDBC interface?
+### Is there a JDBC interface?
 
 Yes. 
-See <i class="fa fa-github"></i> <a href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/jdbc.java" target="_blank">KxSystems/code.archive</a> for the implementation. 
+See <i class="fa fa-github"></i> <a href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/jdbc.java" target="_blank">kx/kdb+/c/jdbc.java</a> for the implementation. 
 Compile it as follows:
 ```bash
 $ java jdbc.java
