@@ -109,6 +109,7 @@ q)tot[2;til 6]  / binary
   - [x] Timezones
   - [x] Logging
   - [x] ODBC/qserver
+- [ ] JS to insert target attribute on external links 
 - [ ] Condensed style for larger displays
 - [ ] Control deadword list in search
 

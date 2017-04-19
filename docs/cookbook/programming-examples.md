@@ -5,7 +5,7 @@ Q has a built-in HTTP request command, which follows the syntax
 `:http://host:port "string to send as HTTP method etc"
 ```
 The string-to-send can be anything within the HTTP protocol the HTTP server will understand.  
-<i class="fa fa-hand-o-right"></i> <a target="_blank" href="http://www.jmarshall.com/easy/http">jmarshall.com <i class="fa fa-external-link"></i></a>
+<i class="fa fa-hand-o-right"></i> [jmarshall.com/easy/http](http://www.jmarshall.com/easy/http)
 
 Q does not add to nor encode the string to send, and as it does not support ‘chunking’ you should specify HTTP 1.0 for your desired HTTP procotol. Q will signal a `'chunk error` if it encounters a chunked response – not possible with HTTP 1.0. Q doesn’t decode the response – it just returns the raw data. 
 ```q
@@ -14,7 +14,7 @@ q)s2s:"GET /mmz4281/1314/E0.csv http/1.0\r\nhost:www.football-data.co.uk\r\n\r\n
 q)data:(`$":http://www.football-data.co.uk") s2s
 q)(" SSSIIIIII IIIIIIIIIIII"; ",")0:data
 ```
-<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/cookbook_code/yahoo.q">KxSystems/code.archive/cook_book/yahoo.q <i class="fa fa-external-link"></i></a>
+<i class="fa fa-github"></i> [cook_book/yahoo.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/yahoo.q)
 
 This example function queries Yahoo Financials and produces a table of trading info for a list of stocks during the last few days. 
 The list of stocks and the number of days are parameters of the function.
@@ -44,7 +44,7 @@ Date       Open   High   Low    Close  Volume   Sym
 ```
 The above function definition has been adapted from a more compact one by Simon Garland. 
 The long version adds comments, renames variables, and splits computations into smaller steps so that the code is easier to follow.  
-Compact version: <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/cookbook_code/yahoo_compact.q">KxSystems/code.archive/cook_book/yahoo_compact.q  <i class="fa fa-external-link"></i></a>
+Compact version: <i class="fa fa-github"></i> [cook_book/yahoo_compact.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/yahoo_compact.q)
 
 
 ## An efficient query to extract last n ticks for a particular stock from quote table

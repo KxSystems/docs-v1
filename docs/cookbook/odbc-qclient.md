@@ -6,7 +6,7 @@ In Windows and Linux, you can use ODBC to connect to a non-q database from q.
 
 To install, download
 
-- [odbc.k <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/odbc.k) into the q directory
+- <i class="fa fa-github"></i> [kx/kdb+/c/odbc.k](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/odbc.k) into the q directory
 - the appropriate odbc.so or odbc.dll:
 
 | q        | q/l32 | q/l64 | q/w32 | q/w64 |
@@ -20,12 +20,13 @@ To install, download
 Start q and load odbc.k – this populates the `.odbc` context.
 
 !!! tip "Unix systems"
-    Ensure you have <a target="_blank" href="http://www.unixodbc.com">unixODBC <i class="fa fa-external-link"></i></a> installed, 
+    Ensure you have [unixODBC](http://www.unixodbc.com) installed, 
     and that `LD_LIBRARY_PATH` includes the path to the odbc.so, e.g. for 64-bit Linux
     ```bash
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QHOME/l64
     ```
-    <i class="fa fa-hand-o-right"></i> <a target="_blank" href="http://www.easysoft.com/developer/interfaces/odbc/linux.html">unixODBC configuration guide</a> 
+    <i class="fa fa-hand-o-right"></i> [unixODBC configuration guide](http://www.easysoft.com/developer/interfaces/odbc/linux.html)
+
 
 ## Method
 

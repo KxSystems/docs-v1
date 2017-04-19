@@ -2,7 +2,7 @@
 
 Every client interaction with a q server is handled by one of the `p`? functions you’ll find in the system namespace `.z`. These functions have reasonable, simple defaults that work fine right out of the box. What we’re doing here is taking advantage of the fact that they’re just functions, allowing you to overwrite them with your own custom code to show or modify what’s happening.
 
-The utility scripts in <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/simongarland/dotz">simongarland/dotz</a> are _examples_ of how to do this, and these files are described in detail below.
+The utility scripts in <i class="fa fa-github"></i> [github.com/simongarland/dotz](https://github.com/simongarland/dotz) are _examples_ of how to do this, and these files are described in detail below.
 
 In all of the examples the code to wrap up existing definitions looks complicated. The reason is that these are general scripts and so a combination of them could be loaded into applications with pre-existing custom `.z.p`? definitions. The wrapping code protects these definitions, but in a particular application you can probably simply replace or extend existing definitions rather than wrapping them.
 

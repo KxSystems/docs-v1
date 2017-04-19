@@ -87,7 +87,7 @@ This is the most common scenario –
 users who are comfortable in R connecting to a q database to extract partially analyzed data into R 
 for further local manipulation, analysis and display. 
 A pre-built interface from R to q is available at 
-<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/tree/master/cookbook_code/r">KxSystems/code.archive/cookbook_code/r</a>
+<i class="fa fa-github"></i>&nbsp;[cookbook_code/r](https://github.com/KxSystems/code.archive/tree/master/cookbook_code/r)
 and is currently available for Linux (64 bit), Windows (32 bit and 64 bit) and macOS operating systems. 
 The interface allows R to connect to a q database and send a request to it, which can optionally return a result. 
 There are three methods available:
@@ -200,7 +200,7 @@ The RODBC package should be installed in R. An example is given below.
 There are three interfaces which allow you to invoke R from q, for both 32- and 64-bit builds. 
 If the appropriate build is not available for your target system, 
 it can be built from source by following the instructions outlined in the associated README.  
-<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/tree/master/cookbook_code/r">KxSystems/code.archive/cookbook_code/r</a>
+<i class="fa fa-github"></i>&nbsp;[cookbook_code/r](https://github.com/KxSystems/code.archive/tree/master/cookbook_code/r)
 
 
 ### Embedding R inside q (a.k.a. R server for q)
@@ -320,7 +320,7 @@ they can overwrite each other’s variables in both the q and R workspaces.
 
 R contains a maths library which can be compiled standalone. 
 The functions can then be exposed to q by wrapping them in C code which handles the mapping between R datatypes and q datatypes (K objects). 
-See <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/rwinston/kdb-rmathlib">rwinston/kdb-rmathlib</a>
+See <i class="fa fa-github"></i> [github.com/rwinston/kdb-rmathlib](https://github.com/rwinston/kdb-rmathlib)
 for an example of integrating q with the R API (i.e. making use of some statistical functions from q).
 ```q
 q) \l rmath.q
@@ -595,7 +595,7 @@ although some amount of initial work should always be done on the q side to avoi
 
 To demonstrate the power of q, an example using randomly-generated smart meter data has been developed. 
 This can be downloaded from 
-<i class="fa fa-github"></i><a target="_blank" href="https://github.com/KxSystems/code.archive/tree/master/cookbook_code/tutorial">KxSystems/code.archive/cookbook_code/tutorial</a>.
+<i class="fa fa-github"></i>&nbsp;[cookbook_code/tutorial](https://github.com/KxSystems/code.archive/tree/master/cookbook_code/tutorial).
 By following the instructions in the README, an example database can be built. 
 The default database contains information on 100,000 smart meter customers from different sectors and regions over 61 days. 
 The default database contains 9.6M records per day, 586M rows in total. 
@@ -651,6 +651,6 @@ q)Rcmd "Sys.setenv(TZ=\"EST\")"
 q)Rget "date()"
 "Fri Feb  3 01:33:57 2012"
 ```
-
+<i class="fa fa-hand-o-right"></i> [Timezones and Daylight Saving Time](timezones)
 
 

@@ -1,12 +1,9 @@
-The Java interface to q is implemented in the c class at <i class="fa fa-github"></i>&nbsp;<a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/kx/c.java">kx/kdb+/c/kx/c.java</a>. <!--FIXME-->
-
-!!! note "GitHub"
-    Truncated GitHub URLs are children of http://github.com/KxSystems/code.archive.
+The Java interface to q is implemented in the c class at <i class="fa fa-github"></i>&nbsp;[kx/kdb+/c/kx/c.java](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/kx/c.java)
 
 The c class implements the q protocol. That is:
 
--   a Java c client can connect to a q server
--   a q client can connect to a Java c server
+- a Java c client can connect to a q server
+- a q client can connect to a Java c server
 
 
 ## Java clients
@@ -243,7 +240,7 @@ We can change the socket being used to talk to a q server using the `void io(Soc
 ### Is there a JDBC interface?
 
 Yes. 
-See <i class="fa fa-github"></i> <a href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/jdbc.java" target="_blank">kx/kdb+/c/jdbc.java</a> for the implementation. 
+See <i class="fa fa-github"></i>&nbsp;[kx/kdb+/c/jdbc.java](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/jdbc.java) for the implementation. 
 Compile it as follows:
 ```bash
 $ java jdbc.java

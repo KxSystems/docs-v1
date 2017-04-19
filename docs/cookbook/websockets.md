@@ -6,7 +6,7 @@ To get your browser and q talking on a WebSocket, start a q session listening on
 ```bash
 q -p 5000
 ```
-Download <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/cookbook_code/ws.htm">ws.htm</a>, a simple WebSocket client, and open it in a WebSocket-capable browser. You should see something like this:
+Download <i class="fa fa-github"></i> [cookbook_code/ws.htm](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/ws.htm), a simple WebSocket client, and open it in a WebSocket-capable browser. You should see something like this:
 
 ![ws.htm](/img/websocket-wso.png)
 
@@ -56,8 +56,8 @@ This example works, because the default `.z.ws` echoes the byte vector over the 
 
 <i class="fa fa-download"></i> **Downloads**
 
-- <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c.cs">KxSystems/code.archive/kx/kdb+/c/c.js</a> (also at <http://kx.com/q/c/c.js>) 
-- <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/cookbook_code/wslogin.htm">KxSystems/code.archive/cookbook_code/wslogin.htm</a>
+- <i class="fa fa-github"></i> [kx/kdb+/c/c.js](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c.cs)
+- <i class="fa fa-github"></i> [cookbook_code/wslogin.htm](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/wslogin.htm)
 
 
 ## JSON
@@ -174,7 +174,7 @@ Both client and server support permessage-deflate compression.
 
 <a target="_blank" href="http://en.wikipedia.org/wiki/Stunnel">Stunnel <i class="fa fa-external-link"></i></a> will provide secure sockets (TLS/SSL) using the OpenSSL library. Stunnel will take any WebSocket server, HTTP server, or similar and secure it – you get `https://` and `wss://` for free.
 
-<i class="fa fa-hand-o-right"></i> <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/cesanta/ssl_wrapper">cesanta/ssl_wrapper</a>
+<i class="fa fa-hand-o-right"></i> <i class="fa fa-github"></i> [github.com/cesanta/ssl_wrapper](https://github.com/cesanta/ssl_wrapper)
 
 
 ## UTF-8 encoding

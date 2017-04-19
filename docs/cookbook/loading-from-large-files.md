@@ -127,7 +127,7 @@ The example will require us to
 - re-sort and set attributes on disk when all the data is loaded
 - generate a daily statistics table to be stored as a splayed table at the top level of the database
 
-Test data for this example can be generated using the <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/cookbook_code/dataloader/gencsv.q">CSV generator</a>. The full loader is at <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/cookbook_code/dataloader/loader.q">KxSystems/code.archive</a>. The loader could be made more generic, though has not been, for reasons of code clarity.
+Test data for this example can be generated using the CSV generator <i class="fa fa-github"></i> [cookbook_code/dataloader/gencsv.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/dataloader/gencsv.q). The full loader is at <i class="fa fa-github"></i>&nbsp;[cookbook_code/dataloader/loader.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/dataloader/loader.q). The loader could be made more generic, though has not been, for reasons of code clarity.
 
 It should be noted that, unlike other database technologies, you do not have to define the table schema before you load the data (i.e. there is no separate “create” step). The schema is defined by the format of the written data, so in a lot of cases the schema is defined by the data loaders.
 
@@ -257,5 +257,5 @@ This may improve performance, but has the side effects that the loading is no lo
 
 ## Utilities
 
-A utility script <i class="fa fa-github"></i> <a target="_blank"href="https://github.com/simongarland/csvguess">simongarland/csvguess</a> allows CSV loader scripts to be automatically generated. This is especially useful for very wide or long CSV files where it is time-consuming to specify the correct types for each column. This also includes an optimized on-disk sorter, and the ability to create a loader to load and enumerate quickly all the symbol columns, allowing parallel loading processes to have only to read the sym file.
+A utility script <i class="fa fa-github"></i> [github.com/simongarland/csvguess](https://github.com/simongarland/csvguess) allows CSV loader scripts to be generated automatically. This is especially useful for very wide or long CSV files where it is time-consuming to specify the correct types for each column. This also includes an optimized on-disk sorter, and the ability to create a loader to load and enumerate quickly all the symbol columns, allowing parallel loading processes to have only to read the sym file.
 

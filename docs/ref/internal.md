@@ -143,7 +143,7 @@ q)delete f from `.
 q)-11!`:logfile.2013.12.03 / function f no longer defined, so it signals an error
 'f
 ```
-<i class="fa fa-hand-o-right"></i> <i class="fa fa-external-link-square"></i> [rescuelog.q](https://github.com/simongarland/tickrecover/blob/master/rescuelog.q) for examples of usage.
+<i class="fa fa-github"></i> [github.com/simongarland/tickrecover/rescuelog.q](https://github.com/simongarland/tickrecover/blob/master/rescuelog.q) for examples of usage
 
 
 ## `−11!(-1;x)` (streaming execute)

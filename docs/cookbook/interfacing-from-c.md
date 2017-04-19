@@ -1,11 +1,11 @@
 The best way to understand the underpinnings of q, and to interact with it from C, is to start with the header file available from 
-<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c/k.h">KxSystems/kxsystems</a>.
+<i class="fa fa-github"></i> <a href="https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c/k.h">kx/kdb+/c/c/k.h</a>.
 
 This is the file you will need to include in your C or C++ code in order to interact with q from a low level.
 
 !!! warning "Watch out"
     The k struct changed with the release of V3.0, and if you are compiling using the C library (c.o/c.dll) stamped on or after 2012.06.25 you should ensure you use the correct k struct by defining KXVER accordingly, e.g. `gcc -D KXVER=3 …` 
-    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/commit/e4ebe1099e32249c2078dc24be2707f789d30c42#diff-32a7197d1d5c261002c76b95145db8ad">KxSystems/code.archive</a> 2011-04-20. 
+    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> <a target="_blank" href="https://github.com/KxSystems/code.archive/commit/e4ebe1099e32249c2078dc24be2707f789d30c42#diff-32a7197d1d5c261002c76b95145db8ad">the earlier version</a> of 2011-04-20. 
 
 Let’s explore the basic types and their synonyms that you will commonly encounter when programming at this level. First though, it is worth noting the size of data types in 32- versus 64-bit operating systems to avoid a common mistake.
 
@@ -652,7 +652,7 @@ Callbacks from `sd1` are executed on the main thread of q.
 New in V3.0 2013.04.04: `K sd0x(I d,I f)` has the same functionality as `sd0(I d)` but `f` specifies whether to close `d`. `sd0` closes `d`.
 
 !!! tip
-    Windows developers may be interested in <i class="fa fa-github"></i> [ncm/selectable-socketpair](https://github.com/ncm/selectable-socketpair)
+    Windows developers may be interested in <i class="fa fa-github"></i> [github.com/ncm/selectable-socketpair](https://github.com/ncm/selectable-socketpair)
 
 ## Serialization and deserialization
 
@@ -827,5 +827,5 @@ Summary
 
 ## Example
 
-- <i class="fa fa-external-link-square"></i> [csv.c](https://github.com/kxcontrib/wiki/blob/master/csv.c) – CSV export example in C <!--FIXME-->
+- <i class="fa fa-github"></i> [github.com/kxcontrib/wiki/csv.c](https://github.com/kxcontrib/wiki/blob/master/csv.c) – CSV export example in C <!--FIXME-->
 

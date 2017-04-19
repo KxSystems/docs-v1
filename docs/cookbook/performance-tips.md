@@ -5,7 +5,7 @@ In the expression `f each xs`, `f` is applied to each element of `xs` in sequenc
 ## Evaluating a hardware configuration
 
 The scripts throughput.q and io.q are a useful starting point for users of wanting to measure the performance of the systems where q will be deployed. The results of these (somewhat rough) tests can be used to stress-test different CPU, disk and network configurations running q.  
-<i class="fa fa-github"></i> <a target="_blank" href="https://github.com/simongarland/io">simongarland/io</i></a>
+<i class="fa fa-github"></i> [github.com/simongarland/io](https://github.com/simongarland/io)
 
 
 ### Throughput

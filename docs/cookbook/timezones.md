@@ -107,7 +107,7 @@ q)ttz:{[d;s;z]lg[d;gl[s;z]]}
 ```
 Note that the most recent version of Java should be used to ensure that the latest timezone database is being used.
 
-<i class="fa fa-github"></i> [tzinfo.zip](https://github.com/kxcontrib/wiki/blob/master/tzinfo.zip) – zipped tzinfo.csv, created with Java 1.6.0\_15-b03-219
-<!--FIXME update with current version of Java-->
+<i class="fa fa-github"></i> [cookbook_code/timezones/tzinfo.zip](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/timezones/tzinfo.zip) 
+– zipped tzinfo.csv 
 
 Alternatively you can use combination of /usr/share/zoneinfo/zone.tab and the `zdump` Unix command. 
