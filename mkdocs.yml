@@ -119,6 +119,7 @@ pages:
   - Cookbook:
     - Authentication and access: cookbook/authentication.md
     - Callbacks: cookbook/callbacks.md
+    - Chained tickerplant: cookbook/chained-tickerplant.md
     - Client-server: cookbook/client-server.md
     - Custom web server: cookbook/custom-web.md
     - FAQ: cookbook/faq.md
@@ -149,10 +150,13 @@ pages:
     - Programming examples: cookbook/programming-examples.md
     - Programming idioms: cookbook/programming-idioms.md
     - Publish and subscribe: cookbook/publish-subscribe.md
+    - Splayed schema change: cookbook/splayed-schema-change.md
     - Splayed tables: cookbook/splayed-tables.md
+    - SSL/TLS: cookbook/ssl.md
     - Regular expressions: cookbook/regex.md
     - Timezones: cookbook/timezones.md
     - Using .z: cookbook/using-dotz.md
+    - w.q: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md

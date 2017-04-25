@@ -29,7 +29,7 @@ The Cookbook articles are being migrated: see the ToDo list below. The most-used
 
 Unlike the first two editions, _Q for Mortals V3_ is now published in its entirety online in HTML. 
 
-Links from the Reference and Cookbook to _Q for Mortals_ will be replaced with links to _Q for Mortals V3_.
+Links from the Reference and Cookbook to _Q for Mortals_ are being replaced with links to _Q for Mortals V3_.
 
 
 ## Not upwardly compatible 
@@ -94,10 +94,10 @@ q)tot[2;til 6]  / binary
   - [x] CustomWeb
   - [x] FloatPrecision
   - [x] ComparisonTolerance
-  - [ ] kdb+chainedtick
-  - [ ] SplayedSchemaChange
-  - [ ] SSL
-  - [ ] w.q
+  - [x] kdb+chainedtick
+  - [x] SplayedSchemaChange
+  - [x] SSL
+  - [x] w.q
   - [ ] log4q
   - [ ] MoreAboutTables
   - [ ] UnitTesting
