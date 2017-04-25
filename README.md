@@ -22,7 +22,7 @@ The Reference articles have been exported and their content incorporated into a 
 
 ## Cookbook 
 
-The Cookbook articles are largely untouched. Links to Cookbook articles point to the wiki. 
+The Cookbook articles are being migrated: see the ToDo list below. The most-used pages are being migrated first, along with pages they link to.  
 
 
 ## Q for Mortals V3

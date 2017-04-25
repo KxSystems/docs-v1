@@ -1,6 +1,6 @@
 ## <i class="fa fa-book"></i> Articles
 
-* [A conversation with Arthur Whitney](http://mags.acm.org/queue/20090203?pg=12) 2009
+* [A conversation with Arthur Whitney](http://queue.acm.org/detail.cfm?id=1531242) 2009
 * [An interview with Arthur Whitney](http://kx.com/media-coverage-arthur-2004.php) 2004
 * [Array languages for Lisp programmers](http://archive.vector.org.uk/art10500180) Slobodan Blazeski, _Vector_ 24\#2
 * [Boyko Bantchev's K place](http://www.math.bas.bg/bantchev/place/k.html)
