@@ -221,7 +221,7 @@ q)neg -1 0 1 2
 ```
 
 !!! note "Why not `-`?"
-    This is needed because q has no ambivalence, and `-` is already in use as an operator, i.e. in infix form. 
+    This is needed because q has no ambivalence for primitives, and `-` is already in use as an operator, i.e. in infix form. 
 
 
 ## `signum`

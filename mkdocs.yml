@@ -120,12 +120,17 @@ pages:
     - Authentication and access: cookbook/authentication.md
     - Callbacks: cookbook/callbacks.md
     - Client-server: cookbook/client-server.md
+    - Custom web server: cookbook/custom-web.md
     - FAQ: cookbook/faq.md
     - File compression: cookbook/file-compression.md
     - Interprocess communication: cookbook/ipc.md
+    - Linking columns: cookbook/linking-columns.md
     - Linux production notes: cookbook/linux-production.md
+    - Load balancing: cookbook/load-balancing.md
     - Loading from large files: cookbook/loading-from-large-files.md
-    - Logging : cookbook/logging.md
+    - Logging: cookbook/logging.md
+    - Multithreaded input: cookbook/multithreaded-input.md
+    - Named pipes: cookbook/named-pipes.md
     - ODBC:
       - Introduction: cookbook/odbc.md
       - Q client: cookbook/odbc-qclient.md
@@ -135,9 +140,11 @@ pages:
       - Extending q with C/C++: cookbook/extending-with-c.md
       - Using q from C: cookbook/interfacing-from-c.md
       - Using q from C#: cookbook/interfacing-from-csharp.md
+      - Using q with Excel: cookbook/interfacing-with-excel.md
       - Using q with Java: cookbook/interfacing-with-java.md
       - Using q with R: cookbook/interfacing-with-r.md
     - Performance tips: cookbook/performance-tips.md
+    - Precision: cookbook/precision.md
     - Pivoting tables: cookbook/pivoting-tables.md
     - Programming examples: cookbook/programming-examples.md
     - Programming idioms: cookbook/programming-idioms.md

@@ -63,7 +63,7 @@ Console maxRows maxCols, default 25 80.
 These settings determine when q elides output with `..`
 
 !!! note
-    You usually don’t need to set this, if the environment variables LINES and COLUMNS are found they’ll be taken as the default value. See bash documentation for `shopt` parameter `checkwinsize` to make sure they are reset as needed.
+    You usually don’t need to set this, if the environment variables `LINES` and `COLUMNS` are found they’ll be taken as the default value. See bash documentation for `shopt` parameter `checkwinsize` to make sure they are reset as needed.
 ```bash
 ..$ q -c 10 20
 ```
@@ -107,9 +107,9 @@ Syntax: `-g B`
 Allows switching of garbage collect to immediate(1) mode instead of deferred(0).
 
 - Immediate mode will return (certain types of) memory to the OS as soon as no longer referenced and has an associated overhead.
-- Deferred mode will return memory to the OS when either .Q.gc\[\] is called or an allocation fails, hence deferred mode has a performance advantage, but can be more difficult to dimension/manage memory requirements.
+- Deferred mode will return memory to the OS when either `.Q.gc[]` is called or an allocation fails, hence deferred mode has a performance advantage, but can be more difficult to dimension/manage memory requirements.
 
-Immediate mode is the 2.5/2.6 default, deferred is the 2.7 default.
+Immediate mode is the V2.5/2.6 default, deferred is the V2.7 default.
 To use immediate mode, invoke as `q -g 1`. (Since V2.7 2011.02.04.)
 
 
@@ -117,14 +117,16 @@ To use immediate mode, invoke as `q -g 1`. (Since V2.7 2011.02.04.)
 
 Syntax: `-l`
   
-Log updates to filesystem, see [Cookbook/Logging](http://code.kx.com/wiki/Cookbook/Logging)
+Log updates to filesystem  
+<i class="fa fa-hand-o-right"></i> [Cookbook/Logging](/cookbook/logging)
 
 
 ## `-L` (log sync)
 
 Syntax: `-L`
   
-As `-l`, but sync logging, see [Cookbook/Logging](http://code.kx.com/wiki/Cookbook/Logging)
+As `-l`, but sync logging  
+<i class="fa fa-hand-o-right"></i>  [Cookbook/Logging](/cookbook/logging)
 
 
 ## `-o` (UTC offset)
@@ -138,14 +140,14 @@ Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-loca
 
 Syntax: `-p N`
   
-Port on which kdb+ server listens. Use for [client/server](http://code.kx.com/wiki/Cookbook/ClientServer), e.g. kdbc(/jdbc/odbc), HTTP (HTML XML txt CSV).
+Port on which q server listens. Use for [client/server](/cookbook/client-server), e.g. kdbc(/jdbc/odbc), HTTP (HTML XML txt CSV).
 
 
 ## `-p` (multithread port)
 
 Syntax: `-p -N`
   
-Port for [multithreaded input mode](http://code.kx.com/wiki/Cookbook/MultithreadedInputMode).
+Port for [multithreaded input mode](/cookbook/multithreaded-input/)
 
 
 ## `-P` (display precision)
@@ -212,10 +214,10 @@ Syntax: `-q`
 Quiet, i.e. no startup banner text or session prompts. Typically used where no console is required.
 ```bash
 ~/q$ q
-```
-```q
 KDB+ 3.5t 2017.02.28 Copyright (C) 1993-2017 Kx Systems
 …
+```
+```q
 q)2+2
 4
 q)

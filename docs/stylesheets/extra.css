@@ -1,5 +1,5 @@
 /*
-	Title: Extra CSS for Q for Mortals 3 in MkDocs
+	Title: Extra CSS for code.kx.com in MkDocs
 	Author: stephen@kx.com
  */
 
@@ -15,49 +15,41 @@
 --------------------------------------------- */
  [data-md-color-primary=blue] .md-header
  {
- 	background: #0070cd; 
+ 	background: #0070cd; /* hsl(207, 100%, 40%) */
  }
-
  /* override accent background colour on repo download and star buttons */
 .scrollable .wrapper .repo a {
  	background: #8099fd;
  }
-
+ /* override theme link color */
+ [data-md-color-primary=blue] .md-typeset a {
+ 	color: #005499; /* hsl(207, 100%, 30%) */
+ }
+ 
 /* type
 --------------------------------------------- */
-
-/* enlarge code within tables */
- table tbody td code {
- 	font-size: 15px !important;
- }
-
- .article {
- 	font-size: 15px;
- }
- .article table {
- 	font-size: 14px;
- }
-
- /* code
---------------------------------------------- */
-.md-typeset code,
-.md-typeset a>code, 
-.md-typeset pre.codehilite {
-	background-color: rgba(0,0,0,0.05);
-}
+/* Override "Roboto Mono" from theme */
+code, kbd, pre {
+	font-family: Courier, "Courier New", monospace;
 }
 .md-typeset a>code {
 	padding: 0 .15em;
 }
+
+/* undo font-size:85% code */
+.md-typeset code,
 .md-typeset .admonition pre {
-	background-color: transparent;
-	margin-top: 0;
-}
+ 	font-size: 95%;
+ }
 
 /* admonition
 --------------------------------------------- */
 .md-typeset .admonition p {
 	margin: .3em 0;
+}
+.md-typeset .admonition pre {
+	background-color: transparent;
+	margin-top: 0;
 }
 
 /* front page
@@ -74,14 +66,38 @@
 	text-align: center; 
 	width: 200px;
 }
-
-/* Kx classes
---------------------------------------------- */
-table.kx-compact {
-	border: .1rem solid rgba(0,0,0,.07);
-	border-collapse: collapse;
-	border-radius: .2rem;
+#kx-flex-grid a {
+	color: #0070cd;
 }
+
+/* reference card
+--------------------------------------------- */
+ .kx-big {
+ 	font-size: 115%;
+ }
+ .kx-nowrap {
+ 	white-space: nowrap;
+ }
+ .kx-ruled td {
+ 	border-bottom: 1px solid rgba(0,0,0,.05);
+ }
+ .kx-tight td,
+ .kx-tight th {
+ 	padding: 0 .4em;
+ }
+ .kx-tight th {
+ 	background-color: rgba(0,0,0,.54);
+ 	color: white;
+ 	text-align: left;
+ }
+ .kx-tight thead {
+ 	border-bottom: 1px solid #aaa;
+ }
+
+.kx-shrunk {
+ 	font-size: 85%;
+ }
+
 .kx-compact td,
 .kx-compact th {
 	font-size: .8em;
@@ -102,9 +118,5 @@ table.kx-compact {
 	border: none;
 	margin: 0;
 	padding: 0;
-}
-/* decomment for production deployment
-.kx-developer {
-	display: none;
 }
 

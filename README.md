@@ -81,36 +81,32 @@ q)tot[2;til 6]  / binary
 - [ ] Fill lacunae in .h and .Q pages
 - [x] Replace central table on home page with responsive version
 - [ ] Migrate Cookbook articles
-  - [x] UsingKdb
-  - [x] GettingStarted
-  - [x] InterfacingWithC
-  - [x] ProgrammingIdioms
-  - [x] InterfacingWithJava
-  - [x] SplayedTables
-  - [x] IntegratingWithR
-  - [x] ODBC 
-  - [x] ODBC q client
-  - [x] ODBC3 q server
-  - [x] Pivoting tables
-  - [x] LoadingFromLargeFiles
-  - [x] Websocket
-  - [x] FileCompression
-  - [x] Production_Notes
-  - [x] IPCInANutshell
-  - [x] Callbacks
-  - [x] Contrib/UsingDotz
-  - [x] Authentication
-  - [x] ProgrammingExamples
-  - [x] PerformanceTips
-  - [x] ExtendingWithC
-  - [x] PublishSubscribe
-  - [x] ClientServer
+  - [x] …
   - [x] InterfacingWithCSharp
   - [x] Timezones
   - [x] Logging
   - [x] ODBC/qserver
+  - [x] LoadBalancing
+  - [x] IntegratingWithExcel
+  - [x] MultithreadedInputMode
+  - [x] LinkingColumns
+  - [x] NamedPipes
+  - [x] CustomWeb
+  - [x] FloatPrecision
+  - [x] ComparisonTolerance
+  - [ ] kdb+chainedtick
+  - [ ] SplayedSchemaChange
+  - [ ] SSL
+  - [ ] w.q
+  - [ ] log4q
+  - [ ] MoreAboutTables
+  - [ ] UnitTesting
+  - [ ] BloombergFeedHandler
+  - [ ] TemporalData
+  - [ ] Daemon
+  - [ ] QAsWindowsService
 - [ ] JS to insert target attribute on external links 
-- [ ] Condensed style for larger displays
+- [x] Condensed style for larger displays
 - [ ] Control deadword list in search
 
 

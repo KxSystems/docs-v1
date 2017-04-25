@@ -106,9 +106,6 @@ q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
 
 Names consist of upper- and lower-case alphabetics. They may contain, but not begin with, underscores and numbers. For example: `a`, `foo`, `foo2_bar`. 
 
-> What in the world is a namespace?  
-> — Kenneth E. Iverson
-
 A [namespace](https://en.wikipedia.org/wiki/Namespace) is a container or context within which a name resolves to a unique value. Namespaces are children of the _root namespace_ (usually just _root_) and are designated by a dot prefix. Names in the root have no prefix. The root namespace of a q session is parent to multiple namespaces, e.g. `h`, `Q` and `z`. (Namespaces with 1-character names – of either case – are reserved for use by Kx.) 
 ```q
 q).z.p                         / UTC timestamp
