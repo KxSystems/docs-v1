@@ -14,7 +14,7 @@ q)s2s:"GET /mmz4281/1314/E0.csv http/1.0\r\nhost:www.football-data.co.uk\r\n\r\n
 q)data:(`$":http://www.football-data.co.uk") s2s
 q)(" SSSIIIIII IIIIIIIIIIII"; ",")0:data
 ```
-<i class="fa fa-github"></i> [cook_book/yahoo.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/yahoo.q)
+<i class="fa fa-github"></i> [KxSystems/cookbook/yahoo.q](https://github.com/KxSystems/cookbook/blob/master/yahoo.q)
 
 This example function queries Yahoo Financials and produces a table of trading info for a list of stocks during the last few days. 
 The list of stocks and the number of days are parameters of the function.

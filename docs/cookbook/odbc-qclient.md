@@ -6,13 +6,13 @@ In Windows and Linux, you can use ODBC to connect to a non-q database from q.
 
 To install, download
 
-- <i class="fa fa-github"></i> [kx/kdb+/c/odbc.k](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/odbc.k) into the q directory
+- <i class="fa fa-github"></i> [KxSystems/kdb/c/odbc.k](https://github.com/KxSystems/kdb/blob/master/c/odbc.k) into the q directory
 - the appropriate odbc.so or odbc.dll:
 
 | q        | q/l32 | q/l64 | q/w32 | q/w64 |
 |----------|-------|-------|-------|-------|
-| &ge;V3.0 | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/l32/odbc.so) | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/l64/odbc.so) |  [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/w32/odbc.dll) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/w64/odbc.dll) |
-| &le;V2.8 | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/0f239d00fa89254e9447949a6272e1df13ffafd6/kx/kdb%2B/l32/odbc.so) | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/0f239d00fa89254e9447949a6272e1df13ffafd6/kx/kdb%2B/l64/odbc.so) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/0f239d00fa89254e9447949a6272e1df13ffafd6/kx/kdb%2B/w32/odbc.dll) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/code.archive/blob/0f239d00fa89254e9447949a6272e1df13ffafd6/kx/kdb%2B/w64/odbc.dll) |
+| &ge;V3.0 | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/master/l32/odbc.so) | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/master/l64/odbc.so) |  [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/master/w32/odbc.dll) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/master/w64/odbc.dll) |
+| &le;V2.8 | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/l32/odbc.so) | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/l64/odbc.so) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/w32/odbc.dll) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/w64/odbc.dll) |
 
 !!! warning "Mixed versions"
     If you mix up the library versions, you’ll likely observe a type error when opening the connection.

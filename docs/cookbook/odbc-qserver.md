@@ -10,8 +10,8 @@ Ensure your q process has loaded the [SQL interpreter <i class="fa fa-download">
 !!! warning "Windows 2003 hotfix KB948459"
     If using Windows 2003, before installing ensure you have <a target="_blank" href="http://www.microsoft.com/en-gb/download/details.aspx?id=20065">hotfix KB948459 <i class="fa fa-external-link"></i></a> applied. 
 
-- in W32, download <i class="fa fa-github"></i> [kx/kdb+/w32/odbc.zip](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/w32/odbc.zip) and run it to install the q ODBC driver
-- in W64, download <i class="fa fa-github"></i> [kx/kdb+/w64/odbc.zip](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/w64/odbc.zip) and extract it to a temporary directory. Run `d0.exe` to install the q ODBC driver.
+- in W32, download <i class="fa fa-github"></i> [KxSystems/kdb/w32/odbc.zip](https://github.com/KxSystems/kdb/blob/master/w32/odbc.zip) and run it to install the q ODBC driver
+- in W64, download <i class="fa fa-github"></i> [KxSystems/kdb/w64/odbc.zip](https://github.com/KxSystems/kdb/blob/master/w64/odbc.zip) and extract it to a temporary directory. Run `d0.exe` to install the q ODBC driver.
 
 !!! tip "Troubleshooting"
     If everything appears to be set up properly but you cannot connect to, or retrieve data from q then try rebooting.

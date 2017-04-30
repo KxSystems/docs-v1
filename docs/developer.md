@@ -72,7 +72,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [Chained tickerplant and rdb for kdb+tick](http://code.kx.com/wiki/Cookbook/kdb+chainedtick)
 * [Write-only alternative to rdb for kdb+tick](http://code.kx.com/wiki/Cookbook/w.q)
 * [Alternative in-memory layouts](http://code.kx.com/wiki/Cookbook/alternateInMemLayouts)
-* [Utility scripts and example schemas (some examples may need to change time types to timespan)](https://github.com/KxSystems/code.archive/tree/master/kx/kdb%2B/tick) <i class="fa fa-github"></i> 
+* [Utility scripts and example schemas (some examples may need to change time types to timespan)](https://github.com/KxSystems/kdb/tree/master/tick) <i class="fa fa-github"></i> 
 
 
 ## <i class="fa fa-map-o"></i> How-tos
@@ -100,10 +100,10 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 <tr><td>GPUs</td><td>[Interfacing with GPUs](http://code.kx.com/wiki/Cookbook/InterfacingWithGPUs)</td></tr>
 <tr><td>J</td><td>[Integrating with J](http://code.kx.com/wiki/Cookbook/IntegratingWithJ) and [Jwiki/Interfaces](http://www.jsoftware.com/jwiki/Interfaces)</td></tr>
 <tr><td>Java</td><td>[Interfacing with Java](cookbook/interfacing-with-java) and [exxeleron/qJava](https://github.com/exxeleron/qJava) <i class="fa fa-github"></i> </td></tr>
-<tr><td>JavaScript</td><td>[kx/kdb+/c/c.js](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c.js) <i class="fa fa-github"></i> and [Websockets](cookbook/websockets)</td></tr>
+<tr><td>JavaScript</td><td>[KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js) <i class="fa fa-github"></i> and [Websockets](cookbook/websockets)</td></tr>
 <tr><td>LAPACK, Cephes and FDLIBM</td><td>[althenia.net/qml](http://althenia.net/qml)</td></tr>
 <tr><td>Lua</td><td>[geocar/qlua](https://github.com/geocar/qlua) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Mathematica</td><td>[kx/kdb+/c/other/qmathematica.txt](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/other/qmathematica.txt) <i class="fa fa-github"></i> </td></tr>
+<tr><td>Mathematica</td><td>[KxSystems/kdb/c/other/qmathematica.txt](https://github.com/KxSystems/kdb/blob/master/c/other/qmathematica.txt) <i class="fa fa-github"></i> </td></tr>
 <tr><td>Matlab</td><td>[Integrating with Matlab](http://code.kx.com/wiki/Cookbook/IntegratingWithMatlab)</td></tr>
 <tr><td>NodeJS</td><td>[geocar/qnode](https://github.com/geocar/qnode) <i class="fa fa-github"></i> and [cinovo/node-q](https://github.com/cinovo/node-q) <i class="fa fa-github"></i> </td></tr>
 <tr><td>ODBC</td><td>[Interfacing with ODBC](cookbook/odbc)</td></tr>
@@ -130,7 +130,10 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 ## <i class="fa fa-github"></i> Q on GitHub 
 
 * [User repositories](https://kxsystems.github.io/)
-* [KxSystems/code.archive](https://github.com/KxSystems/code.archive)
+* [KxSystems/cookbook](https://github.com/KxSystems/cookbook) – companion files for articles in the q cookbook
+* [KxSystems/kdb](https://github.com/KxSystems/kdb)
+* [KxSystems/kdb-taq](https://github.com/KxSystems/kdb-taq)
+* [KxSystems/kdb-tick](https://github.com/KxSystems/kdb-tick)
 * [KxSystems/docs](https://github.com/KxSystems/code.archive) – source for this documentation site
 
 

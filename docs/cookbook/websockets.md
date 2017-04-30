@@ -6,7 +6,7 @@ To get your browser and q talking on a WebSocket, start a q session listening on
 ```bash
 q -p 5000
 ```
-Download <i class="fa fa-github"></i> [cookbook_code/ws.htm](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/ws.htm), a simple WebSocket client, and open it in a WebSocket-capable browser. You should see something like this:
+Download <i class="fa fa-github"></i> [KxSystems/cookbook/ws.htm](https://github.com/KxSystems/cookbook/blob/master/ws.htm), a simple WebSocket client, and open it in a WebSocket-capable browser. You should see something like this:
 
 ![ws.htm](/img/websocket-wso.png)
 
@@ -56,8 +56,8 @@ This example works, because the default `.z.ws` echoes the byte vector over the 
 
 <i class="fa fa-download"></i> **Downloads**
 
-- <i class="fa fa-github"></i> [kx/kdb+/c/c.js](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c.cs)
-- <i class="fa fa-github"></i> [cookbook_code/wslogin.htm](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/wslogin.htm)
+- <i class="fa fa-github"></i> [KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js)
+- <i class="fa fa-github"></i> [KxSystems/cookbook/wslogin.htm](https://github.com/KxSystems/cookbook/blob/master/wslogin.htm)
 
 
 ## JSON

@@ -108,6 +108,7 @@ q)tot[2;til 6]  / binary
 - [ ] JS to insert target attribute on external links 
 - [x] Condensed style for larger displays
 - [ ] Control deadword list in search
+- [x] Split code.archive into 4 repos 
 
 
 

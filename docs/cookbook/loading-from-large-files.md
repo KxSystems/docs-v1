@@ -127,7 +127,7 @@ The example will require us to
 - re-sort and set attributes on disk when all the data is loaded
 - generate a daily statistics table to be stored as a splayed table at the top level of the database
 
-Test data for this example can be generated using the CSV generator <i class="fa fa-github"></i> [cookbook_code/dataloader/gencsv.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/dataloader/gencsv.q). The full loader is at <i class="fa fa-github"></i>&nbsp;[cookbook_code/dataloader/loader.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/dataloader/loader.q). The loader could be made more generic, though has not been, for reasons of code clarity.
+Test data for this example can be generated using the CSV generator <i class="fa fa-github"></i> [KxSystems/cookbook/dataloader/gencsv.q](https://github.com/KxSystems/cookbook/blob/master/dataloader/gencsv.q). The full loader is at <i class="fa fa-github"></i> [KxSystems/cookbook/dataloader/loader.q](https://github.com/KxSystems/cookbook/blob/master/dataloader/loader.q). The loader could be made more generic, though has not been, for reasons of code clarity.
 
 It should be noted that, unlike other database technologies, you do not have to define the table schema before you load the data (i.e. there is no separate “create” step). The schema is defined by the format of the written data, so in a lot of cases the schema is defined by the data loaders.
 

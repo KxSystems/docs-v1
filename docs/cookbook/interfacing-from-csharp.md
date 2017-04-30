@@ -1,4 +1,4 @@
-The C\# interface to q is implemented in the c class available from <i class="fa fa-github"></i> [kx/kdb+/c/c.cs](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c.cs). The c class implements the protocol to interact with a q server. The interface is similar, but not exactly the same as that for [interfacing with Java](interfacing-with-java).
+The C\# interface to q is implemented in the c class available from <i class="fa fa-github"></i> [KxSystems/kdb/c/c.cs](https://github.com/KxSystems/kdb/blob/master/c/c.cs). The c class implements the protocol to interact with a q server. The interface is similar, but not exactly the same as that for [interfacing with Java](interfacing-with-java).
 
 Instances may be constructed with one of the following constructors:
 

@@ -1,8 +1,8 @@
-This site is the successor to the Mediawiki site – which for now can still be found at <http://code.kx.com/wiki>. The Reference section has been migrated from the wiki; the Cookbook will follow. 
+This site is the successor to the Mediawiki site – which for now can still be found at <http://code.kx.com/wiki>. The Reference section has been migrated from the wiki; the Cookbook is in progress. 
 
 ## <i class="fa fa-github"></i> GitHub
 
-Truncated GitHub URLs omit `http://github.com/` and either begin with the contributor’s name or are children of http://github.com/KxSystems/code.archive.
+Truncated GitHub URLs omit the `http://github.com/` prefix. 
 
 
 ## <i class="fa fa-keyboard-o"></i> Keyboard shortcuts for Search

@@ -358,7 +358,7 @@ q.d)-8!test
 
 ## Notes
 
-1. <i class="fa fa-github"></i> [kx/kdb+/c/kx/c.java](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/kx/c.java), <i class="fa fa-github"></i> [kx/kdb+/c/c.cs](https://github.com/KxSystems/code.archive/blob/master/kx/kdb%2B/c/c.cs) etc., are simply (de)serializers for these structures. 
+1. <i class="fa fa-github"></i> [KxSystems/kdb/c/kx/c.java](https://github.com/KxSystems/kdb/blob/master/c/kx/c.java), <i class="fa fa-github"></i> [KxSystems/kdb/c/c.cs](https://github.com/KxSystems/kdb/blob/master/c/c.cs) etc., are simply (de)serializers for these structures. 
 1. Enumerations are automatically converted to values before sending through IPC.
 
 <i class="fa fa-hand-o-right"></i> [Markup](markup), [`.Q.addr`](dotq/#qaddr-ip-address) (IP address), [`.Q.hg`](dotq/#qhg-http-get) (HTTP get), [`.Q.host`](dotq/#qhost-hostname) (hostname), [`.Q.hp`](dotq/#qhp-http-post) (HTTP post)

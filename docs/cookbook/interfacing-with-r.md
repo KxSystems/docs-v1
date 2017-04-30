@@ -200,7 +200,7 @@ The RODBC package should be installed in R. An example is given below.
 There are three interfaces which allow you to invoke R from q, for both 32- and 64-bit builds. 
 If the appropriate build is not available for your target system, 
 it can be built from source by following the instructions outlined in the associated README.  
-<i class="fa fa-github"></i>&nbsp;[cookbook_code/r](https://github.com/KxSystems/code.archive/tree/master/cookbook_code/r)
+<i class="fa fa-github"></i> [KxSystems/cookbook/r](https://github.com/KxSystems/cookbook/tree/master/r)
 
 
 ### Embedding R inside q (a.k.a. R server for q)
@@ -595,7 +595,7 @@ although some amount of initial work should always be done on the q side to avoi
 
 To demonstrate the power of q, an example using randomly-generated smart meter data has been developed. 
 This can be downloaded from 
-<i class="fa fa-github"></i>&nbsp;[cookbook_code/tutorial](https://github.com/KxSystems/code.archive/tree/master/cookbook_code/tutorial).
+<i class="fa fa-github"></i> [KxSystems/cookbook/tutorial](https://github.com/KxSystems/cookbook/tree/master/tutorial).
 By following the instructions in the README, an example database can be built. 
 The default database contains information on 100,000 smart meter customers from different sectors and regions over 61 days. 
 The default database contains 9.6M records per day, 586M rows in total. 
