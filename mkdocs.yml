@@ -116,6 +116,8 @@ pages:
       - .Q namespace: ref/dotq.md
       - .h namespace: ref/doth.md
       - Internal functions: ref/internal.md
+  # - Tutorials:
+  #   - Dictionaries & tables: tutorials/dictsandtables.md
   - Cookbook:
     - Introduction: cookbook/introduction.md
     - Authentication and access: cookbook/authentication.md
@@ -123,8 +125,17 @@ pages:
     - Chained tickerplant: cookbook/chained-tickerplant.md
     - Client-server: cookbook/client-server.md
     - Custom web server: cookbook/custom-web.md
+    - Daemon: cookbook/daemon.md
     - FAQ: cookbook/faq.md
     - File compression: cookbook/file-compression.md
+    - Interfaces:
+      - Bloomberg feed: cookbook/bloomberg-feed-handler.md
+      - Extending q with C/C++: cookbook/extending-with-c.md
+      - Using q from C: cookbook/interfacing-from-c.md
+      - Using q from C#: cookbook/interfacing-from-csharp.md
+      - Using q with Excel: cookbook/interfacing-with-excel.md
+      - Using q with Java: cookbook/interfacing-with-java.md
+      - Using q with R: cookbook/interfacing-with-r.md
     - Interprocess communication: cookbook/ipc.md
     - Linking columns: cookbook/linking-columns.md
     - Linux production notes: cookbook/linux-production.md
@@ -138,13 +149,6 @@ pages:
       - Q client: cookbook/odbc-qclient.md
       - Q server: cookbook/odbc-qserver.md
       - V3 q server: cookbook/odbc3-qserver.md
-    - Other languages:
-      - Extending q with C/C++: cookbook/extending-with-c.md
-      - Using q from C: cookbook/interfacing-from-c.md
-      - Using q from C#: cookbook/interfacing-from-csharp.md
-      - Using q with Excel: cookbook/interfacing-with-excel.md
-      - Using q with Java: cookbook/interfacing-with-java.md
-      - Using q with R: cookbook/interfacing-with-r.md
     - Performance tips: cookbook/performance-tips.md
     - Precision: cookbook/precision.md
     - Pivoting tables: cookbook/pivoting-tables.md
@@ -155,10 +159,13 @@ pages:
     - Splayed tables: cookbook/splayed-tables.md
     - SSL/TLS: cookbook/ssl.md
     - Regular expressions: cookbook/regex.md
+    - Temporal data: cookbook/temporal-data.md
     - Timezones: cookbook/timezones.md
+    - Unit tests: cookbook/unit-tests.md
     - Using .z: cookbook/using-dotz.md
     - w.q: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
+    - Windows Service: cookbook/windows-service.md
   - Developer: developer.md
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md

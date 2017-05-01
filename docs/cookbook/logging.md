@@ -142,3 +142,8 @@ $ q /mylogs/test -l -p 5000
 the replicating process will receive this information when it connects. On start-up, the replicating process will load the .qdb file and play back the log file, and continue to receive updates via IPC.
 
 Currently, only a single replicating process can subscribe to the master process. If another q process attempts to replicate from the master, the previous replicating process will no longer receive updates. If you need multiple replicating processes, you might like to consider kdb+tick.
+
+!!! tip "log4q"
+    A concise implementation of logger for q applications.
+
+    <i class="fa fa-github"></i> [prodrive11/log4q/q_stuff/src/log4q](https://github.com/prodrive11/q_stuff/tree/master/src/log4q)

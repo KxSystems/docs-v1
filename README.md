@@ -98,14 +98,15 @@ q)tot[2;til 6]  / binary
   - [x] SplayedSchemaChange
   - [x] SSL
   - [x] w.q
-  - [ ] log4q
-  - [ ] MoreAboutTables
-  - [ ] UnitTesting
-  - [ ] BloombergFeedHandler
-  - [ ] TemporalData
-  - [ ] Daemon
-  - [ ] QAsWindowsService
-- [ ] JS to insert target attribute on external links 
+  - [x] log4q
+  - [-] MoreAboutTables
+  - [x] UnitTesting
+  - [x] BloombergFeedHandler
+  - [x] TemporalData
+  - [x] Daemon
+  - [x] QAsWindowsService
+  - [ ] …
+- [x] JS to insert target attribute on external links 
 - [x] Condensed style for larger displays
 - [ ] Control deadword list in search
 - [x] Split code.archive into 4 repos 
