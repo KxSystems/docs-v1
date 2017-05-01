@@ -87,7 +87,7 @@ This is the most common scenario –
 users who are comfortable in R connecting to a q database to extract partially analyzed data into R 
 for further local manipulation, analysis and display. 
 A pre-built interface from R to q is available at 
-<i class="fa fa-github"></i>&nbsp;[cookbook_code/r](https://github.com/KxSystems/code.archive/tree/master/cookbook_code/r)
+<i class="fa fa-github"></i> [KxSystems/cookbook/r](https://github.com/KxSystems/cookbook/tree/master/r)
 and is currently available for Linux (64 bit), Windows (32 bit and 64 bit) and macOS operating systems. 
 The interface allows R to connect to a q database and send a request to it, which can optionally return a result. 
 There are three methods available:

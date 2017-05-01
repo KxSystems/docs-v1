@@ -82,18 +82,6 @@ q)tot[2;til 6]  / binary
 - [x] Replace central table on home page with responsive version
 - [ ] Migrate Cookbook articles
   - [x] …
-  - [x] InterfacingWithCSharp
-  - [x] Timezones
-  - [x] Logging
-  - [x] ODBC/qserver
-  - [x] LoadBalancing
-  - [x] IntegratingWithExcel
-  - [x] MultithreadedInputMode
-  - [x] LinkingColumns
-  - [x] NamedPipes
-  - [x] CustomWeb
-  - [x] FloatPrecision
-  - [x] ComparisonTolerance
   - [x] kdb+chainedtick
   - [x] SplayedSchemaChange
   - [x] SSL
@@ -110,6 +98,7 @@ q)tot[2;til 6]  / binary
 - [x] Condensed style for larger displays
 - [ ] Control deadword list in search
 - [x] Split code.archive into 4 repos 
+- [x] Remove links to github.com/KxSystems/code.archive
 
 
 

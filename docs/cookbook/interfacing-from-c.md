@@ -5,7 +5,7 @@ This is the file you will need to include in your C or C++ code in order to inte
 
 !!! warning "Watch out"
     The k struct changed with the release of V3.0, and if you are compiling using the C library (c.o/c.dll) stamped on or after 2012.06.25 you should ensure you use the correct k struct by defining KXVER accordingly, e.g. `gcc -D KXVER=3 …` 
-    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> [the earlier version](https://github.com/KxSystems/code.archive/commit/e4ebe1099e32249c2078dc24be2707f789d30c42#diff-32a7197d1d5c261002c76b95145db8ad) of 2011-04-20. 
+    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> [the earlier version](https://github.com/KxSystems/kdb/blob/6455fa25b0e1e5e403ded9bcec96728b4445ccac/c/c/k.h) of 2011-04-20. 
 
 Let’s explore the basic types and their synonyms that you will commonly encounter when programming at this level. First though, it is worth noting the size of data types in 32- versus 64-bit operating systems to avoid a common mistake.
 

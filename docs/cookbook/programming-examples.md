@@ -44,7 +44,7 @@ Date       Open   High   Low    Close  Volume   Sym
 ```
 The above function definition has been adapted from a more compact one by Simon Garland. 
 The long version adds comments, renames variables, and splits computations into smaller steps so that the code is easier to follow.  
-Compact version: <i class="fa fa-github"></i> [cook_book/yahoo_compact.q](https://github.com/KxSystems/code.archive/blob/master/cookbook_code/yahoo_compact.q)
+Compact version: <i class="fa fa-github"></i> [KxSystems/cookbook/yahoo_compact.q](https://github.com/KxSystems/cookbook/blob/master/yahoo_compact.q)
 
 
 ## An efficient query to extract last n ticks for a particular stock from quote table
