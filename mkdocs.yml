@@ -117,6 +117,7 @@ pages:
       - .h namespace: ref/doth.md
       - Internal functions: ref/internal.md
   - Cookbook:
+    - Introduction: cookbook/introduction.md
     - Authentication and access: cookbook/authentication.md
     - Callbacks: cookbook/callbacks.md
     - Chained tickerplant: cookbook/chained-tickerplant.md
