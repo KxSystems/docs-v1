@@ -3,29 +3,7 @@ Q has had built-in optional file compression since V2.7.
 
 ## How do I compress a file?
 
-Use the `-19!` internal function. e.g.
-```q
--19!(`:sourceFile;`:targetFile;logicalBlockSize;compressionAlgorithm;compressionLevel)
-```
-where
-
-- `logicalBlockSize` is a power of 2 between 12 and 20 (pageSize or allocation granularity to 1MB – pageSize for AMD64 is 4kB, SPARC is 8kB. Windows seems to have a default allocation granularity of 64kB). When choosing the `logicalBlockSize`, consider the minimum of all the platforms that will access the files directly – otherwise you may encounter `"disk compression - bad logicalBlockSize"`. Note that this argument affects both compression speed and compression ratio: larger blocks can be slower and better compressed
-- `compressionAlgorithm` is one of:
-    + 0: none
-    + 1: q IPC
-    + 2: `gzip`
-    + 3: <a target="_blank" href="http://google.github.io/snappy">snappy <i class="fa fa-external-link"></i></a> (since V3.4)
-- `compressionLevel` is between 0 and 9 (valid only for `gzip`, use 0 for other algorithms)
-
-Return value is the compression level achieved, as a %.
-```q
-q)`:test set asc 10000000?100; / create a test data file
-q) / compress input file test, to output file ztest, using a block size of 128kB (2 xexp 17), gzip level 6
-q)-19!(`:test;`:ztest;17;2;6)
-99.87667
-q)get[`:test]~get`:ztest / check the compressed data is the same as the uncompressed data
-1b
-```
+Use the [`-19!` internal function](/ref/internal/#-19x-compress-file).
 
 
 ## How do I save directly to a compressed file?
@@ -114,13 +92,17 @@ The compression routine is reading from the source file, compressing the data an
 
 ## How can I tell if a file is compressed?
 
-Execute ``-21!`:filename ``
+The [`21!` internal function](/ref/internal/#-21x-compression-stats) returns a dictionary of compression statistics, or an empty dictionary if the file is not compressed. 
 ```q
-q)-21!`:testfile
-compressedLength  | 2100716
-uncompressedLength| 8000300
-algorithm         | 2
-logicalBlockSize  | 17
+q)-21!`:ztest       / compressed
+compressedLength  | 137349
+uncompressedLength| 80000016
+algorithm         | 2i
+logicalBlockSize  | 17i
+zipLevel          | 6i
+q)-21!`:test        / not compressed
+q)count -21!`:test
+0
 ```
 
 
@@ -131,7 +113,7 @@ Yes.
 
 ## Does the compression require column data to be compressed using `-19!`, or will running gzip on column data also work?
 
-Yes, you have to use the `-19!` operation, because the file format is different from gzip.
+Yes, you have to use the [`-19!` internal function](/ref/internal/#-19x-compress-file), because the file format is different from gzip.
 
 
 ## Is it be possible to compress selected partitions, or even selected columns for a table within a partition? (For instance, for a database partitioned by date.)
@@ -184,9 +166,9 @@ The `logicalBlockSize` represents how much data is taken as a compression unit, 
 ## ``hcount`:compressedFile`` returns the uncompressed file length. Is this intentional?
 
 Yes. In our defense, ZFS has similar issues.  
-<i class="fa fa-hand-o-right"></i> <a target="_blank" hrerf="http://blog.buttermountain.co.uk/2008/05/10/zfs-compression-when-du-and-ls-appear-to-disagree">blog.buttermountain.co.uk <i class="fa fa-external-link"></i></a>
+<i class="fa fa-hand-o-right"></i> [blog.buttermountain.co.uk](http://blog.buttermountain.co.uk/2008/05/10/zfs-compression-when-du-and-ls-appear-to-disagree)
 
-Compressed file size can be obtained from ``-21!`:compressedFile``. 
+Compressed file size can be obtained from the [`-21!` internal function](/ref/internal/#-21x-compression-stats). 
 
 
 ## Is there a limit on the number of compressed files that can be open simultaneously?

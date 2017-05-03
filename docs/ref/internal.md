@@ -246,7 +246,32 @@ Return compressed IPC byte representation of `x`, see notes about network compre
 
 ## `-19!x` (compress file)
 
-compress a file, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression "wikilink")
+Syntax: `-19! x`
+
+Where `x` is a list of 5 items: 
+
+- _source file_: file symbol
+- _target file_: file symbol
+- _logical block size_: a power of 2 between 12 and 20 (pageSize or allocation granularity to 1MB – pageSize for AMD64 is 4kB, SPARC is 8kB. Windows seems to have a default allocation granularity of 64kB). When choosing the logical block size, consider the minimum of all the platforms that will access the files directly – otherwise you may encounter `"disk compression - bad logicalBlockSize"`. Note that this argument affects both compression speed and compression ratio: larger blocks can be slower and better compressed.
+- _compression algorithm_: one of:
+    + 0: none
+    + 1: q IPC
+    + 2: `gzip`
+    + 3: [snappy](http://google.github.io/snappy) (since V3.4)
+- _compression level_: an integer between 0 and 9 (valid only for `gzip`, use 0 for other algorithms)
+
+returns the target file as a file symbol. 
+```q
+q)`:test set asc 10000000?100; / create a test data file
+q) / compress input file test, to output file ztest
+q) / using a block size of 128kB (2 xexp 17), gzip level 6
+q)-19!(`:test;`:ztest;17;2;6)
+99.87667
+q) / check the compressed data is the same as the uncompressed data
+q)get[`:test]~get`:ztest 
+1b
+```
+<i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
 
 
 
@@ -258,7 +283,18 @@ compress a file, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCom
 
 ## `-21!x` (compression stats)
 
-Compression statistics for file `x`, see [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression)
+Syntax: `-21! x`
+
+Where `x` is a file symbol, returns a dictionary of compression statistics for it.
+```q
+q)-21!`:ztest
+compressedLength  | 137349
+uncompressedLength| 80000016
+algorithm         | 2i
+logicalBlockSize  | 17i
+zipLevel          | 6i
+```
+<i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
 
 
 
@@ -346,7 +382,7 @@ q)-25!(7 8;0Ng)
 ## `-26!x` (SSL)
 
 Since V3.4 2016.05.12. View TLS settings on a handle or current process `-26!handle` or `-26!()`  
-<i class="fa fa-hand-o-right"></i> [Cookbook/SSL](http://code.kx.com/wiki/Cookbook/SSL)
+<i class="fa fa-hand-o-right"></i> [Cookbook/SSL](/cookbook/ssl)
 
 
 ## `-29!x` (parse JSON)
