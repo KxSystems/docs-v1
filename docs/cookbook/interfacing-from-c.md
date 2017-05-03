@@ -613,9 +613,9 @@ sd1(d,f);
 puts the function `K f(I d){…}` on the q main event loop given a socket `d` (or `-d` for non-blocking). 
 The function `f` should return `(K)0` or a pointer to a K object, and its reference count will be decremented.
 ```c
-sd0(d);
+sd0(d); sd0x(d,1);
 ```
-removes the callback on that socket.
+Each of the above calls removes the callback on `d` and calls `close(d)`.  `sd0x(I d,I f)` was introduced in V3.0 2013.04.04: its second argument indicates whether to call `close(d)`.
 
 On Linux, `eventfd` can be used with `sd1` and `sd0`. Given a file efd.c
 ```c
@@ -648,8 +648,6 @@ q)writeFd[fd;3] / increments the eventfd counter by 3, triggering the callback l
 This demonstrates the deferred invocation of `onCallback` until q has at least finished processing the current handle or script. 
 In situations where you can’t hook a feedhandler’s callbacks directly into `sd1`, on Linux `eventfd` may be a viable option for you. 
 Callbacks from `sd1` are executed on the main thread of q.
-
-New in V3.0 2013.04.04: `K sd0x(I d,I f)` has the same functionality as `sd0(I d)` but `f` specifies whether to close `d`. `sd0` closes `d`.
 
 !!! tip
     Windows developers may be interested in <i class="fa fa-github"></i> [github.com/ncm/selectable-socketpair](https://github.com/ncm/selectable-socketpair)
