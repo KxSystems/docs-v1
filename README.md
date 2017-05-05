@@ -93,6 +93,14 @@ q)tot[2;til 6]  / binary
   - [x] TemporalData
   - [x] Daemon
   - [x] QAsWindowsService
+  - [x] Startingkdbplus/introduction
+  - [x] Startingkdbplus/qlanguage
+  - [x] FAQ
+  - [x] Errors
+  - [x] Startingkdbplus/ipc
+  - [x] Startingkdbplus/tables
+  - [x] Startingkdbplus/hdb
+  - [x] Startingkdbplus/tick
   - [ ] …
 - [x] JS to insert target attribute on external links 
 - [x] Condensed style for larger displays

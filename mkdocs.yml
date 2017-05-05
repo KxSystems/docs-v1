@@ -59,6 +59,7 @@ pages:
     - Datatypes: ref/datatypes.md
     - Debugging: ref/debug.md
     - Elements: ref/elements.md
+    - Errors: ref/error-list.md
     - Glossary: ref/glossary.md
     - IPC protocol: ref/ipc.md
     - Releases:
@@ -116,8 +117,15 @@ pages:
       - .Q namespace: ref/dotq.md
       - .h namespace: ref/doth.md
       - Internal functions: ref/internal.md
-  # - Tutorials:
-  #   - Dictionaries & tables: tutorials/dictsandtables.md
+  - Tutorials:
+    - Dictionaries & tables: tutorials/dictsandtables.md
+    - Starting q:
+      - 1. Introduction: tutorials/startingq/introduction.md
+      - 2. Language: tutorials/startingq/language.md
+      - 3. IPC: tutorials/startingq/ipc.md
+      - 4. Tables: tutorials/startingq/tables.md
+      - 5. HDB: tutorials/startingq/hdb.md
+      - 6. Kdb+tick: tutorials/startingq/tick.md
   - Cookbook:
     - Introduction: cookbook/introduction.md
     - Authentication and access: cookbook/authentication.md
@@ -127,6 +135,7 @@ pages:
     - Custom web server: cookbook/custom-web.md
     - Daemon: cookbook/daemon.md
     - FAQ: cookbook/faq.md
+    - FAQ from k4 listbox: cookbook/faq-listbox.md
     - File compression: cookbook/file-compression.md
     - Interfaces:
       - Bloomberg feed: cookbook/bloomberg-feed-handler.md

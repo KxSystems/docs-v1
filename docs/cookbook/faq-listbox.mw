@@ -1,0 +1,89 @@
+= Frequently Asked Questions =
+
+== Meta FAQ: what is this page? ==
+This page is a collaborative effort of k4 list members to create a list of questions that pop up on the list repeatedly.  If you notice a question that is asked more then once on the list, please feel free to add it here.
+
+== Where can I find archives of the k4 list? ==
+
+Archives are available to subscribers at the [https://www.listbox.com/member/archive listbox]. When you follow that link, you will be asked for your e-mail address and the mailing list name.  Use "k4" for the list name and the e-mail address that you used to subscribe to the k4 list.
+
+== How to post test data on the k4 list? ==
+Always post your test data in the executable form.  For example,
+
+<pre>
+q)foo:([]a:5?10;b:5?10;c:5?10)
+</pre>
+
+You can generate an executable form of your data using <tt>0N!</tt> operator:
+
+<pre>
+q)0N!foo;
++`a`b`c!(4 3 7 1 1;6 1 7 9 8;4 7 5 0 9)
+</pre>
+
+Note use of <tt>;</tt> to suppress the default display.  If you use the later form, prefix it with <tt>k)</tt> in your post, so that others could easily cut and paste it in their q session.
+
+<pre>
+q)k)+`a`b`c!(4 3 7 1 1;6 1 7 9 8;4 7 5 0 9)
+a b c
+-----
+4 6 4
+3 1 7
+7 7 5
+1 9 0
+1 8 9
+</pre>
+
+== What are the limits on the number of variables in Q functions? ==
+params(8), locals(24), globals(32) (See [http://kx.com/q/d/a/q.htm#Lambdas Lambdas])
+
+== What does <tt>'error</tt> mean? ==
+See [[Errors|Common Errors]].
+
+== Why does sg work with :: but not :? Also why does not {x.time} work? ==
+Locals and globals are different: locals don't have symbols associated with them, so for example .Q.dpft (you would have to pass in name of table) or x.time does not work with them. As a workaround for the second issue one can always use <tt>`time$x</tt> though.
+
+== How do I query a character array (string) column for multiple values? ==
+
+If you wish to query a character array column for a single value either like or ~ (match) with an adverb can be used
+
+<pre>
+q)e:([]c:("ams";"lon";"amS";"bar")) 
+q)select from e where c~\:"ams"                                                 
+c    
+-----
+"ams"
+q)select from e where c like "ams"                                              
+c    
+-----
+"ams"
+q)select from e where c like "am*"                                              
+c    
+-----
+"ams"
+"amS"
+</pre>
+
+To query for multiple strings you need to use another adverb, then aggregate the results into a single boolean value using sum or any.  Generally the like form is easier to understand and more efficient.
+
+<pre>
+q)select from e where any c like/:("lon";"am*")                                 
+c    
+-----
+"ams"
+"lon"
+"amS"
+</pre>
+
+== How to kill long/invalid query on a server? ==
+You can achieve that by sending SIGINT to the server process.  In *nix shell, try kill -INT <pid>.  You can find the server process id by examining .z.i.
+
+== How do I recall and edit keyboard input? ==
+
+Start q under rlwrap to get [http://tiswww.case.edu/php/chet/readline/rltop.html readline] support, e.g.
+
+ rlwrap l64/q -p 5001
+
+This is available in most linux repositories, or get source from: [http://utopia.knoware.nl/~hlub/rlwrap linux] or [http://rlwrap.darwinports.com mac].
+
+An alternative to rlwrap is tecla's ''[http://www.astro.caltech.edu/~mcs/tecla/enhance.html enhance]''.  This is good for vi-mode users who would like more of vi's keys functionality - eg <tt>d f x</tt> will delete everything up to the next <tt>x</tt> and you can paste it back, too.  see [http://www.astro.caltech.edu/~mcs/tecla/index.html tecla]

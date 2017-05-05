@@ -120,3 +120,7 @@ code, kbd, pre {
 	padding: 0;
 }
 
+.nowrap {
+	white-space: nowrap;
+}
+

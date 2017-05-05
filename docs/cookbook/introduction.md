@@ -1,4 +1,8 @@
-The Cookbook contains articles and recipes for getting things done with q.
+# The q cookbook
+
+![cooking](/img/cooking.jpg)
+
+The cookbook contains articles and recipes for getting things done with q.
 
 Popular articles:
 
