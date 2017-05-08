@@ -153,3 +153,4 @@ The following associated features are not yet implemented for TLS:
 
 1. multithreaded input mode
 1. `hopen` timeout
+1. OpenSSL 1.1
