@@ -210,7 +210,10 @@ Since V2.7 2011.02.04. Switch garbage collection between immediate (1) and defer
 
 Syntax: `\l name`
 
-The parameter can be a script filename or a directory. A script is loaded, and a directory database is opened. When q opens a directory, it changes its current directory to it. This allows reloading the current database using `\l .`. If the directory is specified as `.`, any scripts in that directory will be ignored; this is to allow (re)loading of data only.
+The parameter can be a script filename or a directory. A script is loaded, and a directory database is opened. When q opens a directory, it changes its current directory to it. This allows reloading the current database using `\l .`. If the directory is specified as `.`, any scripts in that directory will be ignored; this is to allow (re)loading of data only. 
+
+If a file or directory under the path being loaded has a dollar-sign suffix then it is also ignored. e.g. `db/tickdata/myfile$` and `db/tickdata/mydir$` would be ignored on `\l db/tickdata` or on `\l .` if `db/tickdata` is the current directory.
+
 ```q
 q)\l sp.q            / load sp.q script
 ...
