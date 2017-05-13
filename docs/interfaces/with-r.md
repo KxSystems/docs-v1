@@ -1,6 +1,6 @@
 ## Introduction
 
-Q and R are complementary technologies. q is the world’s leading timeseries database and incorporates a programming language called q. R is a programming language and environment for statistical computing and graphics. Both are tools used by data scientists to interrogate and analyze data. Their features sets overlap in that they both:
+Kdb+ and R are complementary technologies. Kdb+ is the world’s leading timeseries database and incorporates a programming language called q. R is a programming language and environment for statistical computing and graphics. Both are tools used by data scientists to interrogate and analyze data. Their features sets overlap in that they both:
 
 - are interactive development environments
 - incorporate vector languages
@@ -134,7 +134,7 @@ which produces the plot in Figure 1:
 _Figure 1: Last-traded price plot drawn from R_
 
 More comprehensive graphing is available in additional R packages, which can be freely downloaded. 
-For example, using the <a target="_blank" href="http://r-forge.r-project.org/projects/xts">xts <i class="fa fa-external-link"></i></a> package:
+For example, using the [xts](http://r-forge.r-project.org/projects/xts) package:
 ```r
 > library(xts)
 # extract the HLOC buckets in 5-minute intervals
@@ -153,7 +153,7 @@ produces the plot in Figure 2:
 ![Candlestick plot using xts package](/img/r-interface-figure2.png)  
 _Figure 2: Candlestick plot using xts package_
 
-Another popular package is the <a target="_blank" href="http://www.quantmod.com">quantmod <i class="fa fa-external-link"></i></a> package which contains the `chartSeries` function.
+Another popular package is the [quantmod](http://www.quantmod.com) package which contains the `chartSeries` function.
 ```r
 > library(quantmod)
 # extract the last closing price in 30 second buckets
@@ -179,7 +179,7 @@ Close the connection when done: ￼
 ## ODBC
 
 Although it is not the recommended method, if R is running on Windows, the q ODBC driver can be used to connect to q from R.  
-<i class="fa fa-hand-o-right"></i> [ODBC q server](odbc-qserver)
+<i class="fa fa-hand-o-right"></i> [Q server for ODBC](/interfaces/q-server-for-odbc)
 
 The RODBC package should be installed in R. An example is given below.
 ```
@@ -332,8 +332,7 @@ q) quantile[x;.5]   / calculate the 50% quantile
 q) pnorm[0;1.5;1.5] / cdf value for 0 for a N(1.5,1.5) distribution
 q) dnorm[0;1.5;1.5] / normal density at 0 for N(1.5;1.5) distribution
 ```
-<i class="fa fa-hand-o-right"></i> Andrey’s 
-<a target="_blank" href="http://althenia.net/qml">althenia.net/qml <i class="fa fa-external-link"></i></a>
+<i class="fa fa-hand-o-right"></i> Andrey’s [althenia.net/qml](http://althenia.net/qml)
 for an embedded math lib
 
 
@@ -514,7 +513,7 @@ timebucketedpivot:{[startdate; enddate; symbols; timebucket]
  () xkey 1^exec colheaders#(sym!return) by time:time from data
  }
 ```
-<i class="fa fa-hand-o-right"></i> [Pivoting tables](pivoting-tables)
+<i class="fa fa-hand-o-right"></i> [Pivoting tables](/cookbook/pivoting-tables)
 
 An example is:
 ```q
@@ -651,6 +650,6 @@ q)Rcmd "Sys.setenv(TZ=\"EST\")"
 q)Rget "date()"
 "Fri Feb  3 01:33:57 2012"
 ```
-<i class="fa fa-hand-o-right"></i> [Timezones and Daylight Saving Time](timezones)
+<i class="fa fa-hand-o-right"></i> [Timezones and Daylight Saving Time](/cookbook/timezones)
 
 

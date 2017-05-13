@@ -443,7 +443,10 @@ q)value(+;1;2)
 3
 q)value(`.q.neg;2)
 -2
+q)value("{x+y}";1;2)
+3
 ```
+The string form can be useful as a kind of ‘prepared statement’ from the Java client API since the Java serializer doesn’t support lambdas and verbs.
 
 !!! note "`value` and `get`"
     The function `value` is the same as [`get`](filewords/#get). By convention `get` is used for file I/O but the two are interchangeable.

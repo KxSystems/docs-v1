@@ -62,7 +62,8 @@ This example works, because the default `.z.ws` echoes the byte vector over the 
 
 ## JSON
 
-A small utility to parse and generate JSON is shipped in q.k. (Since V3.2 2014.08.22.) For prior releases, it can be found at <http://kx.com/q/e/json.k>.
+A small utility to parse and generate JSON is shipped in q.k. (Since V3.2 2014.08.22.) For prior releases, it can be found at:
+<i class="fa fa-github"></i> [KxSystems/kdb/e/json.k](https://github.com/KxSystems/kdb/blob/master/e/json.k)
 
 After loading json.k, example data is in `.j.x`
 ```q
@@ -172,9 +173,9 @@ Both client and server support permessage-deflate compression.
 
 ## Secure sockets: stunnel
 
-<a target="_blank" href="http://en.wikipedia.org/wiki/Stunnel">Stunnel <i class="fa fa-external-link"></i></a> will provide secure sockets (TLS/SSL) using the OpenSSL library. Stunnel will take any WebSocket server, HTTP server, or similar and secure it – you get `https://` and `wss://` for free.
+[Stunnel](http://en.wikipedia.org/wiki/Stunnel) <i class="fa fa-wikipedia-w"></i> will provide secure sockets (TLS/SSL) using the OpenSSL library. Stunnel will take any WebSocket server, HTTP server, or similar and secure it – you get `https://` and `wss://` for free.
 
-<i class="fa fa-hand-o-right"></i> <i class="fa fa-github"></i> [github.com/cesanta/ssl_wrapper](https://github.com/cesanta/ssl_wrapper)
+<i class="fa fa-github"></i> [github.com/cesanta/ssl_wrapper](https://github.com/cesanta/ssl_wrapper)
 
 
 ## UTF-8 encoding

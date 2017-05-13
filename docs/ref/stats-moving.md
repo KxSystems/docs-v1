@@ -1,4 +1,4 @@
-These functions return results for a [sliding window](http://code.kx.com/wiki/Cookbook/ProgrammingIdioms#How_do_I_apply_a_function_to_a_sequence_sliding_window.3F) on a list.
+These functions return results for a [sliding window](/cookbook/programming-idioms/#how-do-i-apply-a-function-to-a-sequence-sliding-window) on a list.
 
 
 `ema`

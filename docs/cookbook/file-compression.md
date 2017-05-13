@@ -55,9 +55,9 @@ If you want to store it again decompressed, then use
 ## Do I need additional libraries to use algorithm \#2 (gzip)?
 
 Yes, but they may already be installed on your system. It binds dynamically to 
-<a target="_blank" href="http://zlib.net">zlib <i class="fa fa-external-link"></i></a>.
+[zlib](http://zlib.net).
 
-For Windows, q is compatible with the pre-built zlib DLLs from <a target="="_blank" href="http://www.winimage.com/zLibDll/index.html">winimage.com/zLibDll <i class="fa fa-external-link"></i></a>. 
+For Windows, q is compatible with the pre-built zlib DLLs from [winimage.com/zLibDll](http://www.winimage.com/zLibDll/index.html)
 
 For Linux and Solaris you may find it convenient to install zlib using your package manager, or consult your system administrator for assistance. 
 
@@ -67,7 +67,7 @@ For Linux and Solaris you may find it convenient to install zlib using your pack
 
 ## Do I need additional libraries to use algorithm \#3 (snappy)?
 
-Yes, but they may already be installed on your system, and can be utilized in V3.4 onwards. It binds dynamically to <a target="_blank" href="http://google.github.io/snappy">snappy <i class="fa fa-external-link"></i></a>. Q will look for the following files on the respective OSs: 
+Yes, but they may already be installed on your system, and can be utilized in V3.4 onwards. It binds dynamically to [snappy](http://google.github.io/snappy). Q will look for the following files on the respective OSs: 
 
 - Windows: snappy.dll
 - OSX: libsnappy.dylib
@@ -211,7 +211,7 @@ Yes.
 
 For example, the AHA367-PCIe 10.0 Gbits/sec GZIP Compression/Decompression Accelerator Card.
 V2.7 can use this card via the zlib shared library API. 
-The card may be obtained directly from <a target="_blank" href="http://aha.com/show_prod.php?id=38" <i class="fa fa-external-link"></a>. 
+The card may be obtained directly from [aha.com](http://aha.com/show_prod.php?id=38). 
 This card was observed to be compatible with V2.7 2010.08.24 on Linux 2.6.32-22-generic SMP Intel i5 750 @ 2.67GHz 8GB RAM.
 Using sample NYSE quote data from 2010.08.05, 482 million rows, compression ratios and timings were observed as below.
 

@@ -21,7 +21,7 @@ q)neg[a] "second line"
 q)hclose a
 ```
  
-- a callback number created using a shared library, [the callback is evaluated](http://code.kx.com/wiki/Cookbook/InterfacingWithC#Callbacks).
+- a callback number created using a shared library, [the callback is evaluated](/interfaces/c-client-for-q/#callbacks)
 
 
 ## File descriptors
@@ -230,7 +230,7 @@ q)(!/)"I=\001"0:s
 52| "20130425-06:46:46.387"
 ```
 
-<i class="fa fa-hand-o-right"></i> [casting](casting), [datatypes](datatypes), [Importing CSV data](http://code.kx.com/wiki/Cookbook/UsingKdb)
+<i class="fa fa-hand-o-right"></i> [casting](casting), [datatypes](datatypes), [How do I import a CSV file into a table](/cookbook/faq/#how-do-i-import-a-csv-file-into-a-table)
 
 
 ## `1:` (Binary files)
@@ -298,6 +298,6 @@ assign it to `read_cycles`:
 ```q
 read_cycles:`cpu 2:(`q_read_cycles_of_this_cpu;1)
 ```
-<i class="fa fa-hand-o-right"></i> [Extending Kdb+ with C](http://code.kx.com/wiki/Cookbook/ExtendingWithC)
+<i class="fa fa-hand-o-right"></i> [Interfaces/Using C/C++ functions](/interfaces/using-c-functions/)
 
 

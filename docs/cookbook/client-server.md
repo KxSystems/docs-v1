@@ -45,7 +45,7 @@ public class KDBClient {
 
 This client does not need a reply after the insert, so it sends an asynchronous message using method `ks`. For the select, it expects a table as a result, and sends a synchronous message using method `k`. 
 
-<i class="fa fa-hand-o-right"></i> [Using q with Java](interfacing-with-java)
+<i class="fa fa-hand-o-right"></i> [Java client for q](/interfaces/java-client-for-q)
 
 A q client process connects to a server using `hopen`:
 ```q

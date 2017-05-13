@@ -12,7 +12,7 @@ _and_ disable zone-reclaim in the proc settings as follows
 ```bash
 $ echo 0 > /proc/sys/vm/zone_reclaim_mode
 ```
-<i class="fa fa-hand-o-right"></i> <a target="_blank" href="http://jcole.us/blog/archives/2010/09/28/mysql-swap-insanity-and-the-numa-architecture/">The MySQL “swap insanity” problem and the effects of NUMA <i class="fa fa-external-link"></i></a>  
+<i class="fa fa-hand-o-right"></i> [The MySQL “swap insanity” problem and the effects of NUMA](http://jcole.us/blog/archives/2010/09/28/mysql-swap-insanity-and-the-numa-architecture/)
 Although the post is about the impact on MySQL, the issues are the same for other databases such as q.
 
 To find out whether NUMA is enabled in your bios, use
@@ -29,8 +29,7 @@ $ numactl -s
 
 A number of customers have been impacted by bugs in the Linux kernel with respect to Transparent Huge Pages. These issues manifest themselves as process crashes, stalls at 100% CPU usage, and sporadic performance degradation. Until further notice, we strongly recommend disabling THP on Linux systems that run q. 
 
-Other database vendors are also reporting similar issues with THP, e.g. 
-<a target="_blank" href="https://blogs.oracle.com/linux/entry/performance_issues_with_transparent_huge">Oracle <i class="fa fa-external-link"></i></a> 
+Other database vendors are also reporting similar issues with THP.
 
 Note that disabling Transparent Huge Pages isn’t possible via `sysctl(8)`. Rather, it requires manually echoing settings into /sys/kernel at or after boot. In /etc/rc.local or by hand:
 ```bash
@@ -83,7 +82,7 @@ If you are encountering a SIGBUS error, please check that the size of /dev/shm i
 Timekeeping on production servers is a complicated topic. These are just a few notes which can help.
 
 If you are using any of local time functions `.z.(TPNZD)` q will use the `localtime(3)` system function to determine time offset from GMT. In some setups (GNU libc) this can cause excessive system calls to /etc/localtime.  
-<i class="fa fa-hand-o-right"></i> <a target="_blank" href="http://www.chemie.fu-berlin.de/chemnet/use/info/libc/libc_17.html#SEC301">chemie.fu-berlin.de <i class="fa fa-external-link"></i></a>, <a target="_blank" href="http://stackoverflow.com/questions/4554271/how-to-avoid-excessive-stat-etc-localtime-calls-in-strftime-on-linux/4554302#4554302">stackoverflow.com <i class="fa fa-external-link"></i></a> 
+<i class="fa fa-hand-o-right"></i> [chemie.fu-berlin.de](http://www.chemie.fu-berlin.de/chemnet/use/info/libc/libc_17.html#SEC301), [stackoverflow.com](http://stackoverflow.com/questions/4554271/how-to-avoid-excessive-stat-etc-localtime-calls-in-strftime-on-linux/4554302#4554302)
 
 Setting TZ environment helps this:
 ```bash

@@ -2,16 +2,16 @@
 
 * [Get started](learn)
 * [Frequently-asked questions](cookbook/faq)
-* [Frequently-asked questions](http://code.kx.com/wiki/FAQ) from the listbox
+* [Frequently-asked questions](cookbook/faq-listbox/)from the listbox
 * [Client-server programming](cookbook/client-server)
-* [Customising the q webserver](http://code.kx.com/wiki/Cookbook/CustomWeb)
+* [Customising the q webserver](cookbook/custom-web/)
 * [Daemonizing q on Linux](cookbook/daemon)
 * [Performance tips](cookbook/performance-tips)
 * [Programming examples](cookbook/programming-examples)
 * [Programming idioms](cookbook/programming-idioms)
-* [Reporting bugs in Kx products](http://code.kx.com/wiki/BugReporting)
+* [Reporting bugs in Kx products](about/kxtechnology/#reporting-bugs-in-kx-products)
 * [Running q as a service on Windows](cookbook/windows-service)
-* [More about tables](http://code.kx.com/wiki/Cookbook/MoreAboutTables)
+* [More about tables](tutorials/dictsandtables/)
 * [Unit tests](cookbook/unit-tests)
 * [Using disk logging](cookbook/logging)
 
@@ -55,24 +55,24 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 
 ## <i class="fa fa-database"></i> Big Data
 
-* [Changing the scheme of a splayed table](http://code.kx.com/wiki/Cookbook/SplayedSchemaChange)
+* [Changing the schema of a splayed table](cookbook/splayed-schema-change/)
 * [Database partitioning with par.txt](ref/unclassified/#partxt)
 * [A load-balancing server](cookbook/load-balancing)
-* [Loading and exporting with bcp](http://code.kx.com/wiki/Cookbook/Bcp)
+* [Loading and exporting with bcp](cookbook/bcp)
 * [Loading large CSV files](cookbook/loading-from-large-files)
 * [Splayed tables](cookbook/splayed-tables)
-* [Splaying large CSV files](http://code.kx.com/wiki/Cookbook/LoadingFromLargeFilesAndSplaying)
+* [Splaying large CSV files](cookbook/splaying-large-files)
 * [Temporal data](cookbook/temporal-data)
 
 
 ## <i class="fa fa-sitemap"></i> Tick
 
 * [Publish and subscribe](cookbook/publish-subscribe)
-* [Different ways of working with kdb+tick](http://code.kx.com/wiki/Cookbook/tickdifferent)
-* [Chained tickerplant and rdb for kdb+tick](cookbook/chained-tickerplant/)
-* [Write-only alternative to rdb for kdb+tick](http://code.kx.com/wiki/Cookbook/w.q)
-* [Alternative in-memory layouts](http://code.kx.com/wiki/Cookbook/alternateInMemLayouts)
-* [Utility scripts and example schemas (some examples may need to change time types to timespan)](https://github.com/KxSystems/kdb/tree/master/tick) <i class="fa fa-github"></i> 
+* [Different ways of working with kdb+tick](cookbook/kdb-tick/)
+* [Chained tickerplant and RDB for kdb+tick](cookbook/chained-tickerplant/)
+* [Write-only alternative to RDB for kdb+tick](cookbook/w-q)
+* [Alternative in-memory layouts](cookbook/alternative-in-memory-layouts/)
+* <i class="fa fa-github"></i> [KxSystems/kdb/tick](https://github.com/KxSystems/kdb/tree/master/tick) Utility scripts and example schemas (some examples may need to change time types to timespan)
 
 
 ## <i class="fa fa-map-o"></i> How-tos
@@ -84,46 +84,18 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 
 ## <i class="fa fa-language"></i> Foreign interfaces
 
-<table class="kx-compact" markdown="1">
-<tr><td>ADO.Net</td><td>[Managed ADO.Net provider for q](http://kpnet.codeplex.com/)</td></tr>
-<tr><td>C</td><td>[Interfacing from C](cookbook/interfacing-from-c)</td></tr>
-<tr><td>C/C++</td><td>[Extending q with C/C++](cookbook/extending-with-c)</td></tr>
-<tr><td>C\#</td><td>[Interfacing from C\#](cookbook/interfacing-from-csharp/) and [exxeleron/qSharp](https://github.com/exxeleron/qSharp) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Eclipse</td><td>[Using q with Eclipse](http://www.qkdt.org/features.html)</td></tr>
-<tr><td>Erlang</td><td>[exxeleron/qErlang](https://github.com/exxeleron/qErlang/) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Excel</td><td>[Integrating With Excel](cookbook/interfacing-with-excel/) and [exxeleron/qXL](https://github.com/exxeleron/qXL) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Expat XML parser</td><td>[felixlungu/qexpat](https://github.com/felixlungu/qexpat) <i class="fa fa-github"></i> </td></tr>
-<tr><td>F\#</td><td>[kimtang/c.fs](https://github.com/kimtang/c.fs) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Flex</td><td>[Interfacing with Flex](http://code.kx.com/wiki/Cookbook/InterfacingWithFlex)</td></tr>
-<tr><td>Fortran</td><td>[Integrating with Fortran <i class="fa fa-file-pdf-o"></i>](https://github.com/kxcontrib/jludlow/blob/master/docs/fortran.pdf) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Go</td><td>[sv/kdbgo](https://github.com/sv/kdbgo) <i class="fa fa-github"></i> </td></tr>
-<tr><td>GPUs</td><td>[Interfacing with GPUs](http://code.kx.com/wiki/Cookbook/InterfacingWithGPUs)</td></tr>
-<tr><td>J</td><td>[Integrating with J](http://code.kx.com/wiki/Cookbook/IntegratingWithJ) and [Jwiki/Interfaces](http://www.jsoftware.com/jwiki/Interfaces)</td></tr>
-<tr><td>Java</td><td>[Interfacing with Java](cookbook/interfacing-with-java) and [exxeleron/qJava](https://github.com/exxeleron/qJava) <i class="fa fa-github"></i> </td></tr>
-<tr><td>JavaScript</td><td>[KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js) <i class="fa fa-github"></i> and [Websockets](cookbook/websockets)</td></tr>
-<tr><td>LAPACK, Cephes and FDLIBM</td><td>[althenia.net/qml](http://althenia.net/qml)</td></tr>
-<tr><td>Lua</td><td>[geocar/qlua](https://github.com/geocar/qlua) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Mathematica</td><td>[KxSystems/kdb/c/other/qmathematica.txt](https://github.com/KxSystems/kdb/blob/master/c/other/qmathematica.txt) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Matlab</td><td>[Integrating with Matlab](http://code.kx.com/wiki/Cookbook/IntegratingWithMatlab)</td></tr>
-<tr><td>NodeJS</td><td>[geocar/qnode](https://github.com/geocar/qnode) <i class="fa fa-github"></i> and [cinovo/node-q](https://github.com/cinovo/node-q) <i class="fa fa-github"></i> </td></tr>
-<tr><td>ODBC</td><td>[Interfacing with ODBC](cookbook/odbc)</td></tr>
-<tr><td>Perl</td><td>[Interfacing with Perl](http://code.kx.com/wiki/Cookbook/InterfacingWithPerl)</td></tr>
-<tr><td>PHP</td><td>[geocar/qphp](https://github.com/geocar/qphp) <i class="fa fa-github"></i> </td></tr>
-<tr><td>Python</td><td>[Integrating with Python](http://code.kx.com/wiki/Contrib/PyQ) and [exxeleron/qPython](https://github.com/exxeleron/qPython) <i class="fa fa-github"></i> </td></tr>
-<tr><td>R</td><td>[Integrating with R](cookbook/interfacing-with-r)</td></tr>
-<tr><td>Scala</td><td>[Interfacing with Scala](http://code.kx.com/wiki/Cookbook/InterfacingWithScala)</td></tr>
-</table>
+<i class="fa fa-hand-o-right"></i> <span style="color: maroon">New</span> section: [Interfaces](interfaces)
 
 
-### <i class="fa fa-exchange"></i> Interprocess communication (IPC)
+## <i class="fa fa-exchange"></i> Interprocess communication
 
 * [IPC in a nutshell](cookbook/ipc)
-* [The C IPC interface](cookbook/interfacing-from-c/#connecting-to-a-q-server)
+* [The C IPC interface](/interfaces/c-client-for-q/#connecting-to-a-q-server)
 * [Async callbacks](cookbook/callbacks)
 * [`hopen` examples](ref/filewords/#hopen)
 * [IPC protocol and message format](/ref/ipc)
 * [_Q for Mortals_ IPC](http://code.kx.com/q4m3/11_IO/#116-interprocess-communication)
-* [Server calling the client](http://code.kx.com/wiki/Cookbook/Server_Calling_the_Client)
+* [Server calling the client](cookbook/server-calling-client/)
 * [Using Modified `.z` functions to trace, monitor and control execution](cookbook/using-dotz)
 
 
@@ -141,11 +113,9 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 ## <i class="fa fa-wrench"></i> Utilities
 
 * [Babel for kdb+](http://github.com/CharlesSkelton/babel) <i class="fa fa-github"></i> 
-* [`cmd.exe` replacement for Windows users](http://code.kx.com/wiki/Cookbook/cmdAlternative)
-* [Compacting hdb sym enum files](http://code.kx.com/wiki/Contrib/CompactingHdbSym)
+* [Compacting HDB sym enum files](cookbook/compacting-hdb-sym)
 * [Using modified `.z` functions](cookbook/using-dotz)
-* [Q by examples](http://code.kx.com/wiki/Contrib/QbyExamples)
-* [Q compared to other languages](http://code.kx.com/wiki/Contrib/QCompared)
+* [Q by examples](tutorials/q-by-examples)
 * [Studio for kdb+](http://github.com/CharlesSkelton/studio) <i class="fa fa-github"></i> 
 * [User-contributed code](http://code.kx.com/wiki/Contrib)
 
@@ -153,34 +123,36 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 ## <i class="fa fa-map-o"></i> Miscellaneous
 
 * [Authentication and access control](cookbook/authentication)
-* [Bloomberg feed handler](cookbook/bloomberg-feed-handler)
+* [Bloomberg feed handler](interfaces/q-client-for-bloomberg)
 * [Comparison tolerance](cookbook/precision/#comparison-tolerance)
-* [Corporate actions](http://code.kx.com/wiki/Cookbook/CorporateActions)
+* [Corporate actions](cookbook/corporate-actions)
 * [File compression](cookbook/file-compression)
-* [Firewalling notes](http://code.kx.com/wiki/Cookbook/Firewalling_Notes) (before running q on the Internet)
-* [Geospatial](http://code.kx.com/wiki/Cookbook/Geospatial)
-* [Q under inetd/xinetd](http://code.kx.com/wiki/Cookbook/kdb+inetd)
+* [Firewalling notes](cookbook/firewalling) (before running q on the Internet)
+* [Geospatial](cookbook/geospatial)
+* [Q under inetd/xinetd](cookbook/inetd)
 * [Linux production notes](cookbook/linux-production/)
-* [Multithreaded input mode](http://code.kx.com/wiki/Cookbook/MultithreadedInputMode)
+* [Multithreaded input mode](/cookbook/multithreaded-input/)
 * [Named pipes](cookbook/named-pipes)
+* [Password security](https://github.com/johnanthonyludlow/kdb/blob/master/docs/password_security.pdf) <i class="fa fa-github"></i>
 * [Regular Expressions (regex)](cookbook/regex)
-* [Secure Sockets Layer (SSL) / Transport Layer Security (TLS)](cookbook/ssl/)
+* [Secure Sockets Layer (SSL</td><td>/ Transport Layer Security (TLS)](cookbook/ssl/)
 * [Timezones and daylight saving time](cookbook/timezones)
-* [Unicode](http://code.kx.com/wiki/Cookbook/Unicode)
+* [Unicode](cookbook/unicode)
 
 
 ## <i class="fa fa-calendar"></i> Versions – new features
-
-* [V3.5](/ref/releases/ChangesIn3.5)
-* [V3.4](/ref/releases/ChangesIn3.4)
-* [V3.3](/ref/releases/ChangesIn3.3)
-* [V3.2](/ref/releases/ChangesIn3.2)
-* [V3.1](/ref/releases/ChangesIn3.1)
-* [V3.0](/ref/releases/ChangesIn3.0)
-* [V2.8](/ref/releases/ChangesIn2.8)
-* [V2.7](/ref/releases/ChangesIn2.7)
-* [V2.6](/ref/releases/ChangesIn2.6)
-* [V2.5](/ref/releases/ChangesIn2.5)
-* [V2.4](/ref/releases/ChangesIn2.4)
+<table>
+    <tr><td>[3.5](/ref/releases/ChangesIn3.5)</td><td>2017.03.15</td></tr>
+    <tr><td>[3.4](/ref/releases/ChangesIn3.4)</td><td>2016.05.31</td></tr>
+    <tr><td>[3.3](/ref/releases/ChangesIn3.3)</td><td>2015.06.01</td></tr>
+    <tr><td>[3.2](/ref/releases/ChangesIn3.2)</td><td>2014.08.22</td></tr>
+    <tr><td>[3.1](/ref/releases/ChangesIn3.1)</td><td>2013.06.09</td></tr>
+    <tr><td>[3.0](/ref/releases/ChangesIn3.0)</td><td>2012.05.29</td></tr>
+    <tr><td>[2.8](/ref/releases/ChangesIn2.8)</td><td>2011.11.21</td></tr>
+    <tr><td>[2.7](/ref/releases/ChangesIn2.7)</td><td>2010.08.05</td></tr>
+    <tr><td>[2.6](/ref/releases/ChangesIn2.6)</td><td>2009.09.15</td></tr>
+    <tr><td>[2.5](/ref/releases/ChangesIn2.5)</td><td>2008.12.15</td></tr>
+    <tr><td>[2.4](/ref/releases/ChangesIn2.4)</td></tr>
+</table>
 
 Full change list at [downloads.kx.com](http://downloads.kx.com)

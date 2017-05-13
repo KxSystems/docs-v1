@@ -7,7 +7,7 @@
 * [Enhancing time series data by applying bitemporality](http://www.capgemini.com/insights-and-resources/by-publication/enhancing-time-series-data-by-applying-bitemporality) Capgemini
 * [Fire from Heaven - review of _Q for Mortals_](http://archive.vector.org.uk/art10011980) Adrian Smith, _Vector_ 23\#4
 * [K as a prototyping language](http://www.cs.nyu.edu/courses/fall02/G22.3033-007/kintro.html) Dennis Shasha
-* [K programming language](http://en.wikipedia.org/wiki/K_(programming_language)) Wikipedia
+* [K programming language](http://en.wikipedia.org/wiki/K_(programming_language)) <i class="fa fa-wikipedia-w"></i>
 * [Knowledge base/Databases/Kdb](http://www.thalesians.com/finance/index.php/Knowledge_Base/Databases/Kdb) The Thalesians
 * [Book review: _Q Tips: Fast, scalable and maintainable kdb+_](http://archive.vector.org.uk/art10501500) Yang Guo, _Vector_ 26\#2
 * [Tables with calculated columns](http://archive.vector.org.uk/art10500650) Stevan Apter, _Vector_ 25\#1
@@ -28,13 +28,13 @@ A series by Jan Karman in [_Vector_](http://archive.vector.org.uk) (mostly k3 wi
 
 ![monk](./img/monk.png)
 
-* [Abridged q language manual](http://www.kx.com/q/d/q.htm), Arthur Whitney, 2009
-* [Abridged kdb+ database manual](http://www.kx.com/q/d/kdb+.htm), Arthur Whitney, 2006
-* [Kdb+ database reference manual](http://www.kx.com/q/d/kdb+1.htm), Don Orth, 2006
-* [Q language reference manual](http://www.kx.com/q/d/q1.htm) Don Orth, 2006
-* [Abridged kdb+tick manual](http://www.kx.com/q/d/tick.htm), Arthur Whitney, 2005
-* [Abridged kdb+taq manual](http://www.kx.com/q/d/taq.htm), Arthur Whitney, 2005
-* [Kdb+ database and language primer](http://www.kx.com/q/d/primer.htm), Dennis Sasha, 2005
+* <i class="fa fa-github"></i> [Abridged q language manual](https://github.com/KxSystems/kdb/blob/master/d/q.htm), Arthur Whitney, 2009
+* <i class="fa fa-github"></i> [Abridged kdb+ database manual](https://github.com/KxSystems/kdb/blob/master/d/kdb+.htm), Arthur Whitney, 2006
+* <i class="fa fa-github"></i> [Kdb+ database reference manual](https://github.com/KxSystems/kdb/blob/master/d/kdb+1.htm), Don Orth, 2006
+* <i class="fa fa-github"></i> [Q language reference manual](https://github.com/KxSystems/kdb/blob/master/d/q1.htm) Don Orth, 2006
+* <i class="fa fa-github"></i> [Abridged kdb+tick manual](https://github.com/KxSystems/kdb/blob/master/d/tick.htm), Arthur Whitney, 2005
+* <i class="fa fa-github"></i> [Abridged kdb+taq manual](https://github.com/KxSystems/kdb/blob/master/d/taq.htm), Arthur Whitney, 2005
+* <i class="fa fa-github"></i> [Kdb+ database and language primer](https://github.com/KxSystems/kdb/blob/master/d/primer.htm), Dennis Sasha, 2005
 * [_Q for Mortals 2nd edn_](http://code.kx.com/wiki/JB:QforMortals2/contents), a tutorial in q programming by Jeffry A. Borror. This version covers kdb+ version 2.4, and has been superseded by the book&rsquo;s [third edition](http://code.kx.com/q4m3).
 
 

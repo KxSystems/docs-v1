@@ -72,7 +72,7 @@ q)h:hopen `:localhost:kdb
 / error reporting - attempt to use a non-existent entry from /etc/service
 q -p 127.0.0.1:kdbx
 'kdbx
-q)\p lkdbx
+q)\p kdbx
 'kdbx
 ```
 

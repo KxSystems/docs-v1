@@ -97,4 +97,4 @@ Even though we have run a wide range of tests on V3.5, and various customers hav
 
 ## Detailed change list
 
-There are also a number of smaller enhancements and fixes; please see the detailed change list (README.txt) on downloads.kx.com –ß∑ ask your company support representative to download this for you.
+There are also a number of smaller enhancements and fixes; please see the detailed change list (README.txt) on downloads.kx.com – ask your company support representative to download this for you.

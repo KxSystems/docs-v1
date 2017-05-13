@@ -4,11 +4,15 @@ q)foo:`bar 2:(`foo;n)
 ```
 where `n` is the number of arguments that `foo` accepts.
 
-Note that if no path to bar is specified, q will attempt to load bar.\[so|dll\] from the current working directory and then the default directory $QHOME/\[l|w|s|v|m\]\[32|64\] where l=Linux, w=Windows, m=macOS, s=Solaris(SPARC), v=Solaris(x86) and 32=32-bit, 64=64-bit. e.g. `$QHOME/l32`).
+Note that if no path to `bar` is specified, q will attempt to load `bar.[so|dll]` from the current working directory and then the default directory 
+```
+$QHOME/\[l|w|s|v|m\]\[32|64\] 
+```
+where l=Linux, w=Windows, m=macOS, s=Solaris(SPARC), v=Solaris(x86) and 32=32-bit, 64=64-bit. e.g. `$QHOME/l32`).
 
-If a path to bar is specified, q will attempt to load bar from that directory, and then the default directory.
+If a path to `bar` is specified, q will attempt to load `bar` from that directory, and then the default directory.
 
-If the shared library is NOT to be loaded from the default directory, then (on Unix) `LD_LIBRARY_PATH` should include the directory containing the shared library.
+If the shared library is _not_ to be loaded from the default directory, then (on Unix) `LD_LIBRARY_PATH` should include the directory containing the shared library.
 
 A common error is that, during development, the shared library might exist in _both_ the current working directory and the default directory, in which case q attempts to load the shared library from the current working directory but fails if `LD_LIBRARY_PATH` does not include the current working directory.
 
@@ -49,7 +53,7 @@ The resulting binary should be placed in the same directory as the q executable.
 Building an extension on multiple platforms with portable source.
 
 You will need <i class="fa fa-github"></i> [KxSystems/kdb/c/c/k.h](https://github.com/KxSystems/kdb/blob/master/c/c/k.h) 
-and familiarity with [Cookbook/Using q from C](interfacing-from-c).
+and familiarity with [C client for q](/interfaces/c-client-for-q).
 
 `add()` adds two q integers and returns the result. The code is portable across all platforms supported by q.
 

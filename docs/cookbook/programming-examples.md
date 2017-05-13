@@ -157,16 +157,13 @@ The result looks as follows after some space is added by hand:
 
 ## Computing Bollinger bands
 
-Bollinger bands consist of:
+[Bollinger bands](http://wikipedia.org/wiki/bollinger_bands) <i class="fa fa-wikipedia-w"></i> consist of:
 
 - a middle band being a N-period simple moving average
 - an upper band at K times a N-period standard deviation above the middle band
 - a lower band at K times a N-period standard deviation below the middle band
 
 Typical values for N and K are 20 and 2, respectively.
-
-<i class="fa fa-wikipedia-w"></i> 
-<a target="_blank" href="http://wikipedia.org/wiki/bollinger_bands">Bollinger Bands <i class="fa fa-external-link"></i></a>
 ```
 bollingerBands: {[k;n;data]
       movingAvg: mavg[n;data];

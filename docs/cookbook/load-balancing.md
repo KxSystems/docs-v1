@@ -29,7 +29,7 @@ Asyncronous messages are forwarded to one of the slaves, transparently to the cl
 ```q
 q)(neg h) "select sym,price from trade where size > 50000" ; h[]
 ```
-Deferred synchronous requests can also be made from non-q clients. For example, the [example grid viewer](interfacing-with-java/#example-grid-viewer-using-swing) code can be modified to issue a deferred synchronous request rather than a synchronous request by sending an async request and blocking on the handle in exactly the same way. The line
+Deferred synchronous requests can also be made from non-q clients. For example, the [example grid viewer](/interfaces/java-client-for-q/#example-grid-viewer-using-swing) code can be modified to issue a deferred synchronous request rather than a synchronous request by sending an async request and blocking on the handle in exactly the same way. The line
 ```java
 model.setFlip((c.Flip) c.k(query));
 ```

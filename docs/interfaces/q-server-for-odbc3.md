@@ -1,4 +1,9 @@
-The latest release of ODBC3 server for q is available here: [qodbc3.zip <i class="fa fa-download"></i>](https://kx.com/q/c/qodbc3.zip). The ODBC3 server allows applications to query q via the ODBC interface. Currently the applications may run on the following platforms: w64, w32, l64, l32. Primary compatibility target has been <a target="_blank" href="https://www.tableau.com/">Tableau <i class="fa fa-external-link"></i></a>, although other uses are welcome.
+<i class="fa fa-hand-o-right"></i> [Cookbook/ODBC](/cookbook/odbc/)
+
+The ODBC3 server allows applications to query q via the ODBC interface.  
+<i class="fa fa-github"></i> [KxSystems/kdb/c/qodbc3.zip](https://github.com/KxSystems/kdb/blob/master/c/qodbc3.zip)
+
+Currently the applications may run on the following platforms: w64, w32, l64, l32. Primary compatibility target has been [Tableau](https://www.tableau.com/), although other uses are welcome.
 
 Requirements: V3.2 or later.
 
@@ -20,10 +25,11 @@ Requirements: V3.2 or later.
 
 ### Linux
 
-Requirements: <a target="_blank" href="http://www.unixodbc.org/">unixODBC <i class="fa fa-external-link"></i></a> 2.3.4, <a target="_blank" href="https://www.gnu.org/software/binutils/">Binutils <i class="fa fa-external-link"></i></a> (ld)
+Requirements: [unixODBC](http://www.unixodbc.org) 2.3.4, [Binutils](https://www.gnu.org/software/binutils/) (ld)
+
+Download <i class="fa fa-github"></i> [KxSystems/kdb/l64/c.o](https://github.com/KxSystems/kdb/blob/master/l64/c.o) to qodbc/l64
 ```bash
 $ cd qodbc3/l64
-$ wget https://kx.com/q/l64/c.o
 $ ld -o qodbc3.so -shared qodbc3.o c.o -lodbc -lodbcinst -lm
 ```
 Add a DSN entry to your ~/.odbc.ini file:

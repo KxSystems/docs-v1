@@ -1,14 +1,16 @@
 In Windows only, you can use ODBC to connect to a q database from a non-q client.  
-<i class="fa fa-hand-o-right"></i> [ODBC3-compatible server](odbc3-qserver), [q as ODBC client](odbc-qclient)
+<i class="fa fa-hand-o-right"></i> [Cookbook/ODBC](/cookbook/odbc/)
+
 
 ## Installation
 
 To install:
 
-Ensure your q process has loaded the [SQL interpreter <i class="fa fa-download"></i>](http://www.kx.com/q/s.k)
+Ensure your q process has loaded the SQL interpreter.  
+<i class="fa fa-github"></i> [KxSystems/kdb/s.k](https://github.com/KxSystems/kdb/blob/master/s.k)
 
 !!! warning "Windows 2003 hotfix KB948459"
-    If using Windows 2003, before installing ensure you have <a target="_blank" href="http://www.microsoft.com/en-gb/download/details.aspx?id=20065">hotfix KB948459 <i class="fa fa-external-link"></i></a> applied. 
+    If using Windows 2003, before installing ensure you have hotfix [KB948459](http://www.microsoft.com/en-gb/download/details.aspx?id=20065) applied. 
 
 - in W32, download <i class="fa fa-github"></i> [KxSystems/kdb/w32/odbc.zip](https://github.com/KxSystems/kdb/blob/master/w32/odbc.zip) and run it to install the q ODBC driver
 - in W64, download <i class="fa fa-github"></i> [KxSystems/kdb/w64/odbc.zip](https://github.com/KxSystems/kdb/blob/master/w64/odbc.zip) and extract it to a temporary directory. Run `d0.exe` to install the q ODBC driver.
@@ -19,7 +21,7 @@ Ensure your q process has loaded the [SQL interpreter <i class="fa fa-download">
 
 ## Method
 
-- if the user or password are not needed for the connection, then you can use the Windows ODBC Data Source Administrator to create a q <a target="_blank" href="http://en.wikipedia.org/wiki/Database_Source_Name">DSN <i class="fa fa-external-link"></i></a> of `host:port`, for example `localhost:5001`
+- if the user or password are not needed for the connection, then you can use the Windows ODBC Data Source Administrator to create a q [DSN](http://en.wikipedia.org/wiki/Database_Source_Name) of `host:port`, for example `localhost:5001`
 - if the user or password has to be given, you need to connect with a statement of the form:
 ```
 DRIVER=kdb+;DBQ=host:port;UID=usr;PWD=pwd;
@@ -57,7 +59,7 @@ From Excel that supports `sql.request`:
 ```
  =SQL.REQUEST("DRIVER=kdb+;DBQ=localhost:5001;UID=usr;PWD=pwd;",,,"select * from s")
 ```
-From VB: _Add-ins&gt;Visual Data Manager&gt;File&gt;Opendatabase&gt;ODBC_:
+From Visual Basic _Add-ins&gt;Visual Data Manager&gt;File&gt;Opendatabase&gt;ODBC_:
 ```
 r=new adodb.recordset
 r.Open "select * from s","DRIVER=kdb+;DBQ=localhost:5001;UID=usr;PWD=pwd;"

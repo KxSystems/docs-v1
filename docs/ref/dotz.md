@@ -358,7 +358,7 @@ q)handles:`u#`int$();
 ```
 Note that the worker processes are not started automatically by kdb+.
 
-<i class="fa fa-hand-o-right"></i> [Cookbook/LoadBalancing](http://code.kx.com/wiki/Cookbook/LoadBalancing)
+<i class="fa fa-hand-o-right"></i> [Cookbook/LoadBalancing](/cookbook/load-balancing)
 
 
 ## `.z.pg` (get)
@@ -744,7 +744,7 @@ q).z.Z
 ```
 The offset from UTC is fetched from the OS: kdb+ does not have its own time-offset database. 
 
-Which avoids problems like <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://it.slashdot.org/article.pl?sid=07/02/25/2038217">this</a>.
+Which avoids problems like [this](http://it.slashdot.org/article.pl?sid=07/02/25/2038217).
 
 
 ## `.z.t` `.z.T` `.z.d` `.z.D` (time/date shortcuts)
@@ -765,6 +765,6 @@ Where `x` is an int vector of default parameters for logical block size, compres
 q).z.zd:17 2 6        / set zip defaults
 q)\x .z.zd            / unset 
 ```
-<i class="fa fa-hand-o-right"></i> [File Compression](http://code.kx.com/wiki/Cookbook/FileCompression)
+<i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
 
 

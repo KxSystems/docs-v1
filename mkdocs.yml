@@ -119,6 +119,7 @@ pages:
       - Internal functions: ref/internal.md
   - Tutorials:
     - Dictionaries & tables: tutorials/dictsandtables.md
+    - Q by examples: tutorials/q-by-examples.md
     - Starting q:
       - 1. Introduction: tutorials/startingq/introduction.md
       - 2. Language: tutorials/startingq/language.md
@@ -126,26 +127,45 @@ pages:
       - 4. Tables: tutorials/startingq/tables.md
       - 5. HDB: tutorials/startingq/hdb.md
       - 6. Kdb+tick: tutorials/startingq/tick.md
+  - Interfaces: interfaces.md
+  - Interfaces:
+    - Q client for Bloomberg: interfaces/q-client-for-bloomberg.md # bloomberg-feed-handler.md
+    - C client for q: interfaces/c-client-for-q.md # interfacing-with-c.md
+    - Using C/C++ functions: interfaces/using-c-functions.md # extending-with-c.md
+    - C# client for q: interfaces/csharp-client-for-q.md # interfacing-with-csharp.md
+    - Excel client for q: interfaces/excel-client-for-q.md # cookbook/interfacing-with-excel.md
+    - GPUs: interfaces/gpus.md # cookbook/interfacing-with-gpus.md
+    - J client for q: interfaces/j-client-for-q.md # cookbook/q-server-for-j.md
+    - Q client for J: interfaces/q-client-for-j.md # cookbook/j-server-for-q.md
+    - Java client for q: interfaces/java-client-for-q.md # cookbook/interfacing-with-java.md
+    - Matlab client for q: interfaces/matlab-client-for-q.md # cookbook/interfacing-with-matlab.md
+    - Q server for ODBC: interfaces/q-server-for-odbc.md # cookbook/odbc-qserver.md
+    - Q server for ODBC3: interfaces/q-server-for-odbc3.md # cookbook/odbc3-qserver.md
+    - Q client for ODBC: interfaces/q-client-for-odbc.md # cookbook/odbc-qclient.md
+    - Perl client for q: interfaces/perl-client-for-q.md # cookbook/interfacing-with-perl.md
+    - Python client for q: interfaces/python-client-for-q.md # cookbook/interfacing-with-python.md
+    - Using q with R: interfaces/with-r.md
+    - Scala client for q: interfaces/scala-client-for-q.md # cookbook/interfacing-with-scala.md
   - Cookbook:
     - Introduction: cookbook/introduction.md
+    - Alternative in-memory layouts: cookbook/alternative-in-memory-layouts.md
     - Authentication and access: cookbook/authentication.md
+    - Bulk Copy Program: cookbook/bcp.md
     - Callbacks: cookbook/callbacks.md
     - Chained tickerplant: cookbook/chained-tickerplant.md
     - Client-server: cookbook/client-server.md
+    - Compacting HDB sym: cookbook/compacting-hdb-sym.md
+    - Corporate actions: cookbook/corporate-actions.md
     - Custom web server: cookbook/custom-web.md
     - Daemon: cookbook/daemon.md
     - FAQ: cookbook/faq.md
     - FAQ from k4 listbox: cookbook/faq-listbox.md
     - File compression: cookbook/file-compression.md
-    - Interfaces:
-      - Bloomberg feed: cookbook/bloomberg-feed-handler.md
-      - Extending q with C/C++: cookbook/extending-with-c.md
-      - Using q from C: cookbook/interfacing-from-c.md
-      - Using q from C#: cookbook/interfacing-from-csharp.md
-      - Using q with Excel: cookbook/interfacing-with-excel.md
-      - Using q with Java: cookbook/interfacing-with-java.md
-      - Using q with R: cookbook/interfacing-with-r.md
+    - Firewalling: cookbook/firewalling.md
+    - Geospatial: cookbook/geospatial.md
+    - inetd/xinetd: cookbook/inetd.md
     - Interprocess communication: cookbook/ipc.md
+    - Kdb+tick configuration: cookbook/kdb-tick.md
     - Linking columns: cookbook/linking-columns.md
     - Linux production notes: cookbook/linux-production.md
     - Load balancing: cookbook/load-balancing.md
@@ -153,26 +173,25 @@ pages:
     - Logging: cookbook/logging.md
     - Multithreaded input: cookbook/multithreaded-input.md
     - Named pipes: cookbook/named-pipes.md
-    - ODBC:
-      - Introduction: cookbook/odbc.md
-      - Q client: cookbook/odbc-qclient.md
-      - Q server: cookbook/odbc-qserver.md
-      - V3 q server: cookbook/odbc3-qserver.md
+    - ODBC: cookbook/odbc.md
     - Performance tips: cookbook/performance-tips.md
     - Precision: cookbook/precision.md
     - Pivoting tables: cookbook/pivoting-tables.md
     - Programming examples: cookbook/programming-examples.md
     - Programming idioms: cookbook/programming-idioms.md
     - Publish and subscribe: cookbook/publish-subscribe.md
+    - Server calling client: cookbook/server-calling-client.md
     - Splayed schema change: cookbook/splayed-schema-change.md
     - Splayed tables: cookbook/splayed-tables.md
+    - Splaying large files: cookbook/splaying-large-files.md
     - SSL/TLS: cookbook/ssl.md
     - Regular expressions: cookbook/regex.md
     - Temporal data: cookbook/temporal-data.md
     - Timezones: cookbook/timezones.md
+    - Unicode: cookbook/unicode.md
     - Unit tests: cookbook/unit-tests.md
     - Using .z: cookbook/using-dotz.md
-    - w.q: cookbook/w-q.md
+    - Write-only RDB: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
   - Developer: developer.md

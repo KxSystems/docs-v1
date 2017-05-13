@@ -1,5 +1,6 @@
 In Windows and Linux, you can use ODBC to connect to a non-q database from q.  
-<i class="fa fa-hand-o-right"></i> [ODBC q server](odbc-qserver)
+<i class="fa fa-hand-o-right"></i> [Cookbook/ODBC](/cookbook/odbc)
+
 
 
 ## Installation
@@ -31,8 +32,7 @@ Start q and load odbc.k – this populates the `.odbc` context.
 ## Method
 
 First open an ODBC connection to a database. 
-To do so, define a <a target="_blank" href="http://en.wikipedia.org/wiki/Database_Source_Name">DSN <i class="fa 
-fa-external-link"></i></a> (database source name), and then connect to the DSN using `.odbc.open`. 
+To do so, define a [DSN](http://en.wikipedia.org/wiki/Database_Source_Name) (database source name), and then connect to the DSN using `.odbc.open`. 
 This returns a connection handle, which is used for subsequent ODBC calls:
 ```q
 q)\l odbc.k
@@ -159,5 +159,5 @@ TraceFile     =/tmp/odbc.log
 ```
 to the odbcinst.ini file, which can typically be found in /etc or /usr/local/etc.
 
-<i class="fa fa-hand-o-right"></i> <a target="_blank" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms711034(v=vs.85).aspx">MSDN <i class="fa fa-external-link"></i></a> 
+<i class="fa fa-hand-o-right"></i> [MSDN](http://msdn.microsoft.com/en-us/library/windows/desktop/ms711034(v=vs.85).aspx)
 for tracing on Windows

@@ -166,7 +166,7 @@ q).Q.dsftg[d;s;f;t;g]
 
 Syntax: `.Q.en[x;y]`
 
-<i class="fa fa-hand-o-right"></i> [Enumerating varchar columns in a table](http://code.kx.com/wiki/Cookbook/SplayedTables#Enumerating_varchar_columns_in_a_table)
+<i class="fa fa-hand-o-right"></i> [Enumerating varchar columns in a table](/cookbook/splayed-tables/#enumerating-varchar-columns-in-a-table)
 
 
 ### `.Q.f` (format)
@@ -309,7 +309,7 @@ Syntax: `.Q.fps[x;y]`
 `.Q.fs` for pipes. (Since V3.4)
 Reads conveniently sized lumps of complete `"\n"` delimited records from a pipe and applies a function to each record. This enables you to implement a streaming algorithm to convert a large CSV file into an on-disk kdb+ database without holding the data in memory all at once.
 
-<i class="fa fa-hand-o-right"></i> [Cookbook/Named Pipes](http://code.kx.com/wiki/Cookbook/NamedPipes)
+<i class="fa fa-hand-o-right"></i> [Cookbook/Named Pipes](/cookbook/named-pipes)
 
 
 ### `.Q.fs` (streaming algorithm)
@@ -335,7 +335,7 @@ q).Q.fs[{0N!("SSSSSSID";",")0:x}]`:potamus.csv
 (`Take`A;`a`man;`hippo`a;`to`plan;`lunch`a;`today`hippopotamus;-1 42i;1941.12..
 120
 ```
-<i class="fa fa-hand-o-right"></i> [Loading large CSV files](http://code.kx.com/wiki/Cookbook/LoadingFromLargeFiles)
+<i class="fa fa-hand-o-right"></i> [Loading large CSV files](/cookbook/loading-from-large-files/)
 
 
 ### `.Q.fsn` (streaming algorithm)
@@ -410,7 +410,8 @@ Returns the amount of memory that was returned to the OS.
 (Since V2.7 2010.08.05, enhanced with coalesce in V2.7 2011.09.15, and executes in slave threads since V2.7 2011.09.21)
 
 !!! note "How it works"
-    Kdb+ uses reference counting and <i class="fa fa-external-link-square"></i> <a target="_blank" href="http://en.wikipedia.org/wiki/Buddy_memory_allocation">buddy memory allocation</a>. The chosen buddy algorithm dices bucket sizes according to powers of 2, and the heap expands in powers of 64MB.
+    Kdb+ uses reference counting and [buddy memory allocation](http://en.wikipedia.org/wiki/Buddy_memory_allocation). 
+    The chosen buddy algorithm dices bucket sizes according to powers of 2, and the heap expands in powers of 64MB.
     
     Reference counting means there is never any garbage (so `.Q.gc` is not accurately named) and memory is returned to the heap as soon as it is no longer referenced; if that memory is a vector using >=64MB it may be returned immediately to the OS depending on the command-line option `-g`.
     `.Q.gc` attempts to coalesce diced blocks into their original 64MB block, and then returns blocks >=64MB to the OS.
@@ -616,7 +617,7 @@ Syntax: `.Q.x12 s`
 
 Where `s` is a string, these functions return `s` encoded (`j10`, `j12`) or decoded (`x10`, `x12`) against restricted alphabets:
 
-- `j10` encodes against the alphabet `.Q.b6`, this is a base-64 encoding - see <i class="fa fa-external-link-square"></i> <a target="_blank" href="https://en.wikipedia.org/wiki/BinHex">BinHex</a> and <i class="fa fa-external-link-square"></i><a target="_blank" href="https://en.wikipedia.org/wiki/Base64">Base64</a> for more details than you ever want to know about which characters are where in the encoding. To keep the resulting number an integer the maximum length of `s` is 10.
+- `j10` encodes against the alphabet `.Q.b6`, this is a base-64 encoding - see [BinHex](https://en.wikipedia.org/wiki/BinHex) and [Base64](https://en.wikipedia.org/wiki/Base64) for more details than you ever want to know about which characters are where in the encoding. To keep the resulting number an integer the maximum length of `s` is 10.
 - `j12` encodes against `.Q.nA`, a base-36 encoding. As the alphabet is smaller `s` can be longer – maximum length 12.
 
 The main use of these functions is to encode long alphanumeric identifiers (CUSIP, ORDERID..) so they can be quickly searched – but without filling up the symbol table with vast numbers of single-use values.

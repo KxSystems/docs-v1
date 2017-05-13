@@ -34,7 +34,7 @@ date       open  high  low   close volume    sym
 q)`:tr/ set tr
 'type
 ```
-The reason is that tables that are splayed across a directory must be fully enumerated and not keyed. The solution is to enumerate columns of type varchar before saving the table splayed. This is done with the function [`.Q.en`](http://code.kx.com/q/ref/dotq/#qen-enumerate-varchar-cols).
+The reason is that tables that are splayed across a directory must be fully enumerated and not keyed. The solution is to enumerate columns of type varchar before saving the table splayed. This is done with the function [`.Q.en`](/ref/dotq/#qen-enumerate-varchar-cols).
 ```
 q).Q.en[`:dir] tr
 date       open  high  low   close volume    sym

@@ -33,7 +33,7 @@ The functional forms of [`delete`](qsql/#delete), [`exec`](qsql/#exec), [`select
 !!! note "Enlist me"
     Note throughout the use of [`enlist`](lists/#enlist) to create singletons to ensure that appropriate entities are lists.
 
-<i class="fa fa-external-link-square"></i> <a href="http://www.q-ist.com/2012/10/functional-query-functions.html" target="_blank">[q-ist] Functional Query Functions.</a> 
+<i class="fa fa-hand-o-right"></i> [q-ist] [Functional Query Functions](http://www.q-ist.com/2012/10/functional-query-functions.html).
  
 
 

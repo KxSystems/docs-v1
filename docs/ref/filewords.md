@@ -224,7 +224,7 @@ Where `x` has the form:
 - (**Unix domain socket**) `` `:unix://port[:user:password] ``. 
 (Since V3.4.) Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection.
 
-- (**SSL/TLS connection**) `` `:tcps://host:port[:user:password] ``. See [Secure connections with SSL/TLS](http://code.kx.com/wiki/Cookbook/SSL)
+- (**SSL/TLS connection**) `` `:tcps://host:port[:user:password] ``. See Cookbook: [SSL/TLS](/cookbook/ssl/)
 
 User and password are required if the server session has been started with the `-u` or `-U` command line options, and are passed to `.z.pw` for (optional) additional processing.
 
@@ -249,7 +249,7 @@ If only one synchronous query/request is to be run, then the single-shot synchro
 q)`:mydb.us.com:5010:elmo:sesame "1+1"
 2
 ```
-<i class="fa fa-hand-o-right"></i> [Client-Server Cookbook](http://code.kx.com/wiki/Cookbook/ClientServer), [`.Q.Xf`](dotq/#qxf-create-file) (create file)
+<i class="fa fa-hand-o-right"></i> Cookbook: [Client-server](/cookbook/client-server/), [`.Q.Xf`](dotq/#qxf-create-file) (create file)
 
 !!! note "File handles"
     A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
@@ -267,7 +267,7 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
 !!! tip "Fifo/named pipes"
     V3.4 Unix builds have support for reading from a Fifo/named pipe, where the `hopen` argument has the form `` `:fifo://filename``.
     
-    <i class="fa fa-hand-o-right"></i> [Fifo/Named Pipes](http://code.kx.com/wiki/Cookbook/NamedPipes), [Client-Server Cookbook](http://code.kx.com/wiki/Cookbook/ClientServer), [Secure connections with SSL/TLS](http://code.kx.com/wiki/Cookbook/SSL)
+    <i class="fa fa-hand-o-right"></i> Cookbook: [Named pipes](/cookbook/named-pipes), [Client-server](/cookbook/client-server), [SSL/TLS](/cookbook/ssl)
 
 
 ## `hsym`

@@ -28,17 +28,20 @@ This site is the best resource for learning q, and includes:
 - Jeff Borror’s textbook [Q for Mortals](http://code.kx.com/q4m3)
 - a [cookbook](/cookbook/introduction) of common tasks
 - a [reference](/ref/card) for the built-in functions
+- [interfaces](/interfaces) with other languages and processes
+
 
 ### <i class="fa fa-github"></i> GitHub
 
-- the [KxSystems repositories](https://github.com/KxSystems)
+- the [KxSystems](https://github.com/KxSystems) repositories
 - [user-contributed repositories](https:///kxsystems.github.io)
 
 
 <!--
 ### Kx Html Pages
 
-Some older, but still useful, html pages are at [kx.com/documentation.php](http://kx.com/documentation.php). See in particular, Dennis Shasha's [Kdb+ Database and Language Primer](http://www.kx.com/q/d/primer.htm).
+Some older, but still useful, html pages are at [kx.com/documentation.php](http://kx.com/documentation.php). 
+See in particular, Dennis Shasha’s <i class="fa fa-github"></i> [Kdb+ Database and Language Primer](https://github.com/KxSystems/kdb/blob/master/d/primer.htm).
 -->
 
 

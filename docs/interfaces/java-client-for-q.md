@@ -179,36 +179,6 @@ void c.set(Object x, int i, Object y)
 ```
 
 
-## Java servers
-
-```java
-public interface IAuthenticate{public boolean authenticate(String s);}
-public c(ServerSocket s,IAuthenticate a)throws IOException{io(s.accept());...} 
-public c(ServerSocket s)throws IOException{this(s,null);}
-```
-kr(response) and ke(error)
-```java
-public void kr(Object x){…w(2,x);}
-public void ke(String s){…}
-```
-A proxy:
-```java
-c s=new c(new ServerSocket(5010));
-c c=new c("localhost",5000));
-while(true)
-{
-  try
-  {
-    s.kr(c.k("qqq")); //response
-  }
-  catch(Exception e)
-  { 
-    s.ke(e.toString());    //error
-  }
-}
-```
-
-
 ## Exceptions
 
 The c class throws IOExceptions for typical socket read/write reasons and throws KException objects in higher-level cases. 
