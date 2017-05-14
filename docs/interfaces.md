@@ -124,6 +124,7 @@
 ## <i class="fa fa-handshake-o"></i> Q as client
 
 <table class="kx-compact" markdown="1">
+<tr><td>Betfair</td><td><i class="fa fa-github"></i> [picoDoc/betfair-data-capture](https://github.com/picoDoc/betfair-data-capture)</td></tr>
 <tr><td>Bitcoin</td><td><i class="fa fa-github"></i> [bitmx/btceQ](https://github.com/bitmx/btceQ)</td></tr>
 <tr><td>Bloomberg</td><td>[Q client for Bloomberg](/interfaces/q-client-for-bloomberg)</td></tr>
 <tr><td>CUDA</td><td>[Using GPUs from q](/interfaces/gpus/)</td></tr>

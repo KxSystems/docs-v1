@@ -195,6 +195,7 @@ pages:
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
   - Developer: developer.md
+  - GitHub: github.md
   - Q for Mortals 3: qformortals3.md
   - Archive: archive.md
   - About: 
