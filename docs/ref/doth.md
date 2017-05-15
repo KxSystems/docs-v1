@@ -1,6 +1,12 @@
 The `.h` namespace contains functions for converting files into various formats and for web-console display. 
 
-Functions in the .h namespace not documented here belong to its private API; i.e. are for use only by other functions in the namespace.
+Functions in the .h namespace not documented here belong to its private API; i.e. are for use only by other functions in the namespace. 
+
+!!! warning "Reserved"
+    The `.h` namespace is reserved for use by Kx, as are all single-letter namespaces. 
+
+    Consider all undocumented functions in the namespace as its private API – and do not use them. 
+
 
 
 ## `.h.br` (linebreak)

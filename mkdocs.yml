@@ -14,7 +14,7 @@ markdown_extensions:
     - admonition
     - codehilite(guess_lang=false)
     - extra
-    - fenced_code
+    # - fenced_code
     - fontawesome_markdown
     - pymdownx.arithmatex
     # - pymdownx.betterem(smart_enable=all)
@@ -58,10 +58,12 @@ pages:
     - Command line: ref/cmdline.md
     - Datatypes: ref/datatypes.md
     - Debugging: ref/debug.md
+    - Developer tools: ref/devtools.md
     - Elements: ref/elements.md
     - Errors: ref/error-list.md
     - Glossary: ref/glossary.md
     - IPC protocol: ref/ipc.md
+    - Internal functions: ref/internal.md
     - Releases:
       - Changes in 3.5: ref/releases/ChangesIn3.5.md
       - Changes in 3.4: ref/releases/ChangesIn3.4.md
@@ -78,6 +80,7 @@ pages:
     - Semantics:
       - Arithmetic (integer): ref/arith-integer.md
       - Arithmetic (float): ref/arith-float.md
+      - Callbacks: ref/dotz.md
       - Casting & encoding: ref/casting.md
       - Comparison: ref/comparison.md
       - Database: ref/database.md
@@ -92,7 +95,7 @@ pages:
       - Joins: ref/joins.md
       - Lists: ref/lists.md
       - Logic: ref/logic.md
-      - Markup: ref/markup.md
+      - Markup: ref/doth.md
       - Matrixes: ref/matrixes.md
       - Metadata: ref/metadata.md
       - OS: ref/os.md
@@ -109,14 +112,9 @@ pages:
       - Strings: ref/strings.md
       - Trigonometry: ref/trig.md
       - Unclassified: ref/unclassified.md
+      - Utilities: ref/dotq.md
     - Syntax: ref/syntax.md
     - System commands: ref/syscmds.md
-    - Utilities:
-      - Developer tools: ref/devtools.md
-      - .z namespace: ref/dotz.md
-      - .Q namespace: ref/dotq.md
-      - .h namespace: ref/doth.md
-      - Internal functions: ref/internal.md
   - Tutorials:
     - Dictionaries & tables: tutorials/dictsandtables.md
     - Q by examples: tutorials/q-by-examples.md

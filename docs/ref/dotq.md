@@ -1,7 +1,10 @@
 Functions defined in q.k are loaded as part of the "bootstrap" of q. (They are of course written in k.) Some are exposed in the root namespace as the q language. Others are documented here as utility functions in the .Q namespace. 
 
-!!! warning "Undocumented functions in the .Q namespace"
-    Consider _undocumented_ functions in the .Q namespace as a private API – and do not use them. 
+!!! warning "Reserved"
+    The `.Q` namespace is reserved for use by Kx, as are all single-letter namespaces. 
+
+    Consider all undocumented functions in the namespace as its private API – and do not use them. 
+
 
 
 ## General 

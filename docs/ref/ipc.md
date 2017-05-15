@@ -344,16 +344,7 @@ q.d)-8!test
 
 ## `.z`
 
-<table class="kx-compact" markdown="1">
-<tr><td>[`.z.ac`](dotz/#zac-http-auth-from-cookie)</td><td>HTTP authorisation from cookie</td><td>[`.z.bm`](dotz/#zbm-msg-validator)</td><td>message validator</td></tr>
-<tr><td>[`.z.e`](dotz/#ze-tls-connection-status)</td><td>TLS connection status</td><td>[`.z.pc`](dotz/#zpc-close)</td><td>close</td></tr>
-<tr><td>[`.z.pg`](dotz/#zpg-get)</td><td>get</td><td>[`.z.ph`](dotz/#zph-http-get)</td><td>HTTP get</td></tr>
-<tr><td>[`.z.pm`](dotz/#zpm-http-options)</td><td>HTTP options</td><td>[`.z.pp`](dotz/#zpp-http-post)</td><td>HTTP post</td></tr>
-<tr><td>[`.z.ps`](dotz/#zps-set)</td><td>set</td><td>[`.z.pw`](dotz/#zpw-validate-user)</td><td>validate user</td></tr>
-<tr><td>[`.z.w`](dotz/#zw-handle)</td><td>handle</td><td>[`.z.W`](dotz/#zw-handles)</td><td>handles</td></tr>
-<tr><td>[`.z.wc`](dotz/#zwc-websocket-close)</td><td>websocket close</td><td>[`.z.wo`](dotz/#zwo-websocket-open)</td><td>websocket open</td></tr>
-<tr><td>[`.z.ws`](dotz/#zws-websockets)</td><td>websockets</td></tr>
-</table>
+
 
 
 ## Notes
@@ -361,7 +352,8 @@ q.d)-8!test
 1. <i class="fa fa-github"></i> [KxSystems/kdb/c/kx/c.java](https://github.com/KxSystems/kdb/blob/master/c/kx/c.java), <i class="fa fa-github"></i> [KxSystems/kdb/c/c.cs](https://github.com/KxSystems/kdb/blob/master/c/c.cs) etc., are simply (de)serializers for these structures. 
 1. Enumerations are automatically converted to values before sending through IPC.
 
-<i class="fa fa-hand-o-right"></i> [Markup](markup), [`.Q.addr`](dotq/#qaddr-ip-address) (IP address), [`.Q.hg`](dotq/#qhg-http-get) (HTTP get), [`.Q.host`](dotq/#qhost-hostname) (hostname), [`.Q.hp`](dotq/#qhp-http-post) (HTTP post)
+<i class="fa fa-hand-o-right"></i> [Markup](markup), [`.z` namespace](dotz) for callback functions  
+[`.Q.addr`](dotq/#qaddr-ip-address) (IP address), [`.Q.hg`](dotq/#qhg-http-get) (HTTP get), [`.Q.host`](dotq/#qhost-hostname) (hostname), [`.Q.hp`](dotq/#qhp-http-post) (HTTP post)
 
 
 

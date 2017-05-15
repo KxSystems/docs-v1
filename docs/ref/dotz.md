@@ -1,4 +1,9 @@
-The `.z` namespace contains system variables and functions, and hooks for calbacks. (The namespace is reserved for use by Kx, as are all single-letter namespaces.) 
+The `.z` namespace contains system variables and functions, and hooks for callbacks. 
+
+!!! warning "Reserved"
+    The `.z` namespace is reserved for use by Kx, as are all single-letter namespaces. 
+
+    Consider all undocumented functions in the namespace as its private API – and do not use them. 
 
 
 ## `.z.a` (IP address)
