@@ -471,7 +471,24 @@ q)v
 q)view `v                         / view the dependency expression
 "2+a*3"
 ```
-<i class="fa fa-hand-o-right"></i> [Views tutorial](http://code.kx.com/wiki/Views), [`views`](environment/#views)
+<i class="fa fa-hand-o-right"></i> [Tutorials/Views](/tutorials/views)
+
+
+## `views`
+
+Syntax: `views[]`
+
+Returns a sorted list of the views currently defined in the root namespace.
+```q
+q)w::b*10
+q)v::2+a*3
+q)views[]
+`s#`v`w
+```
+<i class="fa fa-hand-o-right"></i> [Tutorials/Views](/tutorials/views)
+
+
+
 
 
 ##`.z.s` (self)

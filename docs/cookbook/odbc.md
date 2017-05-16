@@ -8,5 +8,5 @@ Q has limited support for ODBC. In general, ODBC is not recommended for large da
 
 <i class="fa fa-hand-o-right"></i> John Ludlow’s <i class="fa fa-github"></i> [How to get kdb+ to talk to other databases <i class="fa fa-file-pdf-o"></i>](https://github.com/kxcontrib/jludlow/blob/master/docs/odbc.pdf)
 
-<i class="fa fa-hand-o-right"></i> Charles Skelton’s <i class="fa fa-github"></i> [Babel for kdb+](https://github.com/CharlesSkelton/babel) if you don’t like to configure or use ODBC
+<i class="fa fa-hand-o-right"></i> Charles Skelton’s [Babel for kdb+](/interfaces/q-client-for-jdbc) if you don’t like to configure or use ODBC
 

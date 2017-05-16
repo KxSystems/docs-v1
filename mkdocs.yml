@@ -125,6 +125,7 @@ pages:
       - 4. Tables: tutorials/startingq/tables.md
       - 5. HDB: tutorials/startingq/hdb.md
       - 6. Kdb+tick: tutorials/startingq/tick.md
+    - Views: tutorials/views.md
   - Interfaces: interfaces.md
   - Interfaces:
     - Q client for Bloomberg: interfaces/q-client-for-bloomberg.md # bloomberg-feed-handler.md
@@ -136,6 +137,7 @@ pages:
     - J client for q: interfaces/j-client-for-q.md # cookbook/q-server-for-j.md
     - Q client for J: interfaces/q-client-for-j.md # cookbook/j-server-for-q.md
     - Java client for q: interfaces/java-client-for-q.md # cookbook/interfacing-with-java.md
+    - Q client for JDBC: interfaces/q-client-for-jdbc.md # babel for kdb+
     - Matlab client for q: interfaces/matlab-client-for-q.md # cookbook/interfacing-with-matlab.md
     - Q server for ODBC: interfaces/q-server-for-odbc.md # cookbook/odbc-qserver.md
     - Q server for ODBC3: interfaces/q-server-for-odbc3.md # cookbook/odbc3-qserver.md
@@ -154,6 +156,7 @@ pages:
     - Client-server: cookbook/client-server.md
     - Compacting HDB sym: cookbook/compacting-hdb-sym.md
     - Corporate actions: cookbook/corporate-actions.md
+    - CPU affinity: cookbook/cpu-affinity.md
     - Custom web server: cookbook/custom-web.md
     - Daemon: cookbook/daemon.md
     - FAQ: cookbook/faq.md

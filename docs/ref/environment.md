@@ -1,17 +1,3 @@
-## `views`
-
-Syntax: `views[]`
-
-Returns a sorted list of the views currently defined in the root namespace.
-```q
-q)w::b*10
-q)v::2+a*3
-q)views[]
-`s#`v`w
-```
-<i class="fa fa-hand-o-right"></i> [Views tutorial](http://code.kx.com/wiki/Views), [`view`](metadata/#view)
-
-
 ## `.Q`
 
 <table class="kx-compact" markdown="1">
