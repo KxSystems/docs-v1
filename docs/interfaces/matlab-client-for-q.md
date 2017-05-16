@@ -1,12 +1,42 @@
+Support for Matlab is a part of [Datafeed Toolbox for Matlab](https://uk.mathworks.com/help/datafeed/kx-systems-inc-.html): since R2007a edition.
+
+MathWorks provides functions overview, usage instructions and some examples on the toolbox webpage.
+
 !!! note "Versions"
-    This recipe was written using Matlab 7.3.0 (R2006b) and a pre-release version of the q integration to be shipped with the next Matlab release in the datafeed toolbox. As such it may contain features or instructions that are subject to revision when the release is made. 
+    As Matlab/datafeed toolbox evolves features or instruction below are subject to revisions. Please refer to toolbox documentation for latest version.
+    Users have reported that this works with more recent versions (e.g. R2015b on RHEL 6.8/2016b and 2017a on macOS).
 
-    Users have reported that this works with more recent versions (e.g. R2015b on RHEL 6.8).
-
-    But see also <i class="fa fa-github"></i> [dmarienko/kdbml](https://github.com/dmarienko/kdbml)
+    See also community-supported native connector <i class="fa fa-github"></i> [dmarienko/kdbml](https://github.com/dmarienko/kdbml)
 
 
 First, we start up a q process that we wish to communicate with from Matlab and load some sample data into it.
+Save following as `tradedata.q` file
+```q
+/ List of securities
+seclist:([name:`ACME`ABC`DEF`XYZ]
+ market:`US`UK`JP`US)
+
+/ Distinct list of securities
+secs: distinct exec name from seclist
+
+n:5000
+/ Data table
+trade:([]sec:`seclist$n?secs;price:n?100.0;volume:100*10+n?20;exchange:5+n?2.0;date:2004.01.01+n?499)
+
+/ Intra day tick data table
+intraday:([]sec:`seclist$n?secs;price:n?100.0;volume:100*10+n?20;exchange:5+n?2.0;time:08:00:00.0+n?43200000)
+
+/ Function with one input parameter
+/ Return total trading volume for given security
+totalvolume:{[stock] select volume from trade where sec = stock}
+
+/ Function with two input parameters
+/ Return total trading volume for given security with volume greate than 
+/ given value
+totalvolume2:{[stock;minvolume] select sum(volume) from trade where sec = stock, volume > minvolume}
+```
+
+Then
 ```dos
 > q tradedata.q -p 5001
 ```
@@ -38,18 +68,11 @@ XYZ  13.64856 2900   6.435824 2005.04.03
 q)
 ```
 The Matlab integration depends on the two Java files c.jar and jdbc.jar. 
-For the purposes of this recipe, we assume this is available on the machine Matlab is running on, at C:\\q\\jdbc.jar.  
+For the purposes of this recipe, we assume this is available on the machine Matlab is running on, at C:\q\jdbc.jar.  
 <i class="fa fa-github"></i> [KxSystems/kdb/c/c.jar](https://github.com/KxSystems/kdb/blob/master/c/c.jar)  
-<i class="fa fa-github"></i> [KxSystems/kdb/c/jdbc.jar](http://code.kx.com/wsvn/code/kx/kdb%2B/c/jdbc.jar?rev=377) <!--FIXME-->
-<!--
-[c.jar](http://code.kx.com/wsvn/code/kx/kdb%2B/c/c.jar) and 
-[jdbc.jar](http://code.kx.com/wsvn/code/kx/kdb%2B/c/jdbc.jar?rev=377) 
--->
+<i class="fa fa-github"></i> [KxSystems/kdb/c/jdbc.jar](https://github.com/KxSystems/kdb/blob/master/c/jdbc.jar)
 
-!!! warning "Linked version"
-    Use the linked version (SVN rev. 377) as newer versions are not supported by Matlab’s kdb+ integration). 
-
-We then start a virgin Matlab session. From here on, `>>` represents the Matlab prompt.
+We then start a new Matlab session. From here on, `>>` represents the Matlab prompt.
 
 
 ## Connecting to a q process
@@ -137,7 +160,7 @@ We close a connection using the `close` function:
 
 It is typical to perform basic interactions with a database using the `fetch` function via a connected handle. For example in a legacy database we might perform this:
 ```matlab
-x = fetch(connection,'select * from tablename')
+x = fetch(q,'select * from tablename')
 ```
 We can use this function to perform basic interaction with q, where we expect a value to be returned. This need not be a query but in fact can be general chunks of code. Using q as a calculator, we can compute the average of 0 to 999.
 ```matlab
