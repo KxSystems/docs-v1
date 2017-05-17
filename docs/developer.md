@@ -19,6 +19,7 @@
 ## <i class="fa fa-map-o"></i> Technical white papers
 
 * [Efficient use of **adverbs**](wp/efficient_use_of_adverbs.pdf)
+* [Streaming **analytics**: detecting card counters in Blackjack](wp/card-counters-in-blackjack.pdf)
 * [Kdb+ in **astronomy**](wp/kdb_in_astronomy.pdf)
 * [**Compression** in kdb+](wp/compression_in_kdb.pdf)
 * [Temporal Data: a kdb+ framework for **corporate actions**](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)

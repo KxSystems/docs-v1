@@ -4,7 +4,7 @@
 <img src="/img/qfm3.jpg" style="width: 100px"/>
 </div>
 
-_Q for Mortals Version 3_ by Jeffry A. Borror, available from [Amazon.com](https://www.createspace.com/5843336) or [Amazon.co.uk](https://www.amazon.co.uk/d/Books/q-Mortals-Version-3-Introduction-Programming/0692573674/). Covers up to kdb+ version 3.3. If you are a new kdb+ user, this is the book for you!
+_Q for Mortals Version 3_ by Jeffry A. Borror, available from [Amazon.com](https://www.createspace.com/5843336) or [Amazon.co.uk](https://www.amazon.co.uk/d/Books/q-Mortals-Version-3-Introduction-Programming/0692573674/). Covers up to V3.3. If you are a new q user, this is the book for you!
 
 Now [online](http://code.kx.com/q4m3/): see contents below.
 

@@ -116,7 +116,13 @@ pages:
     - Syntax: ref/syntax.md
     - System commands: ref/syscmds.md
   - Tutorials:
+    - A brief introduction:
+      - First steps: tutorials/first-steps.md
+      - In-memory queries: tutorials/in-memory-queries.md
+      - On-disk queries: tutorials/on-disk-queries.md
+    - Boolean shifts & scans: tutorials/boolean-shifts-scans.md
     - Dictionaries & tables: tutorials/dictsandtables.md
+    # - Idioms: tutorials/idioms.md
     - Q by examples: tutorials/q-by-examples.md
     - Starting q:
       - 1. Introduction: tutorials/startingq/introduction.md

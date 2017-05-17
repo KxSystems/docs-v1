@@ -23,11 +23,11 @@ Download the [free 32-bit version of kdb+](https://kx.com/software-download.php)
 
 ## <i class="fa fa-database"></i> Database tutorials
 
-[A brief introduction to kdb+](http://code.kx.com/wiki/A_Brief_Introduction_to_kdb%2B) is a very quick overview of downloading kdb+ and running your first query.
+[A brief introduction](/tutorials/first-steps) is a very quick overview of downloading q and running your first query.
 
-[Sample queries](http://code.kx.com/wiki/Sample_Queries) has you build a more complex dataset in memory and perform some queries and joins on it. The dataset is from an imaginary desktop PC monitoring and helpdesk support system.
+[In-memory queries](/tutorials/in-memory-queries) has you build a more complex dataset in memory and perform some queries and joins on it. The dataset is from an imaginary desktop PC monitoring and helpdesk support system.
 
-[On-disk queries](http://code.kx.com/wiki/On_Disk_Queries) has you download a set of scripts to build and run queries against a large on-disk database. The dataset is from an imaginary smart-meter network. It includes a basic HTML5 Business Intelligence tool which queries the database directly.
+[On-disk queries](/tutorials/on-disk-queries) has you download a set of scripts to build and run queries against a large on-disk database. The dataset is from an imaginary smart-meter network. It includes a basic HTML5 Business Intelligence tool which queries the database directly.
 
 [_Q for Mortals_, Chapter 14: Introduction to kdb+](http://code.kx.com/q4m3/14_Introduction_to_Kdb+/) by Jeffry A. Borror. “Roughly speaking, kdb+ is what happens when q tables are persisted and then mapped back into memory for operations.”
 
