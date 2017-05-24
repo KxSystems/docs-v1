@@ -372,7 +372,7 @@ s1 p4 200
 
 q)s 2 3            / index keyed table fails
 'length
-``
+```
 Now create an indexing function, and wrap it in `.Q.ft`. This works on both types of table:
 ```q
 q).Q.ft[{x 2 3};s]
