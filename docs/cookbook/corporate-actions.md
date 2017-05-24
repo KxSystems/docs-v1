@@ -28,7 +28,7 @@ date       sym price size
 2000.03.02 ABC 100   100
 2000.04.02 ABC 100   100
 2000.05.01 ABC 100   100
-``
+```
 we can write a function `adjust` to apply the relevant adjustment factors for a date and sym
 ```q
 getCAs:{[caTypes]

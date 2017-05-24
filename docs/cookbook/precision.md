@@ -22,7 +22,7 @@ Only zero is tolerantly equal to zero and you can test any two numbers for intol
 ```
 q)0=1.0-sum 7#r7
 0b
-``
+```
 The following example appears inconsistent with this:
 ```q
 q)r3:1%3

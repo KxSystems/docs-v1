@@ -263,7 +263,6 @@ q)\p
 q)\p 0W       / pick a random available port within the range 32768 - 60999
 q)\p
 45512
-```q
 q)\p 0        / turn off listening port
 ```
 This corresponds to the `-p` command line parameter.
@@ -612,7 +611,7 @@ where `x` is a [system command](syscmds), executes it and returns its result.
 
 The following shows that the result of `\w` (workspace information) cannot be assigned, but the result can be obtained using `system`.
 ```q
-```q)\w
+q)\w
 107728 67108864 67108864 0 0j
 q)a:\w
 'w
