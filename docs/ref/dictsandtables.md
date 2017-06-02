@@ -153,14 +153,14 @@ s4 p4 300
 
 ## `xasc`
 
-Syntax: `cols xasc table`
+Syntax: `x xasc y`
 
-Where `cols` is a symbol vector of column names defined in `table`, which is passed by
+Where `x` is a symbol vector of column names defined in `y`, which is passed by
 
-- value, returns `table` 
-- reference, updates `table`
+- value, returns
+- reference, updates
 
-sorted in ascending order by `cols`. 
+`y` sorted in ascending order by `cols`. 
 
 The `` `s# `` attribute is set on the first column given (if possible).
 The sort is stable, i.e. it preserves order amongst equals.
@@ -252,9 +252,9 @@ city  | s
 
 ## `xcol`
 
-Syntax: `cols xcol table`
+Syntax: `x xcol y`
 
-Where `table` is a table (passed by value) and `cols` is a symbol vector of length no greater than `count cols table`, returns `table` with its first `count cols` columns renamed. 
+Where `y` is a table (passed by value) and `x` is a symbol vector of length no greater than `count cols y`, returns `y` with its first `count x` columns renamed. 
 ```q
 q)\l trade.q
 q)cols trade
@@ -271,9 +271,9 @@ q)cols trade
 
 ## `xcols`
 
-Syntax: `cols xcols table`
+Syntax: `x xcols y`
 
-Where `table` is a simple table (passed by value) of which symbol vector `xcols` lists some or all of the column names, returns `table` with `cols` as its first column/s.
+Where `y` is a simple table (passed by value) of which symbol vector `x` lists some or all of the column names, returns `y` with `x` as its first column/s.
 ```q
 q)\l trade.q
 q)cols trade
@@ -289,14 +289,14 @@ q)cols trade
 
 ## `xdesc`
 
-Syntax: `cols xdesc table`
+Syntax: `x xdesc y`
 
-Where `cols` is a symbol vector of column names defined in `table`, which is passed by
+Where `x` is a symbol vector of column names defined in `y`, which is passed by
 
-- value, returns `table` 
-- reference, updates `table`
+- value, returns
+- reference, updates 
 
-sorted in descending order by `cols`. 
+`y` sorted in descending order by `x`. 
 
 The `` `s# `` attribute is not set.
 The sort is stable, i.e. it preserves order amongst equals.
@@ -330,10 +330,10 @@ city  | s
 
 ## `xgroup`
 
-Syntax: `keys xgroup table`
+Syntax: `x xgroup y`
 
-Where `table` is a table (passed by value) and symbol atom or vector `keys` a list of foreign keys in it, returns `table` grouped by `keys`.
-It is equivalent to doing a `select … by` on `table`, except that all the remaining columns are grouped without having to be listed explicitly.
+Where `y` is a table (passed by value) and symbol atom or vector `x` a list of foreign keys in it, returns `y` grouped by `x`.
+It is equivalent to doing a `select … by` on `y`, except that all the remaining columns are grouped without having to be listed explicitly.
 ```q
 q)\l sp.q
 q)meta sp                        / both s and p are foreign keys of sp
@@ -376,14 +376,14 @@ p3 s1 400
 
 ## `xkey`
 
-Syntax: `keys xkey table`
+Syntax: `x xkey y`
 
-Where symbol atom or vector `keys` lists columns in table `table`, which is passed by 
+Where symbol atom or vector `x` lists columns in table `y`, which is passed by 
 
 - value, returns 
 - reference, updates 
 
-`table` with `keys` set as the primary keys.
+`y` with `x` set as the primary keys.
 ```q
 q)\l trade.q
 q)keys trade
