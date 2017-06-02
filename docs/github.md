@@ -43,7 +43,7 @@ for interfaces and plug-ins
 </table>
 
 
-## Applications
+## <i class="fa fa-industry"></i> Applications
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -147,7 +147,7 @@ for interfaces and plug-ins
 </table>
 
 
-## Development tools
+## <i class="fa fa-wrench"></i> Development tools
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -349,7 +349,7 @@ for interfaces and plug-ins
 </table>
 
 
-## Examples
+## <i class="fa fa-eye"></i> Examples
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -474,7 +474,7 @@ for interfaces and plug-ins
 </table>
 
 
-## Mathematics
+## <i class="fa fa-superscript"></i> Mathematics
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -515,7 +515,7 @@ for interfaces and plug-ins
 </table>
 
 
-## Utilities
+## <i class="fa fa-cogs"></i> Utilities
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -626,7 +626,7 @@ for interfaces and plug-ins
 </table>
 
 
-## Web
+## <i class="fa fa-html5"></i> Web
 
 <table class="kx-compact" markdown="1">
 <tr>

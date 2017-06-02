@@ -195,7 +195,11 @@
 </tr>
 <tr><td>Evolved</td><td><i class="fa fa-github"></i> [simongarland/Syntaxhighlighter-for-q](https://github.com/simongarland/Syntaxhighlighter-for-q)</td></tr>
 <tr><td>Heroku</td><td><i class="fa fa-github"></i> [gargraman/heroku-buildpack-kdb](https://github.com/gargraman/heroku-buildpack-kdb)</td></tr>
-<tr><td>Jupyter</td><td><i class="fa fa-github"></i> [jvictorchen/IKdbQ](https://github.com/jvictorchen/IKdbQ)</td></tr>
+<tr><td>Jupyter</td>
+    <td>
+<i class="fa fa-github"></i> [jvictorchen/IKdbQ](https://github.com/jvictorchen/IKdbQ)<br/>
+<i class="fa fa-github"></i> [newtux/KdbQ_kernel](https://github.com/newtux/KdbQ_kernel)
+    </td></tr>
 <tr><td>Linux, macOS, Unix</td><td><i class="fa fa-github"></i> [enlnt/kdb-magic](https://github.com/enlnt/kdb-magic)</td></tr>
 <tr><td>Pygments</td><td><i class="fa fa-github"></i> [jasraj/q-pygments](https://github.com/jasraj/q-pygments)</td></tr>
 <tr>

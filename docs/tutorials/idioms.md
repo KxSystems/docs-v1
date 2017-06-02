@@ -1,6 +1,6 @@
-After [Eugene McDonnell’s](https://en.wikipedia.org/wiki/Eugene_McDonnell) k idiom list for k2 - the original version can be found [here](http://kx.com/technical/contribs/eugene/kidioms.html).
+After [Eugene McDonnell’s](https://en.wikipedia.org/wiki/Eugene_McDonnell) k idiom list for k2 – the original version can be found [here](http://kx.com/technical/contribs/eugene/kidioms.html).
 
-Within the text for each idiom the layout is first the original k code is displayed, followed by the equivalent q code (prefixed by `q`) ).
+For each idiom the layout is first the original k code is displayed, followed by the equivalent q code (prefixed by `q`) ).
 
 ## 1. Ascending ordinals (ranking, shareable)
 ```k
