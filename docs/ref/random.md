@@ -84,10 +84,17 @@ q)(asc -20?20)~asc -20?20
 ```
 
 !!! tip "GUIDs"
-    To deal a unique GUID, use the null GUID for `y`.
+    To deal a list of distinct GUIDs, use the null GUID for `y`.
     ```q
     q)-1?0Ng 
     ,fd2db048-decb-0008-0176-01714e5eeced
+    q)count distinct -1000?0Ng
+    1000
+    ```
+    **Watch out** _Deal_ of GUID uses a mix of process ID, current time and IP address to generate the GUID, and successive calls may not allow enough time for the current time reading to change. If you use the random-number generator in between the calls to _deal_, this will also cause the deal for GUIDs to be different.
+    ```q
+    q)count distinct {-1?0ng}each til 10
+    5
     ```
 
 - `y` is a list of unique values, and `x>=count y`, returns `x` items randomly chosen without repetition from `y`. 
