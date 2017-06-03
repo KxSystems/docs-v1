@@ -140,7 +140,7 @@ Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-loca
 
 Syntax: `-p N`
   
-Port on which q server listens. Use for [client/server](/cookbook/client-server), e.g. kdbc(/jdbc/odbc), HTTP (HTML XML txt CSV).
+Port on which q server listens. Use for [client/server](/cookbook/client-server), e.g. kdbc(JDBC ODBC), HTTP (HTML XML TXT CSV).
 
 
 ## `-p` (multithread port)
