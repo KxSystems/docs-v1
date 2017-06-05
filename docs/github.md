@@ -11,10 +11,32 @@ for interfaces and plug-ins
 
 ## Kx Systems
 
-- [KxSystems/kdb](https://github.com/KxSystems/kdb)
-- [KxSystems/kdb-taq](https://github.com/KxSystems/kdb-taq)
-- [KxSystems/kdb-tick](https://github.com/KxSystems/kdb-tick)
-- [KxSystems/cookbook](https://github.com/KxSystems/cookbook)
+<table class="kx-compact" markdown="1">
+<tr>
+<td class="nowrap">[kdb](https://github.com/KxSystems/kdb)</td>
+<td>Companion scripts to the kdb+ product</td>
+</tr>
+<tr>
+<td class="nowrap">[cookbook](https://github.com/KxSystems/cookbook)</td>
+<td>Companion files to the [Cookbook](/cookbook/introduction)</td>
+</tr>
+<tr>
+<td class="nowrap">[kdb-taq](https://github.com/KxSystems/kdb-taq)</td>
+<td>Processing Trade-and-Quote data</td>
+</tr>
+<tr>
+<td class="nowrap">[kdb-tick](https://github.com/KxSystems/kdb-tick)</td>
+<td>Ticker plant</td>
+</tr>
+<tr>
+<td class="nowrap">[kafka](https://github.com/KxSystems/kafka)</td>
+<td>Q client for [Apache Kafka](https://kafka.apache.org/)</td>
+</tr>
+<tr>
+<td class="nowrap">[qserver](https://github.com/KxSystems/qserver)</td>
+<td>R client for q</td>
+</tr>
+</table>
 
 ## <i class="fa fa-star-o"></i> Featured
 

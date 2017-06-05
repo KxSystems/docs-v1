@@ -108,8 +108,12 @@
 <i class="fa fa-github"></i> [exxeleron/qPython](https://github.com/exxeleron/qPython)<br/>
 <i class="fa fa-github"></i> [kingan/mongodb_kdb_python_connection](https://github.com/kingan/mongodb_kdb_python_connection)
     </td></tr>
-<tr><td>R</td><td>[R client for q](/interfaces/with-r/#calling-q-from-r)<br/>
-<i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)</td></tr>
+<tr><td>R</td>
+    <td>
+<i class="fa fa-github"></i> [KxSystems/qserver](https://github.com/KxSystems/qserver)<br/>
+<i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)
+    </td>
+</tr>
 <tr>
     <td>Rust</td>
     <td>
@@ -124,6 +128,7 @@
 ## <i class="fa fa-handshake-o"></i> Q as client
 
 <table class="kx-compact" markdown="1">
+<tr><td>[Apache Kafka](https://kafka.apache.org/)</td><td><i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)</td></tr>
 <tr><td>Betfair</td><td><i class="fa fa-github"></i> [picoDoc/betfair-data-capture](https://github.com/picoDoc/betfair-data-capture)</td></tr>
 <tr><td><i class="fa fa-bitcoin"></i> Bitcoin</td><td><i class="fa fa-github"></i> [bitmx/btceQ](https://github.com/bitmx/btceQ)</td></tr>
 <tr><td>Bloomberg</td><td>[Q client for Bloomberg](/interfaces/q-client-for-bloomberg)</td></tr>
