@@ -83,20 +83,23 @@ and in R:
 
 ### R client for kdb+ (a.k.a. Q Server for R)
 
-Users who are comfortable in R connecting to a q database to extract partially analyzed data into R 
+Connects R to a q database to extract partially analyzed data into R 
 for further local manipulation, analysis and display. 
-Follow [Installation instructions](https://github.com/KxSystems/qserver#installation). Currently, `qserver` has been tested and available on  Linux (64 bit), Windows (32 bit and 64 bit) and macOS operating systems.  The client is open-source at [KxSystems/qserver](https://github.com/KxSystems/qserver) github repository.
-The interface allows R to connect to a q database and send a request to it, which can optionally return a result. 
-There are three methods available:
+Tested and available for Linux (64-bit), Windows (32-bit and 64-bit) and macOS operating systems. 
+
+Download from <i class="fa fa-github"></i> [KxSystems/qserver](https://github.com/KxSystems/qserver) and follow the [installation instructions](https://github.com/KxSystems/qserver#installation). 
+
+The interface allows R to connect to a q database and send it a request, which can optionally return a result. 
+Three methods are available:
 
 `open_connection(hostname, port, username:password)`
-: open a connection to a q database. Multiple connections can be open at once
+: Open a connection to a q database. Multiple connections can be open at once
 
 `close_connection(connectionhandle)`
-: close a connection
+: Close a connection
 
 `execute(connectionhandle, request)`
-: execute a request on the specified connection handle
+: Execute a request on the specified connection handle
 
 To open and initialize a connection from R to a q process on `localhost` listening on port 5000, with a trade table loaded:
 ```r
