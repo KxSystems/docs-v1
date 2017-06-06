@@ -133,7 +133,7 @@ pages:
       - 6. Kdb+tick: tutorials/startingq/tick.md
     - Views: tutorials/views.md
   - Interfaces: interfaces.md
-  - Interfaces:
+  - Interfaces: 
     - Q client for Bloomberg: interfaces/q-client-for-bloomberg.md # bloomberg-feed-handler.md
     - C client for q: interfaces/c-client-for-q.md # interfacing-with-c.md
     - Using C/C++ functions: interfaces/using-c-functions.md # extending-with-c.md
@@ -201,6 +201,7 @@ pages:
     - Write-only RDB: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
+    - Kafka: cookbook/kafka.md
   - Developer: developer.md
   - GitHub: github.md
   - Q for Mortals 3: qformortals3.md
