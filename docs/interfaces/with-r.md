@@ -81,13 +81,14 @@ and in R:
 ## Calling q from R
 
 
-### R client for kdb+ (a.k.a. Q Server for R)
+### rkdb: R client for kdb+
 
 Connects R to a q database to extract partially analyzed data into R 
 for further local manipulation, analysis and display. 
+
 Tested and available for Linux (64-bit), Windows (32-bit and 64-bit) and macOS operating systems. 
 
-Download from <i class="fa fa-github"></i> [KxSystems/qserver](https://github.com/KxSystems/qserver) and follow the [installation instructions](https://github.com/KxSystems/qserver#installation). 
+Download from <i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb) and follow the [installation instructions](https://github.com/KxSystems/rkdb#installation). 
 
 The interface allows R to connect to a q database and send it a request, which can optionally return a result. 
 Three methods are available:
@@ -103,8 +104,8 @@ Three methods are available:
 
 To open and initialize a connection from R to a q process on `localhost` listening on port 5000, with a trade table loaded:
 ```r
-library(qserver)
-test.qserver()  # run kdb+ on localhost:5000 for this
+library(rkdb)
+test.rkdb()  # run kdb+ on localhost:5000 for this
 h<-open_connection("127.0.0.1",5000,"testusername:testpassword") 
 ```
 To request data and plot it:
@@ -178,7 +179,7 @@ Close the connection when done: ￼
 Help with more details and some examples is available via `R` help facilities.
 ```r
 ?close_connection
-close_connection            package:qserver            R Documentation
+close_connection            package:rkdb            R Documentation
 
 Close connection to kdb+ instance.
 
@@ -237,7 +238,7 @@ it can be built from source by following the instructions outlined in the associ
 <i class="fa fa-github"></i> [KxSystems/cookbook/r](https://github.com/KxSystems/cookbook/tree/master/r)
 
 
-### Embedding R inside q (a.k.a. R server for q)
+### embedR: Embedding R inside q
 
 A shared library can be loaded which brings R into the q memory space, 
 meaning all the R statistical routines and graphing capabilities can be invoked directly from q. 
@@ -401,7 +402,7 @@ The R and q installations are on the same host, so data-extract timings do not i
 but do include the standard serialization and de-serialization of data. 
 We will load the interface and connect to q with:
 ```r
-> library(qserver)
+> library(rkdb)
 > h <- open_connection("127.0.0.1",9998,NULL)
 ```
 
@@ -642,7 +643,7 @@ for each customer type (res = residential, com = commercial, ind = industrial) o
 > install.packages("xtsExtra", repos="http://r-forge.r-project.org") # for R 3.1 you may need an additional parameter type="source"
 > library(xtsExtra)
 # load the connection library
-> library(qserver)
+> library(rkdb)
 > h <- open_connection("127.0.0.1",9998,NULL)
 # pull back the profile data
 # customertypeprofiles takes 3 parameters
