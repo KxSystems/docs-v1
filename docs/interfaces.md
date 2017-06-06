@@ -110,6 +110,7 @@
     </td></tr>
 <tr><td>R</td>
     <td>
+[Using q with R](/interfaces/with-r/#calling-q-from-r)<br/>
 <i class="fa fa-github"></i> [KxSystems/qserver](https://github.com/KxSystems/qserver)<br/>
 <i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)
     </td>

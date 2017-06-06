@@ -91,7 +91,7 @@ q)(asc -20?20)~asc -20?20
     q)count distinct -1000?0Ng
     1000
     ```
-    **Watch out** _Deal_ of GUID uses a mix of process ID, current time and IP address to generate the GUID, and successive calls may not allow enough time for the current time reading to change. If you use the random-number generator in between the calls to _deal_, this will also cause the deal for GUIDs to be different.
+    **Watch out** _Deal_ of GUID uses a mix of process ID, current time and IP address to generate the GUID, and successive calls may not allow enough time for the current time reading to change. 
     ```q
     q)count distinct {-1?0ng}each til 10
     5
