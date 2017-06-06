@@ -206,7 +206,7 @@ q)`VARNAME setenv "NEWVALUE"
 
 <table class="kx-tight" markdown="1" style="font-size:80%">
 <thead>
-<tr><th>char</th><th>size</th><th>num</th><th>literal</th><th>null</th><th>name</th><th>sql</th><th>java</th><th>.net</th></tr>
+<tr><th>char</th><th>size</th><th>num</th><th>literal</th><th>null</th><th>name</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
 </thead>
 <tbody>
 <tr><td>b</td><td>1</td><td>1</td><td>`0b`</td><td/><td>boolean</td><td/><td>Boolean</td><td>boolean</td></tr>
