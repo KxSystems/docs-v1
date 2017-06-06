@@ -81,14 +81,11 @@ and in R:
 ## Calling q from R
 
 
-### Connecting from R to q (a.k.a. Q Server for R)
+### R client for kdb+ (a.k.a. Q Server for R)
 
-This is the most common scenario – 
-users who are comfortable in R connecting to a q database to extract partially analyzed data into R 
+Users who are comfortable in R connecting to a q database to extract partially analyzed data into R 
 for further local manipulation, analysis and display. 
-A pre-built interface from R to q is available at 
-<i class="fa fa-github"></i> [KxSystems/qserver](https://github.com/KxSystems/qserver)
-and is currently available for Linux (64 bit), Windows (32 bit and 64 bit) and macOS operating systems. 
+Follow [Installation instructions](https://github.com/KxSystems/qserver#installation). Currently, `qserver` has been tested and available on  Linux (64 bit), Windows (32 bit and 64 bit) and macOS operating systems.  The client is open-source at [KxSystems/qserver](https://github.com/KxSystems/qserver) github repository.
 The interface allows R to connect to a q database and send a request to it, which can optionally return a result. 
 There are three methods available:
 
@@ -101,10 +98,11 @@ There are three methods available:
 `execute(connectionhandle, request)`
 : execute a request on the specified connection handle
 
-To open and initialize a connection from R to a q process on localhost listening on port 5001, with a trade table loaded:
+To open and initialize a connection from R to a q process on `localhost` listening on port 5000, with a trade table loaded:
 ```r
-> source("c:/r/qServer.R") # change this path for your installation
-> h<-open_connection("127.0.0.1",5001,"testusername:testpassword") 
+library(qserver)
+test.qserver()  # run kdb+ on localhost:5000 for this
+h<-open_connection("127.0.0.1",5000,"testusername:testpassword") 
 ```
 To request data and plot it:
 ```r
@@ -174,9 +172,42 @@ Close the connection when done: ￼
 ￼> close_connection(h)
 [1] 0
 ```
+Help with more details and some examples is available via `R` help facilities.
+```r
+?close_connection
+close_connection            package:qserver            R Documentation
+
+Close connection to kdb+ instance.
+
+Description:
+
+     Close connection to kdb+ instance.
+
+Usage:
+
+     close_connection(con)
+
+Arguments:
+
+     con: Connection handle.
+
+Value:
+
+     0 on closed connection.
+
+Examples:
+
+     ## Not run:
+
+     close_connection(h)
+     ## End(Not run)
+
+?execute
+?open_connection
+```
 
 
-## ODBC
+### RODBC with kdb+
 
 Although it is not the recommended method, if R is running on Windows, the q ODBC driver can be used to connect to q from R.  
 <i class="fa fa-hand-o-right"></i> [Q server for ODBC](/interfaces/q-server-for-odbc)
@@ -260,11 +291,9 @@ time                         | mid
 /- Load in R
 q)\l rinit.q
 /- Pass the table into the R memory space
-q)Rset["mids";mids]
-0i￼￼￼￼￼￼￼
+q)Rset["mids";mids]￼￼￼￼￼
 /- Graph it
 q)Rcmd["plot(mids$time,mids$mid,type=\"l\",xlab=\"time\",ylab=\"price\")"]
-0i
 ```
 This will produce a plot as shown in Figure 4: 
 
@@ -273,17 +302,13 @@ _Figure 4: Quote mid price plot drawn from q_
 
 To close the graphics window, use `dev.off()` rather than the close button on the window.
 ```q
-q)Rcmd["dev.off()"]
-0i
+q)Roff[]
 ```
 Alternatively, the table can be written to a file with
 ```q
-q)Rcmd["pdf(\"test.pdf\")"]
-0i
-q)Rcmd["plot(mids$time,mids$mid,type=\"l\",xlab=\"time\",ylab=\"price\")"]
-0i￼￼￼￼￼￼￼
-q)Rcmd["dev.off()"]
-0i
+q)Rcmd["pdf('test.pdf')"]
+q)Rcmd["plot(mids$time,mids$mid,type='l',xlab='time',ylab='price')"]
+q)Roff[]
 ```
 If the q and R installations are running remotely from the user on a Linux machine, the graphics can be seen locally using X11 forwarding over SSH.
 
@@ -293,15 +318,32 @@ Using a rather simple example of an average
 q)\l rinit.q
 q)prices:10?100
 q)Rset["prices";prices]
-0i
 q)Rcmd["meanPrices<-mean(prices)"]
-0i
 q)Rget"meanPrices"
 ,55.6
 q)avg prices / agrees with q?
 55.6
 ```
 That's a trivial example to demonstrate the mechanism in which you can leverage the 5,000 libraries available to R from within q.
+
+### Embedded R maths library
+
+R contains a maths library which can be compiled standalone. 
+The functions can then be exposed to q by wrapping them in C code which handles the mapping between R datatypes and q datatypes (K objects). 
+See <i class="fa fa-github"></i> [github.com/rwinston/kdb-rmathlib](https://github.com/rwinston/kdb-rmathlib)
+for an example of integrating q with the R API (i.e. making use of some statistical functions from q).
+```q
+q)\l rmath.q
+q)x:rnorm 1000     / create 1000 normal variates
+q)summary x        / simple statistical summary of x
+q)hist[x;10]       / show histogram (bin count) with 10 bins
+q)y:scale x        / x = (x - mean(x))/sd(x)
+q)quantile[x;.5]   / calculate the 50% quantile
+q)pnorm[0;1.5;1.5] / cdf value for 0 for a N(1.5,1.5) distribution
+q)dnorm[0;1.5;1.5] / normal density at 0 for N(1.5;1.5) distribution
+```
+<i class="fa fa-hand-o-right"></i> Andrey’s [althenia.net/qml](http://althenia.net/qml)
+for an embedded math lib
 
 
 ### Remote R: Rserve
@@ -314,26 +356,6 @@ Every connection to Rserve has a separate workspace and working directory,
 which means user-defined variables and functions with name clashes will not overwrite each other. 
 This differs from the previous method where, if two users are using the same q process, 
 they can overwrite each other’s variables in both the q and R workspaces.
-
-
-## R maths library
-
-R contains a maths library which can be compiled standalone. 
-The functions can then be exposed to q by wrapping them in C code which handles the mapping between R datatypes and q datatypes (K objects). 
-See <i class="fa fa-github"></i> [github.com/rwinston/kdb-rmathlib](https://github.com/rwinston/kdb-rmathlib)
-for an example of integrating q with the R API (i.e. making use of some statistical functions from q).
-```q
-q) \l rmath.q
-q) x:rnorm 1000     / create 1000 normal variates
-q) summary x        / simple statistical summary of x
-q) hist[x;10]       / show histogram (bin count) with 10 bins
-q) y:scale x        / x = (x - mean(x))/sd(x)
-q) quantile[x;.5]   / calculate the 50% quantile
-q) pnorm[0;1.5;1.5] / cdf value for 0 for a N(1.5,1.5) distribution
-q) dnorm[0;1.5;1.5] / normal density at 0 for N(1.5;1.5) distribution
-```
-<i class="fa fa-hand-o-right"></i> Andrey’s [althenia.net/qml](http://althenia.net/qml)
-for an embedded math lib
 
 
 ## Example: Correlating stock price returns
@@ -376,7 +398,7 @@ The R and q installations are on the same host, so data-extract timings do not i
 but do include the standard serialization and de-serialization of data. 
 We will load the interface and connect to q with:
 ```r
-> source("c:/r/qServer.R")
+> library(qserver)
 > h <- open_connection("127.0.0.1",9998,NULL)
 ```
 
@@ -434,7 +456,7 @@ To align the data we will use a pivot function defined in the reshape package.
 6 2014-01-09 09:55:00 GOOG 0.9988128
 > install.packages('reshape')
 > library(reshape)
-￼￼￼￼￼￼￼￼￼￼￼￼# Pivot the data using the re-shape package
+# Pivot the data using the re-shape package
 > p <- cast(res, time~sym)
 Using return as value column. Use the value argument to cast to override ￼￼￼￼￼￼￼￼￼￼￼￼this choice
 > head(p)
@@ -616,7 +638,8 @@ for each customer type (res = residential, com = commercial, ind = industrial) o
 # loaded from the xts package (if already loaded)
 > install.packages("xtsExtra", repos="http://r-forge.r-project.org") # for R 3.1 you may need an additional parameter type="source"
 > library(xtsExtra)
-# load the connection library > source("c:/r/qServer.R")
+# load the connection library
+> library(qserver)
 > h <- open_connection("127.0.0.1",9998,NULL)
 # pull back the profile data
 # customertypeprofiles takes 3 parameters
@@ -641,15 +664,11 @@ Note that R’s timezone setting affects date transfers between R and q. In R:
 ```
 For example, in the R server:
 ```q
-q)Rcmd "Sys.setenv(TZ=\"GMT\")"
-0
+q)Rcmd "Sys.setenv(TZ='GMT')"
 q)Rget "date()"
 "Fri Feb  3 06:33:43 2012"
-q)Rcmd "Sys.setenv(TZ=\"EST\")"
-0
+q)Rcmd "Sys.setenv(TZ='EST')"
 q)Rget "date()"
 "Fri Feb  3 01:33:57 2012"
 ```
 <i class="fa fa-hand-o-right"></i> [Timezones and Daylight Saving Time](/cookbook/timezones)
-
-
