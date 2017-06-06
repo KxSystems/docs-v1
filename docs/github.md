@@ -31,7 +31,7 @@ for interfaces and plug-ins
 	<td>ticker plant</td>
 </tr>
 <tr>
-	<td class="nowrap">[kxblog.contributions](https://github.com/KxSystems/kdb-tick)</td>
+	<td class="nowrap">[kxblog.contributions](https://github.com/KxSystems/kxblog.contributions)</td>
 	<td>code shared on the kx.com blog</td>
 </tr>
 <tr>
