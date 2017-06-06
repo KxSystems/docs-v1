@@ -111,7 +111,7 @@
 <tr><td>R</td>
     <td>
 [Using q with R](/interfaces/with-r/#calling-q-from-r)<br/>
-<i class="fa fa-github"></i> [KxSystems/qserver](https://github.com/KxSystems/qserver)<br/>
+<i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb)<br/>
 <i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)
     </td>
 </tr>
@@ -129,7 +129,6 @@
 ## <i class="fa fa-handshake-o"></i> Q as client
 
 <table class="kx-compact" markdown="1">
-<tr><td>[Apache Kafka](https://kafka.apache.org/)</td><td><i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)</td></tr>
 <tr><td>Betfair</td><td><i class="fa fa-github"></i> [picoDoc/betfair-data-capture](https://github.com/picoDoc/betfair-data-capture)</td></tr>
 <tr><td><i class="fa fa-bitcoin"></i> Bitcoin</td><td><i class="fa fa-github"></i> [bitmx/btceQ](https://github.com/bitmx/btceQ)</td></tr>
 <tr><td>Bloomberg</td><td>[Q client for Bloomberg](/interfaces/q-client-for-bloomberg)</td></tr>
@@ -141,6 +140,7 @@
 <tr><td>JDBC</td><td><i class="fa fa-github"></i> [CharlesSkelton/babel](https://github.com/CharlesSkelton/babel)</i></td></tr>
 <tr><td>ODBC</td><td>[Q client for ODBC](/interfaces/q-client-for-odbc)<br/>
 <i class="fa fa-github"></i> [johnanthonyludlow/kdb/docs/odbc.pdf](https://github.com/johnanthonyludlow/kdb/blob/master/docs/odbc.pdf)</td></tr>
+<tr><td>[Kafka](https://kafka.apache.org/)</td><td><i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)</td></tr>
 <tr><td>Philips Hue</td><td><i class="fa fa-github"></i> [jparmstrong/qphue](https://github.com/jparmstrong/qphue)</td></tr>
 <tr><td>R</td><td>[Using q with R](/interfaces/with-r/#calling-r-from-q)</td></tr>
 <tr><td>Reuters</td><td><i class="fa fa-github"></i> [KxSystems/kdb/c/feed/rfa.zip](https://github.com/KxSystems/kdb/blob/master/c/feed/rfa.zip)</td></tr>

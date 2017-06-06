@@ -362,7 +362,7 @@ This differs from the previous method where, if two users are using the same q p
 they can overwrite each other’s variables in both the q and R workspaces.
 
 
-## Example: Correlating stock price returns
+## Example: correlating stock price returns
 
 R has a built-in operation to produce a correlation matrix of aligned datasets. 
 q does not, but one can easily be built. 
@@ -616,7 +616,7 @@ It is up to the user to decide which approach is the best fit for their use case
 although some amount of initial work should always be done on the q side to avoid raw data extracts.
 
 
-## Example: Working with smart-meter data
+## Example: working with smart-meter data
 
 To demonstrate the power of q, an example using randomly-generated smart meter data has been developed. 
 This can be downloaded from 
@@ -675,4 +675,4 @@ q)Rcmd "Sys.setenv(TZ='EST')"
 q)Rget "date()"
 "Fri Feb  3 01:33:57 2012"
 ```
-<i class="fa fa-hand-o-right"></i> [Timezones and Daylight Saving Time](/cookbook/timezones)
+<i class="fa fa-hand-o-right"></i> [Cookbook/Timezones and Daylight Saving Time](/cookbook/timezones)

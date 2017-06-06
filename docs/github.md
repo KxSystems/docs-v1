@@ -1,6 +1,4 @@
-
-
-# <i class="fa fa-github"></i> Q repositories on GitHub
+# <i class="fa fa-github"></i> Repositories on GitHub
 
 Please contact [librarian@kx.com](mailto:librarian@kx.com)
 with additions or changes.
@@ -33,7 +31,11 @@ for interfaces and plug-ins
 	<td>ticker plant</td>
 </tr>
 <tr>
-	<td class="nowrap">[qserver](https://github.com/KxSystems/qserver)</td>
+	<td class="nowrap">[kxblog.contributions](https://github.com/KxSystems/kdb-tick)</td>
+	<td>code shared on the kx.com blog</td>
+</tr>
+<tr>
+	<td class="nowrap">[rkdb](https://github.com/KxSystems/rkdb)</td>
 	<td>R client for q</td>
 </tr>
 </table>
