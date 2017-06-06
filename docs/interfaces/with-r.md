@@ -39,7 +39,7 @@ and the strengths of the data scientists using the system.
 
 There are four ways to interface q with R:
 
-1.  **R can connect to q and extract data** – loads a shared library into R, connects to q via TCP/IP
+1.  **R can connect to kdb+ and extract data** – loads a shared library into R, connects to kdb+ via TCP/IP
 2.  **Embed R inside q and invoke R routines** – loads the R library into q, instantiates R
 3.  **Q can connect to a remote instance of R** via TCP/IP and invoke R routines remotely
 4.  **Q can load the R maths library** and invoke the R math routines locally
@@ -51,12 +51,12 @@ From the point of view of the user, q and R may be:
 - both remote but local to each other
 - both remote and remote from each other
 
-Considering the potential size of the data, it is probably more likely that the q installation containing the data will be hosted remotely from the user. Points to consider when selecting the integration method are:
+Considering the potential size of the data, it is probably more likely that the kdb+ installation containing the data will be hosted remotely from the user. Points to consider when selecting the integration method are:
 
 - if interactive graphing is required, either interface (1) or (2) must be used
 - interface (2) can only be used if the q and R installations are installed on the same server
 - interfaces (2) and (4) require less data transfer between (possibly remote) processes
-- interfaces (2) and (3) both require variables to be copied from q to R for processing, meaning that at some point in time two copies of the variable will exist, increasing total memory requirements
+- interfaces (2) and (3) both require variables to be copied from kdb+ to R for processing, meaning that at some point in time two copies of the variable will exist, increasing total memory requirements
 
 
 ### Performance testing
@@ -83,14 +83,14 @@ and in R:
 
 ### rkdb: R client for kdb+
 
-Connects R to a q database to extract partially analyzed data into R 
+Connects R to a kdb+ database to extract partially analyzed data into R 
 for further local manipulation, analysis and display. 
 
 Tested and available for Linux (64-bit), Windows (32-bit and 64-bit) and macOS operating systems. 
 
 Download from <i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb) and follow the [installation instructions](https://github.com/KxSystems/rkdb#installation). 
 
-The interface allows R to connect to a q database and send it a request, which can optionally return a result. 
+The interface allows R to connect to a kdb+ database and send it a request, which can optionally return a result. 
 Three methods are available:
 
 `open_connection(hostname, port, username:password)`
@@ -102,7 +102,7 @@ Three methods are available:
 `execute(connectionhandle, request)`
 : Execute a request on the specified connection handle
 
-To open and initialize a connection from R to a q process on `localhost` listening on port 5000, with a trade table loaded:
+To open and initialize a connection from R to a kdb+ process on `localhost` listening on port 5000, with a trade table loaded:
 ```r
 library(rkdb)
 test.rkdb()  # run kdb+ on localhost:5000 for this
@@ -213,8 +213,8 @@ Examples:
 
 ### RODBC with kdb+
 
-Although it is not the recommended method, if R is running on Windows, the q ODBC driver can be used to connect to q from R.  
-<i class="fa fa-hand-o-right"></i> [Q server for ODBC](/interfaces/q-server-for-odbc)
+Although it is not the recommended method, if R is running on Windows, the q ODBC driver can be used to connect to kdb+ from R.  
+<i class="fa fa-hand-o-right"></i> [Kdb+ server for ODBC](/interfaces/q-server-for-odbc)
 
 The RODBC package should be installed in R. An example is given below.
 ```
@@ -316,7 +316,7 @@ q)Roff[]
 ```
 If the q and R installations are running remotely from the user on a Linux machine, the graphics can be seen locally using X11 forwarding over SSH.
 
-Aside from using R’s powerul graphics, this mechanism also allows you to call R analytics from within q. 
+Aside from using R’s powerful graphics, this mechanism also allows you to call R analytics from within q. 
 Using a rather simple example of an average
 ```q
 q)\l rinit.q
@@ -365,7 +365,7 @@ they can overwrite each other’s variables in both the q and R workspaces.
 ## Example: correlating stock price returns
 
 R has a built-in operation to produce a correlation matrix of aligned datasets. 
-q does not, but one can easily be built. 
+Q does not, but one can easily be built. 
 In this example we will investigate different approaches for calculating the correlation of time-bucketed returns 
 for a set of financial instruments. Possible approaches are:
 
@@ -397,7 +397,7 @@ date      | x
 2014.01.14| 39853
 2014.01.15| 30136
 ```
-We will use the R interface defined above. <!--FIXME-->
+We will use the R interface defined above.
 The R and q installations are on the same host, so data-extract timings do not include network transfer time 
 but do include the standard serialization and de-serialization of data. 
 We will load the interface and connect to q with:

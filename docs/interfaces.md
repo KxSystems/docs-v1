@@ -1,4 +1,4 @@
-## <i class="fa fa-server"></i> Q as server
+## <i class="fa fa-server"></i> Kdb+ as server
 
 <table class="kx-compact" markdown="1">
 <tr><td>Adobe Flex</td><td><i class="fa fa-github"></i> [quantbin/kdb](https://github.com/quantbin/kdb)</td></tr>
