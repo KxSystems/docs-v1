@@ -1,34 +1,55 @@
-## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+The **Text Input** component offers a means for users to input values into [view state parameter](introduction.md#view-state-parameters). Text inputs are not limited to variables or dates, but can include text entries, colour choices, etc. Any Dashboard input supporting an ![Screenshot](img/eyeiconhtmllight2.jpg) can map to a [view state parameter](introduction.md#view-state-parameters) and connect it to a <a href="text-input">Text Input</a>.
 
-![Screenshot](img/layoutpanel.jpg)
+### Basics
 
-**Fill Height**
+![Screenshot](img/textinput.jpg)
 
-Automatically autosizes components to fill the height of the Layout panel.  
+Text can either be read-only Formatted text, or user input Text. 
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+**Text**
 
-**Advanced Layout**
+The default setting for Text Input. Input values can be mapped to a <a href="#view-state-parameters">View State Parameter</a>.
+ 
+![Screenshot](img/basicstexthtmllight.jpg)
 
-When checked, added components will best fit the Layout panel by width. 
+<aside class="admonition tip">To change styling of Text input, use <a href="#style">Advanced CSS</a></aside>
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+**Multiline**
 
-[1] Add an Accordion or Tab Component
+Check box to break content for a single, long line of text.
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+**Fixed Width**
+ 
+When checked, defines width of *Text* Input box.
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+**Width**
 
-[3] Then add other components to the Layout panel
+Sets width of input text box in pixels
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+![Screenshot](img/fixedwidthhtmllgiht.jpg)
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+**Fixed Height**
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+Slider to change height of input text box.
+
+**Horizontal**
+
+Sets Left, Right, Center alignment of Input Box inside Text Component
+
+**Vertical**
+
+Sets Top, Middle, Bottom alignment of Input Box inside Text Component
+
+**Font Size**
+
+Changes size of font for *Text* or *Formatted Text*
+
+## Style
+
+Use Advanced CSS to set styles
+ 
+![Screenshot](img/advancedcsstextinput.jpg)
 
 ## Margins
 

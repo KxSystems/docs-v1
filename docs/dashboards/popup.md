@@ -1,42 +1,27 @@
-## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/popupobr.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+Allows components to be viewed as standalone popups
 
-**Fill Height**
+!!! Warning "For the pop-up to appear in Preview/Quickview it must be assigned to a view state parameter of type boolean, and the view state bound to a button or other selection control. When the button is clicked the boolean view state is set to 'true' and the pop-up appears."
 
-Automatically autosizes components to fill the height of the Layout panel.  
+[1] Drag the Pop-up component inside the dashboard
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+![Screenshot](img/popuphtmllight.jpg)
 
-**Advanced Layout**
+[2] Click on the Pop-up component to open the editor screen; add an individual component or layout panel (+components).  Configure as normal for selected screen.
 
-When checked, added components will best fit the Layout panel by width. 
+[3] Close the panel, in the _Basics_ properties for the _Visible_ property,  create a view state parameter (e.g. popup).  Set the _popup_ to type boolean
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+![Screenshot](img/popuppropertieshtmllight.jpg)
 
-[1] Add an Accordion or Tab Component
+![Screenshot](img/popupboolean.jpg)
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+The size and type of the dialog can be set from the _Basics_ properties.
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+[4] Add a button to where you want to associate the popup behaviour. This button will trigger the pop-up when clicked. Change the View State Mapping so the _popup_ view state parameter has a value of _true_. When the button is clicked, the popup dialog will appear.
 
-[3] Then add other components to the Layout panel
+![Screenshot](img/popupbuttonhtmllight.jpg)
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
-
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
-
-## Margins
-
-See [Margins](introduction.md#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction.md#format) in Introduction for more.
 

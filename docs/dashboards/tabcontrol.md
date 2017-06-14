@@ -1,34 +1,44 @@
-## Basics
+![Screenshot](img/tabsmenu2.jpg)
 
-![Screenshot](img/layoutpanelmenu.jpg)
+Each tab can receive a single component or can support multiple components if a [Layout Panel](layout.md) is used inside the tab. 
+ 
+![Screenshot](img/tabmenuexamplehtmllight.jpg) 
 
-![Screenshot](img/layoutpanel.jpg)
+<aside class="admonition caution">To delete a component from inside a tab, drag-and-drop a replacement component on top of the existing component or click the delete button in the top right. If a Layout Panel is used, use the delete button to remove it</aside> 
 
-**Fill Height**
+## View State
 
-Automatically autosizes components to fill the height of the Layout panel.  
+![Screenshot](img/linkedtab.jpg)
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+<aside class="admonition caution">To link tabs in two separate Tab components (so that clicking on tab 1 of tab-component 1 opens tab 1 of tab-component 2), create a [view state parameter](introduction.md#view-state-parameters) and assign to <i>Selected Tab</i> of tab-component 1 and tab-component 2</aside>
 
-**Advanced Layout**
+Dropdown menu selects the current tab view. When working with tabs, use this menu to switch views
 
-When checked, added components will best fit the Layout panel by width. 
+![Screenshot](img/tabmenuswitchhtmllight.jpg)
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+### Set View State on Tab Change
 
-[1] Add an Accordion or Tab Component
+In addition to linking different tab components, switching tabs can be used to assign a value to a [view state parameter](introduction.md#view-state-parameters); for example, if looking to reset a default value on tab switch.
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+![Screenshot](img/leftclickviewstatehtmllight.jpg)
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+![Screenshot](img/setviestateontabchangehtmllight.jpg)
 
-[3] Then add other components to the Layout panel
+## Tabs
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+![Screenshot](img/tabsmenu.jpg)
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+Change the name and delete tabs.
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+To add a tab, click ![Screenshot](img/tabbuttonhtmllight.jpg)
+
+Tab controls can be hidden by checking the 'Hide' box. Hiding a Tab control does not remove the content from the tab, just the means to tab-click to it. In the latter example, navigation to the hidden tab content could be achieved using a button control (as an example).
+
+## Style
+
+Use Advanced CSS to customise tabs
+
+![Screenshot](img/advancedcsstabs.jpg)
 
 ## Margins
 

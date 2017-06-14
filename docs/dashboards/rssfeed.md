@@ -1,42 +1,124 @@
+
+Adds third party RSS feeds into dashboards
+
+![Screenshot](img/rssfeedhtmllight.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+Configure RSS
 
-![Screenshot](img/layoutpanel.jpg)
+![Screenshot](img/rssfeedmenu.jpg)
 
-**Fill Height**
+**URL Address**
 
-Automatically autosizes components to fill the height of the Layout panel.  
+Add in the http(s) URL for the RSS feed
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+Ensure the correct RSS format is employed. Check the output in Preview mode
 
-**Advanced Layout**
+**Max Rows**
 
-When checked, added components will best fit the Layout panel by width. 
+Number of news items to appear on feed.
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+**Update Interval**
 
-[1] Add an Accordion or Tab Component
+Frequency of RSS update poll in seconds
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+## Style
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+![Screenshot](img/rssstylemenu.jpg)
+ 
+RSS uses default style, but elements of the RSS feed can be individually configured.
 
-[3] Then add other components to the Layout panel
+**Use Own Styles**
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+Check control to enable custom styling
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+### Header 
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+![Screenshot](img/headercontent.jpg)
+
+**Background Colour**
+
+Use color palette to select background color of RSS header.
+
+**Header Font Colour**
+
+Use color palette to select font color of RSS header.
+
+**Header Font Size**
+
+Set pixel size of RSS header font.
+
+### Content
+
+![Screenshot](img/stylemenu.jpg) 
+
+**Date Font Colour**
+
+Use color palette to select font color of article date.
+
+**Story Background Color**
+
+Use color palette to select background color of articles.
+
+**Title Font Colour**
+
+Use color palette to select background color of article title.
+
+**Title Font Hover Colour**
+
+Use color palette to set rollover color of article Title.
+
+**Title Font Size**
+
+Set pixel size of article title font.
+
+**Date Font Size**
+
+Set pixel size of article date font.
+
+**Story Hover Covers**
+
+Use color palette to set color on rollover of article
+
+**Date Font Hover Colour**
+
+Use color palette to set color on rollover of article date
+
+**Story Font Colour**
+
+Use color palette to define font of article summary
+
+**Story Font Hover Colour**
+
+Use color palette to define font on rollover of article summary
+
+**Story Font Size**
+
+Set pixel size of article font.
+
+**Icon Color**
+
+Set color of icons to open and delete article
+
+**Icon Hover Color**
+
+Set color of icon rollover behaviour
+
+**Advanced CSS**
+
+Set CSS for RSS component
+
+![Screenshot](img/rsscsshtmllight.jpg)
+ 
+## Format
+
+![Screenshot](img/3dchartformat.jpg)
+
+See [Format](introduction#format) in Introduction for more.
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction#margins) in Introduction for more
 
-## Format
-
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction.md#format) in Introduction for more.
 

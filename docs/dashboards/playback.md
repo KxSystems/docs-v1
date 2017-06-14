@@ -1,42 +1,86 @@
+![Screenshot](img/playbackhtmllight.jpg)
+
+Used to play time sequence data in data grid and charting components.
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/playbackmenu.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+Configure time series <a href="#data-source">Data Source</a> and timing parameters
 
-**Fill Height**
+### Data Source
 
-Automatically autosizes components to fill the height of the Layout panel.  
+![Screenshot](img/playbackdatasource.jpg)
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing. Ensure there is time series data (or equivalent) in the playback <a href="#data-source">Data Source</a>. 
 
-**Advanced Layout**
+Playback shares a <a href="#data-source">Data Source</a> with the component undergoing playback.
 
-When checked, added components will best fit the Layout panel by width. 
+<aside class="admonition tip">'Time Series' data can be a numeric sequence, it doesn't need to be of Type Date or Datetime </aside>
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+**Selected Value**
 
-[1] Add an Accordion or Tab Component
+Link to a [view state parameter](introduction.md#view-state-parameters) which is used as the time series variable. 
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+<aside class="admonition tip">The time series <i>Selected Value</i> can be of Type Integer, it doesn't need to be of Type Date or Datetime </aside>
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+**Selected Column**
 
-[3] Then add other components to the Layout panel
+Dropdown select from the **Data Source**. Will be used in playback sequence
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+<aside class="admonition tip">Column data can be a numeric sequence</aside>
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+**Time Column**
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+Dropdown select from the **Data Source**. Identifies Time series data. 
+ 
+<aside class="admonition tip">Can use <i>Selected Column</i> columnn variable or different variable column with Type Date or Datetime</aside>
+
+**Mode**
+
+Select between Event or Time as default setting on load. 
+
+**Speed Controls**
+
+Check control. When enabled, offers different replay speeds: x0.25, x0.50, x1, x2, x4, x8, x16
+
+![Screenshot](img/speedcontrolhtmllight.jpg)
+
+**Multi Controls**
+
+Check control. When enabled, offers fast forward and rewind controls
+
+![Screenshot](img/multicontrolshtmllight.jpg)
+
+**Max Overall Time**
+
+Sets upper limit for replay based on **Selected Value** view state parameter
+
+**Interval Time**
+
+Configures speed of **Selected Value** view state parameter.
+
+<aside class="admonition tip">Values above '1' will skip data points; e.g. a value of '2' will use every second data point of the <i>elected Value</i> view state parameter</aside>
+
+**Force Pause**
+
+Check control. 
 
 ## Margins
 
 See [Margins](introduction.md#margins) in Introduction for more
 
+## Style
+
+ Apply CSS to Playback component
+
+ ![Screenshot](img/playbackcsshtmllight.jpg)
+
 ## Format
 
-![Screenshot](img/mapformat.jpg)
+![Screenshot](img/3dchartformat.jpg)
 
 See [Format](introduction.md#format) in Introduction for more.
+
+
 

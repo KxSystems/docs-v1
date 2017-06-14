@@ -1,34 +1,57 @@
+
+Used for assigning date inputs to [view state parameter](introduction.md#view-state-parameters).
+
+![Screenshot](img/datepickerhtmllight.jpg)
+
+The Date Picker will show highlighted dates for days with data
+
+<aside class="admonition tip">For time data of type Datetime, use the [Data Form](dataform.md) component for User inputs</aside>
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/datepicker.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+Configures Date Input Box
 
-**Fill Height**
+**Label**
 
-Automatically autosizes components to fill the height of the Layout panel.  
+Descriptive Label for Date Picker Input
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+### Data Source
 
-**Advanced Layout**
+See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
 
-When checked, added components will best fit the Layout panel by width. 
+**Selected Date**
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+Assign [view state parameter](introduction.md#view-state-parameters) of type Date
 
-[1] Add an Accordion or Tab Component
+**Horizontal**
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+Sets alignment (left, center or right) of date selector inside the boundaries *Date Picker* component
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+**Vertical**
 
-[3] Then add other components to the Layout panel
+Sets alignment (top, middle, bottom) of date selector inside the boundaries *Date Picker* component
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+**Tooltip**
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+Text description which appears when User mouses over the *Date Picker*
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+**Width**
+
+Defines pixel width of dropdown
+
+**Label Width**
+
+Defines pixel width of dropdown *Label*
+
+<aside class="admonition tip">If assigned <i>Label Width</i> is narrower than can fit the <i>Label</i> description, text in the <i>Label</i> will wrap</aside>
+
+### Style
+
+Use Advanced CSS to set styles
+ 
+![Screenshot](img/datepickercsshtmllight.jpg)
 
 ## Margins
 

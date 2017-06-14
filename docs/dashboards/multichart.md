@@ -32,7 +32,7 @@ This comes from the Data Source and is the variable paired with the <a href="#se
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="warning">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
 
 ### Selected Row ViewState Routing
 
@@ -226,9 +226,9 @@ Select Prefix Label for axis
 
 ![Screenshot](img/prefixmenuhtmllight.jpg)
 
-<aside class="warning">Setting Prefix is a visual label and doesn't change the data type of plotted data</aside>
+<aside class="admonition caution">Setting Prefix is a visual label and doesn't change the data type of plotted data</aside>
 
-<aside class="warning">Prefix can also be configured as a View State Parameter</a></aside>
+<aside class="admonition caution">Prefix can also be configured as a View State Parameter</a></aside>
 
 ![Screenshot](img/prefixviewstateparameterhtmllight.jpg)
 
@@ -238,9 +238,9 @@ Select Prefix Label for axis
 
 ![Screenshot](img/suffixmenuhtmllight.jpg)
 
-<aside class="warning">Setting Suffix is a visual label and doesn't change the data type of plotted data</aside>
+<aside class="admonition caution">Setting Suffix is a visual label and doesn't change the data type of plotted data</aside>
 
-<aside class="warning">Suffix can also be configured as a View State Parameter</a></aside>
+<aside class="admonition caution">Suffix can also be configured as a View State Parameter</a></aside>
 
 **Specify MidPoint**
  
@@ -310,7 +310,7 @@ When checked, x-axis will scale by time or numeric sequence
 
 ![Screenshot](img/ordinal.jpg)
 
-<aside class="warning">Best used when Axis Scale is set to <i>scale</i></aside>
+<aside class="admonition caution">Best used when Axis Scale is set to <i>scale</i></aside>
 
 **Num of Ticks**
 

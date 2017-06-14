@@ -1,34 +1,40 @@
+A small component which displays connectivity status of connected Server
+
+![Screenshot](img/serverstatushtmllight.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/serverstatusmenu.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+Configure server connection and update test frequency.
 
-**Fill Height**
+**Server Connection**
 
-Automatically autosizes components to fill the height of the Layout panel.  
+From dropdown menu, select the connection to be monitored in Server Status
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+**Polling Interval (sec)**
 
-**Advanced Layout**
+ Use the slider to adjust the frequency of server updates
 
-When checked, added components will best fit the Layout panel by width. 
+ <aside class="notice">Adjusting the slider will change the value for **Polling Interval (readonly)**</aside>
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+**Polling Interval (readonly)**
 
-[1] Add an Accordion or Tab Component
+ This displays the slider value for **Polling Interval**. It's a readonly value.
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+**Is Enabled**
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+ A check control. Tick to enable server connection monitoring.
 
-[3] Then add other components to the Layout panel
+## Style
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+[1] Left click inside Advanced CSS button
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+![Screenshot](img/leftclickcss.jpg)
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+[2] Select the Playback component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Server Status component. 
+
+[3] Add the required CSS content
 
 ## Margins
 

@@ -8,7 +8,7 @@
 
 Automatically autosizes components to fill the height of the Layout panel.  
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+<aside class="admonition caution">Selection of *Fill Height* is best done after adding all required components</aside>
 
 **Advanced Layout**
 
@@ -26,9 +26,9 @@ Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#
 
 ![Screenshot](img/layoutpaneladdhtmllight.jpg)
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+<aside class="admonition caution">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+<aside class="admonition caution">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
 
 ## Margins
 

@@ -1,17 +1,43 @@
-# Welcome to Breadcrumb
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+![Screenshot](img/breadcrumbhtmllight.jpg)
 
-## Commands
+Responsible for controlling Pivot/OLAP navigation
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+## Settings
 
-## Project layout
+![Screenshot](img/breadcrumbsmenu.jpg)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+**Path**
+
+Sets the [view state parameter](introduction#view-state-parameters) which is shared with the *Focus* property of components supporting Pivot/OLAP interactions; e.g. Charts and [Pivot Grid](pivotgrid).
+
+![Screenshot](img/breadcrumbsetuphtmllight.jpg)
+
+**Breakdown**
+
+Assign a [view state parameter](introduction#view-state-parameters) which is shared with the *Breakdown* property of the Pivot/OLAP query; e.g. Charts and [Pivot Grid](pivotgrid).
+
+![Screenshot](img/breadcrumbsbreakdownlight.jpg)
+
+![Screenshot](img/pivotquerybreadcrumb.jpg)
+
+## Style
+
+[1] Left click inside Advanced CSS button
+
+![Screenshot](img/leftclickcss.jpg)
+
+[2] Select the Breadcrumbs component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Playback component. 
+
+[3] Add the required CSS content
+
+## Margins
+
+See [Margins](introduction.md#margins) in Introduction for more
+
+## Format
+
+![Screenshot](img/3dchartformat.jpg)
+
+See [Format](introduction#format) in Introduction for more.
+

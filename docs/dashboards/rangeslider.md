@@ -62,7 +62,7 @@ Sets the data type for the label used for X-Axis Value
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-<aside class="warning">If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a></aside>
+<aside class="admonition caution">If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a></aside>
 
 **Axis Format**
 

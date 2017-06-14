@@ -32,7 +32,7 @@ This comes from the Data Source and is the variable paired with the <a href="#se
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="warning">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
 
 ### From / To
 
@@ -54,7 +54,7 @@ To add a column, click ![Screenshot](img/addcolumnbutton.jpg)
 
 A 'read only' lock of the column.
 
-<aside class="warning">Helps if working with multiple copies of a chart and are changing <a href="#data-sources">Data Sources</a>.  Locking the column will preserve formatting even if the listed <i>Column</i> source isn't referenced in a changed <a href="#data-sources">data source</a>.</aside>
+<aside class="admonition caution">Helps if working with multiple copies of a chart and are changing <a href="#data-sources">Data Sources</a>.  Locking the column will preserve formatting even if the listed <i>Column</i> source isn't referenced in a changed <a href="#data-sources">data source</a>.</aside>
 
 **Column**
 
@@ -80,7 +80,7 @@ Select from the dropdown the category to chart from the <a href="#data-sources">
 
 Select the data type from the dropdown menu.  Choose between String, Date or Number.
 
-<aside class="warning">If selecting <i>Date</i>, set the date type in <b>Axis Format</b></aside>
+<aside class="admonition caution">If selecting <i>Date</i>, set the date type in <b>Axis Format</b></aside>
 
 **Axis Format**
 

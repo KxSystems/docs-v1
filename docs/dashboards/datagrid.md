@@ -10,21 +10,21 @@ Data Source Example
 
 ![Screenshot](img/datasourcecolumns.jpg)
 
-Defines the source data to display in the Data Grid. See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+Defines the source data to display in the Data Grid. See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
 ### Filtering
 
 Three types of filtering are available:
 
-*Quick Search*
+_Quick Search_
 
 ![Screenshot](img/gridquicksearch.jpg)
 
-*Column Filters*
+_Column Filters_
 
 ![Screenshot](img/columnfilters.jpg)
 
-*Disabled:* No filters
+_Disabled:_ No filters
 
 ### Show Paging Control
 
@@ -34,11 +34,11 @@ Toggle display of pagination controls. Used for large data sets.
 
 ### Enable Grouping
 
-Users can group data together. Subtotals can be applied with [Summary Row For Groupings](datagrid.md#summary-row-for-groupings)
+Users can group data together. Subtotals can be applied with [Summary Row For Groupings](datagrid#summary-row-for-groupings)
 
 ### Auto Collapse Grouping
 
-On loading of dashboard, groupings will be in collapsed form. Grid groupings are configured in [Grouping Columns](datagrid.md#grouping-columns)
+On loading of dashboard, groupings will be in collapsed form. Grid groupings are configured in [Grouping Columns](datagrid#grouping-columns)
 
 ### Keep NonExistent Columns
 
@@ -52,12 +52,7 @@ User Configuration menu
 
 ![Screenshot](img/userconfiguration.jpg)
 
-<aside class="warning">
-User configuration will pick up all available columns from the query.
-Users can drag-into the available area, columns from source data; these will be removed from display.
-Reset reverts to default data view
-This functionality is available to users of all permission types
-</aside>
+!!! Tip "User configuration will pick up all available columns from the query. Users can drag-into the available area, columns from source data; these will be removed from display. Reset reverts to default data view. This functionality is available to users of all permission types."
 
 When checked, a Configuration menu will appear in the Data Grid. 
 
@@ -65,10 +60,9 @@ When checked, a Configuration menu will appear in the Data Grid.
 
 Users can change the display of columns in the Data Grid
   
-<aside class="warning">'Hidden' columns will in the "Available Columns" list. This may not be desirable if a hidden column is used to store a calculation or is used for a highlight rule opertor not for display to the User. For these Data Grids it may be necessary to disable Custom Layout.</aside>
+'Hidden' columns will in the "Available Columns" list. This may not be desirable if a hidden column is used to store a calculation or is used for a highlight rule opertor not for display to the User. For these Data Grids it may be necessary to disable Custom Layout.
 
-<aside class="warning">The user configuration on exiting the dashboard should be retained on next login</aside>
-
+The user configuration on exiting the dashboard should be retained on next login.
 
 ### Enable Edit Mode
 
@@ -76,7 +70,7 @@ Enable Edit Mode
   
 ![Screenshot](img/editcell.jpg)
 
-Used in conjunction with <a href="#update-query">**Update Query**</a>. 
+Used in conjunction with <a href="#update-query">*Update Query*</a>. 
 
 ![Screenshot](img/checkedit.jpg) 
 
@@ -84,9 +78,7 @@ Used in conjunction with <a href="#update-query">**Update Query**</a>.
 
 ![Screenshot](img/updateedit.jpg)
 
-<aside class="warning">
-In Preview mode, click "Edit" to enable. Remember to Submit Changes when done. Cancel to reject changes 
-</aside>
+In Preview mode, click "Edit" to enable. Remember to Submit Changes when done. Cancel to reject changes. 
 
 ### Enable Insert/Delete
 
@@ -94,7 +86,7 @@ Enable Insert/Delete
   
 ![Screenshot](img/addnewrow.jpg)
 
-Used in conjunction with <a href="#update-query">**Update Query**</a>.
+Used in conjunction with <a href="#update-query">*Update Query*</a>.
 
 ![Screenshot](img/checkinsert.jpg)
 
@@ -102,9 +94,7 @@ Used in conjunction with <a href="#update-query">**Update Query**</a>.
 
 ![Screenshot](img/updateedit.jpg)
 
-<aside class="warning">
-In Preview mode, click "Edit" to enable. Remember to Submit Changes when done. Cancel to reject changes  
-</aside>
+In Preview mode, click "Edit" to enable. Remember to Submit Changes when done. Cancel to reject changes.
 
 ## Columns
 
@@ -130,9 +120,7 @@ Columns can be removed from a Data Grid on clicking the trashcan icon
 
 When checked, the selected column will remain in the Data Grid if the selected column variable is removed from the query. A User Defined query is effectively a 'lock' on the column
 
-<aside class="warning">
-If the User Defined column variable is missing in the query, the User Defined column will show as an empty column in the Data Grid
-</aside>
+!!! Tip "If the User Defined column variable is missing in the query, the User Defined column will show as an empty column in the Data Grid."
 
 **Data Field Name**
 
@@ -140,11 +128,8 @@ Data Field Name
 
 ![Screenshot](img/datafieldname.jpg)
 
-<aside class="warning">
- When using a wildcard, all dynamic columns derived from a query will use the wildcard column format
-The wildcard can be used in conjunction with text headers; e.g. bid* for bid, and bid_update
-</aside>
-  
+When using a wildcard, all dynamic columns derived from a query will use the wildcard column format.  The wildcard can be used in conjunction with text headers; e.g. bid* for bid, and bid_update
+
 The Data Field Name is selected from data columns in the Data Source query. 
 
 Additional columns can be added, including wildcard columns. If wildcard is used, any non-defined columns will adopt the column specifications of the wildcard column; e.g. data alignment, decimal precision etc.
@@ -164,10 +149,6 @@ The name assigned for the column in the Data Grid. This is case sensitive.
 Relative Width
   
 ![Screenshot](img/relativewidthblack.jpg)
-
-<aside class="warning">
-Sample column widths set at 20,10,5,1
-</aside>
 
 Relative measure to the width of the Data Grid. The scale is contigent on the values of each column; for example, columns with a relative width of 20,10,5,1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)), 28%, 14% and 3%.  
 
@@ -197,13 +178,9 @@ When checked, users clicking on column header will toggle between ascending and 
 
 **Format**
 
-Sample formats
+Sample formats: General, DateTime, General, Formatted Number, Formatted Number, Formatted Number, Formatted Number, DateTime, General, Smart Number
   
 ![Screenshot](img/sampleformats.jpg)
-  
-<aside class="warning">
-General, DateTime, General, Formatted Number, Formatted Number, Formatted Number, Formatted Number, DateTime, General, Smart Number
-</aside>
   
 Select formatting for data type in column
   
@@ -233,7 +210,7 @@ Adds a currency symbol prefix to column data
 
 **Date Format**
 
-Combination Date and Time Format
+Combination Date and Time Format. Ensure Date or DataTime Format is selected.
   
 ![Screenshot](img/comboformat.jpg)
   
@@ -243,20 +220,12 @@ Select date format
 
 ![Screenshot](img/dateformat.jpg)
   
-<aside class="warning">
-Ensure Date or DataTime Format is selected
-</aside>
-  
 **Time Format**
   
-Select time format
+Select time format. Ensure Time or DataTime Format is selected
   
 ![Screenshot](img/timeformat.jpg)
   
-<aside class="warning">
-Ensure Time or DataTime Format is selected
-</aside>
-
 **Min Value Color**
   
 Min Value Color
@@ -267,12 +236,12 @@ Selection will place a color border highlight around lowest value in column
   
 ![Screenshot](img/minvalueselect.jpg)
 
-To Remove, again click on the color and select *No Color* from the palette tool.
+To Remove, again click on the color and select _No Color_ from the palette tool.
 
 ![Screenshot](img/nocolorhtmlight.jpg)
 
-<aside class="warning">Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign</aside>
-  
+!!! Tip "Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
+
 **Max Value Color**
 
 Max Value Color
@@ -283,9 +252,9 @@ Selection will place a color border highlight around highest value in column
   
 ![Screenshot](img/maxvalueselect.jpg)
 
-Click the color bar again and then click *No Color* to remove the Max color setting 
+Click the color bar again and then click _No Color_ to remove the Max color setting 
 
-<aside class="warning">Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign</aside>
+!!! Tip "Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
 
 **Range Color**
 
@@ -297,9 +266,9 @@ Applies a selected colour gradient across all cells in a column. Assigning a col
   
 ![Screenshot](img/rangeselect.jpg)
 
-Click the color bar and then *No Color* to remove the Range color from column data
+Click the color bar and then _No Color_ to remove the Range color from column data
 
-<aside class="warning">Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign</aside>
+!!! Tip "Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
 
 **Percentage Color**
 
@@ -309,7 +278,7 @@ Percentage Color
 
 Adds a mini-bar in Percentage formatted data. The proportion of the bar filled runs from 0 to 100%
 
-To enable set Format to *Percentage* 
+To enable set Format to _Percentage_ 
 
 ![Screenshot](img/percentageselecthtmllight.jpg)
 
@@ -317,7 +286,7 @@ Select a colour to use for the bar
 
 ![Screenshot](img/percentcolorselecthtmllight.jpg)
 
-<aside class="warning">Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign</aside>
+!!! Tip "Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
 
 **Read Only**
 
@@ -339,15 +308,15 @@ Template allows for richer customisation of columns. In this example, informatio
 
 ![Screenshot](img/selectionrouting.jpg)
 
-When enabled, a user selecting a data grid row will have data grid variables asigned to [view state parameters](introduction.md#view-state-parameters). In the example below, *rowID* from a Data Grid has been mapped to a *rowid* view state parameter. 
+When enabled, a user selecting a data grid row will have data grid variables asigned to [view state parameters](introduction#view-state-parameters). In the example below, _rowID_ from a Data Grid has been mapped to a _rowid_ view state parameter. 
 
 ![Screenshot](img/enablerow.jpg)
 
-To start, *Enable Row Selection* must be checked.
+To start, _Enable Row Selection_ must be checked.
 
 ![Screenshot](img/enablerowselectionhtmllight.jpg)
 
-If just a single value is to be stored, the *Selected Column* and *Selected Value* can be used. If more than one value is to be stored, then <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> must be used. 
+If just a single value is to be stored, the _Selected Column_ and _Selected Value_ can be used. If more than one value is to be stored, then <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> must be used. 
 
 [1] Select the Column of the data you wish to store
 
@@ -357,11 +326,11 @@ If just a single value is to be stored, the *Selected Column* and *Selected Valu
 
 ![Screenshot](img/selectedvaluehtmllight.jpg)
 
-<aside class="warning">If more than one value from a grid is to be stored, use Selected Row Viewstate Routing</aside>
+!!! Tip "If more than one value from a grid is to be stored, use Selected Row Viewstate Routing."
 
 ### Selected Row Viewstate Routing
 
-Where *Selected Column* and *Selected Value* stores just a single value, *Selected Row Viewstate Routing* can store multiple values
+Where _Selected Column_ and _Selected Value_ store just a single value, _Selected Row Viewstate Routing_ can store multiple values
 
 Click ![Screenshot](img/addroutinghtmllight.jpg) to set storage for additional values
 
@@ -419,7 +388,7 @@ The name of the rule
 
 From the dropdown menu, select the target Data Grid column on which the rule will act 
 
-<aside class="warning">The Target column can be any column in the Data Grid.  It does not have to be the data grid column which is using the operator</aside>
+The Target column can be any column in the Data Grid.  It does not have to be the data grid column which is using the operator
 
 **Condition Source**
 
@@ -429,9 +398,24 @@ The data series on which the trigger is measured
 
 Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
 
+Trigger | Explanation
+--- | ---
+search | find Condition Value match; assign [view state parameter](introduction#view-state-parameters) and pair with [Text Input](textinput). 
+contains | find all instances with the Condition Value
+starts with | find all instancs starting with the Condition Value
+ends with | find all instance ending with the Condition Value
+== | exact match, e.g. client name
+< | less than Condition Value
+> | greater than Condition Value
+<= | less than or equal to Condition Value
+>= | greater than or equal to Condition Value
+!= | excludes Condition Value
+Fill Left-to-Right | fills cell with color from left-to-right
+Fill Right-to-Left | fills cell with color from right-to-left
+
 **Condition Value**
 
-What value threshold will trigger the alert.  Default is *previous value*
+What value threshold will trigger the alert.  Default is _previous value_
 
 **Color**
 
@@ -537,16 +521,14 @@ The text label to use for the calculation
 
 The font color for the grouping
 
-<aside class="warning">
 Default color is none, so unless a color is selected the grouping calculation will appear 'invisible'
-</aside>
 
 ![Screenshot](img/summaryrowgrouping.jpg)
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction#margins) in Introduction for more
 
 ## Format
 
-See [Format](introduction.md#format) in Introduction for more
+See [Format](introduction#format) in Introduction for more

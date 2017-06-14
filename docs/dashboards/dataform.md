@@ -1,42 +1,78 @@
+
+![Screenshot](img/dataforminput.jpg)
+
+The Data Form component quickly converts [view state parameter](introduction.md#view-state-parameters) inputs from a *Data Source* query into user configurable inputs for the dashboard. All that is required for the Data Form component is the <a href="#data-source">Data Source</a>
+
+![Screenshot](img/dataformparameters.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+Configuration options
 
-![Screenshot](img/layoutpanel.jpg)
+### Data Source
 
-**Fill Height**
+See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
 
-Automatically autosizes components to fill the height of the Layout panel.  
+**Expanded Dict Parameters**
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+If <a href="#data-source">Data Source</a> is using dictionary type [view state parameter](introduction.md#view-state-parameters), then <a href="#data-source">Data Source</a> will expand out the dictionary inputs.
 
-**Advanced Layout**
+**Show Reset**
 
-When checked, added components will best fit the Layout panel by width. 
+Includes a reset to return [view state parameter](introduction.md#view-state-parameters) to default values.
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+![Screenshot](img/resetbuttonhtmllight.jpg)
 
-[1] Add an Accordion or Tab Component
+**Show Submit**
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+Includes a submit button which allows a range of [view state parameter](introduction.md#view-state-parameters) to be updated before applying the values to the connected <a href="#data-source">Data Source</a>.
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+<aside class="notice">If there no <i>Show Submit</i> button, each change of a [view state parameter](introduction.md#view-state-parameters) will be applied to the connected <i>Data Source</i> on change</aside>
 
-[3] Then add other components to the Layout panel
+### View State Parameters
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+![Screenshot](img/viewstateparameters.jpg)
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+For each [view state parameter](introduction.md#view-state-parameters) from the <a href="#data-source">Data Source</a> the input can be configured as a user-text input box or dropdown menu.  If *Hide Parameter* is checked, then the selected <a href="#view-state-parameters">View State Parameter</a> will not appear in the dashboard. 
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+### Set View State on Submit
+
+In addition to passing values from *Data Source* [view state parameter](introduction.md#view-state-parameters), an additional (non-related to **Data Source**) <a href="#view-state-parameters">View State Parameter</a> can be set when **Data Form** values are submitted. Requires *Show Submit* button to activate
+
+![Screenshot](img/setviewstateonsubmithtmllight.jpg)
+
+## Style
+
+**Advanced CSS**
+
+Configure customisation options for **Data Form** component
+
+![Screenshot](img/advancedcssdataformhtmllight.jpg)
+
+**Display**
+
+Dropdown choice of options 
+
+Selection | Configuration
+--- | ---
+Default | ![Screenshot](img/defaultstylehtmllight.jpg)
+Inline-Block | ![Screenshot](img/inlineblockhtmllight.jpg)
+Inline | ![Screenshot](img/inlinehtmllight.jpg)
+Flex | ![Screenshot](img/flexhtmllight.jpg)
+Table | ![Screenshot](img/tablehtmllight.jpg)
+
+**Minimum Width**
+
+Slider sets the width of the *Data Form* input box. 
+ 
+![Screenshot](img/minwidthhtmllight.jpg)
+
+## Format
+
+![Screenshot](img/3dchartformat.jpg)
+
+See [Format](introduction.md#format) in Introduction for more.
 
 ## Margins
 
 See [Margins](introduction.md#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction.md#format) in Introduction for more.
-

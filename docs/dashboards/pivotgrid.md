@@ -96,7 +96,7 @@ Select date format
 
 ![Screenshot](img/dateformat.jpg)
   
-<aside class="warning">
+<aside class="admonition caution">
 Ensure Date or DataTime format is selected when Date Format is used
 </aside>
   
@@ -106,7 +106,7 @@ Select time format
   
 ![Screenshot](img/timeformat.jpg)
   
-<aside class="warning">
+<aside class="admonition caution">
 Ensure Time or DataTime Format is selected when Time Format is used. 
 </aside>
 
@@ -126,7 +126,7 @@ Select a colour to use for the bar
 
 ![Screenshot](img/percentcolorselecthtmllight.jpg)
 
-<aside class="warning">Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until until the eye icon appears, click the icon to assign the view state</aside>.
+<aside class="admonition caution">Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until until the eye icon appears, click the icon to assign the view state</aside>.
 
 **Hidden**
 
@@ -202,7 +202,7 @@ Select date format
 
 ![Screenshot](img/dateformat.jpg)
   
-<aside class="warning">
+<aside class="admonition caution">
 Ensure <i>Date</i> or <i>DateTime</i> Format is selected
 </aside>
   
@@ -212,7 +212,7 @@ Select time format
   
 ![Screenshot](img/timeformat.jpg)
   
-<aside class="warning">
+<aside class="admonition caution">
 Ensure <i>Time</i> or <i>DateTime</i> Format is selected
 </aside>
 
@@ -256,7 +256,7 @@ To Remove, again click on the color and select *No Color* from the palette tool.
 
 ![Screenshot](img/nocolorhtmlight.jpg)
 
-<aside class="warning">Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
+<aside class="admonition caution">Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
   
 **Highlight Max Value**
 
@@ -274,7 +274,7 @@ Selection will place a color border highlight around highest value in column
 
 Click the color bar again and then click *No Color* to remove the Max color setting 
 
-<aside class="warning">Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
+<aside class="admonition caution">Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
 
 **Range Highlight**
 
@@ -292,7 +292,7 @@ Applies a selected colour gradient across all cells in a column. Assigning a col
 
 Click the color bar and then *No Color* to remove the Range color from column data
 
-<aside class="warning">Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until until the eye icon appears, click the icon to assign the view state</aside>
+<aside class="admonition caution">Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until until the eye icon appears, click the icon to assign the view state</aside>
 
 **Percentage Color**
 
@@ -310,7 +310,7 @@ Select a colour to use for the bar
 
 ![Screenshot](img/percentcolorselecthtmllight.jpg)
 
-<aside class="warning">Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
+<aside class="admonition caution">Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
 
 ## Selection and Routing
 
@@ -334,7 +334,7 @@ If just a single value is to be stored, the *Selected Column* and *Selected Valu
 
 ![Screenshot](img/selectedvaluehtmllight.jpg)
 
-<aside class="warning">If more than one value from a grid is to be stored, use Selected Row Viewstate Routing</aside>
+<aside class="admonition caution">If more than one value from a grid is to be stored, use Selected Row Viewstate Routing</aside>
 
 ### Selected Row Viewstate Routing
 
@@ -364,7 +364,7 @@ When enabled, enables User to control Pivot display
 
 ![Screenshot](img/drilldownhtmllight.jpg)
 
-<aside class="warning">Requires Show Tools to be enabled</aside>
+<aside class="admonition caution">Requires Show Tools to be enabled</aside>
 
 **Show Tools**
 

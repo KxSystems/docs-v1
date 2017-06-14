@@ -1,34 +1,79 @@
+
+File uploader (and downloader).
+
+![Screenshot](img/uploadmanagerhtmllight.jpg)
+
+Click ![Screenshot](img/uploadbuttonhtmllight.jpg) to search for a file to upload
+
+![Screenshot](img/fileuploadhtmllight.jpg)
+
+File upload will begin
+
+![Screenshot](img/fileuploadcompletehtmllight.jpg)
+
+Users can also download files from the dashboard by clicking the download icon
+
+![Screenshot](img/downloadfilehtmllight.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/uploadbasics.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+Set permissions and upload/download directory
 
-**Fill Height**
+**Valid File Names**
 
-Automatically autosizes components to fill the height of the Layout panel.  
+Name or set with [view state parameter](introduction#view-state-parameters).
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+**Valid File Types**
 
-**Advanced Layout**
+Choose file type to support for import or set with a [view state parameter](introduction#view-state-parameters).
 
-When checked, added components will best fit the Layout panel by width. 
+File extensions or mime types can be specificied, with multiple file types separated by a comma.
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+Example | Supported Files
+--- | ---
+.csv, .pdf | supports CSV and PDF files (file extensions)
+image/* | supports any image file (mime type)
+.csv, .pdf, image/* | accept CSV, PDF files and any image type
 
-[1] Add an Accordion or Tab Component
+If not defined, then all file types are supported.
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+**Directory**
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+Assign a [view state parameter](introduction#view-state-parameters). Defines the destination directory for uploaded files (or where files are downloaded from).
 
-[3] Then add other components to the Layout panel
+**Server**
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+Dropdown menu. This is the target server (set up in Connection Management, by making a connection with type "daemon" to facilitate transfer between UAT and Production servers).
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+**Download Enabled**
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+Allow users download files from the dashboard
+
+**Upload Enabled**
+
+Allow users upload files to a dashboard
+
+## Style
+
+**Display Type**
+
+Icon View
+
+![Screenshot](img/iconuploadview.jpg)
+
+Table View
+
+![Screenshot](img/tableuploadview.jpg)
+
+Dropdown menu. Switches between icon and table view; default is tabulated view
+
+### Advanced CSS
+
+Configure CSS of Upload component
+
+![Screenshot](img/advancedcssuploadhtmllight.jpg)
 
 ## Margins
 
@@ -36,7 +81,8 @@ See [Margins](introduction.md#margins) in Introduction for more
 
 ## Format
 
-![Screenshot](img/mapformat.jpg)
+![Screenshot](img/3dchartformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction#format) in Introduction for more.
+
 

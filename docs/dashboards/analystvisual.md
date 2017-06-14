@@ -1,42 +1,57 @@
-## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+_For a Dark-Themed dashboard_:
 
-![Screenshot](img/layoutpanel.jpg)
+```
+.gg.dash.go 
+	// Theme to match dashboards
+	.qp.theme[.gg.dash.dark]
+	// Grammar of Graphics Specification
+	.qp.point[([]x:til 45); `x; `x; ::]
+```
 
-**Fill Height**
+_For a Light-Themed dashboard_:
 
-Automatically autosizes components to fill the height of the Layout panel.  
+```
+.gg.dash.go 
+	// Theme to match dashboards
+	.qp.theme[.gg.dash.light]
+	// Grammar of Graphics Specification
+	.qp.point[([]x:til 45); `x; `x; ::]
+```
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+ To add an Analyst Grammar of Graphics visual to a dashboard:
 
-**Advanced Layout**
+1. Drag the "Analyst Visual" widget from the sidebar into the desired dashboard
+2. Select the new Analyst Visual widget within the Dashboard
+3. Click on the _Data Source_ in the right sidebar to open the Data Source dialog
+4. Create a new Data field by clicking "New" in the top-left of the Data Source dialog
+5. Set the database connection as normal at the top of the dialog
+6. **Important**! Uncheck the "Auto-exec" checkbox near the "Results" pane in the dialog
+7. Type `.gg.dash.go` followed by a Grammar of Graphics specification in the Query area at the top of the dialog
+8. A theme can be used to match the theme of Dashboards (dark or light)
+9. Click "Apply" and "Select Item" to save the changes
+10. The visual will be plotted within the dashboard
 
-When checked, added components will best fit the Layout panel by width. 
+!!! Warning "Ensure 'Auto-exec' is unchecked within the Data Source editor."
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+!!! Warning "Do not add more than one Analyst Widget using the same Data Source (create a new data source for each Analyst Widget)."
 
-[1] Add an Accordion or Tab Component
+## Style
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+[1] Left click inside Advanced CSS button
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+![Screenshot](img/leftclickcss.jpg)
 
-[3] Then add other components to the Layout panel
+[2] Select the Analyst Visual component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Analyst Visual component. 
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
-
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
-
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
-
-## Margins
-
-See [Margins](introduction.md#margins) in Introduction for more
+[3] Add the required CSS content
 
 ## Format
 
-![Screenshot](img/mapformat.jpg)
+![Screenshot](img/3dchartformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction#format) in Introduction for more.
 
+## Margins
+
+See [Margins](introduction#margins) in Introduction for more

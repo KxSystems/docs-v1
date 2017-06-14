@@ -1,42 +1,67 @@
-## Basics
+![Screenshot](img/chartiqparent.jpg)
 
-![Screenshot](img/layoutpanelmenu.jpg)
+## Layers
 
-![Screenshot](img/layoutpanel.jpg)
+Sets <a href="#data-source">Data Source</a> and data type to plot on the chart. More than one data source can be used.
 
-**Fill Height**
+**Layer 1**
 
-Automatically autosizes components to fill the height of the Layout panel.  
+Dropdown select of price type. Selecting will update the inputs supported
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+Type | Description
+--- | ---
+OHLC | Open, High, Low and Close Candlestick
+Line | Single price (open, high, low, close)
+Bar | Single price (open, high, low, close)
+Mountain | Single price (open, high, low, close), but space between price line and x-axis is filled inputs
 
-**Advanced Layout**
+_OHLC_
 
-When checked, added components will best fit the Layout panel by width. 
+![Screenshot](img/ohlc.jpg)
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+**Name**
 
-[1] Add an Accordion or Tab Component
+Define name of price layer
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+**Data Source**
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
-[3] Then add other components to the Layout panel
+**Color**
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+Set color of chart line
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+_Line_, _Bar_, _Mountain_
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+![Screenshot](img/chartiqparent.jpg)
 
-## Margins
+**Name**
 
-See [Margins](introduction.md#margins) in Introduction for more
+Define name of price layer
 
-## Format
+**Data Source**
 
-![Screenshot](img/mapformat.jpg)
+See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
-See [Format](introduction.md#format) in Introduction for more.
+**X-Axis Data**
+
+Set data series from <a href="#data-source">Data Source</a> to use as x-Axis.
+
+**Y-Axis Data**
+
+Set data series from <a href="#data-source">Data Source</a> to use as y-Axis data
+
+**Y-Axis**
+
+Define Y-Axis. Can be a [view state parameter](introduction#view-state-parameters)
+
+**Color**
+
+Set color of chart line
+
+**Opacity**
+
+Set opacity (transparency) of price line
+
+
 

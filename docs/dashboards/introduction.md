@@ -2,77 +2,64 @@
 
 <iframe src="https://player.vimeo.com/video/135580263" width="100%" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-Dashboards for Kx offers an easy-to-use, yet powerful drag-and-drop interface to allow Creators build dashboards without the need for programming experience. 
+_Dashboards for Kx_ offers an easy-to-use, yet powerful drag-and-drop interface to allow Creators to build dashboards without the need for programming experience. 
 
-Dashboards for Kx provides rich visualisation of real-time streaming data with support for highly optimized polled queries. Built in HTML using JavaScript libraries, Dashboards for Kx can be used in all modern browsers and can be used on mobile and desktop environments.
-
+_Dashboards for Kx_ provides rich visualisation of real-time streaming data with support for highly optimized polled queries. Built in HTML using JavaScript libraries, _Dashboards for Kx_ can be used in all modern browsers and can be used on mobile and desktop environments.
 Kx supports real-time analysis of billions of records and fact access to terabytes of historical data, offering seamless scalability. 
 
-## First Dashboard
+## My first dashboard
 
 ![Screenshot](img/newdashboard.jpg)
 
-*Above New Dashboard View
+The Dashboard Builder has a central workspace; to the left is a list of components, and to the right are the properties associated with the dashboard or selected component.
 
-The Dashboard builder is comprised of a central workspace; to the left is a list of components, and to the right are the properties associated with the dashboard or selected component.
-
-The Administrator dropdown menu in the top right offers a Light or (default) Dark theme builder view, and the ability to set the base language for the dashboard. 
+The _Administrator_ dropdown menu in the top right offers a Light or (default) Dark theme builder view, and the ability to set the base language for the dashboard.
 
 ![Screenshot](img/administrator.jpg)
 
-<aside class="warning">
 Builder theme is different to Dashboard theme. Define dashboard theme from the Style menu of Dashboards. 
-</aside>
-
-<aside class="warning">
 Language support is offered for English, German and Japanese.
-</aside>
 
-### Dashboard Basics
+### Dashboard basics
 
-In Dashboard properties, give the dashboard a Name. The Link is the public link used to share the dashboard with colleagues.
+In Dashboard properties, give the dashboard a name. The _Link_ is the public link used to share the dashboard with colleagues.
 
 ![Screenshot](img/dashboardname.jpg)
 
-<aside class="warning">
-The Link is non-editable. Clicking on the link will open the dashboard in a new browser tab
-</aside>
+The link is non-editable. Clicking on it will open the dashboard in a new browser tab.
 
-**Fill Height**
+**Fill height**
 
-Check Fill Height so dashboards autofit to the height of the browser depending on user screen resolution. 
+Check _Fill Height_ so dashboards autofit to the height of the browser depending on user screen resolution. 
+Dashboards will automatically autofit for browser width.
 
-<aside class="warning">Dashboards will automatically autofit for browser width</aside>
+### Save dashboards
 
-### Save Dashboards
+![Screenshot](img/manage.jpg)  
 
-Dashboard Manager
+_Dashboard Manager_
 
-![Screenshot](img/manage.jpg)
-
-It's good basic practice to regularly save dashboard work. This can be done from the header menu.
+It is good practice to save dashboard work regularly. This can be done from the header menu.
 
 ![Screenshot](img/savedashboard.jpg)
 
-<aside class="warning">
 Dashboards can be copied with ![Screenshot](img/copyicon.jpg). Good for dashboards sharing data formats, sourced from different databases.
-</aside>
 
-### Create a New Dashboard
+### Create a new dashboard
 
 New dashboards can be created clicking the file ![Screenshot](img/newicon.jpg) icon
 
-### Dashboard Manager: Open, View & Delete Dashboards
+### Dashboard Manager
 
-Dashboards are managed, opened and viewed from the Manage menu ![Screenshot](img/manageicon.jpg)
+Dashboards are managed, opened and viewed from the _Manage_ menu ![Screenshot](img/manageicon.jpg)
 
 Inside Dashboard Manager, select a dashboard from the list, before clicking ![Screenshot](img/managemenu.jpg) 
 
-"View on Web" shows an end-user view of your Dashboard.
+_View on Web_ shows an end-user view of your dashboard.
 
-### Import / Export Dashboard
+### Importing and exporting dashboards
 
-Dashboards can be exported (as XML) and imported via the Dashboard Manager Menu. 
+Dashboards can be exported as XML and imported via the Dashboard Manager menu. 
 
 ![Screenshot](img/dashboardimportmenu.jpg)
 
@@ -82,285 +69,259 @@ Dashboards can be exported (as XML) and imported via the Dashboard Manager Menu.
 
 [2] Select one or more dashboards to import
 
-![Screenshot](img/dashboardimportselect.jpg)
+[3] Open the Dashboard Manager and select _Import_ ![icon](img/importicon.jpg)
 
-[3] Open the Dashboard Manager and select Import (img/importicon.jpg)
-
-[4] Close Dashboard Manager and check Dashboard List Dropdown for imported dashboards
+[4] Close Dashboard Manager and check Dashboard List Dropdown to find your imported dashboard
 
 ![Screenshot](img/importeddashboard.jpg)
 
 **Export**
-
 [1] In the Dashboard Manager, select a dashboard
 
 ![Screenshot](img/exportdashboard.jpg)
 
-[2] Selecting a dashboard should highlight the Export icon; click the Export icon
+[2] Selecting a dashboard highlights the Export icon; click it: ![Screenshot](img/exporticon.jpg)
 
-![Screenshot](img/exporticon.jpg)
+[3] Select a location in your file system to save the exported XML.
 
-[3] Select a location on your PC to export the Dashboard xml file too. 
+## Customizing the dashboard
 
-## Customizing the Dashboard
+Setting the global style for your dashboard:
 
-Setting the global style for your dashboard.
+![Screenshot](img/dashboardsettings.jpg)  
 
-Dashboard Settings: 
+_Dashboard properties_
 
-![Screenshot](img/dashboardsettings.jpg)
-
-Dashboard Style Example: 
+Style example:
 
 ![Screenshot](img/dashboardstyle.jpg)
 
-### Dashboard Style
+### Dashboard style
 
-If the dashboard is to have a light or dark theme it can be defined from Style property.  The Style menu is also where spacing between the components and the background color of the component is defined. 
+If the dashboard is to have a light or dark theme it can be defined from the _Style_ property.  The _Style_ menu is also where spacing between the components and the background color of the component is defined. 
 
-<aside class="warning">
-If your dashboard uses streaming, managed or polling data, uncheck ![Screenshot](img/showloadingindicators.jpg)
-</aside>
+!!! tip
+    If your dashboard uses streaming, managed or polling data, uncheck ![Screenshot](img/showloadingindicators.jpg)
 
-### Dashboard Permissions
+### Dashboard permissions
 
-Dashboard Users can either be Read Only Users, or have assigned Write Access permissions - enabling editing of dashboards.  The User Group list is defined in Control for Kx. 
+Dashboard users can either be read-only, or have assigned write-access permissions – enabling editing of dashboards.  The user group is defined in Control for Kx (part of the Kx Suite of applications) 
 
 ![Screenshot](img/permissions.jpg)
 
 ### Screens
 
-All dashboards have a main screen, but multiple screens can be added and linked using the Navigation or Button component.
+All dashboards have a main screen; other screens can be added and linked using the [Navigation](navigation) or [Button](button) components.
 
 ![Screenshot](img/addscreen.jpg)
 
-## Creating a Connection
+## Creating a connection
 
 Connections can be created from the Dashboard console or Query Editor.
 
 ![Screenshot](img/welcomedashboard.jpg)
 
-1. Open the Connections menu and create New Connection
+1. Open the Connections menu and create _New Connection_.
+2. Give your connection a name.
+3. Define _Type_: the default is _kdb_.
+4. Define _Host_.
+5. Set _Connection Port_.
+6. Include any user and password information. Confirm the password. 
+7. Save when complete.
 
-2. Give your Connection a Name
+### Connection groups
 
-3. Define Type
+Individual connections can be grouped together: 
 
-<aside class="warning">
-Default Type: kdb
-</aside>
+1. Give the connection group a name
+2. Use Ctrl + select connections in the right-hand-box list.
+3. Save the group.
 
-4. Define Host
-
-5. Set Connection Port
-
-6. Include any User and Password information. Confirm the Password
-
-7. Save when complete
-
-### Connection Groups
-
-Individual connections can be grouped together 
-
-1. Give Connection Group a Name
-
-2. Use CTRL + select connections in the right-hand-box list.
-
-3. Save Group
-
-All connections (single & group) will appear in a drop down list in the Data Source Editor.  See <a href="#defining-a-query">**Defining a Query**</a>
+All connections (single and group) will appear in a drop down list in the Data Source Editor.  See <a href="#defining-a-query">**Defining a query**</a>
 
 ![Screenshot](img/connectionlist.jpg)
 
-Single Connection:
+Single connection:
 
 ![Screenshot](img/createconnection.jpg)
 
-Group Connection: 
+Group connection: 
 
 ![Screenshot](img/connectiongroup.jpg)
 
-## Adding Your First Component
+## Adding your first component
 
-Drag-and-drop components into workspace
+Drag and drop components into the workspace:
 
 ![Screenshot](img/dragcomponent.jpg)
 
-Configure component from the Property panel on the right
+Configure component from the property panel on the right
 
 ![Screenshot](img/componentproperty.jpg)
 
-Dashboards are created by bringing components from the list available on the left into the workspace.  Each component has a set of properties, configured using the menu to the right.
+Dashboards are created by bringing available components from the list on the left into the workspace.  Each component has a set of properties, configured using the menu to the right.
 
 ### Basic customisation
 
-1. Define Data Source by assigning a query or analytic: see <a href="#defining-a-query">**Defining a Query**</a>
+1. Define Data Source by [assigning a query or analytic](#defining-a-query)
+2. Set the Data View – how the display will be displayed in the dashboard.  This is dependent on the component you use. 
+3. Set style and formatting, including any title headers. The options available to you will be defined by the component you use; for example, Charts have many formatting options whereas RSS Feed has just a few. Some components use unique data sources, e.g. [Report Manager](reportmanager) or [Action Tracker](actiontracker). See the component details for more information. 
 
-2. Set Data View.  This is how the display will be displayed in the dashboard **See relevant Data & Pivot Grid or Charting Component**
+!!! tip "Linking components"
+    Components sharing data sources can be linked, and queries using input variables can have values passed to them using [Dataform](dataform) or [Drop Down List](dropdownlist) components. 
+    
+    <i class="fa fa-hand-o-right"></i> [Linking components](#linking-components)
 
-3. Set Style and Formatting, including any Title headers. See <a href="#dashboard-components">**Dashboard Components**</a>
-
-<aside class="warning">
-Some Components use unique Data Sources, e.g. Report Manager or Action Tracker. See relevant component for more information. 
-</aside>
-
-Components sharing data sources can be linked, and queries using input variables can have values passed to them using Data Form or Drop Down component. see <a href="#linking-components">**Linking Components**</a>
-
-The first component for many dashboards will be either a [Data Grid](datagrid.md), [Pivot Grid](pivotgrid.md) or [Bar Chart](barchart.md).
+The first component for many dashboards will be either a [Data Grid](datagrid), [Pivot Grid](pivotgrid) or [Bar Chart](barchart).
 
 ![Screenshot](img/simpledashboard.jpg)
 
-## Defining a Query
+## Defining a query
 
-Query Editor
-
-![Screenshot](img/querydialog.jpg)
-
-Queries are defined from the Basic Property panel, "Data Source". Left click inside the "Data Source" input box to open the Query Editor
+Queries are defined from _Data Source_ in the _Basics_ property panel. Left-click to open the Query Editor: 
 
 ![Screenshot](img/datasource.jpg)
+![Screenshot](img/querydialog.jpg) 
 
-From the Query Editor, create a 'New' Data Source
+_Query Editor_
+
+Create a _New_ data source:
 
 ![Screenshot](img/newdatasource.jpg)
 
-Select the Data Connection from the dropdown menu. See <a href="#creating-a-connection">**creating a connection**</a> if this hasn't be done yet. 
-
-<aside class="warning">
-Connections can also be created by clicking ![Screenshot](img/createconnect.jpg)
-</aside>
+Select the data connection from the dropdown menu. ([Create a connection](#creating-a-connection) if this hasn’t been done yet. Connections can also be created by clicking ![Screenshot](img/createconnect.jpg).) 
 
 ![Screenshot](img/selectconnection.jpg)
 
-In the Query editor, add the query for your data
+In the Query Editor, add the query for your data:
 
 ![Screenshot](img/queryeditorquery.jpg)
 
-<aside class="warning">
-Ensure ![Screenshot](img/queryanalytic.jpg) is selected
-</aside>
+Ensure ![Screenshot](img/queryanalytic.jpg) is selected.
 
-<aside class="warning">
-The primary Query, Pivot Query and Update Query section of the Query Editor have drag bars (blue highlight on rollover) to increase or decrease the viewable area of each. 
-</aside>
+!!! tip
+    The primary _Query_, _Pivot Query_ and _Update Query_ section of the Query Editor have drag bars (highlighted blue on rollover) to increase or decrease the viewable area of each. 
 
+The default number of display rows is 100, but up to 1 million rows of data can be displayed.  
 ![Screenshot](img/maxrows.jpg)
 
-<aside class="warning">
-The default number of display rows is 100, but up to 1 million rows of data can be displayed. 
-</aside>
+### Sample query
 
-### Sample Query
+Data Connection
 
-**Data Connection:** `html5evalcongroup`
+: `html5evalcongroup`
 
-**Query:** `select rowID, sym, counterParty, m2mUSD_0, percentage, startDate from SampleGridData` 
+Query
 
-![Screenshot](img/staticmanaged.jpg)
-  
-<aside class="warning">
-The default data setting is static, if data is sourced from a running feed then Interval (in seconds) and Key has to be defined. 
+: `select rowID, sym, counterParty, m2mUSD_0, percentage, startDate from SampleGridData` 
 
-Queried data can be Managed or Polling. 
+Subscription
 
-Managed data is a server-side poll of the database, which is then pushed to the Client. 
-Managed queries are used for repeat poll requests to limit hits to the source database. 
-Polling queries are client-based requests to the database. 
-Analytics also support Streaming data from a real-time feed
+: ![Screenshot](img/staticmanaged.jpg)
 
-Force reset, if checked, clears stored values on Dashboard (re)load. 
-</aside>
+    Static
+    : The default setting is static. If data is sourced from a running feed then _Interval_ (in seconds) and _Key_ must be defined.
 
-![Screenshot](img/execute.jpg) the query to populate data to a Data Grid or Chart.
+    Managed
+    : Managed data is a server-side poll of the database, which is then pushed to the client. Managed queries are used for repeat poll requests, to limit hits to the source database. 
 
-A successfully executed query will populate the Results Table.
+    Polling
+    : Polling queries are client-based requests to the database. 
+
+Analytics also support Streaming data from a real-time feed.
+
+_Force reset_, if checked, clears stored values on (re)loading the dashboard.
+
+![Screenshot](img/execute.jpg) the query to populate data to a [Data Grid](datagrid) or chart.
+
+A successfully-executed query will populate the _Results_ table.
 
 ![Screenshot](img/results.jpg)
 
-## Pivot Query
+## Pivot query
 
-Pivot Queries are used by the <a href="#pivot-grid">**Pivot Grid**</a> component.
+Pivot queries are used by the [Pivot Grid](pivotgrid) component.
 
 ![Screenshot](img/pivotgrid.jpg)
 
-Pivot data is split between independent variables, 'Breadown Cols' and dependent variables, 'Aggregates'. 
+Pivot data is split between independent variables, _Breakdown Cols_ and dependent variables, _Aggregates_. 
 
 ![Screenshot](img/pivotformat.jpg)
 
-To add a new row of 'Aggregates' click ![Screenshot](img/plusicon.jpg)
+To add a new row to _Aggregates_ click ![Screenshot](img/plusicon.jpg)
 
-<aside class="warning">
-Names for 'Breakdown Cols' and 'Aggregates' are case sensitive. If an error, check column header names in source database match those used in Dashboards. 
-</aside>
+!!! warning "Case-sensitive names"
+    Names for _Breakdown Cols_ and _Aggregates_ are case-sensitive. If an error occurs, check that column-header names in source database match those used in dashboards. 
 
-The order of the 'Breakdown Cols' can be changed using drag-and-drop, and can also be changed by the User in the dashboard. See <a href="#pivot-grid">**Pivot Grid**</a>
+The order of the _Breakdown Cols_ can be changed using drag and drop, and can also be changed by the user in the dashboard. 
 
-![Screenshot](img/pivotdrag.jpg)
+![Screenshot](img/pivotdrag.jpg)  
 
-### Pivot Breakdown via Breadcrumbs
+<i class="fa fa-hand-o-right"></i> [Pivot Grid](pivotgrid)
 
-Breadcrumb Breakdown
+### Pivot breakdown via breadcrumbs
 
 ![Screenshot](img/breadcrumbbreakdown.jpg)
 
-The order of the pivot breakdown can be controlled from the  <a href="#breadcrumbs">Breadcrumbs</a> component.
+The order of the pivot breakdown can be controlled from the [Breadcrumbs](breadcrumbs) component.
 
-[1] Create a View State Parameter and associate with the <em>Breakdown</em> property in <strong>Settings</strong>
+1. Create a _View State_ parameter and associate with the _Breakdown_ property in _Settings_. 
 
 ![Screenshot](img/breadcrumbsbreakdownlight.jpg)
 
-[2] In the linked Pivot Query, assign the <em>Breakdown</em> property to the <em>Breakdown Cols</em> in the Pivot Query
+2. In the linked pivot query, assign the _Breakdown_ property to the _Breakdown Cols_ in the pivot query. 
 
 ![Screenshot](img/pivotquerybreadcrumb.jpg)
 
-The resulting output shows the breakdown elements laid out in the breadcrumb component.  These can be dragged-and-repositioned to reorder the pivot order.
+The resulting output shows the breakdown elements laid out in the Breadcrumb component.  These can be dragged and repositioned to change the pivot order.
 
 ![Screenshot](img/pivotquerybreadcrumbbreakdown.jpg)
 
-### Column Label
+### Column label
 
-Two-dimensional Pivot Query:
-
+A two-dimensional pivot query:
 ```
 {[n]
-([hub:n?`CHIA`XASX;country:n?`UK`USA`CANADA`FRANCE;account:n?`4;dispalyQueue:n?`NEW`ASSIGNED`CLOSED]ncount:n?100)}
+([hub:n?`CHIA`XASX;country:n?`UK`USA`CANADA`FRANCE;account:n?`4;displayQueue:n?`NEW`ASSIGNED`CLOSED]ncount:n?100)}
 ```
 
 ![Screenshot](img/2dpivot.jpg)
 
-*Column Label* is used to support 2-dimenional pivots.  An example query is given below:
+_Column Label_ is used to support 2-dimensional pivots.  An example query:
 
 ![Screenshot](img/2dpivot2.jpg)
 
-<aside class="warning">
-Navigation of a OLAP / Pivot control requires enabling Breadcrumbs in a component, or linking with [Breadcrumb Component](breadcrumb.md).
-</aside>
+Navigation of a OLAP / Pivot control requires enabling Breadcrumbs in a component, or linking with a [Breadcrumbs](breadcrumbs) component.
 
-### Aggregate Functions: Monadic/Dyadic
+### Aggregate functions: unary and binary
 
-Dyadic Analytic
+Binary Analytic
 
-In the query editor, **select from** database source
+In the query editor, `select from` the database source
 
 ![Screenshot](img/pivotqueryhtmllight.jpg)
 
-**Breakdown** represents the drilldown buckets (independent variables)
+Breakdown Cols
 
-**Aggregate** (dependent variables) Monadic are sum, avg, count, min, max data functions. Dyadic example as illustrated in the VWAP example (*function:`parameter*).
+: The drill-down buckets, i.e. the independent variables
 
-### Custom Dyadic Analytics
+Aggregates
 
-Custom Dyadic Analytic
+: Functions of the dependent variables. Unary functions are `sum`, `avg`, `count`, `min`, `max`. 
+
+### Custom binary analytics
 
 ![Screenshot](img/enhancedpivot.jpg)
  
-A standard built-in predefined dyadic function is available. 
+A standard built-in binary function is available as part of the VWAP Analytic (_subVWAP_) found in _Demo Trading_ dashboard in the Dashboard evaluation pack. 'bzise' is bid size
 
-![Screenshot](img/columnlabelexample.jpg)
+```q
+Example: {[a;b] sum[a*b] % (sum[`long $ a])};`bsize
+```
 
-## Update Query
+## Update query
 
-In addition to using Update Query code, Data Grid requires *Enable Edit Mode* and/or *Enable Insert/Delete* to be selected in Properties
+In addition to using Update Query code, [Data Grid](datagrid) requires _Enable Edit Mode_ and/or _Enable Insert/Delete_ to be selected.
 
 ![Screenshot](img/enableeditinsert.jpg)
 
@@ -376,15 +337,20 @@ Click inside cell to edit to change or add a row, then *Submit* or *Cancel* chan
 
 ![Screenshot](img/submitedit.jpg)
 
-An Update Query allows Dashboard end-users, both Read-Only and Write permissioned, to make changes to the source database inside a Data Grid; for example, when adding a new client to a database. The Update Query requires both a query, and a settings check in Data Grid properties.
+An Update Query allows dashboard users, both read-only and write permissioned, to make changes to the source database inside a [Data Grid](datagrid); for example, when adding a new client to a database. The Update Query requires both a query, and a settings check in Data Grid properties.
 
 ![Screenshot](img/updatequery.jpg)
 
-<aside class="warning">
-If Update Query is enabled, all Users permissioned for that dashboard will be able to make changes. If you only want some Read-only permissioned Users to have Edit permissions, duplicate the dashboard and uncheck Enable Edit Mode and Enable Insert/Delete from Data Grid properties and permission Users who shouldn't have edit control to this duplicate dashboard.  
-</aside>
+!!! tip "Permission to edit"
+    If _Update Query_ is enabled, all users permissioned for that dashboard will be able to make changes. If you want only some read-only permissioned users to have edit permissions:
+    * Duplicate the dashboard
+    * Uncheck _Enable Edit Mode_ and _Enable Insert/Delete_ from the Data Grid properties 
+    * Permission users who shouldn’t have edit control to this duplicate dashboard.  
 
-<aside class="warning">Remember to link to the **Breadcrumb** component for navigation control of the pivot</aside>
+Remember to link to the [Breadcrumbs](breadcrumbs) component for navigation control of the pivot. 
+
+
+
 
 ## Analytics
 
@@ -396,7 +362,7 @@ Analytics are predefined queries, built in Control for Kx, which can be configur
 
 The *subVWAP* analytic is an example of an analytic using streaming data.
 
-<aside class="warning">
+<aside class="admonition caution">
 As with q queries, analytics must include a selected database from the dropdown menu
 </aside>
 
@@ -454,11 +420,11 @@ If a manual change to a View State Parameter is required; for example, to define
 
 ![Screenshot](img/integermap.jpg)
 
-<aside class="warning">
+<aside class="admonition tip">
 When defining parameter Type, do so from the View State Parameters menu, not from the Query Editor.  Changing variable Type inside the Query Editor will only change it for that query.  Also, Type defined in Query Editor will be overwritten by defined Type from the View State Parameter dialog.
 </aside>
 
-<aside class="warning">
+<aside class="admonition tip">
 However, when testing a query execution, it can be helpful to assign a value to a query parameter before mapping a View State. This can be done through the Query Editor.
 </aside>
 
@@ -520,7 +486,7 @@ Added widget spacing is the equivalent of *Outer Margin* in the Margin menu of a
 
 Rounding of borders is only possible if *Border Size* has a value greater than 1. Use of more rounded borders requires increased border spacing to avoiding edge cutting of the border. 
  
-<aside class="warning">
+<aside class="admonition caution">
 Changes to Dashboard Styling will overwrite individual component Margin settings. When styling dashboards, ensure changes are made at the macro-dashboard level before configuring at the individual component level.
 </aside>
 
@@ -542,10 +508,8 @@ To add a logo to a dashboard, use the Text Component
 
 ![Screenshot](img/uploadimage.jpg)
 
-<aside class="warning">
-Set the height of the logo (in pixels): 50 is good
-Set widith if needed
-Submit to load the image
+<aside class="admonition tip">
+Set the height of the logo (in pixels) - 50 pixels is good a height to use. Next, set image width if needed (usually not). Then submit to load the image.
 </aside>
 
 ![Screenshot](img/texteditorhtmllight.jpg)
@@ -554,9 +518,9 @@ A sample height of 50 is good for a logo. The importer will rescale the logo mai
 
 ![Screenshot](img/kxlogoimage.jpg)
 
-<aside class="warning">Ensure your logo image uses a transparent background so it's compatible with the background of the dashboard</aside>
+<aside class="admonition tip">Ensure your logo image uses a transparent background so it's compatible with the background of the dashboard</aside>
 
-<aside class="warning">Delete the default "insert text here" from the **Text Component** before adding the logo</aside>
+<aside class="admonition tip">Delete the default "insert text here" from the <i>Text Component</i> before adding the logo</aside>
 
 [4] If your logo is positioned to the left of the dashboard, change the *Horizontal* alignment to Left. Do vice versa for right-positioned logos
 
@@ -580,7 +544,7 @@ Rollover the *Text Component* until the *div.htmlContent* box is selected:
 
 ![Screenshot](img/advancedcssstyle.jpg)
 
-<aside class="warning">If Dashboard Styling is used to align and position components, remember to update the *Margins* setting of the Text Component to undo any unncessary changes in the position of the logo</aside>
+<aside class="admonition caution">If Dashboard Styling is used to align and position components, remember to update the <i>Margins</i> setting of the Text Component to undo any unncessary changes in the position of the logo</aside>
 
 ## Margins
 
@@ -594,7 +558,7 @@ Controls spacing outside of component and component border
 
 Controls spacing between component (rectagular) pane and any utilized border.
 
-<aside class="warning">In the absence of a defined border, changes between Inner and Outer Margin will appear similar</aside>
+<aside class="admonition caution">In the absence of a defined border, changes between Inner and Outer Margin will appear similar</aside>
 
 ### Title 
 
@@ -606,7 +570,7 @@ Sample Title Settings | Results
 ![Screenshot](img/title66620.jpg) | ![Screenshot](img/titleimage66620.jpg)
 ![Screenshot](img/title50666htmllight.jpg) | ![Screenshot](img/titleimage50666htmllight.jpg)
 
-<aside class="warning">Adjusting *Title Left* and *Title Right* will add margin even if Title is center aligned for *Title Horizontal Align* in **Format** Menu </aside>
+<aside class="admonition caution">Adjusting <i>Title Left</i> and <i>Title Right</i> will add margin even if Title is center aligned for <i>Title Horizontal Align</i> in <i>Format</i> Menu </aside>
 
 ## Format
 
@@ -678,8 +642,8 @@ The three inputs control border use of a component
 
 ![Screenshot](img/bordersettinghtmllight.jpg)
 
-<aside="warning">
-It may be necessary to adjust *Inner Top* and *Inner Bottom* margin to avoid the rectangular area box of the component from cutting into a rounded border
+<aside="admonition caution">
+It may be necessary to adjust <i>Inner Top</i> and <i>Inner Bottom</i> margin to avoid the rectangular area box of the component from cutting into a rounded border
 </aside>
 
 ### Component Shadow

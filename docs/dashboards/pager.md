@@ -1,42 +1,47 @@
+![Screenshot](img/pager.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/pagerbasics.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+**Data Source**
 
-**Fill Height**
+See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
-Automatically autosizes components to fill the height of the Layout panel.  
+**Paging Type**
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+Dropdown selection
 
-**Advanced Layout**
+Type | Description
+--- | ---
+None | No Paging employed 
+Offset | Set Paging with _Offset/Page Number
+Page Number | Use Page Number
 
-When checked, added components will best fit the Layout panel by width. 
+**Offset/Page Number**
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+Set starting point for Paging
 
-[1] Add an Accordion or Tab Component
+**Page Size**
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+Determine how many rows of data each page is defined by
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+## Style
 
-[3] Then add other components to the Layout panel
+[1] Left click inside Advanced CSS button
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+![Screenshot](img/leftclickcss.jpg)
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+[2] Select the Pager component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Pager component. 
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
-
-## Margins
-
-See [Margins](introduction.md#margins) in Introduction for more
+[3] Add the required CSS content
 
 ## Format
 
-![Screenshot](img/mapformat.jpg)
+![Screenshot](img/3dchartformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction#format) in Introduction for more.
 
+## Margins
+
+See [Margins](introduction#margins) in Introduction for more

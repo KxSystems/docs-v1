@@ -2,8 +2,6 @@ Specialised chart with support for upto four, cross-referenced <a href="#data-so
 
 ![Screenshot](img/scatterplothtmllight.jpg)
 
-
-
 ## Basics
 
 Scatter Plot Menu
@@ -142,7 +140,7 @@ Overlay trendline on top of scatter plot chart.
 
 Set color of trendline
 
-<aside class="waring">Ensure <b>Show Trendline</b> is checked for trendline to appear</aside>
+<aside class="admonition caution">Ensure <b>Show Trendline</b> is checked for trendline to appear</aside>
 
 **XAxisRotation**
 

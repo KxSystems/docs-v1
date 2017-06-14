@@ -1,26 +1,26 @@
 ## Basics
 
-Defines Data Source, component linking, and [view state parameters](introduction.md#view-state-parameters) populated when a chart bar is clicked
+Defines Data Source, component linking, and [view state parameters](introduction#view-state-parameters) populated when a chart bar is clicked
 
 ![Screenshot](img/chartbasics.jpg)
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
 ### Focus
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction#linking-components). Requires a [view state parameter](introduction#view-state-parameters).
 
 ### Range
 
-Used for linking to a [range slider](rangeslider.md). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for linking to a [range slider](rangeslider). Requires a [view state parameter](introduction#view-state-parameters).
 
 ### Selected Value 
 
-Used to map a chart (query) data point to a [view state parameter](introduction.md#view-state-parameters) when a chart bar is clicked by the user. 
+Used to map a chart (query) data point to a [view state parameter](introduction#view-state-parameters) when a chart bar is clicked by the user. 
 
-[1] Create a [view state parameter](introduction.md#view-state-parameters) and assign to <i>Selected Value</i>
+[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
  
 ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
@@ -28,11 +28,11 @@ Used to map a chart (query) data point to a [view state parameter](introduction.
 
 ### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction.md#view-state-parameters). 
+This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters). 
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="warning">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
 
 ### Selected Row ViewState Routing
 
@@ -60,11 +60,11 @@ Sets the data type for the label used for X-Axis Value
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-<aside class="warning">If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a></aside>
+!!! Tip "If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a>"
 
 **Axis Format**
 
-Used for when <a href="#axis-type">X-Axis Type</a> is of type <i>Date</i>.
+Used for when <a href="#axis-type">X-Axis Type</a> is of type _Date_.
 
 ![Screenshot](img/xaxisformatdatehtmllight.jpg)
 
@@ -94,7 +94,7 @@ When checked, x-axis will scale by time or numeric sequence
 
 ![Screenshot](img/ordinal.jpg)
 
-<aside class="warning">Best used when <a href="#axis-scale">Axis Scale</a> is set to <i>scale</i></aside>
+!!! Tip "Best used when <a href="#axis-scale">Axis Scale</a> is set to _scale_."
 
 **Show new Time Period**
 
@@ -104,7 +104,7 @@ Ensures the latest data point of a time sequence is displayed
 
 **Use Fixed Num of Ticks**
 
-Toggles control to use **Num of Ticks**
+Toggles control to use _Num of Ticks_
 
 ![Screenshot](img/multichartnumofticks.jpg)
 
@@ -116,7 +116,7 @@ Displays every charted data point in the x-axis
 
 The number of ticks to display in the x-axis.
 
-<aside class="warning">Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable</aside>
+!!! Warning "Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable."
 
 **Axis Rotation**
 
@@ -158,7 +158,7 @@ Use the wildcard to group select data. The wildcard can also be used to select p
 
 For example, wildcard selection charted the three available data series:
 
-<aside class="warning">If wildcard is select for column name, all wildcard plots will share the same formatting (e.g. color). A separate column will be required for specific data source variable plots.</aside>
+If wildcard is select for column name, all wildcard plots will share the same formatting (e.g. color). A separate column will be required for specific data source variable plots.
 
 **Color**
 
@@ -166,7 +166,7 @@ Sets the color for the bar chart (non-pivot data).
 
 ![Screenshot](img/selectcolorhtmllight.jpg)
 
-<aside class="warning">The color palette for Pivot data will use <a href="#style">Style</a> menu colors.</aside> 
+!!! Rip "The color palette for Pivot data will use <a href="#style">Style</a> menu colors." 
 
 **Display Name**
 
@@ -174,7 +174,7 @@ Defines the name used in the chart legend
 
 ![Screenshot](img/displaynamecharthtmllight.jpg)
 
-<aside class="warning">If wildcard is used for <a href="#column">Column</a> name, then dashboards will append any used Display Name to the column name from the database. It's best to leave blank when using wildcard naming</aside> 
+!!! Tip "If wildcard is used for <a href="#column">Column</a> name, then dashboards will append any used Display Name to the column name from the database. It's best to leave blank when using wildcard naming."
 
 ## Zoom/Pan 
 
@@ -190,7 +190,7 @@ Check control to switch Zoom and Pan functionality on
 
 **Type**
 
-Select between drag-to-select <i>Zoom</i>, or <i>Pan</i> control
+Select between drag-to-select _Zoom_, or _Pan_ control
 
 **Zoom Select Color, Opacity and Border**
 
@@ -200,7 +200,7 @@ Selects the background color, background color opacity and the border for the se
 
 ![Screenshot](img/minmaxzoom.jpg)
 
-Set [view state parameter](introduction.md#view-state-parameters) for to store the range value for <b>Min and Max Zoom</b>
+Set [view state parameter](introduction#view-state-parameters) for to store the range value for _Min and Max Zoom_
 
 **Mouse Pan**
 
@@ -274,9 +274,9 @@ Tooltips can use View State Parameters which have been mapped to Data Source var
 
 In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
 
-If viewstate parameter = *param1*
+If viewstate parameter = _param1_
 
-Add a table cell with *param1* viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
+Add a table cell with _param1_ viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
@@ -345,7 +345,7 @@ $1,
 
 ![Screenshot](img/barchartformatmenu1.jpg)
 
-See [Format](introduction.md#format) in Introduction for more on shared formatting options. Additional formatting specific to bar charts is detailed below
+See [Format](introduction#format) in Introduction for more on shared formatting options. Additional formatting specific to bar charts is detailed below
 
 **Y-Axis Format**
 
@@ -371,9 +371,7 @@ When checked, Users will have the ability to toggle between Grouped and Stacked 
 
 ![Screenshot](img/showcontrolshtmllight.jpg)
 
-<aside class="warning">
-In addition to user-controlled group and stack controls are individual toggles for charted data points. Click inside the chart legend icon to switch selected data chart view on or off.
-</aside>
+!!! Tip "In addition to user-controlled group and stack controls are individual toggles for charted data points. Click inside the chart legend icon to switch selected data chart view on or off."
 
 ![Screenshot](img/dataviewcontrolhtmlight.jpg)
 
@@ -386,8 +384,6 @@ Stacked as Percentage Checked On
 Stacked as a Percentage Checked off
 
 ![Screenshot](img/notstackedasapercentage.jpg)
-
-<aside class="warning">When viewing a Stacked Chart; i.e. when <a href="#is-grouped">Is Grouped</a> is unchecked or a User uses the charting controls to select Stacked view, the stacked chart view will change.</aside>
 
 **Show Stacked Labels**
 
@@ -403,13 +399,13 @@ The default chart best-fits data to the axis to maximise visual differnces. It s
 
 ![Screenshot](img/yaxismincharthtmlight.jpg)
 
-Checking *Y-axis Force Min* will set the Y-axis to use the value entered <a href="#y-axis-min">Y-Axis Min</a>.
+Checking _Y-axis Force Min_ will set the Y-axis to use the value entered <a href="#y-axis-min">Y-Axis Min</a>.
 
 **Y-axis Force Max**
 
 As with <a href="#y-axis-force-min">Y-axis Force Min</a> will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
 
-<aside class="warning">Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed <i>Y-Axis max</i></aside>
+Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed _Y-Axis max_
 
 **Y-axis Min**
 
@@ -419,7 +415,7 @@ The defined value will be used if <a href="#y-axis-force-min">Y-axis Force Min</
 
 The defined value will be used if <a href="#y-axis-force-max">Y-Axis Force Max</a> is checked.
 
-<aside class="warning">Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important</aside>
+Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important.
 
 **Y-Axis Ticks (best fit)**
 
@@ -461,7 +457,7 @@ Display in the y-axis the min/max values.
 
 ![Screenshot](img/showyaxisminmaxcharthtmllight.jpg)
 
-<aside class="warning">If Y-axis min/max values are used, these will be displayed</aside>
+<aside class="admonition caution">If Y-axis min/max values are used, these will be displayed</aside>
 
 **X/Y Axis Tick Padding**
 
@@ -483,7 +479,7 @@ Defines the range between min and max values of y-axis
 
 ![Screenshot](img/yaxisminmaxrangescalehtmllight.jpg)
 
-<aside class="warning">If defined range is greater than data range a negative y-axis will be applied</aside>
+!!! Warning "If defined range is greater than data range a negative y-axis will be applied."
 
 **Dynamic Columns in Pivot**
 
@@ -515,4 +511,4 @@ Use the slider control to change the spacing between bars in the Bar Chart.
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction#margins) in Introduction for more

@@ -1,34 +1,64 @@
+Adds individual button controls for jumps to dashboards and dashboard screens.
+
+## Action
+
+![Screenshot](img/buttonmenu1.jpg)
+
+Defines the Dashboard and Dashboard Screen to open on button click.
+
+![Screenshot](img/actionhtmllight.jpg)
+
+### View State Mapping
+
+![Screenshot](img/navigationviewstatemapping.jpg)
+
+Mapping a value to a View State Parameter (within a dashboard)
+
+![Screenshot](img/mapbuttonvalue.jpg)
+ 
+View State Mapping allows values of View State Parameters from the source dashboard to be transferred to View State Parameters in the destination Dashboard.
+
+<aside class="admonition tip">When mapping View State Parameters across dashboards, it will be necessary to create the Target View State Parameter in the destination dashboard first. Viewstate Mapping can only map to existing View State Parameters; it does not create them</aside>
+ 
+To add a new Mapping element, click ![Screenshot](img/mappingbuttonhtmllight.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/buttonhtmllight.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+**Label**
 
-**Fill Height**
+Name to appear on the Button
 
-Automatically autosizes components to fill the height of the Layout panel.  
+**Font Size**
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+Size of font to use the button.
 
-**Advanced Layout**
+**Horizontal**
 
-When checked, added components will best fit the Layout panel by width. 
+Sets alignment (left, center or right) of button inside the boundaries *Button* component
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+**Vertical**
 
-[1] Add an Accordion or Tab Component
+Sets alignment (top, middle, bottom) of button inside the boundaries *Button* component
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+**Tooltip**
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+Descriptive tooltip to appear on button rollover
 
-[3] Then add other components to the Layout panel
+**Fixed Width**
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+Check box to define width of input box.  If unchecked, button will fill width of **Button** component box.
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+**Width**
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+When **Fixed Width** is checked, width will define the button size in pixels. 
+
+## Style
+
+Use Advanced CSS to set styles
+ 
+![Screenshot](img/buttoncsshtmllight.jpg)
 
 ## Margins
 

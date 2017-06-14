@@ -1,34 +1,67 @@
+
+![Screenshot](img/accordionpanel.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/accordionbasics.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+Similar to tabs in it supports multiple views in a single component. The accordion component is broken into sections. Each section can hold a single component or [Layout Panel](layout.md). If a [Layout Panel](layout.md) panel is used then multiple components can be displayed inside a single Accordion section.
 
-**Fill Height**
+To create a section, click  ![Screenshot](img/addsectionthmllight.jpg)
 
-Automatically autosizes components to fill the height of the Layout panel.  
+<aside class="admonition caution">Single components added to the accordion component will resize on changes to expanded, full or custom. 
+However, if [Layout Panel](layout.md) is used inside an accordion, components added to the Layout panel will not resize for interactions with the accordion unless <i>Fill Height</i> is checked. 
+In addition, <i>Advanced Layout</i> should also be checked in the Layout panel when used inside an Accordion Panel.</aside>
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+![Screenshot](img/accordionmenu.jpg)
 
-**Advanced Layout**
+Accordion interaction
+ 
+![Screenshot](img/sectiontoggle.jpg)
 
-When checked, added components will best fit the Layout panel by width. 
+## Sections
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+Drag-and-drop a component or [Layout Panel](layout.md) into an accordion section
 
-[1] Add an Accordion or Tab Component
+![Screenshot](img/addaccordioncomponenthtmllight.jpg)
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+**Title**
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+Give Accordion section a name
 
-[3] Then add other components to the Layout panel
+**Expanded**
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+Check control. When enabled the Accordion will load in its expanded state.
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+**Weight**
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+This is a relative sizing measure to determine the viewable area for each section inside the Accordion. 
+
+For example, two sections of <i>Weight</i> '200' will each take up half of the viewable area (200/(200+200)).  A section with <i>Weight</i> of '400' and another of '200' will occupy 66% (400/(400+200)) of the viewable area.
+
+<aside class="admonition caution">If Resizable is enabled, the values of <i>Weight</i>  will change on interaction</aside>
+
+**Resizeable**
+
+If checked, dashboard user will be able to manually adjust section size
+
+![Screenshot](img/manualadjustsectionhtmllight.jpg)
+
+**Hide Title**
+
+Removes the "Section" header when checked
+
+## Style
+
+[1] Left-click inside the Advanced CSS.
+
+![Screenshot](img/leftclickinsidecss.jpg)
+
+[2] Click the icon ![Screenshot](img/cssselecticon.jpg), then click on the Accordion element (a blue highlight will appear around the component)
+
+![Screenshot](img/accordioncss.jpg)
+
+[3] Add the required CSS
 
 ## Margins
 
@@ -39,4 +72,16 @@ See [Margins](introduction.md#margins) in Introduction for more
 ![Screenshot](img/mapformat.jpg)
 
 See [Format](introduction.md#format) in Introduction for more.
+
+### Linking Two Accordion Behaviours
+
+![Screenshot](img/linkedaccordion.jpg) 
+
+Two or more Accordion components can be linked so an interaction in one will pass to another. 
+
+To do this, assign a [view state parameter](introduction.md#view-state-parameters) to the *Expanded* property. Unlike for linked Tabs, each shared accordion expand/contract behaviour will use the same [view state parameter](introduction.md#view-state-parameters). 
+ 
+More than one section in a single Accordion component can share a behaviour if they use the same [view state parameter](introduction.md#view-state-parameters):
+
+![Screenshot](img/singleaccordionlink.jpg)
 

@@ -4,17 +4,17 @@ Charts data in 3 dimenions
 
 ## Basics
 
-Set up **Data Source** and 3D chart type
+Set up <a href="#data-source">Data Source</a> and 3D chart type
 
 ![Screenshot](img/3dchartsbasicsmenu.jpg)
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
 ### Focus
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction#linking-components). Requires a [view state parameter](introduction#view-state-parameters).
 
 ### Type
 
@@ -24,9 +24,9 @@ Sets the type of 3D Chart to Use
 
 ### Selected Value 
 
-Used to map a chart (query) data point to a [view state parameter](introduction.md#view-state-parameters) when a chart bar is clicked by the user. 
+Used to map a chart (query) data point to a [view state parameter](introduction#view-state-parameters) when a chart bar is clicked by the user. 
 
-[1] Create a [view state parameter](introduction.md#view-state-parameters) and assign to <i>Selected Value</i>
+[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
  
 ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
@@ -34,11 +34,11 @@ Used to map a chart (query) data point to a [view state parameter](introduction.
 
 ### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction.md#view-state-parameters). 
+This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters). 
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="warning">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+!!! Warning "When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data."
 
 ## X
 
@@ -68,7 +68,7 @@ Check control to use *AxisMin*
 
 Sets minimum X-axis value when *Set Min Axis Value* is checked
 
-<aside class="warning">Ensure <b>Set Min Axis Value</b> is enabled for chart to use <b>AxisMin</b></aside>
+Ensure _Set Min Axis Value_ is enabled for the chart to use _AxisMin_
 
 **Set Max Axis Value**
 
@@ -78,7 +78,7 @@ Check control to use **AxisMax**
 
 Sets maximum X-axis value when **Set Max Axis Value** is checked
 
-<aside class="warning">Ensure <b>Set Max Axis Value</b> is enabled for chart to use <b>AxisMax</b></aside>
+Ensure _Set Max Axis Value_ is enabled for chart to use _AxisMax_
 
 ## Y
 
@@ -98,13 +98,13 @@ From dropdown menu, select the numeric or date format to use
 
 **Set Min Axis Value**
 
-Check control to use *AxisMin*
+Check control to use _AxisMin_
 
 **AxisMin**
 
-Sets minimum X-axis value when *Set Min Axis Value* is checked
+Sets minimum X-axis value when _Set Min Axis Value_ is checked
 
-<aside class="warning">Ensure <b>Set Min Axis Value</b> is enabled for chart to use <b>AxisMin</b></aside>
+Ensure _Set Min Axis Value_ is checked for chart to use _AxisMin_
 
 **Set Max Axis Value**
 
@@ -114,7 +114,7 @@ Check control to use *AxisMax*
 
 Sets maximum X-axis value when *Set Max Axis Value* is checked
 
-<aside class="warning">Ensure <b>Set Max Axis Value</b> is enabled for chart to use <b>AxisMax</b></aside>
+Ensure _Set Max Axis Value_ is enabled for chart to use _AxisMax_
 
 ## Z
 
@@ -134,23 +134,23 @@ From dropdown menu, select the numeric or date format to use
 
 **Set Min Axis Value**
 
-Check control to use *AxisMin*
+Check control to use _AxisMin_
 
 **AxisMin**
 
-Sets minimum X-axis value when *Set Min Axis Value* is checked
+Sets minimum X-axis value when _Set Min Axis Value_ is checked
 
-<aside class="warning">Ensure <b>Set Min Axis Value</b> is enabled for chart to use <b>AxisMin</b></aside>
+Ensure _Set Min Axis Value_ is enabled for chart to use _AxisMin_
 
 **Set Max Axis Value**
 
-Check control to use *AxisMax*
+Check control to use _AxisMax_
 
 **AxisMax**
 
-Sets maximum X-axis value when *Set Max Axis Value* is checked
+Sets maximum X-axis value when _Set Max Axis Value_ is checked
 
-<aside class="warning">Ensure <b>Set Max Axis Value</b> is enabled for chart to use <b>AxisMax</b></aside>
+Ensure _Set Max Axis Value_ is enabled for chart to use _AxisMax_
 
 ## Volume
 
@@ -166,7 +166,7 @@ Set 3D Position
 
 Adjust sliders to orientate the orientation of the 3D Chart
 
-<aside class="warning">Alternatively, go into Preview mode and rotate the 3D Chart. Use the mouse scroll wheel to zoom in and out.</aside>
+!!! Tip "Alternatively, go into Preview mode and rotate the 3D Chart. Use the mouse scroll wheel to zoom in and out."
 
 ## Style
 
@@ -186,8 +186,8 @@ Set rollover tooltip information
 
 ![Screenshot](img/3dchartformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction#format) in Introduction for more.
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction#margins) in Introduction for more

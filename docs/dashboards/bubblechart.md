@@ -32,7 +32,7 @@ This comes from the Data Source and is the variable paired with the <a href="#se
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="warning">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
 
 ### Selected Row ViewState Routing
 
@@ -58,7 +58,7 @@ Sets the data type for the label used for X-Axis Value
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-<aside class="warning">If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a></aside>
+<aside class="admonition caution">If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a></aside>
 
 **Axis Format**
 
@@ -114,7 +114,7 @@ Displays every charted data point in the x-axis
 
 The number of ticks to display in the x-axis.
 
-<aside class="warning">Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable</aside>
+<aside class="admonition caution">Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable</aside>
 
 **Axis Rotation**
 
@@ -361,7 +361,7 @@ Checking *Y-axis Force Min* will set the Y-axis to use the value entered <a href
 
 As with <a href="#y-axis-force-min">Y-axis Force Min</a> will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
 
-<aside class="warning">Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed <i>Y-Axis max</i></aside>
+<aside class="admonition caution">Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed <i>Y-Axis max</i></aside>
 
 **Y-axis Min**
 
@@ -371,7 +371,7 @@ The defined value will be used if <a href="#y-axis-force-min">Y-axis Force Min</
 
 The defined value will be used if <a href="#y-axis-force-max">Y-Axis Force Max</a> is checked.
 
-<aside class="warning">Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important</aside>
+<aside class="admonition caution">Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important</aside>
 
 **Y-Axis Ticks (best fit)**
 
@@ -405,7 +405,7 @@ Slider control to define how big the smallest bubble will be. Minimum bubble siz
 
 Slider control to define the scale of the relative change between bubbles as set by the <b>Volume</b> variable. The further right the slider, the bigger the relative difference between bubbles.  
 
-<aside class="warning">Dependent on <a href="#data-source">data source</a> variable selected for <b>Volume</b></aside> 
+<aside class="admonition caution">Dependent on <a href="#data-source">data source</a> variable selected for <b>Volume</b></aside> 
 
 **Show X-axis Min/Max**
 
@@ -423,7 +423,7 @@ Display in the y-axis the min/max values.
 
 ![Screenshot](img/showyaxisminmaxcharthtmllight.jpg)
 
-<aside class="warning">If Y-axis min/max values are used, these will be displayed</aside>
+<aside class="admonition caution">If Y-axis min/max values are used, these will be displayed</aside>
 
 **X/Y Axis Tick Padding**
 
@@ -445,7 +445,7 @@ Defines the range between min and max values of y-axis
 
 ![Screenshot](img/yaxisminmaxrangescalehtmllight.jpg)
 
-<aside class="warning">If defined range is greater than data range a negative y-axis will be applied</aside>
+<aside class="admonition caution">If defined range is greater than data range a negative y-axis will be applied</aside>
 
 **Dynamic Columns in Pivot**
 

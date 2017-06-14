@@ -33,7 +33,7 @@ This comes from the Data Source and is the variable paired with the <a href="#se
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="warning">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
 
 ### Selected Row ViewState Routing
 
@@ -63,7 +63,7 @@ Sets the data type for the label used for **X-Axis Value**
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-<aside class="warning">If x-axis labels are looking incorrect, try selecting a different <b>Axis Type</b></aside>
+<aside class="admonition caution">If x-axis labels are looking incorrect, try selecting a different <b>Axis Type</b></aside>
 
 **Axis Format**
 
@@ -71,7 +71,7 @@ Where **Axis Type** is Date, **Axis Format** will show a list of display options
 
 ![Screenshot](img/xaxisformatdatehtmllight.jpg)
 
-<aside class="warning">Axis Format requires <b>Axis Type</b> of type <i>Date</i></aside>
+<aside class="admonition caution">Axis Format requires <b>Axis Type</b> of type <i>Date</i></aside>
 
 **Legend Label Tag**
 
@@ -121,7 +121,7 @@ To add a column, select ![Screenshot](img/columnaddbutton.jpg)
   
 A 'read only' lock of the column.
 
-<aside class="warning">Helps if working with multiple copies of a chart and are changing <a href="#data-sources">Data Sources</a>.  Locking the column will preserve formatting even if the listed <i>Column</i> source isn't referenced in a changed <a href="#data-sources">data source</a>.</aside>
+<aside class="admonition caution">Helps if working with multiple copies of a chart and are changing <a href="#data-sources">Data Sources</a>.  Locking the column will preserve formatting even if the listed <i>Column</i> source isn't referenced in a changed <a href="#data-sources">data source</a>.</aside>
 
 **Column**
 
@@ -131,7 +131,7 @@ The charted value from the **Data Source**
 
 Select from color palette or use Hex color reference
 
-<aside class="warning">If charting Pivot/OLAP data, charting colors will be selected from <a href="#style">Style</a> menu.</aside>
+<aside class="admonition caution">If charting Pivot/OLAP data, charting colors will be selected from <a href="#style">Style</a> menu.</aside>
 
 **Display Name**
 
@@ -308,7 +308,7 @@ When checked, Users will have the ability to toggle between Grouped and Stacked 
 
 ![Screenshot](img/showcontrolshtmllight.jpg)
 
-<aside class="warning">
+<aside class="admonition caution">
 In addition to user-controlled group and stack controls are individual toggles for charted data points. Click inside the chart legend icon to switch selected data chart view on or off.
 </aside>
 
@@ -324,7 +324,7 @@ Stacked as a Percentage Checked off
 
 ![Screenshot](img/notstackedasapercentage.jpg)
 
-<aside class="warning">When viewing a Stacked Chart; i.e. when <a href="#is-grouped">Is Grouped</a> is unchecked or a User uses the charting controls to select Stacked view, the stacked chart view will change.</aside>
+<aside class="admonition caution">When viewing a Stacked Chart; i.e. when <a href="#is-grouped">Is Grouped</a> is unchecked or a User uses the charting controls to select Stacked view, the stacked chart view will change.</aside>
 
 **Show Stacked Labels**
 
@@ -346,7 +346,7 @@ Checking *Y-axis Force Min* will set the Y-axis to use the value entered <a href
 
 As with <a href="#y-axis-force-min">Y-axis Force Min</a> will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
 
-<aside class="warning">Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed <i>Y-Axis max</i></aside>
+<aside class="admonition caution">Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed <i>Y-Axis max</i></aside>
 
 **Y-axis Min**
 
@@ -356,7 +356,7 @@ The defined value will be used if <a href="#y-axis-force-min">Y-axis Force Min</
 
 The defined value will be used if <a href="#y-axis-force-max">Y-Axis Force Max</a> is checked.
 
-<aside class="warning">Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important</aside>
+<aside class="admonition caution">Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important</aside>
 
 **Y-Axis Ticks (best fit)**
 
@@ -398,7 +398,7 @@ Display in the y-axis the min/max values.
 
 ![Screenshot](img/showyaxisminmaxcharthtmllight.jpg)
 
-<aside class="warning">If Y-axis min/max values are used, these will be displayed</aside>
+<aside class="admonition caution">If Y-axis min/max values are used, these will be displayed</aside>
 
 **X/Y Axis Tick Padding**
 
@@ -420,7 +420,7 @@ Defines the range between min and max values of y-axis
 
 ![Screenshot](img/yaxisminmaxrangescalehtmllight.jpg)
 
-<aside class="warning">If defined range is greater than data range a negative y-axis will be applied</aside>
+<aside class="admonition caution">If defined range is greater than data range a negative y-axis will be applied</aside>
 
 **Dynamic Columns in Pivot**
 

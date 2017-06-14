@@ -16,7 +16,7 @@ Assign a [view state parameter](introduction.md#view-state-parameters). Maps to 
 
 Configures the number of columns to use for button layout when **Fixed Width** buttons are not used.  Each column represents a button and will (relative) size according to the width of the navigation component. 
 
-<aside class="warning">If <i>Fixed Width</i> is set for button defaults, set the number of <i>Columns</i> to 1</aside>
+<aside class="admonition caution">If <i>Fixed Width</i> is set for button defaults, set the number of <i>Columns</i> to 1</aside>
 
 **Overflow**
 
@@ -35,7 +35,7 @@ Overflow | Best fit of Navigation buttons with reordering on rescale.
 
 Used when Navigation buttons are determined by a [Query](introduction.md#defining-a-query) or [Analytic](introduction.md#analytics)
 
-<aside class="warning">Ensure employed <i>Data Source</i> has column entries for all <i>Data Source Mapping</i> elements</aside>
+<aside class="admonition caution">Ensure employed <i>Data Source</i> has column entries for all <i>Data Source Mapping</i> elements</aside>
 
 **Use Data Source**
 
@@ -68,7 +68,7 @@ For each item, select the matching column of the **Data Source** for each entry
  
 View State Mapping allows values of View State Parameters from Source dashboard to be transferred to View State Parameters in Destination Dashboard.
 
-<aside class="warning">When mapping View State Parameters across dashboards, it will be necessary to create the Target View State Parameter in the destination dashboard first. Viewstate Mapping can only map to existing View State Parameters; it does not create them</aside>
+<aside class="admonition caution">When mapping View State Parameters across dashboards, it will be necessary to create the Target View State Parameter in the destination dashboard first. Viewstate Mapping can only map to existing View State Parameters; it does not create them</aside>
  
 To add a new Mapping element, click ![Screenshot](img/mappingbuttonhtmllight.jpg) 
 
@@ -95,7 +95,7 @@ South-Noth | Icon aligned underneadth text
 East-West | Icon left aligned, text to right
 West-East | Icon right aligned, text to left
 
-<aside class="warning">The relative positioning of icons with text will also be dependent on the button size as icon and text are wrapped into button width.</aside>
+<aside class="admonition caution">The relative positioning of icons with text will also be dependent on the button size as icon and text are wrapped into button width.</aside>
 
 **Alignment**
 
@@ -113,7 +113,7 @@ Defines space (in pixels) around outside of button
 
 Defines space (in pixels) around icon, but inside the button
 
-<aside class="warning">Adjusting icon margin may displace text 'out-of-view' for button, so icon margins should be small if combining icon and text</aside>
+<aside class="admonition caution">Adjusting icon margin may displace text 'out-of-view' for button, so icon margins should be small if combining icon and text</aside>
 
 **Button Padding**
 
@@ -167,19 +167,19 @@ Check control. Tooltip is configured in Navigation <a href="#Style">Style</a> me
 
 When checked, buttons will size (in pixels) according to settings of <i>fixed width</i> and <i>fixed height</i>.
 
-<aside class="warning">If <i>Fixed Size</i> is not used, the number of buttons will be determined by <i>Columns</i> in the Basics Navigation and the height set by the Navigation panel</aside>
+<aside class="admonition caution">If <i>Fixed Size</i> is not used, the number of buttons will be determined by <i>Columns</i> in the Basics Navigation and the height set by the Navigation panel</aside>
 
 **Fixed Width**
 
 Sets button width in pixels
 
-<aside class="warning">Requires <i>*Fixed Size</i> to be checked</aside>
+<aside class="admonition caution">Requires <i>*Fixed Size</i> to be checked</aside>
 
 **Fixed Height**
 
 Sets button height in pixels
 
-<aside class="warning">Requires <i>Fixed Size</i> to be checked</aside>
+<aside class="admonition caution">Requires <i>Fixed Size</i> to be checked</aside>
 
 ## Buttons
 
@@ -225,7 +225,7 @@ Add text beneath Header Text.  The size of this text is defined by <i>Text %</i>
 
 When checked, allows for individual button customisation
 
-<aside class="warning">If checked, button customisation will replace <a href="#button-defaults">button defaults</a> for the current button. However, if <a href="#button-defaults">button defaults</a> are later updated it will overwrite individual customizations.  Best to make individual button customisations after global button settings are completed</aside>
+<aside class="admonition caution">If checked, button customisation will replace <a href="#button-defaults">button defaults</a> for the current button. However, if <a href="#button-defaults">button defaults</a> are later updated it will overwrite individual customizations.  Best to make individual button customisations after global button settings are completed</aside>
 
 **Button Color**
 

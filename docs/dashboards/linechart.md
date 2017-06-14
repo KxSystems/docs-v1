@@ -32,7 +32,7 @@ This comes from the Data Source and is the variable paired with the <a href="#se
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="warning">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
 
 ### Selected Row ViewState Routing
 
@@ -62,7 +62,7 @@ Sets the data type for the label used for *Axis Value*
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-<aside class="warning">If x-axis labels are looking incorrect, try selecting a different <i>Axis Type</i></aside>
+<aside class="admonition caution">If x-axis labels are looking incorrect, try selecting a different <i>Axis Type</i></aside>
 
 **Axis Format**
 
@@ -96,7 +96,7 @@ Defines the number of ticks to display along the x-axis
 
 ![Screenshot](img/multichartnumofticks.jpg)
 
-<aside class="warning">The number of ticks to display is set in <i>Num of Ticks</i></aside>
+<aside class="admonition caution">The number of ticks to display is set in <i>Num of Ticks</i></aside>
 
 **Show All Ticks**
 
@@ -120,7 +120,7 @@ Rotate x-axis label
 
 Click the ![Screenshot](img/addcolumnbutton.jpg) to add a new variable to plot.
 
-<aside class="warning">Color assignment is done from *ChartBarColors* in the **Style** menu</aside>
+<aside class="admonition caution">Color assignment is done from *ChartBarColors* in the **Style** menu</aside>
 
 **User Defined**
 
@@ -326,7 +326,7 @@ When checked, will force axis to use **Y-axis Min** value.  If not, the chart wi
 
 When checked, will force axis to use **Y-axis Max** value.  If not, the chart will best-fit range with highest value marking the end point for the Y-axis. 
 
-<aside class="warning">If plotted values exceed y-axis range the chart will crop the missing data.</aside>
+<aside class="admonition caution">If plotted values exceed y-axis range the chart will crop the missing data.</aside>
 
 **Y-axis Min**
 

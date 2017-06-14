@@ -1,42 +1,175 @@
+Heat Map control, best used in conjunction with [Pivot Queries](introduction.md#pivot-query)
+
+![Screenshot](img/heatmaphtmllight.jpg)
+
 ## Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/treemapmenu.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+### Data Source
 
-**Fill Height**
+See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
 
-Automatically autosizes components to fill the height of the Layout panel.  
+**Focus**
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+Used for [Linking Components](introduction.md#linking-components)
 
-**Advanced Layout**
+**Node Size Metric**
 
-When checked, added components will best fit the Layout panel by width. 
+Node Selection
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+![Screenshot](img/nodemetrics.jpg)
 
-[1] Add an Accordion or Tab Component
+Sets the underlying measure for the Tree Map. Box area size will be determined by this variable. This is selected from the linked **Data Source**
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+**Node Color Metric**
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+Defines the variable to use for Tree Map color range.  The <a href="#style">Style</a> menu contains the colour configuration options
 
-[3] Then add other components to the Layout panel
+**Node Label**
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+Defines the descriptive label for the Tree Map boxes
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+![Screenshot](img/nodelabelshtmllight.jpg)
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+**Selected Value**
 
-## Margins
+Assign a [view state parameter](introduction.md#view-state-parameters) to store the *Selected Value Attribute*. 
 
-See [Margins](introduction.md#margins) in Introduction for more
+**Selected Value Attribute**
+
+![Screenshot](img/selectedvalueattributetreemap.jpg)
+
+Map a <a href="#data-source">data source</a> variable to the *Selected Value*.
+
+### Selected Row Viewstate Routing
+
+Where *Selected Column* and *Selected Value* stores just a single value, *Selected Row Viewstate Routing* can store multiple values
+
+Click ![Screenshot](img/addroutinghtmllight.jpg) to set storage for additional values
+
+![Screenshot](img/selectedrowviewstateroutinghtmllight.jpg)
+
+## Style
+
+![Screenshot](img/heatmapstyle.jpg)
+
+### Tooltip Helper
+
+Tooltip Helper
+
+![Screenshot](img/tooltiphelper.jpg)
+
+Apply Tooltip Helper Variable to Tooltip reference
+
+![Screenshot](img/addhelpertooltip.jpg)
+
+Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
+
+For example:
+ 
+```
+{{fx}} : {{volume}}
+```
+
+could appear as
+EUR/USD: 250000
+
+To format "250000" so it will appear as "$250,000" use Tooltip Helper
+
+**Name**
+
+Give the function a name.  This name will be used inside the tooltip.
+
+For example:
+
+![Screenshot](img/helpername.jpg)
+
+```
+{{fx}} : {{fd volume}}
+```
+
+**Regex**
+
+The regular expression used to find the required pattern
+
+In this example:
+
+```
+(\d{3})(?=\d)
+```
+
+**Value**
+
+The value to replace the text with. In this case, comma-delimited currency values: 
+
+```
+$1,
+```
+
+**Color Scheme**
+
+Dropdown select of color options:
+
+![Screenshot](img/colorscalehtmllight.jpg)
+
+**Color Text Override**
+
+Check control to replace default text color with Text Color setting
+
+**Text Color**
+
+![Screenshot](img/heatmaptextcolor.jpg)
+
+Uses selected text color for Heat Map text override.
+
+### ColorScale
+
+Customize *Color Scheme*
+
+**Color**
+
+Tree Map Custom colors.  Can also be configured to use Hex colors.
+
+![Screenshot](img/colorscale.jpg)
+
+**Min Text Display**
+
+Slider to adjust minimum Tree Map section size for *Node Label* to appear
+
+### Advanced CSS
+
+Left click inside the Advanced CSS editor. Click the selector icon, then left-click inside the treemap to bring up the relevant CSS code. 
+
+### Custom Tooltip
+
+Defines tooltip rollover information
+
+![Screenshot](img/customtooltiphtmllight3.jpg)
+
+### Hide Tooltips
+
+Check control to toggle display of Custom Tooltip
+
+### Label Size
+
+Slider to adjust font size for Tree Map *Node Label*
 
 ## Format
 
 ![Screenshot](img/mapformat.jpg)
 
 See [Format](introduction.md#format) in Introduction for more.
+
+**Metric Format**
+
+Sets the decimal display for the Heat Map variable control
+
+**Label Format**
+
+Sets the format of the cell label used by the Heat Map
+
+## Margins
+
+See [Margins](introduction.md#margins) in Introduction for more
 

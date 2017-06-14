@@ -47,7 +47,7 @@ When checked, will update Center X/Y co-ordinates depending on User interaction 
 
 ![Screenshot](img/trackchangeshtmllight.jpg)
 
-<aside class="warning">Map will open on updated Center X/Y co-ordinates on next dashboard load</aside>
+<aside class="admonition caution">Map will open on updated Center X/Y co-ordinates on next dashboard load</aside>
 
 **Bounds**
 
@@ -67,7 +67,7 @@ Create a [view state parameter](introduction.md#view-state-parameters) to store 
 
 ![Screenshot](img/customhtmllight.jpg)
 
-<aside class="warning">*Custom Point* will only be enabled once a View State Parameter is assigned. To right click on the map in the absence of an assigned View State Parameter will not add a custom point to the map </aside>
+<aside class="admonition caution">*Custom Point* will only be enabled once a View State Parameter is assigned. To right click on the map in the absence of an assigned View State Parameter will not add a custom point to the map </aside>
 
 ## Statistical Overlay
 
@@ -87,7 +87,7 @@ Toggle control to display statistical overlay
 
 See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
  
-<aside class="warning">Ensure map coordinates are included in the data source to create boundaries for the overlay</aside> 
+<aside class="admonition caution">Ensure map coordinates are included in the data source to create boundaries for the overlay</aside> 
 
 **Data Key**
 
@@ -247,7 +247,7 @@ Applies distinct data points to map
 
 See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
  
-<aside class="warning">Ensure geographic coordinates are included in the data source to create data points for the map</aside> 
+<aside class="admonition caution">Ensure geographic coordinates are included in the data source to create data points for the map</aside> 
 
 **Selected Value**
  
@@ -263,7 +263,7 @@ Used in combination with *Tracker*,  it takes variable from *Data Source* and ma
  
 ![Screenshot](img/trackeditemmenuhtmllight.jpg)
  
-<aside class="warning">Additional mapped items can be tracked using <b>Selected Point Viewstate Routing</b></aside>
+<aside class="admonition caution">Additional mapped items can be tracked using <b>Selected Point Viewstate Routing</b></aside>
 
 **Latitude / Longitude Data**
 
@@ -333,7 +333,7 @@ Aggregates points into clusters. The size of the cluster is determined by the dr
 
 Toggle to use *Cluster* feature. Define *Cluster Size*
 
-<aside class="warning">When checked, it will replace grouped individual points with a numeric cluster icon. Points outside of a cluster will remain displayed as individual points</aside>
+<aside class="admonition caution">When checked, it will replace grouped individual points with a numeric cluster icon. Points outside of a cluster will remain displayed as individual points</aside>
 
 ![Screenshot](img/clusterhtmllight.jpg)
 
@@ -395,7 +395,7 @@ Can be used for dynamic overlays; e.g. when linked with [Playback](#playback.md)
 
 See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
 
-<aside class="warning">Ensure geographic coordinates are included in the data source to create data points for the map</aside>
+<aside class="admonition caution">Ensure geographic coordinates are included in the data source to create data points for the map</aside>
 
 **Latitude / Longitude Data**
 
@@ -445,7 +445,7 @@ Lines Menu
 
 See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
 
-<aside class="warning">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside> 
+<aside class="admonition caution">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside> 
 
 ![Screenshot](img/linesdatasourcehtmllight.jpg)
 
@@ -471,7 +471,7 @@ Use slider to adjust the size of the label
 
 Define the text to use for the label
 
-<aside class="warning"><b>Label Text</b> can also be a [view state parameter](introduction.md#view-state-parameters)</aside>
+<aside class="admonition caution"><b>Label Text</b> can also be a [view state parameter](introduction.md#view-state-parameters)</aside>
 
 **Show Label**
  
@@ -535,7 +535,7 @@ Voronoi Menu
 
 See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
 
-<aside class="warning">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside>
+<aside class="admonition caution">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside>
 
 **Data Key**
 
