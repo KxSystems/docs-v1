@@ -180,7 +180,7 @@
 </table>
 
 
-## <i class="fa fa-plug"></i> Plugins
+## <i class="fa fa-plug"></i> Editor integrations
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -224,6 +224,9 @@
 <i class="fa fa-github"></i> [patmok/qvim](https://github.com/patmok/qvim)<br/>
 <i class="fa fa-github"></i> [simongarland/vim](https://github.com/simongarland/vim)
     </td>
+</tr>
+<tr>
+    <td>Visual Studio Code</td><td><i class="fa fa-github"></i> [lwshang/vscode-q](https://github.com/lwshang/vscode-q)</td>
 </tr>
 </table>
 

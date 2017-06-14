@@ -202,6 +202,48 @@ pages:
     - Write-only RDB: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
+  # - Dashboards:
+  #   - Introduction: dashboards/introduction.md
+  #   - 3D Chart: dashboards/3dchart.md
+  #   - Accordion: dashboards/accordion.md
+  #   - Action Tracker: dashboards/actiontracker.md
+  #   - Analyst Visual: dashboards/analystvisual.md
+  #   - Area Chart: dashboards/areachart.md
+  #   - Bar Chart: dashboards/barchart.md
+  #   - Bipartite Chart: dashboards/bipartite.md
+  #   - Breadcrumbs: dashboards/breadcrumbs.md
+  #   - Bubble Chart: dashboards/bubblechart.md
+  #   - Button: dashboards/button.md
+  #   - ChartIQ: dashboards/chartiq.md
+  #   - Config Manager: dashboards/configmanager.md
+  #   - Dataform: dashboards/dataform.md
+  #   - Datagrid: dashboards/datagrid.md
+  #   - Date Picker: dashboards/datepicker.md
+  #   - Drop Down List: dashboards/dropdownlist.md
+  #   - External Content: dashboards/externalcontent.md
+  #   - Financial Chart: dashboards/financialchart.md
+  #   - Horizontal Chart: dashboards/horizontalchart.md
+  #   - Layout: dashboards/layout.md
+  #   - Line Chart: dashboards/linechart.md
+  #   - Maps: dashboards/maps.md
+  #   - Multi Chart: dashboards/multichart.md
+  #   - Navigation: dashboards/navigation.md
+  #   - Order Book: dashboards/orderbook.md
+  #   - Pager: dashboards/pager.md
+  #   - Pie Chart: dashboards/piechart.md
+  #   - Pivot Grid: dashboards/pivotgrid.md
+  #   - Playback: dashboards/playback.md
+  #   - Popup: dashboards/popup.md
+  #   - Query Mapper: dashboards/querymapper.md
+  #   - Range Slider: dashboards/rangeslider.md
+  #   - Report Manager: dashboards/reportmanager.md
+  #   - RSS Feed: dashboards/rssfeed.md
+  #   - Scatter Plot: dashboards/scatterplot.md
+  #   - Server Status: dashboards/serverstatus.md
+  #   - Tab Control: dashboards/tabcontrol.md
+  #   - Text Input: dashboards/textinput.md
+  #   - Tree Map: dashboards/treemap.md
+  #   - Upload: dashboards/upload.md
   - Developer: developer.md
   - GitHub: github.md
   - Q for Mortals 3: qformortals3.md
