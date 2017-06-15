@@ -1,5 +1,5 @@
 copyright: "©1993-2017 Kx Systems, Inc. Kx® and kdb+ are registered trademarks of Kx Systems, Inc., a subsidiary of First Derivatives plc."
-dev_addr: '10.152.50.167:8000'
+dev_addr: 'localhost:8000'
 docs_dir: 'docs'
 extra_css: 
   - stylesheets/extra.css

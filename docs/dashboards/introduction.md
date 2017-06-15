@@ -130,7 +130,7 @@ Individual connections can be grouped together:
 2. Use Ctrl + select connections in the right-hand-box list.
 3. Save the group.
 
-All connections (single and group) will appear in a drop down list in the Data Source Editor.  See <a href="#defining-a-query">**Defining a query**</a>
+All connections (single and group) will appear in a drop down list in the Data Source Editor.  See [Defining a query][#defining-a-query]
 
 ![Screenshot](img/connectionlist.jpg)
 
