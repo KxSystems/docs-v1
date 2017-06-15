@@ -306,14 +306,11 @@ Aggregates
 
 ![Screenshot](img/enhancedpivot.jpg)
  
-A standard built-in binary function is available. 
+A standard built-in binary function is available as part of the VWAP Analytic (_subVWAP_) found in _Demo Trading_ dashboard in the Dashboard evaluation pack. `bsize` is bid size
+
 ```q
 Example: {[a;b] sum[a*b] % (sum[`long $ a])};`bsize
 ```
-<!-- WTF? Redundant parens -->
-<!-- WTF? explain reference to `bsize` -->
-<!-- ![Screenshot](img/columnlabelexample.jpg) -->
-
 
 ## Update query
 
@@ -357,9 +354,8 @@ Analytics are predefined queries, built in ==Control for Kx==<!-- WTF? -->, whic
 
 The _subVWAP_ analytic is an example of an analytic using streaming data.
 
-<aside class="warning">
 As with q queries, analytics must include a selected database from the dropdown menu
-</aside>
+
 
 ## View State Parameters
 
