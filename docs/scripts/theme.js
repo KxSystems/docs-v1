@@ -10,31 +10,10 @@ $(document).ready(function($) {
 		}
 	});
 	// FIXME replace with Google Search
-	var srch = $(".md-search");
-	var shell = $(srch).parent();
-	$(srch).remove();
-	var gs = "<!--GOOGLE SEARCH BOX-->";
-	gs += "<div class=\"md-search\" action>";
-	gs += "  <form onsubmit=\"return goGoogle(this.searchstring.value)\" action>";
-	gs += "    <p>";
-	gs += "      <input type=\"text\" title=\"Search\" is=\"searchstring\" name=\"searchstring\" placeholder=\"Search\" value onclick=\"clearField(this)\">";
-	gs += "      <input type=\"submit\" style=\"display: none;\" value=\"Google this site\">";
-	gs += "    </p>";
-	gs += "  </form>";
-	gs += "</div>";
-	$(shell).append($(gs));
+	$("#query").click(function() {
+	  qry = "http://www.google.com/search?q=";
+	  qry += "site%3Acode.kx.com/q/+";
+	  window.location = qry + $(this).val();
+	  // return false; // prevents submitting form to server
+	});
 });
-///////////////////////////////////////////////////////////////////
-function clearField(aControl)
-{
-  aControl.className = "user";
-  aControl.value = "";
-}
-///////////////////////////////////////////////////////////////////
-function goGoogle(aString)
-{
-  qry = "http://www.google.co.uk/search?q=";
-  qry += "site%3Acode.kx.com/q/+";
-  window.location = qry + aString;
-  return false; // prevents submitting form to server
-}

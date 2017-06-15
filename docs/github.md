@@ -1,13 +1,18 @@
 # <i class="fa fa-github"></i> Repositories on GitHub
 
-Please contact [librarian@kx.com](mailto:librarian@kx.com)
-with additions or changes.
+<i class="fa fa-hand-o-right"></i> [Interfaces](/interfaces) to feeds, services and other languages  
+<i class="fa fa-hand-o-right"></i> [Integrations](/interfaces/#editor-integrations) with editors and IDEs
 
-<i class="fa fa-hand-o-right"></i> [Interfaces](/interfaces) 
-for interfaces and plug-ins
+Repositories at <i class="fa fa-github"></i> [KxSystems](https://github.com/KxSystems) are maintained and supported by Kx Systems. 
 
+Other repositories are maintained by their owners. 
+
+<div style="background-color: #efefef; border: 1px solid #005499; border-radius: 10px; display: inline-block; padding: 0 1em;" markdown="1">Please tell [librarian@kx.com](mailto:librarian@kx.com)
+about new repositories.</div>
 
 ## Kx Systems
+
+<small>Repositories maintained by Kx Systems</small>
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -15,7 +20,7 @@ for interfaces and plug-ins
 	<td>companion files to the [Cookbook](/cookbook/introduction)</td>
 </tr>
 <tr>
-	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka)</td>
+	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka) ==new==</td>
 	<td>Q client for [Apache Kafka](https://kafka.apache.org)</td>
 </tr>
 <tr>
@@ -35,12 +40,14 @@ for interfaces and plug-ins
 	<td>code shared on the kx.com blog</td>
 </tr>
 <tr>
-	<td class="nowrap">[rkdb](https://github.com/KxSystems/rkdb)</td>
+	<td class="nowrap">[rkdb](https://github.com/KxSystems/rkdb) ==new==</td>
 	<td>R client for q</td>
 </tr>
 </table>
 
 ## <i class="fa fa-star-o"></i> Featured
+
+<small>Repositories by kdb+ users</small>
 
 <table class="kx-compact" markdown="1">
 <tr>
@@ -79,7 +86,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/picoDoc/betfair-data-capture">betfair-data-capture</a></td>
-<td>Data capture and analysis system built on TorQ for sports exchange data from betfair.com. <span class="author"><a href="https://github.com/picoDoc?tab=repositories">
+<td>Data capture and analysis system built on TorQ for sports exchange data from [Betfair](http://betfair.com). <span class="author"><a href="https://github.com/picoDoc?tab=repositories">
 						(Matthew Doherty)
 					</a></span>
 </td>
@@ -114,7 +121,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/stevewirts/kdb-VNC">kdb-VNC</a></td>
-<td>Implementation of simple vnc server. <span class="author"><a href="https://github.com/stevewirts?tab=repositories">
+<td>Implementation of simple [VNC](https://en.wikipedia.org/wiki/Virtual_Network_Computing) server. <span class="author"><a href="https://github.com/stevewirts?tab=repositories">
 						(Steve Wirts)
 					</a></span>
 </td>
@@ -274,7 +281,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/jasraj/q-doc">q-doc</a></td>
-<td>Javadoc-inspired documentation generator. <span class="author"><a href="https://github.com/jasraj?tab=repositories">
+<td>[Javadoc](https://en.wikipedia.org/wiki/Javadoc)-inspired documentation generator. <span class="author"><a href="https://github.com/jasraj?tab=repositories">
 						(Jaskirat Rajasansir)
 					</a></span>
 </td>
@@ -316,14 +323,14 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/jaeheum/qsparkline">qsparkline</a></td>
-<td>Sparkline plots as UTF-8 character vectors. <span class="author"><a href="https://github.com/jaeheum?tab=repositories">
+<td>[Sparkline plots](https://en.wikipedia.org/wiki/Sparkline) as UTF-8 character vectors. <span class="author"><a href="https://github.com/jaeheum?tab=repositories">
 						(Jay Han)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/nugend/qspec">qspec</a></td>
-<td>A testing framework lightly inspired by Behaviour Driven Development and the rspec testing framework (rspec.info). <span class="author"><a href="https://github.com/nugend?tab=repositories">
+<td>A testing framework lightly inspired by [Behaviour Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) and the [rspec](rspec.info) testing framework. <span class="author"><a href="https://github.com/nugend?tab=repositories">
 						(Daniel Nugent)
 					</a></span>
 </td>
@@ -378,7 +385,7 @@ for interfaces and plug-ins
 <table class="kx-compact" markdown="1">
 <tr>
 <td class="nowrap"><a href="https://github.com/srpeck/cryptopals">cryptopals</a></td>
-<td>Matasano Crypto Challenges. <span class="author"><a href="https://github.com/srpeck?tab=repositories">
+<td>Matasano [Crypto Challenges](https://cryptopals.com/). <span class="author"><a href="https://github.com/srpeck?tab=repositories">
 						(Stephen Peck)
 					</a></span>
 </td>
@@ -392,7 +399,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/tjcelaya/game-of-life">game-of-life</a></td>
-<td>Conway’s Game of Life. <span class="author"><a href="https://github.com/tjcelaya?tab=repositories">
+<td>Conway’s [Game of Life](http://www.conwaylife.com/). <span class="author"><a href="https://github.com/tjcelaya?tab=repositories">
 						(Tomas Celaya)
 					</a></span>
 </td>
@@ -413,7 +420,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/kimtang/kdb-euler">kdb-euler</a></td>
-<td>Solutions to Euler’s problems. <span class="author"><a href="https://github.com/kimtang?tab=repositories">
+<td>Solutions to [Euler’s problems](https://projecteuler.net/). <span class="author"><a href="https://github.com/kimtang?tab=repositories">
 						(Kim Tang)
 					</a></span>
 </td>
@@ -441,14 +448,14 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/mortensorensen/projecteuler">projecteuler</a></td>
-<td>Solutions to Project Euler problems. <span class="author"><a href="https://github.com/mortensorensen?tab=repositories">
+<td>Solutions to [Project Euler](https://projecteuler.net/) problems. <span class="author"><a href="https://github.com/mortensorensen?tab=repositories">
 						(Morten Sorensen)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/kimtang/proto">proto</a></td>
-<td>Implementing edsl. <span class="author"><a href="https://github.com/kimtang?tab=repositories">
+<td>Implementing EDSL. <span class="author"><a href="https://github.com/kimtang?tab=repositories">
 						(Kim Tang)
 					</a></span>
 </td>
@@ -469,7 +476,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/nickolasbug/qnn">qnn</a></td>
-<td>Simple neural network. <span class="author"><a href="https://github.com/nickolasbug?tab=repositories">
+<td>Simple [neural network](https://en.wikipedia.org/wiki/Artificial_neural_network). <span class="author"><a href="https://github.com/nickolasbug?tab=repositories">
 						(Nickolas Bug)
 					</a></span>
 </td>
@@ -531,7 +538,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/zholos/qml">qml</a></td>
-<td>A library for statistics, linear algebra, and optimization in q. It provides an interface between the q programming language and numerical libraries such as LAPACK. <span class="author"><a href="https://github.com/zholos?tab=repositories">
+<td>A library for statistics, linear algebra, and optimization in q. It provides an interface between the q programming language and numerical libraries such as [LAPACK](http://www.netlib.org/lapack/). <span class="author"><a href="https://github.com/zholos?tab=repositories">
 						(Andrey Zholos)
 					</a></span>
 </td>
@@ -544,7 +551,7 @@ for interfaces and plug-ins
 <table class="kx-compact" markdown="1">
 <tr>
 <td class="nowrap"><a href="https://github.com/lmartinking/broq">broq</a></td>
-<td>Brotli file decompression. <span class="author"><a href="https://github.com/lmartinking?tab=repositories">
+<td>[Brotli file decompression](https://en.wikipedia.org/wiki/Brotli). <span class="author"><a href="https://github.com/lmartinking?tab=repositories">
 						(Lucas Martin-King)
 					</a></span>
 </td>
@@ -558,21 +565,21 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/tjcelaya/jwt.q">jwt.q</a></td>
-<td>JSON Web Token signing and parsing for q. <span class="author"><a href="https://github.com/tjcelaya?tab=repositories">
+<td>[JSON Web Token](https://jwt.io/) signing and parsing for q. <span class="author"><a href="https://github.com/tjcelaya?tab=repositories">
 						(Tomas Celaya)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/bjconlan/kdb-jdbc">kdb-jdbc</a></td>
-<td>Packaged dependencies of the JDBC driver &amp; protocol/connection classes as provided at [KxSystems/kdb/c](https://github.com/KxSystems/kdb/tree/master/c). <span class="author"><a href="https://github.com/bjconlan?tab=repositories">
+<td>Packaged dependencies of the [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) driver &amp; protocol/connection classes as provided at [KxSystems/kdb/c](https://github.com/KxSystems/kdb/tree/master/c). <span class="author"><a href="https://github.com/bjconlan?tab=repositories">
 						(Benjamin Conlan)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/Naoki-Yatsu/kdb-jfx-viewer">kdb-jfx-viewer</a></td>
-<td>(Making) q realtime viewer by JavaFX. <span class="author"><a href="https://github.com/Naoki-Yatsu?tab=repositories">
+<td>(Making) q realtime viewer by [JavaFX](http://docs.oracle.com/javase/8/javase-clienttechnologies.htm). <span class="author"><a href="https://github.com/Naoki-Yatsu?tab=repositories">
 						(Naoki Yatsu)
 					</a></span>
 </td>
@@ -600,35 +607,35 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/effbiae/kx">kx</a></td>
-<td>Collection of code from code.kx.com and the lists. r is a small parser for RPN. g is to g.k as x is to xterm. sc dynamically calls functions by their address on AMD_64. <span class="author"><a href="https://github.com/effbiae?tab=repositories">
+<td>Collection of code from code.kx.com and the lists. r is a small parser for [RPN](https://en.wikipedia.org/wiki/Reverse_Polish_notation). g is to g.k as x is to xterm. sc dynamically calls functions by their address on AMD_64. <span class="author"><a href="https://github.com/effbiae?tab=repositories">
 						(Jack Andrews)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/komsit37/qchart">qchart</a></td>
-<td>Plot data directly from q (using JavaScript). Works well with sublime-q. Transform your data into JSON and renders it into a HTML/JavaScript template. <span class="author"><a href="https://github.com/komsit37?tab=repositories">
+<td>Plot data directly from q (using JavaScript). Works well with sublime-q. Transform your data into [JSON](http://www.json.org/) and renders it into a HTML/JavaScript template. <span class="author"><a href="https://github.com/komsit37?tab=repositories">
 						(Eugene Kononov)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/lmartinking/qgz">qgz</a></td>
-<td>GZip decompression. <span class="author"><a href="https://github.com/lmartinking?tab=repositories">
+<td>[GZip](http://www.gzip.org/) decompression. <span class="author"><a href="https://github.com/lmartinking?tab=repositories">
 						(Lucas Martin-King)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/nugend/qjson">qjson</a></td>
-<td>JSON output. <span class="author"><a href="https://github.com/nugend?tab=repositories">
+<td>[JSON](http://www.json.org/) output. <span class="author"><a href="https://github.com/nugend?tab=repositories">
 						(Daniel Nugent)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/lmartinking/qrapidjson">qrapidjson</a></td>
-<td>Rapid JSON serialiser. <span class="author"><a href="https://github.com/lmartinking?tab=repositories">
+<td>Rapid [JSON](http://www.json.org/) serialiser. <span class="author"><a href="https://github.com/lmartinking?tab=repositories">
 						(Lucas Martin-King)
 					</a></span>
 </td>
@@ -662,7 +669,7 @@ for interfaces and plug-ins
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/semitrivial/qdash">qdash</a></td>
-<td>A port to q of the JavaScript Iodash utilities. <span class="author"><a href="https://github.com/semitrivial?tab=repositories">
+<td>A port to q of the JavaScript [lodash](https://lodash.com/) utilities. <span class="author"><a href="https://github.com/semitrivial?tab=repositories">
 						(Samuel Alexander)
 					</a></span>
 </td>

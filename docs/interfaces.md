@@ -1,3 +1,14 @@
+# Interfaces and editor integrations
+
+<i class="fa fa-hand-o-right"></i> [General index](/github) of other kdb+ repositories
+
+Repositories at <i class="fa fa-github"></i> [KxSystems](https://github.com/KxSystems) are maintained and supported by Kx Systems. 
+
+Other repositories are maintained by their owners. 
+
+<div style="background-color: #efefef; border: 1px solid #005499; border-radius: 10px; display: inline-block; padding: 0 1em;" markdown="1">Please tell [librarian@kx.com](mailto:librarian@kx.com)
+about new repositories.</div>
+
 ## <i class="fa fa-server"></i> Kdb+ as server
 
 <table class="kx-compact" markdown="1">
@@ -111,7 +122,7 @@
 <tr><td>R</td>
     <td>
 [Using q with R](/interfaces/with-r/#calling-q-from-r)<br/>
-<i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb)<br/>
+<i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb) ==new==<br/>
 <i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)
     </td>
 </tr>
@@ -140,7 +151,7 @@
 <tr><td>JDBC</td><td><i class="fa fa-github"></i> [CharlesSkelton/babel](https://github.com/CharlesSkelton/babel)</i></td></tr>
 <tr><td>ODBC</td><td>[Q client for ODBC](/interfaces/q-client-for-odbc)<br/>
 <i class="fa fa-github"></i> [johnanthonyludlow/kdb/docs/odbc.pdf](https://github.com/johnanthonyludlow/kdb/blob/master/docs/odbc.pdf)</td></tr>
-<tr><td>[Kafka](https://kafka.apache.org/)</td><td><i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)</td></tr>
+<tr><td>[Kafka](https://kafka.apache.org/)</td><td><i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka) ==new==</td></tr>
 <tr><td>Philips Hue</td><td><i class="fa fa-github"></i> [jparmstrong/qphue](https://github.com/jparmstrong/qphue)</td></tr>
 <tr><td>R</td><td>[Using q with R](/interfaces/with-r/#calling-r-from-q)</td></tr>
 <tr><td>Reuters</td><td><i class="fa fa-github"></i> [KxSystems/kdb/c/feed/rfa.zip](https://github.com/KxSystems/kdb/blob/master/c/feed/rfa.zip)</td></tr>
@@ -226,7 +237,7 @@
     </td>
 </tr>
 <tr>
-    <td>Visual Studio Code</td><td><i class="fa fa-github"></i> [lwshang/vscode-q](https://github.com/lwshang/vscode-q)</td>
+    <td>Visual Studio Code</td><td><i class="fa fa-github"></i> [lwshang/vscode-q](https://github.com/lwshang/vscode-q) ==new==</td>
 </tr>
 </table>
 
