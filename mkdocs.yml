@@ -215,6 +215,7 @@ pages:
     - Button: dashboards/button.md
     - ChartIQ: dashboards/chartiq.md
     - Config Manager: dashboards/configmanager.md
+    - Custom Component: dashboards/customcomponent.md
     - Dataform: dashboards/dataform.md
     - Datagrid: dashboards/datagrid.md
     - Date Picker: dashboards/datepicker.md
@@ -240,9 +241,11 @@ pages:
     - Scatter Plot: dashboards/scatterplot.md
     - Server Status: dashboards/serverstatus.md
     - Tab Control: dashboards/tabcontrol.md
+    - Text: dashboards/text.md
     - Text Input: dashboards/textinput.md
     - Tree Map: dashboards/treemap.md
     - Upload: dashboards/upload.md
+    - Sample Dashboards: dashboards/sampledashboards.md
   - Developer: developer.md
   - GitHub: github.md
   - Q for Mortals 3: qformortals3.md
