@@ -32,7 +32,7 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 <div>
     [<i class="fa fa-hourglass-start fa-border fa-5x"></i><br/>
-    Whirlwind tour](http://code.kx.com/q4m3/1_Q_Shock_and_Awe/)
+    Quick tour of q](http://code.kx.com/q4m3/1_Q_Shock_and_Awe/)
 </div>
 <div>
     [<i class="fa fa-github fa-border fa-5x"></i><br/>
