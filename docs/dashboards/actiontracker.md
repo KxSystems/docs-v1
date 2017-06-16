@@ -1,259 +1,194 @@
- 
-![Screenshot](img/actiontracker.jpg)
+![Screenshot](img/actiontracker.jpg) 
 
+![Screenshot](img/actiontrackervertical.jpg)  
 _Alternative Vertical Layout_
 
-![Screenshot](img/actiontrackervertical.jpg)
-
-Action Tracker is a self-contained alerting application. Further information on Action Tracker can be found in _Stream for Kx_.
+Action Tracker is a self-contained alerting application. Further information on Action Tracker can be found in _Stream for Kx_. <!-- FIXME -->
  
+
 ## Basics
  
 ![Screenshot](img/actiontrackerbasics.jpg)
 
-**Data Connection**
-
-Click on Data Connection to pop-up the Connection menu. Select the required connection from the dropdown menu.
-
+_Data Connection_
+: Select the required connection  
 ![Screenshot](img/dataconnectionthmllight.jpg)
 
-**Layout split**
+Layout split
+: Toggles between vertical and horizontal layouts
 
-Toggles between a Vertical and Horizontal layout
-
-**Item ID**
-
-Create [view state parameter](introduction.md#view-state-parameters) to use as Item ID
+_Item ID_
+: Create a [View State Parameter](introduction/#view-state-parameters) to use as Item ID
  
-**Alert ID**
+_Alert ID_
+: Create a [View State Parameter](introduction/#view-state-parameters) to use as Alert ID
 
-Create [view state parameter](introduction.md#view-state-parameters) to use as Alert ID
-
-**Allow Payload Editing**
-
-Toggle control. When enabled, Users will be able to edit the details of the Alert.
-
+_Allow Payload Editing_
+: Check to allow users to edit the details of the Alert  
 ![Screenshot](img/payloadeditinghtmllight.jpg)
 
-### Columns
+
+## Columns
 
 ![Screenshot](img/columnsmenu.jpg)
 
-**User Defined**
+_User Defined_
+: When checked, the selected column will remain in the Data Grid if the selected column variable is removed from the query. A user-defined query is effectively a ‘lock’ on the column
 
-When checked, the selected column will remain in the Data Grid if the selected column variable is removed from the query. A User Defined query is effectively a 'lock' on the column
+!!! warning "Watch out"
+    If the _User Defined_ column variable is missing in the query, the User Defined column will show as an empty column in the Data Grid
 
-!!! Tip "If the User Defined column variable is missing in the query, the User Defined column will show as an empty column in the Data Grid"
+<dt markdown="1">_Data Field Name_</dt>
+<dd>
+    <p><img src="/dashboards/img/datafieldname.jpg" alt="screenshot"/></p>
 
-**Data Field Name**
+    <p>When using a wildcard, all dynamic columns derived from a query will use the wildcard column format.  The wildcard can be used in conjunction with text headers; e.g. <code>bid*</code> for both <code>bid</code> and <code>bid_update</code>.</p>
+      
+    <p>Select the <em>Data Field Name</em> from data columns in the Data Source query.</p>
+      
+    <p>Additional columns can be added, including wildcard columns. If a wildcard is used, any undefined columns will adopt the properties of the wildcard column; e.g. data alignment, decimal precision etc.</p>
 
-Data Field Name
+    <p><img src="/dashboards/img/newcolumnadd.jpg" alt="screenshot"/></p>
+</dd>
 
-![Screenshot](img/datafieldname.jpg)
-
-When using a wildcard, all dynamic columns derived from a query will use the wildcard column format.  The wildcard can be used in conjunction with text headers; e.g. bid* for bid, and bid_update
-
-The Data Field Name is selected from data columns in the Data Source query. 
-
-Additional columns can be added, including wildcard columns. If wildcard is used, any non-defined columns will adopt the column specifications of the wildcard column; e.g. data alignment, decimal precision etc.
-
-![Screenshot](img/newcolumnadd.jpg)
-
-**Display Name**
-
-Display Name
-
-![Screenshot](img/displayname.jpg)
-
+_Display Name_
+: ![Screenshot](img/displayname.jpg)  
 The name assigned for the column in the Data Grid. This is case sensitive.
 
-**Width (relative)**
-
-Relative Width
+<dt markdown="1">_Width (relative)_</dt>
+<dd>
+    <p><img src="/dashboards/img/relativewidthblack.jpg" alt="screenshot"/></p>
+    
+    <p>Relative to the width of the Data Grid. The scale is contingent on the values of each column; for example, columns with a relative width of 20, 10, 5, 1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)), 28%, 14% and 3%.</p>
   
-![Screenshot](img/relativewidthblack.jpg)
+    <p>Relative columns will scale according to the browser size.</p>
+  
+    <p><img src="/dashboards/img/whiterelativewidth.jpg" alt="screenshot"/></p>
+</dd>
 
-Relative measure to the width of the Data Grid. The scale is contigent on the values of each column; for example, columns with a relative width of 20,10,5,1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)), 28%, 14% and 3%.  
+_Minimum Width (pixels)_ 
+: Minimum width in pixels for a column. Columns using _Minimum Width (pixels)_ will scale according to browser size. 
 
-Relative columns will scale according to the browser size.
-
-![Screenshot](img/whiterelativewidth.jpg)
-
-**Minimum Width (pixels)**
-
-This is the pixel minimum width for a column. Columns will never be smaller than the minimum width, but can be wider. 
-
-Columns using minimum width will scale according to browser size
-
-**Text Align**
-
-Alignment of values inside Data Grid. 
-
+_Text Align_
+: Alignment of values inside Data Grid.  
 ![Screenshot](img/textalign.jpg)
 
-**Sortable**
+_Sortable_
+: ![Screenshot](img/columnsort.jpg)  
+When checked, users clicking on a column header will toggle between ascending and descending sort. 
 
-Sorting Columns
-
-![Screenshot](img/columnsort.jpg)
-
-When checked, users clicking on column header will toggle between ascending and descending sort. 
-
-**Format**
-
-Sample formats: General, DateTime, General, Formatted Number, Formatted Number, Formatted Number, Formatted Number, DateTime, General, Smart Number
-  
-![Screenshot](img/sampleformats.jpg)
-  
-Select formatting for data type in column
-  
+_Format_
+: Select formatting for data type in column. If `DateTime` is selected, then either a _Date Format_ or _Time Format_ must also be selected.  
 ![Screenshot](img/formatdropdown.jpg)
 
-**Precision**
+_Precision_
+: The number of decimal places used for numeric data.
 
-Where numeric data is used, Precision sets the number of decimal places used.
-
-**Hide Trailing Zeroes**
-
-Removes the display of zeroes from end digits after the decimal point.
-
-![Screenshot](img/beforeprecision.jpg)
-
+_Hide Trailing Zeroes_
+: Suppresses the display of trailing zeros  
+![Screenshot](img/beforeprecision.jpg) 
 ![Screenshot](img/afterprecision.jpg)
 
-**Currency Symbol**
- 
-Currencies
+_Currency Symbol_
+: ![Screenshot](img/currencyselect.jpg)  
+Adds a currency symbol prefix to column data    
+![Screenshot](img/currencysymbol.jpg) 
 
-![Screenshot](img/currencysymbol.jpg)
- 
-Adds a currency symbol prefix to column data
-  
-![Screenshot](img/currencyselect.jpg)
+<dt markdown="1">_Date Format_</dt>
+<dd>
+    <p>Combination Date and Time Format. Ensure either a Date or DateTime format is selected.</p>
+    <p><img src="/dashboards/img/comboformat.jpg" alt="screenshot"/></p>
+    <p><img src="/dashboards/img/timecolumn.jpg" alt="screenshot"/></p>
+</dd>
 
-**Date Format**
-
-Combination Date and Time Format. Ensure Date or DataTime Format is selected.
-  
-![Screenshot](img/comboformat.jpg)
-  
-![Screenshot](img/timecolumn.jpg)
-  
 Select date format
-
-![Screenshot](img/dateformat.jpg)
+: ![Screenshot](img/dateformat.jpg)
   
-**Time Format**
-  
-Select time format. Ensure Time or DataTime Format is selected
-  
+_Time Format_
+: Select time format. Ensure Time or DateTime Format is selected.    
 ![Screenshot](img/timeformat.jpg)
-  
-**Min Value Color**
-  
-Min Value Color
 
-![Screenshot](img/minvaluecolor.jpg)
-  
-Selection will place a color border highlight around lowest value in column
-  
-![Screenshot](img/minvalueselect.jpg)
+<dt markdown="1">_Min Value Color_</dt>
+<dd>
+    <p><img src="/dashboards/img/minvaluecolor.jpg" alt="screenshot"/></p>
+    <p>Selection will place a color border highlight around the lowest value in the column</p>
+    <p><img src="/dashboards/img/minvalueselect.jpg" alt="screenshot"/></p>
+    <p>To remove, click again on the color and select <em>No Color</em> from the palette tool.</p>
+    <p><img src="/dashboards/img/nocolorhtmlight.jpg" alt="screenshot"/></p>
+</dd>
 
-To Remove, again click on the color and select _No Color_ from the palette tool.
+<dt markdown="1">_Max Value Color_</dt>
+<dd>
+    <p><img src="/dashboards/img/maxvaluecolor.jpg" alt="screenshot"/></p>
+    <p>Selection will place a color border highlight around the lowest value in the column</p>
+    <p><img src="/dashboards/img/maxvalueselect.jpg" alt="screenshot"/></p>
+    <p>To remove, click again on the color and select <em>No Color</em> from the palette tool.</p>
+    <p><img src="/dashboards/img/nocolorhtmlight.jpg" alt="screenshot"/></p>
+</dd>
 
-![Screenshot](img/nocolorhtmlight.jpg)
+<dt markdown="1">_Range Color_</dt>
+<dd>
+    <p><img src="/dashboards/img/rangecolor.jpg" alt="screenshot"/></p>
+    <p>Applies a selected colour gradient across all cells in a column. Assigning a color will automatically apply the Range Color.</p>
+    <p><img src="/dashboards/img/rangeselect.jpg" alt="screenshot"/></p>
+    <p>To remove, click again on the color and select <em>No Color</em> from the palette tool.</p>
+    <p><img src="/dashboards/img/nocolorhtmlight.jpg" alt="screenshot"/></p>
+</dd>
 
-!!! Tip "Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
+<dt markdown="1">_Percentage Color_</dt>
+<dd>
+    <p><img src="/dashboards/img/percentagehighlight.jpg" alt="screenshot"/></p>
+    <p>Adds a mini-bar in Percentage formatted data. The proportion of the bar filled runs from 0 to 100%. To enable set <em>Format</em> to <em>Percentage</em></p>
+    <p><img src="/dashboards/img/percentageselecthtmllight.jpg" alt="screenshot"/></p>
+    <p>Select a colour to use for the bar.</p>
+    <p><img src="/dashboards/img/percentcolorselecthtmllight.jpg" alt="screenshot"/></p>
+    <p>To remove, click again on the color and select <em>No Color</em> from the palette tool.</p>
+    <p><img src="/dashboards/img/nocolorhtmlight.jpg" alt="screenshot"/></p>
+</dd>
 
-**Max Value Color**
+!!! Tip "View State Parameters as colors"
+    Any of _Min Color_, _Max Color_, _Range Color_ and  _Percentage Color_ can be a View State Parameter.
 
-Max Value Color
+    To assign a View State Parameter, roll over the end of the input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, then click to assign. 
 
-![Screenshot](img/maxvaluecolor.jpg)
-  
-Selection will place a color border highlight around highest value in column
-  
-![Screenshot](img/maxvalueselect.jpg)
+_Read Only_
+: Checked columns cannot be edited
 
-Click the color bar again and then click _No Color_ to remove the Max color setting 
+<dt markdown="1">_Template_</dt>
+<dd>
+    <p><img src="/dashboards/img/templatehelp.jpg" alt="screenshot"/><br/>
+    <em>Templating help</em></p>
+    <p>Template allows for richer customisation of columns. In this example, information from two columns (<em>URL</em> and <em>Name</em>) is merged together to form an active link:</p>
+    <p><img src="/dashboards/img/templateexamplehtmllight.jpg" alt="screenshot"/></p>
+    <p><img src="/dashboards/img/templatemeldhtmllight.jpg" alt="screenshot"/></p>
+</dd>
 
-!!! Tip "Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
+_Hidden_
+: Hide display of column in Action Tracker grid
 
-**Range Color**
-
-Range Color
-
-![Screenshot](img/rangecolor.jpg)
-  
-Applies a selected colour gradient across all cells in a column. Assigning a color will automatically apply the Range Color. 
-  
-![Screenshot](img/rangeselect.jpg)
-
-Click the color bar and then _No Color_ to remove the Range color from column data
-
-!!! Tip "Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
-
-**Percentage Color**
-
-Percentage Color
-
-![Screenshot](img/percentagehighlight.jpg)
-
-Adds a mini-bar in Percentage formatted data. The proportion of the bar filled runs from 0 to 100%
-
-To enable set Format to _Percentage_ 
-
-![Screenshot](img/percentageselecthtmllight.jpg)
-
-Select a colour to use for the bar 
-
-![Screenshot](img/percentcolorselecthtmllight.jpg)
-
-!!! Tip "Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign"
-
-**Read Only**
-
-Columns which are checked Read Only cannot be edited
-
-**Template**
-
-Template Help 
-
-![Screenshot](img/templatehelp.jpg)
-
-Template allows for richer customisation of columns. In this example, information from two columns ('URL' and 'Name') is merged together to form an active link:
-
-![Screenshot](img/templateexamplehtmllight.jpg)
-
-![Screenshot](img/templatemeldhtmllight.jpg)
-
-**Hidden**
-
-Hide display of column in Action Tracker grid.
 
 ## File Export
 
 ![Screenshot](img/actiontrackerfileexport.jpg)
 
-**Show Export CSV Button**
+_Show Export CSV Button_
+: Check to enable export of content as CSV
 
-Check control to support export of Action Tracker content by CSV
+_Show Export Excel Button_
+: Check to enable export of content in Excel format
 
-**Show Export Excel Button**
+_Filename_
+: Add filename details to export of CSV/Excel files
 
-Check control to support export of Action Tracker content by Excel
-
-### Filename
-
-Add Filename details to export of CSV/Excel files
 
 ## Filter
 
 ![Screenshot](img/filtermenu.jpg)
 
-Assigns [view state parameter](introduction.md#view-state-parameters) for each of the listed filters
+Assigns a [View State Parameter](introduction.md#view-state-parameters) to each of the listed filters
 
 ![Screenshot](img/filtermenuhtmllight.jpg)
+
 
 ## Highlight Rules
 
@@ -261,78 +196,75 @@ Used to apply color updates to notify users of changes in Data Grid values
 
 ![Screenshot](img/highlightrule.jpg)
 
-**Name**
+_Name_
+: Name of the rule
 
-The name of the rule
+_Target_
+: Select the Data Grid column to which the rule will apply. It can be any column; it does not have to be the column which is using the operator.
 
-**Target**
+_Condition Source_
+: The data series on which the trigger is measured
 
-From the dropdown menu, select the target Data Grid column on which the rule will act 
+_Condition Operator_
+: Select a rule operation, including greater- and less-than, not-equal-to, exactly-equal-to, and text-contains alerts
 
-The Target column can be any column in the Data Grid.  It does not have to be the data grid column which is using the operator.
+_Condition Value_
+: The value threshold that will trigger the alert.  Default is _previous value_
 
-**Condition Source**
+_Color_
+: The cell text-color change when rule is true
 
-The data series on which the trigger is measured
+_Backround Color_
+: The cell background-color change when rule is true. 
 
-**Condition Operator**
+_Border Color_
+: The cell border-color change when rule is true
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
+_Icon_
+: An icon to appear when rule is true
 
-**Condition Value**
-
-What value threshold will trigger the alert.  Default is _previous value_
-
-**Color**
-
-The text color change when rule is true
-
-**Backround Color**
-
-Background cell color change when rule is true. 
-
-**Border Color**
-
-Cell border color change when rule is true
-
-**Icon**
-
-Select an icon to appear when rule is true
-
-**Icon Color**
-
-Select the color for the icon (if used) when rule is true
-
+_Icon Color_
+: The color for the icon (if used) when rule is true  
 ![Screenshot](img/samplehighlightrules.jpg)
+
 
 ## Format
 
 ![Screenshot](img/actiontrackerformatmenu.jpg)
 
-**Alert Title Template**
+_Alert Title Template_
+: Included CSS for _Alert Title_
 
-Included CSS for Alert Title
+_Alert Details Template_
+: Included CSS for _Alert Details Panel_
 
-**Alert Details Template**
+_Alert Dialog Template_
+: Included CSS for _Alert Dialog Panel_
 
-Included CSS for Alert Details Panel
+<i class="fa fa-hand-o-right"></i> [Component style](style/#component-style) for more on Title and Border configuration.
 
-**Alert Dialog Template**
+## Virus scanning
 
-Included CSS for Alert Dialog Panel
-
-See [Format](introduction.md#format) in Introduction for more on component Title and Border configuration.
-
-## Virus Scanning
-
-Files uploaded via the File Upload dashboard component or attachments uploaded via the ActionTracker may be screened for viruses.
+Files uploaded via the File Upload dashboard component or attachments uploaded via the Action Tracker may be screened for viruses.
 
 There are two prerequisites for enabling virus scanning:
 
-[1] ClamAV must be installed on the appserver box with up to date definitions.
+1. ClamAV must be installed on the appserver box with up to date definitions.
+2. In delta.profile, enable virus scanning as follows:  
+`DELTAAPPSERVER_VIRUS_SCAN_ENABLED=true`
 
-[2] In delta.profile, enable virus scanning as follows: _DELTAAPPSERVER_VIRUS_SCAN_ENABLED=true_
+The appserver must be restarted in order to pick up any changes to the above environment variable.
 
-!!! Tip "The appserver must be restarted in order to pick up any changes to the above environment variable."
-
-To verify whether virus scanning has been enabled, check the running tomcat process _(using ps -ef | grep tomcat)_ and look for  _-DdeltaAppServerVirusScanEnabled=true_ or _-DdeltaAppServerVirusScanEnabled=false._ With virus scanning enabled, uploaded files will automatically be scanned and if they don't pass the virus check the upload is aborted and an error will be reported on the dashboard.
+To verify whether virus scanning has been enabled, check the running tomcat process 
+```bash
+using ps -ef | grep tomcat
+```
+and look for 
+```bash
+-DdeltaAppServerVirusScanEnabled=true
+```
+or
+```bash
+-DdeltaAppServerVirusScanEnabled=false
+```
+With virus scanning enabled, uploaded files will automatically be scanned and, if they fail the virus check, the upload is aborted and an error will be reported on the dashboard.
