@@ -18,7 +18,8 @@ Mapping a value to a View State Parameter (within a dashboard)
  
 View State Mapping allows values of View State Parameters from the source dashboard to be transferred to View State Parameters in the destination Dashboard.
 
-<aside class="admonition tip">When mapping View State Parameters across dashboards, it will be necessary to create the Target View State Parameter in the destination dashboard first. Viewstate Mapping can only map to existing View State Parameters; it does not create them</aside>
+!!! Tip
+    When mapping View State Parameters across dashboards, it will be necessary to create the Target _View State Parameter_ in the destination dashboard first. Viewstate Mapping can only map to existing View State Parameters; Dashboards will not create them.
  
 To add a new Mapping element, click ![Screenshot](img/mappingbuttonhtmllight.jpg)
 
@@ -36,11 +37,11 @@ Size of font to use the button.
 
 **Horizontal**
 
-Sets alignment (left, center or right) of button inside the boundaries *Button* component
+Sets alignment (left, center or right) of button inside the boundaries _Button_ component
 
 **Vertical**
 
-Sets alignment (top, middle, bottom) of button inside the boundaries *Button* component
+Sets alignment (top, middle, bottom) of button inside the boundaries _Button_ component
 
 **Tooltip**
 
@@ -48,11 +49,11 @@ Descriptive tooltip to appear on button rollover
 
 **Fixed Width**
 
-Check box to define width of input box.  If unchecked, button will fill width of **Button** component box.
+Check box to define width of input box.  If unchecked, button will fill width of _Button_ component box.
 
 **Width**
 
-When **Fixed Width** is checked, width will define the button size in pixels. 
+When _Fixed Width_ is checked, width will define the button size in pixels. 
 
 ## Style
 
@@ -62,11 +63,11 @@ Use Advanced CSS to set styles
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction#margins) in Introduction for more
 
 ## Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction#format) in Introduction for more.
 

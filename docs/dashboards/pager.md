@@ -1,5 +1,12 @@
 ![Screenshot](img/pager.jpg)
 
+While Paging is inbuilt into Data Grid, other components can use the Paging component to control the amount of data displayed. All that's required is for the Pager component to share the same <a href="#data-source">Data Source</a> as other components requiring paging.
+
+!!! Warning
+    Ensure _Server Paging_ is checked in the Data Editor of **all** components requiring paging control; e.g. charts.  
+
+![Screenshot](img/serverpaging.jpg)
+
 ## Basics
 
 ![Screenshot](img/pagerbasics.jpg)
@@ -14,8 +21,8 @@ Dropdown selection
 
 Type | Description
 --- | ---
-None | No Paging employed 
-Offset | Set Paging with _Offset/Page Number
+None | Server Paging switched off. 
+Offset | Starts at page other than page 1 (Page Number:0)
 Page Number | Use Page Number
 
 **Offset/Page Number**

@@ -18,7 +18,7 @@ Used for linking to a [range slider](rangeslider). Requires a [view state parame
 
 ### Selected Value 
 
-Used to map a chart (query) data point to a [view state parameter](introduction#view-state-parameters) when a chart bar is clicked by the user. 
+This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
 
 [1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
  
@@ -28,11 +28,12 @@ Used to map a chart (query) data point to a [view state parameter](introduction#
 
 ### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters). 
+This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
+!!! Warning "Data Type Match"
+    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
 
 ### Selected Row ViewState Routing
 
@@ -60,7 +61,8 @@ Sets the data type for the label used for X-Axis Value
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-!!! Tip "If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a>"
+!!! Tip 
+    If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a>
 
 **Axis Format**
 
@@ -94,7 +96,8 @@ When checked, x-axis will scale by time or numeric sequence
 
 ![Screenshot](img/ordinal.jpg)
 
-!!! Tip "Best used when <a href="#axis-scale">Axis Scale</a> is set to _scale_."
+!!! Tip
+    Best used when <a href="#axis-scale">Axis Scale</a> is set to _scale_.
 
 **Show new Time Period**
 
@@ -116,7 +119,8 @@ Displays every charted data point in the x-axis
 
 The number of ticks to display in the x-axis.
 
-!!! Warning "Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable."
+!!! Check 
+    Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable.
 
 **Axis Rotation**
 
@@ -146,27 +150,24 @@ To select a data column, click inside the Column input box. This will display a 
  
 ![Screenshot](img/selectcolumhtmllight.jpg)
 
-Wildcard query
-
-![Screenshot](img/wildcardquery.jpg)
-
-![Screenshot](img/wildcardcharthtmllight.jpg)
-
-Use the wildcard to group select data. The wildcard can also be used to select partial data sets.
+**Wildcard query**
 
 ![Screenshot](img/wildcardhtmlight.jpg)
 
+Use the wildcard to group select data. The wildcard can also be used to select partial data sets.
+
 For example, wildcard selection charted the three available data series:
 
-If wildcard is select for column name, all wildcard plots will share the same formatting (e.g. color). A separate column will be required for specific data source variable plots.
+![Screenshot](img/wildcardcharthtmllight.jpg)
+
+If wildcard is select for column name, all matching columns for the wildcard (e.g: size* matches to _sizeminute_, _sizeprice_, _sizesize_) will share formatting (e.g. color, highlight rules etc.). 
 
 **Color**
 
-Sets the color for the bar chart (non-pivot data). 
+Select from color palette or use Hex color reference
 
-![Screenshot](img/selectcolorhtmllight.jpg)
-
-!!! Rip "The color palette for Pivot data will use <a href="#style">Style</a> menu colors." 
+!!! Note "Pivot Data Charts"
+    If charting Pivot/OLAP data, charting colors will be selected from <a href="#style">Style</a> menu.
 
 **Display Name**
 
@@ -174,7 +175,8 @@ Defines the name used in the chart legend
 
 ![Screenshot](img/displaynamecharthtmllight.jpg)
 
-!!! Tip "If wildcard is used for <a href="#column">Column</a> name, then dashboards will append any used Display Name to the column name from the database. It's best to leave blank when using wildcard naming."
+!!! Tip "Wildcard in Display Name"
+    If wildcard is used for <a href="#column">Column</a> name, dashboards will instead use the Display Name from the database.
 
 ## Zoom/Pan 
 
@@ -274,9 +276,9 @@ Tooltips can use View State Parameters which have been mapped to Data Source var
 
 In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
 
-If viewstate parameter = _param1_
+If viewstate parameter = `param1`
 
-Add a table cell with _param1_ viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
+Add a table cell with `param1` viewstate to tooltip with the tag:  `<td>{{obj.param1}}</td>`
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
@@ -371,9 +373,9 @@ When checked, Users will have the ability to toggle between Grouped and Stacked 
 
 ![Screenshot](img/showcontrolshtmllight.jpg)
 
-!!! Tip "In addition to user-controlled group and stack controls are individual toggles for charted data points. Click inside the chart legend icon to switch selected data chart view on or off."
-
-![Screenshot](img/dataviewcontrolhtmlight.jpg)
+!!! Tip
+    In addition to user-controlled group and stack controls, are individual toggles for charted data points. Click inside the chart legend icon to switch selected data chart view on or off.
+    ![Screenshot](img/dataviewcontrolhtmlight.jpg)
 
 **Stacked as %**
 
@@ -387,7 +389,7 @@ Stacked as a Percentage Checked off
 
 **Show Stacked Labels**
 
-When checked, displays stacked values in chart as configured in <a href="#data-source">Data Source</a>. If <a href="#stacked-as-%">Stacked as %</a> is checked, then values displayed will be percentile values. 
+When checked, displays stacked values in chart as configured in <a href="#data-source">Data Source</a>. If <a href="#stacked-as-%">Stacked as a %</a> is checked, values displayed will be percentile values. 
 
 ![Screenshot](img/stackingpercentagehtmllight.jpg)
 
@@ -405,7 +407,8 @@ Checking _Y-axis Force Min_ will set the Y-axis to use the value entered <a href
 
 As with <a href="#y-axis-force-min">Y-axis Force Min</a> will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
 
-Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed _Y-Axis max_
+!!! Warning "_Max_ set to less than highest value in Y-axis"
+    Using _Y-axis Force Max_ may crop chart if y-axis values exceed _Y-Axis max_
 
 **Y-axis Min**
 
@@ -415,7 +418,8 @@ The defined value will be used if <a href="#y-axis-force-min">Y-axis Force Min</
 
 The defined value will be used if <a href="#y-axis-force-max">Y-Axis Force Max</a> is checked.
 
-Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important.
+!!! Tip
+    Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important.
 
 **Y-Axis Ticks (best fit)**
 
@@ -457,7 +461,8 @@ Display in the y-axis the min/max values.
 
 ![Screenshot](img/showyaxisminmaxcharthtmllight.jpg)
 
-<aside class="admonition caution">If Y-axis min/max values are used, these will be displayed</aside>
+!!! Note "Use of Min/Max"
+    Charts will best fit the y-axis, setting the minimum value to the lowest value in the charted y-range. To force zero the Y-axis, use _Y axis Min_
 
 **X/Y Axis Tick Padding**
 
@@ -479,11 +484,12 @@ Defines the range between min and max values of y-axis
 
 ![Screenshot](img/yaxisminmaxrangescalehtmllight.jpg)
 
-!!! Warning "If defined range is greater than data range a negative y-axis will be applied."
+!!! Warning "Out of Range Values"
+    If defined range is greater than data range a negative y-axis will be applied
 
 **Dynamic Columns in Pivot**
 
-Marks if dynamic colums are used for a [pivot query](introduction.md#pivot-query)
+Marks if dynamic colums are used for a [pivot query](introduction#pivot-query)
 
 **Show X- Y-Axis Ticks**
 

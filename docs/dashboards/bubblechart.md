@@ -6,21 +6,21 @@
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
 ### Focus
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction#linking-components). Requires a [view state parameter](introduction#view-state-parameters).
 
 ### Range
 
-Used for linking to a [range slider](rangeslider.md). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for linking to a [range slider](rangeslider.md). Requires a [view state parameter](introduction#view-state-parameters) to pair with the Range Slider. 
 
 ### Selected Value 
 
-Used to map a chart (query) data point to a [view state parameter](introduction.md#view-state-parameters) when a chart bar is clicked by the user. 
+This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
 
-[1] Create a [view state parameter](introduction.md#view-state-parameters) and assign to <i>Selected Value</i>
+[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
  
 ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
@@ -28,11 +28,12 @@ Used to map a chart (query) data point to a [view state parameter](introduction.
 
 ### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction.md#view-state-parameters). 
+This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+!!! Warning "Data Type Match"
+    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
 
 ### Selected Row ViewState Routing
 
@@ -58,7 +59,8 @@ Sets the data type for the label used for X-Axis Value
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-<aside class="admonition caution">If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a></aside>
+!!! Tip 
+    If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a>
 
 **Axis Format**
 
@@ -114,7 +116,8 @@ Displays every charted data point in the x-axis
 
 The number of ticks to display in the x-axis.
 
-<aside class="admonition caution">Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable</aside>
+!!! Warning "Use with _Use Fixed Num of Ticks_"
+    Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable
 
 **Axis Rotation**
 
@@ -172,7 +175,7 @@ Selects the background color, background color opacity and the border for the se
 
 ![Screenshot](img/minmaxzoom.jpg)
 
-Set [view state parameter](introduction.md#view-state-parameters) for to store the range value for <b>Min and Max Zoom</b>
+Set [view state parameter](introduction#view-state-parameters) for to store the range value for _Min and Max Zoom_
 
 **Mouse Pan**
 
@@ -246,9 +249,9 @@ Tooltips can use View State Parameters which have been mapped to Data Source var
 
 In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
 
-If viewstate parameter = *param1*
+If viewstate parameter = `param1`
 
-Add a table cell with *param1* viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
+Add a table cell with `param1` viewstate to tooltip with the tag:  `<td>{{obj.param1}}</td>`
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
@@ -339,7 +342,7 @@ Sets bubble size to a <a href="#data-source">data source</a> variable; in the be
 
 ![Screenshot](img/bidvolumebubble.jpg)
 
-Use <b>Min Bubble Size</b> and <b>Bubble Scale</b> sliders to set the baseline bubble size
+Use _Min Bubble Size_ and _Bubble Scale_ sliders to set the baseline bubble size
 
 **Shape**
 
@@ -355,7 +358,7 @@ The default chart best-fits data to the axis to maximise visual differnces. It s
 
 ![Screenshot](img/yaxismincharthtmlight.jpg)
 
-Checking *Y-axis Force Min* will set the Y-axis to use the value entered <a href="#y-axis-min">Y-Axis Min</a>.
+Checking _Y-axis Force Min_ will set the Y-axis to use the value entered <a href="#y-axis-min">Y-Axis Min</a>.
 
 **Y-axis Force Max**
 
@@ -371,7 +374,8 @@ The defined value will be used if <a href="#y-axis-force-min">Y-axis Force Min</
 
 The defined value will be used if <a href="#y-axis-force-max">Y-Axis Force Max</a> is checked.
 
-<aside class="admonition caution">Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important</aside>
+!!! Tip
+    Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important.
 
 **Y-Axis Ticks (best fit)**
 
@@ -399,13 +403,14 @@ Distance between x-axis and line chart
 
 **Min Bubble Size**
 
-Slider control to define how big the smallest bubble will be. Minimum bubble size is independent of relative difference as measured by **Bubble Scale**
+Slider control to define how big the smallest bubble will be. Minimum bubble size is independent of relative difference as measured by _Bubble Scale_
 
 **Bubble Scale**
 
-Slider control to define the scale of the relative change between bubbles as set by the <b>Volume</b> variable. The further right the slider, the bigger the relative difference between bubbles.  
+Slider control to define the scale of the relative change between bubbles as set by the _Volume_ variable. The further right the slider, the bigger the relative difference between bubbles.  
 
-<aside class="admonition caution">Dependent on <a href="#data-source">data source</a> variable selected for <b>Volume</b></aside> 
+!!! Note "Using Bubble Scale"
+    Bubble size is magnifying the relative difference between the values for _Volume_ as selected from the <a href="#data-source">data source</a>.
 
 **Show X-axis Min/Max**
 
@@ -423,7 +428,8 @@ Display in the y-axis the min/max values.
 
 ![Screenshot](img/showyaxisminmaxcharthtmllight.jpg)
 
-<aside class="admonition caution">If Y-axis min/max values are used, these will be displayed</aside>
+!!! Note "Use of Min/Max"
+    Charts will best fit the y-axis, setting the minimum value to the lowest value in the charted y-range. To force zero the Y-axis, use _Y axis Min_
 
 **X/Y Axis Tick Padding**
 
@@ -445,11 +451,12 @@ Defines the range between min and max values of y-axis
 
 ![Screenshot](img/yaxisminmaxrangescalehtmllight.jpg)
 
-<aside class="admonition caution">If defined range is greater than data range a negative y-axis will be applied</aside>
+!!! Warning "Out of Range Values"
+    If defined range is greater than data range a negative y-axis will be applied
 
 **Dynamic Columns in Pivot**
 
-Marks if dynamic colums are used for a [pivot query](introduction.md#pivot-query)
+Marks if dynamic colums are used for a [pivot query](introduction#pivot-query)
 
 **Show X- Y-Axis Ticks**
 

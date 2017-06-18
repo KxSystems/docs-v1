@@ -34,21 +34,21 @@ Click inside the Formatted Text box to open the editor.
 
 Function | Description
 --- | ---
-![Screenshot](img/fontstylehtmllight.jpg"> | Choose between **bold**, *italic* or underscore
-![Screenshot](img/alignmenthtmllight.jpg"> | Left, center, right and justify alignment
-![Screenshot](img/listoptionhtmllight.jpg"> | bullet or numeric points
+![Screenshot](img/fontstylehtmllight.jpg) | Choose between **bold**, *italic* or underscore
+![Screenshot](img/alignmenthtmllight.jpg) | Left, center, right and justify alignment
+![Screenshot](img/listoptionhtmllight.jpg) | bullet or numeric points
 Font Size | 8pt, 10pt, 12pt, 14pt, 18pt, 24pt
 Font Family | Arial, Comic Snas, Courier New, Georgia, Helvetica, Impact, Times, Trebuchet, Verdana
 Font Format | Paragraph, Pre, Heading 6, Heading 5, Heading 4, Heading 3, Heading 2, Heading 1
-![Screenshot](img/indentoptionhtmllight.jpg"> | add or remove paragraph indent
-![Screenshot](img/addimagehtmllight.jpg"> | Import an image. Includes options to set width, height, Alt Text and image alignment. To import an image, click ![Screenshot](img/uploadimagebutton.jpg">, source the image from the PC, then click ![Screenshot](img/submitbutton.jpg">  
-![Screenshot](img/addlinkhtmllight.jpg"> | Add or remove URL links. Define the URL, give the URL a descriptive Title, and configure from the dropdown whether the link should open in the current window or a new window
-![Screenshot](img/textcolorhtmllight.jpg"> | Select text color from the color palette
-![Screenshot](img/addhtmllight.jpg"> | Switch to HTML view
+![Screenshot](img/indentoptionhtmllight.jpg) | add or remove paragraph indent
+![Screenshot](img/addimagehtmllight.jpg) | Import an image. Includes options to set width, height, Alt Text and image alignment. To import an image, click ![Screenshot](img/uploadimagebutton.jpg), source the image from the PC, then click ![Screenshot](img/submitbutton.jpg)  
+![Screenshot](img/addlinkhtmllight.jpg) | Add or remove URL links. Define the URL, give the URL a descriptive Title, and configure from the dropdown whether the link should open in the current window or a new window
+![Screenshot](img/textcolorhtmllight.jpg) | Select text color from the color palette
+![Screenshot](img/addhtmllight.jpg) | Switch to HTML view
  
 **Template Text**
 
-Template text supports *Data Source* integration. The ![Screenshot](img/helpbutton.jpg) offers additional configuration assistance: 
+Template text supports _Data Source_ integration. The ![Screenshot](img/helpbutton.jpg) offers additional configuration assistance: 
 
 ![Screenshot](img/samplehealthhtmllight.jpg)
 
@@ -60,7 +60,8 @@ was generated from the following Template Text
 
 ![Screenshot](img/templatetextsample.jpg)
 
-<aside class="notice">Template Text is dependent on a Data Source. If no Data Source is defined then the Template will not appear</aside>
+!!! Warning "Can't View Formatted Text?"
+    Template Text is dependent on a Data Source. If no Data Source is defined then the Template will not appear.
 
 **Font Size**
 

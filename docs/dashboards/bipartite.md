@@ -13,11 +13,11 @@ Define **Data Source** and component linkages
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
 ### Focus
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction#linking-components). Requires a [view state parameter](introduction#view-state-parameters).
 
 ### Right Hand Compare variables
 
@@ -31,7 +31,7 @@ Select <a href="#data-source">Data Source</a> variable to include in the right-h
 
 **Display Name**
 
-Display Name for aforementioned <i>data source</i> variable
+Display Name for aforementioned _data source_ variable
 
 ### Left Hand Compare Group
 
@@ -99,4 +99,4 @@ Defines width of gap between component edge and percentage value
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction#margins) in Introduction for more

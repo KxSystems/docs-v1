@@ -1,6 +1,8 @@
 ## Basics
 
-Covers the data source and end-user controls for the Data Grid, including search, filtering, edit cells, insert and delete rows, grouping and custom column display. Users can also select by which column to autosort on dashboard load, and the direction of the sort order
+The key element is the <a href="#data-source">Data Source</a>, where the query or analytic is defined. 
+
+Also includes setting switches for search, filtering, editing cells, insert and delete rows, sorting, grouping and custom column display.
 
 ![Screenshot](img/datagridbasics.jpg)
 
@@ -16,15 +18,13 @@ Defines the source data to display in the Data Grid. See [Defining a Query](intr
 
 Three types of filtering are available:
 
-_Quick Search_
+: _Quick Search_
+: ![Screenshot](img/gridquicksearch.jpg)
 
-![Screenshot](img/gridquicksearch.jpg)
+: _Column Filters_
+: ![Screenshot](img/columnfilters.jpg)
 
-_Column Filters_
-
-![Screenshot](img/columnfilters.jpg)
-
-_Disabled:_ No filters
+: _Disabled:_ No filters
 
 ### Show Paging Control
 
@@ -38,11 +38,11 @@ Users can group data together. Subtotals can be applied with [Summary Row For Gr
 
 ### Auto Collapse Grouping
 
-On loading of dashboard, groupings will be in collapsed form. Grid groupings are configured in [Grouping Columns](datagrid#grouping-columns)
+When the Dashboard is loaded, data grid groupings will be in collapsed form. Grid groupings are configured in [Grouping Columns](datagrid#grouping-columns)
 
 ### Keep NonExistent Columns
 
-Use of NonExistent Columns is best employed when working with a large number of queries. This could be during the design process where a dashboard builder can retain column configurations from copied data grids using different queries.
+Use of NonExistent Columns is employed when working with a large number of queries. If a <a href="#data-source">Data Source</a> is changed, the prior column configurations from the original <a href="#data-source">Data Source</a> will be kept if this control is checked. 
 
 Dynamic queries which have don't have fixed column definitions can check the Keep NonExistent Columns to retain configuration options; e.g. column formatting. In this scenario, the "*" would be used in the Data Field Name      
 
@@ -52,7 +52,8 @@ User Configuration menu
 
 ![Screenshot](img/userconfiguration.jpg)
 
-!!! Tip "User configuration will pick up all available columns from the query. Users can drag-into the available area, columns from source data; these will be removed from display. Reset reverts to default data view. This functionality is available to users of all permission types."
+!!! Warning "All Columns are available to End Users"
+    The User configuration will pick up all available columns from the <a href="#data-source">Data Source</a> query. Don't enable User Configuration if there are columns to remain hidden from users. 
 
 When checked, a Configuration menu will appear in the Data Grid. 
 
@@ -62,7 +63,8 @@ Users can change the display of columns in the Data Grid
   
 'Hidden' columns will in the "Available Columns" list. This may not be desirable if a hidden column is used to store a calculation or is used for a highlight rule opertor not for display to the User. For these Data Grids it may be necessary to disable Custom Layout.
 
-The user configuration on exiting the dashboard should be retained on next login.
+!!! Note
+    User configuration will be saved on exiting the dashboard and will be available on next login.
 
 ### Enable Edit Mode
 
@@ -78,7 +80,7 @@ Used in conjunction with <a href="#update-query">*Update Query*</a>.
 
 ![Screenshot](img/updateedit.jpg)
 
-In Preview mode, click "Edit" to enable. Remember to Submit Changes when done. Cancel to reject changes. 
+When in Preview or Quickview mode the User must click "Edit" to enable the functionality. Submit Changes when done or cancel to reject. 
 
 ### Enable Insert/Delete
 
@@ -94,7 +96,7 @@ Used in conjunction with <a href="#update-query">*Update Query*</a>.
 
 ![Screenshot](img/updateedit.jpg)
 
-In Preview mode, click "Edit" to enable. Remember to Submit Changes when done. Cancel to reject changes.
+When in Preview or Quickview mode the User must click "Edit" to enable the functionality. Submit Changes when done or cancel to reject. 
 
 ## Columns
 
@@ -108,7 +110,9 @@ In addition to individual column configurations, global settings can be defined 
   
 ![Screenshot](img/globalconfigure.jpg)
   
-Select columns on the left using CTRL + column click, next select properties on the right to be applied across selected columns.
+Select columns on the left using CTRL + column click.
+
+Next select properties on the right to be applied across selected columns.
   
 ![Screenshot](img/multicolumn.jpg)
   
@@ -120,19 +124,18 @@ Columns can be removed from a Data Grid on clicking the trashcan icon
 
 When checked, the selected column will remain in the Data Grid if the selected column variable is removed from the query. A User Defined query is effectively a 'lock' on the column
 
-!!! Tip "If the User Defined column variable is missing in the query, the User Defined column will show as an empty column in the Data Grid."
+!!! Warning "_User Defined_ checked for missing _Data Source_ variable"
+    The User Defined column will show as an empty column in the Data Grid if the User Defined column variable is missing in the query.
 
 **Data Field Name**
 
-Data Field Name
-
 ![Screenshot](img/datafieldname.jpg)
 
-When using a wildcard, all dynamic columns derived from a query will use the wildcard column format.  The wildcard can be used in conjunction with text headers; e.g. bid* for bid, and bid_update
+Dynamic columns derived from a query should use a wildcard in the _Data Field_ to share configurations.  The wildcard can be used in conjunction with text headers; e.g. bid* will pickup _bid_ and _bid_update_
 
-The Data Field Name is selected from data columns in the Data Source query. 
+The _Data Field Name_ is selecting from data columns in the <a href="#data-source">Data Source</a>. 
 
-Additional columns can be added, including wildcard columns. If wildcard is used, any non-defined columns will adopt the column specifications of the wildcard column; e.g. data alignment, decimal precision etc.
+If wildcard is used, any non-defined columns will adopt the column specifications of the wildcard column; e.g. data alignment, decimal precision etc.
 
 ![Screenshot](img/newcolumnadd.jpg)
 
@@ -150,7 +153,10 @@ Relative Width
   
 ![Screenshot](img/relativewidthblack.jpg)
 
-Relative measure to the width of the Data Grid. The scale is contigent on the values of each column; for example, columns with a relative width of 20,10,5,1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)), 28%, 14% and 3%.  
+Relative measure to the width of the Data Grid. The scale is contigent on the values of each column.
+
+!!! Note "Example"
+    Columns with a relative width of 20, 10, 5, 1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)), 28%, 14% and 3%.  
 
 Relative columns will scale according to the browser size.
 
@@ -178,7 +184,7 @@ When checked, users clicking on column header will toggle between ascending and 
 
 **Format**
 
-Sample formats: General, DateTime, General, Formatted Number, Formatted Number, Formatted Number, Formatted Number, DateTime, General, Smart Number
+Sample formats:
   
 ![Screenshot](img/sampleformats.jpg)
   
@@ -240,7 +246,8 @@ To Remove, again click on the color and select _No Color_ from the palette tool.
 
 ![Screenshot](img/nocolorhtmlight.jpg)
 
-!!! Tip "Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
+!!! Tip 
+    Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign. Set the view state to use a Hex color reference.
 
 **Max Value Color**
 
@@ -254,7 +261,8 @@ Selection will place a color border highlight around highest value in column
 
 Click the color bar again and then click _No Color_ to remove the Max color setting 
 
-!!! Tip "Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
+!!! Tip 
+    Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign. Set the view state to use a Hex color reference.
 
 **Range Color**
 
@@ -268,7 +276,8 @@ Applies a selected colour gradient across all cells in a column. Assigning a col
 
 Click the color bar and then _No Color_ to remove the Range color from column data
 
-!!! Tip "Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
+!!! Tip 
+    Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign. Set the view state to use a Hex color reference.
 
 **Percentage Color**
 
@@ -278,7 +287,7 @@ Percentage Color
 
 Adds a mini-bar in Percentage formatted data. The proportion of the bar filled runs from 0 to 100%
 
-To enable set Format to _Percentage_ 
+To enable set Format to `Percentage` 
 
 ![Screenshot](img/percentageselecthtmllight.jpg)
 
@@ -286,7 +295,8 @@ Select a colour to use for the bar
 
 ![Screenshot](img/percentcolorselecthtmllight.jpg)
 
-!!! Tip "Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign."
+!!! Tip 
+    Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until ![Screenshot](img/eyeiconhtmllight.jpg) appears, click to assign. Set the view state to use a Hex color reference.
 
 **Read Only**
 
@@ -308,7 +318,7 @@ Template allows for richer customisation of columns. In this example, informatio
 
 ![Screenshot](img/selectionrouting.jpg)
 
-When enabled, a user selecting a data grid row will have data grid variables asigned to [view state parameters](introduction#view-state-parameters). In the example below, _rowID_ from a Data Grid has been mapped to a _rowid_ view state parameter. 
+When enabled, a user selecting a data grid row will have data grid variables asigned to [view state parameters](introduction#view-state-parameters). In the example below, _rowID_ from a Data Grid is mapped to a `rowid` view state parameter. 
 
 ![Screenshot](img/enablerow.jpg)
 
@@ -326,7 +336,8 @@ If just a single value is to be stored, the _Selected Column_ and _Selected Valu
 
 ![Screenshot](img/selectedvaluehtmllight.jpg)
 
-!!! Tip "If more than one value from a grid is to be stored, use Selected Row Viewstate Routing."
+!!! Tip "Need more than one data map?"
+    If more than one value from a grid is to be stored, use Selected Row Viewstate Routing.
 
 ### Selected Row Viewstate Routing
 
@@ -388,7 +399,7 @@ The name of the rule
 
 From the dropdown menu, select the target Data Grid column on which the rule will act 
 
-The Target column can be any column in the Data Grid.  It does not have to be the data grid column which is using the operator
+The Target column can be any column in the Data Grid.  It does not have to be the data grid column using the operator.
 
 **Condition Source**
 
@@ -511,7 +522,7 @@ This is the data grid column on which the calculations will be made
 
 **Aggregate Function**
 
-The mathematical funtion to apply: average, sum, min or max
+The mathematical funtion to apply: `average`, `sum`, `min` or `max`
 
 **Label**
 

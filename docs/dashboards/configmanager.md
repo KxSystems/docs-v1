@@ -21,7 +21,8 @@ Revert | To undo a Parameter change, click Revert
 Save | Save changes make to the Paramete
 Switch View | This transposes the table view columns-to-rows; rows-to-columns
 
-!!! Tip "When adding a description to your Parameter remember to Save the description before switching to another view."
+!!! Tip "Save!"
+    When adding a description to your Parameter remember to Save the description before switching to another view so updates are not lost.
 
 ### Parameter Groups
 
