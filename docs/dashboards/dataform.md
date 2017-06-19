@@ -55,7 +55,7 @@ The Data form pulls View State Parameters inputs from the _Data Source_ View Sta
 
 _Advanced CSS_
 
-: Configure customisation options for **Data Form** component
+: Configure style customisation options
 
 : ![Screenshot](img/advancedcssdataformhtmllight.jpg)
 
