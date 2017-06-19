@@ -319,7 +319,8 @@ Tool tip will appear as:
 
 ### _Tooltip Top distance_
 
-Sets distance from mouse in pixels at which tooltip appears
+Sets in pixels the distance from the mouse at which the tooltip appears
+
 
 ### _Tooltip Helper_
 
@@ -331,18 +332,14 @@ Apply Tooltip Helper Variable to Tooltip reference
 
 ![Screenshot](img/addhelpertooltip.jpg)
 
-Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
+Tooltips use Handlebars, so variables can be added dynamically to tooltip.
 
 For example:
- 
 ```
 {{fx}} : {{volume}}
 ```
 
-could appear as
-EUR/USD: 250000
-
-To format "250000" so it will appear as "$250,000" use Tooltip Helper
+could appear as `EUR/USD: 250000`. To format `250000` so it will appear as `$250,000` use Tooltip Helper
 
 
 ### _Name_
@@ -377,11 +374,12 @@ The value to replace the text with. In this case, comma-delimited currency value
 $1,
 ```
 
+
 ## Format
 
 ![Screenshot](img/barchartformatmenu1.jpg)
 
-See [Format](introduction#format) in Introduction for more on shared formatting options. Additional formatting specific to bar charts is detailed below
+See [Styling dashboards](style) in Introduction for more on shared formatting options. Additional formatting specific to bar charts is detailed below
 
 
 ### _Y-Axis Format_
@@ -445,7 +443,7 @@ Checking _Y-Axis Force Min_ will set the Y-axis to use the value entered _Y-Axis
 
 ### _Y-Axis Force Max_
 
-As with _Y-Axis Force Min_ will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
+As with _Y-Axis Force Min_ will set Y-axis maximum to use _Y-Axis Max_ value. 
 
 !!! Warning "_Max_ set to less than highest value in Y-axis"
     Using _Y-Axis Force Max_ may crop chart if y-axis values exceed _Y-Axis max_
