@@ -10,7 +10,7 @@ The string-to-send can be anything within the HTTP protocol the HTTP server will
 Q does not add to nor encode the string to send, and as it does not support ‘chunking’ you should specify HTTP 1.0 for your desired HTTP procotol. Q will signal a `'chunk error` if it encounters a chunked response – not possible with HTTP 1.0. Q doesn’t decode the response – it just returns the raw data. 
 ```q
 q)/ string to send
-q)s2s:"GET /mmz4281/1314/E0.csv http/1.0\r\nhost:www.football-data.co.uk\r\n\r\n"
+q)s2s:"GET /mmz4281/1314/E0.csv HTTP/1.0\r\nhost:www.football-data.co.uk\r\n\r\n"
 q)data:(`$":http://www.football-data.co.uk") s2s
 q)(" SSSIIIIII IIIIIIIIIIII"; ",")0:data
 ```
