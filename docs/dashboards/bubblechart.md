@@ -1,267 +1,303 @@
 ![Screenshot](img/bubblecharthtmllight.jpg)
 
-## Basics
+## _Basics_
 
 ![Screenshot](img/bubblechartmenu.jpg)
 
-### Data Source
+### _Data Source_
 
 See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
-### Focus
+### _Focus_
 
-Used for [linking components](introduction#linking-components). Requires a [view state parameter](introduction#view-state-parameters).
+Used for [linking components](introduction#linking-components). Requires a [View State Parameter](introduction#view-state-parameters).
 
-### Range
+### _Range_
 
-Used for linking to a [range slider](rangeslider.md). Requires a [view state parameter](introduction#view-state-parameters) to pair with the Range Slider. 
+Used for linking to a [Range Slider](rangeslider.md). Requires a View State Parameter to pair with the Range Slider. 
 
-### Selected Value 
 
-This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
+### _Selected Value_ 
 
-[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
+Stores the clicked-on chart data point to a View State Parameter.  
+
+1. Create a View State Parameter and assign to _Selected Value_
  
-![Screenshot](img/selectedvaluecharthtmllight.jpg)
+    ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
-[2] Go to <a href="#selected-value-attribute">Selected Value Attribute</a> to select a query variable to store in the Selected Value View State Parameter.
+2. Go to _Selected Value Attribute_ to select a query variable to store in the _Selected Value_ View State Parameter.
 
-### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
+### _Selected Value Attribute_
+
+This comes from the data source and is the variable paired with the _Selected Value_ View State Parameter.  When the user clicks on the chart, the associated query variable will be mapped to the _Selected Value_ view state.  
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-!!! Warning "Data Type Match"
-    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
+!!! warning "Data type"
+    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the _Data Source_; e.g. integer for numbered data.
 
-### Selected Row ViewState Routing
 
-The aforementioned <a href="#selected-value">Selected Value</a> and <a href="#selected-value-attribute">Selected Value Attribute</a> handles a single data map. <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> supports multiple mappings between <a href="#selected-value">Selected Values</a> and <a href="#selected-value-attribute">Selected Value Attributes</a>.
+### _Selected Row ViewState Routing_
+
+The aforementioned _Selected Value_ and _Selected Value Attribute_ handles a single data map. _Selected Row Viewstate Routing_ supports multiple mappings between _Selected Values_ and _Selected Value Attributes_.
 
 ![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
 
 To add a row, click ![Screenshot](img/routinghtmllight.jpg)
 
+
 ## X Axis
 
 ![Screenshot](img/bubblechartxaxis.jpg)
-  
-**Axis Value**
 
-Sets which query column variable will be used as the x-axis chart label
+  
+
+### _Axis Value_
+
+The query column variable to be used as the X-axis chart label
 
 ![Screenshot](img/selectvariablehtmllight.jpg)
 
-**Axis Type**
 
-Sets the data type for the label used for X-Axis Value
+### _Axis Type_
+
+The data type for the label used for _Axis Value_
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-!!! Tip 
-    If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a>
+!!! tip "Wong control labels?"
+    If X-axis labels look incorrect, try selecting a different _Axis Type_
 
-**Axis Format**
 
-Used for when <a href="#axis-type">X-Axis Type</a> is of type <i>Date</i>.
+### _Axis Format_
+
+Used for when _X-Axis Type_ is _Date_.
 
 ![Screenshot](img/xaxisformatdatehtmllight.jpg)
 
-**Axis Scale**
+
+### _Axis Scale_
 
 ![Screenshot](img/axisscale.jpg)
 
-Select no scaling, or use numberic/time scaling depending on selected axis type. 
+Select _none_, or use numeric or time scaling depending on _Axis Type_. 
 
-**Legend Label Tag**
 
-Coming Soon
+### _Legend Label Tag_
 
-**Stack**
+(Coming soon.)
 
-Overlays data on existing plot.  Data from <a href="#data-source">data source</a> from dropdown
 
-For example, displaying bid price on top of bid plotted bubbles. 
+### _Stack_
+
+Overlays data from _Data Source_ on existing plot.
+
+For example, displaying bid price on top of bid plotted bubbles: 
 
 ![Screenshot](img/bubblechartstack.jpg) 
 
-**Fixed Columns**
 
-Check to toggle chart between standard chart scale and fixed (transposed) chart view.  
+### _Fixed Columns_
 
-**Show legend**
+Toggles chart between standard chart scale and fixed (transposed) chart view.  
+
+
+### _Show Legend_
 
 Toggles display of chart legend
 
 ![Screenshot](img/charthtmllegendhtmllight.jpg)
 
-**Show new Time Period**
+
+### _Show New Time Period_
 
 Ensures the latest data point of a time sequence is displayed
 
 ![Screenshot](img/shownewtimeperiodhtmllight.jpg)
 
-**Use Fixed Num of Ticks**
 
-Toggles control to use **Num of Ticks**
+### _Use Fixed Num of Ticks_
+
+Toggles use of _Num of Ticks_
 
 ![Screenshot](img/multichartnumofticks.jpg)
 
-**Show All Ticks**
 
-Displays every charted data point in the x-axis
+### _Show All Ticks_
 
-**Num of Ticks**
+Displays every charted data point in the X axis
 
-The number of ticks to display in the x-axis.
 
-!!! Warning "Use with _Use Fixed Num of Ticks_"
-    Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable
+### _Num of Ticks_
 
-**Axis Rotation**
+The number of ticks to display in the X axis. (Use _Use Fixed Num of Ticks_ to enable.)
 
-Rotate x-axis label
+
+### _Axis Rotation_
+
+Rotate X-axis label
 
 ![Screenshot](img/xaxislabelrotation.jpg)
+
 
 ## Columns
 
 ![Screenshot](img/bubblecolumnsmenu.jpg)
 
-To refresh the chart to its default (prior saved) state, click the refresh button
+To refresh the chart to its default (prior saved) state, click the Refresh button
 
 ![Screenshot](img/columnresethtmllight.jpg)
 
 To add a column, click ![Screenshot](img/addcolumnbutton.jpg)
 
-**User Defined**
 
-Check to make the column 'read only'.
+### _User Defined_
 
-**Column**
+Check to make the column read-only.
 
-Select the <a href="#data-source">data source</a> variable to plot
 
-**Color**
+### _Column_
 
-Select a Line color from the color palette
+Select the data-source variable to plot
 
-**Display Name**
+
+### _Color_
+
+Select a line color from the color palette
+
+
+### _Display Name_
 
 Create a display name to use in the chart Legend key 
 
-## Zoom/Pan 
+
+## Zoom / Pan 
 
 ![Screenshot](img/zoomandpanmenu.jpg)
 
-**Pan On**
 
-Check control to switch Zoom and Pan functionality on
+### _Zoom / Pan On_
+
+Toggles functionality 
 
 ![Screenshot](img/panzoom.jpg)
 
 ![Screenshot](img/panzoom2.jpg)
 
-**Type**
 
-Select between drag-to-select <i>Zoom</i>, or <i>Pan</i> control
+### _Type_
 
-**Zoom Select Color, Opacity and Border**
+Select between drag-to-select _Zoom_, or _Pan_ control
 
-Selects the background color, background color opacity and the border for the selected area. 
 
-**Min and Max Zoom**
+### _Zoom Select Color, Opacity and Border_
+
+Background color, background color opacity and the border for the selected area. 
+
+
+### _Min and Max Zoom_
 
 ![Screenshot](img/minmaxzoom.jpg)
 
-Set [view state parameter](introduction#view-state-parameters) for to store the range value for _Min and Max Zoom_
+View State Parameter to store the range value for _Min and Max Zoom_
 
-**Mouse Pan**
 
-Check to select mouse pan control; best used on real-time time series data 
+### _Mouse Pan_
 
-**Mouse Pan Interval and Type**
+Toggle mouse pan control; best used on real-time time series data 
+
+
+### _Mouse Pan Interval_ and _Mouse Pan Type_
 
 Set time pan control for chart; chart will move in timed sections.
 
 ![Screenshot](img/mousepaninterval.jpg)
 
-## Highlight Rules
+
+## _Highlight Rules_
 
 ![Screenshot](img/highlightrulebar.jpg)
 
-Used to color code bar charts. Best used with real-time streaming or polling data. 
+Used to color-code bar charts. Best used with real-time streaming or polling data. 
 
 Click on ![Screenshot](img/addrulebutton.jpg) to include additional highlight rules.
 
-**Condition Source**
 
-The dependent variable from the <a href="#data-soruce">data source</a> defining the trigger.
+### _Condition Source_
 
-**Condition Operator**
+The dependent variable from the data source, defining the trigger.
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
 
-**Condition Value**
+### _Condition Operator_
 
-What value threshold will trigger the alert. Typically, this is "previous value" but can be numeric or text (depending on the source data)
+Rule operations, including greater-than, less-than, not-equal-to, exactly-equal-to, and text-contains-alerts
 
-**Color**
 
-What color the bar will be when the highlight rule is true. 
+### _Condition Value_
 
-## Style
+The threshold value to trigger the alert. Typically, this is "previous value" but can be numeric or text (depending on the source data)
+
+
+### _Color_
+
+The color for the bar to be when the highlight rule is true. 
+
+
+## _Style_
 
 OLAP Bar Color
 
 ![Screenshot](img/stylemenubar.jpg)
 
-### ChartBarColors
 
-Sets bars color and order for Pivot/OLAP chart. 
+### _ChartBarColors_
 
-Colors can be set using Hex reference or by clicking on the color bar and selecting from the pop-up palette. 
+Sets bar color and order for Pivot/OLAP chart. 
 
-### Advanced CSS
+Set using Hex reference or by clicking on the color bar and selecting from the pop-up palette. 
 
-Left click inside the Advanced CSS editor. Click the selector icon, then left-click inside the chart component to bring up the relevant CSS code. Add changes to your css as required. 
+
+### _Advanced CSS_
+
+Click inside the _Advanced CSS_ editor. Click the selector icon, then inside the chart component to bring up the relevant CSS code to edit.
 
 ![Screenshot](img/advancedcssmulticharthtmllight.jpg)
 
+
 ### Custom Tooltip
 
-Step 1: Create View States for items in tooltip
+1. Create View States for items in tooltip
 
-![Screenshot](img/multicharttooltip.jpg)
+    ![Screenshot](img/multicharttooltip.jpg)
 
-Step 2: Add a html tag for View States (using handlebars)
+2. Add an HTML tag for View States, using [Handlebars](*http://handelbarsjs.com*)
 
-![Screenshot](img/configuretooltip.jpg)
+    ![Screenshot](img/configuretooltip.jpg)
 
-Step 3: Chartview
+3. Chartview
 
-![Screenshot](img/chartviewtooltip.jpg)
+    ![Screenshot](img/chartviewtooltip.jpg)
 
-Tooltips can use View State Parameters which have been mapped to Data Source variables
+Tooltips can use View State Parameters that have been mapped to data-source variables
 
 ![Screenshot](img/parametermaphtmllight.jpg)
 
-In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
+In the _Configure Tooltip template_, add HTML tags for the View State Parameters to display (using Handlebars) 
 
-If viewstate parameter = `param1`
-
-Add a table cell with `param1` viewstate to tooltip with the tag:  `<td>{{obj.param1}}</td>`
+If viewstate parameter is `param1`, add a table cell with `param1` viewstate to tooltip with the tag:  `<td>{{obj.param1}}</td>`
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
-Tool tip will appear as: 
+The tool tip will appear as: 
 
 ![Screenshot](img/tooltipchart.jpg)
 
-**Tooltip Top distance**
 
-Sets distance from mouse in pixels at which tooltip appears
+### _Tooltip Top distance_
+
+Distance from mouse in pixels at which tooltip appears
+
 
 ### Tooltip Helper
 
@@ -273,7 +309,7 @@ Apply Tooltip Helper Variable to Tooltip reference
 
 ![Screenshot](img/addhelpertooltip.jpg)
 
-Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
+Tooltips use Handlebars, so variables can be added dynamically to tooltip.
 
 For example:
  
@@ -281,12 +317,10 @@ For example:
 {{fx}} : {{volume}}
 ```
 
-could appear as
-EUR/USD: 250000
+could appear as `EUR/USD: 250000`. To format `250000` so it will appear as `$250,000` use Tooltip Helper
 
-To format "250000" so it will appear as "$250,000" use Tooltip Helper
 
-**Name**
+### _Name_
 
 Give the function a name.  This name will be used inside the tooltip.
 
@@ -298,20 +332,20 @@ For example:
 {{fx}} : {{fd volume}}
 ```
 
-**Regex**
+
+### _Regex_
 
 The regular expression used to find the required pattern
 
 In this example:
-
 ```
 (\d{3})(?=\d)
 ```
 
-**Value**
+
+### _Value_
 
 The value to replace the text with. In this case, comma-delimited currency values: 
-
 ```
 $1,
 ```
@@ -320,37 +354,42 @@ $1,
 
 ![Screenshot](img/bubbleformat.jpg)
 
-Formatting of Component Titles and Component Borders can be found in the introductory section of <a href="#dashboards-for-kx">Dashboards for Kx</a>
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style) for common formatting parameters
 
-See [Format](introduction.md#format) in Introduction for more on shared formatting options. Additional formatting specific to bar charts is detailed below
+Formatting specific to bar charts is detailed below:
 
-**Y-Axis Format**
 
-Configures the number of decimal places used in a numeric X-Axis.
+### _Y-Axis Format_
+
+Configures the number of decimal places used in a numeric X axis.
 
 ![Screenshot](img/xaxisformathtmllight.jpg)
 
 ![Screenshot](img/chartxaxishtmllight.jpg)
 
-**Component Shadow**
+
+### _Component Shadow_
 
 Not used
 
-**Volume**
 
-Sets bubble size to a <a href="#data-source">data source</a> variable; in the below example bid price is charted against the y-axis and bid volume is bubble size:
+### _Volume_
+
+Sets bubble size to a data-source variable; in the below example bid price is charted against the Y axis and bid volume is bubble size:
 
 ![Screenshot](img/bidvolumebubble.jpg)
 
 Use _Min Bubble Size_ and _Bubble Scale_ sliders to set the baseline bubble size
 
-**Shape**
 
-Dropdown menu of different bubble chart types
+### _Shape_
+
+Dropdown menu of different bubble-chart types
 
 ![Screenshot](img/bubbleshapehtmllight.jpg)
 
-**Y-axis Force Min**
+
+### _Y-axis Force Min_
 
 The default chart best-fits data to the axis to maximise visual differnces. It sets the lowest value in your data to the baseline. 
 
@@ -358,40 +397,47 @@ The default chart best-fits data to the axis to maximise visual differnces. It s
 
 ![Screenshot](img/yaxismincharthtmlight.jpg)
 
-Checking _Y-axis Force Min_ will set the Y-axis to use the value entered <a href="#y-axis-min">Y-Axis Min</a>.
+Checking _Y-axis Force Min_ will set the Y axis to use the value of _Y-axis Min_.
 
-**Y-axis Force Max**
 
-As with <a href="#y-axis-force-min">Y-axis Force Min</a> will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
+### _Y-axis Force Max_
 
-<aside class="admonition caution">Using <i>Y-axis Force Max</i> may crop chart if y-axis values exceed <i>Y-Axis max</i></aside>
+As with _Y-axis Force Min_ will set Y-axis maximum to use _Y-axis Max_ value. 
 
-**Y-axis Min**
+!!! warning "Cropping"
+    Using _Y-axis Force Max_ may crop chart if Y-axis values exceed _Y-axis Max_
 
-The defined value will be used if <a href="#y-axis-force-min">Y-axis Force Min</a> is checked.
 
-**Y-axis Max**
+### _Y-axis Min_
 
-The defined value will be used if <a href="#y-axis-force-max">Y-Axis Force Max</a> is checked.
+The defined value will be used if _Y-axis Force Min_ is checked.
+
+
+### _Y-axis Max_
+
+The defined value will be used if _Y-axis Force Max_ is checked.
 
 !!! Tip
-    Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important.
+    Use _Y-axis Max_ to standardize the appearance of neighboring chart components where relative comparisons are important.
 
-**Y-Axis Ticks (best fit)**
 
-Chart will best fit number of displayed y-axis ticks to value set
+### _Y-Axis Ticks (best fit)_
+
+Chart will best-fit number of displayed Y-axis ticks to the value set
 
 ![Screenshot](img/yaxisticks.jpg)
 
-**X/Y Axis Labels**
+
+### _X/Y Axis Labels_
   
-Adds text labels for x- and y-axis
+Adds text labels for X- and Y-axes
 
 ![Screenshot](img/axislablehtmllight.jpg)
 
 ![Screenshot](img/axischartlabelhtmllight.jpg)
 
-**X-Axis Size**
+
+### _X-axis Size_
 
 Sets the distance between the X-axis and the border of the component. 
 
@@ -399,51 +445,58 @@ Sets the distance between the X-axis and the border of the component.
 
 ![Screenshot](img/xaxissizecharthtmllight.jpg)
 
-Distance between x-axis and line chart
+Distance between X-axis and line chart
 
-**Min Bubble Size**
+
+### _Min Bubble Size_
 
 Slider control to define how big the smallest bubble will be. Minimum bubble size is independent of relative difference as measured by _Bubble Scale_
 
-**Bubble Scale**
+
+### _Bubble Scale_
 
 Slider control to define the scale of the relative change between bubbles as set by the _Volume_ variable. The further right the slider, the bigger the relative difference between bubbles.  
 
 !!! Note "Using Bubble Scale"
-    Bubble size is magnifying the relative difference between the values for _Volume_ as selected from the <a href="#data-source">data source</a>.
+    Bubble size is magnifying the relative difference between the values for _Volume_ as selected from the data source.
 
-**Show X-axis Min/Max**
 
-Display in the x-axis the min/max values.
+### _Show X-axis Min/Max_
+
+Display in the X axis the min/max values.
 
 ![Screenshot](img/showxaxisminmaxhtmllight.jpg)
 
 ![Screenshot](img/showxaxisminmaxcharthtmllight.jpg)
 
-**Show Y-axis Min/Max**
+
+### _Show Y-axis Min/Max_
  
-Display in the y-axis the min/max values.
+Display in the Y axis the min/max values.
 
 ![Screenshot](img/showyaxisminmaxhtmllight.jpg)
 
 ![Screenshot](img/showyaxisminmaxcharthtmllight.jpg)
 
 !!! Note "Use of Min/Max"
-    Charts will best fit the y-axis, setting the minimum value to the lowest value in the charted y-range. To force zero the Y-axis, use _Y axis Min_
+    Charts will best fit the Y axis, setting the minimum value to the lowest value in the charted Y range. To force zero onto the Y axis, use _Y Axis Min_
 
-**X/Y Axis Tick Padding**
+
+### _X/Y-axis tick padding_
 
 ![Screenshot](img/charttickpadding.jpg)
 
-Defines spacing between x- and y-axis labels to chart x- and y-axis.
+Defines spacing between X- and Y-axis labels to chart the X- and Y-axes.
 
 ![Screenshot](img/axistickpaddinghtmllight.jpg)
 
-**Left/Right Y-Axis Margin**
 
-Distance between Y-Axis and chart component edge
+### _Left/Right Y-Axis Margin_
 
-**Y-axis min/max range scale**
+Distance between Y axis and chart component edge
+
+
+### _Y-axis min/max range scale_
 
 Defines the range between min and max values of y-axis
 
@@ -451,21 +504,22 @@ Defines the range between min and max values of y-axis
 
 ![Screenshot](img/yaxisminmaxrangescalehtmllight.jpg)
 
-!!! Warning "Out of Range Values"
-    If defined range is greater than data range a negative y-axis will be applied
+!!! Warning "Out-of-range values"
+    If the defined range is greater than the data range a negative Y axis will be applied
 
-**Dynamic Columns in Pivot**
+
+### _Dynamic Columns in Pivot_
 
 Marks if dynamic colums are used for a [pivot query](introduction#pivot-query)
 
-**Show X- Y-Axis Ticks**
+
+### _Show X- Y-Axis Ticks_
 
 Toggles the display of chart tick labels
 
-**Chart Background**
+
+### _Chart Background_
 
 Change background color of chart
 
-## Margins
-
-See [Margins](introduction.md#margins) in Introduction for more
+<i class="fa fa-hand-o-right"></i> [Styli.ng dashboards](style)

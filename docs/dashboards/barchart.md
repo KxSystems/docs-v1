@@ -150,7 +150,7 @@ Define which data columns from the data source to plot
 
 ![Screenshot](img/chartcolumnsmenu.jpg) 
 
-To refresh the chart to its default (prior saved) state, click the _Refresh_ button
+To refresh the chart to its default (prior saved) state, click the Refresh button
 
 ![Screenshot](img/columnresethtmllight.jpg)
 

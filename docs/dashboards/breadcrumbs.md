@@ -1,4 +1,3 @@
-
 ![Screenshot](img/breadcrumbhtmllight.jpg)
 
 Responsible for controlling Pivot/OLAP navigation
@@ -7,37 +6,31 @@ Responsible for controlling Pivot/OLAP navigation
 
 ![Screenshot](img/breadcrumbsmenu.jpg)
 
-**Path**
+_Path_
 
-Sets the [view state parameter](introduction#view-state-parameters) which is shared with the *Focus* property of components supporting Pivot/OLAP interactions; e.g. Charts and [Pivot Grid](pivotgrid).
+: Sets the [View State Parameter](introduction#view-state-parameters) shared with the _Focus_ property of components supporting Pivot/OLAP interactions; e.g. charts and [Pivot Grid](pivotgrid).
 
-![Screenshot](img/breadcrumbsetuphtmllight.jpg)
+: ![Screenshot](img/breadcrumbsetuphtmllight.jpg)
 
-**Breakdown**
 
-Assign a [view state parameter](introduction#view-state-parameters) which is shared with the *Breakdown* property of the Pivot/OLAP query; e.g. Charts and [Pivot Grid](pivotgrid).
+_Breakdown_
 
-![Screenshot](img/breadcrumbsbreakdownlight.jpg)
+: Assign a [view state parameter](introduction#view-state-parameters) which is shared with the *Breakdown* property of the Pivot/OLAP query; e.g. Charts and [Pivot Grid](pivotgrid).
 
-![Screenshot](img/pivotquerybreadcrumb.jpg)
+: ![Screenshot](img/breadcrumbsbreakdownlight.jpg)
+
+: ![Screenshot](img/pivotquerybreadcrumb.jpg)
+
 
 ## Style
 
-[1] Left click inside Advanced CSS button
+1. Left click inside Advanced CSS button
 
-![Screenshot](img/leftclickcss.jpg)
+    ![Screenshot](img/leftclickcss.jpg)
 
-[2] Select the Breadcrumbs component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Playback component. 
+2. Select the Breadcrumbs component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the [Playback](playback) component. 
 
-[3] Add the required CSS content
+3. Add the required CSS content
 
-## Margins
 
-See [Margins](introduction#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction#format) in Introduction for more.
-
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
