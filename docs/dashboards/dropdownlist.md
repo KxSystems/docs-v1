@@ -1,42 +1,139 @@
-## Basics
+![Screenshot](img/dropdownlisthtmllight.jpg)
+ 
+### Basics
 
-![Screenshot](img/layoutpanelmenu.jpg)
+![Screenshot](img/dropdownlist.jpg)
 
-![Screenshot](img/layoutpanel.jpg)
+Configure **Data Source** and selection rules
 
-**Fill Height**
+### Data Source
+ 
+See [Defining a Query](introduction#defining-a-query) for creating a _Data Source_. _Data Source_ should include the list of values to pass into the linked [view state parameter](introduction#view-state-parameters) and (optional) list of value names to display in the dropdown. For example: 
 
-Automatically autosizes components to fill the height of the Layout panel.  
+![Screenshot](img/dropdowndatasourcehtmllight.jpg)
 
-<aside class="warning">Selection of *Fill Height* is best done after adding all required components</aside>
+!!! Tip
+    When using _Data Source_ to create a dropdown list, ensure <a href="#use-data-source">Use Data Source</a> is checked AND <a href="#data-source-mapping">Data Source Mapping</a> is defined. 
 
-**Advanced Layout**
+### Selected Value
 
-When checked, added components will best fit the Layout panel by width. 
+Defines the [view state parameter](introduction#view-state-parameters) to which the value in the drop down list will be applied.
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+![Screenshot](img/selectedvaluehtmllight2.jpg)
 
-[1] Add an Accordion or Tab Component
+![Screenshot](img/selectviewstatedropdownhtmllight.jpg)
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+### Label
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+Defines the label next to the Dropdown
 
-[3] Then add other components to the Layout panel
+![Screenshot](img/selectsectorhtmllight.jpg)
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+### Use Data Source
 
-<aside class="warning">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+Box Check. Check if _Data Source_ is used to define _Drop Down List_ constituents
 
-<aside class="warning">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+!!! Tip
+    Important to ensure this box is checked if a **Data Source** is used to create drop-down constituents.
+
+### Accept Empty Values
+
+![Screenshot](img/nullvaluedropdown.jpg)
+
+Box Check. When checked, a null value is available for selection
+
+### Force Selected Value
+
+Box Check. When checked, the value of the **Selected Value** [view state parameter](introduction#view-state-parameters) used in the _Drop Down List_ will be passed into _Data Source_ queries using the parameter.
+
+### Multi-select
+
+![Screenshot](img/multiselectdropdown.jpg)
+
+When checked, multiple inputs can be passed into the assigned **Selected Value** [view state parameter](introduction#view-state-parameters)
+
+### Show Search
+
+Search Box
+
+![Screenshot](img/dropdownsearch.jpg)
+
+Dropdown box includes a search box for filtering results
+
+![Screenshot](img/searchdropdownhtmllight.jpg)
+
+### Horizontal
+
+Sets alignment (left, center or right) of dropdown menu inside the boundaries _Drop Down List_ component
+
+### Vertical
+
+Sets alignment (top, middle, bottom) of dropdown menu inside the boundaries _Drop Down List_ component
+
+### Tooltip
+
+Text description which appears when User mouses over the dropdown
+
+![Screenshot](img/selecttooltiphtmllight.jpg)
+
+### Width
+
+Defines pixel width of dropdown
+
+![Screenshot](img/labelwidthhtmllight.jpg)
+
+### Label Width
+
+Defines pixel width of dropdown _Label_
+
+!!! Tip "Description greater than Label Width"
+    If assigned _Label Width_ is narrower than can fit the _Label_ description, text in the _Label_ will wrap.
+
+### Data Source Mapping
+
+![Screenshot](img/datasourcemapping.jpg)
+
+When a _Data Source_ is used to populate the <a href="#drop-down-list">Drop Down List</a>, the elements of the _Data Source_ to represent values and labels must be assigned using _Data Source Mapping_
+
+!!! Warning
+    Important to ensure **Data Source Mapping** is complete if a _Data Source_ is used to create drop-down constituents. Otherwise the _Drop Down List_ component will be empty.
+
+### Value
+
+Select the column of the _Data Source_ corresponding to the values to be passed into the **Selected Value** [view state parameter](introduction#view-state-parameters).
+
+### Text 
+
+Select the column of the _Data Source_ corresponding to the text description for the listed value items.
+
+### Items
+
+Manual Dropdown Item Add
+
+![Screenshot](img/itemsdropdownlist.jpg)
+
+If _Data Source_ is not used to populate a **Drop Down List**, then individual values can be done from the Items Menu.  
+
+For each item, add the *Value* and the *Text* label to display in the drop down.  To add a new row, click ![Screenshot](img/rowclickhtmllight.jpg)
+
+### Selected Row Viewstate Routing
+
+In addition to the **Selected Value**, additional <a href="#view-state-parameters">View State Parameters</a> can be assigned to **Data Source** variables. Select the **Data Source** variable and pair it with a <a href="#view-state-parameters">View State Parameter</a>. More than one <a href="#view-state-parameters">View State Parameter</a> can be paired in this fashion.  
+
+![Screenshot](img/selectedrowviewstatehtmllight.jpg)
+
+### Style
+
+Set Advanced CSS
+
+![Screenshot](img/advancedcssdropdownlisthtmllight.jpg)
+
+## Format
+
+![Screenshot](img/3dchartformat.jpg)
+
+See [Format](introduction.md#format) in Introduction for more.
 
 ## Margins
 
 See [Margins](introduction.md#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction.md#format) in Introduction for more.
-

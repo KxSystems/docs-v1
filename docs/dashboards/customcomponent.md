@@ -33,24 +33,22 @@ Open an administrator command prompt (right-click > Run as administrator) and na
 
 Run and npm install to download the modules required by our build process. If using a proxy, provide details for npm to work with it. Check your specific setup with your network administrator.
  
-_Standard proxies are as follows_: 
+_Standard proxies are as follows_ 
 
-```
-Dublin: http://dubproxy.firstderivatives.com:8080/
-Newry: http://newproxy.firstderivatives.com:8080/
-```
+
+: `Dublin: http://dubproxy.firstderivatives.com:8080/`
+: `Newry: http://newproxy.firstderivatives.com:8080/`
+
 
 Install gulp globally, e.g. for Dublin:
 
-```
-npm install gulp -g -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/
 
-npm install -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/
+: `npm install gulp -g -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/`
+: `npm install -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/`
+: `gulp`
 
-gulp
-```
-
- <aside class="notice">The build process will compile and copy the dependencies of QuickDashEnvironment to the QuickDashEnvironment\apps folder.</aside>
+!!! Note
+    The build process will compile and copy the dependencies of QuickDashEnvironment to the QuickDashEnvironment\apps folder.
 
 ### Adding a new component
 
@@ -58,19 +56,15 @@ Adding a new component
 
 To add a new component, navigate to C:\SDK\_script and install the dependencies for the NewProject command:
 
-```
-npm install -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/
-```
+: `npm install -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/`
 
 Navigate to C:\SDK and run the NewProject command, followed by your new project name:
 
-```
-NewProject MyNewProject
-```
+: `NewProject MyNewProject`
 
 This will create a MyNewProject folder containing sample component code in C:\SDK\Projects and point Dashboards Environment towards it.
 
-Run gulp again in the C:\SDK\_build folder to rebuild Dashboards Environment with your new component included.
+Run `gulp` again in the C:\SDK\_build folder to rebuild Dashboards Environment with your new component included.
 
 Open the MyNewProject folder in Visual Studio Code to begin editing your component.
 
@@ -82,11 +76,9 @@ SampleProject uses data.json. To use a different filename, update additionalSour
 
 e.g. to copy mySampleJSON.json from your source folder:
 
-```
-"additionalSourceFiles": [
-"mySampleJSON.json"
-]
-```
+: `"additionalSourceFiles": [`
+: `"mySampleJSON.json"`
+: `]`
 
 ### Running Dashboards Environment
 
@@ -98,10 +90,8 @@ Dashboards Environment requires a web server to run locally. You can use one of 
 
 Open another command prompt, navigate to the QuickDashEnvironment folder and type the following commands:
 
-```
-npm install express
-node server
-```
+: `npm install express`
+: `node server`
 
 This will install Express and then launch a basic server. Open a web browser and navigate to http://localhost:3000/ to view Dashboards Environment
 
@@ -131,9 +121,8 @@ Click Save and your component should appear in the left toolbar. Drag it into th
 
 _Note URL to app.js_
 
-```
-http://{host:port}/extensions/{ProjectName}/app.js
-```
+: `http://{host:port}/extensions/{ProjectName}/app.js`
+
 Define widget
 
 ![Screenshot](img/customwidget.jpg)
@@ -144,11 +133,9 @@ Define widget
 
 Build errors like 'Cannot find module xxx' can usually be resolved by clearing the npm cache and re-running install, e.g. for Dublin:
 
-```
-npm cache clean
-npm install gulp -g -d --proxy http://username:password@dubproxy.firstderivatives.com:8080/ --https-proxy http://username:password@dubproxy.firstderivatives.com:8080/
-npm install -d --proxy http://username:password@dubproxy.firstderivatives.com:8080/ --https-proxy http://username:password@dubproxy.firstderivatives.com:8080/
-```
+: `npm cache clean`
+: `npm install gulp -g -d --proxy http://username:password@dubproxy.firstderivatives.com:8080/ --https-proxy http://username:password@dubproxy.firstderivatives.com:8080/`
+: `npm install -d --proxy http://username:password@dubproxy.firstderivatives.com:8080/ --https-proxy http://username:password@dubproxy.firstderivatives.com:8080/`
 
 If there is still an issue, manually remove the installed packages and start from scratch (caution: if packages are installed globally for other projects, they will also be removed)
 
@@ -156,34 +143,23 @@ The following commands are all run in the QuickDashEnvironment\_build folder.
 
 **Remove local node_modules:**
 
-```
-rmdir node_modules /s /q
-```
+: `rmdir node_modules /s /q`
 
 **Find the global npm folder:**
 
-```
-npm config get prefix
-```
+: `npm config get prefix`
 
 This will return a path like C:\Users\xxx\AppData\Roaming\npm - substitute this into the following commands
 
 **Remove this folder and the npm-cache folder:**
 
-```
-rmdir C:\Users\xxx\AppData\Roaming\npm /s /q
-```
-
-```
- rmdir C:\Users\xxx\AppData\Roaming\npm-cache /s /q
-```
+: `rmdir C:\Users\xxx\AppData\Roaming\npm /s /q`
+: `rmdir C:\Users\xxx\AppData\Roaming\npm-cache /s /q`
 
 **Finally, re-run the install, e.g. for Dublin:**
 
-```
-npm install gulp -g -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/
-npm install -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/
-```
+: `npm install gulp -g -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/`
+: `npm install -d --proxy http://dubproxy.firstderivatives.com:8080/ --https-proxy http://dubproxy.firstderivatives.com:8080/`
 
 ### Dashboards Environment
 
@@ -209,9 +185,7 @@ Each property with type 'data' returns a dataSource which can be passed to the f
 
 Subscribes to a given data source
 
-```
-api.subscribe(dataSource, callback);
-```
+: `api.subscribe(dataSource, callback);`
 
 **Parameters**
 
@@ -219,11 +193,9 @@ api.subscribe(dataSource, callback);
 
 The data source to subscribe to. A data source can be retrieved from <a href="https://confluence.firstderivatives.com/display/dlt/Dashboards#Dashboards-onSettingsChange">onSettingsChange</a> as follows (this example assumes it is a data property called Data in a category called Basics):
 
- ```
- onSettingsChange: function (settings) {
-    var dataSource = settings['Basics.Data'];
- }
- ```
+: `onSettingsChange: function (settings) {`
+:    `var dataSource = settings['Basics.Data'];`
+: `}`
 
 **callback**
 
@@ -237,11 +209,9 @@ error | ![Screenshot](img/errorhtmllight.jpg)
 
 _Example_
 
-```
-api.subscribe(dataSource, function (meta, data, error) {
-    // Apply to component
- });
-```
+: `api.subscribe(dataSource, function (meta, data, error) {`
+:   `// Apply to component`
+: `});`
 
 _Response_
 
@@ -253,9 +223,7 @@ None
 
 Unsubscribes from a given data source
  
-```
-api.unsubscribe(dataSource);
-```
+: `api.unsubscribe(dataSource);`
 
 _Response_
 
@@ -271,9 +239,7 @@ Each property with type 'viewstate' returns a viewState which can be passed to t
 
 Get the value of a given view state
 
-```
-api.getViewState(viewState);
-```
+: `api.getViewState(viewState);`
 
 **Parameters**
 
@@ -281,17 +247,14 @@ api.getViewState(viewState);
 
 The view state to get the value of. A view state can be retrieved from onSettingsChange as follows (this example assumes it is a view state property called Selected in a category called Basics):
 
-```
-onSettingsChange: function (settings) {
-    var viewState = settings['Basics.Selected'];
- }
-```
+: `onSettingsChange: function (settings) {`
+:   `var viewState = settings['Basics.Selected'];`
+: `}`
+
 
 _Example_
 
-```
-var value = api.getViewState(viewState);
-```
+: `var value = api.getViewState(viewState);`
 
 _Response_
 
@@ -303,9 +266,7 @@ None
 
 Set the value of a given view state
 
-```
-api.setViewState(viewState, value);
-```
+: `api.setViewState(viewState, value);`
 
 **Parameters**
 
@@ -315,9 +276,7 @@ The view state to set.
 
 _Example_
 
-```
-api.setViewState(viewState, value);
-```
+: `api.setViewState(viewState, value);`
 
 _Response_
 
@@ -329,9 +288,7 @@ None
 
 Subscribes to a given view state
 
-```
-api.subscribe(viewState, callback);
-```
+: `api.subscribe(viewState, callback);`
 
 **Parameters**
 
@@ -345,11 +302,9 @@ A function that will be called when the value of the view state changes. The new
 
 _Example_
 
-```
-api.subscribe(dataSource, function (meta, data, error) {
-    // Apply to component
-});
-```
+: `api.subscribe(dataSource, function (meta, data, error) {`
+:    `// Apply to component`
+: `});`
 
 _Response_
 
@@ -361,9 +316,7 @@ None
 
 Unsubscribes from a given view state
 
-```
-api.unsubscribe(viewState);
-```
+: `api.unsubscribe(viewState);`
 
 _Response_
 
@@ -379,9 +332,7 @@ Error messages can be shown in Dashboards using the following methods.
 
 Show a Dashboards error message on the component
 
-```
-api.showErrorMessage(errorObj);
-```
+: `api.showErrorMessage(errorObj);`
 
 **Parameters**
 
@@ -396,12 +347,11 @@ type | One of 'Error', 'Warning', 'Info'
 
 _Example_
 
-```
-api.showErrorMessage({
-    'error': 'Please define a data source',
-    'type': 'Info'
-});
-```
+
+: `api.showErrorMessage({`
+:    `'error': 'Please define a data source',`
+:    `'type': 'Info'`
+: `});`
 
 _Response_
 
@@ -413,9 +363,7 @@ None
 
 Hides the Dashboards error message on the component
 
-```
-api.hideErrorMessage();
-```
+: `api.hideErrorMessage();`
 
 _Response_
 
@@ -427,28 +375,24 @@ None
 
 Your component app.js should implement an onSettingsChange(settings) function which will receive the settings from the Dashboards Properties Panel. The full settings object is provided on load, e.g
 
-```
-{ 
-    "Basics": { 
-        "Data": "/"
-    },
-    "Style":{ 
-        "Theme": "Dark",
-        "AskFill": "#00ff00",
-        "AskOpacity": 1,
-        "BidFill": "#ff3300",
-        "BidOpacity": 1
-    }
-}
-```
+: `{` 
+:    `"Basics": {` 
+:        `"Data": "/"`
+:    `},`
+:    `"Style":{` 
+:        `"Theme": "Dark",`
+:        `"AskFill": "#00ff00",`
+:        `"AskOpacity": 1,`
+:        `"BidFill": "#ff3300",`
+:        `"BidOpacity": 1`
+:    `}`
+: `}`
 
 Changes are passed only with a path to the changed property, e.g.:
 
-```
-{
-    "Style.AskOpacity": 5
-}
-```
+: `{`
+:    `"Style.AskOpacity": 5`
+:  `}`
 
 **Delta Client (Advanced users only)**
 

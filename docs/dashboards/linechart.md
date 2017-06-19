@@ -18,9 +18,9 @@ Similar to **Focus**, instead the assigned [view state parameter](introduction.m
 
 ### Selected Value 
 
-Used to map a chart (query) data point to a [view state parameter](introduction.md#view-state-parameters) when a chart bar is clicked by the user. 
+This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
 
-[1] Create a [view state parameter](introduction.md#view-state-parameters) and assign to <i>Selected Value</i>
+[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
  
 ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
@@ -28,11 +28,12 @@ Used to map a chart (query) data point to a [view state parameter](introduction.
 
 ### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction.md#view-state-parameters). 
+This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+!!! Warning "Data Type Match"
+    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
 
 ### Selected Row ViewState Routing
 
