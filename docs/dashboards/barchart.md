@@ -1,156 +1,175 @@
 ## Basics
 
-Defines Data Source, component linking, and [view state parameters](introduction#view-state-parameters) populated when a chart bar is clicked
+Defines data source, [component linking](introduction#linking-components), and [View State Parameters](introduction#view-state-parameters) populated when a chart bar is clicked
 
 ![Screenshot](img/chartbasics.jpg)
 
-### Data Source
+
+### _Data Source_
 
 See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
-### Focus
 
-Used for [linking components](introduction#linking-components). Requires a [view state parameter](introduction#view-state-parameters).
+### _Focus_
 
-### Range
+Used for linking components. Requires a View State Parameter.
 
-Used for linking to a [range slider](rangeslider). Requires a [view state parameter](introduction#view-state-parameters).
 
-### Selected Value 
+### _Range_
 
-This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
+Used for linking to a [Range Slider](rangeslider). Requires a View State Parameter.
 
-[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
- 
+
+### _Selected Value_
+
+Used to store the clicked-on chart data point to a View State Parameter.  
+
+1. Create a View State Parameter and assign to _Selected Value_   
 ![Screenshot](img/selectedvaluecharthtmllight.jpg)
+2. Go to _Selected Value Attribute_ to select a query variable to store in the _Selected Value_ View State Parameter.
 
-[2] Go to <a href="#selected-value-attribute">Selected Value Attribute</a> to select a query variable to store in the Selected Value View State Parameter.
 
-### Selected Value Attribute
+### _Selected Value Attribute_
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
+This comes from the data source and is the variable paired with the _Selected Value_ View State Parameter.  When the user clicks on the chart, the associated query variable will be mapped to the _Selected Value_ view state.  
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-!!! Warning "Data Type Match"
-    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
+!!! Warning "Data type match"
+    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the _Data Source_; e.g. integer for numbered data.
 
-### Selected Row ViewState Routing
 
-The aforementioned <a href="#selected-value">Selected Value</a> and <a href="#selected-value-attribute">Selected Value Attribute</a> handles a single data map. <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> supports multiple mappings between <a href="#selected-value">Selected Values</a> and <a href="#selected-value-attribute">Selected Value Attributes</a>.
+### _Selected Row ViewState Routing_
+
+The aforementioned _Selected Value_ and _Selected Value Attribute_ handles a single data map. _Selected Row Viewstate Routing_ supports multiple mappings between _Selected Values_ and _Selected Value Attributes_.
 
 ![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
 
 To add a row, click ![Screenshot](img/routinghtmllight.jpg)
 
+
 ## X Axis
 
-Define appearance of the chart X-axis.
+Define appearance of the chart X axis.
 
 ![Screenshot](img/xaxisconfigurationmenu.jpg)
 
-**Axis Value**
 
-Sets which query column variable will be used as the x-axis chart label
+### _Axis Value_
+
+Sets which query column variable will be used as the X-axis chart label
 
 ![Screenshot](img/selectvariablehtmllight.jpg)
 
-**Axis Type**
 
-Sets the data type for the label used for X-Axis Value
+### _Axis Type_
+
+Sets the data type for the label used for _X-Axis Value_
 
 ![Screenshot](img/xaxistypehtmllight.jpg)
 
-!!! Tip 
-    If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a>
+!!! tip "X-axis labels look wrong?"
+    If X-axis labels look incorrect, try selecting a different _Type_
 
-**Axis Format**
 
-Used for when <a href="#axis-type">X-Axis Type</a> is of type _Date_.
+### _Axis Format_
+
+Used for when _X-Axis Type_ is of type _Date_.
 
 ![Screenshot](img/xaxisformatdatehtmllight.jpg)
 
-**Axis Scale**
+
+### _Axis Scale_
 
 ![Screenshot](img/axisscale.jpg)
 
-Select no scaling, or use numberic/time scaling depending on selected axis type. 
+Select _none_, or use numeric or time scaling depending according to the selected _Axis Type_. 
 
-**Fixed Columns**
+
+### _Fixed Columns_
 
 Check to toggle chart between standard chart scale and fixed (transposed) chart view.  
 
-**Show legend**
+
+### _Show Legend_
 
 Toggles display of chart legend
 
 ![Screenshot](img/charthtmllegendhtmllight.jpg)
 
-**Key by Column**
 
-Simliar visual to <a href="#fixed-columns">fixed columns</a> except uses x-axis labels for legend labels. 
+### _Key by Column_
 
-**Ordinal**
+Simliar visual to _Fixed Columns_ except uses X-axis labels for legend labels. 
 
-When checked, x-axis will scale by time or numeric sequence
+
+### _Ordinal_
+
+When checked, the X axis will scale by time or numeric sequence
 
 ![Screenshot](img/ordinal.jpg)
 
 !!! Tip
-    Best used when <a href="#axis-scale">Axis Scale</a> is set to _scale_.
+    Best used when _Axis Scale_ is set to _scale_.
 
-**Show new Time Period**
+
+### _Show New Time Period_
 
 Ensures the latest data point of a time sequence is displayed
 
 ![Screenshot](img/shownewtimeperiodhtmllight.jpg)
 
-**Use Fixed Num of Ticks**
+
+### _Use Fixed Num of Ticks_
 
 Toggles control to use _Num of Ticks_
 
 ![Screenshot](img/multichartnumofticks.jpg)
 
-**Show All Ticks**
 
-Displays every charted data point in the x-axis
+### _Show All Ticks_
 
-**Num of Ticks**
+Displays every charted data point in the X aaxis
 
-The number of ticks to display in the x-axis.
 
-!!! Check 
-    Requires a check for <a href="#use-fixed-num-of-ticks">Use fixed num of ticks</a> to enable.
+### _Num of Ticks_
 
-**Axis Rotation**
+The number of ticks to display in the X axis. (Requires a check for _Use fixed num of ticks_ to enable.)
 
-Rotate x-axis label
+
+### _Axis Rotation_
+
+Rotate X-axis label
 
 ![Screenshot](img/xaxislabelrotation.jpg)
 
+
 ## Columns
 
-Define which data columns from the <a href="#data-source">data source</a> to plot 
+Define which data columns from the data source to plot 
 
 ![Screenshot](img/chartcolumnsmenu.jpg) 
 
-To refresh the chart to its default (prior saved) state, click the refresh button
+To refresh the chart to its default (prior saved) state, click the _Refresh_ button
 
 ![Screenshot](img/columnresethtmllight.jpg)
 
 To add a column, click ![Screenshot](img/addcolumnbutton.jpg)
 
-**User Defined**
+
+### _User Defined_
 
 This is equivalent of a 'read-only' lock and protects against overwrite.
 
-### Column
 
-To select a data column, click inside the Column input box. This will display a list of available data to choose.
+### _Column_
+
+To select a data column, click inside the _Column_ input box. This will display a list of available data to choose.
  
 ![Screenshot](img/selectcolumhtmllight.jpg)
 
-**Wildcard query**
+
+### _Wildcard query_
 
 ![Screenshot](img/wildcardhtmlight.jpg)
 
@@ -160,83 +179,98 @@ For example, wildcard selection charted the three available data series:
 
 ![Screenshot](img/wildcardcharthtmllight.jpg)
 
-If wildcard is select for column name, all matching columns for the wildcard (e.g: size* matches to _sizeminute_, _sizeprice_, _sizesize_) will share formatting (e.g. color, highlight rules etc.). 
+If a wildcard is used in column name, all matching columns for the wildcard (e.g: size* matches to `sizeminute`, `sizeprice`, `sizesize`) will share formatting (e.g. color, highlight rules etc.). 
 
-**Color**
+
+### _Color_
 
 Select from color palette or use Hex color reference
 
 !!! Note "Pivot Data Charts"
-    If charting Pivot/OLAP data, charting colors will be selected from <a href="#style">Style</a> menu.
+    If charting Pivot/OLAP data, charting colors will be selected from the _Style_ menu.
 
-**Display Name**
+
+### _Display Name_
 
 Defines the name used in the chart legend
 
 ![Screenshot](img/displaynamecharthtmllight.jpg)
 
 !!! Tip "Wildcard in Display Name"
-    If wildcard is used for <a href="#column">Column</a> name, dashboards will instead use the Display Name from the database.
+    If wildcard is used for _Column_ name, dashboards will instead use the Display Name from the database.
 
-## Zoom/Pan 
+
+## Zoom / Pan 
 
 ![Screenshot](img/zoomandpanmenu.jpg)
 
-**Pan On**
 
-Check control to switch Zoom and Pan functionality on
+### _Zoom / Pan On_
+
+Toggle Zoom and Pan functionality
 
 ![Screenshot](img/panzoom.jpg)
 
 ![Screenshot](img/panzoom2.jpg)
 
-**Type**
+
+### _Type_
 
 Select between drag-to-select _Zoom_, or _Pan_ control
 
-**Zoom Select Color, Opacity and Border**
+
+### _Zoom Select Color, Opacity and Border_
 
 Selects the background color, background color opacity and the border for the selected area. 
 
-**Min and Max Zoom**
+
+### _Min Zoom_ and _Max Zoom_
 
 ![Screenshot](img/minmaxzoom.jpg)
 
-Set [view state parameter](introduction#view-state-parameters) for to store the range value for _Min and Max Zoom_
+Set View State Parameter for to store the range value for _Min and Max Zoom_
 
-**Mouse Pan**
 
-Check to select mouse pan control; best used on real-time time series data 
+### _Mouse Pan_
 
-**Mouse Pan Interval and Type**
+Check to select mouse pan control; best used on real-time time-series data 
+
+
+### _Mouse Pan Interval and Type_
 
 Set time pan control for chart; chart will move in timed sections.
 
 ![Screenshot](img/mousepaninterval.jpg)
 
+
 ## Highlight Rules
 
 ![Screenshot](img/highlightrulebar.jpg)
 
-Used to color code bar charts. Best used with real-time streaming or polling data. 
+Used to color-code bar charts. Best used with real-time streaming or polling data. 
 
 Click on ![Screenshot](img/addrulebutton.jpg) to include additional highlight rules.
 
-**Condition Source**
 
-The dependent variable from the <a href="#data-soruce">data source</a> defining the trigger.
+### _Condition Source_
 
-**Condition Operator**
+The dependent variable from the data source defining the trigger.
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
 
-**Condition Value**
+### _Condition Operator_
+
+Dropdown menu of rule operations, including greater-than, less-than, not-equal-to, exactly-equal-to, and text contains alerts
+
+
+### _Condition Value_
 
 What value threshold will trigger the alert. Typically, this is "previous value" but can be numeric or text (depending on the source data)
 
-**Color**
+
+### _Color_
 
 What color the bar will be when the highlight rule is true. 
+
 
 ## Style
 
@@ -244,41 +278,37 @@ OLAP Bar Color
 
 ![Screenshot](img/piechartstylemenu.jpg)
 
-### ChartBarColors
+
+### _ChartBarColors_
 
 Sets bars color and order for Pivot/OLAP chart. 
 
 Colors can be set using Hex reference or by clicking on the color bar and selecting from the pop-up palette. 
 
-### Advanced CSS
 
-Left click inside the Advanced CSS editor. Click the selector icon, then left-click inside the chart component to bring up the relevant CSS code. Add changes to your css as required. 
+### _Advanced CSS_
+
+Click inside the Advanced CSS editor. Click the selector icon, then click inside the chart component to bring up the relevant CSS code to edit. 
 
 ![Screenshot](img/advancedcssmulticharthtmllight.jpg)
 
-### Custom Tooltip
 
-Step 1: Create View States for items in tooltip
+### _Custom Tooltip_
 
+1. Create View States for items in tooltip  
 ![Screenshot](img/multicharttooltip.jpg)
-
-Step 2: Add a html tag for View States (using handlebars)
-
+2. Add a HTML tag for View States, using [Handlebars](http://handlebarsjs.com)  
 ![Screenshot](img/configuretooltip.jpg)
-
-Step 3: Chartview
-
+3. Chartview  
 ![Screenshot](img/chartviewtooltip.jpg)
 
-Tooltips can use View State Parameters which have been mapped to Data Source variables
+Tooltips can use View State Parameters which have been mapped to data-source variables
 
 ![Screenshot](img/parametermaphtmllight.jpg)
 
-In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
+In the _Configure Tooltip_ template, add HTML tags for the View State Parameters to display (using Handlebars) 
 
-If viewstate parameter = `param1`
-
-Add a table cell with `param1` viewstate to tooltip with the tag:  `<td>{{obj.param1}}</td>`
+If the viewstate parameter is `param1`, add a table cell with `param1` viewstate to tooltip with the tag:  `<td>{{obj.param1}}</td>`
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
@@ -286,11 +316,12 @@ Tool tip will appear as:
 
 ![Screenshot](img/tooltipchart.jpg)
 
-**Tooltip Top distance**
+
+### _Tooltip Top distance_
 
 Sets distance from mouse in pixels at which tooltip appears
 
-### Tooltip Helper
+### _Tooltip Helper_
 
 Tooltip Helper
 
@@ -313,7 +344,8 @@ EUR/USD: 250000
 
 To format "250000" so it will appear as "$250,000" use Tooltip Helper
 
-**Name**
+
+### _Name_
 
 Give the function a name.  This name will be used inside the tooltip.
 
@@ -325,7 +357,8 @@ For example:
 {{fx}} : {{fd volume}}
 ```
 
-**Regex**
+
+### _Regex_
 
 The regular expression used to find the required pattern
 
@@ -335,7 +368,8 @@ In this example:
 (\d{3})(?=\d)
 ```
 
-**Value**
+
+### _Value_
 
 The value to replace the text with. In this case, comma-delimited currency values: 
 
@@ -349,7 +383,8 @@ $1,
 
 See [Format](introduction#format) in Introduction for more on shared formatting options. Additional formatting specific to bar charts is detailed below
 
-**Y-Axis Format**
+
+### _Y-Axis Format_
 
 Configures the number of decimal places used in a numeric X-Axis.
 
@@ -357,15 +392,17 @@ Configures the number of decimal places used in a numeric X-Axis.
 
 ![Screenshot](img/chartxaxishtmllight.jpg)
 
-**Is Grouped**
 
-When checked, data will be independently charted across the y-axis. If unchecked, y-axis categories will be stacked
+### _Is Grouped_
+
+When checked, data will be independently charted across the Y axis. If unchecked, Y-axis categories will be stacked
 
 ![Screenshot](img/isgroupedhtmllight.jpg)
 
 ![Screenshot](img/groupingchartshtlmlight.jpg)
 
-**Show Controls**
+
+### _Show Controls_
 
 When checked, Users will have the ability to toggle between Grouped and Stacked Chart views with a menu option in the top-left of the chart
 
@@ -377,7 +414,8 @@ When checked, Users will have the ability to toggle between Grouped and Stacked 
     In addition to user-controlled group and stack controls, are individual toggles for charted data points. Click inside the chart legend icon to switch selected data chart view on or off.
     ![Screenshot](img/dataviewcontrolhtmlight.jpg)
 
-**Stacked as %**
+
+### _Stacked as %_
 
 Stacked as Percentage Checked On
  
@@ -387,13 +425,14 @@ Stacked as a Percentage Checked off
 
 ![Screenshot](img/notstackedasapercentage.jpg)
 
-**Show Stacked Labels**
 
-When checked, displays stacked values in chart as configured in <a href="#data-source">Data Source</a>. If <a href="#stacked-as-%">Stacked as a %</a> is checked, values displayed will be percentile values. 
+### _Show Stacked Labels_
+
+When checked, displays stacked values in chart as configured in _Data Source_. If _Stacked as a %_ is checked, values displayed will be percentile values. 
 
 ![Screenshot](img/stackingpercentagehtmllight.jpg)
 
-**Y-axis Force Min**
+**Y-Axis Force Min**
 
 The default chart best-fits data to the axis to maximise visual differnces. It sets the lowest value in your data to the baseline. 
 
@@ -401,33 +440,38 @@ The default chart best-fits data to the axis to maximise visual differnces. It s
 
 ![Screenshot](img/yaxismincharthtmlight.jpg)
 
-Checking _Y-axis Force Min_ will set the Y-axis to use the value entered <a href="#y-axis-min">Y-Axis Min</a>.
+Checking _Y-Axis Force Min_ will set the Y-axis to use the value entered _Y-Axis Min_.
 
-**Y-axis Force Max**
 
-As with <a href="#y-axis-force-min">Y-axis Force Min</a> will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
+### _Y-Axis Force Max_
+
+As with _Y-Axis Force Min_ will set y-axis maximum to use <a href="y-axis-max">Y-Axis Max</a> value. 
 
 !!! Warning "_Max_ set to less than highest value in Y-axis"
-    Using _Y-axis Force Max_ may crop chart if y-axis values exceed _Y-Axis max_
+    Using _Y-Axis Force Max_ may crop chart if y-axis values exceed _Y-Axis max_
 
-**Y-axis Min**
 
-The defined value will be used if <a href="#y-axis-force-min">Y-axis Force Min</a> is checked.
+### _Y-Axis Min_
 
-**Y-axis Max**
+The defined value will be used if _Y-Axis Force Min_ is checked.
 
-The defined value will be used if <a href="#y-axis-force-max">Y-Axis Force Max</a> is checked.
+
+### _Y-Axis Max_
+
+The defined value will be used if _Y-Axis Force Max_ is checked.
 
 !!! Tip
-    Use Y-axis Max to standardize the appearance of neighboring chart components where relative comparisons are important.
+    Use _Y-Axis Max_ to standardize the appearance of neighboring chart components where relative comparisons are important.
 
-**Y-Axis Ticks (best fit)**
+
+### _Y-Axis Ticks (best fit)_
 
 Chart will best fit number of displayed y-axis ticks to value set
 
 ![Screenshot](img/yaxisticks.jpg)
 
-**X/Y Axis Labels**
+
+### _X/Y Axis Labels_
   
 Adds text labels for x- and y-axis
 
@@ -435,7 +479,8 @@ Adds text labels for x- and y-axis
 
 ![Screenshot](img/axischartlabelhtmllight.jpg)
 
-**X-Axis Size**
+
+### _X-Axis Size_
 
 Sets the distance between the X-axis and the border of the component. 
 
@@ -443,78 +488,89 @@ Sets the distance between the X-axis and the border of the component.
 
 ![Screenshot](img/xaxissizecharthtmllight.jpg)
 
-Distance between x-axis and line chart
+Distance between X axis and line chart
 
-**Show X-axis Min/Max**
 
-Display in the x-axis the min/max values.
+### _Show X-axis Min/Max_
+
+Display in the X axis the min/max values.
 
 ![Screenshot](img/showxaxisminmaxhtmllight.jpg)
 
 ![Screenshot](img/showxaxisminmaxcharthtmllight.jpg)
 
-**Show Y-axis Min/Max**
+
+### _Show Y-Axis Min/Max_
  
-Display in the y-axis the min/max values.
+Display in the Y axis the min/max values.
 
 ![Screenshot](img/showyaxisminmaxhtmllight.jpg)
 
 ![Screenshot](img/showyaxisminmaxcharthtmllight.jpg)
 
 !!! Note "Use of Min/Max"
-    Charts will best fit the y-axis, setting the minimum value to the lowest value in the charted y-range. To force zero the Y-axis, use _Y axis Min_
+    Charts will best fit the y-axis, setting the minimum value to the lowest value in the charted y-range. To force zero the Y-axis, use _Y Axis Min_
 
-**X/Y Axis Tick Padding**
+
+### _X/Y Axis Tick Padding_
 
 ![Screenshot](img/charttickpadding.jpg)
 
-Defines spacing between x- and y-axis labels to chart x- and y-axis.
+Defines spacing between X- and Y-axis labels to chart X- and Y-axis.
 
 ![Screenshot](img/axistickpaddinghtmllight.jpg)
 
-**Left/Right Y-Axis Margin**
 
-Distance between Y-Axis and chart component edge
+### _Left/Right Y-Axis Margin_
 
-**Y-axis min/max range scale**
+Distance between Y-axis and chart component edge
 
-Defines the range between min and max values of y-axis
+
+### _Y-Axis min/max range scale_
+
+Defines the range between min and max values of the Y axis
 
 ![Screenshot](img/yaxisminmaxrangehtmllight.jpg)
 
 ![Screenshot](img/yaxisminmaxrangescalehtmllight.jpg)
 
 !!! Warning "Out of Range Values"
-    If defined range is greater than data range a negative y-axis will be applied
+    If defined range is greater than data range a negative Y axis will be applied
 
-**Dynamic Columns in Pivot**
+
+### _Dynamic Columns in Pivot_
 
 Marks if dynamic colums are used for a [pivot query](introduction#pivot-query)
 
-**Show X- Y-Axis Ticks**
+
+### _Show X- Y-Axis Ticks_
 
 Toggles the display of chart tick labels
 
-**Auto-New Column**
+
+### _Auto-New Column_
 
 When a query adds a new column of data, the chart will update to add the new column of data. 
 
-**Chart Background**
+
+### _Chart Background_
 
 Change background color of chart
 
-**Bar Spacing**
 
-Low Bar Spacing
+### _Bar Spacing_
 
-![Screenshot](img/lowbarspacing.jpg)
 
-High Bar Spacing
+![Screenshot](img/lowbarspacing.jpg)  
+_Low Bar Spacing_
 
-![Screenshot](img/highbarspacing.jpg)
+
+![Screenshot](img/highbarspacing.jpg)  
+_High Bar Spacing_
 
 Use the slider control to change the spacing between bars in the Bar Chart.
 
+
 ## Margins
 
-See [Margins](introduction#margins) in Introduction for more
+See [Margins](style/#margins) in _Styling dashboards_
