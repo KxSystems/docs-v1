@@ -1,102 +1,113 @@
-
 ![Screenshot](img/bipartewhite.jpg)
 
 A unique two-way interactive chart featuring two independent data sets and associated relationships. Compatible with Pivot/OLAP data.
 
-### Basics
- 
-Bipartite Menu
 
+## _Basics_
+ 
 ![Screenshot](img/bipartitemenu.jpg)
 
-Define **Data Source** and component linkages
+Define data source and [component linkages](introduction#linking-components)
 
-### Data Source
 
-See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
+_Data Source_
 
-### Focus
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
-Used for [linking components](introduction#linking-components). Requires a [view state parameter](introduction#view-state-parameters).
 
-### Right Hand Compare variables
+_Focus_
+
+: Used for linking components. Requires a [view state parameter](introduction#view-state-parameters).
+
+
+## _Right Hand Compare Variables_
 
 ![Screenshot](img/righthandcomparemenu.jpg)
 
-Defines dependent variables for Right-Hand Data Set. Add data columns with ![Screenshot](img/addcolumnhtmllight.jpg)
+Defines dependent variables for right-hand data set. Add data columns with ![Screenshot](img/addcolumnhtmllight.jpg)
 
-**Column**
+_Column_
 
-Select <a href="#data-source">Data Source</a> variable to include in the right-hand data set
+: Select _Data Source_ variable to include in the right-hand data set
 
-**Display Name**
 
-Display Name for aforementioned _data source_ variable
+_Display Name_
 
-### Left Hand Compare Group
+: Display name for _Data Source_ variable
+
+
+## _Left Hand Compare Group_
 
 ![Screenshot](img/lefthandcomparemenu.jpg)
  
-Select from <a href="#data-source">Data Source</a> the independent variable to categorize Right Hand data source dependent variables.
+Select from _Data Source_ the independent variable to categorize right-hand data-source dependent variables.
 
-## Style
 
-### ChartBarColors
+## _Style_
 
-![Screenshot](img/bipartitestylemenu.jpg)
+_ChartBarColors_
 
-To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
+: ![Screenshot](img/bipartitestylemenu.jpg)
 
-![Screenshot](img/chartbarcolorshtmllight.jpg)
+: To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
 
-### Advanced CSS
+: ![Screenshot](img/chartbarcolorshtmllight.jpg)
 
-Select to add CSS elements to Bipartite Chart
 
-![Screenshot](img/bipartiteadvancedcss.jpg)
+_Advanced CSS_
 
-## Format
+: Select to add CSS elements to the chart
 
-Bipartite Format
+: ![Screenshot](img/bipartiteadvancedcss.jpg)
+
+
+## _Format_
 
 ![Screenshot](img/bipartiteformatmenu.jpg)
 
-See [Format](introduction.md#format) in Introduction for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below
+See [Styling dashboards](style) in Introduction for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below. 
 
-**Component Shadow**
+_Component Shadow_
 
-Sets shadow on component
+: Sets shadow on component
 
-**Label Show**
 
-Check control for left- and right-hand variable labels
+_Label Show_
 
-**Label Position**
+: Toggle left- and right-hand variable labels
 
-Defines width of gap between numeric and variable text labels
 
-![Screenshot](img/labelpositionhtmllight.jpg)
+_Label Position_
 
-**Value Show**
+: Width of gap between numeric and variable text labels
 
-Check control to display value next to bipartite relative section size
+: ![Screenshot](img/labelpositionhtmllight.jpg)
 
-**Value Position**
 
-Defines width of gap between percentage and value 
+_Value Show_
 
-![Screenshot](img/valuepositionhtmllight.jpg) 
+: Toggle display value next to bipartite relative section size
 
-**Percent Position**
 
-Defines width of gap between component edge and percentage value
+_Value Position_
 
-![Screenshot](img/percentpositionhtmllight.jpg)
+: Width of gap between percentage and value 
+
+: ![Screenshot](img/valuepositionhtmllight.jpg) 
+
+
+_Percent Position_
+
+: Width of gap between component edge and percentage value
+
+: ![Screenshot](img/percentpositionhtmllight.jpg)
  
-**Percent Format**
 
-*Not in Use*
+_Percent Format_
+
+Not in use.
+
 
 ## Margins
 
-See [Margins](introduction#margins) in Introduction for more
+<i class="fa fa-hand-o-right"></i> [Margins](style/#margins)
