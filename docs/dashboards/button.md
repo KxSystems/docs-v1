@@ -1,14 +1,14 @@
 Adds individual button controls for jumps to dashboards and dashboard screens.
 
-## Action
+## _Action_
 
 ![Screenshot](img/buttonmenu1.jpg)
 
-Defines the Dashboard and Dashboard Screen to open on button click.
+Sets a Dashboard and Dashboard Screen to open on button click.
 
 ![Screenshot](img/actionhtmllight.jpg)
 
-### View State Mapping
+### _Viewstate Mapping_
 
 ![Screenshot](img/navigationviewstatemapping.jpg)
 
@@ -16,58 +16,61 @@ Mapping a value to a View State Parameter (within a dashboard)
 
 ![Screenshot](img/mapbuttonvalue.jpg)
  
-View State Mapping allows values of View State Parameters from the source dashboard to be transferred to View State Parameters in the destination Dashboard.
+_Viewstate Mapping_ allows values of View State Parameters from the source dashboard to be transferred to View State Parameters in the destination Dashboard.
 
-!!! Tip
-    When mapping View State Parameters across dashboards, it will be necessary to create the Target _View State Parameter_ in the destination dashboard first. Viewstate Mapping can only map to existing View State Parameters; Dashboards will not create them.
+!!! tip 
+    Before mapping View State Parameters across dashboards, create the target View State Parameter in the destination dashboard first. _Viewstate Mapping_ can map only to existing View State Parameters; Dashboards will not create them.
  
-To add a new Mapping element, click ![Screenshot](img/mappingbuttonhtmllight.jpg)
+To add a new mapping element, click ![Screenshot](img/mappingbuttonhtmllight.jpg)
+
 
 ## Basics
 
 ![Screenshot](img/buttonhtmllight.jpg)
 
-**Label**
 
-Name to appear on the Button
+_Label_
 
-**Font Size**
+: Name to appear on the button
 
-Size of font to use the button.
 
-**Horizontal**
+_Font Size_
 
-Sets alignment (left, center or right) of button inside the boundaries _Button_ component
+: Size of font to use the button.
 
-**Vertical**
 
-Sets alignment (top, middle, bottom) of button inside the boundaries _Button_ component
+_Horizontal_
 
-**Tooltip**
+: Sets alignment (left, center or right) of button inside the boundaries of the _Button_ component
 
-Descriptive tooltip to appear on button rollover
 
-**Fixed Width**
+_Vertical_
 
-Check box to define width of input box.  If unchecked, button will fill width of _Button_ component box.
+: Sets alignment (top, middle, bottom) of button inside the boundaries _Button_ component
 
-**Width**
 
-When _Fixed Width_ is checked, width will define the button size in pixels. 
+_Tooltip_
+
+: Descriptive tooltip to appear on button rollover
+
+
+_Fixed Width_
+
+: Check box to define width of input box.  If unchecked, button will fill width of _Button_ component box.
+
+
+_Width_
+
+: When _Fixed Width_ is checked, width will define the button size in pixels. 
+
 
 ## Style
 
-Use Advanced CSS to set styles
+Use _Advanced CSS_ to set styles
  
 ![Screenshot](img/buttoncsshtmllight.jpg)
 
+
 ## Margins
 
-See [Margins](introduction#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction#format) in Introduction for more.
-
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)

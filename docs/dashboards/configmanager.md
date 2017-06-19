@@ -4,106 +4,115 @@ The Configuration Manager supports user-configurable parameter settings; e.g. fo
 
 The Manager features a navigation panel on the left with details of the selected Parameter listed in the Data Grid to the right.
 
-Doubleclick a cell to change the value of the parameter
+Double-click a cell to change the value of the parameter
 
 ![Screenshot](img/selectconfigmanagercell.jpg)
 
-Control | Description
---- | ---
-Export CSV | Takes contents of the Data Grid and exports as a .csv file
-Import CSV | Imports .csv content to the selected Parameter
-Add Row | Add an additional row for content to the selected Parameter
-Move up | Move the selected row up one step
-Move down | Move the selected row down on step
-Duplicate | Select a row in the Parameter grid, then Duplicate to repeat the row information
-Delete | Select a row in the Parameter grid, click Delete to remove it
-Revert | To undo a Parameter change, click Revert
-Save | Save changes make to the Paramete
-Switch View | This transposes the table view columns-to-rows; rows-to-columns
+_Export CSV_
+: Exports contents of the Data Grid as a CSV
+
+_Import CSV_
+: Imports CSV content to the selected Parameter
+
+_Add Row_ 
+: Add an additional row for content to the selected Parameter
+
+_Move up_ 
+: Move the selected row up one step
+
+_Move down_ 
+: Move the selected row down one step
+
+_Duplicate_ 
+: Duplicate selected row in the Parameter grid
+
+_Delete_ 
+: Delete selected row in the Parameter grid
+
+_Revert_ 
+: Undo last Parameter change
+
+_Save_ 
+: Save changes made to the Parameters
+
+_Switch View_ 
+: Transposes the table view columns-to-rows; rows-to-columns
 
 !!! Tip "Save!"
-    When adding a description to your Parameter remember to Save the description before switching to another view so updates are not lost.
+    When adding a description to your Parameter remember to save the description before switching to another view to ensure updates are not lost.
 
-### Parameter Groups
+## Parameter Groups
 
 ![Screenshot](img/parametergroups.jpg)
 
-Add a Parameter Group and give it a name
+_Group DIsplay Name_
+: Add a Parameter Group and name it
 
-Check the Load expanded box if the Alert Group is to auto-display associated Parameters on load.
+_Load expanded_ 
+: Check if the Alert Group is to auto-display associated Parameters on load.
 
-![Screenshot](img/newgrouphtmllight.jpg)
+    ![Screenshot](img/newgrouphtmllight.jpg)
 
-**Add a Parameter**
 
-From the Parameter Name, select from the dropdown the associated parameter to configure
+### Parameter
+
+Select a parameter to configure:
 
 ![Screenshot](img/addaparameter.jpg)
 
 ![Screenshot](img/selectparameter.jpg)
 
-**Display Name**
 
-The name of the Parameter which will be displayed in the Navigation Panel
+_Display Name_
+: Name to be displayed in the Navigation Panel
 
-**Dictionary View**
+_Dictionary View_
+: Check to view the Parameter as a dictionary. 
 
-Check the box to view the Parameter as a dictionary. 
+    ![Screenshot](img/dictionaryview.jpg)
 
-![Screenshot](img/dictionaryview.jpg)
 
 ## View
 
 The View menu customizes the appearance of the Configuration Manager
 
-**Tabbed View**
+### Tabbed View
 
-Tabbed View 
+: ![Screenshot](img/tabbedgroup.jpg)  
+_A tabbed view_
 
-![Screenshot](img/tabbedgroup.jpg)
+: Depending on the _Tab Source_ selected, orders either the Parameter Groups or nested Parameters into tabs, listing the nested Parameters or Parameter Groups in the left-hand navigation panel.
 
-Depending on the _Tab Source_ select, orders either the Paramater Groups or nested Parameters into tabs, listing the nested Parameters or Parameter Groups in the left-hand navigation panel.
+_Show Description by Default_
+: Toggles the display of the description for the Parameter
 
-**Show Description by Default**
-
-Toggles the display of the Description for the Parameter
 
 ## Grid Options
 
 ![Screenshot](img/gridoptions.jpg)
 
-A list of check controls configuring which controls are available to the user
+A list of check boxes to set which controls are available to the user
 
-Option | Description
---- | ---
-Allow Editing of Rows | User click-and-edit of a row
-Show Add a Row Butto | ![Screenshot](img/addrow.jpg)
-Show Delete Row Button | ![Screenshot](img/deleterow.jpg)
-Show Duplicate Row Button | ![Screenshot](img/duplicaterow.jpg)
-Show Re-order Buttons | ![Screenshot](img/reorderbuttons.jpg)
-Show Export CSV Button | ![Screenshot](img/exportcsv.jpg)
-Show Import CSV Button | ![Screenshot](img/importcsv.jpg)
-Show Change Grid Button | ![Screenshot](img/switchview.jpg)
+Option | Effect
+------ | ------
+_Allow Editing of Rows_ | User click-and-edit of a row
+_Show Add a Row Button_ | ![Screenshot](img/addrow.jpg)
+_Show Delete Row Button_ | ![Screenshot](img/deleterow.jpg)
+_Show Duplicate Row Button_ | ![Screenshot](img/duplicaterow.jpg)
+_Show Re-order Buttons_ | ![Screenshot](img/reorderbuttons.jpg)
+_Show Export CSV Button_ | ![Screenshot](img/exportcsv.jpg)
+_Show Import CSV Button_ | ![Screenshot](img/importcsv.jpg)
+_Show Change Grid Button_ | ![Screenshot](img/switchview.jpg)
 
 ## Style
 
-[1] Left click inside Advanced CSS button
+1. Left click inside Advanced CSS button
 
-![Screenshot](img/leftclickcss.jpg)
+    ![Screenshot](img/leftclickcss.jpg)
 
-[2] Select the Config Manager component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Config Manager component. 
+2. Select the Config Manager component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Config Manager component. 
 
-[3] Add the required CSS content
+3. Add the required CSS content
 
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction#format) in Introduction for more.
-
-## Margins
-
-See [Margins](introduction#margins) in Introduction for more
-
-
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
 
