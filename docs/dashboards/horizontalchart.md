@@ -4,140 +4,166 @@
 
 ![Screenshot](img/horizotnalchartbasics.jpg)
 
-### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+_Data Source_
 
-### Focus 
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
 
-### Range
+_Focus_
 
-Similar to **Focus**, instead the assigned [view state parameter](introduction.md#view-state-parameters) is used to link a [range slider](rangeslider.md) to the chart.
+: Used for [linking components](introduction/#linking-components). Requires a [View State Parameter](introduction/#view-state-parameters).
 
-### Selected Value 
 
-This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
+_Range_
 
-[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
- 
-![Screenshot](img/selectedvaluecharthtmllight.jpg)
+: Similar to _Focus_, instead the assigned View State Parameter is used to link a [Range Slider](rangeslider) to the chart.
 
-[2] Go to <a href="#selected-value-attribute">Selected Value Attribute</a> to select a query variable to store in the Selected Value View State Parameter.
 
-### Selected Value Attribute
+_Selected Value_
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
+: This is a View State Parameter; used to store the clicked-on chart data point to a View State Parameter.  
 
-![Screenshot](img/selectedvalueattributehtmlight.jpg)
+    1. Create a View State Parameter and assign to _Selected Value_
+        ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
-!!! Warning "Data Type Match"
-    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
+    2. Use _Selected Value Attribute_ to select a query variable to store in the _Selected Value_ View State Parameter.
 
-### From / To
 
-Coming Soon
 
-![Screenshot](img/fromtohorizontalbar.jpg)
+_Selected Value Attribute_
+
+: This comes from the _Data Source_ and is the variable paired with the _Selected Value_ View State Parameter.  When the user clicks on the chart, the associated query variable will be mapped to the _Selected Value_ view state.  
+
+    ![Screenshot](img/selectedvalueattributehtmlight.jpg)
+
+    !!! Warning "Data type match"
+        When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the type of the _Data Source_; e.g. integer for numbered data.
+
+
+_From / To_
+
+: Coming Soon
+
+    ![Screenshot](img/fromtohorizontalbar.jpg)
+
 
 ## Columns
 
 ![Screenshot](img/horizontalchartcolumnsmenu.jpg)
 
-To refresh the chart to its default (prior saved) state, click the refresh button
+To refresh the chart to its default (prior saved) state, click the Refresh button:
 
 ![Screenshot](img/columnresethtmllight.jpg)
 
 To add a column, click ![Screenshot](img/addcolumnbutton.jpg)
 
-**User Defined**
 
-A 'read only' lock of the column.
+_User Defined_
 
-<aside class="admonition caution">Helps if working with multiple copies of a chart and are changing <a href="#data-sources">Data Sources</a>.  Locking the column will preserve formatting even if the listed <i>Column</i> source isn't referenced in a changed <a href="#data-sources">data source</a>.</aside>
+: A read-only lock of the column.
 
-**Column**
+    !!! tip
+        Helps if working with multiple copies of a chart and changing data sources.  Locking the column will preserve formatting even if the listed column source isn’t referenced in a changed data source.
 
-The charted value from the **Data Source** 
 
-**Color**
+_Column_
 
-Select from color palette or use Hex color reference
+: The charted value from the _Data Source_
 
-**Display Name**
 
-The charted variable name to display in the Y-axis
+_Color_
 
-## Y-axis
+: Select from palette or use Hex color reference
+
+
+_Display Name_
+
+: The charted variable name to display in the Y-axis
+
+
+## Y-Axis
 
 ![Screenshot](img/yaxismenubar.jpg)
 
-**Axis Value**
 
-Select from the dropdown the category to chart from the <a href="#data-sources">Data Source</a>
+_Axis Value_
 
-**Axis Type**
+: The category to chart from the _Data Source_
 
-Select the data type from the dropdown menu.  Choose between String, Date or Number.
 
-<aside class="admonition caution">If selecting <i>Date</i>, set the date type in <b>Axis Format</b></aside>
+_Axis Type_
 
-**Axis Format**
+: Data type: choose _String_, _Date_ or _Number_. If selecting _Date_, set the date type in _Axis Format_.
 
-If **Axis Type** is of type <i>Date</i> then choose the date or datetime format for the y-axis. 
 
-**Legend Label Tag**
+_Axis Format_
 
-Coming Soon
+: If _Axis Type_ is _Date_ then choose the Date or DateTime format for the Y axis. 
 
-**Axis Scale**
 
-Axis order will either be the default order as generated by the <a href="#data-sources">Data Source</a>, or will scale numerically. 
+_Legend Label Tag_
 
-**Rotation**
+: (Coming Soon)
 
-Rotates y-axis labels
 
-**Fixed Columns**
+_Axis Scale_
 
-Toogle control to switch between display of data by inidividual <a href="#data-sources">Data Source</a> columns, or aggregate by Row. 
+: Axis order will either be the default order as generated by the _Data Source_, or will scale numerically. 
 
-![Screenshot](img/fixedcolumns.jpg)
 
-**Show Legend**
+_Rotation_
 
-Show legend in chart
+: Rotates Y-axis labels
 
-**Key by Column**
 
-Transposes chart plot
+_Fixed Columns_
 
-![Screenshot](img/keybyhtmllight.jpg)
+: Toogle between display of data by inidividual _Data Source_ columns, or aggregated by Row. 
+
+    ![Screenshot](img/fixedcolumns.jpg)
+
+
+_Show Legend_
+
+: Show legend in chart
+
+
+_Key by Column_
+
+: Transposes chart plot
+
+    ![Screenshot](img/keybyhtmllight.jpg)
+
 
 ## Highlight Rules
 
 ![Screenshot](img/horizontalhighlightrule.jpg)
 
-Used to color code bar charts. Best used with real-time streaming or polling data. 
+Used to color-code bar charts. Best used with real-time streaming or polling data. 
 
 Click on ![Screenshot](img/addrulebutton.jpg) to include additional highlight rules.
 
-**Condition Source**
 
-The data series on which the trigger is measured. Selected from the <a href="#data-sources">Data Source</a>
+_Condition Source_
 
-**Condition Operator**
+: The data series on which the trigger is measured. Selected from the _Data Source_
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
 
-**Condition Value**
+_Condition Operator_
 
-What value threshold will trigger the alert.  Typical is "previous value" but can also be a text trigger
+: Rule operations, including greater-than, less-than, not-equal-to, exactly-equal-to, and text-contains-alerts
 
-**Color**
 
-What color bar will change on when highlight rule is true. 
+_Condition Value_
+
+: The threshold value to trigger the alert.  Typical is "previous value" but can also be a text trigger
+
+
+_Color_
+
+: The color the bar will change to when highlight rule is true. 
+
 
 ## Style
 
@@ -147,40 +173,41 @@ Configure Pivot line colors, CSS and Custom Toolbar
 
 ### ChartBarColors
 
-Used for setting colors for a bar chart breakdown in a [pivot query](introduction.md#pivot-query)
+Used for setting colors for a bar chart breakdown in a [pivot query](introduction/#pivot-query)
 
-[Screenshot](img/barcolorhtmllight.jpg)
+![Screenshot](img/barcolorhtmllight.jpg)
 
 ![Screenshot](img/chartbarcolorshtmllight.jpg)
 
+
 ### Advanced CSS
 
-Left click inside the Advanced CSS editor. Click the selector icon, then left-click inside the chart component to bring up the relevant CSS code. Add changes to your css as required. 
+Click inside the Advanced CSS editor. Click the selector icon, then inside the chart component to bring up the relevant CSS code. Add changes to your CSS as required. 
 
 ![Screenshot](img/advancedcssmulticharthtmllight.jpg)
 
-### Custom Tooltip
 
-Step 1: Create View States for items in tooltip
+### Custom tooltip
 
-![Screenshot](img/multicharttooltip.jpg)
+1. Create View States for items in tooltip
 
-Step 2: Add a html tag for View States (using handlebars)
+    ![Screenshot](img/multicharttooltip.jpg)
 
-![Screenshot](img/configuretooltip.jpg)
+2. Add an HTML tag for View States, using [Handlebars](http://handlebarsjs.com)
 
-Step 3: Chartview
+    ![Screenshot](img/configuretooltip.jpg)
 
-![Screenshot](img/chartviewtooltip.jpg)
+3. Chartview
+
+    ![Screenshot](img/chartviewtooltip.jpg)
 
 Tooltips can use View State Parameters which have been mapped to Data Source variables
 
 ![Screenshot](img/parametermaphtmllight.jpg)
 
-In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
+In the Configure Tooltip template, add HTML tags for the View State Parameters to display (using Handlebars) 
 
-If viewstate parameter = *param1*
-Add a table cell with *param1* viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
+If viewstate parameter is `param1`, add a table cell with `param1` viewstate to tooltip with the tag:  `{{obj.param1}}`
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
@@ -188,125 +215,123 @@ Tool tip will appear as:
 
 ![Screenshot](img/tooltipchart.jpg)
 
-### Tooltip Helper
 
-Tooltip Helper
+### Tooltip Helper
 
 ![Screenshot](img/tooltiphelper.jpg)
 
-Apply Tooltip Helper Variable to Tooltip reference
+Apply Tooltip Helper variable to Tooltip reference
 
 ![Screenshot](img/addhelpertooltip.jpg)
 
-Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
-
-For example:
- 
-```
+Tooltips use [Handlebars](http://handlebarsjs.com/) so variables can be added dynamically to tooltip. For example:
+```js
 {{fx}} : {{volume}}
 ```
+could appear as `EUR/USD: 250000`. To format `250000` so it will appear as `$250,000` use Tooltip Helper
 
-could appear as
-EUR/USD: 250000
 
-To format "250000" so it will appear as "$250,000" use Tooltip Helper
+_Name_
 
-**Name**
+: Give the function a name: it will be used inside the tooltip. For example:
 
-Give the function a name.  This name will be used inside the tooltip.
+    ![Screenshot](img/helpername.jpg)
 
-For example:
+    ```js
+    {{fx}} : {{fd volume}}
+    ```
 
-![Screenshot](img/helpername.jpg)
 
-```
-{{fx}} : {{fd volume}}
-```
+_Regex_
 
-**Regex**
+: The regular expression used to find the required pattern. In this example: `(\d{3})(?=\d)`
 
-The regular expression used to find the required pattern
 
-In this example:
+_Value_
 
-```
-(\d{3})(?=\d)
-```
+: The value to replace the text with. In this case, comma-delimited currency values: `$1,`
 
-**Value**
 
-The value to replace the text with. In this case, comma-delimited currency values: 
-
-```
-$1,
-```
-
-## Format
+### Format
 
 ![Screenshot](img/horizontalformatmenu.jpg)
 
-See [Format](introduction.md#format) in Introduction for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style) for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below.
 
-**X-Axis Format**
 
-Select the number of decimal places to use for numeric x-axis labels; zero to four places or Smart Number.
+_X-axis Format_
 
-**Reduce Y-Axis**
+: Select the number of decimal places to use for numeric X-axis labels; zero to four places or Smart Number.
 
-No function
 
-**Component Shadow**
+_Reduce Y-Axis_
 
-No function
+: (No function)
 
-**Is Grouped**
 
-Toggles between individual and stacked bars
+_Component Shadow_
 
-![Screenshot](img/horizontalchartgrouped.jpg)
+: (No function)
 
-**Show Controls**
 
-Displays User control for toggling between Grouped and Stacked chart views.
+_Is Grouped_
 
-![Screenshot](img/usercontrolshtmllight.jpg)
+: Toggles between individual and stacked bars
 
-**Show Breadcrumbs**
+    ![Screenshot](img/horizontalchartgrouped.jpg)
 
-Displays breadcrumb control if horizontal chart is plotting a [pivot query](introduction.md#pivot-query)
 
-![Screenshot](img/breadcrumbchart.jpg)
+_Show Controls_
 
-**Y-Axis Force Min/Max**
+: Displays User control for toggling between Grouped and Stacked chart views.
 
-If Y-axis is using numeric categories, it will use the range set by **Y-axis Min** and **Y-axis Max**
+    ![Screenshot](img/usercontrolshtmllight.jpg)
 
-![Screenshot](img/yaxishorizontalminmaxhtmllight.jpg)
 
-**Y-Axis Min/Max**
+_Show Breadcrumbs_
 
-If **Y-axis Force Min/Max** is checked, the Y-axis range (if numeric data) will be set by assigned values
+: Displays breadcrumb control if horizontal chart is plotting a [pivot query](introduction/#pivot-query)
 
-**Left/Right Y-Axis Margin**
+    ![Screenshot](img/breadcrumbchart.jpg)
 
-Sets pixel width between axis and component border edge. 
 
-**Dynamic Columns in Pivot**
+_Y-Axis Force Min/Max_
 
-Check control if dynamic columns from a [pivot query](introduction.md#pivot-query) are used. 
+: If Y-axis is using numeric categories, it will use the range set by _Y-axis Min_ and _Y-axis Max_
 
-**Chart Background**
+    ![Screenshot](img/yaxishorizontalminmaxhtmllight.jpg)
 
-Sets background color of the chart
 
-**Y-Axis/X-Axis Label**
+_Y-Axis Min/Max_
 
- Provide chart labels for x- and y-axis
+: If _Y-axis Force Min/Max_ is checked, the Y-axis range (if numeric data) will be set by assigned values
 
-**Show X-/Y-axis Ticks**
 
-Toggle to display ticks for x- and y-axis.
+_Left/Right Y-Axis Margin_
 
-## Margins
+: Sets pixel width between axis and component border edge. 
 
-See [Margins](introduction.md#margins) in Introduction for more
+
+_Dynamic Columns in Pivot_
+
+: Check control if dynamic columns from a [pivot query](introduction/#pivot-query) are used. 
+
+
+_Chart Background_
+
+: Sets background color of the chart
+
+
+_Y-Axis/X-Axis Label_
+
+:  Provide chart labels for x- and y-axis
+
+
+_Show X-/Y-axis Ticks_
+
+: Toggle to display ticks for x- and y-axis.
+
+
+### Margins
+
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)

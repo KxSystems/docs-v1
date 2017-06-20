@@ -21,7 +21,7 @@ _Main Display Text_
 
 _Crosshair_
 
-: Crosshair action
+: Crosshair action:
 
     _Snap to Price_ 
     : Crosshair centers on closing price of selected time period
