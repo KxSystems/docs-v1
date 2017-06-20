@@ -1,77 +1,69 @@
-
 ![Screenshot](img/financialchartshtmllight.jpg)
 
-Financial charts is a self-contained component for displaying asset prices (Forex, equities and bonds) when connected to a price feed. 
+Financial Charts is a self-contained component for displaying asset prices (forex, equities and bonds) when connected to a price feed. 
 
-## Basics
+## _Basics_
 
 ![Screenshot](img/financialchartconfiguration.jpg)
 
-Configures type of Financial Chart
+Configures type of chart
 
-**Chart Type**
 
-Dropdown selection of different chart types
+_Chart Type_
 
-![Screenshot](img/charttype.jpg)
+: ![Screenshot](img/charttype.jpg)
 
-**Main Display Text**
 
-Sets the watermark label for center of chart
+_Main Display Text_
 
-**Crosshair**
+: Watermark label for center of chart
 
-Dropdown menu to control crosshair action
 
-Crosshair | Action
---- | ---
-Snap to Price | Crosshair centers on closing price of selected time period
-Free Flow | Crosshair position at mouse point
-None | No crosshair
+_Crosshair_
 
-**Show Info Box**
+: Crosshair action
 
-Check box to display Open, High, Low and Closing Price of selected time period
+    _Snap to Price_ 
+    : Crosshair centers on closing price of selected time period
 
-![Screenshot](img/chartinfoboxhtmllight.jpg)
+    _Free Flow_ 
+    : Crosshair position at mouse point
 
-**Show Disclaimer**
+    _None_ 
+    : No crosshair
 
-In small font, at the bottom right of the chart, a disclaimer is displayed
 
-![Screenshot](img/chartdisclaimer.jpg)
+_Show Info Box_
 
-### View State
+: Check box to display Open, High, Low and Closing Price of selected time period
+
+    ![Screenshot](img/chartinfoboxhtmllight.jpg)
+
+
+_Show Disclaimer_
+
+: In small font, at the bottom right of the chart, a disclaimer is displayed
+
+    ![Screenshot](img/chartdisclaimer.jpg)
+
+
+## View State
 
 Configure viewed financial asset
 
-**Stock Symbol**
+_Stock Symbol_
 
-Best configured using a [view state parameter](introduction.md#view-state-parameters).  Set default asset to use on chart load. 
+: Best configured using a [View State Parameter](introduction.md#view-state-parameters).  Set default asset to use on chart load. 
 
-### Toolbar
+
+## Toolbar
 
 ![Screenshot](img/financialcharttoolbar.jpg)
 
-Set Menu Bar Controls
-
-**Show Toolbar**
-
-Check Control to enable / disable
-
-**Show Stock Picker**
-
-Check Control to enable / disable
-
-**Show Draw Menu**
-
-Check Control to enable / disable
-
-**Show Indicators Menu**
-
-Check Control to enable / disable
+Checkboxes control whether the Toolbar appears and what appears on it
 
 ![Screenshot](img/toolbarshtmllight.jpg)
+
 
 ## Style
 
@@ -79,200 +71,211 @@ Check Control to enable / disable
 
 Adds styling elements, setting colors for different parts of the chart.
 
-**Chart Border**
 
-Set color of chart border
+_Chart Border_
 
-### Advanced CSS
+: Color of chart border
 
-[1] Left click inside Advanced CSS
+_Advanced CSS_
 
-![Screenshot](img/leftclickcss.jpg)
+: Advanced styling rules
 
-[2] Click on ![Screenshot](img/cssselecticon.jpg)
+    1. Click inside _Advanced CSS_  
+        ![Screenshot](img/leftclickcss.jpg)
 
-[3] Select chart component
+    2. Click on ![Screenshot](img/cssselecticon.jpg)
 
-![Screenshot](img/financialchartcss.jpg)
+    3. Select chart component  
+        ![Screenshot](img/financialchartcss.jpg)
 
-[4] Create and Apply CSS
+    4. Edit and apply CSS
 
-**Vertical Grid Lines**
 
-Set grid line color
+_Vertical Grid Lines_
 
-**Crosshair**
+: Color of grid lines
 
-Set overlay crosshair color
 
-**Background**
+_Crosshair_
 
-Set background color of chart
+: Color of overlay crosshair
 
-**Alternative Background**
 
-![Screenshot](img/alternativebackground.jpg)
+_Background_
 
-Set alternative (second) background color of chart
+: Background color of chart
 
-**Horizontal Grid Lines**
 
-Set color of horizontal grid lines
+_Alternative Background_
 
-**Text Major**
+: ![Screenshot](img/alternativebackground.jpg)
 
-![Screenshot](img/majorcolor.jpg)
+    Alternative (second) background color of chart
 
-Set text color of main text on chart (e.g. primary x-axis labels)
 
-**Text Minor**
+_Horizontal Grid Lines_
 
-Set text color of text label on chart (e.g. minor x-axis labels)
+: Color of horizontal grid lines
 
-**Selected Background**
 
-![Screenshot](img/selectedtexthighlight.jpg)
+_Text Major_
 
-Set color of highlight text in x-axis
+: ![Screenshot](img/majorcolor.jpg)
 
-**Selected Foreground**
+    Color of main text on chart (e.g. primary x-axis labels)
 
-Set color of text font of x-axis highlight
 
-**Candlestick Up**
+_Text Minor_
 
-Set color of candlestick price bars where open > prior close
+: Color of text label on chart (e.g. minor x-axis labels)
 
-**Candlestick Down**
 
-Set color of candlestick price bars where open < prior close
+_Selected Background_
 
-## Margins
+: ![Screenshot](img/selectedtexthighlight.jpg)
 
-See [Margins](introduction.md#margins) in Introduction for more
+    Color of highlight text in X axis
 
-## Format
+
+_Selected Foreground_
+
+: Color of text of X-axis highlight
+
+
+_Candlestick Up_
+
+: Color of candlestick price bars where open &gt; prior close
+
+
+_Candlestick Down_
+
+: Color of candlestick price bars where open &lt; prior close
+
+
+## _Margins_ and _Format_
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+
 
 ## Chart Controls
 
-These are the controls available to the User. 
+Controls available to the user. 
+
 
 ### Asset Search
 
 Search for asset from connected price feed
 
+
 ### Region Zoom
 
-![Screenshot](img/regionzoomhtmllight.jpg)
+Click the region-zoom icon ![Screenshot](img/regionzoomhtmllight.jpg) to activate.  Click on the chart and drag left or right the area of price action to focus on.  Release the click to zoom. 
 
-Click the Region Zoom icon to activate.  Left-click on the chart and drag left or right the area of price action to focus on.  Release the click to zoom. 
 
 ### Save Chart
-
-Chart Save on click
 
 ![Screenshot](img/savefinancialchart.jpg)
 
 On chart save, a pop-up window offers a dropdown choice of image size (360, 460, 520, 620, 780, 900, 1024, 1280, and 1,600px) and a ![Screenshot](img/downloadbutton.jpg). Chart will be saved to Download directory on PC. 
  
+
 ### View
 
 ![Screenshot](img/viewmenu.jpg)
 
 Support for tick to monthly data. First select *Time Interval*, this will show available *Timeframes*. Select *Timeframe* to load chart.
 
+
 ### Draw
 
 ![Screenshot](img/drawmenu.jpg)
 
-Draw items are classified into three categories: Basic, Shapes and Text, and Advanced.  Prior to adding a draw item, the Shape properties can be set.  These properties can also be changed after a shape is added. 
+Draw items are classified into three categories: _Basic_, _Shapes and Text_, and _Advanced_.  Prior to adding a draw item, the _Shape Properties_ can be set.  These properties can also be changed after a shape is added. 
  
-*Trendline*
+_Trend Line_
 
-This line is anchored by two points on a chart.  To create a price channel, select-and-right-click the line on the chart and do a line copy.  Then, select an area of the chart, right-click-and-select paste. A parallel line will be positioned next to the original.  This line can then be moved by left-click-and-drag of the line to the desired area of the chart.
+: This line is anchored by two points on a chart.  To create a price channel, select-and-right-click the line on the chart and do a line copy.  Then, select an area of the chart, right-click-and-select paste. A parallel line will be positioned next to the original.  This line can then be moved by left-click-and-drag of the line to the desired area of the chart.
 
-![Screenshot](img/trendlinehtmllight.jpg)
+    ![Screenshot](img/trendlinehtmllight.jpg)
 
-*Horizontal Line*
+_Horizontal Line_
 
-This is price line marker, best used to denote custom support and resistance.  When a Horizontal Line is applied it automatically extends to the price axis and displays the price.
+: This is a price-line marker, best used to denote custom support and resistance.  When a Horizontal Line is applied it automatically extends to the price axis and displays the price.
  
-To configure the line, right-click edit.  A line can be edited for different thickness or colour, opacity, type and if the line should extend beyond the anchors to the future (default) or past. 
+    To configure the line, right-click edit.  A line can be edited for different thickness or colour, opacity, type and if the line should extend beyond the anchors to the future (default) or past. 
 
-![Screenshot](img/horizontalcharthtmllight.jpg)
+    ![Screenshot](img/horizontalcharthtmllight.jpg)
 
-*Vertical Line*
+_Vertical Line_
  
-Similar to a horizontal line, except it marks a point in time.  A left click on the line will display the move icon, then drag to reposition the line
+: Similar to a horizontal line, except it marks a point in time.  A left click on the line will display the move icon, then drag to reposition the line
 
-*Target Line*
+_Target Line_
 
-Sets line at selected target price. Includes entry and stop levels
+: Sets line at selected target price. Includes entry and stop levels
 
-![Screenshot](img/targetlinehtmllight.jpg)
+    ![Screenshot](img/targetlinehtmllight.jpg)
 
-*Ellipse*
+_Ellipse_
 
-Adds a circle on the chart, perhaps to highlight peaks and troughs in price action.  The opacity tool within the Edit menu can be set so as not to obscure the underlying price action
+: Adds a circle on the chart, perhaps to highlight peaks and troughs in price action.  The opacity tool within the Edit menu can be set so as not to obscure the underlying price action
 
-![Screenshot](img/ellipsehtmllight.jpg)
+    ![Screenshot](img/ellipsehtmllight.jpg)
 
-*Rectangle and Rotation Rectangle*
+_Rectangle_ and _Rotation Rectangle_
 
-The rectangle tool can be used to mark consolidation regions or thicker bands of support and resistance
+: The Rectangle tool can be used to mark consolidation regions or thicker bands of support and resistance
 
-![Screenshot](img/rectanglehtmllight.jpg)
+    ![Screenshot](img/rectanglehtmllight.jpg)
 
-*Text Note*
+_Text Note_
 
-Comments can be added directly to the chart.  Each note has four pointer anchors; one on each side.  These can be dragged into position. 
+: Comments can be added directly to the chart.  Each note has four pointer anchors; one on each side.  These can be dragged into position. 
  
-Font size, margin padding and border thickness can be adjusted.  Text colour and border colours and opacity can be changed too.
+    Font size, margin padding and border thickness can be adjusted.  Text colour and border colours and opacity can be changed too.
  
-![Screenshot](img/textnotehtmllight.jpg)
+    ![Screenshot](img/textnotehtmllight.jpg)
 
-*Fibonacci Retracements, Time Zones, Fan and Arcs*
+_Fibonacci Retracements_, _Time Zones_, _Fan_ and _Arcs_
 
-Set Fibonacci anchors to peaks and troughs.  Right-click-edit to change colours, opacity and line thickness
+: Set Fibonacci anchors to peaks and troughs.  Right-click-edit to change colours, opacity and line thickness
 
-![Screenshot](img/fibhtmllight.jpg)
+    ![Screenshot](img/fibhtmllight.jpg)
 
-*DiNapoli Lavels*
+_DiNapoli Levels_
 
-Set the three anchors so the mid-point is highest (for projecting price targets in a bullish trend) or lowest (for projecting price targets in a bearish trend).
+: Set the three anchors so the mid-point is highest (for projecting price targets in a bullish trend) or lowest (for projecting price targets in a bearish trend).
 
-![Screenshot](img/dinapolihtmlight.jpg)
+    ![Screenshot](img/dinapolihtmlight.jpg)
 
-*Gann Box and Fan*
+_Gann Box_ and _Gann Fan_
 
-Can help define upcoming support/resistance and inflection points.  Use the opacity tool to blend the Gann box into the price chart. 
+: Can help define upcoming support/resistance and inflection points.  Use the opacity tool to blend the Gann box into the price chart. 
 
-![Screenshot](img/gannboxhtmllight.jpg)
+    ![Screenshot](img/gannboxhtmllight.jpg)
 
-*Andrew's Pitchforks*
+_Andrews’ Pitchforks_
 
-Andrew's pitchforks are configured so that the mid-line of Pitchfork is anchored at the base of the trend, with the two outer forks aligning along the projected channel. 
+: Andrews’ pitchforks are configured so that the mid-line of a Pitchfork is anchored at the base of the trend, with the two outer forks aligning along the projected channel. 
 
-![Screenshot](img/pitchforkhtmllight.jpg)
+    ![Screenshot](img/pitchforkhtmllight.jpg)
 
 Draw Item | Description
 --- | ---
 DiNapoli Levels | DiNapoli Levels are part of the Fibonacci group of price analytics. Where Fibonacci levels typically look at retracements, DiNapoli Levels look at expansions, and are used to determine price projections. The COP is the Contracted Objective Point is 0.618 (61.8%) of the length of wave A measured from the end of corrective wave B.  The OP or Objective Point, is the 1.000 (100%) the length of wave A measured from the end of wave B.  The XOP or eXpanded Objective Point is 1.618 (168%) the length of wave A measured from wave B. Followers of Elliot Wave Theory can use this projections as guidelines for upcoming pivot points.
 Fibonacci Retracements | Fibonacci Retracements are ratios used to identify potential reversal levels.  The ratios are derived from the Fibonacci sequence. The most popular Fibonacci Retracements are 61.8% (often round to 62%) and 38.2% (often rounded to 38%). Fibonacci retracements are used to define retracement levels to help forecast the extension of a correction or pullback. Fibonacci retracements can also be used to forecast the extent of a bounce in a decline. Price moves which retrace more than 72% often go to retrace the entire (100%) move
-Andrew's Pitchfork | Andrew's Pitchfork is a trend channel tool consisting of three lines. The median line has two parallel equidistant trend lines. The anchor line for the trend lines is typically the reaction high and low going from left to right on the chart.  The equidistant lines mark support and resistance. In cases where price breaks the channel line, the Andrew's Pitchfork can be redrawn so the Median line represents the broken channel line. The outer equidistant trend line then becomes the price target for the channel break
+Andrews’ Pitchfork | Andrews’ Pitchfork is a trend channel tool consisting of three lines. The median line has two parallel equidistant trend lines. The anchor line for the trend lines is typically the reaction high and low going from left to right on the chart.  The equidistant lines mark support and resistance. In cases where price breaks the channel line, the Andrews’ Pitchfork can be redrawn so the Median line represents the broken channel line. The outer equidistant trend line then becomes the price target for the channel break
 Fibonacci Fans | Fibonacci Fan lines are trend lines based on Fibonacci retracement points. These fan lines can be used to estimate potential support or resistance levels. After a move, the Fibonacci Fan lines can be drawn to identify potential support or reversal levels. Once a pullback starts, the fan lines provide key level to watch as prices correct.
 Fibonacci Time Zones | Fibonacci Time Zones are vertical lines based on the Fibonacci Sequence. The lines run along the time axis and are used to determine price reversals based on time. A major high or low is typically used as the start point. Fibonacci Time Zones can be extended into the future to warn of potential times for reversal. Clustering of Fibonacci Time Zones at the start can be ignored, but as the sequence expands out the potential relevance of the time reversal increases
 Fibonacci Arcs | Fibonacci Arcs are half circles which run along a trend line. The different points along the arc mark potential support or reversal levels as determined by Fibonacci levels factoring for both price and time. The arc is defined by connecting a high/low (or low/high). Each arc line going forward marks a reversal - factoring time and price - for the reaction to the prior trend.  For example, for an arc set after and advance (low to high), the arc lines mark potential support levels for a bounce on the resulting correction
 Gann Box | Gann Lines are not the same as trendlines, but are diagonal lines which move at a uniform rate of speed. Gann Lines help determine where price might be in the future and can be used to define support and resistance. The primary Gann angles are 1x2, 1x1 and 2x1, where 1x2 means the angle is moving one unit of price for every two units of time. Other angles are also drawn at 1x8, 1x4, 4x1 and 8x1.  The 1x1 angle if often referred to as the 45-degree angle. To effectively use the Gann Box, the Box should hold its square form when fitting to a chart.  Timing of reversals occur when Gann lines reach the borders of the square. The Gann Box works best on weekly or monthly charts, shorter time frame charts tend to have too much 'noise'. 
 Gann Fan | Gann Lines are not the same as trendlines, but are diagonal lines which move at a uniform rate of speed. Gann Lines help determine where price might be in the future and can be used to define support and resistance. The primary Gann angles are 1x2, 1x1 and 2x1, where 1x2 means the angle is moving one unit of price for every two units of time. Other angles are also drawn at 1x8, 1x4, 4x1 and 8x1.  A balanced trend will follow the 1x1 angle, a strong trade will run at or above 2x1, a weak trend will move at or below the 1x2 trend
 
-### Indicators
+### _Indicators_
 
-The indicator menu provides a list of available price overlays and lower panel technical indicators.
+The _Indicators_ menu provides a list of available price overlays and lower panel technical indicators.
 
 Individual indicator settings can be edited by clicking on the relevant indicator in the Indicator bar
 
@@ -310,24 +313,23 @@ Welles Wilder Smoothing | Welles Wilder Smoothing is used to identify price tren
 Williams %R | Williams %R is a momentum indicator, which measures the close relative to the higher high for the look back period.  An asset is overbought when the indicator is above -20, or oversold when the indicator drops below -80. However, assets spending long periods overbought or oversold better reflect heavy buying or selling respectively , and further gains or losses are likely before a reversal can occur. As with stochastics, Williams %R is best used in conjunction with other indicators as a confirmation of bullish or bearish momentum. Divergences between Williams %R behaviour and price action (e.g. new high/low in Williams %R not confirmed by new high/low in price) can signal weakening momentum.
 ZigZag | ZigZag is a means to filter out smaller price movements. For example, a ZigZag set at '5' ignores all price swing less than 5%. Only price movements greater than 5% will show.  It has no predictive quality, but can be used alongside Fibonacci retracements or Elliot Wave Projections
 
-### Options
+## Options
 
 ![Screenshot](img/optionsmenu.jpg)
 
-The Options menu allows to configure the Chart Type, including Line (O, H, L, C), Candlestick, Bar, Kagi, Heikin Ashi and Mountain Charts.
+The _Options_ dialog allows the user to configure the Chart Type, including Line (O, H, L, C), Candlestick, Bar, Kagi, Heikin Ashi and Mountain Charts.
 
-The Crosshair can be toggled from off, to the position of cursor or to align with closing price. 
+The Crosshair can be toggled from off, to the position of the cursor or to align with the closing price. 
 
-Likewise the Price Info can be toggled on or off, or alternative on pause, which appears after you stop moving the cursor and hides when the cursor is moved.
+Likewise the _Price Info_ can be toggled on or off, or alternative on pause, which appears after the cursor stops moving, and hides when it moves.
 
-### User Chart Settings
 
-User Configuration
+## User chart settings
 
 ![Screenshot](img/chartpropertiesmnu.jpg)
 
-The right-click menu, opened when selected in the chart window, is a Settings options.  Settings customizes the individual look of the chart, including background and axis colours, gridlines, and the colour of the price bars
+Available from the chart window’s context menu,  allows the user to customize the look of the chart, setting background and axis colours, gridlines, and the colour of the price bars
 
-Default resets to either selected Light or Dark theme.
+_Default_ resets to the selected Light or Dark theme.
 
-Also available in the right-click menu is a refresh selection.  Refresh reloads the data into the chart at the default settings
+Also available in the context menu is _Refresh_, reloads the data into the chart using the default settings. 

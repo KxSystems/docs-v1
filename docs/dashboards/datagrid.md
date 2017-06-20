@@ -76,7 +76,7 @@ Users can change the display of columns in the Data Grid
 
 ![Screenshot](img/editcell.jpg)
 
-Used in conjunction with <a href="#update-query">*Update Query*</a>. 
+Used in conjunction with [Update Query](introduction/#update-query).
 
 ![Screenshot](img/checkedit.jpg) 
 
@@ -91,7 +91,7 @@ When in Preview or Quickview mode the User must click _Edit_ to enable the funct
 
 ![Screenshot](img/addnewrow.jpg)
 
-Used in conjunction with <a href="#update-query">*Update Query*</a>.
+Used in conjunction with [Update Query](introduction/#update-query).
 
 ![Screenshot](img/checkinsert.jpg)
 
