@@ -1,139 +1,140 @@
 ![Screenshot](img/dropdownlisthtmllight.jpg)
  
-### Basics
+## _Basics_
 
 ![Screenshot](img/dropdownlist.jpg)
 
-Configure **Data Source** and selection rules
+Configure data source and the selection rules
 
-### Data Source
- 
-See [Defining a Query](introduction#defining-a-query) for creating a _Data Source_. _Data Source_ should include the list of values to pass into the linked [view state parameter](introduction#view-state-parameters) and (optional) list of value names to display in the dropdown. For example: 
+
+### _Data Source_
+
+<i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) for creating a _Data Source_. _Data Source_ should include the list of values to pass into the linked [View State Parameter](introduction#view-state-parameters) and (optional) list of value names to display in the dropdown. For example: 
 
 ![Screenshot](img/dropdowndatasourcehtmllight.jpg)
 
 !!! Tip
     When using _Data Source_ to create a dropdown list, ensure <a href="#use-data-source">Use Data Source</a> is checked AND <a href="#data-source-mapping">Data Source Mapping</a> is defined. 
 
-### Selected Value
 
-Defines the [view state parameter](introduction#view-state-parameters) to which the value in the drop down list will be applied.
+### _Selected Value_
+
+Defines the [View State Parameter](introduction#view-state-parameters) to which the value in the drop down list will be applied.
 
 ![Screenshot](img/selectedvaluehtmllight2.jpg)
 
 ![Screenshot](img/selectviewstatedropdownhtmllight.jpg)
 
-### Label
+
+### _Label_
 
 Defines the label next to the Dropdown
 
 ![Screenshot](img/selectsectorhtmllight.jpg)
 
-### Use Data Source
 
-Box Check. Check if _Data Source_ is used to define _Drop Down List_ constituents
+### _Use Data Source_
+
+When checked, _Data Source_ is used to define _Drop Down List_ constituents
 
 !!! Tip
     Important to ensure this box is checked if a **Data Source** is used to create drop-down constituents.
 
-### Accept Empty Values
+
+### _Accept Empty Values_
 
 ![Screenshot](img/nullvaluedropdown.jpg)
 
-Box Check. When checked, a null value is available for selection
+When checked, a null value is available for selection
 
-### Force Selected Value
 
-Box Check. When checked, the value of the **Selected Value** [view state parameter](introduction#view-state-parameters) used in the _Drop Down List_ will be passed into _Data Source_ queries using the parameter.
+### _Force Selected Value_
 
-### Multi-select
+When checked, the value of the _Selected Value_ [View State Parameter](introduction#view-state-parameters) used in the list will be passed into _Data Source_ queries using the parameter.
+
+
+### _Multi-select_
 
 ![Screenshot](img/multiselectdropdown.jpg)
 
-When checked, multiple inputs can be passed into the assigned **Selected Value** [view state parameter](introduction#view-state-parameters)
+When checked, multiple inputs can be passed into the assigned Selected Value [View State Parameter](introduction#view-state-parameters)
 
-### Show Search
 
-Search Box
+### _Show Search_
 
 ![Screenshot](img/dropdownsearch.jpg)
 
-Dropdown box includes a search box for filtering results
+When checked, includes a search box for filtering results
 
 ![Screenshot](img/searchdropdownhtmllight.jpg)
 
-### Horizontal
 
-Sets alignment (left, center or right) of dropdown menu inside the boundaries _Drop Down List_ component
+### _Horizontal_
 
-### Vertical
+Horizontal alignment of items within the list
 
-Sets alignment (top, middle, bottom) of dropdown menu inside the boundaries _Drop Down List_ component
 
-### Tooltip
+### _Vertical_
 
-Text description which appears when User mouses over the dropdown
+Vertical alignment of items within the list
+
+
+### _Tooltip_
+
+Text description to appear when user mouses over the dropdown
 
 ![Screenshot](img/selecttooltiphtmllight.jpg)
 
-### Width
 
-Defines pixel width of dropdown
+### _Width_
+
+Pixel width of menu
 
 ![Screenshot](img/labelwidthhtmllight.jpg)
 
-### Label Width
 
-Defines pixel width of dropdown _Label_
+### _Label Width_
 
-!!! Tip "Description greater than Label Width"
-    If assigned _Label Width_ is narrower than can fit the _Label_ description, text in the _Label_ will wrap.
+Pixel width of dropdown _Label_. If the _Label_ description is wider than _Label Width_, it will wrap.
 
-### Data Source Mapping
+
+## _Data Source Mapping_
 
 ![Screenshot](img/datasourcemapping.jpg)
 
-When a _Data Source_ is used to populate the <a href="#drop-down-list">Drop Down List</a>, the elements of the _Data Source_ to represent values and labels must be assigned using _Data Source Mapping_
+When a _Data Source_ is used to populate the Drop Down List, the elements of the _Data Source_ will represent values. Labels must be assigned using _Data Source Mapping_ – otherwise the list will be empty.
 
-!!! Warning
-    Important to ensure **Data Source Mapping** is complete if a _Data Source_ is used to create drop-down constituents. Otherwise the _Drop Down List_ component will be empty.
+_Value_
 
-### Value
+: Select the column of the _Data Source_ corresponding to the values to be passed into the _Selected Value_ View State Parameter
 
-Select the column of the _Data Source_ corresponding to the values to be passed into the **Selected Value** [view state parameter](introduction#view-state-parameters).
+_Text_
 
-### Text 
+: Select the column of the _Data Source_ corresponding to the text description for the listed value items.
 
-Select the column of the _Data Source_ corresponding to the text description for the listed value items.
 
-### Items
-
-Manual Dropdown Item Add
+## _Items_
 
 ![Screenshot](img/itemsdropdownlist.jpg)
 
-If _Data Source_ is not used to populate a **Drop Down List**, then individual values can be done from the Items Menu.  
+If _Data Source_ is not used to populate a Drop Down List, individual values can be specified in the _Items_ menu.  
 
-For each item, add the *Value* and the *Text* label to display in the drop down.  To add a new row, click ![Screenshot](img/rowclickhtmllight.jpg)
+To add a new row, click ![Screenshot](img/rowclickhtmllight.jpg)
+For each item, add a _Value_ and a _Text_ label. 
 
-### Selected Row Viewstate Routing
 
-In addition to the **Selected Value**, additional <a href="#view-state-parameters">View State Parameters</a> can be assigned to **Data Source** variables. Select the **Data Source** variable and pair it with a <a href="#view-state-parameters">View State Parameter</a>. More than one <a href="#view-state-parameters">View State Parameter</a> can be paired in this fashion.  
+## _Selected Row Viewstate Routing_
+
+In addition to the _Selected Value_, additional 
+View State Parameters can be assigned to data-source variables. Select the _Data Source_ variable and pair it with a View State Parameter. Multiple View State Parameters can be paired.  
 
 ![Screenshot](img/selectedrowviewstatehtmllight.jpg)
 
-### Style
+
+## Style
 
 Set Advanced CSS
 
 ![Screenshot](img/advancedcssdropdownlisthtmllight.jpg)
 
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction.md#format) in Introduction for more.
-
-## Margins
-
-See [Margins](introduction.md#margins) in Introduction for more
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)

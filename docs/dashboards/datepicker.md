@@ -1,5 +1,4 @@
-
-Used for assigning date inputs to [view state parameter](introduction#view-state-parameters).
+Used for assigning date inputs to [View State Parameter](introduction#view-state-parameters).
 
 ![Screenshot](img/datepickerhtmllight.jpg)
 
@@ -14,54 +13,52 @@ The Date Picker will show highlighted dates for days with data
 
 Configures Date Input Box
 
-**Label**
+_Label_
 
-Descriptive Label for Date Picker Input
+: Descriptive label 
 
-### Data Source
+_Data Source_
 
-See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics)
 
-**Selected Date**
 
-Assign [view state parameter](introduction#view-state-parameters) of type Date
+_Selected Date_
 
-**Horizontal**
+: Assign View State Parameter of type Date
 
-Sets alignment (left, center or right) of date selector inside the boundaries _Date Picker_ component
 
-**Vertical**
+_Horizontal_
 
-Sets alignment (top, middle, bottom) of date selector inside the boundaries _Date Picker_ component
+: Sets alignment (left, center or right) of date selector inside the boundaries _Date Picker_ component
 
-**Tooltip**
 
-Text description which appears when User mouses over the _Date Picker_
+_Vertical_
 
-**Width**
+: Sets alignment (top, middle, bottom) of date selector inside the boundaries _Date Picker_ component
 
-Defines pixel width of dropdown
 
-**Label Width**
+_Tooltip_
 
-Defines pixel width of dropdown _Label_
+: Text description which appears when user mouses over the _Date Picker_
 
-!!! Tip 
-    If assigned _Label Width_ is narrower than the _Label_ description, text in the _Label_ will wrap.
 
-### Style
+_Width_
 
-Use Advanced CSS to set styles
+: Defines pixel width of dropdown
+
+
+_Label Width_
+
+: Defines pixel width of dropdown _Label_
+
+    !!! Tip 
+        If assigned _Label Width_ is narrower than the _Label_ description, text in the _Label_ will wrap.
+
+
+## Style
+
+Use _Advanced CSS_ to set styles
  
 ![Screenshot](img/datepickercsshtmllight.jpg)
 
-## Margins
-
-See [Margins](introduction#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction#format) in Introduction for more.
-
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
