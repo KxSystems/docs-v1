@@ -224,7 +224,7 @@ _Mouse Pan Interval_ and _Mouse Pan Type_
 
 ### ChartBarColors
 
-The color order for a [Pivot Data Source](#introduction/#pivot-query). 
+The color order for a [Pivot Data Source](introduction/#pivot-query). 
 
 For non-Pivot data, the order of the columns defines which color on the list is used; i.e. Data Column 1 will use the top color on the list.
 
