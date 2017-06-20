@@ -5,7 +5,7 @@ Used for assigning date inputs to [View State Parameter](introduction#view-state
 The Date Picker will show highlighted dates for days with data
 
 !!! Tip "Using DateTime?"
-    For time data of type Datetime, use the [Data Form](dataform.md) component for nanosecond support.
+    For time data of type Datetime, use the [Data Form](dataform) component for nanosecond support.
 
 ## Basics
 

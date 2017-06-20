@@ -10,11 +10,11 @@ Pivot Basics Menu
 
 ### Data Source
 
-Defines the source data to for Pivot Grid. See [Pivot Query](introduction.md#pivot-query) in the Introductory section
+Defines the source data to for Pivot Grid. See [Pivot Query](introduction/#pivot-query) in the Introductory section
 
 ### Focus
 
-Used for [linking](introduction.md#linking-components) components; see introductory section for more detail. 
+Used for [linking](introduction/#linking-components) components; see introductory section for more detail. 
 
 ### Drilldown
 
@@ -392,8 +392,8 @@ The filename can be specified, or linked to a view state parameter which can the
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Format
 
-See [Format](introduction.md#format) in Introduction for more
+See [Format](introduction/#format) in Introduction for more

@@ -8,11 +8,11 @@ The Range Slider plays a similar function to the <a href="#Breadcrumbs">Breadcru
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 ### Focus
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
 
 ### Range
 
@@ -34,15 +34,15 @@ Used to link **Range Slider** components to other components with the **Range** 
 
 **Selected Value**
 
-Set a [view state parameter](introduction.md#view-state-parameters) to store the value selected in the Range Slider.
+Set a [view state parameter](introduction/#view-state-parameters) to store the value selected in the Range Slider.
 
 **Selected Min Value**
 
-Set a [view state parameter](introduction.md#view-state-parameters) to store the minimum value of the selected range.
+Set a [view state parameter](introduction/#view-state-parameters) to store the minimum value of the selected range.
 
 **Selected Max Value**
 
-Set a [view state parameter](introduction.md#view-state-parameters) to store the maximum value of the selected range.
+Set a [view state parameter](introduction/#view-state-parameters) to store the maximum value of the selected range.
 
 ## X Axis
 
@@ -128,7 +128,7 @@ The Legend name for the selected data source
 
 ### ChartBarColors
 
-Selects <i>Range Slider</i> line colors when a [pivot query](introduction.md#pivot-query) is used. For non-Pivot data, select line color from the **Y-axis Columns** control.
+Selects <i>Range Slider</i> line colors when a [pivot query](introduction/#pivot-query) is used. For non-Pivot data, select line color from the **Y-axis Columns** control.
 
 To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
 
@@ -144,7 +144,7 @@ Select to add CSS elements to Line of Range Slider chart
 
 ![Screenshot](img/formatrangeslider.jpg)
 
-See [Format](introduction.md#format) in Introduction for more on shared formatting options. 
+See [Format](introduction/#format) in Introduction for more on shared formatting options. 
 
 **Y-axis Format**
 
@@ -191,4 +191,4 @@ Set color of range slider drag bar.
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more

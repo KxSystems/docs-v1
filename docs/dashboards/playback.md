@@ -12,7 +12,7 @@ Configure time series <a href="#data-source">Data Source</a> and timing paramete
 
 ![Screenshot](img/playbackdatasource.jpg)
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing. Ensure there is time series data (or equivalent) in the playback <a href="#data-source">Data Source</a>. 
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing. Ensure there is time series data (or equivalent) in the playback <a href="#data-source">Data Source</a>. 
 
 Playback shares a <a href="#data-source">Data Source</a> with the component undergoing playback.
 
@@ -20,7 +20,7 @@ Playback shares a <a href="#data-source">Data Source</a> with the component unde
 
 **Selected Value**
 
-Link to a [view state parameter](introduction.md#view-state-parameters) which is used as the time series variable. 
+Link to a [view state parameter](introduction/#view-state-parameters) which is used as the time series variable. 
 
 <aside class="admonition tip">The time series <i>Selected Value</i> can be of Type Integer, it doesn't need to be of Type Date or Datetime </aside>
 
@@ -68,7 +68,7 @@ Check control.
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Style
 
@@ -80,7 +80,7 @@ See [Margins](introduction.md#margins) in Introduction for more
 
 ![Screenshot](img/3dchartformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.
 
 
 

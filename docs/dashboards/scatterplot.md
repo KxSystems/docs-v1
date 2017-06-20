@@ -14,7 +14,7 @@ Scatter Plot Menu
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 ### Selected Row ViewState Routing
 
@@ -194,7 +194,7 @@ Configure CSS for Scatter Plot component
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Sample Data
 

@@ -6,15 +6,15 @@
 
 ### Data Source
  
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 ### Focus
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
 
 ### Range
 
-Similar to **Focus**, instead the assigned [view state parameter](introduction.md#view-state-parameters) is used to link a [range slider](rangeslider.md) to the chart.
+Similar to **Focus**, instead the assigned [view state parameter](introduction/#view-state-parameters) is used to link a [range slider](rangeslider) to the chart.
 
 ### Selected Value 
 
@@ -45,7 +45,7 @@ To add a row, click ![Screenshot](img/routinghtmllight.jpg)
 
 ### Hovered Value
 
-Assign a [view state parameter](introduction.md#view-state-parameters). Stores the value of the X-Axis (usually date or time).
+Assign a [view state parameter](introduction/#view-state-parameters). Stores the value of the X-Axis (usually date or time).
  
 ## Y-Axis
  
@@ -245,7 +245,7 @@ Select Prefix Label for axis
 
 **Specify MidPoint**
  
-Check to define chart mid-point.  This can also be a [view state parameter](introduction.md#view-state-parameters); click the eye icon at the end of the input box to set.
+Check to define chart mid-point.  This can also be a [view state parameter](introduction/#view-state-parameters); click the eye icon at the end of the input box to set.
 
 ![Screenshot](img/specifymidpointhtmllight.jpg)
 
@@ -393,11 +393,11 @@ Each additional Data Source can be added by clicking on the ![Screenshot](img/ov
 
 **Data Source**
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 **Chart Type**
 
-Select Chart Type to use from dropdown menu. Chart type can be mapped to a [view state parameter](introduction.md#view-state-parameters)
+Select Chart Type to use from dropdown menu. Chart type can be mapped to a [view state parameter](introduction/#view-state-parameters)
 
 **Scale X-Axis to Parent**
 
@@ -415,7 +415,7 @@ Determine the position of plotted data along the y-axis.
 
 **Selected Value** 
 
-Assign a [view state parameter](introduction.md#view-state-parameters). This *Selected Value* will be mapped to an Overlay's Data Source *Selected Value Attribute*.
+Assign a [view state parameter](introduction/#view-state-parameters). This *Selected Value* will be mapped to an Overlay's Data Source *Selected Value Attribute*.
 
 **Selected Value Attribute**
 
@@ -543,7 +543,7 @@ $1,
 
 ## Format
 
-See [Format](introduction.md#format) in Introduction for more on shared formatting options. Additional formatting specific to multi-charts is detailed below
+See [Format](introduction/#format) in Introduction for more on shared formatting options. Additional formatting specific to multi-charts is detailed below
  
 Align Axis
 
@@ -603,4 +603,4 @@ Sets the spacing between bars.
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more

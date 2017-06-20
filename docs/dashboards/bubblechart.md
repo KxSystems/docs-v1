@@ -14,7 +14,7 @@ Used for [linking components](introduction#linking-components). Requires a [View
 
 ### _Range_
 
-Used for linking to a [Range Slider](rangeslider.md). Requires a View State Parameter to pair with the Range Slider. 
+Used for linking to a [Range Slider](rangeslider). Requires a View State Parameter to pair with the Range Slider. 
 
 
 ### _Selected Value_ 
@@ -177,42 +177,46 @@ Create a display name to use in the chart Legend key
 ![Screenshot](img/zoomandpanmenu.jpg)
 
 
-### _Zoom / Pan On_
+_Zoom / Pan On_
 
-Toggles functionality 
+: Toggles functionality 
 
-![Screenshot](img/panzoom.jpg)
+    ![Screenshot](img/panzoom.jpg)
 
-![Screenshot](img/panzoom2.jpg)
-
-
-### _Type_
-
-Select between drag-to-select _Zoom_, or _Pan_ control
+    ![Screenshot](img/panzoom2.jpg)
 
 
-### _Zoom Select Color, Opacity and Border_
+_Type_
 
-Background color, background color opacity and the border for the selected area. 
-
-
-### _Min and Max Zoom_
-
-![Screenshot](img/minmaxzoom.jpg)
-
-View State Parameter to store the range value for _Min and Max Zoom_
+: Select between drag-to-select _Zoom_, or _Pan_ control
 
 
-### _Mouse Pan_
 
-Toggle mouse pan control; best used on real-time time series data 
+_Zoom Select Color, Opacity and Border_
+
+: Background color, background color opacity and the border for the selected area. 
 
 
-### _Mouse Pan Interval_ and _Mouse Pan Type_
+_Min and Max Zoom_
 
-Set time pan control for chart; chart will move in timed sections.
+: ![Screenshot](img/minmaxzoom.jpg)
 
-![Screenshot](img/mousepaninterval.jpg)
+    View State Parameter to store the range value for _Min and Max Zoom_
+
+
+
+_Mouse Pan_
+
+: Toggle mouse pan control; best used on real-time time series data 
+
+
+
+_Mouse Pan Interval_ and _Mouse Pan Type_
+
+: Set time pan control for chart; chart will move in timed sections.
+
+    ![Screenshot](img/mousepaninterval.jpg)
+
 
 
 ## _Highlight Rules_

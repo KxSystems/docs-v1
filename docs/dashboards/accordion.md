@@ -5,7 +5,7 @@
 
 ![Screenshot](img/accordionbasics.jpg)
 
-Like [Tab Control](tabcontrol), it supports multiple views in a single component. The Accordion component is divided into sections. Each section can hold a single component or [Layout Panel](layout). If a [Layout Panel](layout.md) panel is used then multiple components can be displayed inside a single Accordion section.
+Like [Tab Control](tabcontrol), it supports multiple views in a single component. The Accordion component is divided into sections. Each section can hold a single component or [Layout Panel](layout). If a [Layout Panel](layout) panel is used then multiple components can be displayed inside a single Accordion section.
 
 To create a section, click  ![Screenshot](img/addsectionthmllight.jpg)
 

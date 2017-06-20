@@ -1,4 +1,4 @@
-Heat Map control, best used in conjunction with [Pivot Queries](introduction.md#pivot-query)
+Heat Map control, best used in conjunction with [Pivot Queries](introduction/#pivot-query)
 
 ![Screenshot](img/heatmaphtmllight.jpg)
 
@@ -8,11 +8,11 @@ Heat Map control, best used in conjunction with [Pivot Queries](introduction.md#
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 **Focus**
 
-Used for [Linking Components](introduction.md#linking-components)
+Used for [Linking Components](introduction/#linking-components)
 
 **Node Size Metric**
 
@@ -34,7 +34,7 @@ Defines the descriptive label for the Tree Map boxes
 
 **Selected Value**
 
-Assign a [view state parameter](introduction.md#view-state-parameters) to store the *Selected Value Attribute*. 
+Assign a [view state parameter](introduction/#view-state-parameters) to store the *Selected Value Attribute*. 
 
 **Selected Value Attribute**
 
@@ -159,7 +159,7 @@ Slider to adjust font size for Tree Map *Node Label*
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.
 
 **Metric Format**
 
@@ -171,5 +171,5 @@ Sets the format of the cell label used by the Heat Map
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 

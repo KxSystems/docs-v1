@@ -185,7 +185,7 @@ _Filename_
 
 ![Screenshot](img/filtermenu.jpg)
 
-Assigns a [View State Parameter](introduction.md#view-state-parameters) to each of the listed filters
+Assigns a [View State Parameter](introduction/#view-state-parameters) to each of the listed filters
 
 ![Screenshot](img/filtermenuhtmllight.jpg)
 

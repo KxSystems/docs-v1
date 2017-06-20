@@ -7,17 +7,17 @@
 
 ### Data Source
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 ### Focus 
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
 
 ### Selected Value 
 
-Used to map a chart (query) data point to a [view state parameter](introduction.md#view-state-parameters) when a chart bar is clicked by the user. 
+Used to map a chart (query) data point to a [view state parameter](introduction/#view-state-parameters) when a chart bar is clicked by the user. 
 
-[1] Create a [view state parameter](introduction.md#view-state-parameters) and assign to <i>Selected Value</i>
+[1] Create a [view state parameter](introduction/#view-state-parameters) and assign to <i>Selected Value</i>
  
 ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
@@ -25,7 +25,7 @@ Used to map a chart (query) data point to a [view state parameter](introduction.
 
 ### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction.md#view-state-parameters). 
+This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction/#view-state-parameters). 
 
 ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
@@ -101,7 +101,7 @@ Configure Pivot line colors, CSS and Custom Toolbar
 
 ### ChartBarColors
 
-Order color for a [pivot query](introduction.md#pivot-query). In the absence of a pivot query, the assignment of the colors is done in the order of the <a href="#data">Data</a> order. 
+Order color for a [pivot query](introduction/#pivot-query). In the absence of a pivot query, the assignment of the colors is done in the order of the <a href="#data">Data</a> order. 
 
 To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
 
@@ -234,7 +234,7 @@ Check box to control display of **Label Type** and **Sub Label Type**
 
 **Show Breadcrumbs**
 
-Displays breadcrumb control if Pie Chart is using a [pivot query](introduction.md#pivot-query).
+Displays breadcrumb control if Pie Chart is using a [pivot query](introduction/#pivot-query).
 
 **Key Type**
 
@@ -256,7 +256,7 @@ Set colour for Pie Chart Background
 
 **Inner Label** 
 
-Adds an inner label to pie. This can also be a [view state parameter](introduction.md#view-state-parameters)  
+Adds an inner label to pie. This can also be a [view state parameter](introduction/#view-state-parameters)  
 
 ![Screenshot](img/innerlabel.jpg)
 
@@ -268,4 +268,4 @@ Includes spacing between pie segments
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more

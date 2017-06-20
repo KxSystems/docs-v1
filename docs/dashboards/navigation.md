@@ -8,7 +8,7 @@ The Navigation component can be used as a menu navigation between Dashboard scre
 
 **Selected Value**
 
-Assign a [view state parameter](introduction.md#view-state-parameters). Maps to selected button. 
+Assign a [view state parameter](introduction/#view-state-parameters). Maps to selected button. 
 
 **Columns**
 
@@ -33,7 +33,7 @@ Overflow | Best fit of Navigation buttons with reordering on rescale.
 
 **Data Source**
 
-Used when Navigation buttons are determined by a [Query](introduction.md#defining-a-query) or [Analytic](introduction.md#analytics)
+Used when Navigation buttons are determined by a [Query](introduction/#defining-a-query) or [Analytic](introduction/#analytics)
 
 <aside class="admonition caution">Ensure employed <i>Data Source</i> has column entries for all <i>Data Source Mapping</i> elements</aside>
 
@@ -199,7 +199,7 @@ Open Screen in Current Dashboard:
 
 ![Screenshot](img/openthisdashboard.jpg)
 
-Select the dashboard to open on button click. Buttons can also open screens ([customizing the dashboard](introduction.md#customizing-the-dashboard)); the screen is selected with the Dashboard set to "<this>"
+Select the dashboard to open on button click. Buttons can also open screens ([customizing the dashboard](introduction/#customizing-the-dashboard)); the screen is selected with the Dashboard set to "<this>"
 
 **Icon**
 
@@ -263,10 +263,10 @@ Configure tooltip display.
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.

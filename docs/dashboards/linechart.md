@@ -4,192 +4,227 @@
 
 ![Screenshot](img/linechartmenu.jpg)
 
-### Data Source
- 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+_Data Source_
 
-### Focus
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
 
-### Range
+_Focus_
 
-Similar to **Focus**, instead the assigned [view state parameter](introduction.md#view-state-parameters) is used to link a [range slider](rangeslider.md) to the chart.
+: Used for [linking components](introduction/#linking-components). Requires a [View State Parameter](introduction/#view-state-parameters).
 
-### Selected Value 
 
-This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
+_Range_
 
-[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
- 
-![Screenshot](img/selectedvaluecharthtmllight.jpg)
+: Similar to _Focus_, instead the assigned View State Parameter is used to link a [Range Slider](rangeslider) to the chart.
 
-[2] Go to <a href="#selected-value-attribute">Selected Value Attribute</a> to select a query variable to store in the Selected Value View State Parameter.
 
-### Selected Value Attribute
+_Selected Value_
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
+: This is a View State Parameter; used to store the clicked-on chart data point to a View State Parameter.  
 
-![Screenshot](img/selectedvalueattributehtmlight.jpg)
+    1. Create a View State Parameter and assign to _Selected Value_
+        ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
-!!! Warning "Data Type Match"
-    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
+    2. Use _Selected Value Attribute_ to select a query variable to store in the _Selected Value_ View State Parameter.
 
-### Selected Row ViewState Routing
 
-The aforementioned <a href="#selected-value">Selected Value</a> and <a href="#selected-value-attribute">Selected Value Attribute</a> handles a single data map. <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> supports multiple mappings between <a href="#selected-value">Selected Values</a> and <a href="#selected-value-attribute">Selected Value Attributes</a>.
 
-![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
+_Selected Value Attribute_
 
-To add a row, click ![Screenshot](img/routinghtmllight.jpg)
+: This comes from the _Data Source_ and is the variable paired with the _Selected Value_ View State Parameter.  When the user clicks on the chart, the associated query variable will be mapped to the _Selected Value_ view state.  
 
-### Hovered Value
+    ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-Assign a [view state parameter](introduction.md#view-state-parameters). Stores the value of the X-Axis (usually date or time).
+    !!! Warning "Data type match"
+        When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the type of the _Data Source_; e.g. integer for numbered data.
+
+
+
+_Hovered Value_
+
+: Assign a [View State Parameter](introduction/#view-state-parameters). Stores the value of the X axis (usually date or time).
+
+
+_Selected Row ViewState Routing_
+
+: The _Selected Value_ and _Selected Value Attribute_ handle a single data map. _Selected Row Viewstate Routing_ supports multiple mappings between _Selected Values_ and _Selected Value Attributes_.
+
+    ![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
+
+    To add a row, click ![Screenshot](img/routinghtmllight.jpg)
+
 
 ## X Axis
 
 ![Screenshot](img/xaxislinemenu.jpg)
 
-**Axis Value**
 
-Sets which query column variable will be used as the x-axis chart label
+_Axis Value_
 
-![Screenshot](img/selectvariablehtmllight.jpg)
+: The query column variable to be used as the X-axis chart label
 
-**Axis Type**
+    ![Screenshot](img/selectvariablehtmllight.jpg)
 
-Sets the data type for the label used for *Axis Value*
 
-![Screenshot](img/xaxistypehtmllight.jpg)
+_Axis Type_
 
-<aside class="admonition caution">If x-axis labels are looking incorrect, try selecting a different <i>Axis Type</i></aside>
+: The data type for the label used for _Axis Value_
 
-**Axis Format**
+    ![Screenshot](img/xaxistypehtmllight.jpg)
 
-Where *Axis Type* is set to Date, *Axis Format* dropdown will list available options
+    !!! tip "Wrong X-axis labels?"
+        Try selecting a different _Axis Type_.
 
-![Screenshot](img/xaxisformatdatehtmllight.jpg)
 
-**Axis Scale**
+_Axis Format_
 
-Order by number or by default Data Source order. 
+: Format – where _Axis Type_ is _Date_
 
-**Legend Label Tag**
+    ![Screenshot](img/xaxisformatdatehtmllight.jpg)
 
-Can be linked to [view state parameter](introduction.md#view-state-parameters)
 
-**Show legend**
+_Axis Scale_
 
-Toggles display of chart legend
+: Order by number or by default Data Source order. 
 
-![Screenshot](img/charthtmllegendhtmllight.jpg)
 
-**Show new Time Period**
+_Legend Label Tag_
 
-Ensures the latest data point of a time sequence is displayed
+: Can be linked to [View State Parameter](introduction/#view-state-parameters)
 
-![Screenshot](img/shownewtimeperiodhtmllight.jpg)
 
-**Use Fixed Num of Ticks**
+_Show legend_
 
-Defines the number of ticks to display along the x-axis
+: Toggles display of chart legend
 
-![Screenshot](img/multichartnumofticks.jpg)
+    ![Screenshot](img/charthtmllegendhtmllight.jpg)
 
-<aside class="admonition caution">The number of ticks to display is set in <i>Num of Ticks</i></aside>
 
-**Show All Ticks**
+_Show new Time Period_
 
-Displays every charted data point along the x-axis
+: Ensures the latest data point of a time sequence is displayed
 
-**Num of Ticks**
+    ![Screenshot](img/shownewtimeperiodhtmllight.jpg)
 
-The number of ticks to display in the x-axis if *Use Fixed Num of Ticks* is checked
 
-**Axis Rotation**
+_Use Fixed Num of Ticks_
 
-Rotate x-axis label
+: Check to fix the number of ticks to display along the X axis. (The number is set in _Num of Ticks_.)
 
-![Screenshot](img/xaxislabelrotation.jpg)
+    ![Screenshot](img/multichartnumofticks.jpg)
+
+
+_Show All Ticks_
+
+: Check to display every charted data point along the X axis
+
+
+_Num of Ticks_
+
+: The number of ticks to display in the X axis if _Use Fixed Num of Ticks_ is checked
+
+
+_Axis Rotation_
+
+: Rotate X-axis label
+
+    ![Screenshot](img/xaxislabelrotation.jpg)
+
 
 ## Columns
 
 ![Screenshot](img/columnslinemenu.jpg)
 
-### Column
+Click the ![Screenshot](img/addcolumnbutton.jpg) to plot a new variable 
 
-Click the ![Screenshot](img/addcolumnbutton.jpg) to add a new variable to plot.
+!!! tip "Color assignment"
+    Color assignment is done from _ChartBarColors_ in the _Style_ menu
 
-<aside class="admonition caution">Color assignment is done from *ChartBarColors* in the **Style** menu</aside>
 
-**User Defined**
+_User Defined_
 
-Check to make the column 'read only'.  This protects the contents of the column from been replaced. 
+: Check to make the column 'read only'.  This protects the contents of the column from being replaced. 
 
-**Column**
 
-Select the <a href="#data-source">data source</a> variable to chart.
+_Column_
 
-![Screenshot](img/selectlinecolumnhtmllight.jpg)
+: The data-source variable to chart
 
-**Display Name**
+    ![Screenshot](img/selectlinecolumnhtmllight.jpg)
 
-Create a display name to use in the chart Legend key
 
-**Line Style**
+_Display Name_
 
-![Screenshot](img/linetypeoptions.jpg)
+: Name to use in the chart _Legend_ key
+
+
+_Line Style_
+
+: ![Screenshot](img/linetypeoptions.jpg)
  
-Select the format style for lines
 
-**Fill Area**
 
-When checked, will fill the area under the line chart.
+_Fill Area_
 
-![Screenshot](img/linefillhtmllight.jpg)
+: When checked, the chart will fill the area under the line 
 
-## Zoom/Pan 
+    ![Screenshot](img/linefillhtmllight.jpg)
 
-![Screenshot](img/zoomandpanmulti.jpg)
 
-Adds user controls for Multi-Chart charting views.
 
-**Zoom/Pan On**
+## Zoom / Pan 
 
-Check control to switch zoom and pan on
+![Screenshot](img/zoomandpanmenu.jpg)
 
-![Screenshot](img/panzoom.jpg)
 
-![Screenshot](img/panzoom2.jpg)
+_Zoom / Pan On_
 
-**Type**
+: Toggles functionality 
 
-Select between drag-to-select zoom, or Pan control
+    ![Screenshot](img/panzoom.jpg)
 
-**Zoom Select Color, Opacity and Border**
+    ![Screenshot](img/panzoom2.jpg)
 
-Selects the background color, background color opacity and the border for the selected area. 
 
-**Min and Max Zoom**
+_Type_
 
-Set view state parameters for minimum and maximum zoom
+: Select between drag-to-select _Zoom_, or _Pan_ control
 
-**Mouse Pan**
 
-Check to select mouse pan control; best used on real-time time series data 
 
-**Mouse Pan Interval and Type**
+_Zoom Select Color, Opacity and Border_
 
-Set time pan control for chart; chart will move in timed sections.
+: Background color, background color opacity and the border for the selected area. 
 
-![Screenshot](img/mousepaninterval.jpg)
+
+_Min and Max Zoom_
+
+: ![Screenshot](img/minmaxzoom.jpg)
+
+    View State Parameter to store the range value for _Min and Max Zoom_
+
+
+
+_Mouse Pan_
+
+: Toggle mouse pan control; best used on real-time time series data 
+
+
+
+_Mouse Pan Interval_ and _Mouse Pan Type_
+
+: Set time pan control for chart; chart will move in timed sections.
+
+    ![Screenshot](img/mousepaninterval.jpg)
+
+
 
 ## Style
 
 ### ChartBarColors
 
-The color order for a [Pivot Data Source](#introduction.md#pivot-query). 
+The color order for a [Pivot Data Source](#introduction/#pivot-query). 
 
 For non-Pivot data, the order of the columns defines which color on the list is used; i.e. Data Column 1 will use the top color on the list.
 
@@ -197,34 +232,35 @@ To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
 
 ![Screenshot](img/chartbarcolorshtmllight.jpg)
 
+
 ### Advanced CSS
 
-Select to add CSS elements to Line chart
+Add CSS rules to Line chart
 
 ![Screenshot](img/divlinecharthtmllight.jpg)
 
+
 ### Custom tooltip
 
-Step 1: Create View States for items in tooltip
+1. Create View States for items in tooltip
 
-![Screenshot](img/multicharttooltip.jpg)
+    ![Screenshot](img/multicharttooltip.jpg)
 
-Step 2: Add a html tag for View States (using handlebars)
+2. Add an HTML tag for View States, using [Handlebars](http://handlebarsjs.com)
 
-![Screenshot](img/configuretooltip.jpg)
+    ![Screenshot](img/configuretooltip.jpg)
 
-Step 3: Chartview
+3. Chartview
 
-![Screenshot](img/chartviewtooltip.jpg)
+    ![Screenshot](img/chartviewtooltip.jpg)
 
 Tooltips can use View State Parameters which have been mapped to Data Source variables
 
 ![Screenshot](img/parametermaphtmllight.jpg)
 
-In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
+In the Configure Tooltip template, add HTML tags for the View State Parameters to display (using Handlebars) 
 
-If viewstate parameter = *param1*
-Add a table cell with *param1* viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
+If viewstate parameter is `param1`, add a table cell with `param1` viewstate to tooltip with the tag:  `{{obj.param1}}`
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
@@ -232,173 +268,178 @@ Tool tip will appear as:
 
 ![Screenshot](img/tooltipchart.jpg)
 
-### Tooltip Helper
 
-Tooltip Helper
+### Tooltip Helper
 
 ![Screenshot](img/tooltiphelper.jpg)
 
-Apply Tooltip Helper Variable to Tooltip reference
+Apply Tooltip Helper variable to Tooltip reference
 
 ![Screenshot](img/addhelpertooltip.jpg)
 
-Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
-
-For example:
- 
-```
+Tooltips use [Handlebars](http://handlebarsjs.com/) so variables can be added dynamically to tooltip. For example:
+```js
 {{fx}} : {{volume}}
 ```
+could appear as `EUR/USD: 250000`. To format `250000` so it will appear as `$250,000` use Tooltip Helper
 
-could appear as
-EUR/USD: 250000
 
-To format "250000" so it will appear as "$250,000" use Tooltip Helper
+_Name_
 
-**Name**
+: Give the function a name: it will be used inside the tooltip. For example:
 
-Give the function a name.  This name will be used inside the tooltip.
+    ![Screenshot](img/helpername.jpg)
 
-For example:
+    ```js
+    {{fx}} : {{fd volume}}
+    ```
 
-![Screenshot](img/helpername.jpg)
 
-```
-{{fx}} : {{fd volume}}
-```
+_Regex_
 
-**Regex**
+: The regular expression used to find the required pattern. In this example: `(\d{3})(?=\d)`
 
-The regular expression used to find the required pattern
 
-In this example:
+_Value_
 
-```
-(\d{3})(?=\d)
-```
+: The value to replace the text with. In this case, comma-delimited currency values: `$1,`
 
-**Value**
 
-The value to replace the text with. In this case, comma-delimited currency values: 
+_Tooltip Top Distance_
 
-```
-$1,
-```
+: Distance from mouse in pixels at which tooltip appears
 
-**Tooltip Top Distance**
 
-Sets distance from mouse in pixels at which tooltip appears
-
-## Format
+### Format
 
 ![Screenshot](img/linechartformatmenu.jpg)
  
-See [Format](introduction.md#format) in Introduction for more on shared formatting options. Additional formatting specific to bar charts is detailed below
+<i class="fa fa-hand-o-right"></i> [Styling dashbopards](style). Additional formatting specific to line charts is detailed below. 
 
-**Interpolate**
 
-Interpolate selection
+_Interpolate_
 
-![Screenshot](img/interpolateline.jpg)
+: Interpolation line type: applies to all lines in chart
 
-Select line type from dropdown. Applies to all lines in chart
+    ![Screenshot](img/interpolateline.jpg)
 
-**Y-Axis Format**
 
-Select number of decimal places to use in Y-axis
+_Y-Axis Format_
 
-![Screenshot](img/yaxisformathtmllight.jpg)
+: Number of decimal places to use in Y axis
 
-**X-Axis Label**
+    ![Screenshot](img/yaxisformathtmllight.jpg)
 
-Define x-axis label
 
-**Y-Axis Label**
+_X-Axis Label_
 
-Define y-axis label
+: Label for the X axis
 
-**Y-axis Force Min**
 
-When checked, will force axis to use **Y-axis Min** value.  If not, the chart will best-fit range with lowest value marking the starting point for the Y-axis. 
+_Y-Axis Label_
 
-![Screenshot](img/yaxismin.jpg)
+: Label for the Y axis
 
-**Y-axis Force Max**
 
-When checked, will force axis to use **Y-axis Max** value.  If not, the chart will best-fit range with highest value marking the end point for the Y-axis. 
+_Y-axis Force Min_
 
-<aside class="admonition caution">If plotted values exceed y-axis range the chart will crop the missing data.</aside>
+: When checked, forces axis to use _Y-axis Min_ value. Otherwise the chart will best-fit range with lowest value marking the starting point for the Y axis. 
 
-**Y-axis Min**
+    ![Screenshot](img/yaxismin.jpg)
 
-Set starting value for Y-axis. To use this value, check **Y-axis Force Min**
 
-![Screenshot](img/minmaxhtmllight.jpg)
+_Y-axis Force Max_
 
-**Y-axis Max**
+: When checked, will force axis to use **Y-axis Max** value.  If not, the chart will best-fit range with highest value marking the end point for the Y-axis. 
 
-Set highest value for Y-axis. To use this value, check **Y-axis Force Min**
+    !!! warning "Cropping"
+        If plotted values exceed the Y-axis range, the chart will crop the missing data.
 
-**No. of Ticks (best fit)**
 
-Will display as close as possible, the number of ticks configured for this input.
+_Y-axis Min_
 
-**Show Breadcrumbs**
+: Starting value for Y-axis. To use this value, check _Y-axis Force Min_
 
-Displays the OLAP/Pivot breakdown for Pivot Queries
+    ![Screenshot](img/minmaxhtmllight.jpg)
 
-![Screenshot](img/breadcrumbline.jpg)
 
-**X-axis Size**
+_Y-axis Max_
 
-X-axis Size
+: Highest value for the Y axis. To use this value, check _Y-axis Force Min_
+
+
+_No. of Ticks (best fit)_
+
+: Will display as closely as possible, the number of ticks configured for this input.
+
+
+_Show Breadcrumbs_
+
+: Displays the OLAP/Pivot breakdown for Pivot Queries
+
+    ![Screenshot](img/breadcrumbline.jpg)
+
+
+_X-axis Size_
+
+: X-axis Size
 
 ![Screenshot](img/xaxissize.jpg)
 
-Used to create space between X-Axis and Component border to better accomodate X-axis labels. Best used for rotated x-axis labels
+    Space between the X-axis and the component border – to accommodate X-axis labels better. Best used for rotated X-axis labels
 
-**Show X-Axis Min/Max**
 
-Check to display Min/Max values in X-Axis
+_Show X-Axis Min/Max_
 
-**Show Y-Axis Min/Max**
- 
-Check to display Min/Max values in Y-Axis
+: When checked, displays Min/Max values in X axis
 
-**X-axis tick padding**
 
-Axis Padding
+_Show Y-Axis Min/Max_
+
+: When checked, displays Min/Max values in Y axis
+
+
+_X-axis tick padding_
+
+: Axis Padding
 
 ![Screenshot](img/axispadding.jpg)
 
-Applies padding spacing between x-axis labels and the x-axis
+    Padding between X-axis labels and the X axis
 
-**Y-axis tick padding**
 
-Applies padding spacing between y-axis labels and the y-axis
+_Y-axis tick padding_
+
+: Padding between Y-axis labels and the Y axis
  
 ![Screenshot](img/axispaddinghtmllight.jpg)
 
-**Left Y-axis Margin**
 
-Sets the distance between left y-axis and border of component
+_Left Y-axis Margin_
 
-**Right Y-axis Margin**
+: Sets the distance between the left Y axis and the border of the component
 
-Sets the distance between right y-axis and border of component
 
-**Dynamic Columns in Pivot**
+_Right Y-axis Margin_
 
-Check control if dynamic columns from a Pivot **Data Source** are used.
+: Distance between right Y axis and border of component
 
-**Show Y- and X-Axis Ticks**
 
-Check control to display tick display in x- and y-axis
+_Dynamic Columns in Pivot_
 
-**Chart Background**
+: Check if dynamic columns from a Pivot _Data Source_ are used.
 
-Sets background color of chart
 
-## Margins
+_Show Y- and X-Axis Ticks_
 
-See [Margins](introduction.md#margins) in Introduction for more
+: When checked displays tick in X and Y axes
+
+
+_Chart Background_
+
+: Sets background color of chart
+
+
+### Margins
+
+<i class="fa fa-hand-o-right"></i> [Styling dashbopards](style)

@@ -14,7 +14,7 @@ Automatically autosizes components to fill the height of the Layout panel.
 
 When checked, added components will best fit the Layout panel by width. 
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+Layout panels are best used with [Tab Control](tabcontrol) and [Accordion](accordion) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
 
 [1] Add an Accordion or Tab Component
 
@@ -32,11 +32,11 @@ Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.
 

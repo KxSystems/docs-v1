@@ -4,39 +4,35 @@
 
 ![Screenshot](img/layoutpanel.jpg)
 
-**Fill Height**
 
-Automatically autosizes components to fill the height of the Layout panel.  
+_Fill Height_
 
-<aside class="admonition caution">Selection of *Fill Height* is best done after adding all required components</aside>
+: When checked, autosizes components to fill the height of the Layout panel. 
 
-**Advanced Layout**
+    !!! tip
+        Best selected after adding all required components
 
-When checked, added components will best fit the Layout panel by width. 
 
-Layout panels are best used with [Tab Control](#tabcontrol.md) and [Accordion](#accordion.md) component.  With the addition of a Layout panel to these components, more than one component can be dropped inside a tab or accordion section. 
+_Advanced Layout_
 
-[1] Add an Accordion or Tab Component
+: When checked, added components will best-fit the Layout panel by width. 
 
-[2] Left-click-and-drag the Layout panel inside the tab or accordion space
+Layout panels are best used with the [Tab Control](#tabcontrol) and [Accordion](#accordion) components.  With the addition of a Layout panel to these components, multiple components can be dropped inside a Tab or Accordion section. 
 
-![Screenshot](img/layoutpanelhtmllight.jpg)
+1. Add an Accordion or Tab Control component
 
-[3] Then add other components to the Layout panel
+2. Left-click-and-drag the Layout panel inside the tab or accordion space
 
-![Screenshot](img/layoutpaneladdhtmllight.jpg)
+    ![Screenshot](img/layoutpanelhtmllight.jpg)
 
-<aside class="admonition caution">Unless <i>Fill Height</i> is checked, components added to the Layout panel will not resize in height on Accordion panel resize; e.g. Accordion panel goes from half-screen to full-screen, components added to half-screen Accordion panel will remain the same size, leaving a half-space gap on accordion full-size</aside>
+3. Then add other components to the Layout panel
 
-<aside class="admonition caution">Unless <i>Advanced Layout</i> is checked, components added to the Layout panel will not resize in width on Accordion panel resize</aside>
+    ![Screenshot](img/layoutpaneladdhtmllight.jpg)
 
-## Margins
+!!! tip "Check both"
+    Unless you have a reason to lock the size of components dropped into a Layout panel, check both _Fill Height_ and _Advanced Layout_. This ensures the components in your Layout panel autosize along with the Accordion or Tab Control section that contains it.
 
-See [Margins](introduction.md#margins) in Introduction for more
 
-## Format
+## _Margins_ and _Format_
 
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction.md#format) in Introduction for more.
-
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)

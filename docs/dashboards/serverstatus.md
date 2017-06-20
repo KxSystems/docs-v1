@@ -38,11 +38,11 @@ From dropdown menu, select the connection to be monitored in Server Status
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.
 

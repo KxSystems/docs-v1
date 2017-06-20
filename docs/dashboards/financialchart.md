@@ -53,7 +53,7 @@ Configure viewed financial asset
 
 _Stock Symbol_
 
-: Best configured using a [View State Parameter](introduction.md#view-state-parameters).  Set default asset to use on chart load. 
+: Best configured using a [View State Parameter](introduction/#view-state-parameters).  Set default asset to use on chart load. 
 
 
 ## Toolbar

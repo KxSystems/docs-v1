@@ -1,6 +1,6 @@
 ![Screenshot](img/tabsmenu2.jpg)
 
-Each tab can receive a single component or can support multiple components if a [Layout Panel](layout.md) is used inside the tab. 
+Each tab can receive a single component or can support multiple components if a [Layout Panel](layout) is used inside the tab. 
  
 ![Screenshot](img/tabmenuexamplehtmllight.jpg) 
 
@@ -10,7 +10,7 @@ Each tab can receive a single component or can support multiple components if a 
 
 ![Screenshot](img/linkedtab.jpg)
 
-<aside class="admonition caution">To link tabs in two separate Tab components (so that clicking on tab 1 of tab-component 1 opens tab 1 of tab-component 2), create a [view state parameter](introduction.md#view-state-parameters) and assign to <i>Selected Tab</i> of tab-component 1 and tab-component 2</aside>
+<aside class="admonition caution">To link tabs in two separate Tab components (so that clicking on tab 1 of tab-component 1 opens tab 1 of tab-component 2), create a [view state parameter](introduction/#view-state-parameters) and assign to <i>Selected Tab</i> of tab-component 1 and tab-component 2</aside>
 
 Dropdown menu selects the current tab view. When working with tabs, use this menu to switch views
 
@@ -18,7 +18,7 @@ Dropdown menu selects the current tab view. When working with tabs, use this men
 
 ### Set View State on Tab Change
 
-In addition to linking different tab components, switching tabs can be used to assign a value to a [view state parameter](introduction.md#view-state-parameters); for example, if looking to reset a default value on tab switch.
+In addition to linking different tab components, switching tabs can be used to assign a value to a [view state parameter](introduction/#view-state-parameters); for example, if looking to reset a default value on tab switch.
 
 ![Screenshot](img/leftclickviewstatehtmllight.jpg)
 
@@ -42,11 +42,11 @@ Use Advanced CSS to customise tabs
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.
 

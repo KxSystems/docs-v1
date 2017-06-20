@@ -9,7 +9,7 @@ The Map component adds geographical data elements to your dashboards.
 
 ### Focus 
 
-Used for [linking components](introduction.md#linking-components). Requires a [view state parameter](introduction.md#view-state-parameters).
+Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
 
 ### Theme
 
@@ -51,7 +51,7 @@ When checked, will update Center X/Y co-ordinates depending on User interaction 
 
 **Bounds**
 
-Create a [view state parameter](introduction.md#view-state-parameters) to store user-map-selected co-ordinates.
+Create a [view state parameter](introduction/#view-state-parameters) to store user-map-selected co-ordinates.
 
 ![Screenshot](img/boundshtmllight.jpg)
 
@@ -59,7 +59,7 @@ Create a [view state parameter](introduction.md#view-state-parameters) to store 
 
 ![Screenshot](img/custompointhtmllight.jpg)
 
-[1] Create a [view state parameter](introduction.md#view-state-parameters) to store custom marker location details. 
+[1] Create a [view state parameter](introduction/#view-state-parameters) to store custom marker location details. 
 
 [2] Right click on the map to view the *Add Point* option - click to select
 
@@ -85,13 +85,13 @@ Toggle control to display statistical overlay
 
 **Data Source**
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
  
 <aside class="admonition caution">Ensure map coordinates are included in the data source to create boundaries for the overlay</aside> 
 
 **Data Key**
 
-Defines data grouping from the *Data Source* (e.g. Postcode) and can be stored using the *Selected Value* as a [view state parameter](introduction.md#view-state-parameters)
+Defines data grouping from the *Data Source* (e.g. Postcode) and can be stored using the *Selected Value* as a [view state parameter](introduction/#view-state-parameters)
 
 **Data Value**
 
@@ -105,13 +105,13 @@ Defines the measured variable (e.g. 1 Bedroom Cost)
 
 **Geo Data Column**
 
-Define the Data Column relavent to the Geo Data Source (included in [Defining a Query](introduction.md#defining-a-query) 
+Define the Data Column relavent to the Geo Data Source (included in [Defining a Query](introduction/#defining-a-query) 
 
 ![Screenshot](img/geodatacolumnhtmllight.jpg)
 
 **Geo Data Filter**
 
-Selected country, state or county (if used). Value can be stored using the *Geo Filter Selected Value* as a [view state parameter](introduction.md#view-state-parameters)
+Selected country, state or county (if used). Value can be stored using the *Geo Filter Selected Value* as a [view state parameter](introduction/#view-state-parameters)
 
 **Color Scale**
 
@@ -155,11 +155,11 @@ Then click the "+" add button to include:
 
 **Selected Value**
  
-Create and assign a [view state parameter](introduction.md#view-state-parameters). Will store the *Data Key* (if used) as a View State Parameter. 
+Create and assign a [view state parameter](introduction/#view-state-parameters). Will store the *Data Key* (if used) as a View State Parameter. 
 
 **Geo Filter Selected Value**
 
-Create and assign a [view state parameter](introduction.md#view-state-parameters). Will store the *Geo Data Filter* (if used) as a View State Parameter.
+Create and assign a [view state parameter](introduction/#view-state-parameters). Will store the *Geo Data Filter* (if used) as a View State Parameter.
 
 ![Screenshot](img/geofiltervalue.jpg)
 
@@ -197,7 +197,7 @@ Sets the opacity for the overlay relative to the underlying map.
 
 **Selected Point Viewstate Routing**
 
-Map Statistical Overlay *Data Source* variables to [view state parameter](introduction.md#view-state-parameters).
+Map Statistical Overlay *Data Source* variables to [view state parameter](introduction/#view-state-parameters).
 
 ### Sample Statistical Overlay Data
 
@@ -245,21 +245,21 @@ Applies distinct data points to map
 
 **Data Source**
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
  
 <aside class="admonition caution">Ensure geographic coordinates are included in the data source to create data points for the map</aside> 
 
 **Selected Value**
  
-Create and assign a [view state parameter](introduction.md#view-state-parameters).  
+Create and assign a [view state parameter](introduction/#view-state-parameters).  
 
 **Tracker**
 
-Create and assign a [view state parameter](introduction.md#view-state-parameters).  Stores value set in <a href="#trackeditem">TrackedItem</a>.
+Create and assign a [view state parameter](introduction/#view-state-parameters).  Stores value set in <a href="#trackeditem">TrackedItem</a>.
 
 **TrackedItem**
 
-Used in combination with *Tracker*,  it takes variable from *Data Source* and maps it to the *Tracker* [view state parameter](introduction.md#view-state-parameters).  The variable is populated when User the chooses a point on the map. 
+Used in combination with *Tracker*,  it takes variable from *Data Source* and maps it to the *Tracker* [view state parameter](introduction/#view-state-parameters).  The variable is populated when User the chooses a point on the map. 
  
 ![Screenshot](img/trackeditemmenuhtmllight.jpg)
  
@@ -389,11 +389,11 @@ Traffic Heat Map
 
 ![Screenshot](img/heatmapmenu.jpg)
 
-Can be used for dynamic overlays; e.g. when linked with [Playback](#playback.md) component. 
+Can be used for dynamic overlays; e.g. when linked with [Playback](playback) component. 
 
 **Data Source**
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 <aside class="admonition caution">Ensure geographic coordinates are included in the data source to create data points for the map</aside>
 
@@ -443,7 +443,7 @@ Lines Menu
 
 **Data Source**
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 <aside class="admonition caution">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside> 
 
@@ -471,7 +471,7 @@ Use slider to adjust the size of the label
 
 Define the text to use for the label
 
-<aside class="admonition caution"><b>Label Text</b> can also be a [view state parameter](introduction.md#view-state-parameters)</aside>
+<aside class="admonition caution"><b>Label Text</b> can also be a [view state parameter](introduction/#view-state-parameters)</aside>
 
 **Show Label**
  
@@ -533,7 +533,7 @@ Voronoi Menu
 
 **Data Source**
 
-See [Defining a Query](introduction.md#defining-a-query) and [Analytics](introduction.md#analytics) for more on data sourcing.
+See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
 <aside class="admonition caution">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside>
 
@@ -545,7 +545,7 @@ Select the variable from the **Data Source** on which the Voronoi map will be ba
 
 **Description**
 
-Define description variable or assign a [view state parameter](introduction.md#view-state-parameters) offering descriptive details.
+Define description variable or assign a [view state parameter](introduction/#view-state-parameters) offering descriptive details.
 
 **Latitude / Longitude Data**
 
@@ -591,6 +591,6 @@ Set the legend font colour
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.
 
 

@@ -1,5 +1,5 @@
 
-The **Text Input** component offers a means for users to input values into [view state parameter](introduction.md#view-state-parameters). Text inputs are not limited to variables or dates, but can include text entries, colour choices, etc. Any Dashboard input supporting an ![Screenshot](img/eyeiconhtmllight2.jpg) can map to a [view state parameter](introduction.md#view-state-parameters) and connect it to a <a href="text-input">Text Input</a>.
+The **Text Input** component offers a means for users to input values into [view state parameter](introduction/#view-state-parameters). Text inputs are not limited to variables or dates, but can include text entries, colour choices, etc. Any Dashboard input supporting an ![Screenshot](img/eyeiconhtmllight2.jpg) can map to a [view state parameter](introduction/#view-state-parameters) and connect it to a <a href="text-input">Text Input</a>.
 
 ### Basics
 
@@ -53,11 +53,11 @@ Use Advanced CSS to set styles
 
 ## Margins
 
-See [Margins](introduction.md#margins) in Introduction for more
+See [Margins](introduction/#margins) in Introduction for more
 
 ## Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction.md#format) in Introduction for more.
+See [Format](introduction/#format) in Introduction for more.
 
