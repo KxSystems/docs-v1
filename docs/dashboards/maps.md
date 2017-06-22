@@ -1,207 +1,223 @@
+The Map component adds geographical data to your dashboards.
 
-The Map component adds geographical data elements to your dashboards.
 
 ## Basics
 
 ![Screenshot](img/mapbasics.jpg)
 
- Unlike other components, different data sources can be assigned and overlaid by map type.
+Unlike other components, different data sources can be assigned and overlaid by map type.
 
-### Focus 
 
-Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
+_Focus_
 
-### Theme
+: Used for [linking components](introduction/#linking-components). Requires a [View State Parameter](introduction/#view-state-parameters).
 
-Switches between Light and Dark Theme
 
-### Map
+_Theme_
 
-**Map Type**
+: Switches between Light and Dark Theme
+
+## Map
 
 ![Screenshot](img/mapmenu.jpg)
+
+_Map Type_
  
-Map Type
-
-![Screenshot](img/maptype.jpg)
+: ![Screenshot](img/mapselectionhtmllight.jpg)
  
-Selectes the base type map to use:
+    ![Screenshot](img/maptype.jpg)
 
-![Screenshot](img/mapselectionhtmllight.jpg)
 
-**Scale**
+_Scale_
 
-Determines the zoom level of the map
+: Zoom level of the map
 
-![Screenshot](img/mapscalehtmllight.jpg)
+    ![Screenshot](img/mapscalehtmllight.jpg)
 
-**Center X/Y**
 
-Sets the co-ordintates to center the map on dashboard load.
+_Center X/Y_
+
+: Co-ordinates to center the map on dashboard load.
  
-![Screenshot](img/centerxyhtmllight.jpg)
+    ![Screenshot](img/centerxyhtmllight.jpg)
 
-**Track Changes**
 
-When checked, will update Center X/Y co-ordinates depending on User interaction of map. 
+_Track Changes_
 
-![Screenshot](img/trackchangeshtmllight.jpg)
+: When checked, will update _Center X/Y_ co-ordinates depending on User interaction of map. 
 
-<aside class="admonition caution">Map will open on updated Center X/Y co-ordinates on next dashboard load</aside>
+    ![Screenshot](img/trackchangeshtmllight.jpg)
 
-**Bounds**
+    !!! note "Saved state"
+        Map will open on updated Center X/Y co-ordinates on next dashboard load.
 
-Create a [view state parameter](introduction/#view-state-parameters) to store user-map-selected co-ordinates.
 
-![Screenshot](img/boundshtmllight.jpg)
+_Bounds_
 
-**Custom point**
+: Create a View State Parameter to store user-map-selected co-ordinates.
 
-![Screenshot](img/custompointhtmllight.jpg)
+    ![Screenshot](img/boundshtmllight.jpg)
 
-[1] Create a [view state parameter](introduction/#view-state-parameters) to store custom marker location details. 
 
-[2] Right click on the map to view the *Add Point* option - click to select
+_Custom point_
 
-[3] The co-ordinates of added point will be stored in the assigned *Custom Point* view state parameter
+: ![Screenshot](img/custompointhtmllight.jpg)
 
-![Screenshot](img/customhtmllight.jpg)
+    1. Create a View State Parameter to store custom marker location details. 
+    2. Right-click on the map to view the _Add Point_ option – click to select
+    3. The co-ordinates of the added point will be stored in the assigned _Custom Point_ View State Parameter. 
 
-<aside class="admonition caution">*Custom Point* will only be enabled once a View State Parameter is assigned. To right click on the map in the absence of an assigned View State Parameter will not add a custom point to the map </aside>
+    ![Screenshot](img/customhtmllight.jpg)
+
+    !!! warning "Assign a View State Parameter first"
+        _Custom Point_ will be enabled only when a View State Parameter has been assigned. To right-click on the map in the absence of an assigned View State Parameter will not add a custom point to the map.
+
 
 ## Statistical Overlay
 
-Provide custom map overlay. 
+Provide a custom map overlay. 
 
 ![Screenshot](img/statisticaloverlay.jpg)
 
-Overlay menu
-
 ![Screenshot](img/staticaloverlayhtmllight.jpg)
 
-**Show Overlay**
 
-Toggle control to display statistical overlay
+_Show Overlay_
 
-**Data Source**
+: When checked, the statistical overlay is visible
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
- 
-<aside class="admonition caution">Ensure map coordinates are included in the data source to create boundaries for the overlay</aside> 
 
-**Data Key**
+_Data Source_
 
-Defines data grouping from the *Data Source* (e.g. Postcode) and can be stored using the *Selected Value* as a [view state parameter](introduction/#view-state-parameters)
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-**Data Value**
+    !!! note "Geographic coordinates"
+        Ensure geographic coordinates are included in the data source to create data points for the map.
 
-Defines the measured variable (e.g. 1 Bedroom Cost)
 
-**Geo Data Source**
+_Data Key_
 
-![Screenshot](img/geodatasourcehtmlight.jpg)
+: Data grouping from the _Data Source_ (e.g. Postcode) and can be stored using the _Selected Value_ as a View State Parameter
 
- Select the underlying country/region map to use (e.g. Dublin)
 
-**Geo Data Column**
+_Data Value_
 
-Define the Data Column relavent to the Geo Data Source (included in [Defining a Query](introduction/#defining-a-query) 
+: The measured variable (e.g. 1 Bedroom Cost)
 
-![Screenshot](img/geodatacolumnhtmllight.jpg)
 
-**Geo Data Filter**
+_Geo Data Source_
 
-Selected country, state or county (if used). Value can be stored using the *Geo Filter Selected Value* as a [view state parameter](introduction/#view-state-parameters)
+: ![Screenshot](img/geodatasourcehtmlight.jpg)
 
-**Color Scale**
+    Select the underlying country/region map to use (e.g. Dublin)
 
-Toggle control for color use in the statistical overlay. 
 
-![Screenshot](img/colorscaletogglehtmlight.jpg)
+_Geo Data Column_
 
-**Legend Type**
+: The data column relevant to the _Geo Data Source_ (included in [Defining a Query](introduction/#defining-a-query))
 
-Switch between *Percentage* or *Range* overlay
+    ![Screenshot](img/geodatacolumnhtmllight.jpg)
 
-**Legend Color**
 
-*Legend Color* is used when <a href="#color-scale">Color Scale</a> is employed
+_Geo Data Filter_
 
-![Screenshot](img/legendcolorhtmllight.jpg)
+: Selected country, state or county (if used). Value can be stored using the _Geo Filter Selected Value_ as a View State Parameter
 
-**Overlay Colour (From DB)**
 
-Overlay color defined from *Data Source* instead of <a href="#legend-color">Legend Color</a>
+_Color Scale_
 
-**Custom Tooltip**
+: Toggle control for color use in the statistical overlay. 
 
-Custom Tooltip on Overlay
+    ![Screenshot](img/colorscaletogglehtmlight.jpg)
 
-![Screenshot](img/overlaylegend.jpg)
 
-To define the tooltip, click inside the *Custom Tooltip* box
+_Legend Type_
 
-![Screenshot](img/customtooltiphtmllight.jpg)
+: Switch between _Percentage_ or _Range_ overlay
 
-![Screenshot](img/customtooltip1htmllight.jpg)
 
-Additional information can be included in the tooltip. First select a data variable from the dropdown
+_Legend Color_
 
-![Screenshot](img/customtooltip2htmllight.jpg)
+: Used when _Color Scale_ is employed
 
-Then click the "+" add button to include:
+    ![Screenshot](img/legendcolorhtmllight.jpg)
 
-![Screenshot](img/customtooltip3htmllight.jpg)
 
-**Selected Value**
- 
-Create and assign a [view state parameter](introduction/#view-state-parameters). Will store the *Data Key* (if used) as a View State Parameter. 
+_Overlay Colour (From DB)_
 
-**Geo Filter Selected Value**
+: Overlay color defined from _Data Source_ instead of _Legend Color_
 
-Create and assign a [view state parameter](introduction/#view-state-parameters). Will store the *Geo Data Filter* (if used) as a View State Parameter.
 
-![Screenshot](img/geofiltervalue.jpg)
+_Custom Tooltip_
 
-**Bounds Selected**
+: Custom Tooltip on Overlay
 
- Create and assign a <a href="#view-state-parameters">View State Parameter</a>. Will store the boundary co-ordinates for a selected region in the Overlay.
+    ![Screenshot](img/overlaylegend.jpg)
 
-**Image Source**
+    To define the tooltip, click inside the _Custom Tooltip_ box
 
-![Screenshot](img/imageoverlay.jpg)
+    ![Screenshot](img/customtooltiphtmllight.jpg)
 
-Uses an URL reference for an image overlaid on the map.  The position of the image relative to the map is defined by *Image North Bound, Image South Bound, Image East Bound* and *Image West Bound*
+    ![Screenshot](img/customtooltip1htmllight.jpg)
 
-![Screenshot](img/imagehtmllight.jpg)
+    Additional information can be included in the tooltip. First select a data variable from the dropdown
 
-**Image North Bound**
+    ![Screenshot](img/customtooltip2htmllight.jpg)
 
-Map Overlay Coordinates
+    Then click the `+` add button to include:
 
-**Image South Bound**
+    ![Screenshot](img/customtooltip3htmllight.jpg)
 
-Map Overlay Coordinates
 
-**Image East Bound**
+_Selected Value_
 
-Map Overlay Coordinates
+: Create and assign a [View State Parameter](introduction/#view-state-parameters). Will store the _Data Key_ (if used) as a View State Parameter. 
 
-**Image West Bound**
 
-Map Overlay Coordinates
+_Geo Filter Selected Value_
 
-**Image Opacity**
+: Create and assign a View State Parameter. Will store the _Geo Data Filter_ (if used) as a View State Parameter.
 
-Sets the opacity for the overlay relative to the underlying map. 
+    ![Screenshot](img/geofiltervalue.jpg)
 
-**Selected Point Viewstate Routing**
 
-Map Statistical Overlay *Data Source* variables to [view state parameter](introduction/#view-state-parameters).
+_Bounds Selected_
+
+:  Create and assign a View State Parameter. Will store the boundary co-ordinates for a selected region in the Overlay.
+
+
+_Image Source_
+
+: ![Screenshot](img/imageoverlay.jpg)
+
+    Uses a URL reference for an image overlaid on the map.  The position of the image relative to the map is defined by _Image North Bound_, _Image South Bound_, _Image East Bound_ and _Image West Bound_.
+
+    ![Screenshot](img/imagehtmllight.jpg)
+
+
+_Image North Bound_
+
+_Image South Bound_
+
+_Image East Bound_
+
+_Image West Bound_
+
+: Map Overlay coordinates
+
+
+_Image Opacity_
+
+: Opacity for the overlay relative to the underlying map. 
+
+
+_Selected Point Viewstate Routing_
+
+: Map Statistical Overlay _Data Source_ variables to View State Parameter.
 
 ### Sample Statistical Overlay Data
 
-```
+```q
 tab:flip `Id`Id2`Postal`Name`1_Bed_Apartment_Cost`1_Bed_Apartment_Inc`2_Bed_trc_Cost`2_Bed_trc_Inc
 `3_Bed_semi_Cost`3_Bed_semi_Inc`4_Bed_bungalow_Cost`4_Bed_bungalow_Inc`5_Bed_detached_Cost`5_Bed_detached_Inc
 `Color!(`13`0`2`10`1`15`9`17`5`3`7`8`12`20`22`24`6.1`6`4`14`16`18`11;
@@ -235,7 +251,8 @@ tab:flip `Id`Id2`Postal`Name`1_Bed_Apartment_Cost`1_Bed_Apartment_Inc`2_Bed_trc_
 `ff0000`ff0000`ff0000`ff0000`ff0000`ff0000`ff0000`ff0000`ff0000`ff0000)
 ```
 
-## Points
+
+## _Points_
 
 ![Screenshot](img/mappoints.jpg)
 
@@ -243,257 +260,282 @@ tab:flip `Id`Id2`Postal`Name`1_Bed_Apartment_Cost`1_Bed_Apartment_Inc`2_Bed_trc_
 
 Applies distinct data points to map
 
-**Data Source**
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+_Data Source_
+
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+
+    !!! note "Geographic coordinates"
+        Ensure geographic coordinates are included in the data source to create data points for the map.
+
+
+_Selected Value_
+
+: Create and assign a [View State Parameter](introduction/#view-state-parameters).  
+
+
+_Tracker_
+
+: Create and assign a View State Parameter.  Stores value set in _TrackedItem_.
+
+
+_TrackedItem_
+
+: Used in combination with _Tracker_: takes variable from _Data Source_ and maps it to the _Tracker_ View State Parameter. The variable is populated when the user chooses a point on the map. 
  
-<aside class="admonition caution">Ensure geographic coordinates are included in the data source to create data points for the map</aside> 
+    ![Screenshot](img/trackeditemmenuhtmllight.jpg)
+     
+    !!! tip 
+        Additional mapped items can be tracked using _Selected Point Viewstate Routing_
 
-**Selected Value**
+
+_Latitude / Longitude Data_
+
+: Set Latitude / Longitude from *Data Source*
+
+    ![Screenshot](img/latitudelongitude.jpg)
+
+    The columns in the _Data Source_ to use for positioning the points on the map
+
+    ![Screenshot](img/latitudehtmllight.jpg)
+
+
+_Shape_
+
+: The shape of the map point graphic
+
+    ![Screenshot](img/shape.jpg)
+
+
+
+_Shape (From DB)_
+
+: Point shape from _Data Source_
+
+    ![Screenshot](img/shapefromdbhtmllight.jpg)
+
+
+_Shape Colour_
+
+: Shape color
+
+
+_Shape Colour (From DB)_
+
+: Point color using reference to _Data Source_
+
+
+_Shape Size_
+
+: Point size
  
-Create and assign a [view state parameter](introduction/#view-state-parameters).  
+    ![Screenshot](img/sahpesizehtmllight.jpg)
 
-**Tracker**
 
-Create and assign a [view state parameter](introduction/#view-state-parameters).  Stores value set in <a href="#trackeditem">TrackedItem</a>.
+_Shape Colour (Selected)_
 
-**TrackedItem**
+: The colour for when a user selects a point
 
-Used in combination with *Tracker*,  it takes variable from *Data Source* and maps it to the *Tracker* [view state parameter](introduction/#view-state-parameters).  The variable is populated when User the chooses a point on the map. 
+
+_Shape Opacity (Selected)_
+
+: The opacity when a user selects a point
+
+
+_Shape Colour (Hovered)_
+
+: The colour for when a user hovers over a point
+
+
+_Shape Opacity (Hovered)_
+
+: The opacity when a user hovers over a point
+
+
+_Cluster Size_
+
+: Map Clusters
+
+    ![Screenshot](img/mapcluster.jpg)
+
+    Size of clusters into which points are aggregated 
+
+    ![Screenshot](img/clustersizehtmllight.jpg)
+
+
+_Cluster_
+
+: When checked, replaces grouped individual points with a numeric cluster icon. Points outside of a cluster will remain displayed as individual points.
+
+    ![Screenshot](img/clusterhtmllight.jpg)
+
+
+_Show Tooltip_
+
+: When checked, displays a tooltip on Point rollover
+
+
+_Custom Tooltip_
+
+: ![Screenshot](img/customtooltip.jpg)
  
-![Screenshot](img/trackeditemmenuhtmllight.jpg)
- 
-<aside class="admonition caution">Additional mapped items can be tracked using <b>Selected Point Viewstate Routing</b></aside>
+    The information to display on a tooltip. Available options taken from _Data Source_
 
-**Latitude / Longitude Data**
+    ![Screenshot](img/customtooltiphtmlight.jpg)
 
-Set Latitude / Longitude from *Data Source*
 
-![Screenshot](img/latitudelongitude.jpg)
+_Zoom on Select_
 
-Defines the columns in the *Data Source* to use for positioning the points on the map
+: When checked, map will zoom when user selects a point
 
-![Screenshot](img/latitudehtmllight.jpg)
 
-**Shape**
+_Single Zoom on Cluster_
 
-Select Point Shape
+: When checked, map will zoom on selected cluster
 
-![Screenshot](img/shape.jpg)
+    ![Screenshot](img/singlezoomhtmllight.jpg)
 
-Define the map point graphic
 
-**Shape (From DB)**
+_Open Dashboard on Select_
 
-Select Point Shape using reference to *Data Source*
+: If user selects a map point, the assigned dashboard will load.
 
-![Screenshot](img/shapefromdbhtmllight.jpg)
+    ![Screenshot](img/opendashboardhtmllight.jpg)
 
-**Shape Colour**
 
-Choose color from color palette
+_Points in View_
 
-**Shape Colour (From DB)**
+: Points in View
 
-Select Point Colour using reference to *Data Source*
+    ![Screenshot](img/pointsinview.jpg)
 
-**Shape Size**
+    When checked, map will auto-zoom to show all available data points
 
-Adjust slider to change point size
- 
-![Screenshot](img/sahpesizehtmllight.jpg)
 
-**Shape Colour (Selected)**
+### _Selected Row ViewState Routing_
 
-Use the Colour palette to select the colour for when a User selects a point
-
-**Shape Opacity (Selected)**
-
-Use the slider to select the opacity when a User selects a point
-
-**Shape Colour (Hovered)**
-
-Use the Colour palette to select the colour for when a User hovers over a point
-
-**Shape Opacity (Hovered)**
-
-Use the slider to select the opacity when a User hovers over a point
-
-**Cluster Size**
-
-Map Clusters
-
-![Screenshot](img/mapcluster.jpg)
-
-Aggregates points into clusters. The size of the cluster is determined by the dropdown 
-
-![Screenshot](img/clustersizehtmllight.jpg)
-
-**Cluster**
-
-Toggle to use *Cluster* feature. Define *Cluster Size*
-
-<aside class="admonition caution">When checked, it will replace grouped individual points with a numeric cluster icon. Points outside of a cluster will remain displayed as individual points</aside>
-
-![Screenshot](img/clusterhtmllight.jpg)
-
-**Show Tooltip**
-
-Check to display a tooltip on Point rollover
-
-**Custom Tooltip**
-
-![Screenshot](img/customtooltip.jpg)
- 
-Configure the information to display on a tooltip. Available dropdown display options taken from *Data Source*
-
-![Screenshot](img/customtooltiphtmlight.jpg)
-
-**Zoom on Select**
-
-When checked, map will zoom when User selects a point
-
-**Single Zoom on Cluster**
-
-When checked, map will zoom on selected cluster
-
-![Screenshot](img/singlezoomhtmllight.jpg)
-
-**Open Dashboard on Select**
-
-If User selects a Map Point, the assigned Dashboard will load.
-
-![Screenshot](img/opendashboardhtmllight.jpg)
-
-**Points in View**
-
-Points in View
-
-![Screenshot](img/pointsinview.jpg)
-
-When checked, map will auto-zoom to show all available data points
-
-### Selected Row ViewState Routing
-
-The aforementioned <a href="#selected-value">Selected Value</a> and <a href="#selected-value-attribute">Selected Value Attribute</a> handles a single data map. <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> supports multiple mappings between <a href="#selected-value">Selected Values</a> and <a href="#selected-value-attribute">Selected Value Attributes</a>.
+The _Selected Value_ and _Selected Value Attribute_ handles a single data map. _Selected Row Viewstate Routing_ supports multiple mappings between _Selected Values_ and _Selected Value Attributes_.
 
 ![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
 
 To add a row, click ![Screenshot](img/routinghtmllight.jpg)
 
+
 ## Heat Map
-
-Traffic Heat Map
-
-![Screenshot](img/heatmap.jpg)
-
-![Screenshot](img/heatmapmenu.jpg)
 
 Can be used for dynamic overlays; e.g. when linked with [Playback](playback) component. 
 
-**Data Source**
+![Screenshot](img/heatmap.jpg)  
+_A traffic heat map_
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+![Screenshot](img/heatmapmenu.jpg)
 
-<aside class="admonition caution">Ensure geographic coordinates are included in the data source to create data points for the map</aside>
 
-**Latitude / Longitude Data**
 
-Defines the columns in the **Data Source** to use for positioning the heat map.
+_Data Source_
 
-![Screenshot](img/heatmaplatlonghtmllight.jpg)
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-**Weight**
+    !!! note "Geographic coordinates"
+        Ensure geographic coordinates are included in the data source to create data points for the map.
 
-Defines the column in the **Data Source** to use for setting the heat map weight/depth
 
-![Screenshot](img/weighthtmllight.jpg)
+_Latitude / Longitude Data_
 
-**Opacity**
+: The columns in the _Data Source_ to use for positioning the heat map.
 
-Change Opacity
+    ![Screenshot](img/heatmaplatlonghtmllight.jpg)
 
-![Screenshot](img/changeopacity.jpg)
 
-Set the opacity of the heatmap overlay. 
+_Weight_
 
-**Gradient**
+: The column in the _Data Source_ to use for setting the heat map weight/depth
 
-Sets color gradient for heat map
+    ![Screenshot](img/weighthtmllight.jpg)
 
-![Screenshot](img/gradienthtmllight.jpg)
 
-**Radius**
+_Opacity_
 
-Adjust slider to set radius for heat map 'spread'
+: The opacity of the heat-map overlay. 
 
-**Show Heatmap**
+    ![Screenshot](img/changeopacity.jpg)
 
-Check to display heatmap
+
+
+_Gradient_
+
+: Color gradient for heat map
+
+    ![Screenshot](img/gradienthtmllight.jpg)
+
+
+_Radius_
+
+: Radius for heat-map spread
+
+
+_Show Heatmap_
+
+: When checked, the heat map is visible
+
 
 ## Lines
 
-Lines
-
 ![Screenshot](img/linesmap.jpg)
-
-Lines Menu
 
 ![Screenshot](img/linesmenu.jpg)
 
-**Data Source**
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+_Data Source_
 
-<aside class="admonition caution">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside> 
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-![Screenshot](img/linesdatasourcehtmllight.jpg)
+    !!! note "Geographic coordinates"
+        Ensure geographic coordinates are included in the data source to create data points for the map.
 
-![Screenshot](img/linesviewstateparameter.jpg)
+    ![Screenshot](img/linesdatasourcehtmllight.jpg)
 
-**Latitude / Longitude Data**
+    ![Screenshot](img/linesviewstateparameter.jpg)
 
-Defines columns of the *Data Source* to use for setting the lines.
 
-**Colour**
+_Latitude / Longitude Data_
 
-Set the Colour of the line from palette
+: Columns of the _Data Source_ to use for setting the lines.
 
-**Label Colour**
 
-Set background colour of rollover label
+_Colour_
 
-**Label Size**
+: Color of the line
 
-Use slider to adjust the size of the label
 
-**Label Text**
+_Label Color_
 
-Define the text to use for the label
+: Background colour of rollover label
 
-<aside class="admonition caution"><b>Label Text</b> can also be a [view state parameter](introduction/#view-state-parameters)</aside>
 
-**Show Label**
- 
-Check control to display a Label
+_Label Size_
 
-**Show Tooltip**
+: Size of the label
 
-Check control to display a Tooltip
 
-### Style
+_Label Text_
 
-CSS Editor
+: Can also be a [View State Parameter](introduction/#view-state-parameters)
 
-![Screenshot](img/style.jpg)
- 
-Use Advanced CSS to make changes to Map elements. Left click inside the Advanced CSS editor. Click the selector icon, then left-click inside the map component to bring up the relevant CSS code. 
 
-![Screenshot](img/advancedcsshtmllight.jpg)
- 
+_Show Label_
+
+: When checked, displays the label
+
+
+_Show Tooltip_
+
+: When checked, displays the tooltip
+
+
 ### Sample Lines Query
 
-```
+```q
 {[ln] tab:flip `Stop`long`lat`Line!(
 `Tallaght`Hospital`Cookstown`Belgard`Kingswood`Red_Cow`Kylemore`Bluebell`Blackhorse`Drimnagh`Goldenbridge
 `Suir_Road`Rialto`Fatima`Jamess`Heuston`Museum`Smithfield`Four_Courts`Jervis`Abbey_Street`BusAras`Connolly
@@ -521,76 +563,97 @@ Use Advanced CSS to make changes to Map elements. Left click inside the Advanced
 select from tab where Line = ln}
 ```
 
+
 ## Voronoi
 
-Voronoi Map
-
-![Screenshot](img/voronoimap.jpg)
+![Screenshot](img/voronoimap.jpg)  
+_A [Voronoi](https://en.wikipedia.org/wiki/Voronoi_diagram) map_
  
-Voronoi Menu
-
 ![Screenshot](img/voronoimenu.jpg)
 
-**Data Source**
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+_Data Source_
 
-<aside class="admonition caution">Ensure geographic coordinates are included in the data source to map to Longitude and Latitude inputs</aside>
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-**Data Key**
+    !!! note "Geographic coordinates"
+        Ensure geographic coordinates are included in the data source to create data points for the map.
 
-Select the variable from the **Data Source** on which the Voronoi map will be based
 
-![Screenshot](img/voronoisdatakey.jpg)
+_Data Key_
 
-**Description**
+: The variable from the _Data Source_ on which the Voronoi map will be based
 
-Define description variable or assign a [view state parameter](introduction/#view-state-parameters) offering descriptive details.
+    ![Screenshot](img/voronoisdatakey.jpg)
 
-**Latitude / Longitude Data**
 
-Defines columns of the *Data Source* to set for Latitude and Longitude
+_Description_
 
-![Screenshot](img/longlathtmllight.jpg)
+: Description variable or a [View State Parameter](introduction/#view-state-parameters) offering descriptive details.
 
-**Average Latitude / Longitude Data**
 
-Typically uses the same column information as for **Latitude / Longitude Data**
+_Latitude / Longitude Data_
 
-![Screenshot](img/avglonglathtmllight.jpg)
+: Latitude and longitude columns from the _Data Source_ 
 
-**Line Colour**
+    ![Screenshot](img/longlathtmllight.jpg)
 
-Set Voronoi line colour from palette
 
-**Show Scale**
+_Average Latitude / Longitude Data_
 
- Display key for Voronoi metric scale
+: Typically uses the same column information as for _Latitude / Longitude Data_
 
-**Scale Metric**
+    ![Screenshot](img/avglonglathtmllight.jpg)
 
-Select the Metric from **Data Source** variables. This will add a shading level to the Voronoi map.
 
-![Screenshot](img/scalemetrichtmllight.jpg)
+_Line Color_
 
-**Scale Opacity**
+: Color of the lines
 
-Adjust the slider to change the opacity of the Voronoi map shading.
 
-**Legend Colour**
+_Show Scale_
 
-Set the legend font colour
+: When checked, displays key for Voronoi metric scale
 
-![Screenshot](img/voronoilegendcolor.jpg)
 
-## Margins
+_Scale Metric_
 
- See <a href="#margins">Margins</a>
+: Metric from the _Data Source_ variables. This will add a shading level to the Voronoi map.
 
-## Format
+    ![Screenshot](img/scalemetrichtmllight.jpg)
+
+
+_Scale Opacity_
+
+: Opacity of the Voronoi map shading.
+
+
+_Legend Colour_
+
+: Legend text colour
+
+    ![Screenshot](img/voronoilegendcolor.jpg)
+
+
+## Style
+
+_Advanced CSS_
+
+: ![Screenshot](img/style.jpg)
+ 
+    Use _Advanced CSS_ to make changes to Map elements. Click inside the _Advanced CSS_ editor. Click the selector icon, then inside the Map component to bring up the relevant CSS code. 
+
+    ![Screenshot](img/advancedcsshtmllight.jpg)
+ 
+
+### Margins
+
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+
+
+### Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction/#format) in Introduction for more.
-
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
 

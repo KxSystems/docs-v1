@@ -33,7 +33,7 @@ q)0=1-r3+r3+r3
 ```
 It is not. The quantity `r3+r3+r3` is exactly 1.0. This is part of the IEEE spec, not q, and seems to be related to rounding conventions for binary floating point operations.
 
-Only the `=` operator uses tolerant equality semantics. Other primitives do not:
+The `=` operator uses tolerant equality semantics. [Not all primitives do.](#use)
 ```q
 q)96.100000000000009 = 96.099999999999994
 1b

@@ -1,482 +1,503 @@
 ![Screenshot](img/mulitchart.jpg)
 
+A Multi Chart plots multiple data series together. 
+
+It has a single _Data Source_, from which different data series (columns) can be plotted in a choice of styles. 
+
+It can also contain one or more [Overlays](#overlays). Each Overlay has its own _Data Source_, from which can be plotted multiple data series, each described by an [Overlay Data](#overlay-data) section. 
+
+
 ## Basics
 
 ![Screenshot](img/mulitchartmenu.jpg)
 
-### Data Source
- 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-### Focus
+_Data Source_
 
-Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics)
 
-### Range
 
-Similar to **Focus**, instead the assigned [view state parameter](introduction/#view-state-parameters) is used to link a [range slider](rangeslider) to the chart.
+_Focus_
 
-### Selected Value 
+: Used for [linking components](introduction/#linking-components). Requires a [View State Parameter](introduction/#view-state-parameters).
 
-This is a [view state parameter](introduction#view-state-parameters). It's used to store the clicked-on chart data point to a view state parameter.  
 
-[1] Create a [view state parameter](introduction#view-state-parameters) and assign to _Selected Value_
- 
-![Screenshot](img/selectedvaluecharthtmllight.jpg)
+_Range_
 
-[2] Go to <a href="#selected-value-attribute">Selected Value Attribute</a> to select a query variable to store in the Selected Value View State Parameter.
+: Similar to _Focus_, instead the assigned View State Parameter is used to link a [Range Slider](rangeslider) to the chart.
 
-### Selected Value Attribute
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction#view-state-parameters).  When the user clicks on the chart, the associated query variable will be mapped to the <a href="#selected-value">Selected Value</a> view state.  
+_Selected Value_
 
-![Screenshot](img/selectedvalueattributehtmlight.jpg)
+: This View State Parameter is used to store the clicked-on chart data point.
 
-!!! Warning "Data Type Match"
-    When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the _Data Type_ of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data.
+    1. Create a View State Parameter and assign to _Selected Value_
+        ![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
-### Selected Row ViewState Routing
+    2. Use _Selected Value Attribute_ to select a query variable to store in the _Selected Value_ View State Parameter.
 
-The aforementioned <a href="#selected-value">Selected Value</a> and <a href="#selected-value-attribute">Selected Value Attribute</a> handles a single data map. <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> supports multiple mappings between <a href="#selected-value">Selected Values</a> and <a href="#selected-value-attribute">Selected Value Attributes</a>.
+
+
+_Selected Value Attribute_
+
+: This comes from the _Data Source_ and is the variable paired with the _Selected Value_ View State Parameter.  When the user clicks on the chart, the associated query variable will be mapped to the _Selected Value_ view state.  
+
+    ![Screenshot](img/selectedvalueattributehtmlight.jpg)
+
+    !!! Warning "Data type match"
+        When mapping _Selected Values_ to _Selected Value Attribute_, ensure the _Data Type_ of the View State Parameter matches the type of the _Data Source_; e.g. integer for numbered data.
+
+
+_Selected Row ViewState Routing_
+
+: The _Selected Value_ and _Selected Value Attribute_ handles a single data map. _Selected Row Viewstate Routing_ supports multiple mappings between _Selected Values_ and _Selected Value Attributes_.
 
 ![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
 
 To add a row, click ![Screenshot](img/routinghtmllight.jpg)
 
-### Hovered Value
 
-Assign a [view state parameter](introduction/#view-state-parameters). Stores the value of the X-Axis (usually date or time).
- 
-## Y-Axis
- 
-![Screenshot](img/yaxismenu.jpg)
+_Hovered Value_
 
-Add an unlimited number of Lines, Bars and Bubbles overlays to a chart with a single or dual axis. 
+: Assign a View State Parameter. Stores the value of the X axis (usually date or time).
+ 
+
+## Y axis
+ 
+Add multiple Line, Bar and Bubble plots to a chart with a single or dual axis. 
+
 
 ### Lines
 
 ![Screenshot](img/linesaxismenu.jpg)
 
-New lines can be added using ![Screenshot](img/linesbuttonhtmllight.jpg)
 
-**Data**
+_Data_
 
-Select the **Data Source** variable to plot from the dropdown.
+: The column from _Data Source_ to plot
 
-![Screenshot](img/linesaxishtmllight.jpg)
 
-**Display Name**
- 
-The Legend name for the selected data source
+_Display Name_
 
-![Screenshot](img/displaynamecharthtmllight2.jpg)
+: A name for the plotted data series, to appear in the chart legend
 
-**Color**
+    ![Screenshot](img/displaynamecharthtmllight2.jpg)
 
-Use the colour palette to select a colour to use for the Line. 
 
-**Axis**
+_Color_
 
-Define if line is to be plotted against the Left or Right axis
+: The color in which to draw the line
 
-**Interpolate**
 
-Interpolate Lines
+_Axis_
 
-![Screenshot](img/interpolate.jpg)
+: The axis scale (Left or Right) against which to plot the line
 
-Select the type of Line to use from dropdown selection
 
-![Screenshot](img/interpolatemenuhtmllight.jpg)
+_Interpolate_
 
-**Line Style**
+: The type of Line to plot
 
-Apply solid, dashed, or dotted line form
+    ![Screenshot](img/interpolate.jpg)
 
-![Screenshot](img/linestylemenuhtmllight.jpg)
 
-**Fill Area**
+_Line Style_
 
-Fills the area inside the chart with a gradient of the select line **Color**
+: The style of line to plot: solid, dotted, etc
 
-![Screenshot](img/fillareahtmllight.jpg)
+
+_Fill Area_
+
+: When checked, fills the area inside the chart with a gradient of the line _Color_
+
+    ![Screenshot](img/fillareahtmllight.jpg)
+
 
 ### Bars
 
 ![Screenshot](img/barsmenu.jpg)
 
-To add a new bar data, click ![Screenshot](img/barsmenubuttonhtmllight.jpg)
 
-**Data**
+_Data_
 
-Select the **Data Source** variable to plot from the dropdown.
+: The column from _Data Source_ to plot
 
-**Display Name**
 
-The Legend name for the selected data source
+_Display Name_
 
-**Color**
+: A name for the plotted data series, to appear in the chart legend
 
-Use the colour palette to select a colour to use for the Line
 
-**Axis**
+_Color_
 
-Define if line is to be plotted against the Left or Right axis
+: The color in which to draw the bars
+
+
+_Axis_
+
+: The axis scale (Left or Right) against which to plot the line
+
+
 
 ### Bubbles
 
 ![Screenshot](img/bubblesmenu.jpg)
 
-To add a new bubble data point, click ![Screenshot](img/bubblesmenubuttonhtmllight.jpg) 
 
-**Data**
+_Color_
 
-Select the **Data Source** variable to plot from the dropdown.
+: The color in which to draw the bubbles
 
-**Display Name**
 
-The Legend name for the selected data source
+_Axis_
 
-**Color**
+: The axis scale (Left or Right) against which to plot the bubbles
 
-Use the colour palette to select bubble color
 
-**Bubble Weight**
+_Bubble Weight_
 
-![Screenshot](img/bubblewight.jpg)
+: ![Screenshot](img/bubblewight.jpg)
 
-Bubble weight can be tied to a <a href="#data-source">Data Source</a> variable. This variable is selected with a dropdown menu
+    A column from the _Data Source_ to be represented as bubble weight
 
-**Bubble Scale**
 
-Slider control to scale bubble size.  This is a magnifier for <b>Bubble Weight</b>. 
+_Bubble Scale_
+
+: Shrinks or enlarges the default bubble weight
  
-![Screenshot](img/bubbleweighthtmllight.jpg)
 
-**Axis**
+_Axis_
 
-Plot relative to left or right axis
+: The axis scale (Left or Right) against which to plot the line
 
-**Hide in Tooltip**
 
-If checked, tooltip for bubble chart will be hidden
+_Hide in Tooltip_
 
-**Shape**
+: When checked, hides tooltip for this data series
 
-Defines shape of the bubble
 
-![Screenshot](img/bubblechartshape.jpg)
+_Shape_
+
+: Shape of the bubbles: circle, cross, etc
+
+
 
 ### Candlestick
 
-![Screenshot](img/candlestick.jpg)
+![Screenshot](img/candlestick.jpg)  
+_A candlestick plot_
 
 ![Screenshot](img/candlestickmenu.jpg)
 
-**Name**
 
-Name of the chart as selected by <a href="#data-source">Data Source</a> dropdown.
+_Name_
 
-**Open**
+: A column from the _Data Source_ <!-- What is this used for – WTF? -->
 
-Select the <a href="#data-source">Data Source</a> variable to use for the open price of the candlestick
 
-**Close**
+_Open_
 
-Select the <a href="#data-source">Data Source</a> variable to use for the close price of the candlestick
+: A column from the _Data Source_ to be plotted as the open price of the candlestick
 
-**High**
 
-Select the <a href="#data-source">Data Source</a> variable to use for the high price of the candlestick
+_Close_
 
-**Low**
+: A column from the _Data Source_ to be plotted as the close price of the candlestick
 
-Select the <a href="#data-source">Data Source</a> variable to use for the low price of the candlestick
 
-**Display Name**
+_High_
 
-Display name for the chart
+: A column from the _Data Source_ to be plotted as the high price of the candlestick
 
-**Open > Close**
 
-Set the color of the candlestick for when open price is greater than close price.  Hex color or selection from palette. 
+_Low_
 
-**Open < Close**
+: A column from the _Data Source_ to be plotted as the low price of the candlestick
 
-Set the color of the candlestick for when open price is less than close price. Hex color or selection from palette.
 
-**Legend Color**
+_Display Name_
 
-Set the color of the legend text. Hex color or selection from palette.
+: Display name for the chart
 
-### Left/Right Axis Format
+
+_Open > Close_
+
+: The color of the candlestick for when open price is greater than close price
+
+
+_Open < Close_
+
+: The color of the candlestick for when open price is less than close price
+
+
+_Legend Color_
+
+: The color of the legend text
+
+
+### Axis-scale formats
 
 ![Screenshot](img/leftaxisformat.jpg)
 
-Configure left and right axis scale
+Configuration of the left- and right-axis scales. 
 
-**Decimal places**
 
-Select number of decimal places to display in each axis from the dropdown option
+_Decimal places_
 
-![Screenshot](img/decimalaxishtmllight.jpg)
+: The number of decimal places to display
 
-**Prefix**
 
-Select Prefix Label for axis
+_Prefix_ and _Suffix_
 
-![Screenshot](img/prefixmenuhtmllight.jpg)
+: A prefix and/or a suffix to the values on the axis scale, e.g. `$`, `%`. May alternatively be a View State Parameter. (Does not change the type of the data series.)
 
-<aside class="admonition caution">Setting Prefix is a visual label and doesn't change the data type of plotted data</aside>
 
-<aside class="admonition caution">Prefix can also be configured as a View State Parameter</a></aside>
+_Mid point_
 
-![Screenshot](img/prefixviewstateparameterhtmllight.jpg)
+: When _Specify MidPoint_ checked, the chart uses the _Mid point_ value. This value can alternatively be a [View State Parameter](introduction/#view-state-parameters); click the eye icon at the end of the input box to set.
 
-**Suffix**
 
-Select Prefix Label for axis
+_Range Min_ and _Range Max_
 
-![Screenshot](img/suffixmenuhtmllight.jpg)
+: When _Use Range Min_ or _Use Range Max_ are checked, the high and low values for the range
 
-<aside class="admonition caution">Setting Suffix is a visual label and doesn't change the data type of plotted data</aside>
 
-<aside class="admonition caution">Suffix can also be configured as a View State Parameter</a></aside>
+_No. of Ticks (best fit)_
 
-**Specify MidPoint**
- 
-Check to define chart mid-point.  This can also be a [view state parameter](introduction/#view-state-parameters); click the eye icon at the end of the input box to set.
+: The number of ticks to display in the left/right price axis
 
-![Screenshot](img/specifymidpointhtmllight.jpg)
 
-**Use Range Min/Max**
- 
-Check control to define a range for left and right axis
-
-![Screenshot](img/rangemenuhtmllight.jpg)
-
-**Range Min/Max**
-
-![Screenshot](img/axisrange.jpg)
-
-If *Range* is checked, set the high and low value for the range
-
-**No. of Ticks (best fit)**
-
-Define the number of ticks to display in the left/right price axis
-
-## X Axis
-
-X Axis menu
+## X axis
 
 ![Screenshot](img/xaxismulitchart.jpg)
 
-**Axis Value**
 
-Select from the Dropdown the **Data Source** variable to use for Axis Value
+_Axis Value_
 
-**Axis Type**
+: The column from _Data Source_ to use for the X axis 
 
-Define the Data Type for Label. If *Date* is selected for Type, then go to **Format** to select the date format.
 
-**Axis Format**
+_Axis Type_ and _Axis Format_
 
-Use if selected **Type** is date
+: Data type for the X axis. If `Date`, then specify a Date or DateTime format in _Axis Format_.
 
-![Screenshot](img/xaxisformathtmllight.jpg)
 
-**Axis Scale**
- 
-Sets the order by numeric or default *Data Source* ordering
 
-**Show Legend**
+_Axis Scale_
 
-Check control to display data labels in chart
+: Sets the orderig of the X axis: either numeric or default _Data Source_ ordering
 
-**Use Fixed Num of Ticks**
 
-Number of Ticks
+_Show Legend_
 
-![Screenshot](img/multichartnumofticks.jpg)
+: When checked, chart displays a legend
 
-Sets the number of divisions along the x-axis to display
 
-**Show All Ticks**
+_Use Fixed Num of Ticks_ and _Num of Ticks_
 
-Displays every charted data point in the x-axis 
+: When _Use Fixed Num of Ticks_ is checked, the number of ticks to display in the X axis
 
-**Use Ordinal**
+    ![Screenshot](img/multichartnumofticks.jpg)  
+    _5 ticks on the X axis_
 
-When checked, x-axis will scale by time or numeric sequence
 
-![Screenshot](img/ordinal.jpg)
+_Show All Ticks_
 
-<aside class="admonition caution">Best used when Axis Scale is set to <i>scale</i></aside>
+: When checked, displays every charted data point in the X axis 
 
-**Num of Ticks**
 
-The number of ticks to display in the x-axis if Use Fixed Num of Ticks is checked
+_Use Ordinal_
 
-**Rotation**
+: When checked, X axis will scale by time or numeric sequence. Best used when _Axis Scale_ is set to `scale`
 
-Rotate x-axis label
+    ![Screenshot](img/ordinal.jpg)
 
-![Screenshot](img/xaxislabelrotation.jpg)
+
+_Rotation_
+
+: Rotation of labels on the X axis
+
+    ![Screenshot](img/xaxislabelrotation.jpg)  
+    _Rotated X-axis labels_
+
+
 
 ## Zoom/Pan 
 
 ![Screenshot](img/zoomandpanmulti.jpg)
 
-Adds user controls for Multi-Chart charting views.
+Configures user controls
 
-**Zoom/Pan On**
 
-Check control to switch zoom and pan on
+_Zoom / Pan On_
 
-![Screenshot](img/panzoom.jpg)
+: When checked, enables zoom and pan
 
-![Screenshot](img/panzoom2.jpg)
+    ![Screenshot](img/panzoom.jpg)
 
-**Type**
+    ![Screenshot](img/panzoom2.jpg)
 
-Select between drag-to-select zoom, or Pan control
 
-**Zoom Select Color, Opacity and Border**
+_Type_
 
-Selects the background color, background color opacity and the border for the selected area. 
+: Either drag-to-select zoom, or Pan control
 
-**Min and Max Zoom**
 
-Set view state parameters for minimum and maximum zoom
+_Zoom Select Color, Opacity and Border_
+
+: Background color, background color opacity and border for the selected area. 
+
+
+_Min and Max Zoom_
+
+: View State Parameters for minimum and maximum zoom
+
 
 ## Highlight Rules
 
 ![Screenshot](img/highlightrulebar.jpg)
 
-Used to color code bar charts. Best used with real-time streaming or polling data. 
+Color-coding rules for bar charts: best used with real-time streaming or polling data. 
 
-Click on ![Screenshot](img/addrulebutton.jpg) to include additional highlight rules.
 
-**Name**
+_Name_
 
-Gives highlight rule a name
+: A name for the highlight rule
 
-**Apply to**
 
-Define which <a href="#data-source">Data Source</a> variable the highlight rule will apply. An option to encompass "All" <a href="#data-source">Data Source</a> variables is included too. 
+_Apply to_
 
-**Condition Source**
+: The column  of the _Data Source_ to which the highlight rule applies. Includes an option to apply to  `All` data series.  
 
-The data series on which the trigger is measured. Selected from the <a href="#data-sources">Data Source</a>
 
-**Condition Operator**
+_Condition Source_
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
+: The data series on which the trigger is set
 
-**Condition Value**
 
-What value threshold will trigger the alert.  Typical is "previous value" but can also be a text trigger
+_Condition Operator_
 
-**Color**
+: Rule operator: greater-than, less-than, not-equal-to, etc.
 
-What color bar will change on when highlight rule is true. 
+
+_Condition Value_
+
+: The value that will be tested for the alert: `previous value` is typical, but can also be a text trigger
+
+
+_Color_
+
+: The color the bar will change to when highlight rule is true. 
+
 
 ## Overlays
 
+Overlays allow you to extend a Multi Chart to include other data sources. 
+
+An Overlay has a single _Data Source_, from which can be plotted multiple data series, each described by an [Overlay Data](#overlay-data) section. 
+
+The Multi Chart can contain multiple Overlays, each with its own _Data Source_. 
+
 ![Screenshot](img/overlays.jpg)
 
-Overlays allow for data from different <a href="#data-source">Data Sources</a> to be applied on to a chart
 
-### Overlay
+_Data Source_
 
-Each additional Data Source can be added by clicking on the ![Screenshot](img/overlaybutton.jpg)
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics)
 
-**Data Source**
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+_Chart Type_
 
-**Chart Type**
+: Can be mapped to a [View State Parameter](introduction/#view-state-parameters)
 
-Select Chart Type to use from dropdown menu. Chart type can be mapped to a [view state parameter](introduction/#view-state-parameters)
 
-**Scale X-Axis to Parent**
+_Scale X-Axis to Parent_
 
-Plotted data is made fit to underlying chart scaled to primary <a href="#data-source">Data Sources</a>
+: Plotted data is made fit to underlying chart scaled to primary <a href="#data-source">Data Sources</a>
 
-**X-Axis**
 
-Select which variable from Overlay Data Source is to be used as the X-axis.
+_X-Axis_
 
-**Y-Axis Location**
+: The column from _Data Source_ to be used as the X axis
 
-![Screenshot](img/yaxislocation.jpg)
 
-Determine the position of plotted data along the y-axis. 
+_Y-Axis Location_
 
-**Selected Value** 
+: The position of plotted data along the Y axis
 
-Assign a [view state parameter](introduction/#view-state-parameters). This *Selected Value* will be mapped to an Overlay's Data Source *Selected Value Attribute*.
 
-**Selected Value Attribute**
+_Selected Value_
 
-Variable selected from Overlay Data Source which is mapped to Overlay's *Selected Value*
+: A [View State Parameter](introduction/#view-state-parameters) to be mapped to the _Selected Value Attribute_.
 
-**Tooltip**
 
-Configure Tooltip of Overlay data. 
+_Selected Value Attribute_
 
-![Screenshot](img/overlaytooltiptemplate.jpg) 
+: column from _Data Source_ to be mapped to _Selected Value_
+
+
+_Tooltip_
+
+: Tooltip configuration
+
+    ![Screenshot](img/overlaytooltiptemplate.jpg) 
+
 
 ### Overlay Data
 
-Adds data from **Overlay** Data Source.
+Plots onto the chart a single data series from the Overlay’s _Data Source_. 
 
-Click the ![Screenshot](img/overlaydatabutton.jpg) to add a new overlay plot
+An Overlay may contain multiple Overlay Data sections. 
 
-**Data**
 
-Dropdown select Overlay Data Source variable to plot
+_Data_
 
-**Display Name**
+: The column from _Data Source_ to be plotted
 
-Add a display name of the overlay data for the chart.
 
-**Color**
+_Display Name_
 
-Set the color of the Overlay data plot
+: A name for the data series 
+
+
+_Color_
+
+: Color in which to plot the data
+
 
 ## Style
 
 ![Screenshot](img/stylemultichartmenu.jpg)
 
+
 ### Advanced CSS
 
-Left click inside the Advanced CSS editor. Click the selector icon, then left-click inside the chart component to bring up the relevant CSS code. 
+Click inside the _Advanced CSS_ editor. Click the selector icon, then inside the chart component to bring up the relevant CSS code. Add changes to your CSS as required. 
 
 ![Screenshot](img/advancedcssmulticharthtmllight.jpg)
 
+
 ### Custom tooltip
 
-Step 1: Create View States for items in tooltip
+1. Create View States for items in tooltip
 
-![Screenshot](img/multicharttooltip.jpg)
+    ![Screenshot](img/multicharttooltip.jpg)
 
-Step 2: Add a html tag for View States (using handlebars)
+2. Add an HTML tag for View States, using [Handlebars](http://handlebarsjs.com)
 
-![Screenshot](img/configuretooltip.jpg)
+    ![Screenshot](img/configuretooltip.jpg)
 
-Step 3: Chartview
+3. Chartview
 
-![Screenshot](img/chartviewtooltip.jpg)
+    ![Screenshot](img/chartviewtooltip.jpg)
 
-Tooltips can use View State Parameters which have been mapped to Data Source variables
+Tooltips can use View State Parameters which have been mapped to data series (columns) from the _Data Source_
 
 ![Screenshot](img/parametermaphtmllight.jpg)
 
-In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
+In the _Configure Tooltip_ template, add HTML tags for the View State Parameters to display (using Handlebars) 
 
-If viewstate parameter = *param1*
-Add a table cell with *param1* viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
+If viewstate parameter is `param1`, add a table cell with `param1` viewstate to tooltip with the tag:  `{{obj.param1}}`
 
 ![Screenshot](img/tooltiphtmllight.jpg)
 
@@ -484,123 +505,112 @@ Tool tip will appear as:
 
 ![Screenshot](img/tooltipchart.jpg)
 
-**Bar/Line/Bubble/Candletick Opacity**
+_Bar/Line/Bubble/Candletick Opacity_
 
-Sets the color opacity for bar, line, bubble and candlestick. 
+: Color opacity for bar, line, bubble and candlestick
 
-### Tooltip Helper
 
-Tooltip Helper
+### _Tooltip Helper_
 
 ![Screenshot](img/tooltiphelper.jpg)
 
-Apply Tooltip Helper Variable to Tooltip reference
+Apply Tooltip Helper variable to Tooltip reference
 
 ![Screenshot](img/addhelpertooltip.jpg)
 
-Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
-
-For example:
- 
-```
+Tooltips use [Handlebars](http://handlebarsjs.com/) so variables can be added dynamically to tooltip. For example:
+```js
 {{fx}} : {{volume}}
 ```
+could appear as `EUR/USD: 250000`. To format `250000` so it will appear as `$250,000` use Tooltip Helper
 
-could appear as
-EUR/USD: 250000
 
-To format "250000" so it will appear as "$250,000" use Tooltip Helper
+_Name_
 
-**Name**
+: Give the function a name: it will be used inside the tooltip. For example:
 
-Give the function a name.  This name will be used inside the tooltip.
+    ![Screenshot](img/helpername.jpg)
 
-For example:
+    ```js
+    {{fx}} : {{fd volume}}
+    ```
 
-![Screenshot](img/helpername.jpg)
 
-```
-{{fx}} : {{fd volume}}
-```
+_Regex_
 
-**Regex**
+: The regular expression used to find the required pattern. In this example: `(\d{3})(?=\d)`
 
-The regular expression used to find the required pattern
 
-In this example:
+_Value_
 
-```
-(\d{3})(?=\d)
-```
+: The value to replace the text with. In this case, comma-delimited currency values: `$1,`
 
-**Value**
 
-The value to replace the text with. In this case, comma-delimited currency values: 
+_Tooltip Top Distance_
 
-```
-$1,
-```
+: Distance from mouse in pixels at which tooltip appears
+
 
 ## Format
 
-See [Format](introduction/#format) in Introduction for more on shared formatting options. Additional formatting specific to multi-charts is detailed below
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style) for common format parameters. Formatting specific to Multi Charts is detailed below. 
  
-Align Axis
 
-![Screenshot](img/alignaxis.jpg)
+_Reduce to Zero_
 
-Margin definitions
+: When checked, left- and right-axis scales start from zero
 
-![Screenshot](img/multichartmargins.jpg)
 
-See <a href="#format">Format</a> for configuration of Multichart Title and component Border settings
+_Align Axis_
 
-**Reduce to Zero**
+: When checked, right-axis scale is the same as the left-axis
 
-Check control to set left- and right-axis start points to zero
+    ![Screenshot](img/alignaxis.jpg)
 
-**Align Axis**
+_X-Axis Label_
 
-Check control to configure right-axis to match the scale of the left-axis
+: Label for X axis
 
-**X-Axis Label**
 
-Label for X-Axis
+_Y-Axis Label (Left/Right)_
 
-**Y-Axis Label (Left/Right)**
- 
-Label for respective left and right Y-Axis
+: Label for respective left and right Y axis scales
 
-**Margin Top, Bottom, Left and Right**
 
-Chart Margins
+_Margin Top, Bottom, Left and Right_
 
-![Screenshot](img/mulitchartmargins.png)
+: Margin between chart axis and edge and component
 
-Controls margin between chart axis and edge and component
+    ![Screenshot](img/multichartmargins.jpg)
 
-**Hovered Bar Color**
 
-Hovered Bar
+_Hovered Bar Color_
 
-![Screenshot](img/hoverbarcolor.png)
+: Color of the highlight bar on rollover
 
-Defines the color of the highlight bar on rollover
+    ![Screenshot](img/hoverbarcolor.jpg)
 
-**Selected Bar Color**
 
-Defines the color of of the highlight bar on selection
 
-**Track hover on exit**
+_Selected Bar Color_
 
-**Chart Background**
+: Color of of the highlight bar on selection
 
-Change the color of the background chart
 
-**Bar Spacing**
+_Track hover on exit_
 
-Sets the spacing between bars. 
+: When checked, the tooltip persists after the cursor leaves the chart. (The default behavior is for it to disappear.) 
+
+_Chart Background_
+
+: Color of the chart background 
+
+
+_Bar Spacing_
+
+: Spacing between bars 
+
 
 ## Margins
 
-See [Margins](introduction/#margins) in Introduction for more
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)

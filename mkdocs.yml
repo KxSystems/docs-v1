@@ -229,6 +229,7 @@ pages:
     - Line Chart: dashboards/linechart.md
     - Maps: dashboards/maps.md
     - Multi Chart: dashboards/multichart.md
+    - Multi Chart (draft): dashboards/multichart0.md
     - Navigation: dashboards/navigation.md
     - Order Book: dashboards/orderbook.md
     - Pager: dashboards/pager.md

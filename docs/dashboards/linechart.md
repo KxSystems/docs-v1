@@ -55,7 +55,7 @@ _Selected Row ViewState Routing_
     To add a row, click ![Screenshot](img/routinghtmllight.jpg)
 
 
-## X Axis
+## _X Axis_
 
 ![Screenshot](img/xaxislinemenu.jpg)
 
@@ -173,7 +173,7 @@ _Fill Area_
 
 
 
-## Zoom / Pan 
+## _Zoom / Pan_ 
 
 ![Screenshot](img/zoomandpanmenu.jpg)
 
@@ -222,7 +222,7 @@ _Mouse Pan Interval_ and _Mouse Pan Type_
 
 ## Style
 
-### ChartBarColors
+### _ChartBarColors_
 
 The color order for a [Pivot Data Source](introduction/#pivot-query). 
 
@@ -233,7 +233,7 @@ To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
 ![Screenshot](img/chartbarcolorshtmllight.jpg)
 
 
-### Advanced CSS
+### _Advanced CSS_
 
 Add CSS rules to Line chart
 
@@ -269,7 +269,7 @@ Tool tip will appear as:
 ![Screenshot](img/tooltipchart.jpg)
 
 
-### Tooltip Helper
+### _Tooltip Helper_
 
 ![Screenshot](img/tooltiphelper.jpg)
 
@@ -314,7 +314,7 @@ _Tooltip Top Distance_
 
 ![Screenshot](img/linechartformatmenu.jpg)
  
-<i class="fa fa-hand-o-right"></i> [Styling dashbopards](style). Additional formatting specific to line charts is detailed below. 
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style). Additional formatting specific to line charts is detailed below. 
 
 
 _Interpolate_
@@ -442,4 +442,4 @@ _Chart Background_
 
 ### Margins
 
-<i class="fa fa-hand-o-right"></i> [Styling dashbopards](style)
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
