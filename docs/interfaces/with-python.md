@@ -112,23 +112,3 @@ resulting in a query with fewer parameters.
 k('+`date`sym`qty!(,2006.10.06;,`MSFT;,100)')
 ```
 
-
-## Writing a client
-
-PyQ is designed primarily for embedded in-memory databases. For best performance one should avoid sending data between processes or over a network. Nevertheless, client programming is very simple with PyQ.
-```python
->>> from qc import *
->>> c = Client(port=1234)
->>> c.insert('t', (1,'x'))
->>> c.insert('t', (2,'y'))
->>> c.insert('t', (3,'z'))
->>> q.show(c('t'))
-a b
----
-1 x
-2 y
-3 z
->>> c('{select from t where a>x}'), 1)
-k('+`a`b!(2 3;`y`z)')
-```
-
