@@ -1,272 +1,243 @@
 ## Navigation
 
-The Navigation component can be used as a menu navigation between Dashboard screens, or as a "Welcome Screen" to open different dashboards.
+The Navigation component can be used as a menu for navigation between Dashboard screens, or as a landing page to offer a selection of dashboards.
+
 
 ## Basics
 
 ![Screenshot](img/navigationbasicsmenu.jpg)
 
-**Selected Value**
 
-Assign a [view state parameter](introduction/#view-state-parameters). Maps to selected button. 
+_Selected Value_
 
-**Columns**
+: A [View State Parameter](introduction.md#view-state-parameters): maps to selected button. 
 
-![Screenshot](img/columnsnofixedwidth.jpg)
 
-Configures the number of columns to use for button layout when **Fixed Width** buttons are not used.  Each column represents a button and will (relative) size according to the width of the navigation component. 
+_Columns_
 
-<aside class="admonition caution">If <i>Fixed Width</i> is set for button defaults, set the number of <i>Columns</i> to 1</aside>
+: ![Screenshot](img/columnsnofixedwidth.jpg)
 
-**Overflow**
+    The number of columns to use for button layout when buttons do not have _Fixed Size_ checked. Each column represents a button and will autosize according to the width of the navigation component. 
 
-![Screenshot](img/overflowdropdown.jpg)
+    !!! tip "Fixed-size buttons"
+        If buttons have _Fixed Size_ checked, set _Columns_ to 1.
 
-Determines scroll bar behaviour for navigation tool bar
 
-Choice | Function
---- | ---
-Hidden |  No scroll bar and visible buttons determined by component size.
-Auto | Best fit of Navigation buttons with vertical scroll bar if required.
-Scroll | Best fit of Navigation buttons include two scroll bars for vertical and horizontal axis.
-Overflow | Best fit of Navigation buttons with reordering on rescale.
+_Overflow_
 
-**Data Source**
+: Scrollbar behavior for navigation tool bar:
 
-Used when Navigation buttons are determined by a [Query](introduction/#defining-a-query) or [Analytic](introduction/#analytics)
+    Choice | Behavior
+    --- | ---
+    Hidden |  No scroll bar and visible buttons determined by component size.
+    Auto | Best fit of Navigation buttons with vertical scroll bar if required.
+    Scroll | Best fit of Navigation buttons include two scroll bars for vertical and horizontal axis.
+    Overflow | Best fit of Navigation buttons with reordering on rescale.
 
-<aside class="admonition caution">Ensure employed <i>Data Source</i> has column entries for all <i>Data Source Mapping</i> elements</aside>
+_Use Data Source_
 
-**Use Data Source**
+: When checked, buttons are generated from the _Data Source_ and the _Data Source Mapping_
 
-Check box if **Data Source** is used to generate buttons 
+_Data Source_
 
-### Data Source Mapping
+: A [query](introduction/#defining-a-query) or [analytic](introduction/#analytics)
 
-When employing a **Data Source** to create Navigation buttons, ensure there are references in the **Data Source** for:
 
-Data Source Variable | Description
---- | ---
-Icon | URL Reference for icon image
-Header Text | Descriptive header text for Navigation Button
-Contains Text | Main body text for Navigation Button
-Tooltip Text | Text to display on button rollover
-TargetDashboardId | Reference id of Target Dashboard; e.g. 'New Dashboard'
-TargetScreenId | Reference to Screen of Target Dashboard; e.g. 'Screen 1'
-ButtonColor | Hex color reference to background button color; '#ffffff'
-IconColor | Hex color reference to icon color; '#ffffff'
-BorderColor | Hex color reference to border color; '#ffffff'
-TextColor | Hex color reference to text color; '#ffffff'
+_Data Source Mapping_
 
-For each item, select the matching column of the **Data Source** for each entry
+: All of the following variables must be mapped to columns in the _Data Source_.
+
+    variable | description
+    --- | ---
+    Icon | URL Reference for icon image
+    Header Text | Descriptive header text for Navigation Button
+    Contains Text | Main body text for Navigation Button
+    Tooltip Text | Text to display on button rollover
+    TargetDashboardId | Reference id of Target Dashboard; e.g. 'New Dashboard'
+    TargetScreenId | Reference to Screen of Target Dashboard; e.g. 'Screen 1'
+    ButtonColor | Hex color reference to background button color; e.g. '#ffffff'
+    IconColor | Hex color reference to icon color; e.g. '#ffffff'
+    BorderColor | Hex color reference to border color; e.g. '#ffffff'
+    TextColor | Hex color reference to text color; e.g. '#ffffff'
+
+
 
 ## Action
 
-### View State Mapping
+### Viewstate Mapping
 
 ![Screenshot](img/navigationviewstatemapping.jpg)
  
-View State Mapping allows values of View State Parameters from Source dashboard to be transferred to View State Parameters in Destination Dashboard.
+_Viewstate Mapping_ transfers values of View State Parameters from the source dashboard to View State Parameters in destination dashboards.
 
-<aside class="admonition caution">When mapping View State Parameters across dashboards, it will be necessary to create the Target View State Parameter in the destination dashboard first. Viewstate Mapping can only map to existing View State Parameters; it does not create them</aside>
+!!! tip "Create destination View State Parameters first"
+    _Viewstate Mapping_ can only map to existing View State Parameters in the destination dashboard; it does not create them.
  
-To add a new Mapping element, click ![Screenshot](img/mappingbuttonhtmllight.jpg) 
 
-### Button Defaults
+## Button Defaults
+
+Where buttons are not generated from a _Data Source_, they can be defined individually from the _Buttons_ dialog: _Button Defaults_ are applied across all of them.
+
+![Screenshot](img/samplebuttons.jpg)  
+_Example buttons_
 
 ![Screenshot](img/buttonmenu.jpg)
 
-Sample buttons
 
-![Screenshot](img/samplebuttons.jpg)
+_Layout_
 
-If a *Data Source* is not used to create and map buttons, then Navigation buttons can be created using the *Button Defaults* menu. Settings are applied across all buttons used. Individual button customisations are done from the <a href="#buttons">Buttons</a> menu. 
+: The orientation order for icons and text. 
 
-**Layout**
+    Layout | Position
+    --- | ---
+    North-South | Icon aligned on top with text beneath
+    South-Noth | Icon aligned underneadth text
+    East-West | Icon left aligned, text to right
+    West-East | Icon right aligned, text to left
 
-Configures the orientation order for icon and text. For example, a North-South aligment positions icon on top with text beneath, while an *East-West* alignment positions the icon to the left and text to the right
+    The relative positioning of icons and text depends also on the button size as icon and text are wrapped within the button width.
 
-![Screenshot](img/formatnavigationhtmllight.jpg)
- 
-Layout | Position
---- | ---
-North-South | Icon aligned on top with text beneath
-South-Noth | Icon aligned underneadth text
-East-West | Icon left aligned, text to right
-West-East | Icon right aligned, text to left
 
-<aside class="admonition caution">The relative positioning of icons with text will also be dependent on the button size as icon and text are wrapped into button width.</aside>
+_Alignment_
 
-**Alignment**
+: Alignment of buttons inside Navigation component: left, right or center
 
-Set alignment of buttons inside Navigation component to left, right or center
 
-**Background**
+_Background_
 
-Use Hex color or colour palette to set background colour of button
+: Background colour of button
 
-**Button Margin**
 
-Defines space (in pixels) around outside of button
+_Button Margin_
 
-**Icon Margin**
+: Space (in pixels) around outside of button
 
-Defines space (in pixels) around icon, but inside the button
 
-<aside class="admonition caution">Adjusting icon margin may displace text 'out-of-view' for button, so icon margins should be small if combining icon and text</aside>
+_Icon Margin_
 
-**Button Padding**
+: Space (in pixels) around icon, within the button
 
-Defines space (in pixels) between around button icon and text, to edge of button.
+    !!! warning "Disappearing button text"
+        Icon margins can put text ‘out-of-view’ in the button. If combining icon and text, keep icon margins small.
 
-**Button Rounding**
 
-Applies Rounding to button. 
+_Button Padding_
 
-**Border Width**
+: Defines space (in pixels) between button icon and text and the border of the button.
 
-Example: Border Width: 1; Colour: White; Rounding: 10
 
-![Screenshot](img/borderbutton.jpg)
+_Border Width_, _Border Color_, _Border Rounding_
 
-Applies a border around icon and text. This border will appear inside the bounds of the button.
+: ![Screenshot](img/borderbutton.jpg)  
+_Example: Border Width: 1; Colour: #ffffff; Rounding: 10_
 
-**Border Colour**
+    A button’s border appears inside its edges. Its width is set in pixels. Rounding sets in pixels the radius of its corners
 
-Use colour palette to select button border color
 
-**Border Rounding**
+_Text %_
 
-As for *Button Rounding*, applies a rounding edge to button border 
+: Percentage of the button width allocated to _Content Text_. The default value of `75%` means button text will occupy three quarters of the width of the button. 
 
-**Text %**
+_Text Color_
 
-Where <i>Content Text</i> is used, *Text %* defines the position of the text inside the button. For example, the default value of 75% means button text will occupy three quarters the width of the button. 
+: Text colour for _Content Text_
 
-**Text Color**
 
-Use the colour palette to select a colour for button <i>Content Text</i>
+_Icon Color_
 
-**Icon Color**
+: Icon color
 
-Use the icon color to selet a colour for <i>icons</i> used in buttons.
 
-**Icon Size**
+_Icon Size_
 
-Set the size of the icon 
+: Icon size in pixels
 
-**Align Position**
 
-Defines the alignment of text and icons inside the button
+_Align Position_
 
-**Show Tooltip**
+: Alignment of text and icons inside the button
 
-Check control. Tooltip is configured in Navigation <a href="#Style">Style</a> menu.
 
-**Fixed Size**
+_Show Tooltip_
 
-When checked, buttons will size (in pixels) according to settings of <i>fixed width</i> and <i>fixed height</i>.
+: When checked, a tooltip is shown. The tooltip is configured in Navigation in the [Style](#style) dialog.
 
-<aside class="admonition caution">If <i>Fixed Size</i> is not used, the number of buttons will be determined by <i>Columns</i> in the Basics Navigation and the height set by the Navigation panel</aside>
 
-**Fixed Width**
+Fixed size
 
-Sets button width in pixels
+: When _Fixed Size_ is checked, buttons will have the height and width given (in pixels) _Fixed Width_ and _Fixed Height_.
 
-<aside class="admonition caution">Requires <i>*Fixed Size</i> to be checked</aside>
+    If _Fixed Size_ is not checked, the number of buttons will be determined by _Columns_ in [_Basics_](#basics) and the height of the Navigation panel.
 
-**Fixed Height**
 
-Sets button height in pixels
-
-<aside class="admonition caution">Requires <i>Fixed Size</i> to be checked</aside>
 
 ## Buttons
 
-### Details
+Define the details of individual buttons
 
 ![Screenshot](img/buttonsmenu.jpg)
 
-Individual buttons are added by clicking ![Screenshot](img/detailsbutton.jpg)
+_Open Dashboard on Select_
 
-**Open Dashboard on Select**
+: Have the button open a different dashboard – or a screen in `<this>`, the current one.  
+<i class="fa fa-hand-o-right"></i> [Customizing the dashboard](introduction.md#customizing-the-dashboard)
 
-Open a Different Dashboard:
 
-![Screenshot](img/opendashboard.jpg)
+_Icon_
 
-Open Screen in Current Dashboard:
+: ![Screenshot](img/iconmenuhtmlllight.jpg)
 
-![Screenshot](img/openthisdashboard.jpg)
 
-Select the dashboard to open on button click. Buttons can also open screens ([customizing the dashboard](introduction/#customizing-the-dashboard)); the screen is selected with the Dashboard set to "<this>"
+_Header Text_
 
-**Icon**
+: Bold header text for the button
 
-Select an icon to use from icon menu
 
-![Screenshot](img/leftclickiconhtmllight.jpg)
+_Content Text_
 
-![Screenshot](img/iconmenuhtmlllight.jpg)
+: Body text beneath _Header Text_, displayed within the widthset by _Text %_ in [Button Defaults](#button-defaults). 
 
-**Header Text**
 
-Add bold text to button
+_Dashboard Info_
 
-**Content Text**
+: (Not currently in use)
 
-Add text beneath Header Text.  The size of this text is defined by <i>Text %</i> in button defaults. 
 
-**Dashboard Info**
+Customization
 
-*Not currently in use*
+: When _Customise_ is checked, the [_Button Defaults_](#button-defaults) are overridden by _Button Color_, _Icon Color_, _Border Color_, and _Text Color_.
 
-**Customise**
+    !!! warning "Updating button defaults"
+        If _Button Defaults_ are later updated they will overwrite individual customizations.  Best to customize individual buttons after _Button Defaults_ are complete.
 
-When checked, allows for individual button customisation
-
-<aside class="admonition caution">If checked, button customisation will replace <a href="#button-defaults">button defaults</a> for the current button. However, if <a href="#button-defaults">button defaults</a> are later updated it will overwrite individual customizations.  Best to make individual button customisations after global button settings are completed</aside>
-
-**Button Color**
-
-Select button color from color palette
-
-**Icon Color**
- 
-Select icon color from color palette
-
-**Border Color**
-
-Select icon color from color palette
-
-**Text Color**
-
-Select text color from color palette
 
 ## Style
 
-Custom Tooltip Options
+<!-- 
+FIXME Replace Custom Tooltip copy (largely omitted here) with link to an article in new _Shared Parameters_ subfolder
+ -->
 
-![Screenshot](img/navigationtooltip.jpg)
+_Configure Tooltip_
 
-Configures tooltip for when **Show Tooltip** in <a href="#button-defaults">button defaults</a> is enabled.
+: ![Screenshot](img/navigationtooltip.jpg)
 
-### Custom Tooltip
+    When _Show Tooltip_ in [_Button Defaults_](#button-defaults) is checked, a tooltip is displayed. 
 
-Configure tooltip display. 
 
-![Screenshot](img/navigationstylehtmllight.jpg)
+    ![Screenshot](img/navigationstylehtmllight.jpg)
 
-### Advanced CSS
 
- Navigation buttons and text can be changed using the Advanced CSS control. 
+_Advanced CSS_
 
-## Margins
+: Navigation buttons and text can be changed using the _Advanced CSS_ 
 
-See [Margins](introduction/#margins) in Introduction for more
 
-## Format
+### Margins
+
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+
+### Format
 
 ![Screenshot](img/mapformat.jpg)
 
-See [Format](introduction/#format) in Introduction for more.
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
