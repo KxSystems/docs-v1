@@ -1,18 +1,19 @@
-![Screenshot](img/obrdemo.jpg)  
-_A surveillance dashboard_
+An Order Book charts market depth. It is used with charts and [Data Grids](datagrid) to build surveillance dashboards.
 
-Order Book Replay is used with charts and [Data Grids](datagrid) to build surveillance dashboards.
+![Screenshot](img/obrdemo.jpg)  
+_Order Book Replay: a surveillance dashboard with an Order Book component (lower right) charting market depth_
 
 
 ![Screenshot](img/orderbookreplayhtmllight.jpg)  
-_Data sources for the dashboard’s components_
+_A surveillance dashboard’s components and their data sources_
 
-![Screenshot](img/orderbookmenu.jpg)
 
 
 ## Basics
 
-Data sources for the Order Book, often shared with other dashboard components
+![Screenshot](img/orderbookmenu.jpg)
+
+Data sources for the Order Book, typically shared with other dashboard components:
 
 
 _Selected_
@@ -87,12 +88,12 @@ _Selected OrderID_
 
 _Clicked OrderID_
 
-: A View State Parameter. Stores value of OrderID (or other Events parameter) when user interacts with an Events Blotter – stored in a Data Grid separate to the Order Book Replay component.
+: A View State Parameter: displays the OrderID information of the order selected in the market-depth chart. 
 
 
 _Pip Size_
 
-: Sets the pip size to determine the resolution of the chart; e.g. Forex pricing vs Equities
+: Determines the resolution of the chart; e.g. Forex pricing vs Equities
 
 
 ## Chart Highlight Rules
@@ -200,12 +201,4 @@ _Status Bar and Tooltip_
 _HTML, CSS and Handlebars for Status Bar and Tooltip; Advanced CSS rules_
 
 
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
-
-## Margins
-
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

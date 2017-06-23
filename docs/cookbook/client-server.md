@@ -10,6 +10,17 @@ or at a later time, using the command `\p`
 ```q
 q)\p 5001
 ```
+
+!!! tip "Secure it"
+    You can restrict the interface by starting
+    ```bash
+    $ q -p 127.0.0.1:5000
+    ```
+    or within q
+    ```q
+    q)\p 127.0.0.1:5000
+    ```
+
 To stop listening, you can ask the server to listen on port zero, like this
 ```q
 q)\p 0

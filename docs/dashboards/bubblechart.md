@@ -358,7 +358,7 @@ $1,
 
 ![Screenshot](img/bubbleformat.jpg)
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style) for common formatting parameters
+<i class="fa fa-hand-o-right"></i> [Style](style) for common formatting parameters
 
 Formatting specific to bar charts is detailed below:
 

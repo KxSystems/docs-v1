@@ -234,10 +234,10 @@ _Advanced CSS_
 
 ### Margins
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)
 
 ### Format
 
 ![Screenshot](img/mapformat.jpg)
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

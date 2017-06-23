@@ -65,7 +65,7 @@ _Advanced CSS_
 
 ![Screenshot](img/bipartiteformatmenu.jpg)
 
-See [Styling dashboards](style) in Introduction for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below. 
+See [Style](style) in Introduction for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below. 
 
 _Component Shadow_
 

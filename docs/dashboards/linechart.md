@@ -314,7 +314,7 @@ _Tooltip Top Distance_
 
 ![Screenshot](img/linechartformatmenu.jpg)
  
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style). Additional formatting specific to line charts is detailed below. 
+<i class="fa fa-hand-o-right"></i> [Style](style). Additional formatting specific to line charts is detailed below. 
 
 
 _Interpolate_
@@ -442,4 +442,4 @@ _Chart Background_
 
 ### Margins
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

@@ -79,4 +79,4 @@ _Minimum width_
 : ![Screenshot](img/minwidthhtmllight.jpg)
 
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

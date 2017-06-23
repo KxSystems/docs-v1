@@ -553,7 +553,7 @@ _Tooltip Top Distance_
 
 ## Format
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style) for common format parameters. Formatting specific to Multi Charts is detailed below. 
+<i class="fa fa-hand-o-right"></i> [Style](style) for common format parameters. Formatting specific to Multi Charts is detailed below. 
  
 
 _Reduce to Zero_
@@ -613,4 +613,4 @@ _Bar Spacing_
 
 ## Margins
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

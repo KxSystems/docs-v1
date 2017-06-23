@@ -463,7 +463,7 @@ _Icon Color_
 
 ## Style
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)
 
 ![Screenshot](img/datagridstylemenu.jpg)
 

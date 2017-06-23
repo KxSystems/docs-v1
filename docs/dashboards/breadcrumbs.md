@@ -33,4 +33,4 @@ _Breakdown_
 3. Add the required CSS content
 
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

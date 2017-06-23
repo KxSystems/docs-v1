@@ -18,4 +18,4 @@ Embed external web page content into a Dashboard
 3. Add the required CSS content
 
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

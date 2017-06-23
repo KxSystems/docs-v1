@@ -73,4 +73,4 @@ Use _Advanced CSS_ to set styles
 
 ## Margins
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

@@ -1,43 +1,42 @@
-
-![Screenshot](img/piecharthtmllight.jpg)
+![Screenshot](img/piecharthtmllight.jpg)  
+_A pie chart in donut style_
 
 ## Basics
 
 ![Screenshot](img/piechartbasics.jpg)
 
-### Data Source
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+_Data Source_
 
-### Focus 
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) 
 
-Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
 
-### Selected Value 
+_Focus_
 
-Used to map a chart (query) data point to a [view state parameter](introduction/#view-state-parameters) when a chart bar is clicked by the user. 
+: A [View State Parameter](introduction/#view-state-parameters) used for [linking components](introduction/#linking-components)
 
-[1] Create a [view state parameter](introduction/#view-state-parameters) and assign to <i>Selected Value</i>
- 
-![Screenshot](img/selectedvaluecharthtmllight.jpg)
 
-[2] Go to <a href="#selected-value-attribute">Selected Value Attribute</a> to select a query variable to store in the Selected Value View State Parameter.
+_Selected Value_
 
-### Selected Value Attribute
+: A View State Parameter: maps to a chart (query) data point when a chart segment is clicked by the user
 
-This comes from the Data Source and is the variable paired with the <a href="#selected-value">selected value</a> [view state parameter](introduction/#view-state-parameters). 
 
-![Screenshot](img/selectedvalueattributehtmlight.jpg)
+_Selected Value Attribute_
 
-<aside class="admonition caution">When mapping <i>Selected Values</i> to <i>Selected Value Attribute</i>, ensure the <i>Data Type</i> of the View State Parameter matches the <i>Data Type</i> of the <a href="#data-source">Data Source</a>; e.g. integer for numbered data </aside>
+: A _Data Source_ column to be paired with the _Selected Value_ View State Parameter
 
-### Selected Row ViewState Routing
+    ![Screenshot](img/selectedvalueattributehtmlight.jpg)
 
-The aforementioned <a href="#selected-value">Selected Value</a> and <a href="#selected-value-attribute">Selected Value Attribute</a> handles a single data map. <a href="#selected-row-viewstate-routing">Selected Row Viewstate Routing</a> supports multiple mappings between <a href="#selected-value">Selected Values</a> and <a href="#selected-value-attribute">Selected Value Attributes</a>.
+    !!! tip "Data types"
+        When mapping _Selected Values_ to _Selected Value Attribute_, ensure the data type of the View State Parameter and the _Data Source_ have matching data types; e.g. integer for numbered data </aside>
 
-![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
 
-To add a row, click ![Screenshot](img/routinghtmllight.jpg)
+_Selected Row ViewState Routing_
+
+: _Selected Value_ and _Selected Value Attribute_ define a single data mapping. _Selected Row Viewstate Routing_ supports multiple mappings.
+
+    ![Screenshot](img/selectedviewstateroutingwhitehtml.jpg)
+
 
 ## Data
 
@@ -45,227 +44,106 @@ To add a row, click ![Screenshot](img/routinghtmllight.jpg)
 
 ![Screenshot](img/picechartdata.jpg)
 
-**Show Legend**
 
-Toggle display of Pie Chart Legend
+_Series Key_, _Series Data_
+: Columns from _Data Source_
 
-**Series Key**
-
-Dropdown select from available <a href="#data-source">data source</a>.  
-
-**Series Data**
-
-Dropdown select from available <a href="#data-source">data source</a>.  
 
 ## Highlight Rules
 
-![Screenshot](img/highlightrulebar.jpg)
+<!-- ![Screenshot](img/highlightrulebar.jpg)
+ -->
 
-Used to color code bar charts. Best used with real-time streaming or polling data. 
+Rules for color-coding charts: best used with real-time streaming or polling data 
 
-Click on ![Screenshot](img/addrulebutton.jpg) to include additional highlight rules.
+_Name_
 
-**Name**
+: A name for the rule
 
-Gives highlight rule a name
+_Apply to_
 
-**Apply to**
+: The _Data Source_ column to which the rule will apply (`All` is an option)
 
-Define which <a href="#data-source">Data Source</a> variable the highlight rule will apply. An option to encompass "All" <a href="#data-source">Data Source</a> variables is included too. 
+Condition
 
-**Condition Source**
+: The test for the highlight rule: values from _Condition Source_, a column from the _Data Source_, are compared with the _Condition Operator_ to _Condition Value_: typically `previous value`, but can also be a text trigger
 
-The data series on which the trigger is measured. Selected from the <a href="#data-sources">Data Source</a>
+_Color_
 
-**Condition Operator**
+: The color to display when the condition is true
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
+_Show in Legend_
 
-**Condition Value**
+: When checked, the highlight rule legend will appear in the chart
 
-What value threshold will trigger the alert.  Typical is "previous value" but can also be a text trigger
-
-**Color**
-
-What color bar will change on when highlight rule is true. 
-
-**Show in Legend**
-
-Highlight rule legend will appear in pie chart.
 
 ## Style
 
-Configure Pivot line colors, CSS and Custom Toolbar
+<i class="fa fa-hand-o-right"></i> [Style](style/#component-style) for common style parameters
 
-![Screenshot](img/piechartstylemenu.jpg)
-
-### ChartBarColors
-
-Order color for a [pivot query](introduction/#pivot-query). In the absence of a pivot query, the assignment of the colors is done in the order of the <a href="#data">Data</a> order. 
-
-To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
-
-![Screenshot](img/chartbarcolorshtmllight.jpg)
-
-### Advanced CSS
-
-CSS Configuration
-
-![Screenshot](img/advancedcsshorizontal.jpg)
-
-Select to add CSS elements to the pie chart.
-
-### Custom Tooltip
-
-Step 1: Create View States for items in tooltip
-
-![Screenshot](img/multicharttooltip.jpg)
-
-Step 2: Add a html tag for View States (using handlebars)
-
-![Screenshot](img/configuretooltip.jpg)
-
-Step 3: Chartview
-
-![Screenshot](img/chartviewtooltip.jpg)
-
-Tooltips can use View State Parameters which have been mapped to Data Source variables
-
-![Screenshot](img/parametermaphtmllight.jpg)
-
-In the Configure Tooltip template, add html tags for the View State Parameters to display (using handlebars) 
-
-If viewstate parameter = *param1*
-
-Add a table cell with *param1* viewstate to tooltip with the tag:  <td>{{obj.param1}}</td>
-
-![Screenshot](img/tooltiphtmllight.jpg)
-
-Tool tip will appear as: 
-
-![Screenshot](img/tooltipchart.jpg)
-
-### Tooltip Helper
-
-Tooltip Helper
-
-![Screenshot](img/tooltiphelper.jpg)
-
-Apply Tooltip Helper Variable to Tooltip reference
-
-![Screenshot](img/addhelpertooltip.jpg)
-
-Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
-
-For example:
- 
-```
-{{fx}} : {{volume}}
-```
-
-could appear as
-EUR/USD: 250000
-
-To format "250000" so it will appear as "$250,000" use Tooltip Helper
-
-**Name**
-
-Give the function a name.  This name will be used inside the tooltip.
-
-For example:
-
-![Screenshot](img/helpername.jpg)
-
-```
-{{fx}} : {{fd volume}}
-```
-
-**Regex**
-
-The regular expression used to find the required pattern
-
-In this example:
-
-```
-(\d{3})(?=\d)
-```
-
-**Value**
-
-The value to replace the text with. In this case, comma-delimited currency values: 
-
-```
-$1,
-```
 
 ## Format
 
 ![Screenshot](img/piechartformat.jpg)
 
-See <a href="#format">Format</a> for configuration of pie chart titles and borders.
+<i class="fa fa-hand-o-right"></i> [Style](style/#component-style) for common style parameters
 
-**Show Donut**
 
-Check to add donut to Pie Chart
+Donut
+
+: When _Show Donut_ is checked, chart is displayed as a donut: _Donut Ratio_ determines how much of the disc becomes donut
 
 ![Screenshot](img/piechartdonuthtmllight.jpg)
 
-**Donut Ratio**
 
-Move slider to adjust size of donut
+_Component Shadow_
 
-**Component Shadow**
+: (Not used)
 
-Not used
 
-**Label Type**
+Labels
 
-Select Pie Chart label from <a href="#data-sources">Data Source</a>
+: When _Show Labels_ is checked, displays labels according to _Label Type_ and _Sub Label Type_
 
-![Screenshot](img/labelconfigurationhtmllight.jpg)
 
-**Sub Label Type**
+_Show Breadcrumbs_
 
-Select Pie Chart Sub Label Type from <a href="#data-sources">Data Source</a>
+: When checked, displays breadcrumb control if chart is using a [pivot query](introduction/#pivot-query).
 
-**Show Labels**
 
-Check box to control display of **Label Type** and **Sub Label Type**
+_Key Type_
 
-**Show Breadcrumbs**
+: _Series Key_ format; includes date, time, datetime and numeric support for six decimal places. Default is no format 
 
-Displays breadcrumb control if Pie Chart is using a [pivot query](introduction/#pivot-query).
 
-**Key Type**
+_Value Format_
 
-Dropdown select of **Series Key** format; includes date, time, datetime and numeric support for six decimal places. Default is no format 
+: _Series Data_ format; zero to six decimal places. Default is no format.
 
-**Value Format**
 
-Dropdown select of **Series Data** format; zero to six decimal places. Default is no format.
+_Gauge Effect_
 
-**Gauge Effect**
+: If checked, chart shown in Gauge Form
 
-If checked, Pie Chart will convert to Gauge Form
+    ![Screenshot](img/gaugehtmllight.jpg)
 
-![Screenshot](img/gaugehtmllight.jpg)
 
-**Chart Background**
+_Chart Background_
 
-Set colour for Pie Chart Background
+: Background color
 
-**Inner Label** 
 
-Adds an inner label to pie. This can also be a [view state parameter](introduction/#view-state-parameters)  
+_Inner Label_
+
+: Adds an inner label to pie. This can also be a [view state parameter](introduction/#view-state-parameters)  
 
 ![Screenshot](img/innerlabel.jpg)
 
-### Pad angle
+_Pad Angle_
 
-![Screenshot](img/padangle.jpg)
+: ![Screenshot](img/padangle.jpg)
 
-Includes spacing between pie segments
+    Includes spacing between pie segments
 
-## Margins
 
-See [Margins](introduction/#margins) in Introduction for more
+<i class="fa fa-hand-o-right"></i> [Style](style/#component-style) for common style parameters

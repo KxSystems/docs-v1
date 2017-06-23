@@ -409,4 +409,4 @@ _Layout_
 
 3. Edit the CSS
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

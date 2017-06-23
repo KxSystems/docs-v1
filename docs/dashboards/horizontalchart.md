@@ -256,7 +256,7 @@ _Value_
 
 ![Screenshot](img/horizontalformatmenu.jpg)
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style) for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below.
+<i class="fa fa-hand-o-right"></i> [Style](style) for more on shared formatting options. Additional formatting specific to horizontal bar charts is detailed below.
 
 
 _X-axis Format_
@@ -334,4 +334,4 @@ _Show X-/Y-axis Ticks_
 
 ### Margins
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

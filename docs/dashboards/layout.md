@@ -35,4 +35,4 @@ Layout panels are best used with the [Tab Control](#tabcontrol) and [Accordion](
 
 ## _Margins_ and _Format_
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)

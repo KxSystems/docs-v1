@@ -277,7 +277,7 @@ $1,
 
 ![Screenshot](img/areachartaxisformatmenu.jpg)
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style) for more on shared formatting options. Additional formatting, specific to horizontal bar, charts is detailed below.
+<i class="fa fa-hand-o-right"></i> [Style](style) for more on shared formatting options. Additional formatting, specific to horizontal bar, charts is detailed below.
 
 ### _Y-Axis Format_
 

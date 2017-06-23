@@ -156,7 +156,7 @@ _Candlestick Down_
 
 ![Screenshot](img/mapformat.jpg)
 
-<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
+<i class="fa fa-hand-o-right"></i> [Style](style)
 
 
 ## Chart Controls
