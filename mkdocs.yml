@@ -218,8 +218,8 @@ pages:
     - ChartIQ: dashboards/chartiq.md
     - Config Manager: dashboards/configmanager.md
     - Custom Component: dashboards/customcomponent.md
-    - Dataform: dashboards/dataform.md
-    - Datagrid: dashboards/datagrid.md
+    - Data Form: dashboards/dataform.md
+    - Data Grid: dashboards/datagrid.md
     - Date Picker: dashboards/datepicker.md
     - Drop Down List: dashboards/dropdownlist.md
     - External Content: dashboards/externalcontent.md

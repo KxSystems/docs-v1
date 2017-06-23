@@ -1,185 +1,211 @@
-![Screenshot](img/obrdemo.jpg)
+![Screenshot](img/obrdemo.jpg)  
+_A surveillance dashboard_
 
-Order Book Replay is a self-contained component used alongside charts and data grids in building surveillance dashboards.
+Order Book Replay is used with charts and [Data Grids](datagrid) to build surveillance dashboards.
 
-## Basics
+
+![Screenshot](img/orderbookreplayhtmllight.jpg)  
+_Data sources for the dashboard’s components_
 
 ![Screenshot](img/orderbookmenu.jpg)
 
-Defines Data Sources for use in Order Book
 
-![Screenshot](img/orderbookreplayhtmllight.jpg)
+## Basics
 
-**Selected**
+Data sources for the Order Book, often shared with other dashboard components
 
-Assign a [view state parameter](introduction#view-state-parameters) for selected parameter.  This variable is often shared with other external components
 
-**Order Book**
+_Selected_
 
-![Screenshot](img/orderbookdatasource.jpg)
+: A [View State Parameter](introduction#view-state-parameters)
+
+
+_Order Book_
+
+: ![Screenshot](img/orderbookdatasource.jpg)
  
-Define a data source responsible for handling the Order Book. See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
+    A data source: 
+    <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics)
 
-**Order Events**
 
-![Screenshot](img/ordereventsdatasource.jpg)
+_Order Events_
 
-Define a data source responsible for Order Events. See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
+: ![Screenshot](img/ordereventsdatasource.jpg)
 
-**Orders Target**
+    A data source: 
+    <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics)
 
-![Screenshot](img/orderstargetdatasource.jpg)
 
-Define a data source responsible for Orders targets.  See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
+_Orders Target_
 
-**Trades Target**
+: ![Screenshot](img/orderstargetdatasource.jpg)
 
-![Screenshot](img/tradestargetdatasource.jpg)
+    A data source: 
+    <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics)
 
-Define a data source responsible for Trades Target.  See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
 
-**Base Time**
+_Trades Target_
 
-Assign a [view state parameter](introduction#view-state-parameters) for Base Time
+: ![Screenshot](img/tradestargetdatasource.jpg)
 
-Base Time is not user-defined, but is instead set by each bucket of data loaded into the Events Data Grid.  Base Time is defined from the chart interaction, and is shared for block intervals of data.  
+    A data source: 
+    <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics)
+
+
+_Base Time_
+
+: A View State Parameter. _Base Time_ is not user-defined, but instead set by each bucket of data loaded into the Events Data Grid.  _Base Time_ is defined from the chart interaction, and is shared for block intervals of data.  
  
-Each data bucket stores 3,000 data points, all with the one Base Time. Moving to a new data bucket (of 3,000 data points) resets Base Time. 
+    Each data bucket stores 3,000 data points, all with the one _Base Time_. Moving to a new data bucket (of 3,000 data points) resets _Base Time_. 
 
-!!! Tip "Base Time is used to restrict the amount of server calls to the database on each change of time."
+    !!! tip "Restricting server calls"
+        _Base Time_ is used to restrict the number of server calls to the database on each change of time.
 
-**Last Book Trades**
 
-![Screenshot](img/lastbooktradesdatasource.jpg)
+_Last Book Trades_
 
-Define a data source responsible for handling Last Book Trades. See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
+: ![Screenshot](img/lastbooktradesdatasource.jpg)
 
-**SelectedDuplicate**
+    A data source: 
+    <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics)
 
-Assign a [view state parameter](introduction#view-state-parameters) for SelectedDuplicate
 
-**Selected Time**
+_SelectedDuplicate_
 
-Assign a [view state parameter](introduction#view-state-parameters) for SelectedTime
+: A View State Parameter
 
-**Selected OrderID**
 
-Assign a [view state parameter](introduction#view-state-parameters) forSelectedOrderID
+_Selected Time_
 
-**Clicked OrderID** 
+: A View State Parameter
 
-Stores value of OrderID (or other Events parameter) when User interacts with an Events Blotter - stored in an Data Grid separate to the Order Book Replay component.
 
-**Pip Size**
+_Selected OrderID_
 
-Sets the pip size to determine the resolution of the chart; e.g. Forex pricing vs Equities
+: A View State Parameter
+
+
+_Clicked OrderID_
+
+: A View State Parameter. Stores value of OrderID (or other Events parameter) when user interacts with an Events Blotter – stored in a Data Grid separate to the Order Book Replay component.
+
+
+_Pip Size_
+
+: Sets the pip size to determine the resolution of the chart; e.g. Forex pricing vs Equities
+
 
 ## Chart Highlight Rules
 
+Color-code bar charts to show changes: best used with real-time streaming or polling data. 
+
 ![Screenshot](img/highlightrulebar.jpg)
 
-Used to color code bar charts. Best used with real-time streaming or polling data. 
 
-Click on ![Screenshot](img/addrulebutton.jpg) to include additional highlight rules.
+_Condition Source_
 
-**Condition Source**
+: The dependent variable from the data source defining the trigger
 
-The dependent variable from the data source defining the trigger.
 
-**Condition Operator**
+_Condition Operator_
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
+: Condition used to test _Condition Source_
 
-**Condition Value**
 
-What value threshold will trigger the alert. Typically, this is "previous value" but can be numeric or text (depending on the source data)
+_Condition Value_
 
-**Color**
+: The value against which to test _Condition Source_. Typically, this is _previous value_ but can be numeric or text, depending on the data source
 
-What color the bar will be when the highlight rule is true. 
+
+_Color_
+
+: Color of the bar when the condition is true 
+
 
 ## Grid Highlight Rules
 
-Used to apply color updates to notify users of changes in Data Grid values for Order Book and Trade History. 
+![Screenshot](img/samplehighlightrules.jpg)
+
+Rules for visual marking to notify users of changes in Data Grid values for Order Book and Trade History. 
 
 ![Screenshot](img/highlightrule.jpg)
 
-**Name**
 
-The name of the rule
+_Name_
 
-**Condition Source**
+: The name of the rule
 
-The data series on which the trigger is measured
 
-**Condition Operator**
+_Condition Source_
 
-Dropdown menu of rule operations, including greater and less than, not equal to, exactly equal to, and text contains alerts
+: The data series on which the trigger is measured
 
-Trigger | Explanation
---- | ---
-search | find Condition Value match; assign [view state parameter](introduction#view-state-parameters) and pair with [Text Input](textinput). 
-contains | find all instances with the Condition Value
-starts with | find all instancs starting with the Condition Value
-ends with | find all instance ending with the Condition Value
-== | exact match, e.g. client name
-< | less than Condition Value
-> | greater than Condition Value
-<= | less than or equal to Condition Value
->= | greater than or equal to Condition Value
-!= | excludes Condition Value
-Fill Left-to-Right | fills cell with color from left-to-right
-Fill Right-to-Left | fills cell with color from right-to-left
 
-**Condition Value**
+_Condition Operator_
 
-What value threshold will trigger the alert.  Default is _previous value_
+: Condition used to test _Condition Source_
 
-**Color**
+    Trigger | Explanation
+    --- | ---
+    search | find Condition Value match; assign [view state parameter](introduction#view-state-parameters) and pair with [Text Input](textinput). 
+    contains | find all instances with the Condition Value
+    starts with | find all instancs starting with the Condition Value
+    ends with | find all instance ending with the Condition Value
+    == | exact match, e.g. client name
+    < | less than Condition Value
+    > | greater than Condition Value
+    <= | less than or equal to Condition Value
+    >= | greater than or equal to Condition Value
+    != | excludes Condition Value
+    Fill Left-to-Right | fills cell with color from left-to-right
+    Fill Right-to-Left | fills cell with color from right-to-left
 
-The text color change when rule is true
 
-**Backround Color**
+_Condition Value_
 
-Background cell color change when rule is true. 
+: The value that will trigger the alert.  Default is _previous value_
 
-**Border Color**
 
-Cell border color change when rule is true
+_Color_
 
-**Icon**
+: Text color when rule is true
 
-Select an icon to appear when rule is true
 
-**Icon Color**
+_Backround Color_
 
-Select the color for the icon (if used) when rule is true
+: Cell background color when rule is true. 
 
-![Screenshot](img/samplehighlightrules.jpg)
+
+_Border Color_
+
+: Cell border color when rule is true
+
+
+_Icon_
+
+: Icon when rule is true
+
+
+_Icon Color_
+
+: Color for the icon (if any) when rule is true
+
 
 ## Style
 
-![Screenshot](img/orderbookcss.jpg)
+![Screenshot](img/styleexamplehtmllight.jpg)  
+_Status Bar and Tooltip_
 
-Three sets of CSS controls for Status, Chart and overall component.
+![Screenshot](img/orderbookcss.jpg)  
+_HTML, CSS and Handlebars for Status Bar and Tooltip; Advanced CSS rules_
 
-### Style
-
- > Style menu
-
- > ![Screenshot](img/obrstylemenu.jpg">
-
- Define styles for **Order Book** sections
-
- ![Screenshot](img/styleexamplehtmllight.jpg">
 
 ## Format
 
 ![Screenshot](img/3dchartformat.jpg)
 
-See [Format](introduction#format) in Introduction for more.
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
 
 ## Margins
 
-See [Margins](introduction#margins) in Introduction for more.
-
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
