@@ -1,54 +1,62 @@
 ![Screenshot](img/pager.jpg)
 
-While Paging is inbuilt into Data Grid, other components can use the Paging component to control the amount of data displayed. All that's required is for the Pager component to share the same <a href="#data-source">Data Source</a> as other components requiring paging.
+Paging is built into [Data Grids](datagrid) – other components can use the Pager component to control the amount of data displayed. All that’s required is for the Pager component to share the same _Data Source_ as other components requiring paging.
 
-!!! Warning
-    Ensure _Server Paging_ is checked in the Data Editor of **all** components requiring paging control; e.g. charts.  
+!!! note "Server Paging"
+    Ensure _Server Paging_ is checked in the Data Editor of _all_ components requiring paging control; e.g. charts.  
 
 ![Screenshot](img/serverpaging.jpg)
+
 
 ## Basics
 
 ![Screenshot](img/pagerbasics.jpg)
 
-**Data Source**
 
-See [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics) for more on data sourcing.
+_Data Source_
 
-**Paging Type**
+: A data source: 
+<i class="fa fa-hand-o-right"></i> [Defining a Query](introduction#defining-a-query) and [Analytics](introduction#analytics)
 
-Dropdown selection
 
-Type | Description
---- | ---
-None | Server Paging switched off. 
-Offset | Starts at page other than page 1 (Page Number:0)
-Page Number | Use Page Number
+_Paging Type_
 
-**Offset/Page Number**
+: State of the paging
 
-Set starting point for Paging
+    Type | Description
+    --- | ---
+    None | Server Paging switched off. 
+    Offset | Starts at page other than page 1 (Page Number:0)
+    Page Number | Use Page Number
 
-**Page Size**
 
-Determine how many rows of data each page is defined by
+_Offset/Page Number_
+
+: Starting point for paging
+
+
+_Page Size_
+
+: Number of rows of data each page is defined by
+
 
 ## Style
 
-[1] Left click inside Advanced CSS button
+1. Click inside _Advanced CSS_ button
 
-![Screenshot](img/leftclickcss.jpg)
+    ![Screenshot](img/leftclickcss.jpg)
 
-[2] Select the Pager component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Pager component. 
+2. Select the Pager component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog, then clicking on the Pager component. 
 
-[3] Add the required CSS content
+3. Edit the CSS content
+
 
 ## Format
 
 ![Screenshot](img/3dchartformat.jpg)
 
-See [Format](introduction#format) in Introduction for more.
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
 
 ## Margins
 
-See [Margins](introduction#margins) in Introduction for more
+<i class="fa fa-hand-o-right"></i> [Styling dashboards](style)
