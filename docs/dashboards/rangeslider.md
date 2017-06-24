@@ -1,194 +1,177 @@
-![Screenshot](img/rangesliderhtmllight.jpg)
+![Screenshot](img/rangesliderhtmllight.jpg)  
+_<small>A chart with a Range Slider</small>_
 
-The Range Slider plays a similar function to the <a href="#Breadcrumbs">Breadcrumbs</a> component.  It supports zoom-in navigation for linked charts using sequential x-axis data (e.g. time)
+The Range Slider plays a similar function to the [Breadcrumbs](breadcrumbs) component.  It supports zoom-in navigation for linked charts using sequential X-axis data (e.g. time)
+
 
 ## Basics
 
 ![Screenshot](img/rangeslidermenu.jpg) 
 
-### Data Source
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+_Data Source_
 
-### Focus
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) 
 
-Used for [linking components](introduction/#linking-components). Requires a [view state parameter](introduction/#view-state-parameters).
 
-### Range
+_Focus_
 
-Range Slider interaction
+: A [View State Parameter](introduction/#view-state-parameters) used for [linking components](introduction/#linking-components)
 
-![Screenshot](img/rangesliderinteraction.jpg)
 
-Used to link **Range Slider** components to other components with the **Range** Basics property.
+_Range_
 
-[1] Create and assign a <a href="#view-state-parameters">View State Parameter</a>
+: A View State Parameter: links the Range Slider to another component, which will have the same View State Parameter in its _Range_  
+<i class="fa fa-hand-o-right"></i> [Link to a chart](#link-to-a-chart)
 
-![Screenshot](img/rangesliderviewstate.jpg)
+_Selected Value_
 
-[2] Share the **View State Parameter** and **Data Source** for components to be linked; e.g. a chart.
+: A View State Parameter for the value selected <!-- What value? WTF? -->
 
-![Screenshot](img/rangesliderlinkhtmllight.jpg)
 
-[3] Go to Quickview/Preview to interact with chart
+_Selected Min Value_
 
-**Selected Value**
+: A View State Parameter for the minimum value of the selected range
 
-Set a [view state parameter](introduction/#view-state-parameters) to store the value selected in the Range Slider.
 
-**Selected Min Value**
+_Selected Max Value_
 
-Set a [view state parameter](introduction/#view-state-parameters) to store the minimum value of the selected range.
+: A View State Parameter for the maximum value of the selected range
 
-**Selected Max Value**
-
-Set a [view state parameter](introduction/#view-state-parameters) to store the maximum value of the selected range.
 
 ## X Axis
 
 ![Screenshot](img/xaxisrangeslidermenu.jpg)
 
-Configures Range Slider X-Axis
 
-**Axis Value**
+_Axis Value_
 
-Sets which query column variable will be used as the x-axis chart label
+: A _Data Source_ column to be used as the X-axis label
 
-![Screenshot](img/selectvariablehtmllight.jpg)
+_Axis Type_
 
-**Axis Type**
+: Data type for the _Axis Value_
 
-Sets the data type for the label used for X-Axis Value
+    !!! tip "Wrong X-axis labels?"
+        If X-axis labels look incorrect, try selecting a different type
 
-![Screenshot](img/xaxistypehtmllight.jpg)
 
-<aside class="admonition caution">If x-axis labels look incorrect, try selecting a different <a href="#type">Type</a></aside>
+_Axis Format_
 
-**Axis Format**
+: For when _Axis Type_ is `Date`
 
-Used for when <a href="#axis-type">X-Axis Type</a> is of type <i>Date</i>.
 
-![Screenshot](img/xaxisformatdatehtmllight.jpg)
+_Axis Scale_
 
-**Axis Scale**
+: `none`, numeric or temporal scaling <!-- WTF? -->
 
-![Screenshot](img/axisscale.jpg)
 
-Select no scaling, or use numberic/time scaling depending on selected axis type. 
+_Legend Label Tag_
 
-**Legend Label Tag**
+: (Coming soon)
 
-Coming soon
 
-**Use Fixed Num of Ticks**
+Ticks 
 
-Toggles control to use **Num of Ticks**
+: When _Use Fixed Num of Ticks_ is checked, chart displays _Num of Ticks_ ticks in the X axis. 
 
-**Show All Ticks**
+    When _Show All Ticks_ is checked, every charted data point is shown in the X axis 
 
-Displays every charted data point in the x-axis
 
-**Num of Ticks**
+_Rotation_
 
-The number of ticks to display in the x-axis if **Use Fixed Num of Ticks** is checked
+: ![Rotated labels](img/xaxislabelrotation.jpg)  
+_<small>Rotated labels</small>_
 
-**Axis Rotation**
 
-Rotate x-axis label
+## Y Axis
 
-![Screenshot](img/xaxislabelrotation.jpg)
-
-## Y-axis
+_Data Source_ columns, their display names and colors
 
 ![Screenshot](img/yaxisrangeslider.jpg)
 
-Adds <a href="#data-source">data source</a> variables to Range Slider
 
-**Column**
 
-Dropdown select of <a href="#data-source">data source</a> variable to plot.
+## Link to a chart
 
-To add a new data column, click ![Screenshot](img/columnbuttonhtmllight.jpg)
+![Range slider interaction](img/rangesliderinteraction.jpg)  
+_<small>Range Slider interaction with a Line Chart</small>_
 
-**Color**
+1. Create a View State Parameter and select it as _Range_
 
-Color Palette
+    ![Screenshot](img/rangesliderviewstate.jpg)
 
-![Screenshot](img/colorpalettemenu.jpg)
+2. Give the target chart the same _Data Source_ and _Range_ properties
 
-Use the colour palette to select bubble color
+    ![Screenshot](img/rangesliderlinkhtmllight.jpg)
 
-**Display Name**
+3. Use to Quickview or Preview mode to test the result
 
-The Legend name for the selected data source
+
+
 
 ## Style
 
 ![Screenshot](img/stylerangeslider.jpg)
 
-### ChartBarColors
 
-Selects <i>Range Slider</i> line colors when a [pivot query](introduction/#pivot-query) is used. For non-Pivot data, select line color from the **Y-axis Columns** control.
+_ChartBarColors_
 
-To add a color, click ![Screenshot](img/barcolorhtmllight.jpg)
+: <i class="fa fa-hand-o-right"></i> [ChartBarColors in Style](/style/#chartbarcolors) when a [pivot query](introduction/#pivot-query) is used
 
-![Screenshot](img/chartbarcolorshtmllight.jpg)
+    For non-Pivot data, line colors are set by the [Y-Axis](#y-axis) columns
 
-### Advanced CSS
+_Advanced CSS_
+: <i class="fa fa-hand-o-right"></i> [Advanced CSS in Style](style/#advanced-css) to add CSS rules to chart lines
 
-Select to add CSS elements to Line of Range Slider chart
-
-![Screenshot](img/rangeslidercss.jpg)
 
 ## Format
 
 ![Screenshot](img/formatrangeslider.jpg)
 
-See [Format](introduction/#format) in Introduction for more on shared formatting options. 
+<i class="fa fa-hand-o-right"></i> [Format in Style](style/#format) for common style parameters 
 
-**Y-axis Format**
 
-Dropdown to select number of decimal places to use for Y-axis
+_Y-axis Format_
 
-[1] 4 Decimal places
-[2] 3 Decimal places
-[3] 2 Decimal places
-[4] 1 Decimal place
-[5] Smart Number
-[6] No decimal place
+: Number of decimal places
 
-**Component Shadow**
 
-Applies shadow to component.
+_Component Shadow_
 
-**Fill Color**
+: When checked, applies a drop shadow to the component
 
-![Screenshot](img/samplefillcolor.jpg)
 
-![Screenshot](img/rangesliderfill.jpg)
+_Fill Color_
 
-Define background fill color during range select.
+: Background color of range during selection
 
-**Fill Opacity**
+    ![Screenshot](img/rangesliderfill.jpg)
 
-Set opacity of the overlay fill color to the underlying data plotted in the Range Slider.
 
-**Fill Color (Inverse)**
+_Fill Opacity_
 
-Set fill color inside selected range.
+: Opacity of the _Fill Color_ 
 
-**Fill Opacity (Inverse)**
 
-Set fill opacity inside selected range.
+_Fill Color (Inverse)_
 
-**Resize Stroke Color**
+: Background color inside selected range
 
-Set color of selected range border
 
-**Resize Icon Color**
+_Fill Opacity (Inverse)_
 
-Set color of range slider drag bar. 
+: Opacity of _Fill Color (Inverse)_
 
-## Margins
 
-See [Margins](introduction/#margins) in Introduction for more
+_Resize Stroke Color_
+
+: Border color of selected range 
+
+
+_Resize Icon Color_
+
+: Color of the Range Slider’s drag bar
+
+
+<i class="fa fa-hand-o-right"></i> [Style](style) for common style parameters

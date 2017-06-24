@@ -3,7 +3,8 @@ _<small>A dashboard with a chart popped up from a button top right</small>_
 
 A Popup displays another component or screen as a ‘pop up’ from the dashboard, typically, when a Button or some other selection control is clicked. 
 
-For the Popup to appear <!-- in Preview/Quickview WTF? --> it must be assigned to a View State Parameter of boolean type, and the View State Parameter bound to a Button or other selection control. When the user clicks the Button, the boolean View State Parameter is set to `true` and the Popup appears. 
+!!! tip "Quickview and Preview"
+    For the Popup to appear in the Dashboard Builder’s Preview or Quickview modes it must be assigned to a View State Parameter of boolean type, and the View State Parameter bound to a Button or other selection control. When the user clicks the Button, the boolean View State Parameter is set to `true` and the Popup appears. 
 
 Set up a Popup as follows: 
 

@@ -84,7 +84,7 @@ Used in conjunction with [Update Query](introduction/#update-query).
 
 ![Screenshot](img/updateedit.jpg)
 
-When in Preview or Quickview mode the User must click _Edit_ to enable the functionality; _Submit Changes_ when done or _Cancel_ to reject. 
+When in the Dashboard Builder’s Preview or Quickview mode, click _Edit_ to enable the functionality; _Submit Changes_ when done or _Cancel_ to reject. 
 
 
 ### _Enable Insert/Delete_
@@ -99,7 +99,7 @@ Used in conjunction with [Update Query](introduction/#update-query).
 
 ![Screenshot](img/updateedit.jpg)
 
-When in Preview or Quickview mode the user must click _Edit_ to enable the functionality; _Submit Changes_ when done, or _Cancel_ to reject. 
+When in the Dashboard Builder’s Preview or Quickview mode, click _Edit_ to enable the functionality; _Submit Changes_ when done or _Cancel_ to reject. 
 
 
 ## Columns
