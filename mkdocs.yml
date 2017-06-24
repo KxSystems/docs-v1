@@ -205,6 +205,7 @@ pages:
   - Dashboards for Kx:
     - Introduction: dashboards/introduction.md
     - Examples: dashboards/sampledashboards.md
+    - Query Mapper: dashboards/querymapper.md
     - Style: dashboards/style.md
     - Components:
       - 3D Chart: dashboards/3dchart.md
@@ -239,7 +240,6 @@ pages:
       - Pivot Grid: dashboards/pivotgrid.md
       - Playback: dashboards/playback.md
       - Popup: dashboards/popup.md
-      - Query Mapper: dashboards/querymapper.md
       - Range Slider: dashboards/rangeslider.md
       - Report Manager: dashboards/reportmanager.md
       - RSS Feed: dashboards/rssfeed.md
