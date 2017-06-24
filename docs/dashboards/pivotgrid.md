@@ -1,136 +1,120 @@
-Supports Pivot/OLAP control data sets to dashboards
+Displays a Pivot/OLAP control data set 
  
 ![Screenshot](img/samplepivotgridhtmllight.jpg)
+_<small>A Pivot Grid with user tools showing</small>_
 
 ## Basics
 
-Pivot Basics Menu
-
 ![Screenshot](img/pivotgridbasicsmenu.jpg)
 
-### Data Source
 
-Defines the source data to for Pivot Grid. See [Pivot Query](introduction/#pivot-query) in the Introductory section
+_Data Source_
 
-### Focus
+: [Pivot Query](introduction/#pivot-query): the source data for the grid 
 
-Used for [linking](introduction/#linking-components) components; see introductory section for more detail. 
 
-### Drilldown
+_Focus_
 
-Check control to auto-focus on Pivot/OLAP drilldown. 
+: Used for [linking components](introduction/#linking-components)
 
-### Show Tools
 
-Show User controls, including toggle control for Drilldown; e.g. CSV import and filtering 
+
+Row Selection
+
+: When _Enable Row Selection_ is checked, selecting a Pivot Grid row will assign the _Selected Column_ value to the _Selected_ [View State Parameter](introduction/#view-state-parameters)
+
+    ![Screenshot](img/pivotselectedrowhtmllight.jpg)
+ 
+
+_Show Tools_
+
+: Show user controls: Drilldown, filtering and download
+
+    ![Screenshot](img/showtoolshtmllight.jpg)
+
+
+_Drilldown_
+
+: When checked, enables Drilldown. 
+
+    ![Screenshot](img/drilldownhtmllight.jpg)  
+    _<small>Drilling down</small>_
+
+
 
 ## Breakdown Columns
 
-Breakdown Configuration
+Defines appearance of columns from the [Pivot Query](introduction/#pivot-query)
 
 ![Screenshot](img/breakdowncolumnmenu.jpg)
  
-Defines appearance of independent variable columns from <a href="#pivot-query">Pivot Query</a>
 
-**Display Name**
 
-Descriptive name for column
+_Display Name_
 
-**Width (relative)**
+: A name for the column
 
-Relative measure to total width of Pivot Grid. Scale is contigent on the values of each column; for example, a column of Width (relative) of 20, in a Pivot Grid using column widths of 20,10,5,1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)) 
 
-Relative columns will scale according to the browser size.
+_Width (relative)_
 
-**Text Align**
+: Column width relative to total width of Pivot Grid. Scale relates to the values of each column; for example, a column of _Width (relative)_ of 20, in a Pivot Grid using column widths of 20, 10, 5, 1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)) 
 
-Dropdown control: Center, Left, Right cell alignment
+    Relative columns scale according to the browser size.
 
-**Sortable**
 
-Check control.  When enabled, sort controls will be in column headers
+_Text Align_
 
-![Screenshot](img/sortablecolumns.jpg)
+: Dropdown control: Center, Left, Right cell alignment
 
-**Format**
 
-Sample formats
+_Sortable_
+
+: When checked, shows sort controls in column headers:
+
+    ![Screenshot](img/sortablecolumns.jpg)
+
+
+_Format_
+
+: ![Screenshot](img/sampleformats.jpg)  
+_<small>Formatted columns</small>_
   
-![Screenshot](img/sampleformats.jpg)
-  
-Select formatting for data type in column
-  
-![Screenshot](img/formatdropdown.jpg)
 
-**Precision**
+_Precision_ and _Hide Trailing Zeroes_
 
-Where numeric data is used, Precision sets the number of decimal places used.
+: Number of decimal places used to display numeric, and whether to show trailing zeroes
 
-**Hide Trailing Zeroes**
 
-Removes the display of zeroes from end digits after the decimal point.
+_Currency Symbol_
 
-![Screenshot](img/beforeprecision.jpg)
-
-![Screenshot](img/afterprecision.jpg)
-
-**Currency Symbol**
+: ![Screenshot](img/currencysymbol.jpg)  
+_<small>Currency columns with prefixed symbols</small>_
  
-Currencies
 
-![Screenshot](img/currencysymbol.jpg)
- 
-Adds a currency symbol prefix to column data
+
+_Date Format_ and _Time Format_
+
+: Date, Time or DateTime formats
   
-![Screenshot](img/currencyselect.jpg)
+    ![Screenshot](img/timecolumn.jpg)  
+_<small>Timestamps with DateTime format</small>_
 
-**Date Format**
 
-Combination Date and Time Format
-  
-![Screenshot](img/comboformat.jpg)
-  
-![Screenshot](img/timecolumn.jpg)
-  
-Select date format
 
-![Screenshot](img/dateformat.jpg)
-  
-<aside class="admonition caution">
-Ensure Date or DataTime format is selected when Date Format is used
-</aside>
-  
-**Time Format**
-  
-Select time format
-  
-![Screenshot](img/timeformat.jpg)
-  
-<aside class="admonition caution">
-Ensure Time or DataTime Format is selected when Time Format is used. 
-</aside>
+_Percentage Color_
 
-**Percentage Color**
+: Color: where _Format_ is _Percentage_ displays a mini bar in the range 0-100% 
 
-Percentage Color
+    ![Screenshot](img/percentagehighlight.jpg)  
+_<small>Percentage values with mini bars</small>_
 
-![Screenshot](img/percentagehighlight.jpg)
+!!! tip "View State Parameter"
+_Percentage Color_ can be a View State Parameter: roll over the end of input bar until until the eye icon appears, click the icon to assign the view state</aside>.
 
-Adds a mini-bar in Percentage formatted data. The proportion of the bar filled runs from 0 to 100%
 
-To enable set Format to *Percentage* 
+_Hidden_
 
-![Screenshot](img/percentageselecthtmllight.jpg)
-
-Select a colour to use for the bar 
-
-![Screenshot](img/percentcolorselecthtmllight.jpg)
-
-<aside class="admonition caution">Percentage Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until until the eye icon appears, click the icon to assign the view state</aside>.
-
-**Hidden**
-
-When checked, column will not be displayed to the User
+: When checked, column will not be displayed to the User
 
 ## Aggregate Columns
 
@@ -140,49 +124,58 @@ Aggregate Columns Configuration
 
 Configures the dependent variable columns from the <a href="#pivot-query">Pivot Query</a>
 
-**Data Field Name**
 
-The Data Field Name is selected from data columns in the **Data Source** query. 
+_Data Field Name_
 
-**Display Name**
+: The Data Field Name is selected from data columns in the **Data Source** query. 
 
-The display name in the Pivot Grid column. This is case sensitive.
 
-**Width (relative)**
+_Display Name_
 
-Relative measure to total width of Pivot Grid. Scale is contigent on the values of each column; for example, a column of Width (relative) of 20, in a Pivot Grid using column widths of 20,10,5,1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)) 
+: The display name in the Pivot Grid column. This is case sensitive.
+
+
+_Width (relative)_
+
+: Relative measure to total width of Pivot Grid. Scale is contigent on the values of each column; for example, a column of Width (relative) of 20, in a Pivot Grid using column widths of 20,10,5,1 will scale at a column width of 55% (i.e. 20/(20+10+5+1)) 
 
 Relative columns will scale according to the browser size.
 
-**Text Align**
 
-Alignment of values inside Pivot Grid: left, center, right
+_Text Align_
 
-**Sortable**
+: Alignment of values inside Pivot Grid: left, center, right
 
-Check control. When enabled, users clicking on column header will toggle between ascending and descending sort. 
 
-**Format**
-  
-Select formatting for data type in column
+_Sortable_
+
+: Check control. When enabled, users clicking on column header will toggle between ascending and descending sort. 
+
+
+_Format_
+
+: Select formatting for data type in column
 
 Supported formats include: *General, Number, Formatted Number, Smart Number, Date, Time, Datetime, and Percentage*
 
-**Precision**
 
-Where numeric data is used, Precision sets the number of decimal places used.
+_Precision_
 
-**Hide Trailing Zeroes**
+: Where numeric data is used, Precision sets the number of decimal places used.
 
-Removes the display of zeroes from end digits after the decimal point.
+
+_Hide Trailing Zeroes_
+
+: Removes the display of zeroes from end digits after the decimal point.
 
 ![Screenshot](img/beforeprecision.jpg)
 
 ![Screenshot](img/afterprecision.jpg)
 
-**Currency Symbol**
- 
-Currencies
+
+_Currency Symbol_
+
+: Currencies
 
 ![Screenshot](img/currencysymbol.jpg)
  
@@ -190,9 +183,10 @@ Adds a currency symbol prefix to column data
 
 ![Screenshot](img/currencyselect.jpg)
 
-**Date Format**
 
-Combination Date and Time Format
+_Date Format_
+
+: Combination Date and Time Format
   
 ![Screenshot](img/comboformat.jpg)
   
@@ -206,9 +200,10 @@ Select date format
 Ensure <i>Date</i> or <i>DateTime</i> Format is selected
 </aside>
   
-**Time Format**
-  
-Select time format
+
+_Time Format_
+
+: Select time format
   
 ![Screenshot](img/timeformat.jpg)
   
@@ -216,35 +211,42 @@ Select time format
 Ensure <i>Time</i> or <i>DateTime</i> Format is selected
 </aside>
 
-**Highlight Negative**
 
-Check control. When enabled, negative values in Pivot Grid will be shown in **Negative Color**
+_Highlight Negative_
+
+: Check control. When enabled, negative values in Pivot Grid will be shown in **Negative Color**
 
 ![Screenshot](img/negativecolourhtmllight.jpg)
 
-**Negative Color**
 
-Select from the color palette the font color to use when **Highlight Negative** is enabled.
+_Negative Color_
 
-**Highlight Changes**
+: Select from the color palette the font color to use when **Highlight Negative** is enabled.
 
-Check control. When enabled, cells will highlight green (for higher than previous value) or red (for lower than previous value). Used for streaming or polling data.
 
-**Highlight Change Duration**
+_Highlight Changes_
 
-Move the slider to control how long **Highlight Changes** remains inside the Pivot Grid
+: Check control. When enabled, cells will highlight green (for higher than previous value) or red (for lower than previous value). Used for streaming or polling data.
 
-**Show arrows on Change**
 
-Check control. When enabled, up and down arrows will appear when value is greater or less than previous value. Used for streaming or polling data.
+_Highlight Change Duration_
 
-**Highlight Min Value**
+: Move the slider to control how long **Highlight Changes** remains inside the Pivot Grid
 
-Check control When enabled, cell in column with lowest value will be highlighted with color set in **Min Value Color**
 
-**Min Value Color**
-  
-Min Value Color
+_Show arrows on Change_
+
+: Check control. When enabled, up and down arrows will appear when value is greater or less than previous value. Used for streaming or polling data.
+
+
+_Highlight Min Value_
+
+: Check control When enabled, cell in column with lowest value will be highlighted with color set in **Min Value Color**
+
+
+_Min Value Color_
+
+: Min Value Color
 
 ![Screenshot](img/minvaluecolor.jpg)
   
@@ -258,13 +260,15 @@ To Remove, again click on the color and select *No Color* from the palette tool.
 
 <aside class="admonition caution">Min Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
   
-**Highlight Max Value**
 
-Check control. When enabled, cell in column with highest value will be highlighted with color set in **Max Value Color**
+_Highlight Max Value_
 
-**Max Value Color**
+: Check control. When enabled, cell in column with highest value will be highlighted with color set in **Max Value Color**
 
-Max Value Color
+
+_Max Value Color_
+
+: Max Value Color
 
 ![Screenshot](img/maxvaluecolor.jpg)
   
@@ -276,13 +280,15 @@ Click the color bar again and then click *No Color* to remove the Max color sett
 
 <aside class="admonition caution">Max Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until the eye icon appears, click the icon to assign the view state</aside>
 
-**Range Highlight**
 
-Check control. When enabled, values in cell will have a background gradient determined by max/min values. The underlying range gradient is determined by **Range Color**.
+_Range Highlight_
 
-**Range Color**
+: Check control. When enabled, values in cell will have a background gradient determined by max/min values. The underlying range gradient is determined by **Range Color**.
 
-Range Color
+
+_Range Color_
+
+: Range Color
 
 ![Screenshot](img/rangecolor.jpg)
   
@@ -294,9 +300,10 @@ Click the color bar and then *No Color* to remove the Range color from column da
 
 <aside class="admonition caution">Range Color can be a viewstate parameter. To assign a viewstate parameter, rollover end of input bar until until the eye icon appears, click the icon to assign the view state</aside>
 
-**Percentage Color**
 
-Percentage Color
+_Percentage Color_
+
+: Percentage Color
 
 ![Screenshot](img/percentagehighlight.jpg)
 
@@ -314,17 +321,11 @@ Select a colour to use for the bar
 
 ## Selection and Routing
 
-Selection and Routing
-
 ![Screenshot](img/pivotselectionrouting.jpg)
 
-Allows values from data grid rows to be mapped to viewstate parameters; each value (cell) in a row will have its own viewstate parameter
+When _Enable Row Selection_ is checked, maps cols from Data Grid rows to View State Parameters. Each value (cell) in a row has its own View State Parameter.
 
-To start, Enable Row Selection must be enabled.
-
-![Screenshot](img/enablerowselectionhtmllight.jpg)
-
-If just a single value is to be stored, the *Selected Column* and *Selected Value* can be used.
+If only one mapping is required, define it in _Selected Column_ and _Selected Value_. For multiple mappings, use _Selected Row Viewstate Routing_. 
 
 [1] Select the Column of the data you wish to store
 
@@ -338,62 +339,29 @@ If just a single value is to be stored, the *Selected Column* and *Selected Valu
 
 ### Selected Row Viewstate Routing
 
+: _Selected Value_ and _Selected Value Attribute_ define a single data mapping. _Selected Row Viewstate Routing_ supports multiple mappings.
+
 Where *Selected Column* and *Selected Value* stores just a single value, *Selected Row Viewstate Routing* can store multiple values
 
 Click ![Screenshot](img/addroutinghtmllight.jpg) to set storage for additional values
 
 ![Screenshot](img/selectedrowviewstateroutinghtmllight.jpg)
 
-**Enable Row Selection**
 
-Check control. When enabled, selecting a pivot grid row will assign the **Selected Column** value to the **Selected** <a href="#view-state-parameters">**view state parameter**</a>. 
-
-![Screenshot](img/pivotselectedrowhtmllight.jpg)
- 
-**Selected Column**
-
-When **Enable Row Selection** is enabled, the assigned **Data Source** variable from the row will be configured to the **Selected** <a href="#view-state-parameters">**view state parameter**</a>
-
-**Selected**
-
-Assign a <a href="#view-state-parameters">**view state parameter**</a>. Receives value from **Selected Column**
-
-**Drilldown**
-
-When enabled, enables User to control Pivot display
-
-![Screenshot](img/drilldownhtmllight.jpg)
-
-<aside class="admonition caution">Requires Show Tools to be enabled</aside>
-
-**Show Tools**
-
-When enabled, displays user controls
-
-![Screenshot](img/showtoolshtmllight.jpg)
 
 ## Style
 
-Defines CSS of Pivot Grid
+<i class="fa fa-hand-o-right"></i> [Style](style/#component-style) for common style parameters 
 
-![Screenshot](img/pivotcsshtmllight.jpg)
 
 ## File Export
 
-![Screenshot](img/fileexport.jpg)
-
-Data from a data grid can be exported to a spreadsheet using the CSV downloader
+The content of a Data Grid can be exported using the downloader button/s: 
 
 ![Screenshot](img/gridcsvdownloadhtmllight.jpg)
 
-The filename can be specified, or linked to a view state parameter which can then be defined by the user
+The filename can be specified, or linked to a View State Parameter and thus defined by the user
 
 ![Screenshot](img/fileexporthtmllight.jpg)
 
-## Margins
 
-See [Margins](introduction/#margins) in Introduction for more
-
-## Format
-
-See [Format](introduction/#format) in Introduction for more

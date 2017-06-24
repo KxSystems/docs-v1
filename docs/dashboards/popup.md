@@ -1,27 +1,29 @@
+![Screenshot](img/popupobr.jpg)  
+_<small>A dashboard with a chart popped up from a button top right</small>_
 
-![Screenshot](img/popupobr.jpg)
+A Popup displays another component or screen as a ‘pop up’ from the dashboard, typically, when a Button or some other selection control is clicked. 
 
-Allows components to be viewed as standalone popups
+For the Popup to appear <!-- in Preview/Quickview WTF? --> it must be assigned to a View State Parameter of boolean type, and the View State Parameter bound to a Button or other selection control. When the user clicks the Button, the boolean View State Parameter is set to `true` and the Popup appears. 
 
-!!! Warning "For the pop-up to appear in Preview/Quickview it must be assigned to a view state parameter of type boolean, and the view state bound to a button or other selection control. When the button is clicked the boolean view state is set to 'true' and the pop-up appears."
+Set up a Popup as follows: 
 
-[1] Drag the Pop-up component inside the dashboard
+1. Drag a Popup component inside the dashboard
 
-![Screenshot](img/popuphtmllight.jpg)
+    ![Screenshot](img/popuphtmllight.jpg)
 
-[2] Click on the Pop-up component to open the editor screen; add an individual component or layout panel (+components).  Configure as normal for selected screen.
+2. Click on the Popup component to edit it. Add a single component or a Layout panel with multiple components. Set them up as normal. 
 
-[3] Close the panel, in the _Basics_ properties for the _Visible_ property,  create a view state parameter (e.g. popup).  Set the _popup_ to type boolean
+3. In the _Basics_ dialog for the Popup, for the _Visible_ property create a View State Parameter, named e.g. `popup`, of type boolean. 
 
-![Screenshot](img/popuppropertieshtmllight.jpg)
+    ![Screenshot](img/popuppropertieshtmllight.jpg)
 
-![Screenshot](img/popupboolean.jpg)
+    ![Screenshot](img/popupboolean.jpg)
 
-The size and type of the dialog can be set from the _Basics_ properties.
+    <!-- The size and type of the dialog can be set from the _Basics_ properties. WTF? -->
 
-[4] Add a button to where you want to associate the popup behaviour. This button will trigger the pop-up when clicked. Change the View State Mapping so the _popup_ view state parameter has a value of _true_. When the button is clicked, the popup dialog will appear.
+4. Place on the dashboard a Button to summon the Popup. Change its _View State Mapping_ to set the `popup` View State Parameter to `true`. When the user clicks the Button, the Popup will appear.
 
-![Screenshot](img/popupbuttonhtmllight.jpg)
+    ![Screenshot](img/popupbuttonhtmllight.jpg)
 
 
 

@@ -1,6 +1,7 @@
 ![Screenshot](img/playbackhtmllight.jpg)
 
-Used to play time sequence data in data grid and charting components.
+Replays time-series data in Data Grid and charting components
+
 
 ## Basics
 
@@ -8,79 +9,62 @@ Used to play time sequence data in data grid and charting components.
 
 Configure time series <a href="#data-source">Data Source</a> and timing parameters
 
-### Data Source
 
-![Screenshot](img/playbackdatasource.jpg)
+_Data Source_
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing. Ensure there is time series data (or equivalent) in the playback <a href="#data-source">Data Source</a>. 
+: ![Screenshot](img/playbackdatasource.jpg)
 
-Playback shares a <a href="#data-source">Data Source</a> with the component undergoing playback.
+    A query containing a time series (number, dates or timestamps), shared with the component being played back.  
+<i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics)
 
-<aside class="admonition tip">'Time Series' data can be a numeric sequence, it doesn't need to be of Type Date or Datetime </aside>
 
-**Selected Value**
+_Selected Value_
 
-Link to a [view state parameter](introduction/#view-state-parameters) which is used as the time series variable. 
+: A [View State Parameter](introduction/#view-state-parameters) for the time series
 
-<aside class="admonition tip">The time series <i>Selected Value</i> can be of Type Integer, it doesn't need to be of Type Date or Datetime </aside>
 
-**Selected Column**
+_Selected Column_
 
-Dropdown select from the **Data Source**. Will be used in playback sequence
+: An Integer or temporal column from the _Data Source_, to be used in playback sequence
 
-<aside class="admonition tip">Column data can be a numeric sequence</aside>
 
-**Time Column**
+_Time Column_
 
-Dropdown select from the **Data Source**. Identifies Time series data. 
- 
-<aside class="admonition tip">Can use <i>Selected Column</i> columnn variable or different variable column with Type Date or Datetime</aside>
+: A temporal column from the _Data Source_ (can be the _Selected Column_)
 
-**Mode**
 
-Select between Event or Time as default setting on load. 
+_Mode_
 
-**Speed Controls**
+: The default setting on load: `Event` or `Time` 
 
-Check control. When enabled, offers different replay speeds: x0.25, x0.50, x1, x2, x4, x8, x16
 
-![Screenshot](img/speedcontrolhtmllight.jpg)
+_Speed Controls_
 
-**Multi Controls**
+: ![Screenshot](img/speedcontrolhtmllight.jpg)
 
-Check control. When enabled, offers fast forward and rewind controls
+    When checked, offers a choice of replay speeds
 
-![Screenshot](img/multicontrolshtmllight.jpg)
+_Multi Controls_
 
-**Max Overall Time**
+: ![Screenshot](img/multicontrolshtmllight.jpg)
 
-Sets upper limit for replay based on **Selected Value** view state parameter
+    When checked, offers fast-forward and rewind
 
-**Interval Time**
 
-Configures speed of **Selected Value** view state parameter.
+_Max Overall Time_
 
-<aside class="admonition tip">Values above '1' will skip data points; e.g. a value of '2' will use every second data point of the <i>elected Value</i> view state parameter</aside>
+: Upper limit <!-- in what units ETF? --> for replay based on _Selected Value_ View State Parameter
 
-**Force Pause**
 
-Check control. 
+_Interval Time_
 
-## Margins
+: Sampling interval of the _Selected Value_ View State Parameter: values above `1` will skip data points; e.g. a value of `2` will use every second data point of the _Selected Value_ View State Parameter
 
-See [Margins](introduction/#margins) in Introduction for more
 
-## Style
+_Force Pause_
 
- Apply CSS to Playback component
-
- ![Screenshot](img/playbackcsshtmllight.jpg)
-
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction/#format) in Introduction for more.
+: Check control. 
 
 
 
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters
