@@ -204,7 +204,7 @@ pages:
     - Windows Service: cookbook/windows-service.md
   - Dashboards for Kx:
     - Introduction: dashboards/introduction.md
-    - Examples: dashboards/sampledashboards.md
+    - Samples: dashboards/sampledashboards.md
     - Query Mapper: dashboards/querymapper.md
     - Style: dashboards/style.md
     - Components:
