@@ -1,97 +1,95 @@
-Allows users to enter bodies of text, embed third-party HTML content, create custom tables for displaying data, or copy website content directly into a dashboard.
+A container for text and images: everything from a short string, through HTML tables, to entire web pages. Content may include values from the component’s data source. 
+
+![Screenshot](img/textcomponent.jpg)  
+_<small>A Text component with formatted content</small>_
+
 
 ## Basics
 
 ![Screenshot](img/basicsmenu.jpg)
 
-### Data Source
+_Data Source_
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics)
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
 
-**Formatted Text**
+_Formatted Text_
+: Clicking on the field summons the [Text Editor](#text-editor), which toggles between WYSIWYG and HTML modes. 
 
-Sample Text
+_Template Text_
+: Template text can include data from the _Data Source_. Clicking on the field summons the [Template Editor](#template-editor).
 
-![Screenshot](img/textcomponent.jpg)
- 
-Text Editor
+_Font Size_
+: Default type size, in pixels
 
-![Screenshot](img/texteditor.jpg)
+_Horizontal_
+: Horizontal alignment of text
 
-Add Image
+_Vertical_
+: Vertical alignment of text
 
-![Screenshot](img/addeditimage.jpg)
+_Tooltip_
+: (Not in use)
 
-HTML editor
 
-![Screenshot](img/htmltexteditor.jpg)
+## Text Editor
 
-Click inside the Formatted Text box to open the editor.
+Click inside the _Formatted Text_ box to summon the Text Editor.
 
 ![Screenshot](img/textcomponenthtmllight.jpg)
 
 ![Screenshot](img/texteditorinputhtmllight.jpg)
 
-Function | Description
+![Screenshot](img/texteditor.jpg)  
+_<small>Text Editor in WYSWIG mode</small>_
+
+![Screenshot](img/htmltexteditor.jpg)  
+_<small>Text Editor in HTML mode</small>_
+
+
+### Toolbar 
+
+button | function
 --- | ---
-![Screenshot](img/fontstylehtmllight.jpg) | Choose between **bold**, *italic* or underscore
+![Screenshot](img/fontstylehtmllight.jpg) | **Bold**, *italic* or underscore
 ![Screenshot](img/alignmenthtmllight.jpg) | Left, center, right and justify alignment
-![Screenshot](img/listoptionhtmllight.jpg) | bullet or numeric points
+![Screenshot](img/listoptionhtmllight.jpg) | Bullet or numeric points
 Font Size | 8pt, 10pt, 12pt, 14pt, 18pt, 24pt
-Font Family | Arial, Comic Snas, Courier New, Georgia, Helvetica, Impact, Times, Trebuchet, Verdana
+Font Family | Arial, Comic Sans, Courier New, Georgia, Helvetica, Impact, Times, Trebuchet, Verdana
 Font Format | Paragraph, Pre, Heading 6, Heading 5, Heading 4, Heading 3, Heading 2, Heading 1
-![Screenshot](img/indentoptionhtmllight.jpg) | add or remove paragraph indent
+![Screenshot](img/indentoptionhtmllight.jpg) | Add or remove paragraph indent
 ![Screenshot](img/addimagehtmllight.jpg) | Import an image. Includes options to set width, height, Alt Text and image alignment. To import an image, click ![Screenshot](img/uploadimagebutton.jpg), source the image from the PC, then click ![Screenshot](img/submitbutton.jpg)  
 ![Screenshot](img/addlinkhtmllight.jpg) | Add or remove URL links. Define the URL, give the URL a descriptive Title, and configure from the dropdown whether the link should open in the current window or a new window
 ![Screenshot](img/textcolorhtmllight.jpg) | Select text color from the color palette
-![Screenshot](img/addhtmllight.jpg) | Switch to HTML view
- 
-**Template Text**
+![Screenshot](img/addhtmllight.jpg) | HTML or WYSWIG mode
 
-Template text supports _Data Source_ integration. The ![Screenshot](img/helpbutton.jpg) offers additional configuration assistance: 
 
-![Screenshot](img/samplehealthhtmllight.jpg)
+### Uploading an image
 
-For example, the table:
+![Screenshot](img/addeditimage.jpg)
+
+
+## Template Editor
+
+### Embedding values
+
+As an example, the table:
 
 ![Screenshot](img/customtable.jpg)
 
-was generated from the following Template Text
+was generated from the following _Template Text_:
 
 ![Screenshot](img/templatetextsample.jpg)
 
-!!! Warning "Can't View Formatted Text?"
-    Template Text is dependent on a Data Source. If no Data Source is defined then the Template will not appear.
+### Online help
 
-**Font Size**
+The _Help_ button offers additional configuration assistance: 
 
-Defines font size, but font changes - including for size - are best done with the **Formatted Text** editor
+![Screenshot](img/samplehealthhtmllight.jpg)
 
-**Horizontal**
+!!! warning "Can’t see Template Text?"
+    _Template Text_ requires a data source. If no _Data Source_ is defined, _Template Text_ will not appear.
 
-Sets alignment of content inside component. 
 
-**Vertical**
+## Style, Margins, Format
 
-Sets alignment of content inside component
-
-**Tooltip**
-
-*Not in Use*
-
-## Style
-
-CSS styles can also be applied
-
-![Screenshot](img/templatetextsample.jpg)
-
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction/#format) in Introduction for more.
-
-## Margins
-
-See [Margins](introduction/#margins) in Introduction for more
-
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters

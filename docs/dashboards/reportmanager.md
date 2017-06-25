@@ -1,105 +1,106 @@
-
 ![Screenshot](img/reportmanager.jpg)
 
 Report Manager is a self-contained component for creating and scheduling reports. 
 
-### Create a Report
+### Create a report template
 
-[1] The underlying structure of the report is created from the Template Editor. Click ![Screenshot](img/createbuttonhtmllight.jpg) and give the report a name.
+1. The structure of the report is created in the Template Editor. Click _Create_, name the report, and save it.
 
-![Screenshot](img/newreporttemplatehtmllight.jpg)
+    ![Screenshot](img/newreporttemplatehtmllight.jpg)
 
-!!! Tip "Don't forget to save a newly created Report."
+1. In the _Details_ tab, set the _Target Engine_ or connection to use for the report. 
 
-[2] In the _Details_ tab, set the _Target Engine_ or connection to use for the report. See [Creating a Connection](introduction#creating-a-connection) for more on adding a connection.
+    ![Screenshot](img/targetenginehtmllight.jpg)
 
-![Screenshot](img/targetenginehtmllight.jpg)
+    !!! tip "Connections"
+        Connections cannot be created or edited from the Report Manager. Use the [Connections Manager](introduction#creating-a-connection) in Dashboards.
 
-!!! Warning "Connections cannot be edited from inside Report Manager. Use the [Connections Manager](introduction#creating-a-connection) in Dashboards to create or edit a connection."
+1. Still in the _Details_ tab, select from the dropdown a _Report Analytic_. This is the query used to pull data to populate the report.  Four default Analytics are offered. 
 
-[3] Also from the _Details_ tab, select from the dropdown a _Report Analytic_.  This is the query used to pull data to populate the report.  Four default Analytics are offered.
+    ![Screenshot](img/reportanalytichtmllight.jpg)
  
-![Screenshot](img/reportanalytichtmllight.jpg)
+    Available Analytic Parameters will update when a _Report Analytic_ is selected but are non-editable. Parameters are edited in the _Instance Editor_, see step 7.
 
-Available Analytic Parameters will update when a _Report Analytic_ is selected but are non-editable. Parameters are edited in the _Instance Editor_, see step [7]
+    The description will also update when the _Report Analytic_ is changed.
 
-The description will also update when the _Report Analytic_ is changed
-
-!!! Warning "Only Analytics assigned to _DxReportAnalytics_ from Control for Kx will be available as an Analytic inside Report Manager."
+    !!! Warning "Control for Kx"
+        Only Analytics assigned to _DxReportAnalytics_ from Control for Kx will be available as Analytics inside Report Manager.
  
-[4] Configure what the report will do, click ![Screenshot](img/configurereportactionshtmllight.jpg) in _Report Actions Details_. This will bring up a menu list of Report Actions.
+1. Configure what the report is to do: click _Configure Report Actions_ in _Report Actions Details_. This will bring up a menu list of Report Actions.
 
-![Screenshot](img/dxreportsavetotxt.jpg)
+    ![Screenshot](img/dxreportsavetotxt.jpg)
 
-Left-click-and-drop from the _Available Analytics_ actions for the report to do from the list on the left into the _Selected Analytics_ box on the right.
+    Drag report actions from the _Available Analytics_ list on the left into the _Selected Analytics_ box on the right.
 
-![Screenshot](img/configurereportactions.jpg)
+    ![Screenshot](img/configurereportactions.jpg)
 
-Selected Report Actions will be editable inside the _Instance Editor_
+    Selected report actions can then be edited inside the _Instance Editor_:
 
-![Screenshot](img/selectedreportactiondetailshtmllight.jpg)
+    ![Screenshot](img/selectedreportactiondetailshtmllight.jpg)
 
-To remove an action, do so from the _Configure Report Actions_ by dragging from _Selected Analytics_ on the right back to _Available Analytics_ on the left.
+    Remove report actions by dragging them back from _selected Analytics_ into _Available Analytics_.
 
-!!! Warning "Only _Report Actions_ assigned to _DxReportActionAnalytics** from Control for Kx will be available as a Report Action. Create or remove a Report Action Analytic from the Control for Kx UI."
+    !!! Warning "Control for Kx"
+        Only Report Actions assigned to `DxReportActionAnalytics` from Control for Kx will be available. Create or remove a report action Analytic using Control for Kx.
 
-[5] Permissions to read and/or write the Report Template is set in the Permissions tab. Drag-and-drop Users from the left to the user group on the right, and configure _Access Level_ permission from the drop down.
+1. Grant permissions to read and/or write the report template: in the _Permissions_ tab, drag users from the left to the user group on the right, and set their _Access Level_ permissions.
 
-![Screenshot](img/permissionshtmllight.jpg)
+    ![Screenshot](img/permissionshtmllight.jpg)
 
-The list of available Users and Access Level permisions is set in Control for Kx
+    The list of available users and Access Level permissions is set in Control for Kx.
 
-[6] Save Template, then open _Instance Editor_
+1. Save the template. 
 
-[7] From the Instance Editor, ![Screenshot](img/createbuttonhtmllight.jpg) a new Report Instance.
+## Create a report from a template
 
-![Screenshot](img/newinstancehtmllight.jpg)
+1. Open _Instance Editor_ and click _Create_. This will use the template to make a new instance of the report.
 
-This will take the details from the Template and apply them to the current Instance.
+    ![Screenshot](img/newinstancehtmllight.jpg)
 
-![Screenshot](img/setinstanceeditordetailshtmllight.jpg)
 
-In _Details_, Report description can be changed from the default used in the Template Editor. To customize Report Parameters from Template defaults, uncheck the _use default_ and enter a value
+1. In _Details_, the report description and parameters can be changed from the template’s defaults. 
 
-![Screenshot](img/reportparametershtmllight.jpg)
+    ![Screenshot](img/setinstanceeditordetailshtmllight.jpg)
 
-Further customization can be done from the _Advanced Details_ tab. Here, the _Target Engine_ can be changed from the default Template option.
+1. In _Advanced Details_ other parameters can be customised from the template’s defaults.
 
-The _Timeout_ is set to default of zero ("infinte time"). Changing the value will set a millisecond timeout for the report. 
+    ![Screenshot](img/advanceddetailshtmllight.jpg)
 
-It's in _Advance Details_ where _Action Parameters_ can be changed, including who will receive the Report. Recipents of a report use the Control for Kx User details.
+    _Timeout_ 
+    : Milliseconds: the default of zero means no timeout
 
-![Screenshot](img/advanceddetailshtmllight.jpg)
+    _Action Parameters_
+    : Recipents of the report: selected from users set by Control for Kx – do not use an email address as a report recipient.
 
-!!! Warning "Delivery recipients for to/cc/bcc have to be user entitled in Control for Kx."
+1. Schedule the report:
 
-!!! Warning "Do not use a User's email address for to/cc/bcc"
+    ![Screenshot](img/schedulinghtmllight.jpg)
 
-[9] Set Report Scheduling. This can be a once off report or a regularly scheduled report
+    ![Screenshot](img/schedulinghtmllight2.jpg)
 
-![Screenshot](img/schedulinghtmllight.jpg)
+1. Grant Permissions to override the template defaults:
 
-![Screenshot](img/schedulinghtmllight2.jpg)
+    ![Screenshot](img/instancepermissionshtmllight.jpg)
 
-[10] Permissions can also be set to override the Template defaults
+    !!! tip "Recipients"
+        Recipients of a report need not be listed under Permissions.
 
-![Screenshot](img/instancepermissionshtmllight.jpg)
+1. Save the report instance. 
 
-Recipients of a report do not need to be listed under Permissions.
+1. Run the report. If scheduled, the report will run at the set time. However, reports can be run directly from the _Instances_ tab: click the _Run_ button.
 
-[11] Save the Report Instance
+    ![Screenshot](img/runinstancehtmllight.jpg)
 
-[12] The final step is to run the report. If scheduled, the report will run at the defined time. However, reports can be run directly from the _Instances_ tab. Click ![Screenshot](img/runbuttonhtmllight.jpg)
+1. Review the status of the report in the _Run Info_ tab. Successful runs are highlighted in green, failures in red.
 
-![Screenshot](img/runinstancehtmllight.jpg)
+    ![Screenshot](img/sampleloghtmllight.jpg)
 
-[13] The status of the report can be found under the _Run Info_ Tab. If successful, the log will show a green success, or a red fail.
+    !!! tip "Filters"
+        Filter the report instances with the _Date_, _Report_ and _RunID_ controls. Click _Submit_ to apply a filter. 
 
-![Screenshot](img/sampleloghtmllight.jpg)
+## Upload
 
-Use the Date, Report and/or RunID filters to search. Remember to click ![Screenshot](img/submitbuttonhtmllight.jpg) when running a filter. 
-
-Users can use the <a href="#upload">Upload</a> component to view generated reports. 
+Dashboards can use the [Upload](upload) component to display an index of reports. 
 
 ![Screenshot](img/reportupload.jpg)
 
@@ -107,49 +108,29 @@ Users can use the <a href="#upload">Upload</a> component to view generated repor
 
 ![Screenshot](img/reportmanagermenu.jpg)
 
-**Run Data Connection**
 
-Select connection from dropdown menu
+_Download Folder_
 
-![Screenshot](img/rundataconnectionhtmllight.jpg)
- 
-**Data Connection**
+: Folder to which Reports will be downloaded
 
-Select connection from dropdown menu
 
-**Download Folder**
+_Read only_
 
-Set the folder to which Reports will be downloaded too.
+: When checked, reports are read-only
 
-**"Read Only"**
 
-Check control for Read Only reports. 
+_Filtering_
 
-**Filtering**
+: `Quick Search` (global search),` Columns Filters`, `Advanced Column Filters` and disabled (`None`). 
 
-Switch between Quick Search (global search), Columns Filters, Advanced Column Filters and disabled (None). 
 
 ## Style
 
-[1] Left click inside Advanced CSS button
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters
 
-![Screenshot](img/leftclickcss.jpg)
 
-[2] Select the Playback component by first clicking on the ![Screenshot](img/cssselecticon.jpg) icon in the pop-up dialog and then clicking on the Report Manager component. 
 
-[3] Add the required CSS content
+## User controls
 
-## Margins
-
-See [Margins](introduction#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction#format) in Introduction for more.
-
-## User Controls
-
-For more on using Report Manager, see Report Management in Stream for Kx.
+<i class="fa fa-hand-o-right"></i> Report Management in Stream for Kx for more on using Report Manager
 

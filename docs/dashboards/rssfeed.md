@@ -1,124 +1,116 @@
+![Screenshot](img/rssfeedhtmllight.jpg)  
+_<small>RSS feed display</small>_
 
-Adds third party RSS feeds into dashboards
-
-![Screenshot](img/rssfeedhtmllight.jpg)
+Display RSS feeds
 
 ## Basics
 
-Configure RSS
-
 ![Screenshot](img/rssfeedmenu.jpg)
 
-**URL Address**
 
-Add in the http(s) URL for the RSS feed
+_Url address_
 
-Ensure the correct RSS format is employed. Check the output in Preview mode
+: Ensure the URL for the correct RSS format is used: check the result in the dashboard’s Preview mode
 
-**Max Rows**
 
-Number of news items to appear on feed.
+_Max rows_
 
-**Update Interval**
+: Number of items to be displayed 
 
-Frequency of RSS update poll in seconds
+
+_Update Interval_
+
+: Seconds between updates
+
 
 ## Style
 
+![Screenshot](img/headercontent.jpg)  
+_<small>Header and Content areas</small>_
+
 ![Screenshot](img/rssstylemenu.jpg)
  
-RSS uses default style, but elements of the RSS feed can be individually configured.
 
-**Use Own Styles**
+_Use Own Styles_
 
-Check control to enable custom styling
+: When checked, default styles are overriden as follows
 
-### Header 
 
-![Screenshot](img/headercontent.jpg)
+### Header
 
-**Background Colour**
+_Background Color_
+: Background color of header
 
-Use color palette to select background color of RSS header.
+_Header Font Color_, _Header Font Size_
+: Color and pixel size of header text
 
-**Header Font Colour**
-
-Use color palette to select font color of RSS header.
-
-**Header Font Size**
-
-Set pixel size of RSS header font.
 
 ### Content
 
-![Screenshot](img/stylemenu.jpg) 
 
-**Date Font Colour**
+_Date Font Colour_
 
-Use color palette to select font color of article date.
-
-**Story Background Color**
-
-Use color palette to select background color of articles.
-
-**Title Font Colour**
-
-Use color palette to select background color of article title.
-
-**Title Font Hover Colour**
-
-Use color palette to set rollover color of article Title.
-
-**Title Font Size**
-
-Set pixel size of article title font.
-
-**Date Font Size**
-
-Set pixel size of article date font.
-
-**Story Hover Covers**
-
-Use color palette to set color on rollover of article
-
-**Date Font Hover Colour**
-
-Use color palette to set color on rollover of article date
-
-**Story Font Colour**
-
-Use color palette to define font of article summary
-
-**Story Font Hover Colour**
-
-Use color palette to define font on rollover of article summary
-
-**Story Font Size**
-
-Set pixel size of article font.
-
-**Icon Color**
-
-Set color of icons to open and delete article
-
-**Icon Hover Color**
-
-Set color of icon rollover behaviour
-
-**Advanced CSS**
-
-Set CSS for RSS component
-
-![Screenshot](img/rsscsshtmllight.jpg)
- 
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction#format) in Introduction for more.
-
-## Margins
-
-See [Margins](introduction#margins) in Introduction for more
+: Text color of article dates
 
 
+_Story Background Color_
+
+: Background color of articles
+
+
+_Title Font Colour_
+
+: Text color of article title.
+
+
+_Title Font Hover Colour_
+
+: Rollover color of article titles
+
+
+_Title Font Size_
+
+: Pixel size of article titles
+
+
+_Date Font Size_
+
+: Pixel size of article dates
+
+
+_Story Hover Covers_
+
+: Rollover color of article
+
+
+_Date Font Hover Colour_
+
+: Rollover color of article date
+
+
+_Story Font Colour_
+
+: Text color of article summary
+
+
+_Story Font Hover Colour_
+
+: Rollover text color of article summary
+
+
+_Story Font Size_
+
+: Pixel size of article text
+
+
+_Icon Color_
+
+: Color of icons to open and delete article
+
+
+_Icon Hover Color_
+
+: Rollover color of icons
+
+
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters
