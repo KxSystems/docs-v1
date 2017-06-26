@@ -1,88 +1,64 @@
+The Upload component gives a view of a server directory and supports uploading and downloading files to and from it. 
 
-File uploader (and downloader).
+![Screenshot](img/fileuploadcompletehtmllight.jpg)  
+_<small>An upload in progress</small>_
 
-![Screenshot](img/uploadmanagerhtmllight.jpg)
-
-Click ![Screenshot](img/uploadbuttonhtmllight.jpg) to search for a file to upload
-
-![Screenshot](img/fileuploadhtmllight.jpg)
-
-File upload will begin
-
-![Screenshot](img/fileuploadcompletehtmllight.jpg)
-
-Users can also download files from the dashboard by clicking the download icon
-
-![Screenshot](img/downloadfilehtmllight.jpg)
 
 ## Basics
 
 ![Screenshot](img/uploadbasics.jpg)
 
-Set permissions and upload/download directory
 
-**Valid File Names**
+_Valid File Names_
 
-Name or set with [view state parameter](introduction#view-state-parameters).
+: File name/s, or a [View State Parameter](introduction#view-state-parameters)
 
-**Valid File Types**
 
-Choose file type to support for import or set with a [view state parameter](introduction#view-state-parameters).
+_Valid File Types_
 
-File extensions or mime types can be specificied, with multiple file types separated by a comma.
+: File type for import, or a View State Parameter. If undefined, all file types are supported.
 
-Example | Supported Files
---- | ---
-.csv, .pdf | supports CSV and PDF files (file extensions)
-image/* | supports any image file (mime type)
-.csv, .pdf, image/* | accept CSV, PDF files and any image type
+    Types are specified as extensions or [MIME](https://en.wikipedia.org/wiki/MIME) types, with multiple file types separated by commas:
 
-If not defined, then all file types are supported.
+    type/s | files
+    --- | ---
+    .csv, .pdf | CSV and PDF files (file extensions)
+    image/* | any image file (MIME type)
+    .csv, .pdf, image/* | CSV, PDF files and any image type
 
-**Directory**
 
-Assign a [view state parameter](introduction#view-state-parameters). Defines the destination directory for uploaded files (or where files are downloaded from).
 
-**Server**
+_Directory_
+: A View State Parameter: a filepath on the server
 
-Dropdown menu. This is the target server (set up in Connection Management, by making a connection with type "daemon" to facilitate transfer between UAT and Production servers).
+_Server_
+: A server [connection](introduction/#creating-a-connection) with _Type_ `daemon`  
 
-**Download Enabled**
+_Download Enabled_
+: When checked, downloads are enabled
 
-Allow users download files from the dashboard
+_Upload Enabled_
+: When checked, uploads are enabled
 
-**Upload Enabled**
-
-Allow users upload files to a dashboard
 
 ## Style
 
-**Display Type**
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters
 
-Icon View
+_Display Type_
 
-![Screenshot](img/iconuploadview.jpg)
+: Table View is default
 
-Table View
+    Icon View:
+    : ![Screenshot](img/iconuploadview.jpg)
 
-![Screenshot](img/tableuploadview.jpg)
-
-Dropdown menu. Switches between icon and table view; default is tabulated view
-
-### Advanced CSS
-
-Configure CSS of Upload component
-
-![Screenshot](img/advancedcssuploadhtmllight.jpg)
-
-## Margins
-
-See [Margins](introduction/#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/3dchartformat.jpg)
-
-See [Format](introduction#format) in Introduction for more.
+    Table View:
+    : ![Screenshot](img/tableuploadview.jpg)
 
 
+_Advanced CSS_
+: ![Screenshot](img/advancedcssuploadhtmllight.jpg)
+
+## Margins and Format
+
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters

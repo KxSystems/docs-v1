@@ -1,175 +1,96 @@
-Heat Map control, best used in conjunction with [Pivot Queries](introduction/#pivot-query)
-
 ![Screenshot](img/heatmaphtmllight.jpg)
+
+[Tree Map](https://en.wikipedia.org/wiki/Treemapping), best used in conjunction with [Pivot Queries](introduction/#pivot-query)
 
 ## Basics
 
 ![Screenshot](img/treemapmenu.jpg)
 
-### Data Source
+_Data Source_
+: <i class="fa fa-hand-o-right"></i> [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics)
 
-See [Defining a Query](introduction/#defining-a-query) and [Analytics](introduction/#analytics) for more on data sourcing.
+_Focus_
+: Used for [linking components](introduction/#linking-components)
 
-**Focus**
 
-Used for [Linking Components](introduction/#linking-components)
-
-**Node Size Metric**
-
-Node Selection
-
-![Screenshot](img/nodemetrics.jpg)
-
-Sets the underlying measure for the Tree Map. Box area size will be determined by this variable. This is selected from the linked **Data Source**
-
-**Node Color Metric**
-
-Defines the variable to use for Tree Map color range.  The <a href="#style">Style</a> menu contains the colour configuration options
-
-**Node Label**
-
-Defines the descriptive label for the Tree Map boxes
+### Node sizes, colors and labels
 
 ![Screenshot](img/nodelabelshtmllight.jpg)
 
-**Selected Value**
+_Node Size Metric_
+: A _Data Source_ column: determines the size of the nodes
 
-Assign a [view state parameter](introduction/#view-state-parameters) to store the *Selected Value Attribute*. 
+_Node Color Metric_
+: A _DataSource_ column: determines the color range. (Can be the same as _Node Size Metric_.)  
+<i class="fa fa-hand-o-right"></i> [Style](#style) for colour options
 
-**Selected Value Attribute**
+_Node Label_
+: A _DataSource_ column: the descriptive labels for the nodes
 
-![Screenshot](img/selectedvalueattributetreemap.jpg)
 
-Map a <a href="#data-source">data source</a> variable to the *Selected Value*.
+### View State Parameters
 
-### Selected Row Viewstate Routing
+[View State Parameters](introduction/#view-state-parameters) can be paired to _Data Source_ columns. 
 
-Where *Selected Column* and *Selected Value* stores just a single value, *Selected Row Viewstate Routing* can store multiple values
+Define a single pair with _Selected Value_ (a View State Parameter) and _Selected Value Attribute_. 
 
-Click ![Screenshot](img/addroutinghtmllight.jpg) to set storage for additional values
+For more pairs, use the _Selected Row Viewstate Routing_ table.
 
-![Screenshot](img/selectedrowviewstateroutinghtmllight.jpg)
 
 ## Style
 
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters
+
 ![Screenshot](img/heatmapstyle.jpg)
 
-### Tooltip Helper
 
-Tooltip Helper
+_Color Scheme_
+: ![Screenshot](img/colorscalehtmllight.jpg)  
+_<small>Various color schemes</small>_
 
-![Screenshot](img/tooltiphelper.jpg)
+_ColorScale_
+: Individual colors of the current scheme. Can also be configured to use Hex colors.
 
-Apply Tooltip Helper Variable to Tooltip reference
+Text color
+: When _Color Text Override_ is checked, _Text Color_ is applied
 
-![Screenshot](img/addhelpertooltip.jpg)
+    ![Screenshot](img/heatmaptextcolor.jpg)  
+    _<small>A heat map with white text</small>_
 
-Tooltips use <a href="http://handlebarsjs.com/">Handlebars.js</a> so variables can be added dynamically to tooltip.
 
-For example:
- 
-```
-{{fx}} : {{volume}}
-```
+_Min Text Display_
+: Minimum node size: adjust to ensure all node labels are visible
 
-could appear as
-EUR/USD: 250000
+_Label Size_
+: Text size for node labels 
 
-To format "250000" so it will appear as "$250,000" use Tooltip Helper
 
-**Name**
+_Custom Tooltip_
+: ![Screenshot](img/customtooltiphtmllight3.jpg)
+_<small>Tooltip definition and effect</small>_
 
-Give the function a name.  This name will be used inside the tooltip.
+    <i class="fa fa-hand-o-right"></i> [Custom tooltip](style/#custom-tooltip) in Style
 
-For example:
+_Hide Tooltips_
+: When checked, disables tooltip
 
-![Screenshot](img/helpername.jpg)
-
-```
-{{fx}} : {{fd volume}}
-```
-
-**Regex**
-
-The regular expression used to find the required pattern
-
-In this example:
-
-```
-(\d{3})(?=\d)
-```
-
-**Value**
-
-The value to replace the text with. In this case, comma-delimited currency values: 
-
-```
-$1,
-```
-
-**Color Scheme**
-
-Dropdown select of color options:
-
-![Screenshot](img/colorscalehtmllight.jpg)
-
-**Color Text Override**
-
-Check control to replace default text color with Text Color setting
-
-**Text Color**
-
-![Screenshot](img/heatmaptextcolor.jpg)
-
-Uses selected text color for Heat Map text override.
-
-### ColorScale
-
-Customize *Color Scheme*
-
-**Color**
-
-Tree Map Custom colors.  Can also be configured to use Hex colors.
-
-![Screenshot](img/colorscale.jpg)
-
-**Min Text Display**
-
-Slider to adjust minimum Tree Map section size for *Node Label* to appear
-
-### Advanced CSS
-
-Left click inside the Advanced CSS editor. Click the selector icon, then left-click inside the treemap to bring up the relevant CSS code. 
-
-### Custom Tooltip
-
-Defines tooltip rollover information
-
-![Screenshot](img/customtooltiphtmllight3.jpg)
-
-### Hide Tooltips
-
-Check control to toggle display of Custom Tooltip
-
-### Label Size
-
-Slider to adjust font size for Tree Map *Node Label*
 
 ## Format
 
-![Screenshot](img/mapformat.jpg)
+<!-- ![Screenshot](img/mapformat.jpg)
+ -->
+<i class="fa fa-hand-o-right"></i> [Format](style/#format) in Style
 
-See [Format](introduction/#format) in Introduction for more.
 
-**Metric Format**
+_Metric Format_
+: Decimal display for the Heat Map variable control
 
-Sets the decimal display for the Heat Map variable control
 
-**Label Format**
+_Label Format_
+: Sets the format of the cell label used by the Heat Map
 
-Sets the format of the cell label used by the Heat Map
 
 ## Margins
 
-See [Margins](introduction/#margins) in Introduction for more
+<i class="fa fa-hand-o-right"></i> [Margins](style/#margins) in Style
 

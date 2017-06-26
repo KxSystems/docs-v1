@@ -1,63 +1,36 @@
+The Text Input component offers a means for users to input values into [View State Parameter](introduction/#view-state-parameters). Text inputs are not limited to variables or dates, but can include text entries, colour choices, etc. Any Dashboard input supporting an eye icon ![Screenshot](img/eyeiconhtmllight2.jpg) can map to a View State Parameter and connect it to a Text Input.
 
-The **Text Input** component offers a means for users to input values into [view state parameter](introduction/#view-state-parameters). Text inputs are not limited to variables or dates, but can include text entries, colour choices, etc. Any Dashboard input supporting an ![Screenshot](img/eyeiconhtmllight2.jpg) can map to a [view state parameter](introduction/#view-state-parameters) and connect it to a <a href="text-input">Text Input</a>.
-
-### Basics
+## Basics
 
 ![Screenshot](img/textinput.jpg)
 
-Text can either be read-only Formatted text, or user input Text. 
+The text content can be either (read-only) _Formatted Text_, or (user-input) _Text_. 
 
-**Text**
 
-The default setting for Text Input. Input values can be mapped to a <a href="#view-state-parameters">View State Parameter</a>.
+_Text_
+
+: The default setting for Text Input. Input values can be mapped to a [View State Parameter](introduction/#view-state-parameters)
  
-![Screenshot](img/basicstexthtmllight.jpg)
+    ![Screenshot](img/basicstexthtmllight.jpg)
 
-<aside class="admonition tip">To change styling of Text input, use <a href="#style">Advanced CSS</a></aside>
+    !!! tip "Styling text"
+        To change styling of Text input, use [Advanced CSS](style/#advanced-css)
 
-**Multiline**
 
-Check box to break content for a single, long line of text.
+_Multiline_
+: When checked, wraps text within component borders
 
-**Fixed Width**
- 
-When checked, defines width of *Text* Input box.
+Height and width
+: When _Fixed Width_ is checked, the component width is _Width_ pixels. When _Fixed Height_ is checked, the component height is _Height_ pixels. 
 
-**Width**
 
-Sets width of input text box in pixels
+Alignment
+: _Horizontal_ and _Vertical_ set the respective alignments of the text within the component
 
-![Screenshot](img/fixedwidthhtmllgiht.jpg)
+_Font Size_
+: In pixels
 
-**Fixed Height**
 
-Slider to change height of input text box.
+## Style, Margins, Format
 
-**Horizontal**
-
-Sets Left, Right, Center alignment of Input Box inside Text Component
-
-**Vertical**
-
-Sets Top, Middle, Bottom alignment of Input Box inside Text Component
-
-**Font Size**
-
-Changes size of font for *Text* or *Formatted Text*
-
-## Style
-
-Use Advanced CSS to set styles
- 
-![Screenshot](img/advancedcsstextinput.jpg)
-
-## Margins
-
-See [Margins](introduction/#margins) in Introduction for more
-
-## Format
-
-![Screenshot](img/mapformat.jpg)
-
-See [Format](introduction/#format) in Introduction for more.
-
+<i class="fa fa-hand-o-right"></i> [Style](style) for common styling parameters

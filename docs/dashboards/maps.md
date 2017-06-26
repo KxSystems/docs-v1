@@ -1,4 +1,4 @@
-The Map component adds geographical data to your dashboards.
+The Maps component adds geographical data to your dashboards.
 
 
 ## Basics
