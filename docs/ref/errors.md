@@ -69,18 +69,18 @@ Trap always receives a string regardless of the type of `x`.
 
 ## `.` `@` (trap)
 
-Syntax: `@[f;x;e]`  
-Syntax: `.[g;y;e]`
+Syntax: `@[f;fx;e]`  
+Syntax: `.[g;gg;e]`
 
 Where
 
 - `e` is an expression
-- `f` is a unary function and `x` is its argument
-- `g` is a multi-argument function and `y` is a list of its arguments
+- `f` is a unary function and `fx` is its argument
+- `g` is a multi-argument function and `gg` is a list of its arguments
 
 _trap_ will evaluate `e` if evaluation of `f` or `g` fails. It is similar to try/catch in other languages.
 
-When there is no signal, `@` | behaves like binary `@`.
+When there is no signal, `@` behaves like binary `@`.
 ```q
 q)@[string;42;`err]
 "42"
@@ -90,11 +90,10 @@ When there is a signal the result of the trap is the third argument.
 q)@[{'x};"signal this";`err]
 `err
 ```
-If `z` is a function, it is called with argument `y`.
+If `e` is a function, it is called with argument `fx`.
 ```q
-q)@[{'x};"signal this";(`e;)]
-`e
-"signal this"
+q)@[{'x};"signal this";{"Caught: ",x}]
+"Caught: signal this"
 ```
 This can be used to return a result unambiguously indicating whether the function succeeded. Here, the first item of the pair indicates success or failure, while the second item is either the result or the error. This is useful when `0` or `()` might be valid results. 
 ```q
@@ -106,7 +105,7 @@ q)@[(1b;){1+x}@;`a;(0b;)]
 "type"
 q)
 ```
-`@[f;x;t]` is equivalent to `.[f;enlist x;t]`. "dot" trap is used for multi-argument `f`.
+`@[f;fx;t]` is equivalent to `.[f;enlist fx;t]`. "dot" trap is used for multi-argument `f`.
 ```q
 q).[*;(42;42);`err]
 1764

@@ -50,6 +50,14 @@ q)a:-1234567890 123456789,100000?10;b:1000?a;system each("ts:100 distinct a";"ts
 ```
 
 
+## SSL/TLS
+
+Added `hopen` timeout for TLS, e.g.
+```q
+q)hopen(`:tcps://myhost:5000:username:password;30000)
+```
+
+
 ## NUCs – not upwardly compatible
 
 We have tried to make the process of upgrading seamless, however please pay attention to the following NUCs to consider whether they impact your particular installation
