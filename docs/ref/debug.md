@@ -125,20 +125,19 @@ q)).Q.bt[]
 
 `.Q.trp[f;x;g]` extends trap (`@[f;x;g]`) to collect backtrace. Along with the error string, `g` gets called with the backtrace object as a second argument. You can format it with `.Q.sbt` to make it legible.
 ```q
-q)f:{{x+y}["hello";x]}
+q)f:{`hello+x}
 q)           / print the formatted backtrace and error string to stdout
-q).Q.trp[f;2;{1@"error: ",x,"\nbacktrace:\n",.Q.sbt y;-1}] 
+q).Q.trp[f;2;{2@"error: ",x,"\nbacktrace:\n",.Q.sbt y;-1}]
 error: type
 backtrace:
-  [3]  f@:{x+y}
-            ^
-  [2]  f:{{x+y}["hello";x]}
-          ^
+  [2]  f:{`hello+x}
+                ^
   [1]  (.Q.trp)
- 
-  [0]  .Q.trp[f;2;{1@"error: ",x,"\nbacktrace:\n",.Q.sbt y}]
+
+  [0]  .Q.trp[f;2;{2@"error: ",x,"\nbacktrace:\n",.Q.sbt y;-1}]
        ^
 -1
+q)
 ```
 `.Q.trp` can be used for remote debugging.
 ```q
