@@ -119,6 +119,7 @@ The following glyphs represent operators, functions or adverbs – according to 
 <table class="kx-tight" markdown="1">
 <tr><td>`::`</td><td>[null](unclassified/#null), [identity](unclassified/#identity)</td></tr>
 <tr><td>`csv`</td><td>[comma as record delimiter](filewords/#csv)</td></tr>
+<tr><td>`-n!`</td><td>[internal functions](internal)</td></tr>
 </table>
 
 
