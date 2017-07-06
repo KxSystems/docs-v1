@@ -7,7 +7,7 @@ Download the [free 32-bit version of kdb+](https://kx.com/software-download.php)
 
 ## <i class="fa fa-map-o"></i> Install
 
-[Install](http://code.kx.com/wiki/Tutorials/Installation) the free 32-bit version of kdb+.
+[Install](/tutorials/install) the free 32-bit version of kdb+.
 
 
 ## <i class="fa fa-mortar-board"></i> Tutorials for beginners
