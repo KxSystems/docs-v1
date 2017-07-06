@@ -1,7 +1,3 @@
-Prior to kdb+, as k veterans will remember, some schemas used nested data per symbol. The `` `g#`` attribute allowed us to move away from those more complicated designs and queries to long flat tables with fast access via the group attribute. 
-
-There is however a third layout for in-memory data, using a dictionary of symbols!tables, which might be relevant to your particular use case.
-```q
 q)/Load some dummy data from nyse taq
 q)/and store as symbols!tables to demonstrate in-memory usage
 q)\ts t:(`u#sym)!{[x;y]update time:`s#time from select from x where sym=y}[select from trade where date=last date;]each sym
@@ -93,7 +89,3 @@ q)/ dpfdot saves each table enumerating and appending them to disk one table at 
 q)dpfdot:{[d;p;f;tname]t:value tname;primeSym[d;t];t:k!t k iasc k:key t;{[d;t;colnames]@[d;colnames;;]'[@[count[t]#(,);0;:;:];{$[11h=type x;`sym?x;x]}each t@\:colnames];}[d:.Q.par[d;p;tname];value t]each colnames:cols first t;@[;f;`p#]@[d;`.d;:;f,colnames except f];}
 q)\ts dpfdot[`:db;2014.01.14;`sym;`t] / t is a dict of tables, i.e. syms!tables. 30 MM trades, 7869 syms, saved to ssd
 3444 179274224
-```
-
-<i class="fa fa-hand-o-right"></i> [above transcript](assets/alternative-in-memory-layouts.log) in full window
-

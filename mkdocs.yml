@@ -204,10 +204,19 @@ pages:
     - Windows Service: cookbook/windows-service.md
   # - Dashboards for Kx:
   #   - Introduction: dashboards/introduction.md
-  #   - Samples: dashboards/sampledashboards.md
-  #   - Query Mapper: dashboards/querymapper.md
-  #   - Style: dashboards/style.md
+  #   - Example dashboards: dashboards/exampledashboards.md
+  #   - Dashboard Builder: dashboards/dashboardbuilder.md
+  #   - Adding components: dashboards/addingcomponent.md
+  #   - Connections: dashboards/connections.md
+  #   - Data sources: dashboards/datasources.md
   #   - View State Parameters: dashboards/viewstateparameters.md
+  #   - Linking components: dashboards/linking.md
+  #   - Chart formats: dashboards/chartformats.md
+  #   - Custom tooltips: dashboards/custom-tooltip.md
+  #   - Zoom and pan: dashboards/zoom.md
+  #   - Highlight Rules: dashboards/highlightrules.md
+  #   - Style: dashboards/style.md
+  #   - Publishing dashboards: dashboards/publish.md
   #   - Components:
   #     - 3D Chart: dashboards/3dchart.md
   #     - Accordion: dashboards/accordion.md
@@ -231,9 +240,8 @@ pages:
   #     - Horizontal Chart: dashboards/horizontalchart.md
   #     - Layout: dashboards/layout.md
   #     - Line Chart: dashboards/linechart.md
-  #     - Maps: dashboards/maps.md
+  #     - Map: dashboards/map.md
   #     - Multi Chart: dashboards/multichart.md
-  #     - Multi Chart (draft): dashboards/multichart0.md
   #     - Navigation: dashboards/navigation.md
   #     - Order Book: dashboards/orderbook.md
   #     - Pager: dashboards/pager.md
@@ -241,6 +249,7 @@ pages:
   #     - Pivot Grid: dashboards/pivotgrid.md
   #     - Playback: dashboards/playback.md
   #     - Popup: dashboards/popup.md
+  #     - Query Mapper: dashboards/querymapper.md
   #     - Range Slider: dashboards/rangeslider.md
   #     - Report Manager: dashboards/reportmanager.md
   #     - RSS Feed: dashboards/rssfeed.md

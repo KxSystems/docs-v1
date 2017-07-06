@@ -74,11 +74,27 @@ Syntax: `.[g;gg;e]`
 
 Where
 
-- `e` is an expression
+- `e` is an expression, typically a function
 - `f` is a unary function and `fx` is its argument
 - `g` is a multi-argument function and `gg` is a list of its arguments
 
-_trap_ will evaluate `e` if evaluation of `f` or `g` fails. It is similar to try/catch in other languages.
+_trap_ will evaluate function `e` if evaluation of `f` or `g` fails. It is similar to try/catch in other languages.
+
+!!! warning "When e is not a function"
+    If `e` is a function it will be evaluated _only_ if `f` or `g` fails. But if `e` is any _other_ kind of expression it will _always_ be evaluated. In this respect _trap_ is unlike try/catch in other languages. 
+    ```q
+    q)@[string;42;a:100] // expression not a function
+    "42"
+    q)a // but a was assigned anyway
+    100
+    q)@[string;42;{b::99}] // expression is a function
+    "42"
+    q)b // not evaluated
+    'b
+      [0]  b
+           ^
+    ```
+    For most purposes, you will want `e` to be a function.
 
 When there is no signal, `@` behaves like binary `@`.
 ```q
