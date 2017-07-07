@@ -3,8 +3,10 @@
 <i class="fa fa-hand-o-right"></i> [General index](/github) of other kdb+ repositories
 
 Repositories at <i class="fa fa-github"></i> [KxSystems](https://github.com/KxSystems) are maintained and supported by Kx Systems. 
-
 Other repositories are maintained by their owners. 
+
+!!! warning "Salvaged repositories"
+    <i class="fa fa-github"></i> [kxcontrib](https://github.com/kxcontrib) contains repositories salvaged from the former Subversion server for which we have been unable to identify current versions on GitHub. These repositories are not maintained. 
 
 <div style="background-color: #efefef; border: 1px solid #005499; border-radius: 10px; display: inline-block; padding: 0 1em;" markdown="1">Please tell [librarian@kx.com](mailto:librarian@kx.com)
 about new repositories.</div>
@@ -181,7 +183,10 @@ about new repositories.</div>
 <tr><td>Mathematica</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qmathematica](https://github.com/kxcontrib/zuoqianxu/tree/master/qmathematica)</td></tr>
 <tr><td>Matlab</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qmatlab](https://github.com/kxcontrib/zuoqianxu/tree/master/qmatlab)</td></tr>
 <tr><td>Perl</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qperl](https://github.com/kxcontrib/zuoqianxu/tree/master/qperl)</td></tr>
-<tr><td>Python</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qpython](https://github.com/kxcontrib/zuoqianxu/tree/master/qpython)</td></tr>
+<tr><td>Python</td><td>
+<i class="fa fa-github"></i> [kxcontrib/serpent.speak](https://github.com/kxcontrib/serpent.speak)<br/>
+<i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qpython](https://github.com/kxcontrib/zuoqianxu/tree/master/qpython)
+</td></tr>
 <tr><td>Non-linear least squares</td><td><i class="fa fa-github"></i> [brogar/nls](https://github.com/brogar/nls)</td></tr>
 <tr><td>R</td><td><i class="fa fa-github"></i> [kimtang/rinit](https://github.com/kimtang/rinit)<br/>
 <i class="fa fa-github"></i> [rwinston/kdb-rmathlib](https://github.com/rwinston/kdb-rmathlib)</td></tr>

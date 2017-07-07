@@ -3,9 +3,7 @@
 <i class="fa fa-hand-o-right"></i> [Interfaces](/interfaces) to feeds, services and other languages  
 <i class="fa fa-hand-o-right"></i> [Integrations](/interfaces/#editor-integrations) with editors and IDEs
 
-Repositories at <i class="fa fa-github"></i> [KxSystems](https://github.com/KxSystems) are maintained and supported by Kx Systems. 
-
-Other repositories are maintained by their owners. 
+Repositories at <i class="fa fa-github"></i> [KxSystems](https://github.com/KxSystems) are maintained and supported by Kx Systems. Other repositories are maintained by their owners. 
 
 <div style="background-color: #efefef; border: 1px solid #005499; border-radius: 10px; display: inline-block; padding: 0 1em;" markdown="1">Please tell [librarian@kx.com](mailto:librarian@kx.com)
 about new repositories.</div>
@@ -701,5 +699,19 @@ about new repositories.</div>
 						(Thomas Lackner)
 					</a></span>
 </td>
+</tr>
+</table>
+
+
+## <i class="fa fa-share-alt"></i> kxcontrib
+
+!!! warning "Salvaged repositories"
+	<i class="fa fa-github"></i> [kxcontrib](https://github.com/kxcontrib) contains repositories salvaged from the former Subversion server for which we have been unable to identify current versions on GitHub. These repositories are not maintained. 
+
+
+<table class="kx-compact" markdown="1">
+<tr>
+<td class="nowrap"><a href="https://github.com/kxcontrib/kxblog">kxblog</a></td>
+<td>Code shared on the Kx blog</td>
 </tr>
 </table>
