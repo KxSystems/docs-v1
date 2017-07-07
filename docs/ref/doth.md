@@ -439,13 +439,13 @@ xml | k){g:{(#*y)#'(,,"<",x),y,,,"</",x:($x),">"};(,"<R>"),(,/'+g[`r]@,/(!x)g..
 xls | k){ex eb es[`Sheet1]x}
 ```
 
-!!! tip "Embracing JSON"
-    Enlist the argument of ``.h.tx[`json]`` to embrace it with square brackets:
+!!! tip "Streaming and static JSON"
+    The result of ``.h.tx[`json]`` is designed for streaming as [JSON Lines](http://jsonlines.org/). For static JSON, enlist its argument:
     ```q
-    q).h.tx[`json] ([] 0 1)
+    q).h.tx[`json] ([] 0 1)  // JSON Lines
     "{\"x\":0}"
     "{\"x\":1}"
-    q).h.tx[`json] enlist ([] 0 1)
+    q).h.tx[`json] enlist ([] 0 1) // static JSON
     "[{\"x\":0},\n {\"x\":1}]"
     q)show t:flip`items`sales`prices!(`nut`bolt`cam`cog;6 8 0 3;10 20 15 20)
     items sales prices
@@ -454,14 +454,12 @@ xls | k){ex eb es[`Sheet1]x}
     bolt  8     20
     cam   0     15
     cog   3     20
-    q)enlist t
-    +`items`sales`prices!(`nut`bolt`cam`cog;6 8 0 3;10 20 15 20)
-    q).h.tx[`json] t
+    q).h.tx[`json] t  // JSON Lines
     "{\"items\":\"nut\",\"sales\":6,\"prices\":10}"
     "{\"items\":\"bolt\",\"sales\":8,\"prices\":20}"
     "{\"items\":\"cam\",\"sales\":0,\"prices\":15}"
     "{\"items\":\"cog\",\"sales\":3,\"prices\":20}"
-    q).h.tx[`json] enlist t
+    q).h.tx[`json] enlist t // static JSON
     "[{\"items\":\"nut\",\"sales\":6,\"prices\":10},\n {\"items\":\"bolt\",\"sale..
     ```
 

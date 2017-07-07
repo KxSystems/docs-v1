@@ -46,7 +46,7 @@ q)f:{@[{'x};x;{"trap:",x}]}
 q)f`err
 "trap:err"
 ```
-Trap always receives a string regardless of the type of `x`.
+_Trap_ always receives a string regardless of the type of `x`.
 
 !!! warning "Signal has some restrictions"
     ```q
