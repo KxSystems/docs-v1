@@ -44,6 +44,9 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 </div>
 
+!!! tip "Search with Google"
+    Type in the Search box to see local search results.
+    Hit Return to search with Google.
 
 !!! caution "The Kx wiki"
     The documentation from the Kx wiki is moving to this new format. 

@@ -74,9 +74,9 @@ Syntax: `.[g;gg;e]`
 
 Where
 
-- `e` is an expression, typically a function
 - `f` is a unary function and `fx` is its argument
 - `g` is a multi-argument function and `gg` is a list of its arguments
+- `e` is an expression, typically a function
 
 _Trap_ will evaluate function `e` if evaluation of `f` or `g` fails. It is similar to try/catch in other languages.
 
@@ -140,11 +140,11 @@ q)@[parse;"22 1b1 44";::]
     ```
     If `e` is any _other_ kind of expression it will _always_ be evaluated – and _first_, in the usual right-to-left sequence. In this respect _trap_ is unlike try/catch in other languages. 
     ```q
-    q)@[string;42;a:100] // expression not a function
+    q)@[string;42;a:100] / expression not a function
     "42"
     q)a // but a was assigned anyway
     100
-    q)@[string;42;{b::99}] // expression is a function
+    q)@[string;42;{b::99}] / expression is a function
     "42"
     q)b // not evaluated
     'b

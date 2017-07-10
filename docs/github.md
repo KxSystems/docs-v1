@@ -34,10 +34,6 @@ about new repositories.</div>
 	<td>ticker plant</td>
 </tr>
 <tr>
-	<td class="nowrap">[kxblog.contributions](https://github.com/KxSystems/kxblog.contributions)</td>
-	<td>code shared on the kx.com blog</td>
-</tr>
-<tr>
 	<td class="nowrap">[rkdb](https://github.com/KxSystems/rkdb) ==new==</td>
 	<td>R client for q</td>
 </tr>

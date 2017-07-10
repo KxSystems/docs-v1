@@ -9,11 +9,11 @@ $(document).ready(function($) {
 			$(this).attr('target', '_blank');
 		}
 	});
-	// FIXME replace with Google Search
-	$("#query").click(function() {
-	  qry = "http://www.google.com/search?q=";
-	  qry += "site%3Acode.kx.com/q/+";
-	  window.location = qry + $(this).val();
-	  // return false; // prevents submitting form to server
+	// Replace local search with Google Search
+	$("[data-md-component=query]").change(function() {
+		var qry = "http://www.google.com/search?q=";
+		qry += "site%3Acode.kx.com/q/+"; // non-portable and excludes wiki
+		window.location = qry + $(this).val();
+		return false; // prevents submitting form to server
 	});
 });
