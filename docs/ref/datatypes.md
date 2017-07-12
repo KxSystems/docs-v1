@@ -15,7 +15,8 @@ q)type (+)                    /not just data
 
 ## Primitive datatypes
 
-Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, negative for an atom. (A general list has type `0h`.) 
+Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, negative for an atom. (A general list has type `0h`.)  
+<i class="fa fa-hand-o-right"></i> [`type`](metadata/#type)
 
 <table class="kx-tight" markdown="1" style="font-size:80%">
 <thead>
