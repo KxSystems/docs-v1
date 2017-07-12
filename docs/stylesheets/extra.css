@@ -54,19 +54,19 @@ code, kbd, pre {
 
 /* front page
 --------------------------------------------- */
-#kx-flex-grid {
+.kx-flex-grid {
 	display: flex; 
 	flex-direction: row; 
 	flex-wrap: wrap;
 	justify-content: center;
 }
-#kx-flex-grid div {
+.kx-flex-grid div {
 	display: inline-flex; 
 	padding: 5px 0;
 	text-align: center; 
 	width: 200px;
 }
-#kx-flex-grid a {
+.kx-flex-grid a {
 	color: #0070cd;
 }
 
@@ -114,6 +114,11 @@ code, kbd, pre {
 .kx-compact table tr:first-child {
 	border-top: 0;
 }
+.kx-list td {
+	font-size: 1.1em;
+	padding: .5em 1em;
+}
+
 .kx-zero {
 	border: none;
 	margin: 0;

@@ -84,7 +84,7 @@ String vector here
 
 Syntax: `delimiter 0: t`
 
-Where `delimiter` is a char atom and `t` is a table, returns a list of character strings containing text representations of the rows of `t` separated by `x`. 
+Where `delimiter` is a char atom and `t` is a table, returns a list of character strings containing text representations of the rows of `t` separated by `delimiter`. 
 ```q
 q)csv 0: ([]a:1 2 3;b:`x`y`z)
 "a,b"

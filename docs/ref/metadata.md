@@ -275,9 +275,55 @@ q)tables `.work   / tables in work
 
 Syntax: `type x`
 
-Returns the type of `x` as a short integer atom: negative for an atom, positive for a list, and `0h` for a general list. 
+Returns the [datatype](datatypes) of `x` as a short integer atom: negative for an atom, positive for a list, and `0h` for a general list. 
 
-<i class="fa fa-hand-o-right"></i> [Datatypes](datatypes), [Casting](casting)
+<table class="kx-tight" markdown="1" style="font-size:80%">
+<thead>
+<tr><th>char</th><th>size</th><th>num</th><th>literal</th><th>null</th><th>name</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
+</thead>
+<tbody>
+<tr><td>*</td><td/><td>0</td><td/><td/><td>list</td><td/><td/><td/></tr>
+<tr><td>b</td><td>1</td><td>1</td><td>`0b`</td><td/><td>boolean</td><td/><td>Boolean</td><td>boolean</td></tr>
+<tr><td>g</td><td>16</td><td>2</td><td/><td>`0Ng`</td><td>guid</td><td/><td>UUID</td><td>GUID</td></tr>
+<tr><td>x</td><td>1</td><td>4</td><td>`0x00`</td><td/><td>byte</td><td/><td>Byte</td><td>byte</td></tr>
+<tr><td>h</td><td>2</td><td>5</td><td>`0h`</td><td>`0Nh`</td><td>short</td><td>smallint</td><td>Short</td><td>int16</td></tr>
+<tr><td>i</td><td>4</td><td>6</td><td>`0i`</td><td>`0Ni`</td><td>int</td><td>int</td><td>Integer</td><td>int32</td></tr>
+<tr><td>j</td><td>8</td><td>7</td><td>`0j` or `0`</td><td>`0Nj` or `0N`</td><td>long</td><td>bigint</td><td>Long</td><td>int64</td></tr>
+<tr><td>e</td><td>4</td><td>8</td><td>`0e`</td><td>`0Ne`</td><td>real</td><td>real</td><td>Float</td><td>single</td></tr>
+<tr><td>f</td><td>8</td><td>9</td><td>`0.0` or `0f`</td><td>`0n`</td><td>float</td><td>float</td><td>Double</td><td>double</td></tr>
+<tr><td>c</td><td>1</td><td>10</td><td>`" "`</td><td>`" "`</td><td>char</td><td/><td>Character</td><td>char</td></tr>
+<tr><td>s</td><td>.</td><td>11</td><td>`` ` ``</td><td>`` ` ``</td><td>symbol</td><td>varchar</td><td>String</td><td>string</td></tr>
+<tr><td>p</td><td>8</td><td>12</td><td>dateDtimespan</td><td>`0Np`</td><td>timestamp</td><td/><td>Timestamp</td><td>DateTime (r/w)</td></tr>
+<tr><td>m</td><td>4</td><td>13</td><td>`2000.01m`</td><td>`0Nm`</td><td>month</td><td/><td/><td/></tr>
+<tr><td>d</td><td>4</td><td>14</td><td>`2000.01.01`</td><td>`0Nd`</td><td>date</td><td>date</td><td>Date</td><td/></tr>
+<tr><td>z</td><td>8</td><td>15</td><td>dateTtime</td><td>`0Nz`</td><td>datetime</td><td>timestamp</td><td>Timestamp</td><td>DateTime (read only)</td></tr>
+<tr><td>n</td><td>8</td><td>16</td><td>`00:00:00.000000000`</td><td>`0Nn`</td><td>timespan</td><td/><td>Timespan</td><td>TimeSpan</td></tr>
+<tr><td>u</td><td>4</td><td>17</td><td>`00:00`</td><td>`0Nu`</td><td>minute</td><td/><td/><td/></tr>
+<tr><td>v</td><td>4</td><td>18</td><td>`00:00:00`</td><td>`0Nv`</td><td>second</td><td/><td/><td/></tr>
+<tr><td>t</td><td>4</td><td>19</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
+<tr><td/><td/><td>20-76</td><td/><td/><td>enums</td><td/><td/><td/></tr>
+<tr><td/><td/><td>77</td><td/><td/><td colspan="4">(unused)</td></tr>
+<tr><td/><td/><td>78-96</td><td/><td/><td colspan="4">77+t – mapped list of lists of type t</td></tr>
+<tr><td/><td/><td>97</td><td/><td/><td colspan="4">nested sym enum</td></tr>
+<tr><td/><td/><td>98</td><td/><td/><td colspan="4">table</td></tr>
+<tr><td/><td/><td>99</td><td/><td/><td colspan="4">dictionary</td></tr>
+<tr><td/><td/><td>100</td><td/><td/><td colspan="4">lambda</td></tr>
+<tr><td/><td/><td>101</td><td/><td/><td colspan="4">unary primitive</td></tr>
+<tr><td/><td/><td>102</td><td/><td/><td colspan="4">operator</td></tr>
+<tr><td/><td/><td>103</td><td/><td/><td colspan="4">adverb</td></tr>
+<tr><td/><td/><td>104</td><td/><td/><td colspan="4">projection</td></tr>
+<tr><td/><td/><td>105</td><td/><td/><td colspan="4">composition</td></tr>
+<tr><td/><td/><td>106</td><td/><td/><td colspan="4">f'</td></tr>
+<tr><td/><td/><td>107</td><td/><td/><td colspan="4">f/</td></tr>
+<tr><td/><td/><td>108</td><td/><td/><td colspan="4">f\</td></tr>
+<tr><td/><td/><td>109</td><td/><td/><td colspan="4">f':</td></tr>
+<tr><td/><td/><td>110</td><td/><td/><td colspan="4">f/:</td></tr>
+<tr><td/><td/><td>111</td><td/><td/><td colspan="4">f\:</td></tr>
+<tr><td/><td/><td>111</td><td/><td/><td colspan="4">dynamic load</td></tr>
+</tbody>
+</table>
+
+The char column values are used for [casting](casting) and [load-csv](filenumbers/#load-csv).
 
 !!! tip "Looking up primitive datatypes"
     ```q

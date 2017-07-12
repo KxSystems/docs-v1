@@ -1,51 +1,75 @@
-## <i class="fa fa-download"></i> Download
+# Get started 
+ 
+<a href="https://kx.com/software-download.php" style="color: white"><div style="background: #0070cd; border-radius: 10px; display: inline-block; font-size: 2em; font-weight: bold; padding: 5px 1em; text-align: center;"><i class="fa fa-download"></i> DOWNLOAD</div></a>
 
-Download the [free 32-bit version of kdb+](https://kx.com/software-download.php) for 
-<i class="fa fa-apple"></i> macOS,
-<i class="fa fa-linux"></i> Linux or
-<i class="fa fa-windows"></i> Windows.
-
-## <i class="fa fa-map-o"></i> Install
-
-[Install](/tutorials/install) the free 32-bit version of kdb+.
+the free 32-bit version of kdb+ for
+<i class="fa fa-apple"></i> macOS, 
+<i class="fa fa-linux"></i> Linux, or
+<i class="fa fa-windows"></i> Windows
 
 
 ## <i class="fa fa-mortar-board"></i> Tutorials for beginners
 
-* [The Basics](http://code.kx.com/wiki/Tutorials/The_Basics)
-* [Datatypes](http://code.kx.com/wiki/Tutorials/Datatypes)
-* [Lists](http://code.kx.com/wiki/Tutorials/Lists)
-* [Functions](http://code.kx.com/wiki/Tutorials/Functions)
-* [Dictionaries](http://code.kx.com/wiki/Tutorials/Dictionaries)
-* [Tables I](http://code.kx.com/wiki/Tutorials/Tables_I)
-* [Tables II](http://code.kx.com/wiki/Tutorials/Tables_II)
+<table class="kx-list" markdown="1">
+<tr>
+<td>[Install](/tutorials/install)</td>
+<td>[The basics](http://code.kx.com/wiki/Tutorials/The_Basics)</td>
+<td>[Datatypes](http://code.kx.com/wiki/Tutorials/Datatypes)</td>
+<td>[Lists](http://code.kx.com/wiki/Tutorials/Lists)</td>
+</tr>
+<tr>
+<td>[Functions](http://code.kx.com/wiki/Tutorials/Functions)</td>
+<td>[Dictionaries](http://code.kx.com/wiki/Tutorials/Dictionaries)</td>
+<td>[Tables I](http://code.kx.com/wiki/Tutorials/Tables_I)</td>
+<td>[Tables II](http://code.kx.com/wiki/Tutorials/Tables_II)</td>
+</tr>
+</table>
 
 
 ## <i class="fa fa-database"></i> Database tutorials
 
-[A brief introduction](/tutorials/first-steps) is a very quick overview of downloading q and running your first query.
+[First steps](/tutorials/first-steps)
+: Run your first query.
 
-[In-memory queries](/tutorials/in-memory-queries) has you build a more complex dataset in memory and perform some queries and joins on it. The dataset is from an imaginary desktop PC monitoring and helpdesk support system.
+[In-memory queries](/tutorials/in-memory-queries)
+: Build a more complex dataset in memory and perform some queries and joins on it. The dataset is from an imaginary desktop PC monitoring and helpdesk support system.
 
-[On-disk queries](/tutorials/on-disk-queries) has you download a set of scripts to build and run queries against a large on-disk database. The dataset is from an imaginary smart-meter network. It includes a basic HTML5 Business Intelligence tool which queries the database directly.
+[On-disk queries](/tutorials/on-disk-queries)
+: Download a set of scripts to build and run queries against a large on-disk database. The dataset is from an imaginary smart-meter network. It includes a basic HTML5 Business Intelligence tool which queries the database directly.
 
-[_Q for Mortals_, Chapter 14: Introduction to kdb+](http://code.kx.com/q4m3/14_Introduction_to_Kdb+/) by Jeffry A. Borror. “Roughly speaking, kdb+ is what happens when q tables are persisted and then mapped back into memory for operations.”
+[Introduction to kdb+](http://code.kx.com/q4m3/14_Introduction_to_Kdb+/)
+: _Q for Mortals_, Chapter 14 by Jeffry A. Borror. “Roughly speaking, kdb+ is what happens when q tables are persisted and then mapped back into memory for operations.”
 
 
 ## <i class="fa fa-book"></i> Books
 
-<table markdown="1" class="kx-compact">
 
-<tr markdown="1">
-<td>![q for Mortals Version 3](./img/qfm3.jpg)</td>
-<td><h3>_Q for Mortals_</h3><h4>Version 3</h4><p>by Jeffry A. Borror, available from [Amazon.com](https://www.createspace.com/5843336) or [Amazon.co.uk](https://www.amazon.co.uk/d/Books/q-Mortals-Version-3-Introduction-Programming/0692573674/). Covers up to kdb+ version 3.3. If you are a new kdb+ user, this is the book for you!</p><p>[HTML edition](http://code.kx.com/q4m3/) ==online now==</p></td>
-</tr>
-<tr>
-<td>![Q Tips](/img/qtips.jpg)</td>
-<td><h3>_Q Tips_</h3><h4>Fast, scalable and maintainable kdb+</h4><p>by Nick Psaris, available from [Amazon.co.uk](https://www.amazon.co.uk/d/Books/Tips-Fast-Scalable-Maintainable-Kdb/9881389909/).</p><p>&ldquo;`*****` There is information that if you were learning by yourself, would take years to work out.&rdquo; (review)</p></td>
-</tr>
+<div style="display: inline-block; padding: 1em; vertical-align: top; width: 250px;" markdown="1">
+![q for Mortals Version 3](/img/qfm3.jpg){:style="box-shadow: 10px 10px 5px #888888;"}
+### _Q for Mortals_
+**Version 3**
+by Jeffry A. Borror, available from [Amazon.com](https://www.createspace.com/5843336) or [Amazon.co.uk](https://www.amazon.co.uk/d/Books/q-Mortals-Version-3-Introduction-Programming/0692573674/). Covers up to kdb+ V3.3. If you are a new kdb+ user, this is the book for you!
 
-</table>
+[HTML edition](http://code.kx.com/q4m3/) ==now online==
+</div>
+
+<div style="display: inline-block; padding: 1em; vertical-align: top; width: 250px;" markdown="1">
+![Q Tips](/img/qtips.jpg){:style="box-shadow: 10px 10px 5px #888888;"}
+### _Q Tips_
+**Fast, scalable and maintainable kdb+**
+by Nick Psaris, available from [Amazon.co.uk](https://www.amazon.co.uk/d/Books/Tips-Fast-Scalable-Maintainable-Kdb/9881389909/).
+
+<i class="fa fa-quote-left"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+There is information that if you were learning by yourself, would take years to work out.
+<i class="fa fa-quote-right"></i>
+</div>
+
+
 
 
 See the [Archive](/archive/) for older documents.

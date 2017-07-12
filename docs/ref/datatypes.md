@@ -17,11 +17,12 @@ q)type (+)                    /not just data
 
 Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, negative for an atom. (A general list has type `0h`.) 
 
- <table class="kx-tight" markdown="1" style="font-size:80%">
+<table class="kx-tight" markdown="1" style="font-size:80%">
 <thead>
 <tr><th>char</th><th>size</th><th>num</th><th>literal</th><th>null</th><th>name</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
 </thead>
 <tbody>
+<tr><td>*</td><td/><td>0</td><td/><td/><td>list</td><td/><td/><td/></tr>
 <tr><td>b</td><td>1</td><td>1</td><td>`0b`</td><td/><td>boolean</td><td/><td>Boolean</td><td>boolean</td></tr>
 <tr><td>g</td><td>16</td><td>2</td><td/><td>`0Ng`</td><td>guid</td><td/><td>UUID</td><td>GUID</td></tr>
 <tr><td>x</td><td>1</td><td>4</td><td>`0x00`</td><td/><td>byte</td><td/><td>Byte</td><td>byte</td></tr>
@@ -40,8 +41,29 @@ Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, ne
 <tr><td>u</td><td>4</td><td>17</td><td>`00:00`</td><td>`0Nu`</td><td>minute</td><td/><td/><td/></tr>
 <tr><td>v</td><td>4</td><td>18</td><td>`00:00:00`</td><td>`0Nv`</td><td>second</td><td/><td/><td/></tr>
 <tr><td>t</td><td>4</td><td>19</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
+<tr><td/><td/><td>20-76</td><td/><td/><td>enums</td><td/><td/><td/></tr>
+<tr><td/><td/><td>77</td><td/><td/><td colspan="4">(unused)</td></tr>
+<tr><td/><td/><td>78-96</td><td/><td/><td colspan="4">77+t – mapped list of lists of type t</td></tr>
+<tr><td/><td/><td>97</td><td/><td/><td colspan="4">nested sym enum</td></tr>
+<tr><td/><td/><td>98</td><td/><td/><td colspan="4">table</td></tr>
+<tr><td/><td/><td>99</td><td/><td/><td colspan="4">dictionary</td></tr>
+<tr><td/><td/><td>100</td><td/><td/><td colspan="4">lambda</td></tr>
+<tr><td/><td/><td>101</td><td/><td/><td colspan="4">unary primitive</td></tr>
+<tr><td/><td/><td>102</td><td/><td/><td colspan="4">operator</td></tr>
+<tr><td/><td/><td>103</td><td/><td/><td colspan="4">adverb</td></tr>
+<tr><td/><td/><td>104</td><td/><td/><td colspan="4">projection</td></tr>
+<tr><td/><td/><td>105</td><td/><td/><td colspan="4">composition</td></tr>
+<tr><td/><td/><td>106</td><td/><td/><td colspan="4">f'</td></tr>
+<tr><td/><td/><td>107</td><td/><td/><td colspan="4">f/</td></tr>
+<tr><td/><td/><td>108</td><td/><td/><td colspan="4">f\</td></tr>
+<tr><td/><td/><td>109</td><td/><td/><td colspan="4">f':</td></tr>
+<tr><td/><td/><td>110</td><td/><td/><td colspan="4">f/:</td></tr>
+<tr><td/><td/><td>111</td><td/><td/><td colspan="4">f\:</td></tr>
+<tr><td/><td/><td>111</td><td/><td/><td colspan="4">dynamic load</td></tr>
 </tbody>
 </table>
+
+The char column values are used for [casting](casting) and [load-csv](filenumbers/#load-csv).
 
 <!-- <div markdown="1" class="kx-compact">
 | num | char | size | literal              | null         | name      | sql       | java      | .net                 |
@@ -180,31 +202,6 @@ There is no literal entry for a guid, it has no conversions, and the only scalar
 
 
 ## Other types
-
-```
-num    native
---------------------------------------------
-0h     list
-20-76  enums
-77     unused
-78-96  77+t - mapped list of lists of type t
-97     nested sym enum
-98     table
-99     dictionary
-100    lambda
-101    unary primitive
-102    operator
-103    adverb
-104    projection
-105    composition
-106    f'
-107    f/
-108    f\
-109    f':
-110    f/:
-111    f\:
-112    dynamic load
-```
 
 <!-- <div markdown="1" class="kx-tight">
 

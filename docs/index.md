@@ -2,7 +2,7 @@
 
 Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
 
-<div id="kx-flex-grid" markdown="1">
+<div class="kx-flex-grid" markdown="1">
 <div>
     [<i class="fa fa-download fa-border fa-5x"></i><br/>
     Download kdb+<br/>
@@ -43,12 +43,12 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
     Connect](https://kx.com/connect-with-us#support)
 </div>
 </div>
-
+<!-- 
 !!! tip "Search with Google"
     Type in the Search box to see local search results.
     Hit Return to search with Google.
 
-!!! caution "The Kx wiki"
+ -->!!! caution "The Kx wiki"
     The documentation from the Kx wiki is moving to this new format. 
 
     During migration, the [wiki](http://code.kx.com/wiki) remains unchanged. 

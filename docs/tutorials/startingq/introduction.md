@@ -3,16 +3,16 @@
 
 ## 1.1 Overview
 
-This is a quick start guide to q, aimed primarily at those learning independently. It covers system installation, the q environment, IPC, tables and typical databases, and where to find more material. After completing this you should be able to follow the Borror textbook [Q for Mortals](http://code.kx.com/q4m3), and the wiki [Reference](/ref/card) and [Cookbook](/cookbook/introduction).
+This is a quick start guide to kdb+, aimed primarily at those learning independently. It covers system installation, the kdb+ environment, IPC, tables and typical databases, and where to find more material. After completing this you should be able to follow the Borror textbook [Q for Mortals](http://code.kx.com/q4m3), and the wiki [Reference](/ref/card) and [Cookbook](/cookbook/introduction).
 
-One caution: you can learn q reasonably well by independent study, but for serious evaluation of the product you need the help of a consultant. This is because q is typically used for very demanding applications that require experience to set up properly. Contact Kx Systems or one of its partners for help with such evaluations.
+One caution: you can learn kdb+ reasonably well by independent study, but for serious evaluation of the product you need the help of a consultant. This is because kdb+ is typically used for very demanding applications that require experience to set up properly. Contact Kx Systems or one of its partners for help with such evaluations.
 
 
 ## 1.2 Kdb+
 
 The kdb+ system is both a database and a programming language:
   
-**kdb+** the database (*k database plus*).
+**kdb+** the database (_k database plus_).
 
 **q** the programming language for working with kdb+
 
