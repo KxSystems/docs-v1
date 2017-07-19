@@ -9,8 +9,8 @@ q)*/[2 3 4]      /reduce 2 3 4 with *
 
 <div class="kx-compact" markdown="1">
 
-| form            | adverb                                | semantics                                  |
-|-----------------|---------------------------------------|--------------------------------------------|
+| form            | adverb                        | semantics                                          |
+|-----------------|-------------------------------|----------------------------------------------------|
 | `int'[x;y;…]`   | [case](#case)                 | select from `[x;y;…]`                              |
 | `'[f;g][x;y;…]` | [compose](#compose)           | compose `f` with `g`                               |
 | `x f'y`         | [each-both](#each-both)       | apply `f` between items of `x` and `y`             |
@@ -18,7 +18,7 @@ q)*/[2 3 4]      /reduce 2 3 4 with *
 | `x f/:y`        | [each-right](#each-right)     | apply ``f between `x` and items of `y`             |
 | `f':x`          | [each-parallel](#each-right)  | apply `f` to items of `x` in parallel tasks        |
 | `f':x`          | [each-prior](#each-prior)     | apply `f` between successive pairs of items of `x` |
-| `x f/y`         | [repeat](#converge-repeat)             | apply `f` to `y`, `x` times                        |
+| `x f/y`         | [repeat](#converge-repeat)    | apply `f` to `y`, `x` times                        |
 | `x f/y`         | [over](#over)                 | reduce `y` with `f`                                |
 | `f/[x;y;…]`     | [fold](#fold)                 | reduce `[x;y;…]` with `f`                          |
 | `f\x`           | [converge](#converge-iterate) | apply `f` to `x` until converges                   |
@@ -239,9 +239,13 @@ q){x*x}/[{x<1000};2]   /prefix: f/[g;y]
 Syntax: `f/`  (unary)  
 Derivative: `x d y` (ambivalent, aggregate)
 
-Where `f` is a **binary** function the derivative `f/` returns
+Where `f` is a **binary** function
 
-<code>f[x;f[y<sub>0</sub>;f[y<sub>1</sub>;…]]]</code>
+`f/[y]`
+: <code>f[f[…f[f[y<sub>0</sub>;y<sub>1</sub>];y<sub>2</sub>];…y<sub>n-1</sub>];y<sub>n</sub>]</code>
+
+`f/[x;y]`
+: <code>f[f[…f[f[x;y<sub>0</sub>];y<sub>1</sub>];…y<sub>n-1</sub>];y<sub>n</sub>]</code>
 
 ```q
 q)(+/)2 3 4  /unary
@@ -255,11 +259,14 @@ q)0+/2 3 4   /binary
 
 ## `/` (fold)
 
-Syntax: `f/`  (unary)  
+Syntax: `f/`  (unary)
 Derivative: `d[x;y;z;…]` (same rank as `f`)
 
-Where `f` is a **function with rank above 2** and `y`, `z`, etc. conform, the derivative `f/` has the same rank as `f` and (e.g. for rank 3 and `y` and `z` of count `n`) returns  
-<code>f[f[… f[f[x;y<sub>0</sub>;z<sub>0</sub>];y<sub>1</sub>;z<sub>1</sub>]; … y<sub>n-1</sub>;z<sub>n-1</sub>];y<sub>n</sub>;z<sub>n</sub>]</code>
+Where `f` is a **function with rank above 2** and `y`, `z`, etc. conform, the derivative `f/` has the same rank as `f`. Example: for `f` of rank 3 and `y` and `z` of count `n`)
+
+`f/[x;y;z]` 
+: <code>f[f[… f[f[x;y<sub>0</sub>;z<sub>0</sub>];y<sub>1</sub>;z<sub>1</sub>]; … y<sub>n-1</sub>;z<sub>n-1</sub>];y<sub>n</sub>;z<sub>n</sub>]</code>
+
 ```q
 q){x+y+z}/[1 5 6;2 22;3 33]
 61 65 66
