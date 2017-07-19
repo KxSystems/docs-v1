@@ -18,6 +18,10 @@ about new repositories.</div>
 	<td>companion files to the [Cookbook](/cookbook/introduction)</td>
 </tr>
 <tr>
+	<td class="nowrap">[help](https://github.com/KxSystems/help)</td>
+	<td>online help for q</td>
+</tr>
+<tr>
 	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka) ==new==</td>
 	<td>Q client for [Apache Kafka](https://kafka.apache.org)</td>
 </tr>
