@@ -20,6 +20,58 @@ Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, ne
 
 <table class="kx-tight" markdown="1" style="font-size:80%">
 <thead>
+<tr><th>n</th><th>c</th><th>name</th><th>sz</th><th>literal</th><th>null</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
+</thead>
+<tbody>
+<tr><td class="nowrap">0</td><td>*</td><td>list</td><td/><td/><td/><td/><td/><td/></tr>
+<tr><td class="nowrap">1</td><td>b</td><td>boolean</td><td>1</td><td>`0b`</td><td/><td/><td>Boolean</td><td>boolean</td></tr>
+<tr><td class="nowrap">2</td><td>g</td><td>guid</td><td>16</td><td/><td>`0Ng`</td><td/><td>UUID</td><td>GUID</td></tr>
+<tr><td class="nowrap">4</td><td>x</td><td>byte</td><td>1</td><td>`0x00`</td><td/><td/><td>Byte</td><td>byte</td></tr>
+<tr><td class="nowrap">5</td><td>h</td><td>short</td><td>2</td><td>`0h`</td><td>`0Nh`</td><td>smallint</td><td>Short</td><td>int16</td></tr>
+<tr><td class="nowrap">6</td><td>i</td><td>int</td><td>4</td><td>`0i`</td><td>`0Ni`</td><td>int</td><td>Integer</td><td>int32</td></tr>
+<tr><td class="nowrap">7</td><td>j</td><td>long</td><td>8</td><td>`0j` or `0`</td><td>`0Nj` or `0N`</td><td>bigint</td><td>Long</td><td>int64</td></tr>
+<tr><td class="nowrap">8</td><td>e</td><td>real</td><td>4</td><td>`0e`</td><td>`0Ne`</td><td>real</td><td>Float</td><td>single</td></tr>
+<tr><td class="nowrap">9</td><td>f</td><td>float</td><td>8</td><td>`0.0` or `0f`</td><td>`0n`</td><td>float</td><td>Double</td><td>double</td></tr>
+<tr><td class="nowrap">10</td><td>c</td><td>char</td><td>1</td><td>`" "`</td><td>`" "`</td><td/><td>Character</td><td>char</td></tr>
+<tr><td class="nowrap">11</td><td>s</td><td>symbol</td><td>.</td><td>`` ` ``</td><td>`` ` ``</td><td>varchar</td><td>String</td><td>string</td></tr>
+<tr><td class="nowrap">12</td><td>p</td><td>timestamp</td><td>8</td><td>dateDtimespan</td><td>`0Np`</td><td/><td>Timestamp</td><td>DateTime (RW)</td></tr>
+<tr><td class="nowrap">13</td><td>m</td><td>month</td><td>4</td><td>`2000.01m`</td><td>`0Nm`</td><td/><td/><td/></tr>
+<tr><td class="nowrap">14</td><td>d</td><td>date</td><td>4</td><td>`2000.01.01`</td><td>`0Nd`</td><td>date</td><td>Date</td><td/></tr>
+<tr><td class="nowrap">15</td><td>z</td><td>datetime</td><td>8</td><td>dateTtime</td><td>`0Nz`</td><td>timestamp</td><td>Timestamp</td><td>DateTime (RO)</td></tr>
+<tr><td class="nowrap">16</td><td>n</td><td>timespan</td><td>8</td><td>`00:00:00.000000000`</td><td>`0Nn`</td><td/><td>Timespan</td><td>TimeSpan</td></tr>
+<tr><td class="nowrap">17</td><td>u</td><td>minute</td><td>4</td><td>`00:00`</td><td>`0Nu`</td><td/><td/><td/></tr>
+<tr><td class="nowrap">18</td><td>v</td><td>second</td><td>4</td><td>`00:00:00`</td><td>`0Nv`</td><td/><td/><td/></tr>
+<tr><td class="nowrap">19</td><td>t</td><td>time</td><td>4</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
+<tr><td class="nowrap" colspan="2">20-76</td><td>enums</td><td/><td/><td/><td/><td/><td/></tr>
+<tr><td class="nowrap">77</td><td/><td colspan="7">(unused)</td><td/><td/><td/></tr>
+<tr><td class="nowrap" colspan="2">78-96</td><td colspan="7">77+t – mapped list of lists of type t</td><td/><td/><td/></tr>
+<tr><td class="nowrap">97</td><td/><td colspan="7">nested sym enum</td><td/><td/><td/></tr>
+<tr><td class="nowrap">98</td><td/><td colspan="7">table</td><td/><td/><td/></tr>
+<tr><td class="nowrap">99</td><td/><td colspan="7">dictionary</td><td/><td/><td/></tr>
+<tr><td class="nowrap">100</td><td/><td colspan="7">lambda</td><td/><td/><td/></tr>
+<tr><td class="nowrap">101</td><td/><td colspan="7">unary primitive</td><td/><td/><td/></tr>
+<tr><td class="nowrap">102</td><td/><td colspan="7">operator</td><td/><td/><td/></tr>
+<tr><td class="nowrap">103</td><td/><td colspan="7">adverb</td><td/><td/><td/></tr>
+<tr><td class="nowrap">104</td><td/><td colspan="7">projection</td><td/><td/><td/></tr>
+<tr><td class="nowrap">105</td><td/><td colspan="7">composition</td><td/><td/><td/></tr>
+<tr><td class="nowrap">106</td><td/><td colspan="7">f'</td><td/><td/><td/></tr>
+<tr><td class="nowrap">107</td><td/><td colspan="7">f/</td><td/><td/><td/></tr>
+<tr><td class="nowrap">108</td><td/><td colspan="7">f\</td><td/><td/><td/></tr>
+<tr><td class="nowrap">109</td><td/><td colspan="7">f':</td><td/><td/><td/></tr>
+<tr><td class="nowrap">110</td><td/><td colspan="7">f/:</td><td/><td/><td/></tr>
+<tr><td class="nowrap">111</td><td/><td colspan="7">f\:</td><td/><td/><td/></tr>
+<tr><td class="nowrap">111</td><td/><td colspan="7">dynamic load</td><td/><td/><td/></tr>
+</tbody>
+</table>
+
+`n`: short int returned by [`type`](metadata/#type)  
+`c`: character used for [casting](casting) and [load-csv](filenumbers/#load-csv)  
+`sz`: size in bytes. 
+RO: read only; RW: read-write
+
+<!-- 
+<table class="kx-tight" markdown="1" style="font-size:80%">
+<thead>
 <tr><th>char</th><th>size</th><th>num</th><th>literal</th><th>null</th><th>name</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
 </thead>
 <tbody>
@@ -43,28 +95,28 @@ Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, ne
 <tr><td>v</td><td>4</td><td>18</td><td>`00:00:00`</td><td>`0Nv`</td><td>second</td><td/><td/><td/></tr>
 <tr><td>t</td><td>4</td><td>19</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
 <tr><td/><td/><td>20-76</td><td/><td/><td>enums</td><td/><td/><td/></tr>
-<tr><td/><td/><td>77</td><td/><td/><td colspan="4">(unused)</td></tr>
-<tr><td/><td/><td>78-96</td><td/><td/><td colspan="4">77+t – mapped list of lists of type t</td></tr>
-<tr><td/><td/><td>97</td><td/><td/><td colspan="4">nested sym enum</td></tr>
-<tr><td/><td/><td>98</td><td/><td/><td colspan="4">table</td></tr>
-<tr><td/><td/><td>99</td><td/><td/><td colspan="4">dictionary</td></tr>
-<tr><td/><td/><td>100</td><td/><td/><td colspan="4">lambda</td></tr>
-<tr><td/><td/><td>101</td><td/><td/><td colspan="4">unary primitive</td></tr>
-<tr><td/><td/><td>102</td><td/><td/><td colspan="4">operator</td></tr>
-<tr><td/><td/><td>103</td><td/><td/><td colspan="4">adverb</td></tr>
-<tr><td/><td/><td>104</td><td/><td/><td colspan="4">projection</td></tr>
-<tr><td/><td/><td>105</td><td/><td/><td colspan="4">composition</td></tr>
-<tr><td/><td/><td>106</td><td/><td/><td colspan="4">f'</td></tr>
-<tr><td/><td/><td>107</td><td/><td/><td colspan="4">f/</td></tr>
-<tr><td/><td/><td>108</td><td/><td/><td colspan="4">f\</td></tr>
-<tr><td/><td/><td>109</td><td/><td/><td colspan="4">f':</td></tr>
-<tr><td/><td/><td>110</td><td/><td/><td colspan="4">f/:</td></tr>
-<tr><td/><td/><td>111</td><td/><td/><td colspan="4">f\:</td></tr>
-<tr><td/><td/><td>111</td><td/><td/><td colspan="4">dynamic load</td></tr>
+<tr><td/><td/><td>77</td><td/><td/><td colspan="7">(unused)</td></tr>
+<tr><td/><td/><td>78-96</td><td/><td/><td colspan="7">77+t – mapped list of lists of type t</td></tr>
+<tr><td/><td/><td>97</td><td/><td/><td colspan="7">nested sym enum</td></tr>
+<tr><td/><td/><td>98</td><td/><td/><td colspan="7">table</td></tr>
+<tr><td/><td/><td>99</td><td/><td/><td colspan="7">dictionary</td></tr>
+<tr><td/><td/><td>100</td><td/><td/><td colspan="7">lambda</td></tr>
+<tr><td/><td/><td>101</td><td/><td/><td colspan="7">unary primitive</td></tr>
+<tr><td/><td/><td>102</td><td/><td/><td colspan="7">operator</td></tr>
+<tr><td/><td/><td>103</td><td/><td/><td colspan="7">adverb</td></tr>
+<tr><td/><td/><td>104</td><td/><td/><td colspan="7">projection</td></tr>
+<tr><td/><td/><td>105</td><td/><td/><td colspan="7">composition</td></tr>
+<tr><td/><td/><td>106</td><td/><td/><td colspan="7">f'</td></tr>
+<tr><td/><td/><td>107</td><td/><td/><td colspan="7">f/</td></tr>
+<tr><td/><td/><td>108</td><td/><td/><td colspan="7">f\</td></tr>
+<tr><td/><td/><td>109</td><td/><td/><td colspan="7">f':</td></tr>
+<tr><td/><td/><td>110</td><td/><td/><td colspan="7">f/:</td></tr>
+<tr><td/><td/><td>111</td><td/><td/><td colspan="7">f\:</td></tr>
+<tr><td/><td/><td>111</td><td/><td/><td colspan="7">dynamic load</td></tr>
 </tbody>
 </table>
 
-The char column values are used for [casting](casting) and [load-csv](filenumbers/#load-csv).
+ -->
 
 <!-- <div markdown="1" class="kx-compact">
 | num | char | size | literal              | null         | name      | sql       | java      | .net                 |
@@ -118,7 +170,7 @@ num char size literal            null   name      SQL       Java      .Net
  -->
 
 !!! note "Strings"
-    There is no _string_ datatype. The nearest equivalent to a string is a symbol, or a char vector. A reference to a _string_ should be understood as referring to a char vector.
+    There is no string datatype. The nearest equivalent to a string is a symbol, or a char vector. On this site, _string_ is a synonym for character vector.
 
 
 ### Symbols
