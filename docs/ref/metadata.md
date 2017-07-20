@@ -323,9 +323,9 @@ Returns the [datatype](datatypes) of `x` as a short integer atom: negative for a
 </tbody>
 </table>
 
-`n`: short int returned by `type`
+`n`: short int returned by `type`  
 `c`: character used for [casting](casting) and [load-csv](filenumbers/#load-csv)  
-`sz`: size in bytes. 
+`sz`: size in bytes  
 RO: read only; RW: read-write
 
 !!! tip "Looking up primitive datatypes"

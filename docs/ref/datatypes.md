@@ -66,7 +66,7 @@ Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, ne
 
 `n`: short int returned by [`type`](metadata/#type)  
 `c`: character used for [casting](casting) and [load-csv](filenumbers/#load-csv)  
-`sz`: size in bytes. 
+`sz`: size in bytes  
 RO: read only; RW: read-write
 
 <!-- 
