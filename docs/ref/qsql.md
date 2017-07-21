@@ -326,6 +326,10 @@ which limits the results to `n` per partition.
 - Constraints should have the unmodified column name on the left of the constraint operator (e.g. where sym in syms,…)
 - When aggregating, use the virtual field first in the by-clause. (E.g. `select .. by date,sym from …`)
 
+!!! tip 
+    ``…where `g=,`s  within …``  
+    Maybe rare to get much speedup, but if the `` `g `` goes to 100,000 and then `` `s `` is 1 hour of 24 you might see some overall improvement (with overall table of 30 million). 
+
 
 ### Multithreading
 
@@ -359,54 +363,45 @@ a
 6
 ```
 
-### Scope
 
-When compiling functions, the implicit args `x`, `y`, `z` are visible to the compiler only when they are not inside the select-, by- and where-clauses. The from-clause is not masked. This can be observed by taking the value of the function and observing the first item (args).
+### Name resolution
+
+Resolution of a name within select/exec/update is as follows:
+
+1. column name
+1. local name in (or param of) the encapsulating function
+1. global name in the current working namespace – not necessarily the space in which the function was defined
+
+!!! tip 
+    You can [refer explicitly to namespaces](elements/#names-and-namespaces):
+    ```q
+    select (`. `toplevel) x from t
+    ```
+
+
+### Implicit arguments
+
+When compiling functions, the implicit args `x`, `y`, `z` are visible to the compiler only when they are not inside the select-, by- and where-clauses. The from-clause is not masked. This can be observed by taking the [`value`](metadata/#value) of the function and observing the second item: the args.
 ```q
-q)value{} / no explicit args, so x is a default implicit arg of identity (::)
-0x100001
+q)args:{(value x)1}
+q)args{} / no explicit args, so x is a default implicit arg of identity (::)
 ,`x
-`symbol$()
-,`
-"{}"
-
 q)/from clause is not masked, y is detected as an implicit arg here
-q)value{select from y where a=x,b=z}
-0x0ba0a179a20a040005
+q)args{select from y where a=x,b=z}
 `x`y
-`symbol$()
-,`
-0b
-((=;`a;`x);(=;`b;`z))
-?
-"{select from y where a=x,b=z}"
-
-q)value{[x;y;z]select from y where a=x,b=z} / x,y,z are now explicit args
-0x0ba0a179a20a040005
+q)args{[x;y;z]select from y where a=x,b=z} / x,y,z are now explicit args
 `x`y`z
-`symbol$()
-,`
-0b
-((=;`a;`x);(=;`b;`z))
-?
-"{[x;y;z]select from y where a=x,b=z}"
-
-
 q)/call with wrong number of args results in rank error
 q){select from ([]a:0 1;b:2 3) where a=x,b=y}[0;2]
 'rank
-
+  [0]  {select from ([]a:0 1;b:2 3) where a=x,b=y}[0;2]
+       ^
 q)/works with explicit args
 q){[x;y]select from ([]a:0 1;b:2 3) where a=x,b=y}[0;2]
 a b
 ---
 0 2
 ```
-
-
-!!! tip 
-    ``…where `g=,`s  within …``  
-    Maybe rare to get much speedup, but if the `` `g `` goes to 100,000 and then `` `s `` is 1 hour of 24 you might see some overall improvement (with overall table of 30 million). 
 
 
 ## `update`

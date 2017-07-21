@@ -14,7 +14,7 @@ q)execFunction[f1;enlist 1]
 q)execFunction[f2;(1 2)]
 3
 ```
-
+> _Everything starts from a dot._ – Wassily Kandinsky
 
 ## `(::)` (identity)
 

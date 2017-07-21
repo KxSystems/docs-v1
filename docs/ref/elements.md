@@ -112,6 +112,23 @@ q).z.p                         / UTC timestamp
 2017.02.01D14:58:38.579614000
 ```
 
+!!! tip "Namespaces are dictionaries"
+    Namespace contents can be treated as dictionary entries. 
+    ```q
+    q)v:5
+    q).ns.v:6
+    q)`.[`v]      / value of v in root namespace
+    5
+    q)`.ns[`v]    / value of v in ns
+    6
+    q)`. `v       / indexed by juxtaposition
+    5
+    q)`.ns `v`v
+    6 6
+    q)`.`.ns@\:`v
+    5 6
+    ```
+
 <a class="fa fa-hand-o-right"></a> [Names in context](syntax/#name-scope)
 
 

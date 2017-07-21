@@ -21,6 +21,7 @@
 * [Efficient use of **adverbs**](wp/efficient_use_of_adverbs.pdf)
 * [Streaming **analytics**: detecting card counters in Blackjack](wp/card-counters-in-blackjack.pdf)
 * [Kdb+ in **astronomy**](wp/kdb_in_astronomy.pdf)
+* [**C API** for kdb+](wp/c_api_for_kdb.pdf)
 * [**Compression** in kdb+](wp/compression_in_kdb.pdf)
 * [Temporal Data: a kdb+ framework for **corporate actions**](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)
 * [Kdb+ **data-management sample customisation** techniques](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)

@@ -9,8 +9,8 @@ extra_javascript:
   - scripts/fdtracker.js
   - scripts/googleanalytics.js
   - scripts/theme.js
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'
-  # - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'
+  # - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'
+  - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'
 markdown_extensions:
   - admonition
   - codehilite(guess_lang=false)
