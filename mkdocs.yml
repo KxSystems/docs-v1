@@ -6,11 +6,12 @@ extra_css:
 extra_javascript: 
   - 'https://code.jquery.com/jquery-3.1.1.min.js'
   - 'https://use.fontawesome.com/3dbf29ed12.js'
-  - scripts/fdtracker.js
+  # - scripts/fdtracker.js
   - scripts/googleanalytics.js
   - scripts/theme.js
-  # - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'
-  - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'
+  # https://www.mathjax.org/cdn-shutting-down/
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'
+  # - 'https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js'
 markdown_extensions:
   - admonition
   - codehilite(guess_lang=false)
