@@ -259,7 +259,7 @@ The act of defining a view does not trigger its evaluation.
 
 A view should not have side-effects, i.e. should not update global variables. 
 
-<i class="fa fa-hand-o-right"></i> [Views tutorial](http://code.kx.com/wiki/Views), [`view`](metadata/#view), [`views`](metadata/#views), [`.Q.view`](dotq/#qview-subview) (subview) 
+<i class="fa fa-hand-o-right"></i> [Views tutorial](/tutorials/views), [`view`](metadata/#view), [`views`](metadata/#views), [`.Q.view`](dotq/#qview-subview) (subview) 
 
 
 

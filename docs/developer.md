@@ -55,7 +55,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 
 
 
-## <i class="fa fa-database"></i> Big Data
+## <i class="fa fa-database"></i> Big data
 
 * [Changing the schema of a splayed table](cookbook/splayed-schema-change/)
 * [Database partitioning with par.txt](ref/unclassified/#partxt)
@@ -84,11 +84,6 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [Linking columns](cookbook/linking-columns)
 
 
-## <i class="fa fa-language"></i> Foreign interfaces
-
-<i class="fa fa-hand-o-right"></i> <span style="color: maroon">New</span> section: [Interfaces](interfaces)
-
-
 ## <i class="fa fa-exchange"></i> Interprocess communication
 
 * [IPC in a nutshell](cookbook/ipc)
@@ -100,7 +95,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [Server calling the client](cookbook/server-calling-client/)
 * [Using Modified `.z` functions to trace, monitor and control execution](cookbook/using-dotz)
 
-
+<!-- 
 ## <i class="fa fa-github"></i> Q on GitHub 
 
 * [KxSystems/cookbook](https://github.com/KxSystems/cookbook) – companion files for articles in the q cookbook
@@ -110,7 +105,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [KxSystems/docs](https://github.com/KxSystems/docs) – source for this documentation site
 * [log4q](https://github.com/prodrive11/q_stuff/tree/master/src/log4q)
 * [User repositories](https://kxsystems.github.io/)
-
+ -->
 
 ## <i class="fa fa-wrench"></i> Utilities
 
@@ -119,7 +114,7 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [Using modified `.z` functions](cookbook/using-dotz)
 * [Q by examples](tutorials/q-by-examples)
 * [Studio for kdb+](http://github.com/CharlesSkelton/studio) <i class="fa fa-github"></i> 
-* [User-contributed code](http://code.kx.com/wiki/Contrib)
+* [User-contributed code](http://kxsystems.github.io/)
 
 
 ## <i class="fa fa-map-o"></i> Miscellaneous
