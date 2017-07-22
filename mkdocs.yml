@@ -190,12 +190,12 @@ pages:
     - Programming examples: cookbook/programming-examples.md
     - Programming idioms: cookbook/programming-idioms.md
     - Publish and subscribe: cookbook/publish-subscribe.md
+    - Regular expressions: cookbook/regex.md
     - Server calling client: cookbook/server-calling-client.md
     - Splayed schema change: cookbook/splayed-schema-change.md
     - Splayed tables: cookbook/splayed-tables.md
     - Splaying large files: cookbook/splaying-large-files.md
     - SSL/TLS: cookbook/ssl.md
-    - Regular expressions: cookbook/regex.md
     - Temporal data: cookbook/temporal-data.md
     - Timezones: cookbook/timezones.md
     - Unicode: cookbook/unicode.md
