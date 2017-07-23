@@ -1,8 +1,11 @@
-<big>Installation instructions for the free 32-bit version of kdb+</big>
+<big>Installation instructions for the free version of kdb+</big>
+
+## <i class="fa fa-download"></i> Download
+
+The free 32-bit version of kdb+ can be downloaded for non-commercial use from [kx.com](https://kx.com/download). Follow the instructions.
+
 
 ## <i class="fa fa-apple"></i> macOS
-
-Kdb+ can be downloaded from [kx.com](http://kx.com). Follow the instructions.
 
 If necessary, unzip the archive. A new folder `q` will appear in your Downloads folder.
 
@@ -69,8 +72,6 @@ You’re done. You have completely installed kdb+. See [what’s next](#whats-ne
 
 ## <i class="fa fa-windows"></i> Microsoft Windows
 
-Kdb+ can be downloaded from [kx.com](http://kx.com). Follow the download instructions.
-
 This will put a file `windows.zip` in your Downloads folder. Extract the files to `C:\`, producing a new folder `C:\q`. (You can install on a different filepath. If you do, in the following instructions simply replace `C:\q` with your filepath.)
 
 
@@ -103,8 +104,6 @@ You’re done. You have completely installed kdb+. See [what’s next](#whats-ne
 
 
 ## <i class="fa fa-linux"></i> Linux
-
-Kdb+ can be downloaded from [kx.com](http://kx.com). Follow the download instructions.
 
 Open a Bash session (eg LXTerminal) in your home folder and `cd` to your Downloads folder. Unzip the archive. A new folder q will appear in your Downloads folder. Copy it to your home folder and `cd` there.
 

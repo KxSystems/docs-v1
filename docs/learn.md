@@ -6,6 +6,7 @@ the free 32-bit version of kdb+ for
 <i class="fa fa-apple"></i> macOS, 
 <i class="fa fa-linux"></i> Linux, or
 <i class="fa fa-windows"></i> Windows
+for non-commercial use
 
 
 ## <i class="fa fa-mortar-board"></i> Tutorials for beginners
