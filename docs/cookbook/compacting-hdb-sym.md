@@ -73,6 +73,7 @@ system"mv sym zym" /make backup of sym file
   0N!"re-enumerated ", string file;
   } peach symFiles
 ```
+[<i class="fa fa-download"></i> Multi-threaded sym rewrite code](assets/multi-threaded-sym-rewrite-code.q)
 
 !!! tip "Take backups!"
 
