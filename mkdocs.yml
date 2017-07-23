@@ -117,7 +117,8 @@ pages:
     - Syntax: ref/syntax.md
     - System commands: ref/syscmds.md
   - Tutorials:
-    - Install: tutorials/install.md
+    - Installing: tutorials/install.md
+    - Licensing: tutorials/licensing.md
     - A brief introduction:
       - First steps: tutorials/first-steps.md
       - In-memory queries: tutorials/in-memory-queries.md

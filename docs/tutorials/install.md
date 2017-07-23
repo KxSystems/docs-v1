@@ -1,8 +1,21 @@
-<big>Installation instructions for the free version of kdb+</big>
-
 ## <i class="fa fa-download"></i> Download
 
-The free 32-bit version of kdb+ can be downloaded for non-commercial use from [kx.com](https://kx.com/download). Follow the instructions.
+
+Free 32-bit version
+: The free 32-bit version of kdb+ (for non-commercial use) can be downloaded from [kx.com](https://kx.com/download). Follow the instructions.
+
+Commercial versions
+: Commercial versions of kdb+ are distributed to customers from [downloads.kx.com](https://downloads.kx.com). (Credentials for this site are issued to customers’ [Designated Contacts](licensing/#obtaining-a-license-key-file)). 
+
+!!! tip "Internal distribution"
+    Most customers download the latest release of kdb+ and make that (along with the accompanying README.txt, the change list) available from a central file server. 
+
+    Encourage your developers frequently to fold the latest release of kdb+ into their development cycle, and match the version used in production. This can greatly simplify development, deployment and debugging.
+
+The names of the downloaded ZIPs denote the platform (`l64.zip` – 64-bit Linux; `w32.zip` – 32-bit Windows, etc.).
+
+!!! warning "Test versions"
+    Numerical release versions of the form 2.8, or 3.2 are production code. Versions of kdb+ with a trailing `t` in the name such as `3.3t` are test versions and are neither intended nor supported for production use.
 
 
 ## <i class="fa fa-apple"></i> macOS
@@ -119,7 +132,7 @@ uname -m
 
 If the result is `i686` or `i386` or similar, you are running a **32-bit** distribution. If the results is `x86_64`, you are running a **64-bit** distribution.
 
-If you are installing 32-bit kdb+ on a 32-bit Linux distribution, proceed to [Launch (minimum install)](#launch-minimum-install).
+If you are installing 32-bit kdb+ on a 32-bit Linux distribution, proceed to [Launch (minimum install)](#minimum-install-and-launch).
 
 But if you are installing 32-bit kdb+ on a 64-bit Linux distribution, you will need a 32-bit library. Use your usual package manager to install i686 or i386: for example:
 ```bash
@@ -180,6 +193,30 @@ From your home folder open q, type an expression and recall it using the up-arro
 You’re done. You have completely installed kdb+. 
 
 
+## Licences
+
+Usage of the free, non-commercial 32-bit distribution of kdb+ is governed by the terms and conditions on the [download page](https://kx.com/download). 
+
+Commercial distributions of kdb+ require a license file to run. Without it, they signal a license error and abort:
+
+error    | cause
+---------|------
+`'exp`   | license has expired
+`'upd`   | license more recent than end of last maintenance period
+`'host`  | license is for a different host or cannot resolve hostname
+`'os`    | license is for a different operating system
+`'cores` | license is for fewer cores than available
+
+<i class="fa fa-hand-o-right"></i> [Licenses](licensing), [Linux production notes](/cookbook/linux-production)
+
+
+
+## Installing elsewhere
+
+You can install kdb+ where you please. The environment variable `QHOME` (specified in the instructions above) tells kdb+ where its home folder is. 
+
+
 ## <i class="fa fa-hand-o-right"></i> What’s next?
 
-[Get started](learn) with the q programming language, look through the [reference card](/ref/card), or see what you can do with kdb+ in the [Cookbook](cookbook/introduction) section.
+[Get started](/learn) with the q programming language, look through the [reference card](/ref/card), or see what you can do with kdb+ in the [Cookbook](/cookbook/introduction) section.
+
