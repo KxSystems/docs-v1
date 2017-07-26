@@ -48,7 +48,11 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
     Type in the Search box to see local search results.
     Hit Return to search with Google.
 
- -->!!! caution "The Kx wiki"
+ -->
+!!! info "New on code.kx.com"
+    [Consolidated list of errors](/ref/error-list)
+
+!!! caution "The Kx wiki"
     The documentation from the Kx wiki is moving to this new format. 
 
     During migration, the [wiki](http://code.kx.com/wiki) remains unchanged. 

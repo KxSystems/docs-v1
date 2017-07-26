@@ -1,3 +1,6 @@
+<i class="fa fa-hand-o-right"></i> [List of all errors](/ref/error-list)
+
+
 ## abort
 
 System command: type `\`  at the debugger prompt `q))` prompt to return to the interactive session.
@@ -153,64 +156,77 @@ q)@[parse;"22 1b1 44";::]
     ```
     For most purposes, you will want `e` to be a function.
 
-
+<!-- 
 ## Errors
 <div class="kx-compact" markdown="1">
 
 ### Runtime errors
 
-| error | example | explanation |
-|-------|---------|-------------|
-| `access` | | attempt to read files above directory, run system commands or failed usr/pwd |
-| `accp` | | tried to accept an incoming tcp/ip connection but failed to do so |
-| `adict` |        `d[::]:x` | blocked assignment (`'nyi`) |
-| `arch` | | attempt to load file of wrong endian format |
-| `assign` |       `cos:12` | attempt to reuse a reserved word |
-| `badtail` | | incomplete transaction at end of logfile, get good (count;length) with `-11!(-2;`:file)` |
-| `cast` |         `` `sym$`xxx`` | attempt to enumerate invalid value (`` `xxx`` not in sym in example) |
-| `conn`  | | too many incoming connections (1022 max) |
-| `d8`  | | the log had a partial transaction at the end but q couldn't truncate the file. |
-| `domain` |       `!-1` | out of domain |
-| `elim` | |                    more than 57 distinct enumerations |
-| `from` |         `select a b` | badly formed select statement |
-| `glim` |   |                   limit on number of vectors with a `` `g#`` attribute, unlimited since 3.2 |
-| `hwr` |      |                 handle write error, can't write inside a `peach` |
-| `insert` |     |               attempt to insert a record with a key that already exists |
-| `length` |       `()+!1` | incompatible lengths |
-| `limit` |        `0W#2` | tried to generate a list longer than 2,000,000,000 |
-| `loop` |         `a::a` | dependency or transitive closure loop |
-| `mismatch` |     |             columns that can't be aligned for R,R or K,K |
-| `mlim` |           |           limit on number of concurrently mapped nested vectors, currently 65530 |
-| `nyi` |              |         not yet implemented |
-| `noamend` |            |       can't change global state inside an amend |
-| `noupdate` |             |     update not allowed when using negative port number |
-| `nosocket` |             |    can only open/use sockets in main thread |
-| `os` |                     |   operating system error |
-| `path too long`| (`$":",1000#"a") set 1 2 3  | file path length exceeded | 
-| `parse` |   |                  invalid syntax |
-| `part` |      |                something wrong with the partitions in the HDB |
-| `pl` |          |              `peach` can't handle parallel lambdas (2.3 only) |
-| `Q7` |            |            nyi op on file nested array |
-| `rank` |         `+[2;3;4]` | invalid rank or valence |
-| `rb` |              |          encountered a problem whilst doing a blocking read |
-| `s-fail` |      `` `s#2 1`` | cannot apply `` `s#`` to data (not ascending values) |
-| `splay` |             |        nyi op on splayed table |
-| `stack` |        `{.z.s[]}[]` | ran out of stack space |
-| `step` |                |      attempt to upsert into stepped (`` `s#``) dictionary |
-| `stop` |                  |      user interrupt (Ctrl-c) or time limit (`-T`) |
-| `stype` |        `'42` | invalid type used to signal |
-| `threadview` |              |  views can only be calculated from the main thread |
-| `trunc` | |                    the log had a partial transaction at the end but q couldn't truncate the file |
-| `type` |         `til 2.2` | wrong type |
-| `type/attr error amending file` |     |   direct update on disk for this type or attribute is not allowed |
-| `u-fail` |      `` `u#1 1`` | cannot apply `` `u#`` to data (not unique values) |
-| `unmappable` | |               when saving partitioned data, each column must be mappable |
-| `value` |        |             no value |
-| `vd1` |           |            attempted multithread update |
-| `view` |            |          trying to re-assign a view to something else |
-| `wsfull` |            |        malloc failed. ran out of swap (or addressability on 32 bit). or hit `-w` limit |
-| `XXX` |                 |      value error (`XXX` undefined) |
-
+error | example | explanation 
+------|---------|-------------
+`access` | | attempt to read files above directory, run system commands or failed usr/pwd
+`accp` | | tried to accept an incoming TCP/IP connection but failed to do so
+`adict` | `d[::]:x` | blocked assignment (`'nyi`)
+`arch` | | attempt to load file of wrong endian format
+`assign` | `cos:12` | attempt to reuse a reserved word
+`badtail` | | incomplete transaction at end of logfile, get good (count;length) with `-11!(-2;`:file)`
+`cast` | `` `sym$`xxx`` | attempt to enumerate invalid value (`` `xxx`` not in sym in example)
+`char` | |invalid character
+`conn`  | | too many incoming connections (1022 max)
+`constants` | too many constants (max 96)
+`cores` | too many cores
+`d8`  | | the log had a partial transaction at the end but q couldn’t truncate the file.
+`domain` | `!-1` | out of domain
+`elim` | | more than 57 distinct enumerations
+`from` | `select a b` | badly formed select statement
+`glim` | | limit on number of vectors with a `` `g#`` attribute (unlimited since 3.2)
+`globals` | | too many global variables (32 max)
+`host` | | unlicensed host
+`hwr` | | handle write error, can’t write inside a `peach`
+`insert` |     |               attempt to insert a record with a key that already exists
+`k4.lic` | k4.lic file not found, check `QHOME`and `QLIC`
+`length` |       `()+!1` | incompatible lengths
+`limit` | `0W#2` | tried to generate a list longer than 2,000,000,000
+`locals` | | too many local variables (24 max)
+`loop` | `a::a` | dependency or transitive closure loop
+`mismatch` |     |             columns that can't be aligned for R,R or K,K
+`mlim` | | limit on number of concurrently mapped nested vectors, currently 65530
+`noamend` |  | can't change global state inside an amend
+`nosocket` | | can only open/use sockets in main thread
+`noupdate` | | update not allowed when using negative port number
+`nyi` | | not yet implemented
+`os` | | ==operating system error== _or_ unlicenced operating system
+`params` | | too many parameters (8 max)
+`parse` | | invalid syntax
+`part` | | something wrong with the partitions in the HDB
+`path too long`| (`$":",1000#"a") set 1 2 3 | file path length exceeded
+`pl` | | `peach` can't handle parallel lambdas (2.3 only)
+`Q7` | | nyi op on file nested array
+`rank` | `+[2;3;4]` | invalid rank or valence
+`rb` | | encountered a problem whilse doing a blocking read
+`s-fail` | `` `s#2 1`` | cannot apply `` `s#`` to data (not ascending values)
+`splay` | | nyi op on splayed table
+`srv` | | attempt to use client-only license in server mode 
+`stack` | `{.z.s[]}[]` | ran out of stack space
+`step` | | attempt to upsert into stepped (`` `s#``) dictionary
+`stop` | | user interrupt (Ctrl-c) or time limit (`-T`)
+`stype` |  `'42` | invalid type used to signal
+`threadview` |  |  views can only be calculated from the main thread
+`trunc` | | the log had a partial transaction at the end but q couldn’t truncate the file
+`type` | `til 2.2` | wrong type
+`type/attr error amending file` | | direct update on disk for this type or attribute is not allowed
+`u-fail` | `` `u#1 1`` | cannot apply `` `u#`` to data (not unique values)
+`unmappable` | | when saving partitioned data, each column must be mappable
+`upd` | | version of kdb+ more recent than license update date
+`user` | | unlicensed user
+`value` | | no value
+`vd1` | | attempted multithread update
+`view` | | trying to re-assign a view to something else
+`wha` | | invalid system date
+`wsfull` | | malloc failed, ran out of swap (or addressability on 32-bit), or hit `-w` limit
+`XXX` | |  value error (`XXX` undefined)
+`XXX` | `read0`:invalidname.txt` | from addr, close, conn, p(from -p), snd, rcv or invalid filename
+`XXX:YYY` | | `XXX` is from kdb+, `YYY` from the OS
 </div>
 
 ### System errors (file and IPC) 
@@ -258,3 +274,4 @@ q)@[parse;"22 1b1 44";::]
 | `wha`    | invalid system date                                         |
 
 </div>
+ -->

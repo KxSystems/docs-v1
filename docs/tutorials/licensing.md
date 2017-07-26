@@ -33,7 +33,7 @@ m64/ 2()core 8192MB tom mb13.local 192.168.1.44
 ```bash
 tom@mb13:~/q$ 
 ```
-Kdb+ signals the [error](#license-errors) `'k4.lic` and aborts. 
+Kdb+ signals the [error](/ref/error-list/#license-errors) `'k4.lic` and aborts. 
 
 
 ## Obtaining a license key file
@@ -68,8 +68,9 @@ The default location for the license key file is the `QHOME` folder. You do not 
 
 If the license is for fewer cores than the total number on the machine, the number of cores available to kdb+ must be [restricted with OS programs](/cookbook/cpu-affinity/), or kdb+ will signal `'cores` and abort.
 
+<i class="fa fa-hand-o-right"></i> [License errors](/ref/error-list/#license-errors)
 
-## License errors
+<!-- ## License errors
 
 Kdb+ reports license problems at startup by signalling one of the following errors, then aborting. 
 
@@ -82,7 +83,7 @@ error | cause
 `'os` | The license is for a different operating system. (No distinction is made between 32-bit and 64-bit versions.) 
 `'upd` | The license’s Maintenance Update Date (the date until which maintenance has been paid) precedes this version of kdb+. For example, a license with an Maintenance Update Date of 2015.01.01 covers any version of kdb+ dated before 2015.
 
-
+ -->
 ## License questions
 
 Designated Contacts should send license questions to licadmin@kx.com. 

@@ -197,17 +197,9 @@ You’re done. You have completely installed kdb+.
 
 Usage of the free, non-commercial 32-bit distribution of kdb+ is governed by the terms and conditions on the [download page](https://kx.com/download). 
 
-Commercial distributions of kdb+ require a license file to run. Without it, they signal a license error and abort:
+Commercial distributions of kdb+ require a license file to run. Without it, they signal a license error and abort. 
 
-error    | cause
----------|------
-`'exp`   | license has expired
-`'upd`   | license more recent than end of last maintenance period
-`'host`  | license is for a different host or cannot resolve hostname
-`'os`    | license is for a different operating system
-`'cores` | license is for fewer cores than available
-
-<i class="fa fa-hand-o-right"></i> [Licenses](licensing), [Linux production notes](/cookbook/linux-production)
+<i class="fa fa-hand-o-right"></i> [License errors](/ref/error-list/#license-errors), [Licenses](licensing), [Linux production notes](/cookbook/linux-production)
 
 
 
