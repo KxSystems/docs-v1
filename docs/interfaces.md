@@ -111,7 +111,7 @@ about new repositories.</div>
 <tr><td>PLplot</td><td><i class="fa fa-github"></i> [jaeheum/qplplot](https://github.com/jaeheum/qplplot)</td></tr>
 <tr><td>Python</td>
     <td>
-[Python client for q](/interfaces/with-python/)<br/>
+[Using Python with kdb+](/interfaces/with-python/)<br/>
 <i class="fa fa-github"></i> [brogar/pykdb](https://github.com/brogar/pykdb)<br/>
 <i class="fa fa-github"></i> [enlnt/pyk](https://github.com/enlnt/pyk)<br/>
 <i class="fa fa-github"></i> [enlnt/pyq](https://github.com/enlnt/pyq)<br/>
@@ -184,6 +184,7 @@ about new repositories.</div>
 <tr><td>Matlab</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qmatlab](https://github.com/kxcontrib/zuoqianxu/tree/master/qmatlab)</td></tr>
 <tr><td>Perl</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qperl](https://github.com/kxcontrib/zuoqianxu/tree/master/qperl)</td></tr>
 <tr><td>Python</td><td>
+[Using Python with kdb+](/interfaces/with-python/)<br/>
 <i class="fa fa-github"></i> [kxcontrib/serpent.speak](https://github.com/kxcontrib/serpent.speak)<br/>
 <i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qpython](https://github.com/kxcontrib/zuoqianxu/tree/master/qpython)
 </td></tr>
