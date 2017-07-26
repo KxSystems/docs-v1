@@ -189,6 +189,7 @@ about new repositories.</div>
 <i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qpython](https://github.com/kxcontrib/zuoqianxu/tree/master/qpython)
 </td></tr>
 <tr><td>Non-linear least squares</td><td><i class="fa fa-github"></i> [brogar/nls](https://github.com/brogar/nls)</td></tr>
+<tr><td>Regular Expressions</td><td>[Regex libraries](/cookbook/regex/#regex-libraries)</td></tr>
 <tr><td>R</td><td><i class="fa fa-github"></i> [kimtang/rinit](https://github.com/kimtang/rinit)<br/>
 <i class="fa fa-github"></i> [rwinston/kdb-rmathlib](https://github.com/rwinston/kdb-rmathlib)</td></tr>
 <tr><td>Rust</td><td><i class="fa fa-github"></i> [adwhit/krust](https://github.com/adwhit/krust)</td></tr>

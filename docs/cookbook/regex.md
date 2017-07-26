@@ -1,12 +1,13 @@
-Special characters
------------------
+## Special characters
 
-In a pattern certain characters have special meaning:
+In a q [Regular Expression](https://en.wikipedia.org/wiki/Regular_expression) (regex) pattern certain characters have special meaning:
 
-- `?` matches any character
-- `*` matches any sequence of characters
-- `[]` embraces a list of alternatives, any of which matches
-- `^` at the beginning of a list of alternatives indicates they are _not_ to be matched
+char | meaning
+---- | -------
+`?` | matches any character
+`*` | matches any sequence of characters
+`[]` | embraces a list of alternatives, any of which matches
+`^` | at the beginning of a list of alternatives indicates they are _not_ to be matched
 
 Special characters can be matched by bracketing them.
 ```q
@@ -30,8 +31,7 @@ q)(`$("ab^c";"abcc"))like"ab[*^]c"
 ```
 
 
-Worked example
---------------
+## Worked example
 
 The left argument in the following example is a list of telephone book entries:
 ```q
@@ -77,3 +77,74 @@ q)tb like "*[^0-9]"
 
 <i class="fa fa-hand-o-right"></i> [`like`](/ref/strings/#like)
 
+
+## Regex libraries
+
+For those who need something more flexible, it’s possible to use regex libs such as <i class="fa fa-github"></i> [google/re2](https://github.com/google/re2), 
+
+The code below was compiled to use `re2` with V3.1. The `k.h` file can be downloaded from <i class="fa fa-github"></i> [KxSystems/kdb/c/c](https://github.com/KxSystems/kdb/tree/master/c/c) This can be compiled for 64-bit Linux:
+```bash
+g++ -m64 -O2 re2.cc -o re2.so -I . re2/obj/libre2.a -DKXVER=3 -shared -static
+```
+and the resulting `re2.so` copied into the `$QHOME/l64` subdirectory.
+
+It can then be loaded and called in kdb+:
+```q
+q)f:`re2 2:(`FullMatch;2) / bind FullMatch to f
+q)f["hello world";"hello ..rld"]
+```
+```c
+#include <re2/re2.h>
+#include <re2/filtered_re2.h>
+#include <stdlib.h>  //malloc
+#include <stdio.h>
+#include"k.h"
+
+using namespace re2;
+
+extern "C" {
+Z S makeErrStr(S s1,S s2){Z __thread char b[256];snprintf(b,256,"%s - %s",s1,s2);R b;}
+Z __inline S c2s(S s,J n){S r=(S)malloc(n+1);R r?memcpy(r,s,n),r[n]=0,r:(S)krr((S)"wsfull (re2)");}
+K FullMatch(K x,K y){
+  S s,sy;K r;
+  P(x->t&&x->t!=KC&&x->t!=KS&&x->t!=-KS||y->t!=KC,krr((S)"type"))
+  U(sy=c2s((S)kC(y),y->n))
+  RE2 pattern(sy,RE2::Quiet);
+  free(sy);
+  P(!pattern.ok(),krr(makeErrStr((S)"bad regex",(S)pattern.error().c_str())))
+  if(!x->t||x->t==KS){
+    J i=0;
+    K r=ktn(KB,x->n);
+    for(;i<x->n;i++){
+      K z=0;
+      P(!x->t&&(z=kK(x)[i])->t!=KC,(r0(r),krr((S)"type")))
+      s=z?c2s((S)kC(z),z->n):kS(x)[i];P(!s,(r0(r),(K)0))
+      kG(r)[i]=RE2::FullMatch(s,pattern);
+      if(z)free(s);
+    }
+    R r;
+  }
+  s=x->t==-KS?x->s:c2s((S)kC(x),x->n);
+  r=kb(RE2::FullMatch(s,pattern));
+  if(s!=x->s)free(s);
+  R r;
+}
+}
+```
+Another library which has been loaded into kdb+ is http://q.o.potam.us/?p=pcre although you will need to test whether it works with your current version of kdb+.
+
+
+## Regex in q
+
+It’s also possible to create a regex matcher in q, using a state machine, e.g.
+```q
+/ want to match "x*fz*0*0"
+q)m:({0};{2*x="x"};{2+x="f"};{4*x="z"};{4+x="0"};{5+x="0"};{7-x="0"};{7-x="0"})
+q)f:{6=1 m/x}
+q)f"xyzfz000"
+1b
+```
+However, this does not return until all input chars have been processed, even if a match can be eliminated on the first char. This could be accomodated here:
+```q
+q)f:{6~last{$[count x 1;((m x 0)[first x 1];1 _ x 1);(0;first x)]}/[{0<x 0};(1;x)]}
+```
