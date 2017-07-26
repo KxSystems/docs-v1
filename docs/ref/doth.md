@@ -280,6 +280,31 @@ Where `x` is a char vector, returns a mapping from characters to `%`*xx* escape 
 Syntax: `.h.hy[x;y]`
 
 Where `x` is a symbol atom and `y` is a string, returns as a string `y` as an HTTP response for content-type `x`.
+```q
+q)show t:([]idx: 1 2 3 4 5;val: `a`b`c`d`e)
+idx val
+-------
+1   a
+2   b
+3   c
+4   d
+5   e
+q)show r: .h.hy[`json] .j.j 0! select count i by val from t
+"HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nConnection: close\r\nCo..
+q)`:test.txt 0: enlist r
+`:test.txt
+q)\head test.txt
+"HTTP/1.1 200 OK"
+"Content-Type: application/json"
+"Connection: close"
+"Content-Length: 99"
+""
+"[{\"val\":\"a\",\"x\":1},"
+" {\"val\":\"b\",\"x\":1},"
+" {\"val\":\"c\",\"x\":1},"
+" {\"val\":\"d\",\"x\":1},"
+" {\"val\":\"e\",\"x\":1}]"
+```
 
 
 ## `.h.iso8601` (ISO timestamp)
