@@ -77,6 +77,19 @@ system"mv sym zym" /make backup of sym file
 
 !!! tip "Take backups!"
 
+!!! warning "Error writing file?"
+    In the multi-threaded script, a `'cast` could happen if this line fails on a file:
+    ```q
+    allsyms:distinct raze{[file] :distinct @[value get@;file;`symbol$()] } peach symFiles; 
+    /symbol files we're dealing with - memory intensive
+    ```
+    So perhaps check the integrity of your HDB (perhaps change the above line to help debug):
+    ```q
+    allsyms:distinct raze{[file] :distinct @[value get@;file;{0N!(x;y);`symbol$()}[file;]] } peach symFiles; 
+    ```
+    would print the file and error.
+
+
 !!! tip 
     The script deliberately has no `;` at the end of lines. 
     It’s important you understand what’s going on, not just run the whole thing blindly.
