@@ -186,6 +186,7 @@ q)@[parse;"22 1b1 44";::]
 | `noupdate` |             |     update not allowed when using negative port number |
 | `nosocket` |             |    can only open/use sockets in main thread |
 | `os` |                     |   operating system error |
+| `path too long`| (`$":",1000#"a") set 1 2 3  | file path length exceeded | 
 | `parse` |   |                  invalid syntax |
 | `part` |      |                something wrong with the partitions in the HDB |
 | `pl` |          |              `peach` can't handle parallel lambdas (2.3 only) |
@@ -201,6 +202,7 @@ q)@[parse;"22 1b1 44";::]
 | `threadview` |              |  views can only be calculated from the main thread |
 | `trunc` | |                    the log had a partial transaction at the end but q couldn't truncate the file |
 | `type` |         `til 2.2` | wrong type |
+| `type/attr error amending file` |     |   direct update on disk for this type or attribute is not allowed |
 | `u-fail` |      `` `u#1 1`` | cannot apply `` `u#`` to data (not unique values) |
 | `unmappable` | |               when saving partitioned data, each column must be mappable |
 | `value` |        |             no value |
