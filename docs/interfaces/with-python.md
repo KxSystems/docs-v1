@@ -60,7 +60,7 @@ Documentation is available from the Python prompt
 ```python
 >>> help('pyq')
 ```
-or at the [PyQ homepage](https://pyq.enlnt.com/pyq.html).
+or at the [PyQ homepage](http://pyq.enlnt.com)
 
 
 ## Performance 
