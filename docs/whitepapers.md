@@ -1,4 +1,4 @@
-## <i class="fa fa-mortar-board"></i> Basics
+<!-- ## <i class="fa fa-mortar-board"></i> Basics
 
 * [Get started](learn)
 * [Frequently-asked questions](cookbook/faq)
@@ -14,9 +14,9 @@
 * [More about tables](tutorials/dictsandtables/)
 * [Unit tests](cookbook/unit-tests)
 * [Using disk logging](cookbook/logging)
+ -->
 
-
-## <i class="fa fa-map-o"></i> Technical white papers
+# <i class="fa fa-map-o"></i> Technical white papers
 
 * [Efficient use of **adverbs**](wp/efficient_use_of_adverbs.pdf)
 * [Streaming **analytics**: detecting card counters in Blackjack](wp/card-counters-in-blackjack.pdf)
@@ -52,7 +52,7 @@
 
 These whitepapers originally appeared as the _q for Gods_ series of white papers from [First Derivatives](http://firstderivatives.com).
 
-
+<!-- 
 
 
 ## <i class="fa fa-database"></i> Big data
@@ -105,7 +105,6 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 * [KxSystems/docs](https://github.com/KxSystems/docs) – source for this documentation site
 * [log4q](https://github.com/prodrive11/q_stuff/tree/master/src/log4q)
 * [User repositories](https://kxsystems.github.io/)
- -->
 
 ## <i class="fa fa-wrench"></i> Utilities
 
@@ -153,3 +152,4 @@ These whitepapers originally appeared as the _q for Gods_ series of white papers
 </table>
 
 Full change list at [downloads.kx.com](http://downloads.kx.com)
+ -->

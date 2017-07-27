@@ -206,7 +206,7 @@ pages:
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
   # - Dashboards for Kx: dashboards.md
-  - Developer: developer.md
+  - White papers: whitepapers.md
   - GitHub: github.md
   - Q for Mortals 3: q4m3.md
   - Archive: archive.md
