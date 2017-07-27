@@ -383,13 +383,13 @@ K z = ki(42);
 
 To create
 
-- a simple list `K ktn(type,length);` 
-- a mixed list  `K knk(n,x,y,z);` 
+- a simple list `K ktn(I type,J length);` 
+- a mixed list  `K knk(I n,...);` 
 
-where `length` is a positive integer. It may _not_ be `0N` (ni, null int).
+where `length` is a positive integer. It may _not_ be `0N` (nj, null long).
 
 !!! warning "Limit of length"
-    Before V3.0. `length` had to be in the range 0…2 billion.
+    Before V3.0. the `length` parameter had to be in the range 0…2 billion, and was type I. See KXVER sections in k.h.
 
 For example to create an integer list of 5 we say `ktn(KI,5)`. A mixed list of 5 items can be created with `ktn(0,5)` but note that each element _must_ be initialized before further usage. 
 A convenient shortcut to creating a mixed list when all items already exist at creation of the list is to use `knk`, e.g. `knk(2,kf(2.3),ktn(KI,10))`. 
