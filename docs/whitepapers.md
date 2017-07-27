@@ -27,6 +27,7 @@
 * [Kdb+ **data-management sample customisation** techniques](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)
 * [**Data recovery** for kdb+tick](wp/data_recovery_for_kdb_tick.pdf)
 * [A natural query interface for **distributed systems**](wp/a_natural_query_interface_for_distributed_systems.pdf)
+* [A method for **dynamically shrinking big data** using time-series database kdb+](wp/time_series_simplification_in_kdb_a_method_for_dynamically_shrinking_big_data.pdf)
 * [Kdb+ and **FIX** messaging](wp/kdb_and_fix_messaging.pdf)
 * [The application of **foreign keys** and linked columns in kdb+](wp/the_application_of_foreign_keys_and_linked_columns_in_kdb.pdf)
 * [Common design principles for kdb+ **gateways**](wp/common_design_principles_for_kdb_gateways.pdf)
@@ -46,7 +47,6 @@
 * [Query Routing: a kdb+ framework for a **scalable load-balanced** system](wp/query_routing_a_kdb_framework_for_a_scalable_load_balanced_system.pdf)
 * [**Surveillance** techniques to effectively monitor algo and high-frequency trading](wp/surveillance_techniques_to_effectively_monitor_algo_and_high_frequency_trading.pdf)
 * [Kdb+tick profiling for **throughput optimization**](wp/kdbtick_profiling_for_throughput_optimization.pdf)
-* [**Time series simplification** in kdb+: a method for dynamically shrinking big data](wp/time_series_simplification_in_kdb_a_method_for_dynamically_shrinking_big_data.pdf)
 * [**Transaction-cost** analysis using kdb+](wp/transaction_cost_analysis_using_kdb.pdf)
 * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
 
