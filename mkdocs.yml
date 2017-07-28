@@ -6,6 +6,7 @@ extra_css:
 extra_javascript: 
   - 'https://code.jquery.com/jquery-3.1.1.min.js'
   - 'https://use.fontawesome.com/3dbf29ed12.js'
+  - scripts/arrive.min.js # required for theme.js
   # - scripts/fdtracker.js
   - scripts/googleanalytics.js
   - scripts/theme.js

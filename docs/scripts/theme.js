@@ -34,7 +34,28 @@ $(function() {
 	s.parentNode.insertBefore(gcse, s);
 	// override GCSE style rules to 
 	var style = '.cse .gsc-control-cse, .gsc-control-cse {background-color: transparent !important; border-color: transparent !important;}';
-	style += '.gsc-search-button {display: none;}';
+	// style += '.gsc-search-button {display: none;}';
+	style += 'input.gsc-search-button.gsc-search-button-v2 {height: inherit !important; width: inherit !important;}';
 	style += ' #gcse_search {width: 300px !important}';
 	$('html > head').append($('<style>'+style+'</style>'));
+	//https://swizec.com/blog/how-to-properly-wait-for-dom-elements-to-show-up-in-modern-browsers/swizec/6663
+/*	(function angon() {
+		if (!$("input.gsc-search-button.gsc-search-button-v2").length) {
+			console.log('button not found');
+			window.requestAnimationFrame(angon);
+		} else {
+			console.log('button found');
+			// $("input.gsc-search-button.gsc-search-button-v2").css("background-color","red");
+			$("input.gsc-search-button.gsc-search-button-v2").css({"height":"inherit","width":"inherit"});
+			$("input.gsc-search-button.gsc-search-button-v2").click(function(){window.location.href="/about/thissite";});
+		}
+	})();
+*/
+	$(document).arrive("input.gsc-search-button.gsc-search-button-v2", function(newElem) {
+		// https://github.com/uzairfarooq/arrive
+		// console.log('button found');
+		$(document).unbindArrive(); // unbind all arrive events
+		$(newElem).replaceWith('<a href="/about/thissite/#search-tips" title="Search tips">?</a>');
+		// $(newElem).click(function(){window.location.href="/about/thissite";});
+	});
 });
