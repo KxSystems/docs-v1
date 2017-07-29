@@ -50,23 +50,20 @@ about new repositories.</div>
 <table class="kx-compact" markdown="1">
 <tr>
 <td class="nowrap"><a href="https://github.com/stevanapter/hypertree">hypertree</a></td>
-<td>Recursive aggregating treetable and 3-D pivot table for hypergrid. <span class="author"><a href="https://github.com/stevanapter?tab=repositories">
-						(Stevan Apter)
-					</a></span>
+<td>Recursive aggregating treetable and 3-D pivot table for hypergrid. 
+<span class="author"><a href="https://github.com/stevanapter?tab=repositories">(Stevan Apter)</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/MdSalih/Kdb-stuff">Kdb-stuff</a></td>
-<td>ServerChecker: how to execute commands on a remote box via SSH from within a q process and parse Linux system info (cpuinfo/meminfo/df). <span class="author"><a href="https://github.com/MdSalih?tab=repositories">
-						(Mohammad Noor)
-					</a></span>
+<td>ServerChecker: how to execute commands on a remote box via SSH from within a q process and parse Linux system info (cpuinfo/meminfo/df). 
+<span class="author"><a href="https://github.com/MdSalih?tab=repositories">(Mohammad Noor)</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/CharlesSkelton//studio">studio</a></td>
-<td>A rapid-development environment for q. <span class="author"><a href="https://github.com/CharlesSkelton/?tab=repositories">
-						(Charles Skelton)
-					</a></span>
+<td>A rapid-development environment for q. 
+<span class="author"><a href="https://github.com/CharlesSkelton/?tab=repositories">(Charles Skelton)</a></span>
 </td>
 </tr>
 </table>
@@ -77,16 +74,14 @@ about new repositories.</div>
 <table class="kx-compact" markdown="1">
 <tr>
 <td class="nowrap"><a href="https://github.com/srpeck/3dsim">3dsim</a></td>
-<td>3-D world simulation using kdb+/k/q WebSocket server and three.js. <span class="author"><a href="https://github.com/srpeck?tab=repositories">
-						(Stephen Peck)
-					</a></span>
+<td>3-D world simulation using kdb+/k/q WebSocket server and three.js. 
+<span class="author"><a href="https://github.com/srpeck?tab=repositories">(Stephen Peck)</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/picoDoc/betfair-data-capture">betfair-data-capture</a></td>
-<td>Data capture and analysis system built on TorQ for sports exchange data from [Betfair](http://betfair.com). <span class="author"><a href="https://github.com/picoDoc?tab=repositories">
-						(Matthew Doherty)
-					</a></span>
+<td>Data capture and analysis system built on TorQ for sports exchange data from [Betfair](http://betfair.com). 
+<span class="author"><a href="https://github.com/picoDoc?tab=repositories">(Matthew Doherty)</a></span>
 </td>
 </tr>
 <tr>
@@ -498,6 +493,12 @@ about new repositories.</div>
 <td>Time series and statistics. <span class="author"><a href="https://github.com/jmiao3?tab=repositories">
 						(jmiao3)
 					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/eepgwde/ticker-planto">ticker-planto</a></td>
+<td>Simplified version of kdb+tick. 
+<span class="author"><a href="https://github.com/eepgwde?tab=repositories">(Walter Eaves)</a></span>
 </td>
 </tr>
 </table>

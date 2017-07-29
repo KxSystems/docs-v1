@@ -212,6 +212,7 @@ about new repositories.</div>
 <tr><td>Eclipse</td><td>[qkdt.org](http://www.qkdt.org/features.html)</td></tr>
 <tr><td>Emacs</td>
     <td>
+<i class="fa fa-github"></i> [eepgwde/kdbp-mode](https://github.com/eepgwde/kdbp-mode)<br/>
 <i class="fa fa-github"></i> [geocar/kq-mode](https://github.com/geocar/kq-mode)<br/>
 <i class="fa fa-github"></i> [indiscible/emacs](https://github.com/indiscible/emacs)<br/>
 <i class="fa fa-github"></i> [psaris/q-mode](https://github.com/psaris/q-mode)
