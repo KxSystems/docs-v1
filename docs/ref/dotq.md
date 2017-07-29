@@ -305,6 +305,16 @@ q)fmt[9] each 34.4 343434.358
 ```
 
 
+<!-- FIXME
+### `.Q.fpn` (streaming algorithm?)
+
+Syntax: 
+
+Blah blah blah
+
+<i class="fa fa-hand-o-right"></i> [Cookbook/Named Pipes](/cookbook/named-pipes)
+ -->
+
 ### `.Q.fps` (streaming algorithm)
 
 Syntax: `.Q.fps[x;y]`

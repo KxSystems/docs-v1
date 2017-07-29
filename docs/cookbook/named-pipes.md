@@ -5,7 +5,10 @@ q)read1 h              / Performs a single blocking read into a 64k by
 q)read1 (h;n)          / Alternatively, specify the buffer size n. At most, n bytes will be read, perhaps fewer
 q)hclose h             / Close the file to clean up
 ```
-[`.Q.fps`](/ref/dotq/#qfps-streaming-algorithm "streaming algorithm") is [`.Q.fs`](/ref/dotq/#qfs-streaming-algorithm "streaming algorithm") for pipes. The following example loads a CSV via FIFO, avoiding decompressing to disk:
+[`.Q.fps`](/ref/dotq/#qfps-streaming-algorithm "streaming algorithm") is [`.Q.fs`](/ref/dotq/#qfs-streaming-algorithm "streaming algorithm") for pipes. 
+(`.Q.fpn` corresponds to [`.Q.fsn`](/ref/dotq/#qfsn-streaming-algorithm "streaming algorithm").) <!-- FIXME link to /ref/dotq/#qfsn-streaming-algorithm -->
+
+The following example loads a CSV via FIFO, avoiding decompressing to disk:
 ```q
 q)system"rm -f fifo && mkfifo fifo"
 q)system"unzip -p t.zip t.csv > fifo &"

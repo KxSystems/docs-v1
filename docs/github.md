@@ -496,7 +496,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/eepgwde/ticker-planto">ticker-planto</a></td>
+<td class="nowrap"><a href="https://github.com/eepgwde/ticker-planto">ticker-planto</a> ==new==</td>
 <td>Simplified version of kdb+tick. 
 <span class="author"><a href="https://github.com/eepgwde?tab=repositories">(Walter Eaves)</a></span>
 </td>
