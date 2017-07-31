@@ -2,16 +2,16 @@ copyright: "©1993-2017 Kx Systems, Inc. Kx® and kdb+ are registered trademarks
 dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: 
-  - stylesheets/extra.css
+  # - stylesheets/extra.css
+  - 'http://code.kx.com/stylesheets/extra.css'
 extra_javascript: 
-  - 'https://code.jquery.com/jquery-3.1.1.min.js'
-  - 'https://use.fontawesome.com/3dbf29ed12.js'
-  - scripts/fdtracker.js
-  - scripts/googleanalytics.js
-  - scripts/theme.js
   # See /ref/syntax/#projection to see if MathJax is working 
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
-  # - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'
+  - 'https://code.jquery.com/jquery-3.1.1.min.js'
+  - 'http://code.kx.com/scripts/fdtracker.js'
+  - 'http://code.kx.com/scripts/googleanalytics.js'
+  - 'http://code.kx.com/scripts/theme.js'
+  - 'https://use.fontawesome.com/3dbf29ed12.js'
 markdown_extensions:
   - admonition
   - codehilite(guess_lang=false)
