@@ -5,8 +5,6 @@ extra_css:
   # - stylesheets/extra.css
   - 'http://code.kx.com/stylesheets/extra.css'
 extra_javascript: 
-  - 'scripts/arrive.min.js' # required for theme.js
-  - 'scripts/theme.js'
   # See /ref/syntax/#projection to see if MathJax is working 
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
   - 'https://code.jquery.com/jquery-3.1.1.min.js'
@@ -14,6 +12,8 @@ extra_javascript:
   - 'http://code.kx.com/scripts/googleanalytics.js'
   # - 'http://code.kx.com/scripts/theme.js'
   - 'https://use.fontawesome.com/3dbf29ed12.js'
+  - 'scripts/arrive.min.js' # required for theme.js
+  - 'scripts/theme.js'
 markdown_extensions:
   - admonition
   - codehilite(guess_lang=false)

@@ -50,16 +50,13 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 
  -->
 !!! info "New on code.kx.com"
-    [Consolidated list of errors](/ref/error-list)
+    [Improved search](/about/thissite/#search-tips) adds Google Search as an alternative to the internal index. 
 
 !!! caution "The Kx wiki"
-    The documentation from the Kx wiki is moving to this new format. 
+    The documentation from the [Kx wiki](http://code.kx.com/wiki) has moved to this new platform. All source code can now be found on [GitHub](https://kxsystems.github.io). 
+    The wiki remains in place for now, but is no longer maintained. 
 
-    During migration, the [wiki](http://code.kx.com/wiki) remains unchanged. 
-    **Your bookmarks work.** 
-    
-    The search engine here searches only the new site.
-    During migration, the new URLs will be volatile.
+    **Your old bookmarks work, but please update them.** 
 
 <small markdown="1">See the [terms and conditions](about/TermsAndConditions) for use of this site.</small>
 

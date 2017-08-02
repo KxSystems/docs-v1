@@ -10,14 +10,27 @@ $(function() {
 			$(this).attr('target', '_blank');
 		}
 	});
-	// Supplement local search: send query to Bing Search on Return
+	// Supplement local search: send query to Web search engine on Return
 	$("[data-md-component=query]").change(function() {
-		var qry = "http://www.bing.com/search?q=";
-		qry += "site%3Acode.kx.com/q/+"; // non-portable and excludes wiki
+		var qry = "http://www.google.com/search?q="; // www.bing.com is an alternative
+		qry += "site%3Acode.kx.com/q/+"; // non-portable, excludes wiki
 		window.location = qry + $(this).val();
 		return false; // prevents submitting form to server
 	});
-
+	// replace Close button with link to Search tips
+	var btn = $("button.md-icon.md-search__icon");
+	$(btn).text("?");
+	$(btn).attr("title","Search help");
+	$(btn).css({
+		color:"white",
+		fontFamily:'Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif',
+		fontSize:"1.6rem",
+		opacity:"1",
+		paddingTop:".5rem",
+		transform:"none","-webkit-transform":"none"
+	});
+	$(btn).click(function() {window.location = "/about/thissite/#search-tips";});
+	// $("button.md-icon.md-search__icon").replaceWith('<a href="/about/thissite/#search-tips" title="Search tips">?</a>');
 
 	// // cse.google.com Google Custom Search Engine
 	// // replace MkDocs Search form with GCSE container
