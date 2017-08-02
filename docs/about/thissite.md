@@ -1,17 +1,40 @@
-This site is the successor to the Mediawiki site – which for now can still be found at <http://code.kx.com/wiki>. The Reference section has been migrated from the wiki; the Cookbook is in progress. 
+This site is the successor to the Mediawiki site – which for now can still be found at [code.kx.com/wiki](http://code.kx.com/wiki). 
+
+It reflects the work of the kdb+ community since 1993, has many authors, 
+and continues to evolve.  
+
 
 ## <i class="fa fa-github"></i> GitHub
 
-Truncated GitHub URLs omit the `http://github.com/` prefix. 
+Truncated GitHub URLs are prefixed with the GitHub icon <i class="fa fa-github"></i> and omit the `https://github.com/` prefix. 
 
+For example, read <i class="fa fa-github"></i> `KxSystems/kdb` as `https://github.com/KxSystems/kdb`.
 
-## <i class="fa fa-keyboard-o"></i> Keyboard shortcuts for Search
+## Search tips
+
+The site uses a custom Google Search. 
+
+1. Use quotes to search for an exact phrase
+
+    Searching a phrase in quotes will yield only pages with the same words in the same order as what’s in the quotes. 
+
+2. Use an asterisk within quotes to specify unknown or variable words
+
+    Searching a phrase in quotes with an asterisk replacing a word will search all variations of that phrase. For example, `imagine all the * living for today`, or `* is thicker than water`.
+
+3. Use the minus sign to eliminate results containing certain words
+
+    Eliminate results with certain words if you’re getting a lot of results that aren’t of interest to you. Figure out what terms you’re not interested in (e.g. `avg -antivirus`) and re-run the search.
+
+<i class="fa fa-hand-o-right"></i> [How to search on Google](https://support.google.com/websearch/answer/134479?hl=en)
+
+<!-- ## <i class="fa fa-keyboard-o"></i> Keyboard shortcuts for Search
 
 In Chrome, Firefox, Safari and Internet Explorer 11, one or more tabs will take you to the site Search box. Results appear as you type. 
 
 In Chrome you can select a result with the arrow keys; in Internet Explorer 11, with the Tab key. 
 
-
+ -->
 ## <i class="fa fa-life-ring"></i> Reference
 
 The wiki’s Reference section, organised by glyphs, was a good tool for _reading_ q. It was easy to find, for example, all the possible meanings of `$`. On the other hand, a writer looking for tools to convert between datatypes and representations would have to explore most of the Reference section to be confident she had found them all. 
@@ -25,27 +48,38 @@ The new site reference has three aims:
 
 ## <i class="fa fa-book"></i> Terminology
 
-We have revised the terms in which we talk about q to align them with common usage. You will find _operators_ and _unary_ and _binary_ _functions_ applied _prefix_, _infix_ and _postfix_. Q’s _adverbs_ still need their distinctive name, but you will no longer find references to _verbs_, _monads_ or _dyads_. 
+<blockquote style="border: none;">
+    <p style="display: inline-block;">
+        And the words that are used for to get this ship confused<br>  
+        Will not be understood as they are spoken<br>
+        — <i>Bob Dylan</i> “When the ship comes in” 
+    </p>
+    <p style="display: inline-block; padding: 0 1em;">
+        <img alt="Bob Dylan" src="/img/dylan.png" style="height: 70px"/>
+    </p>
+</blockquote>
+
+We have revised the terms in which we talk about q, to align them with common usage. You will find _operators_ and _unary_ and _binary_ _functions_ applied _prefix_, _infix_ and _postfix_. Q’s _adverbs_ still need their distinctive name, but you will no longer find references to _verbs_, _monads_ or _dyads_. 
 
 We also now distinguish consistently between glyphs and what they denote. In some cases we’ve had to coin new names for what was previously conflated. So, for example, `/` denotes three adverbs: _over_, _fold_ and _converge-repeat_. 
 
 Overloads such as these are distinguished in use by syntax and arguments. Every operator, function and adverb now has its syntax and arguments consistently and clearly described. 
 
 
-## <i class="fa fa-github"></i> Open source
+## <i class="fa fa-handshake-o"></i> Contribute
 
 > A finished work is exactly that, requires resurrection.  
 — _John Cage_, “Lecture on Nothing”, 1949
 
-The repository for this site is https://github.com/KxSystems/docs. 
+The repository for this site is [github.com/KxSystems/docs](https://github.com/KxSystems/docs). 
 
-The contribution model for this site is GitHub and [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow"). 
+The contribution model for this site is GitHub and [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow). 
 To contribute, submit a pull request. 
 
 
 ## <i class="fa fa-envelope-o"></i> Contact
 
-> A librarian’s job is to put information where people can find it. 
+This site is a project of the [Librarian](mailto:librarian@kx.com).
 
-This site is maintained by the [Librarian](mailto:librarian@kx.com).
+> A librarian’s job is to put information where people can find it. 
 
