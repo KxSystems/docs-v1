@@ -10,7 +10,8 @@ extra_javascript:
   - 'https://code.jquery.com/jquery-3.1.1.min.js'
   - 'http://code.kx.com/scripts/fdtracker.js'
   - 'http://code.kx.com/scripts/googleanalytics.js'
-  - 'http://code.kx.com/scripts/theme.js'
+  - 'scripts/theme.js'
+  # - 'http://code.kx.com/scripts/theme.js'
   - 'https://use.fontawesome.com/3dbf29ed12.js'
 markdown_extensions:
   - admonition
@@ -206,7 +207,7 @@ pages:
     - Write-only RDB: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
-  # - Dashboards for Kx: dashboards.md
+  - Platform for Kx: platform.md
   - White papers: whitepapers.md
   - GitHub: github.md
   - Q for Mortals 3: q4m3.md
