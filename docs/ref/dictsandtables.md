@@ -332,11 +332,18 @@ city  | s
 
 Syntax: `x xgroup y`
 
-Where `y` is a table (passed by value) and symbol atom or vector `x` a list of foreign keys in it, returns `y` grouped by `x`.
+Where `y` is a table (passed by value) and symbol atom or vector `x` a list of column names in it, returns `y` grouped by `x`.
 It is equivalent to doing a `select … by` on `y`, except that all the remaining columns are grouped without having to be listed explicitly.
 ```q
+q)`a`b xgroup ([]a:0 0 1 1 2;b:`a`a`c`d`e;c:til 5)
+a b| c  
+---| ---
+0 a| 0 1
+1 c| ,2 
+1 d| ,3 
+2 e| ,4 
 q)\l sp.q
-q)meta sp                        / both s and p are foreign keys of sp
+q)meta sp                        / s and p are both columns of sp
 c  | t f a
 ---| -----
 s  | s s
