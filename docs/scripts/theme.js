@@ -29,7 +29,12 @@ $(function() {
 		paddingTop:".5rem",
 		transform:"none","-webkit-transform":"none"
 	});
-	$(btn).click(function() {window.location = "/about/thissite/#search-tips";});
+	$(btn).click(function() {
+		var host = window.location.host;
+		var dest = "/about/thissite/#search-tips";
+		dest = (host==="code.kx.com" ? "/q" : "") + dest
+		window.location = dest;
+	});
 	// $("button.md-icon.md-search__icon").replaceWith('<a href="/about/thissite/#search-tips" title="Search tips">?</a>');
 
 	// // cse.google.com Google Custom Search Engine

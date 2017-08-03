@@ -68,7 +68,7 @@ The new site reference has three aims:
         — <i>Bob Dylan</i> “When the ship comes in” 
     </p>
     <p style="display: inline-block; padding: 0 1em;">
-        <img alt="Bob Dylan" src="/img/dylan.png" style="height: 70px"/>
+        <img alt="Bob Dylan" src="http://code.kx.com/q/img/dylan.png" style="height: 70px"/>
     </p>
 </blockquote>
 
