@@ -23,9 +23,9 @@ about new repositories.</div>
     </td>
 </tr>
 <tr><td>amCharts</td><td><i class="fa fa-github"></i> [kxcontrib/cburke/amcharts/](https://github.com/kxcontrib/cburke/tree/master/amcharts/)</td></tr>
-<tr><td>C</td><td>[C client for q](/interfaces/c-client-for-q)</td></tr>
+<tr><td>C</td><td>[C client for kdb+](/interfaces/c-client-for-q)</td></tr>
 <tr><td>CZMQ</td><td><i class="fa fa-github"></i> [jaeheum/qzmq](https://github.com/jaeheum/qzmq)</i></td></tr>
-<tr><td>C#</td><td>[C# client for q](/interfaces/csharp-client-for-q/)<br/>
+<tr><td>C#</td><td>[C# client for kdb+](/interfaces/csharp-client-for-q/)<br/>
 <i class="fa fa-github"></i> [exxeleron/qSharp](https://github.com/exxeleron/qSharp)</td></tr>
 <tr>
     <td>Erlang</td>
@@ -38,7 +38,7 @@ about new repositories.</div>
 <tr>
     <td>Excel</td>
     <td>
-[Excel client for q](interfaces/excel-client-for-q/)<br/>
+[Excel client for kdb+](interfaces/excel-client-for-q/)<br/>
 <i class="fa fa-github"></i> [exxeleron/qXL](https://github.com/exxeleron/qXL)<br/>
 <i class="fa fa-github"></i> [CharlesSkelton/excelrtd](https://github.com/exxeleron/qXL)
     </td>
@@ -52,15 +52,19 @@ about new repositories.</div>
 <i class="fa fa-github"></i> [jkozlowski/kdb-haskell](https://github.com/jkozlowski/kdb-haskell)
     </td>
 </tr>
-<tr><td>J</td><td>[J client for q](/interfaces/j-client-for-q/)</td></tr>
+<tr><td>J</td><td>[J client for kdb+](/interfaces/j-client-for-q/)</td></tr>
 <tr>
     <td>Java</td>
     <td>
-[Java client for q](/interfaces/java-client-for-q)<br/>
+[Java client for kdb+](/interfaces/java-client-for-q) ==updated==<br/>
 <i class="fa fa-github"></i> [CharlesSkelton/jshow](https://github.com/CharlesSkelton/jshow)<br/>
 <i class="fa fa-github"></i> [exxeleron/qJava](https://github.com/exxeleron/qJava)<br/>
 <i class="fa fa-github"></i> [michaelwittig/java-q](https://github.com/michaelwittig/java-q)
     </td>
+</tr>
+<tr>
+    <td>JDBC</td>
+    <td>[JDBC client for kdb+](/interfaces/jdbc-client-for-kdb/)</td>
 </tr>
 <tr>
     <td>JavaScript</td>
@@ -81,7 +85,7 @@ about new repositories.</div>
 </tr>
 <tr><td>Matlab</td>
 <td>
-[Matlab client for q](/interfaces/matlab-client-for-q/)<br/>
+[Matlab client for kdb+](/interfaces/matlab-client-for-q/)<br/>
 <i class="fa fa-github"></i> [dmarienko/kdbml](https://github.com/dmarienko/kdbml)</td></tr>
 <tr><td>NaCL</td><td><i class="fa fa-github"></i> [geocar/qsalt](https://github.com/geocar/qsalt)</td></tr>
 <tr>
@@ -91,12 +95,12 @@ about new repositories.</div>
 <i class="fa fa-github"></i> [michaelwittig/node-q](https://github.com/michaelwittig/node-q)
     </td>
 </tr>
-<tr><td>ODBC</td><td>[Q server for ODBC](/interfaces/q-server-for-odbc/)<br/>
-[Q server for ODBC3](/interfaces/q-server-for-odbc3/)</td></tr>
+<tr><td>ODBC</td><td>[Kdb+ server for ODBC](/interfaces/q-server-for-odbc/)<br/>
+[Kdb+ server for ODBC3](/interfaces/q-server-for-odbc3/)</td></tr>
 <tr>
     <td>Perl</td>
     <td>
-[Perl client for q](/interfaces/perl-client-for-q/)<br/>
+[Perl client for kdb+](/interfaces/perl-client-for-q/)<br/>
 <i class="fa fa-github"></i> [wjackson/anyevent-k](https://github.com/wjackson/anyevent-k)<br/>
 <i class="fa fa-github"></i> [wjackson/k-perl](https://github.com/wjackson/k-perl)
     </td>
@@ -123,7 +127,7 @@ about new repositories.</div>
     </td></tr>
 <tr><td>R</td>
     <td>
-[Using q with R](/interfaces/with-r/#calling-q-from-r)<br/>
+[Using R with kdb+](/interfaces/with-r/#calling-q-from-r)<br/>
 <i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb) ==new==<br/>
 <i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)
     </td>
@@ -135,7 +139,7 @@ about new repositories.</div>
 <i class="fa fa-github"></i> [jnordwick/rik](https://github.com/jnordwick/rik)
     </td>
 </tr>
-<tr><td>Scala</td><td>[Scala client for q](/interfaces/scala-client-for-q/)</td></tr>
+<tr><td>Scala</td><td>[Scala client for kdb+](/interfaces/scala-client-for-q/)</td></tr>
 </table>
 
 
@@ -145,7 +149,7 @@ about new repositories.</div>
 <tr><td>Betfair</td><td><i class="fa fa-github"></i> [picoDoc/betfair-data-capture](https://github.com/picoDoc/betfair-data-capture)</td></tr>
 <tr><td><i class="fa fa-bitcoin"></i> Bitcoin</td><td><i class="fa fa-github"></i> [bitmx/btceQ](https://github.com/bitmx/btceQ)</td></tr>
 <tr><td>Bloomberg</td><td>[Q client for Bloomberg](/interfaces/q-client-for-bloomberg)</td></tr>
-<tr><td>CUDA</td><td>[Using GPUs from q](/interfaces/gpus/)</td></tr>
+<tr><td>CUDA</td><td>[GPUs](/interfaces/gpus/)</td></tr>
 <tr><td>Expat XML parser</td><td><i class="fa fa-github"></i> [felixlungu/qexpat](https://github.com/felixlungu/qexpat)</td></tr>
 <tr><td>ForexConnect</td><td><i class="fa fa-github"></i> [mortensorensen/qfxcm](https://github.com/mortensorensen/qfxcm)</td></tr>
 <tr><td>Interactive Brokers</td><td><i class="fa fa-github"></i> [mortensorensen/QInteractiveBrokers](https://github.com/mortensorensen/QInteractiveBrokers)</td></tr>
@@ -155,7 +159,7 @@ about new repositories.</div>
 <i class="fa fa-github"></i> [johnanthonyludlow/kdb/docs/odbc.pdf](https://github.com/johnanthonyludlow/kdb/blob/master/docs/odbc.pdf)</td></tr>
 <tr><td>[Kafka](https://kafka.apache.org/)</td><td><i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka) ==new==</td></tr>
 <tr><td>Philips Hue</td><td><i class="fa fa-github"></i> [jparmstrong/qphue](https://github.com/jparmstrong/qphue)</td></tr>
-<tr><td>R</td><td>[Using q with R](/interfaces/with-r/#calling-r-from-q)</td></tr>
+<tr><td>R</td><td>[Using R with kdb+](/interfaces/with-r/#calling-r-from-q)</td></tr>
 <tr><td>Reuters</td><td><i class="fa fa-github"></i> [KxSystems/kdb/c/feed/rfa.zip](https://github.com/KxSystems/kdb/blob/master/c/feed/rfa.zip)</td></tr>
 <tr><td>TSE FLEX</td><td><i class="fa fa-github"></i> [Naoki-Yatsu/TSE-FLEX-Converter](https://github.com/Naoki-Yatsu/TSE-FLEX-Converter)</td></tr>
 <tr><td><i class="fa fa-twitter"></i> Twitter</td><td><i class="fa fa-github"></i> [gartinian/kdbTwitter](https://github.com/gartinian/kdbTwitter)</td></tr>

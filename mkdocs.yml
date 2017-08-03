@@ -2,8 +2,8 @@ copyright: "©1993-2017 Kx Systems, Inc. Kx® and kdb+ are registered trademarks
 dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: 
-  # - stylesheets/extra.css
   - 'http://code.kx.com/stylesheets/extra.css'
+  # - stylesheets/extra.css
 extra_javascript: 
   # See /ref/syntax/#projection to see if MathJax is working 
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
@@ -149,6 +149,7 @@ pages:
     - J client for kdb+: interfaces/j-client-for-q.md # cookbook/q-server-for-j.md
     - Q client for J: interfaces/q-client-for-j.md # cookbook/j-server-for-q.md
     - Java client for kdb+: interfaces/java-client-for-q.md # cookbook/interfacing-with-java.md
+    - JDBC client for kdb+: interfaces/jdbc-client-for-kdb.md
     # - Q client for JDBC: interfaces/q-client-for-jdbc.md # babel for kdb+
     - Kafka: interfaces/kafka.md
     - Matlab client for kdb+: interfaces/matlab-client-for-q.md # cookbook/interfacing-with-matlab.md

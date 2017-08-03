@@ -1,425 +1,237 @@
-The Java interface to q is implemented in the c class at <i class="fa fa-github"></i>&nbsp;[KxSystems/kdb/c/kx/c.java](https://github.com/KxSystems/kdb/blob/master/c/kx/c.java)
+<i class="fa fa-github"></i> [KxSystems/javakdb](https://github.com/KxSystems/javakdb) is the original Java driver, a.k.a `c.java`, from Kx Systems for interfacing Java with kdb+ via TCP/IP. This driver allows Java applications to
 
-The c class implements the q protocol. That is:
+ - query kdb+
+ - subscribe to a kdb+ publisher
+ - publish to a kdb+ consumer 
 
-- a Java c client can connect to a q server
-- a q client can connect to a Java c server
+using a straightforward and compact API. The four methods of the single class `c` of immediate interest are
 
+method |
+--- | ---
+`c` | the constructor
+`c.ks` | send an async message
+`c.k` | send a sync message
+`c.close` | close the connection
 
-## Java clients
+To establish a connection to a kdb+ process listening on the localhost on port 12345, invoke the relevant constructor of the `c` class
 
-Client constructors:
-
-<div class="kx-compact" markdown="1">
-
-| signature                                                                                    | notes                                                                                                                             |
-|----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `public c(String host, int port, String usernameAndPassword) throws KException, IOException` | Throws a KException if access is denied by the q server. The username and password should be of the format `username:password`    |
-| `public c(String host, int port) throws KException, IOException`                             | Uses the `user.name` property as the login name and password. Throws a KException if access is denied by the q server             |
-
-</div>
-
-It is important to close the c object explicitly, via the `close` method, when we are finished with the connection to a q server.
-
-The class provides a number of other features explored in the following sections.
-
-
-## Utility class for q types
-
-Within the c class there are a number of utility classes provided to match the available types in q that do not map directly to standard classes such as Integer. 
-In general these classes have all their fields declared with public access, and several provide custom `toString()` methods to decode the data payload.
-
-<div class="kx-compact" markdown="1">
-
-| class    | members                   | methods             | notes                                         |
-|----------|---------------------------|---------------------|-----------------------------------------------|
-| `Dict`   | `Object x; Object y`      |                     |                                               |
-| `Flip`   | `String[] x, Object[]y`.  |                     |                                               |
-| `Month`  | `int i`                   | `String toString()` | Provides `toString()` to decode the `i` field |
-| `Minute` | `int i`                   | `String toString()` | Provides `toString()` to decode the `i` field |
-| `Second` | `int i`                   | `String toString()` | Provides `toString()` to decode the `i` field |
-
-</div>
-
-
-## Creating null values
-
-For each type character, we can get a reference to a null q value by indexing into the NULL Object array using the `NULL` utility method. 
-Note the q null values are not the same as Java’s `null`.
-
-An example of creating an object array containing two null q integers:
 ```java
-#!java
-Object[] twoNullIntegers = {NULL('i'), NULL('i')};
-```
-The q null values are mapped to Java values according to the following table:
-
-<div class="kx-compact" markdown="1">
-
-| q type                  | q null accessor    | Java null                    |
-|-------------------------|--------------------|------------------------------|
-| Boolean                 | `NULL('b')`        | `Boolean(false)`             |
-| Byte                    | `NULL('x')`        | `Byte(byte() 0)`             |
-| Short                   | `NULL('h')`        | `Short(Short.MIN_VALUE)`     |
-| Integer                 | `NULL('i')`        | `Integer(Integer.MIN_VALUE)` |
-| Long                    | `NULL('j')`        | `Long(Long.MIN_VALUE)`       |
-| Float                   | `NULL('e')`        | `Float(Double.NaN)`          |
-| Double                  | `NULL('f')`        | `Double(Double.Nan)`         |
-| Character               | `NULL('c')`        | `Character(' ')`             |
-| Symbol                  | `NULL('s')`        | `""`                         |
-| Timestamp               | `NULL('p')`        | `Timestamp(Long.MIN_VALUE)`  |
-| Month                   | `NULL('m')`        | `Month(Integer.MIN_VALUE)`   |
-| Date                    | `NULL('d')`        | `Date(Long.MIN_VALUE)`       |
-| DataTime/java.util.Date | `NULL('z')`        | `Timestamp(Long.MIN_VALUE)`  |
-| Timespan                | `NULL('n')`        | `Timespan(Long.MIN_VALUE)`   |
-| Minute                  | `NULL('u')`        | `Minute(Integer.MIN_VALUE)`  |
-| Second                  | `NULL('v')`        | `Second(Integer.MIN_VALUE)`  |
-| Time                    | `NULL('t')`        | `Time(Integer.MIN_VALUE)`    |
-
-</div>
-
-We can check whether a given Object `x` is a q null using the c utility method:
-```java
-#!java
-public static boolean qn(Object x);
+ c c=new c("localhost",12345,System.getProperty("user.name")+":mypasswordhere");
 ```
 
+A KException will be thrown if the kdb+ process rejects the connection attempt.
 
-## Q types of Java objects
-
-For reference, internally, types are mapped as follows for atoms:
-
-<div class="kx-compact" markdown="1">
-
-| Java object type | q type number |
-|------------------|------------------|
-| Boolean          | -1               |
-| Byte             | -4               |
-| Short            | -5               |
-| Integer          | -6               |
-| Long             | -7               |
-| Float            | -8               |
-| Double           | -9               |
-| Character        | -10              |
-| String           | -11              |
-| Month            | -13              |
-| java.util.Date   | -15              |
-| Time             | -19              |
-| Date             | -14              |
-| Minute           | -17              |
-| Second           | -18              |
-
-</div>
-
-and the following for complex data:
-
-<div class="kx-compact" markdown="1">
-
-| Java object type   | q type number |
-|--------------------|---------------|
-| `boolean[]`        | 1             |
-| `byte[]`           | 4             |
-| `short[]`          | 5             |
-| `int[]`            | 6             |
-| `long[]`           | 7             |
-| `float[]`          | 8             |
-| `double[]`         | 9             |
-| `char[]`           | 10            |
-| `String[]`         | 11            |
-| `Month[]`          | 13            |
-| `java.util.Date[]` | 15            |
-| `Time[]`           | 19            |
-| `Date[]`           | 14            |
-| `Minute[]`         | 17            |
-| `Second[]`         | 18            |
-| `Flip`             | 98            |
-| `Dict`             | 99             |
-
-</div>
-
-The default return value for all other objects is 0.
-
-
-## Interacting with q via an open c instance
-
-Interacting with the q server is very simple. 
-You must make a basic choice between sending a message to the server where you expect no answer, or will check later for an answer.
-
-In the first case, where we will not wait for a response, use the `ks` method on a c instance:
+Then, to issue a query and read the response, use
 ```java
-public void ks(String s) throws IOException 
-public void ks(String s, Object x) throws IOException
-public void ks(String s, Object x, Object y) throws IOException
-public void ks(String s, Object x, Object y, Object z) throws IOException
+Object result=c.k("2+3");
+System.out.println("result is "+result); // expect to see 5 printed
 ```
-Alternatively, should we expect an immediate response use the `k` method:
+or to subscribe to a kdb+ publisher, here kdb+tick, use
 ```java
-public Object k(Object x) throws KException, IOException
-public Object k(String s) throws KException, IOException
-public Object k(String s, Object x) throws KException, IOException
-public Object k(String s, Object x, Object y) throws KException, IOException
-public Object k(String s, Object x, Object y, Object z) throws KException, IOException 
+  c.k(".u.sub","mytable",x);
+  while(true)
+    System.out.println("Received "+c.k());
 ```
-As a special case of the `k` method, we may receive a message from the server without sending any message as an argument:
+or to publish to a kdb+ consumer, here a kdb+ ticker plant, use
 ```java
-public Object k() throws KException, IOException
+// Assuming a remote schema of
+// mytable:([]time:`timespan$();sym:`symbol$();price:`float$();size:`long$())
+Object[]row={new c.Timespan(),"SYMBOL",new Double(93.5),new Long(300)};
+c.k(".u.upd","mytable",row);
 ```
+And to close a connection once it is no longer needed:
+```java
+c.close();
+```
+
+!!! tip "Closing unused connections"
+    Closing unused connections is important to help avoid unnecessary resource usage on the remote process.
+
+The Java driver is effectively a data marshaller between Java and kdb+: sending an object to kdb+ typically results in kdb+ evaluating that object in some manner. The default message handlers on the kdb+ side are initialized to the kdb+ `value` operator, which means they will evaluate a string expression, e.g.
+```java
+c.k("2+3")
+```
+or a list of (function; arg0; arg1; ...; argN), e.g.
+```java
+c.k(new Object[]{'+',2,3})
+```
+Usually when querying a database, one would receive a table as a result. This is indeed the common case with kdb+, and a table is represented in this Java interface as the `c.Flip` class. A flip has an array of column names, and an array of arrays containing the column data.
+
+The following is example code to iterate over a flip, printing each row to the console.
+```java
+c.Flip flip=(c.Flip)c.k("([]sym:`MSFT`GOOG;time:0 1+.z.n;price:320.2 120.1;size:100 300)");
+for(int col=0;col<flip.x.length;col++)
+  System.out.print((col>0?",":"")+flip.x[col]);
+System.out.println();
+for(int row=0;row<n(flip.y[0]);row++){
+  for(int col=0;col<flip.x.length;col++)
+    System.out.print((col>0?",":"")+c.at(flip.y[col],row));
+    System.out.println();
+}
+```
+resulting in the following printing at the console
+```
+sym,time,price,size
+MSFT,15:39:23.746172000,320.2,100
+GOOG,15:39:23.746172001,120.1,300
+```
+A keyed table is represented as a dictionary where both the key and the value of the dictionary are flips themselves. To obtain a table without keys from a keyed table, use the `c.td(d)` method. In the example below, note that the table is created with `sym` as the key, and the table is unkeyed using `c.td`.
+```java
+c.Flip flip=c.td(c.k("([sym:`MSFT`GOOG]time:0 1+.z.n;price:320.2 120.1;size:100 300)"));
+```
+To create a table to send to kdb+, first construct a flip of a dictionary of column names with a list of column data. e.g.
+```java
+c.Flip flip=new c.Flip(new c.Dict(
+  new String[]{"time","sym","price","volume"},
+  new Object[]{new c.Timespan[]{new c.Timespan(),new c.Timespan()},
+               new String[]{"ABC","DEF"},
+               new double[]{123.456,789.012},
+               new long[]{100,200}}));
+```
+and then send it via a sync or async message
+```java
+Object result=c.k("{x}",flip); // a sync msg, echos the flip back as result
+```
+
+
+## Type mapping
+Kdb+ types are mapped to and from Java types by this driver, and the example `src/kx/examples/TypesMapping.java` demonstrates the construction of atoms, vectors, a dictionary, and a table, sending them to kdb+ for echo back to Java, for comparison with the original type and value. The output is recorded here for clarity:
+
+|            Java type|            kdb+ type|                            value sent|                            kdb+ value|
+|---------------------|---------------------|--------------------------------------|--------------------------------------|
+|    java.lang.Boolean|          (-1)boolean|                                  true|                                    1b|
+|                   [Z|    (1)boolean vector|                                  true|                                   ,1b|
+|       java.util.UUID|             (-2)guid|  f5889a7d-7c4a-4068-9767-a009c8ac46ef|  f5889a7d-7c4a-4068-9767-a009c8ac46ef|
+|     [Ljava.util.UUID|       (2)guid vector|  f5889a7d-7c4a-4068-9767-a009c8ac46ef| ,f5889a7d-7c4a-4068-9767-a009c8ac46ef|
+|       java.lang.Byte|             (-4)byte|                                    42|                                  0x2a|
+|                   [B|       (4)byte vector|                                    42|                                 ,0x2a|
+|      java.lang.Short|            (-5)short|                                    42|                                   42h|
+|                   [S|      (5)short vector|                                    42|                                  ,42h|
+|    java.lang.Integer|              (-6)int|                                    42|                                   42i|
+|                   [I|        (6)int vector|                                    42|                                  ,42i|
+|       java.lang.Long|             (-7)long|                                    42|                                    42|
+|                   [J|       (7)long vector|                                    42|                                   ,42|
+|      java.lang.Float|             (-8)real|                                 42.42|                                42.42e|
+|                   [F|       (8)real vector|                                 42.42|                               ,42.42e|
+|     java.lang.Double|            (-9)float|                                 42.42|                                 42.42|
+|                   [D|      (9)float vector|                                 42.42|                                ,42.42|
+|  java.lang.Character|            (-10)char|                                     a|                                   "a"|
+|                   [C|      (10)char vector|                                     a|                                  ,"a"|
+|     java.lang.String|          (-11)symbol|                                    42|                                   `42|
+|   [Ljava.lang.String|    (11)symbol vector|                                    42|                                  ,`42|
+|   java.sql.Timestamp|       (-12)timestamp|               2017-07-07 15:22:38.976|         2017.07.07D15:22:38.976000000|
+| [Ljava.sql.Timestamp| (12)timestamp vector|               2017-07-07 15:22:38.976|        ,2017.07.07D15:22:38.976000000|
+|           kx.c$Month|           (-13)month|                               2000-12|                              2000.12m|
+|         [Lkx.c$Month|     (13)month vector|                               2000-12|                             ,2000.12m|
+|        java.sql.Date|            (-14)date|                            2017-07-07|                            2017.07.07|
+|      [Ljava.sql.Date|      (14)date vector|                            2017-07-07|                           ,2017.07.07|
+|       java.util.Date|        (-15)datetime|    Fri Jul 07 15:22:38 GMT+03:00 2017|               2017.07.07T15:22:38.995|
+|     [Ljava.util.Date|  (15)datetime vector|    Fri Jul 07 15:22:38 GMT+03:00 2017|              ,2017.07.07T15:22:38.995|
+|        kx.c$Timespan|        (-16)timespan|                    15:22:38.995000000|                  0D15:22:38.995000000|
+|      [Lkx.c$Timespan|  (16)timespan vector|                    15:22:38.995000000|                 ,0D15:22:38.995000000|
+|          kx.c$Minute|          (-17)minute|                                 12:22|                                 12:22|
+|        [Lkx.c$Minute|    (17)minute vector|                                 12:22|                                ,12:22|
+|          kx.c$Second|          (-18)second|                              12:22:38|                              12:22:38|
+|        [Lkx.c$Second|    (18)second vector|                              12:22:38|                             ,12:22:38|
+|        java.sql.Time|            (-19)time|                              15:22:38|                          15:22:38.995|
+|      [Ljava.sql.Time|      (19)time vector|                              15:22:38|                         ,15:22:38.995|
+
+
+## Timezone
+For global data capture, it is common practice to store events using a GMT timestamp. To minimize confusion, it is easiest to set the current timezone to GMT, either explicitly in the `c` class as 
+```java
+c.tz=TimeZone.getTimeZone("GMT");
+```
+or from the environment, e.g.
+```
+$export TZ=GMT;...
+```
+otherwise kdb+ will use the default timezone from the environment, and adjust values between local and GMT during serialization.
+
+
+## Message types
+There are three message types in kdb+
+
+|Msg Type|Description|
+|--------|-----------|
+|   async| send via `c.ks(…)`. This call blocks until the message has been fully sent. There is no guarantee that the server has processed this message by the time the call returns.|
+|    sync| send via `c.k(…)`. This call blocks until a response message has been received, and returns the response which could be either data or an error.|
+|response| this should _only_ ever be sent as a response to a sync message. If your Java process is acting as a server, processing incoming sync messages, a response message can be sent with `c.kr(responseObject)`. If the response should indicate an error, use `c.ke("error string here")`.|
+
+If `c.k()` is called with no arguments, the call will block until a message is received of _any_ type. This is useful for subscribing to a tickerplant, to receive incoming async messages published by the ticker plant.
+
+
+## Sending sync/async messages 
+
+The methods for sending sync/async messages are overloaded as follows:
+
+- Methods which send async messages do not return a value:
+  ```java
+  public void ks(String s) throws IOException 
+  public void ks(String s, Object x) throws IOException
+  public void ks(String s, Object x, Object y) throws IOException
+  public void ks(String s, Object x, Object y, Object z) throws IOException
+  ```
+- Methods which send sync messages return an Object, the result from the remote processing the sync message:
+  ```java
+  public Object k(Object x) throws KException, IOException
+  public Object k(String s) throws KException, IOException
+  public Object k(String s, Object x) throws KException, IOException
+  public Object k(String s, Object x, Object y) throws KException, IOException
+  public Object k(String s, Object x, Object y, Object z) throws KException, IOException
+  ```
+- If no argument is given, the `k` call will block until a message is received, deserialized to an Object.
+  ```java 
+  public Object k() throws KException, IOException
+  ```
+
+
+## Exceptions
+
+The `c` class throws IOExceptions for network errors such as read/write failures and throws KExceptions for higher-level cases, such as remote execution errors arising during the query at hand.
 
 
 ## Accessing items of lists
 
-We can access list items using the `at` method of the utility class c:
+List items can be accessed using the `at` method of the utility class `c`:
 ```java
 Object c.at(Object x, int i) // Returns the object at x[i] or null
 ```
 and set them with `set`:
 ```java
-// Set x[i] to y, or the appropriate q null value if y is null
-void c.set(Object x, int i, Object y)
+void c.set(Object x, int i, Object y) // Set x[i] to y, or the appropriate q null value if y is null
 ```
 
 
-## Exceptions
+## Creating null values
 
-The c class throws IOExceptions for typical socket read/write reasons and throws KException objects in higher-level cases. 
-That is, for errors at the q level rather than the Socket level.
+For each type suffix, "hijefcspmdznuvt", we can get a reference to a null q value by indexing into the `NULL` Object array using the `NULL` utility method. Note the q null values are not the same as Java’s null.
 
-
-## Questions 
-
-### What is the default time zone that the Java interface to q uses?
-
-It uses whatever the environment is set to. To override it to be e.g. GMT, use
+An example of creating an object array containing a null integer and a null long:
 ```java
-c.tz=TimeZone.getTimeZone("GMT");
+Object[] twoNullIntegers = {NULL('i'), NULL('j')}; // i - int, j - long
 ```
 
 
-### What is the default date format?
-
+## Testing for null
+An object can be tested where it is a q null using the `c` utility method
 ```java
-SimpleDateFormat(“yyyy.MM.dd”).
+public static boolean qn(Object x);
 ```
+ 
 
+## SSL/TLS
+Secure, encrypted connections may be established using SSL/TLS, by specifying the `useTLS` argument to the `c` constructor as true, e.g.
+```java
+c c=new c("localhost",12345,System.getProperty("user.name"),true);
+```
+N.B. The kdb+ process [must be enabled](/cookbook/ssl/) to accept TLS connections.
 
-### How do I change the socket a c instance is using?
-
-We can change the socket being used to talk to a q server using the `void io(Socket x) throws IOException` method.
-
-
-### Is there a JDBC interface?
-
-Yes. 
-See <i class="fa fa-github"></i> [KxSystems/kdb/c/jdbc.java](https://github.com/KxSystems/kdb/blob/master/c/jdbc.java) for the implementation. 
-Compile it as follows:
+Prior to using SSL/TLS, ensure that the server’s certificate has been imported into your keystore. e.g.
 ```bash
-$ java jdbc.java
-$ jar cf jdbc.jar *.class
+keytool -printcert -rfc -sslserver localhost:5010 > example.pem
+keytool -importcert -file example.pem -alias example.com -storepass changeit -keystore ./keystore
+java -Djavax.net.ssl.trustStore=./keystore -Djavax.net.ssl.keystore=./keystore kx.c
 ```
-and use as normal.
-
-!!! note 
-    This is a pure Java native-protocol driver (type 4) JDBC driver. 
-    The implementation builds on the lower-level KDBC API, which is somewhat simpler 
-    and a good choice for application development when support for legacy code is not a consideration.
-
-The JDBC driver implements only the minimal core of the JDBC feature set. 
-Operations must be prefixed by `"q)"` in order to be executed as q statements. 
-There is no significant difference in performance between using the `!PreparedStatement`, `!CallableStatement` or `Statement` interfaces.
-
-Q does not have the concept of transactions as expected by the JDBC API. 
-That is, you cannot open a connection, explicitly begin a transaction, issue a series of separate queries within that transaction and finally roll back or commit the transaction. 
-It will always behave as if `autoCommit` is set to true and the transaction isolation is set to `SERIALIZABLE`. 
-In practice, this means that any single query (or sequence of queries if executed in a single JDBC call) will be executed in isolation 
-without noticing the effects of other queries, and modifications made to the database will always be permanent.
-
-!!! tip "Connection pooling"
-    If little work is being performed per interaction via the JDBC driver, 
-    that is, few queries and each query is very quick to execute, 
-    then there is a significant advantage to using connection pooling. 
-    Using the Apache Commons DBCP component improves the performance of this case by about 70%. 
-    DBCP avoids some complexity which can be introduced by other connection pool managers. 
-    For example, it handles connections in the pool that have become invalid (say due to a database restart) by automatically reconnecting. 
-    Furthermore it offers configuration options to check the status of connections in the connection pool using a variety of strategies.
-
-    Although it is not necessary to call the `close` method on `!ResultSet`, `Statement`, `!PreparedStatement` and `!CallableStatement` when using the q JDBC driver, 
-    it is recommended with the DBCP component as it performs checks to ensure all resources are cleaned up, and has the ability to report resource leaks. 
-    Explicitly closing the resources avoids a small runtime cost.
-
-```java
-package kx;
-import java.sql.*;
-
-//in kdb+3.x and above
-//init table with
-//Employees:([]id:0 1 2;firstName:`Charlie`Arthur`Simon;lastName:`Skelton`Whitney`Garland;age:10 20 30;timestamp:.z.p+til 3)
-
-public class JDBCTest{
-  static final String JDBC_DRIVER="jdbc";
-  static final String DB_URL="jdbc:q:localhost:5000";
-  static final String USER="username";
-  static final String PASS="password";
-
-  public static void main(String[] args){
-    Connection conn=null;
-    Statement stmt=null;
-    try{
-      Class.forName(JDBC_DRIVER);
-
-      System.out.println("Connecting to database...");
-      conn=DriverManager.getConnection(DB_URL,USER,PASS);
-
-      System.out.println("Creating statement...");
-      stmt=conn.createStatement();
-      ResultSet rs=stmt.executeQuery("SELECT id, firstName, lastName, age,timestamp FROM Employees");
-
-      while(rs.next()){
-        long id=rs.getLong("id");
-        long age=rs.getLong("age");
-        String first=rs.getString("firstName");
-        String last=rs.getString("lastName");
-        Timestamp timestamp=rs.getTimestamp("timestamp");
-
-        System.out.print("ID: "+id);
-        System.out.print(", Age: "+age);
-        System.out.print(", FirstName: "+first);
-        System.out.println(", LastName: "+last);
-        System.out.println(", Timestamp: "+timestamp);
-      }
-      rs.close();
-      stmt.close();
-      conn.close();
-    }catch(SQLException se){
-      se.printStackTrace();
-    }catch(Exception e){
-      e.printStackTrace();
-    }finally{
-      try{
-        if(stmt!=null)
-          stmt.close();
-      }catch(SQLException se2){
-      }
-      try{
-        if(conn!=null)
-          conn.close();
-      }catch(SQLException se){
-        se.printStackTrace();
-      }
-    }
-  }
-}
-```
-when run should print something like
-```
-Connecting to database...
-Creating statement...
-ID: 0, Age: 10, FirstName: Charlie, LastName: Skelton, Timestamp: 2014-09-02 08:28:11.688024
-ID: 1, Age: 20, FirstName: Arthur, LastName: Whitney, Timestamp: 2014-09-02 08:28:11.688024001
-ID: 2, Age: 30, FirstName: Simon, LastName: Garland, Timestamp: 2014-09-02 08:28:11.688024002
-```
-```java
-#!java
-
-// An ObjectPool serves as the pool of connections.
-//
-ObjectPool connectionPool = new GenericObjectPool(null);
-
-// A ConnectionFactory is used by the to create Connections.
-// This example uses the DriverManagerConnectionFactory, with a
-// a connection string for a local q database listening on port 5001.
-//
-ConnectionFactory connectionFactory =
-            new DriverManagerConnectionFactory("jdbc:q:localhost:5001",null);
-
-// A PoolableConnectionFactory is used to wrap the Connections
-// created by the ConnectionFactory with the classes that implement
-// the pooling functionality.
-//
-PoolableConnectionFactory poolableConnectionFactory = new
-            PoolableConnectionFactory(connectionFactory,connectionPool,null,
-            null,false,true);
-
-// Finally, we create the PoolingDriver itself:
-//
-Class.forName("org.apache.commons.dbcp.PoolingDriver");
-PoolingDriver driver = (PoolingDriver)
-            DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-
-// ...and register our pool with it.
-//
-driver.registerPool("q",connectionPool);
-
-// Now we can just use the connect string "jdbc:apache:commons:dbcp:q"
-// to access our pool of Connections.
-```
-
-
-## Example: Grid viewer using Swing
-
-```java
-#!java
-package app;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
-import kx.c;
-
-public class Main {
-    public static class KxTableModel extends AbstractTableModel {
-        private c.Flip flip;
-        public void setFlip(c.Flip data) {
-            this.flip = data;
-        }
-
-        public int getRowCount() {
-            return Array.getLength(flip.y[0]);
-        }
-
-        public int getColumnCount() {
-            return flip.y.length;
-        }
-
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            return c.at(flip.y[columnIndex], rowIndex);
-        }
-
-        public String getColumnName(int columnIndex) {
-            return flip.x[columnIndex];
-        }
-    };
-
-    public static void main(String[] args) {
-        KxTableModel model = new KxTableModel();
-        c c = null;
-        try {
-            c = new c("localhost", 5001,"username:password");
-            String query="([]date:.z.D;time:.z.T;sym:10?`8;price:`float$10?500.0;size:10?100)";
-//          String query="0!select last price by sym from trade where date=last date";
-            model.setFlip((c.Flip) c.k(query));
-        } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (c != null) {try{c.close();} catch (IOException ex) {}
-          }
-        }
-        JTable table = new JTable(model);
-        table.setGridColor(Color.BLACK);
-        String title = "kdb+ Example - "+model.getRowCount()+" Rows";
-        JFrame frame = new JFrame(title);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new JScrollPane(table), BorderLayout.CENTER);
-        frame.setSize(300, 300);
-        frame.setVisible(true);
-    }
-}
-```
-
+To troubleshoot ssl, supply `-Djavax.net.debug=ssl` on the command line when invoking your Java application.
 

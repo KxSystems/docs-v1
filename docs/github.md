@@ -22,8 +22,12 @@ about new repositories.</div>
 	<td>online help for q</td>
 </tr>
 <tr>
+	<td class="nowrap">[javakdb](https://github.com/KxSystems/javakdb) ==updated==</td>
+	<td>Java client for kdb+</td>
+</tr>
+<tr>
 	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka) ==new==</td>
-	<td>Q client for [Apache Kafka](https://kafka.apache.org)</td>
+	<td>kdb+ client for [Apache Kafka](https://kafka.apache.org)</td>
 </tr>
 <tr>
 	<td class="nowrap">[kdb](https://github.com/KxSystems/kdb)</td>
