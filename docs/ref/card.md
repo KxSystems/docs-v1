@@ -159,23 +159,23 @@ The following glyphs represent operators, functions or adverbs – according to 
 <tr><td>[`\b`](syscmds/#b-views) [`\B`](syscmds/#b-pending-views)</td><td>views</td><td>[`\c`](syscmds/#c-console-size)  [`-c`](cmdline/#-c-console-size)</td><td>console size</td></tr>
 <tr><td>[`-C`](cmdline/#-c-http-size) [`\C`](syscmds/#c-http-size)</td><td>HTTP size</td><td>[`\cd`](syscmds/#cd-change-directory)</td><td>change directory</td></tr>
 <tr><td>[`\d`](syscmds/#d-directory)</td><td>directory</td><td>[`\e`](syscmds/#e-error-trap-clients) [`-e`](cmdline/#-e-error-traps)</td><td>error traps</td></tr>
-<tr><td>[`\f`](syscmds/#f-functions)</td><td>functions</td><td>[`\g`](syscmds/#g-garbage-collection-mode) [`-g`](cmdline/#-g-garbage-collection)</td><td>garbage collection</td></tr>
-<tr><td>[`\l`](syscmds/#l-load-file-or-directory)</td><td>load file or directory</td><td>[`-l`](cmdline/#-l-log-updates) [`-L`](cmdline/#-l-log-sync)</td><td>log sync</td></tr>
-<tr><td>[`\o`](syscmds/#o-offset-from-utc) [`-o`](cmdline/#-o-utc-offset)</td><td>UTC offset</td><td>[`\p`](syscmds/#p-port) [`-p`](cmdline/#-p-port)</td><td>multithread port</td></tr>
-<tr><td>[`\P`](syscmds/#p-precision) [`-P`](cmdline/#-p-display-precision)</td><td>display precision</td><td>[`-q`](cmdline/#-q-quiet-mode)</td><td>quiet mode</td></tr>
-<tr><td>[`\r`](syscmds/#r-replication-master) [`-r`](cmdline/#-r-replicate)</td><td>replicate</td><td>[`\r`](syscmds/#r-rename)</td><td>rename</td></tr>
-<tr><td>[`\s`](syscmds/#s-number-of-slaves) [`-s`](cmdline/#-s-slaves)</td><td>slaves</td><td>[`\S`](syscmds/#s-random-seed)</td><td>random seed</td></tr>
-<tr><td>[`\t`](syscmds/#t-timer) [`-t`](cmdline/#-t-timer-ticks)</td><td>timer ticks</td><td>[`\ts`](syscmds/#ts-time-and-space)</td><td>time and space</td></tr>
-<tr><td>[`\T`](syscmds/#t-timeout) [`-T`](cmdline/#-t-timeout)</td><td>timeout</td><td>[`\u`](syscmds/#u-reload-user-password-file)  [`-u`](cmdline/#-u-usr-pwd-local) [`-U`](cmdline/#-u-usr-pwd)</td><td>usr-pwd</td></tr>
-<tr><td>[`-u`](cmdline/#-u-disable-syscmds)</td><td>disable syscmds</td><td>[`\v`](syscmds/#v-variables)</td><td>variables</td></tr>
-<tr><td>[`\w`](syscmds/#w-workspace) [`-w`](cmdline/#-w-memory)</td><td>memory</td><td>[`\W`](syscmds/#w-week-offset) [`-W`](cmdline/#-w-start-week)</td><td>week offset</td></tr>
-<tr><td>[`\x`](syscmds/#x-expunge)</td><td>expunge</td><td>[`\z`](syscmds/#z-date-parsing) [`-z`](cmdline/#-z-date-format)</td><td>date format</td></tr>
-<tr><td>[`\1` &amp; `\2`](syscmds/#1-2-redirect)</td><td>redirect</td><td>[`\_`](syscmds/#_-hide-q-code)</td><td>hide q code</td></tr>
-<tr><td>[`\`](syscmds/#terminate)</td><td>terminate</td><td>[`\`](syscmds/#toggle-qk)</td><td>toggle q/k</td></tr>
-<tr><td>[`\\`](syscmds/#quit)</td><td>quit</td><td>[OS Commands](syscmds/#os-commands)</td><td></td></tr>
-<tr><td>[`system`](syscmds/#system)</td><td></td><td>[file](cmdline/#file)</td><td></td></tr>
+<tr><td>[`-E`](cmdline/#-e-error-traps)</td><td>TLS server mode</td><td>[`\f`](syscmds/#f-functions)</td><td>functions</td></tr>
+<tr><td>[`\g`](syscmds/#g-garbage-collection-mode) [`-g`](cmdline/#-g-garbage-collection)</td><td>garbage collection</td><td>[`\l`](syscmds/#l-load-file-or-directory)</td><td>load file or directory</td></tr>
+<tr><td>[`-l`](cmdline/#-l-log-updates) [`-L`](cmdline/#-l-log-sync)</td><td>log sync</td><td>[`\o`](syscmds/#o-offset-from-utc) [`-o`](cmdline/#-o-utc-offset)</td><td>UTC offset</td></tr>
+<tr><td>[`\p`](syscmds/#p-port) [`-p`](cmdline/#-p-port)</td><td>multithread port</td><td>[`\P`](syscmds/#p-precision) [`-P`](cmdline/#-p-display-precision)</td><td>display precision</td></tr>
+<tr><td>[`-q`](cmdline/#-q-quiet-mode)</td><td>quiet mode</td><td>[`\r`](syscmds/#r-replication-master) [`-r`](cmdline/#-r-replicate)</td><td>replicate</td></tr>
+<tr><td>[`\r`](syscmds/#r-rename)</td><td>rename</td><td>[`\s`](syscmds/#s-number-of-slaves) [`-s`](cmdline/#-s-slaves)</td><td>slaves</td></tr>
+<tr><td>[`\S`](syscmds/#s-random-seed)</td><td>random seed</td><td>[`\t`](syscmds/#t-timer) [`-t`](cmdline/#-t-timer-ticks)</td><td>timer ticks</td></tr>
+<tr><td>[`\ts`](syscmds/#ts-time-and-space)</td><td>time and space</td><td>[`\T`](syscmds/#t-timeout) [`-T`](cmdline/#-t-timeout)</td><td>timeout</td></tr>
+<tr><td>[`\u`](syscmds/#u-reload-user-password-file)  [`-u`](cmdline/#-u-usr-pwd-local) [`-U`](cmdline/#-u-usr-pwd)</td><td>usr-pwd</td><td>[`-u`](cmdline/#-u-disable-syscmds)</td><td>disable syscmds</td></tr>
+<tr><td>[`\v`](syscmds/#v-variables)</td><td>variables</td><td>[`\w`](syscmds/#w-workspace) [`-w`](cmdline/#-w-memory)</td><td>memory</td></tr>
+<tr><td>[`\W`](syscmds/#w-week-offset) [`-W`](cmdline/#-w-start-week)</td><td>week offset</td><td>[`\x`](syscmds/#x-expunge)</td><td>expunge</td></tr>
+<tr><td>[`\z`](syscmds/#z-date-parsing) [`-z`](cmdline/#-z-date-format)</td><td>date format</td><td>[`\1` `\2`](syscmds/#1-2-redirect)</td><td>redirect</td></tr>
+<tr><td>[`\_`](syscmds/#_-hide-q-code)</td><td>hide q code</td><td>[`\`](syscmds/#terminate)</td><td>terminate</td></tr>
+<tr><td>[`\`](syscmds/#toggle-qk)</td><td>toggle q/k</td><td>[`\\`](syscmds/#quit)</td><td>quit</td></tr>
 </table>
-<i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [system commands](syscmds)
+
+<i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [system commands](syscmds), [OS Commands](syscmds/#os-commands), [`system`](syscmds/#system), [file](cmdline/#file)
 
 
 ## Environment variables

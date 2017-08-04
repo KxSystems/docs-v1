@@ -100,6 +100,19 @@ Syntax: `-e B`
 Enable client error trapping
 
 
+## `-E` (TLS Server Mode)
+
+Syntax: `-E x`
+
+x   | mode
+--- | ----
+0   | plain
+1   | plain & TLS
+2   | TLS only
+
+<i class="fa fa-hand-o-right"></i> [Cookbook: SSL/TLS](/cookbook/ssl/#tls-server-mode)
+
+
 ## `-g` (garbage collection)
 
 Syntax: `-g B`

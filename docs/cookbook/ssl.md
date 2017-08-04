@@ -68,7 +68,7 @@ If you select a set which is not compatible with the peer process, you’ll obse
 
 ## TLS Server Mode
 
-Once the certificates are in place, and the environment variables set, TLS Server Mode can be enabled through the command-line option `-E 0` (plain), `1` (plain & TLS), `2` (TLS only). e.g.
+Once the certificates are in place, and the environment variables set, TLS Server Mode can be enabled through the [command-line option](/ref/cmdline/#-e-error-traps) `-E 0` (plain), `1` (plain & TLS), `2` (TLS only). e.g.
 ```bash
 $ q -u 1 -E 1 -p 5000
 ```
