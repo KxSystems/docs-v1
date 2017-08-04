@@ -1,6 +1,6 @@
 The command line for invoking q has the form:
 ```bash
-q [file] [-b] [-c r c] [-C r c] [-e 0|1] [-g 0|1] [-l] [-L][-o N] [-p N] 
+q [file] [-b] [-c r c] [-C r c] [-e 0|1] [-E 0|1|2] [-g 0|1] [-l] [-L][-o N] [-p N] 
     [-P N] [-q] [-r :H:P] [-s N] [-t N] [-T N] [-u|U F] [-w N] [-W N] 
     [-z 0|1]
 ```
@@ -102,7 +102,7 @@ Enable client error trapping
 
 ## `-E` (TLS Server Mode)
 
-Syntax: `-E x`
+Syntax: `-E x` (since V3.4)
 
 x   | mode
 --- | ----

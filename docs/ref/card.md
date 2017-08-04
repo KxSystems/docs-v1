@@ -155,11 +155,12 @@ The following glyphs represent operators, functions or adverbs – according to 
 ## Command-line options and system commands
 
 <table markdown="1" class="kx-shrunk kx-tight">
+<tr><td>[file](cmdline/#file)</td></tr>
 <tr><td>[`\a`](syscmds/#a-tables)</td><td>tables</td><td>[`-b`](cmdline/#-b-blocked)</td><td>blocked</td></tr>
 <tr><td>[`\b`](syscmds/#b-views) [`\B`](syscmds/#b-pending-views)</td><td>views</td><td>[`\c`](syscmds/#c-console-size)  [`-c`](cmdline/#-c-console-size)</td><td>console size</td></tr>
 <tr><td>[`-C`](cmdline/#-c-http-size) [`\C`](syscmds/#c-http-size)</td><td>HTTP size</td><td>[`\cd`](syscmds/#cd-change-directory)</td><td>change directory</td></tr>
 <tr><td>[`\d`](syscmds/#d-directory)</td><td>directory</td><td>[`\e`](syscmds/#e-error-trap-clients) [`-e`](cmdline/#-e-error-traps)</td><td>error traps</td></tr>
-<tr><td>[`-E`](cmdline/#-e-error-traps)</td><td>TLS server mode</td><td>[`\f`](syscmds/#f-functions)</td><td>functions</td></tr>
+<tr><td>[`-E`](cmdline/#-e-error-traps)</td><td>TLS Server Mode</td><td>[`\f`](syscmds/#f-functions)</td><td>functions</td></tr>
 <tr><td>[`\g`](syscmds/#g-garbage-collection-mode) [`-g`](cmdline/#-g-garbage-collection)</td><td>garbage collection</td><td>[`\l`](syscmds/#l-load-file-or-directory)</td><td>load file or directory</td></tr>
 <tr><td>[`-l`](cmdline/#-l-log-updates) [`-L`](cmdline/#-l-log-sync)</td><td>log sync</td><td>[`\o`](syscmds/#o-offset-from-utc) [`-o`](cmdline/#-o-utc-offset)</td><td>UTC offset</td></tr>
 <tr><td>[`\p`](syscmds/#p-port) [`-p`](cmdline/#-p-port)</td><td>multithread port</td><td>[`\P`](syscmds/#p-precision) [`-P`](cmdline/#-p-display-precision)</td><td>display precision</td></tr>
@@ -175,7 +176,7 @@ The following glyphs represent operators, functions or adverbs – according to 
 <tr><td>[`\`](syscmds/#toggle-qk)</td><td>toggle q/k</td><td>[`\\`](syscmds/#quit)</td><td>quit</td></tr>
 </table>
 
-<i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [system commands](syscmds), [OS Commands](syscmds/#os-commands), [`system`](syscmds/#system), [file](cmdline/#file)
+<i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [system commands](syscmds), [OS Commands](syscmds/#os-commands), [`system`](syscmds/#system)
 
 
 ## Environment variables
