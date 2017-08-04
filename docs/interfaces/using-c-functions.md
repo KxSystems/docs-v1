@@ -1,8 +1,17 @@
-Q functionality can be extended using dynamically loaded modules. To make a function `foo` defined in a shared object `bar.so` available in a q session, we use [2:](/ref/filenumbers/#2-c-shared-objects) to load the function dynamically.
+Q functionality can be extended using dynamically-loaded modules. 
+
+To make a function `foo` defined in a shared object `bar.so` available in a q session, we use [2:](/ref/filenumbers/#2-c-shared-objects) to load the function dynamically.
 ```q
 q)foo:`bar 2:(`foo;n)
 ```
 where `n` is the number of arguments that `foo` accepts.
+
+If a path to `bar` is specified, kdb+ will first attempt to load `bar` from that directory, and if `bar` is not found, then it will try the default directory.
+
+If the shared library is not to be loaded from the default directory, then (on Unix) `LD_LIBRARY_PATH` should include the directory containing the shared library, and the path to `bar` must be specified.
+
+<!-- 
+If no path to `bar` is specified, kdb+ will attempt to load `bar` from the default directory.
 
 Note that if no path to `bar` is specified, q will attempt to load `bar.[so|dll]` from the current working directory and then the default directory 
 ```
@@ -13,8 +22,9 @@ where l=Linux, w=Windows, m=macOS, s=Solaris(SPARC), v=Solaris(x86) and 32=32-bi
 If a path to `bar` is specified, q will attempt to load `bar` from that directory, and then the default directory.
 
 If the shared library is _not_ to be loaded from the default directory, then (on Unix) `LD_LIBRARY_PATH` should include the directory containing the shared library.
-
-A common error is that, during development, the shared library might exist in _both_ the current working directory and the default directory, in which case q attempts to load the shared library from the current working directory but fails if `LD_LIBRARY_PATH` does not include the current working directory.
+ -->
+!!! warning "Working directory not in `LD_LIBRARY_PATH`"
+    A common error is that, during development, the shared library might exist in _both_ the current working directory and the default directory, in which case q attempts to load the shared library from the current working directory but fails if `LD_LIBRARY_PATH` does not include the current working directory.
 
 In this article we explain how to write functions in C that can be used in this manner.
 
