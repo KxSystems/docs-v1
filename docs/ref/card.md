@@ -142,7 +142,7 @@ The following glyphs represent operators, functions or adverbs – according to 
 ## Numbers
 
 <table markdown="1" class="kx-tight">
-<tr><td>[`0:`](filenumbers/#0-text-files)</td><td>[prepare-text](filenumbers/#prepare-text), [save-text](filenumbers/#save-text), [load-csv](filenumbers/#load-csv), [load-fixed](filenumbers/#load-fixed), [parse-kv](filenumbers/#parse-kv)</td></tr>
+<tr><td>[`0:`](filenumbers/#0-text-files)</td><td>[prepare-text](filenumbers/#prepare-text), [save-text](filenumbers/#save-text), [load-csv](filenumbers/#load-csv), [load-fixed](filenumbers/#load-fixed), [parse-kv](filenumbers/#key-value-pairs)</td></tr>
 <tr><td>[`1:`](filenumbers/#1-binary-files)</td><td>[read-binary](filenumbers/#read-binary), [save-binary](filenumbers/#save-binary)</td></tr>
 <tr><td>[`2:`](filenumbers/#2-c-shared-objects)</td><td>[dynamic load](filenumbers/#dynamic-load)</td></tr>
 <tr><td>[`0`](filenumbers/#0-console)</td><td>[write to console](filenumbers/#0-console)</td></tr>

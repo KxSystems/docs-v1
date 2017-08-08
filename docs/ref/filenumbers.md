@@ -196,17 +196,15 @@ q)t:("IFC D";4 8 10 6 4) 0: `:/q/Fixed.txt
     - To omit a field from the load use `" "`.
 
 
-### parse-kv
+### key-value-pairs
 
-Syntax: `(key-type;field-separator;record-separator) 0: string`
+Syntax: `x 0: string`
 
-Where `x` is a 3-char string: 
+Where `x` is a 3- or 4-char string: 
 
-1. key type: either `S` for symbol or `I` for long
-2. field separator
-2. record separator
+(key-type field-separator [asterisk] record-separator) 
 
-returns a 2-row matrix of the keys and values. 
+and key-type is `S` for symbol, `I` for integer, or `J` for long, returns a 2-row matrix of the keys and values. 
 ```q
 q)"S=;"0:"one=1;two=2;three=3"
 one  two  three
@@ -228,6 +226,15 @@ q)(!/)"I=\001"0:s
 34| "100322"
 49| "JM_TEST1"
 52| "20130425-06:46:46.387"
+```
+The inclusion of an asterisk as the third character allows the delimiter character to appear harmlessly in quoted strings. (Since V3.5.)
+```q
+q)0N!"I=*,"0:"5=\"hello,world\",6=1";
+(5 6i;("hello,world";,"1"))
+q)0N!"J=*,"0:"5=\"hello,world\",6=1";
+(5 6;("hello,world";,"1"))
+q)0N!"S=*,"0:"a=\"hello,world\",b=1";
+(`a`b;("hello,world";,"1"))
 ```
 
 <i class="fa fa-hand-o-right"></i> [casting](casting), [datatypes](datatypes), [How do I import a CSV file into a table](/cookbook/faq/#how-do-i-import-a-csv-file-into-a-table)

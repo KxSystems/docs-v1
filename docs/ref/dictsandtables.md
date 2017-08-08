@@ -153,6 +153,12 @@ s4 p4 300
 
 ## `xasc`
 
+<div markdown="1" style="float: right; margin: 0 0 0 1em; padding: 0;">
+![xasc](img/xasc.png) 
+</div>
+
+_Sorts a table in ascending order of specified columns. The sort is by the first column specified, then by the second column within the first, and so on._
+
 Syntax: `x xasc y`
 
 Where `x` is a symbol vector of column names defined in `y`, which is passed by
@@ -190,7 +196,7 @@ s4| clark 20     london
 s1| smith 20     london
 s3| blake 30     paris
 s2| jones 10     paris
-q)`status`city`name xasc s    / sort on 3 columns, status first
+q)`status`city`name xasc s     / sort on 3 columns, status first
 s | name  status city
 --| -------------------
 s2| jones 10     paris
@@ -198,7 +204,7 @@ s4| clark 20     london
 s1| smith 20     london
 s5| adams 30     athens
 s3| blake 30     paris
-q)`status`city`name xasc `s   / table given by reference, updated in place
+q)`status`city`name xasc `s    / table given by reference, updated in place
 `s
 q)s
 s | name  status city
@@ -208,7 +214,7 @@ s4| clark 20     london
 s1| smith 20     london
 s5| adams 30     athens
 s3| blake 30     paris
-q)meta s                     / status column has sorted attribute
+q)meta s                      / status column has sorted attribute
 c     | t f a
 ------| -----
 s     | s
