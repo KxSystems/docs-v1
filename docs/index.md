@@ -58,5 +58,3 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 
     **Your old bookmarks work, but please update them.** 
 
-<small markdown="1">See the [terms and conditions](about/TermsAndConditions) for use of this site.</small>
-

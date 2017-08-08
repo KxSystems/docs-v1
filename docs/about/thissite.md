@@ -90,6 +90,12 @@ The contribution model is GitHub and [Forking Workflow](https://www.atlassian.co
 To contribute, submit a pull request. 
 
 
+## License 
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+<div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></div>
+
+
 ## <i class="fa fa-envelope-o"></i> Contact
 
 This site is a project of the [Librarian](mailto:librarian@kx.com).
