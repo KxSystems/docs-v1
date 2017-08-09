@@ -35,10 +35,10 @@ size | 1625
 
 !!! warning 
     Updates done locally in the server process are logged to disk only if they are sent as messages to self. The syntax for this uses `0` as the handle:
-    ```q
+    <pre><code class="language-q">
     q) // in server
     q)0 ("insert";`trade; (10:30:01.000; `intel; 88.5; 1625))
-    ```
+    </code></pre>
 
 
 ## Checkpointing

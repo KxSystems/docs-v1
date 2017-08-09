@@ -120,10 +120,10 @@ r = f[r;x<sub>i</sub>] for i = 1…n
 
 !!! tip "See the successive results"
     The successive results may be seen with `scan`. This works the same way as `over` but returns all the intermediate results:
-    ```q
+    <pre><code class="language-q">
     q){x+2*y} scan 2 3 5 7
     2 8 18 32
-    ```
+    </code></pre>
 <i class="fa fa-hand-o-right"></i> [_over_ adverb](adverbs/#over)
 
 

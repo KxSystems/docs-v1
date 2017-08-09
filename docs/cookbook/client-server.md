@@ -12,41 +12,45 @@ q)\p 5001
 ```
 
 !!! tip "Secure it"
-    You can restrict the interface by starting
-    ```bash
-    $ q -p 127.0.0.1:5000
-    ```
+    You can restrict the interface by starting  
+    
+        $ q -p 127.0.0.1:5000
+    
     or within q
-    ```q
-    q)\p 127.0.0.1:5000
-    ```
+    
+        q)\p 127.0.0.1:5000
 
 To stop listening, you can ask the server to listen on port zero, like this
 ```q
 q)\p 0
 ```
 Clients can be other q processes, or they can be written in C, Java, C\#, etc. This is an example of a Java client:
+```bash
+$ sudo cp -r /var/www/q .
+$ sudo chown -R fred:fred q
+```
+
 ```java
 public class KDBClient {
 
     public static void main(String[] args) {
-    try{
-        // create q server object
-        c kdbServer = new c("localhost",5001);
-        // create a row (array of objects)
-        Object[] row= {new Time(System.currentTimeMillis()%86400000), "IBM", new Double(93.5), new Integer(300)};
-        // insert the row into the trade table
-            kdbServer.ks("insert","trade", row);
-        // send a sync message (see below for an explanation)
-        kdbServer.k("");
-        // execute a query in the server that returns a table
-        Flip table = td(kdbServer.k("select sum size by sym from trade"));
-        // read the data from the Flip object ...
-        // close connection to q server
-        kdbServer.close();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+        try{
+            // create q server object
+            c kdbServer = new c("localhost",5001);
+            // create a row (array of objects)
+            Object[] row= {new Time(System.currentTimeMillis()%86400000), "IBM", new Double(93.5), new Integer(300)};
+            // insert the row into the trade table
+                kdbServer.ks("insert","trade", row);
+            // send a sync message (see below for an explanation)
+            kdbServer.k("");
+            // execute a query in the server that returns a table
+            Flip table = td(kdbServer.k("select sum size by sym from trade"));
+            // read the data from the Flip object ...
+            // close connection to q server
+            kdbServer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 ```

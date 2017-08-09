@@ -97,11 +97,11 @@ q)key`:c:/q
 ```
 
 !!! tip "To select particular files, use `like`"
-    ```q
+    <pre><code class="language-q">
     q)f:key`:c:/q
     q)f where f like "*.q"
     `profile.q`sp.q`trade.q
-    ```
+    </code></pre>
 
 - a **filepath**, returns the descriptor if the file exists, otherwise an empty list.
 ```q
@@ -329,7 +329,7 @@ Returns the [datatype](datatypes) of `x` as a short integer atom: negative for a
 RO: read only; RW: read-write
 
 !!! tip "Looking up primitive datatypes"
-    ```q
+    <pre><code class="language-q">
     q)20#.Q.t
     " bg xhijefcspmdznuvt"
     q){key x$()}'[.Q.t where " "<>20#.Q.t]
@@ -353,7 +353,7 @@ RO: read only; RW: read-write
     17h "u" `minute
     18h "v" `second
     19h "t" `time
-    ```
+    </code></pre>
 
 
 ## `value`
@@ -499,12 +499,12 @@ The string form can be useful as a kind of ‘prepared statement’ from the Jav
 
 !!! note "`value` and `get`"
     The function `value` is the same as [`get`](filewords/#get). By convention `get` is used for file I/O but the two are interchangeable.
-    ```q
+    <pre><code class="language-q">
     q)get "2+3"                / same as value
     5
     q)value each (get;value)   / same internal code
     19 19
-    ```
+    </code></pre>
 
 
 ## `view`

@@ -31,12 +31,13 @@ KDB+ 3.5t 2017.02.28 Copyright (C) 1993-2017 Kx Systems
 m32/ 4()core 8192MB sjt mint.local 192.168.0.39 NONEXPIRE
 ```
 If you aren’t using the latest version of kdb+, please confirm that the problem still occurs in the latest version (from [kxdownloads.com](http://kxdownloads.com)) – the problem may already have been reported and fixed.
-- information about the OS being used, machine configuration and file system (if relevant).
-- details of any external code (DLLs, user-written primitives) loaded into the problem session.  
+
+- information about the **OS being used**, machine configuration and file system (if relevant).
+- details of any **external code** (DLLs, user-written primitives) loaded into the problem session.  
 If external code is being loaded into the session verify that the problem still occurs when it is _not_ loaded.
-- every Kx customer has a designated technical contact –  please copy them on the email.
-- if appropriate, include contact details, and information about when it’s convenient to contact you.
-- detailed list of steps to be taken to reproduce the error. Try to isolate the problem to a few lines of q and a tiny sample of data.  
+- every Kx customer has a designated **technical contact** –  please copy them on the email.
+- if appropriate, include **contact details**, and information about when it’s convenient to contact you.
+- detailed list of steps to be taken to **reproduce the error**. Try to isolate the problem to a few lines of q and a tiny sample of data.  
 
 Don’t send complete applications, or commercially sensitive code or data!  
 

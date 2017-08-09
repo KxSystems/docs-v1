@@ -43,12 +43,12 @@ q)(key;value)@\:e
 
 !!! tip "Ensure all items of `y` are in `x`"
     When creating an enumeration using `$`, the domain of the enumeration must be in `x`, otherwise a cast error will be signalled.
-    ```q
+    <pre><code class="language-q">
     q)y:`a`b`c`b`a`b`c`c`c`c`c`c`c
     q)x:`a`b
     q)`x$y
     'cast
-    ```
+    </code></pre>
     To expand the domain, use `?` (_enum-extend_) instead of `$`.
 
 <i class="fa fa-hand-o-right"></i> [Q for Mortals: Enumerations](http://code.kx.com/q4m3/7_Transforming_Data/#75-enumerations)

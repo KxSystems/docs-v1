@@ -21,14 +21,14 @@ a b c
 
 !!! tip "Flip me"
     The same result may be achieved with `flip`:
-    ```q
-    q)flip`a`b`c!flip(0 0 0;1 2 3;2 4 6)
-    a b c
-    -----
-    0 0 0
-    1 2 3
-    2 4 6
-    ```
+
+        q)flip`a`b`c!flip(0 0 0;1 2 3;2 4 6)
+        a b c
+        -----
+        0 0 0
+        1 2 3
+        2 4 6
+
 <i class="fa fa-hand-o-right"></i> [`.h.xt`](doth/#hxt-json) (JSON), [`.Q.qt`](dotq/#qqt-is-table) (is table), [`.Q.V`](dotq/#qv-table-to-dict) (table to dictionary) 
 
 
@@ -225,35 +225,35 @@ city  | s
 
 !!! note "Sorting data on disk"
     `xasc` can sort data on disk directly, without loading the entire table into memory.
-    ```q
-    q)t:([]b:`s`g`a`s`a;c:30 10 43 13 24;g:til 5)
-    q)`:dat/t/ set .Q.en[`:dat]t     / write splayed table
-    `:dat/t/
-    q)\ls dat/t                      / splayed columns
-    ,"b"
-    ,"c"
-    ,"g"
-    q)`c xasc `:dat/t                / sort table on disk by column c
-    `:dat/t
-    q)t                              / in-memory table is unsorted
-    b c  g
-    ------
-    s 30 0
-    g 10 1
-    a 43 2
-    s 13 3
-    a 24 4
-    q)\l dat/t                      / load table from disk
-    `t
-    q)t                             / table is sorted
-    b c  g
-    ------
-    g 10 1
-    s 13 3
-    a 24 4
-    s 30 0
-    a 43 2
-    ```
+
+        q)t:([]b:`s`g`a`s`a;c:30 10 43 13 24;g:til 5)
+        q)`:dat/t/ set .Q.en[`:dat]t     / write splayed table
+        `:dat/t/
+        q)\ls dat/t                      / splayed columns
+        ,"b"
+        ,"c"
+        ,"g"
+        q)`c xasc `:dat/t                / sort table on disk by column c
+        `:dat/t
+        q)t                              / in-memory table is unsorted
+        b c  g
+        ------
+        s 30 0
+        g 10 1
+        a 43 2
+        s 13 3
+        a 24 4
+        q)\l dat/t                      / load table from disk
+        `t
+        q)t                             / table is sorted
+        b c  g
+        ------
+        g 10 1
+        s 13 3
+        a 24 4
+        s 30 0
+        a 43 2
+
 
 
 ## `xcol`

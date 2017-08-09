@@ -119,26 +119,26 @@ In this case _find_ matches items of `x` with `2` `3` and `` `ab `` , not `(2 3;
 
 !!! Note "_Find_ is rank-sensitive"
     `x?y` can’t deal with mixed-rank `x`. If rank `x` is _n_ then `x?y` looks for objects of rank _n_-1.
-    ```q
+    <pre><code class="language-q">
     2 3?2 3#til 6  / looks for rank 0 objects
     (0 1 2;4 5)?2 3#til 6 / looks for rank 1 objects
-    ```
+    </code></pre>
     A solution to find ``(2 3;`ab)`` is
-    ```q
+    <pre><code class="language-q">
     q)f:{where x~\:y}
     q)f[u;(2 3;`ab)]
     ,2
-    ```
+    </code></pre>
 
 !!! note "Searching tables"
     Where `x` is a table then `y` must be a compatible record (dictionary or list) or table. That is, each column of `x`, paired with the corresponding item of `y`, must be valid arguments of _find_.
-    ```q
+    <pre><code class="language-q">
     q)\l sp.q
     q)sp?(`s1;`p4;200)
     3
     q)sp?`s`p`qty!(`s2;`p5;450)
     12
-    ```
+    </code></pre>
 
 
 ## `in`
@@ -163,18 +163,18 @@ q)(1 2;3 4) in ((1 2;3 4);9)  / x is an item of y
 1b
 ```
 
-!!! tip "`in` is often used with `select`"
-    ```q
-    q)\l sp.q
-    q)select from p where city in `paris`rome
-    p | name  color weight city
-    --| ------------------------
-    p2| bolt  green 17     paris
-    p3| screw blue  17     rome
-    p5| cam   blue  12     paris
-    ```
+**Tip**: `in` is often used with `select`:
 
-See also: [`except`](select/#except) [`inter`](select/#inter) [`union`](select/#union) [`within`](#within)
+```q
+q)\l sp.q
+q)select from p where city in `paris`rome
+p | name  color weight city
+--| ------------------------
+p2| bolt  green 17     paris
+p3| screw blue  17     rome
+p5| cam   blue  12     paris
+```
+<i class="fa fa-hand-o-right"></i> [`except`](select/#except), [`inter`](select/#inter), [`union`](select/#union), [`within`](#within)
 
 
 ## `within`
@@ -208,6 +208,6 @@ q)(1 3 10 6 4;"acyxmpu") within ((2;"b");(6;"r"))
 0100110b
 ```
 
-See also: [`except`](select/#except) [`in`](#in) [`inter`](select/#inter) [`union`](select/#union) 
+<i class="fa fa-hand-o-right"></i> [`except`](select/#except), [`in`](#in), [`inter`](select/#inter), [`union`](select/#union) 
 
 

@@ -50,7 +50,8 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 
  -->
 !!! info "New on code.kx.com"
-    [Improved search](/about/thissite/#search-tips) adds Google Search as an alternative to the internal index. 
+    - [Syntax highlighting for q](/about/site-news/#syntax-highlighting)
+    - [Improved search](/about/thissite/#search-tips)
 
 !!! caution "The Kx wiki"
     The documentation from the [Kx wiki](http://code.kx.com/wiki) has moved to this new platform. All source code can now be found on [GitHub](https://kxsystems.github.io). 

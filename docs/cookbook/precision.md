@@ -52,7 +52,7 @@ q)group 96.100000000000009 96.099999999999994
 
 !!! note "Not transitive"
     Tolerant equality does not obey transitivity:
-    ```q
+    <pre><code class="language-q">
     q)a:96.099999999999994
     q)b:96.10000000001
     q)c:96.10000000002
@@ -68,7 +68,7 @@ q)group 96.100000000000009 96.099999999999994
     1b
     q)a=c
     0b
-    ```
+    </code></pre>
 
 The moral of this story is that we should think of floats as being “fuzzy” real values and never use them as keys or where precise equality is required – e.g., in `group` or `?`.
 

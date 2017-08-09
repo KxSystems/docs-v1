@@ -43,11 +43,11 @@ phone
 
 !!! warning "Upsert into a stepped dictionary"
     If you try to upsert into a dict flagged as stepped, a `'step` error will be signalled.
-    ```q
+    <pre><code class="language-q">
     q)d:`s#`a`b!1 2;
     q)`d upsert `c`d!3 4
     'step
-    ```
+    </code></pre>
     To update such a dict, remove the `` `s`` attribute, upsert, and add the `` `s`` attribute again.
 
 Such tables can be used with `lj`:

@@ -613,9 +613,9 @@ q)(select from trade where date=2010.01.07)~.Q.ind[trade;(exec first sum x from 
 
 !!! tip "Continuous row intervals"
     If you are selecting a continuous row interval, for example if iterating over all rows in a partition, instead of using `.Q.ind` you might as well use
-    ```q
+    <pre><code class="language-q">
     q)select from trade where date=2010.01.07,i within(start;start+chunkSize)
-    ```
+    </code></pre>
 
 
 ### `.Q.j10` (encode binhex)

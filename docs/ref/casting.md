@@ -48,10 +48,9 @@ q)`year`dd`mm`hh`uu`ss$2015.10.28D03:55:58
 
 !!! Note "Casting string to symbol"
     When converting a string to a symbol, leading and trailing blanks are automatically trimmed:
-    ```q
-    `$"   IBM   "
-    `IBM
-    ```
+
+        q)`$"   IBM   "
+        `IBM
 
 Identity:
 ```
@@ -138,11 +137,11 @@ q)0 24 60 60 sv 2 3 5 7   / 2 days, 3 hours, 5 minutes, 7 seconds
 
 !!! note 
     when `x` is a list, the first number is not used. The calculation is done as:
-    ```q
+    <pre><code class="language-q">
     q)baseval:{y wsum reverse prds 1,reverse 1_x}
     q)baseval[0 24 60 60;2 3 5 7]
     183907f
-    ```
+    </code></pre>
 
 - (**bytes to integer**) `x` is `0x0` and `y` is a vector of **bytes** of length 2, 4 or 8, returns `y` converted to the corresponding integer.
 ```q
@@ -160,12 +159,12 @@ q)256j sv til 8               / same calculation
 
 !!! tip "Converting non integers" 
     Use [`1:`](filenumbers/#1-binary-files) – eg:
-    ```q
+    <pre><code class="language-q">
     q)show a:0x0 vs 3.1415
     0x400921cac083126f
     q)(enlist 8;enlist "f")1: a   /float
     3.1415
-    ```
+    </code></pre>
 
 - (**bits to integer**) `x` is `0b` and `y` is a boolean vector of length 8, 16, 32, or 64, returns `y` converted to the corresponding integer or — in the case of 8 bits — a byte value.
 ```q
@@ -211,12 +210,12 @@ q)flip{(neg x;upper .Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
 
 !!! Tip "String to symbol"
     Use `` `$y`` as shorthand for `"S"$y`.
-    ```q
+    <pre><code class="language-q">
     q)"S"$"hello"
     `hello
     q)`$"hello"
     `hello
-    ```
+    </code></pre>
 
 ```q
 q)"E"$"3.14"
@@ -237,10 +236,10 @@ q)"I"$"192.168.1.34" /an IP address as an int
 
 !!! tip "Truthy characters"
     These characters are recognized as boolean true:
-    ```q
+    <pre><code class="language-q">
     q).Q.an where"B"$'.Q.an
     "txyTXY1"
-    ```
+    </code></pre>
 
 Parsing **Unix timestamps** (from seconds since Unix epoch), string with 9…11 digits:
 ```q

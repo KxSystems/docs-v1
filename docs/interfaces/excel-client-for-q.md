@@ -1,7 +1,7 @@
 ## Interfacing via HTTP and CSV files
 
 Assume that a q server process is listening on port 5001. Then an HTTP client can send a request that will return a CSV file. For instance, you can type this URL into a browser
-```
+```http
 http://localhost:5001/q.csv?select from trade where i < 10
 ```
 to get the first 10 trades. Depending on your browser settings, the result will be opened directly in Excel, saved to a CSV file, etc. The resulting CSV file would look something like this:
@@ -26,13 +26,13 @@ This saves the result of the query to the file output.csv, which can be loaded i
 
 !!! tip "Table result"
     The result must be a table, so that it can be converted to a CSV file. For instance, the following is invalid:
-    ```bash
+    <pre><code class="language-bash">
     wget -O output.csv "http://localhost:5001/q.csv?first trade"
-    ```
+    </code></pre>
     because the result is a dictionary. We need `1 # trade`. Notice that the `#` symbol cannot be written literally in a URL.
-    ```bash
+    <pre><code class="language-bash">
     wget -O output.csv "http://localhost:5001/q.csv?1 %23 trade"
-    ```
+    </code></pre>
 
 
 ## Interfacing via CSV files
@@ -67,15 +67,13 @@ To install, run the setup.exe program and follow the instructions. You will need
 
 ### Configuration
 
-Change directory to the location where you installed the program. At that location you will see the file
-```
-K4RtdServer.dll.config
-```
-which is an XML file that contains config information for the server. Change the host and port keys in this file to connect to your ticker plant or chained ticker plant. Chained ticker plants are recommended as they provide some level of protection to your primary ticker plant.
+Change directory to the location where you installed the program. At that location you will see the file 
+`K4RtdServer.dll.config`, 
+which is an XML file that contains config information for the server. Change the `host` and `port` keys in this file to connect to your ticker plant or chained ticker plant. Chained ticker plants are recommended as they provide some level of protection to your primary ticker plant.
 
 The `name` key indicates the logical name of the plant, and is referenced from within the Excel worksheet.
 
-For troubleshooting, a log can be activated – the log directory is specified in the config file under the `logdir` key. The program will create log files in the format logdir/log\_hhmmssfff.txt. Several levels of tracing are available:
+For troubleshooting, a log can be activated – the log directory is specified in the config file under the `logdir` key. The program will create log files in the format `logdir/log\_hhmmssfff.txt`. Several levels of tracing are available:
 
 - `off`
 - `error`
@@ -107,7 +105,7 @@ To set the engine to handle a larger volume of updates, in Excel complete the fo
 
 1.  In Excel, go to the Visual Basic Editor, by pressing Alt+F11 or clicking _Tools > Macro > Visual Basic Editor_
 2. In the Immediate window (press Ctrl+G or click _View > Immediate Window_), type:
-```
+```vbnet
 Application.RTD.ThrottleInterval = 1000
 ? Application.RTD.ThrottleInterval
 ```

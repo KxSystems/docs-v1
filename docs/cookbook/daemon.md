@@ -2,10 +2,10 @@ Here’s a simple way to daemonize q on Linux. Supports redirecting stderr and s
 
 !!! tip "Shell features"
     Remember shell features, e.g.
-    ```bash
+    <pre><code class="language-bash">
     $ nohup q -p 5000 < /dev/null > /tmp/stdoe 2>&1&
     $ echo $! > /tmp/pidfile
-    ```
+    </code></pre>
 
 Sample use:
 ```bash

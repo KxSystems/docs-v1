@@ -127,9 +127,9 @@ q)select med price by sym from trade where date=2001.10.10,sym in`AAPL`LEH
 
 !!! warning "Partitions and segments"
     In V3.0 upwards `med` signals a rank error when running a median over partitions, or segments. This is deliberate, as previously `med` was returning median of medians for such cases. This should now be explicitly coded as a cascading select.
-    ```q
+    <pre><code class="language-q">
     q)select med price by sym from select price,sym from trade where date=2001.10.10,sym in`AAPL`LEH
-    ```
+    </code></pre>
 
 
 ## `min` (minimum)
@@ -152,10 +152,10 @@ q)select min price by sym from t   / use in a select statement
 !!! note "Aggregating nulls"
     `avg`, `min`, `max` and `sum` are special: they ignore nulls, in order to be similar to SQL92.
     But for nested `x` these functions preserve the nulls.
-    ```q
+    <pre><code class="language-q">
     q)avg (1 2;0N 4)
     0n 3
-    ```
+    </code></pre>
 
 
 ## `mins` (minimums)
@@ -252,12 +252,12 @@ q)2 0N 4 5 wavg 1 2 0N 8  / nulls in either argument ignored
 
 !!! tip "Volume-weighted average price"
     The financial analytic known as VWAP is a weighted average.
-    ```q
+    <pre><code class="language-q">
     q)select size wavg price by sym from trade
     sym| price
     ---| -----
     a  | 10.75
-    ```
+    </code></pre>
 
 
 ## `wsum` (weighted sum)

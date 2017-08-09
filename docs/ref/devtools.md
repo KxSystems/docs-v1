@@ -23,7 +23,7 @@ q)a~(::)
 ```
 
 !!! tip "Display intermediate values"
-    ```q
+    <pre><code class="language-q">
     q)f:{a:x<5;sum a}
     q)f 2 3 5 7 3
     3
@@ -31,7 +31,7 @@ q)a~(::)
     q)f 2 3 5 7 3
     11001b
     3
-    ```
+    </code></pre>
 
 ## `.Q.s` (plain text)
 

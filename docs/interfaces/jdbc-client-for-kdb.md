@@ -24,7 +24,8 @@ without noticing the effects of other queries, and modifications made to the dat
     If little work is being performed per interaction via the JDBC driver, 
     that is, few queries and each query is very quick to execute, 
     then there is a significant advantage to using connection pooling. 
-    Using the Apache Commons DBCP component improves the performance of this case by about 70%. 
+
+    Using the [Apache Commons DBCP](https://commons.apache.org/proper/commons-dbcp/) component improves the performance of this case by about 70%. 
     DBCP avoids some complexity which can be introduced by other connection pool managers. 
     For example, it handles connections in the pool that have become invalid (say due to a database restart) by automatically reconnecting. 
     Furthermore it offers configuration options to check the status of connections in the connection pool using a variety of strategies.

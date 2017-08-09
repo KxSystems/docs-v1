@@ -18,12 +18,12 @@ q)@[d;1 1 1;+;3]
 
 !!! tip "Do it on disk"
     Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, and not compressed. e.g.
-    ```q
+    <pre><code class="language-q">
     q)`:data set til 20;
     q)@[`:data;3 6 8;:;100 200 300]; 
     q)get`:data 
     0 1 2 100 4 5 200 7 300 9 10 11 12 13 14 15 16 17 18 19
-    ```
+    </code></pre>
 
 ## `count`
 
@@ -186,12 +186,12 @@ c| 3
 ```
 
 !!! tip "Drop strings"
-    ```q
+    <pre><code class="language-q">
     q)b:"apple: banana: cherry"
     q)/find the first ":" and remove the prior portion of the sentence.
     q)(b?":") _ b
     ": banana: cherry"
-    ```
+    </code></pre>
 
 - `x` is a list or dictionary and `y` is an index or key of `x`, returns `x` without `y`.
 ```q
@@ -215,7 +215,7 @@ q)(`a`b`c!1 2 3)_`a`b
 
 !!! warning "Dropping dictionary entries with integer arguments"
     With dictionaries, distinguish the roles of integer arguments to _drop_.
-    ```q
+    <pre><code class="language-q">
     q)d:100 200!`a`b
     q)1 _ d            /drop the first entry
     200| b
@@ -230,7 +230,7 @@ q)(`a`b`c!1 2 3)_`a`b
     q)enlist[100] _ d  /drop where key=100
     200| b
     q)100 _ d          /drop first 100 entries
-    ```
+    </code></pre>
 
 - `x` is a vector of keys and `y` is a table returns `y` without columns `x`.
 ```q
@@ -340,15 +340,15 @@ q)fills 0N 2 3 0N 0N 7 0N
 
 !!! Tips
     To back-fill, reverse the list and the result:
-    ```q
+    <pre><code class="language-q">
     q)reverse fills reverse 0N 2 3 0N 0N 7 0N
     2 2 3 7 7 7 0N
-    ```
+    </code></pre>
     For a similar function on infinities, first replace them with nulls:
-    ```q
+    <pre><code class="language-q">
     q)fills {(x where x=0W):0N;x} 0N 2 3 0W 0N 7 0W
     0N 2 3 3 3 7 7
-    ```
+    </code></pre>
 
 
 ## `flip`
@@ -474,13 +474,13 @@ q)raze d
 
 !!! warning "Use only on items that can be joined"
     `raze` is defined in k as `,/` and requires items that can be joined together. 
-    ```q
+    <pre><code class="language-q">
     q)d:`a`b!(1 2;3 5)
     q)10,d          / cannot join integer and dictionary
     'type
     q)raze (10;d)   / raze will not work
     'type
-    ```
+    </code></pre>
 
 
 ## `reverse`
@@ -661,23 +661,23 @@ q)0N 3#til 10
 
 !!! note "Changes since V3.3"
     From V3.4, if `x` is a list of length 1, the result has a single dimension. 
-    ```q
+    <pre><code class="language-q">
     q)enlist[2]#til 10
     0 1
-    ```
+    </code></pre>
     From V3.4, `x` can have length greater than 2 – but may not contain nulls.
-    ```q
+    <pre><code class="language-q">
     q)(2 2 3#til 5)~((0 1 2;3 4 0);(1 2 3;4 0 1))
     1b
     q)(enlist("";""))~1 2 0#"a"
     1b
     q)all`domain=@[;1 2;{`$x}]each(#)@'(1 0 2;2 3 0N;0N 2 1;-1 2 3)
     1b
-    ```
+    </code></pre>
     The effect of nulls in `x` changed in V3.3.
         
     Prior to V3.3:
-    ```q
+    <pre><code class="language-q">
     q)3 0N # til 10
     (0 1 2 3;4 5 6 7;8 9)
     q)(10 0N)#(),10
@@ -686,9 +686,9 @@ q)0N 3#til 10
     0 1 2
     3 4 5
     6 7 8
-    ```
+    </code></pre>
     From V3.3:
-    ```q
+    <pre><code class="language-q">
     q)3 0N#til 10
     (0 1 2;3 4 5;6 7 8 9)
     q)2 0N#0#0
@@ -700,7 +700,7 @@ q)0N 3#til 10
     2 3
     4 5
     6 7 8
-    ```
+    </code></pre>
 
 - a symbol vector and `y` is a dictionary, returns entries for `x`.
 ```q
@@ -763,13 +763,13 @@ q)?[0b;"abcd";"ABCD"]
 
 !!! tip "Not this, not that"
     It can be useful to have more than just a true/false selection, e.g. match1/match2/match3/others mapping to result1/result2/result3/default. This can be achieved with _find_.
-    ```q
+    <pre><code class="language-q">
     q)input:10?`m1`m2`m3`other`yetanother
     q)input
     `yetanother`m1`m3`m2`m3`m2`m3`other`m3`yetanother
     q)`r1`r2`r3`default `m1`m2`m3?input
     `default`r1`r3`r2`r3`r2`r3`default`r3`default
-    ```
+    </code></pre>
     This avoids nesting _vector conditional_, and scales better.
 
 

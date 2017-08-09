@@ -226,14 +226,14 @@ Installation is very straightforward: unpack and plug in the card, compile and l
 
 !!! tip "Runtime troubleshooting for the AHA 367 card"
     If you see the error message
-    ```
+    <pre><code>
     aha367 - ahagz\_api.c: open() call failed with error: 2 on device /dev/aha367\_board
-    ```
+    </code></pre>
     it likely means the kernel module has not been loaded. Remedy: go to the aha install dir:
-    ```bash
+    <pre><code class="language-bash">
     aha_install_dir$ cd bin
     aha_install_dir$ sudo ./load_module 
-    ```
+    </code></pre>
     and select the 367 card option.
 
 Another accelerator card vendor (untested) – [<http://www.indranetworks.com/SCMX3.html>](http://www.indranetworks.com/SCMX3.html)

@@ -4,8 +4,11 @@ The best way to understand the underpinnings of q, and to interact with it from 
 This is the file you will need to include in your C or C++ code in order to interact with q from a low level.
 
 !!! warning "Watch out"
-    The k struct changed with the release of V3.0, and if you are compiling using the C library (c.o/c.dll) stamped on or after 2012.06.25 you should ensure you use the correct k struct by defining KXVER accordingly, e.g. `gcc -D KXVER=3 …` 
-    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> [the earlier version](https://github.com/KxSystems/kdb/blob/6455fa25b0e1e5e403ded9bcec96728b4445ccac/c/c/k.h) of 2011-04-20. 
+    The k struct changed with the release of V3.0, and if you are compiling using the C library (c.o/c.dll) stamped on or after 2012.06.25 you should ensure you use the correct k struct by defining KXVER accordingly, e.g. 
+
+    <pre><code class="language-bash">gcc -D KXVER=3 …</code></pre>
+    
+    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> [the earlier version](https://github.com/KxSystems/kdb/blob/6455fa25b0e1e5e403ded9bcec96728b4445ccac/c/c/k.h) of 2011.04.20. 
 
 Let’s explore the basic types and their synonyms that you will commonly encounter when programming at this level. First though, it is worth noting the size of data types in 32- versus 64-bit operating systems to avoid a common mistake.
 
@@ -311,7 +314,7 @@ requires a little more explanation.
 
 If the handle is 
 
-- &ge;0, it is a generator function, and can return 0 (indicating a network error) or a pointer to a k object. 
+- &ge;0, it is a generator function, and can return 0 (indicating a network error) or a pointer to a K object. 
 If that object has type -128, it indicates an error, accessible as a null terminated string in `r->s`. When finished using this object, it should be freed through calling `r0(r)`.
 
 - &lt;0, this is for async messaging, and the return value can be either 0 (network error) or non-zero (ok). This result should _not_ be passed to `r0(r)`.
@@ -664,12 +667,14 @@ b9(preserveEnumerations,kObject);
 will generate a K byte vector that contains the serialized data for `kObject`. 
 Since V3.0, for shared libraries loaded into q the value for `preserveEnumerations` must be -1. 
 For standalone applications binding with c.o/c.dll, or shared libraries prior to V3.0, the values for `preserveEnumerations` can be
-```
-0 - unenumerate, block serialization of timespan and timestamp (For working with versions prior to 2.6).
-1 - retain enumerations, allow serialization of timespan and timestamp. (Useful for passing data between threads).
-2 - unenumerate, allow serialization of timespan and timestamp
-3 - unenumerate, compress, allow serialization of timespan and timestamp
-```
+
+value | effect
+------|------
+0 | unenumerate, block serialization of timespan and timestamp (For working with versions prior to 2.6).
+1 | retain enumerations, allow serialization of timespan and timestamp. (Useful for passing data between threads).
+2 | unenumerate, allow serialization of timespan and timestamp
+3 | unenumerate, compress, allow serialization of timespan and timestamp
+
 ```c
 d9(kObject);
 ```

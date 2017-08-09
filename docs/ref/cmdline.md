@@ -11,10 +11,10 @@ q [file] [-b] [-c r c] [-C r c] [-e 0|1] [-E 0|1|2] [-g 0|1] [-l] [-L][-o N] [-p
 This is either the script to load (\*.q, \*.k, \*.s), or a file or directory
 ```bash
 $q sp.q
-```
-```q
 KDB+ 3.5t 2017.02.28 Copyright (C) 1993-2017 Kx Systems
 m32/ 4()core 8192MB sjt mint.local 192.168.0.39 NONEXPIRE
+```
+```q
 
 +`p`city!(`p$`p1`p2`p3`p4`p5`p6`p1`p2;`london`london`london`london`london`lon..
 (`s#+(,`color)!,`s#`blue`green`red)!+(,`qty)!,900 1000 1200
@@ -203,17 +203,17 @@ q)\\
 
 !!! tip "`.Q.fmt` and `.q.f`"
     Use `.Q.fmt` to format numbers to given width and precision.
-    ```q
+    <pre><code class="language-q">
     q).Q.fmt[8;6]a            / format to width 8, 6 decimal places
     "0.142857"
-    ```
+    </code></pre>
     Use `.Q.f` to format numbers to given precision after the decimal.
-    ```q
+    <pre><code class="language-q">
     q).Q.f[2;]each 9.996 34.3445 7817047037.90  / format to 2 decimal places
     "10.00"
     "34.34"
     "7817047037.90"
-    ```
+    </code></pre>
 
 <i class="fa fa-hand-o-right"></i> [`\P`](syscmds/#p-precision), [.Q.f](dotq/#qf-format), [.Q.fmt](dotq/#qfmt-format), [Precision](/cookbook/precision)
 

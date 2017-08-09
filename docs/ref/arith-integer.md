@@ -43,17 +43,17 @@ q)ceiling -2.1 0 2.1
 
 !!! note "Comparison tolerance; datetime"
     Prior to V3.0, `ceiling` used [comparison tolerance](/cookbook/precision/#comparison-tolerance).
-    ```q
+    <pre><code class="language-q">
     q)ceiling 2 + 10 xexp -12 -13
     3 2
-    ```
+    </code></pre>
     Prior to V3.0, `ceiling` accepted datetime. Since V3.0, use `"d"$23:59:59.999+` instead.
-    ```q
+    <pre><code class="language-q">
     q)ceiling 2010.05.13T12:30:59.999
     2010.05.14
     q)"d"$23:59:59.999+ 2010.05.13T12:30:59.999
     2010.05.14
-    ```
+    </code></pre>
 
 
 ## `deltas`
@@ -82,20 +82,20 @@ q)deltas 1 4 9 16
 
 !!! tip "Examples"
     In a query to get price movements:
-    ```q
+    <pre><code class="language-q">
     q)update diff:deltas price by sym from trade
-    ```
+    </code></pre>
     With `signum` to count the number of up/down/same ticks:
-    ```q
+    <pre><code class="language-q">
     q)select count i by signum deltas price from trade
     price| x
     -----| ----
     -1   | 247
     0    | 3
     1    | 252
-    ```
+    </code></pre>
 
-See also: [each-prior](adverbs/#each-prior), [differ](comparison/#differ), [ratios](arith-float/#ratios)
+<i class="fa fa-hand-o-right"></i> [each-prior](adverbs/#each-prior), [differ](comparison/#differ), [ratios](arith-float/#ratios)
 
 
 ## `div`
@@ -140,17 +140,17 @@ q)floor -2.1 0 2.1
 
 !!! note "Comparison tolerance; datetime"
     Prior to V3.0, `floor` used [comparison tolerance](/cookbook/precision/#comparison-tolerance).
-    ```q
+    <pre><code class="language-q">
     q)floor 2 - 10 xexp -12 -13
     1 2
-    ```
+    </code></pre>
     Prior to V3.0, `floor` accepted datetime. Since V3.0, use `"d"$` instead.
-    ```q
+    <pre><code class="language-q">
     q)floor 2009.10.03T13:08:00.222
     2009.10.03
     q)"d"$2009.10.03T13:08:00.222
     2009.10.03
-    ```
+    </code></pre>
 
 
 ## `|` `or` (maximum)
@@ -238,9 +238,9 @@ q)signum (0n;0N;0Nt;0Nd;0Nz;0Nu;0Nv;0Nm;0Nh;0Nj;0Ne)
 
 !!! tip
     Find counts of price movements by direction:
-    ```q
+    <pre><code class="language-q">
     q)select count i by signum deltas price from trade
-    ```
+    </code></pre>
 
 
 ## `sum`
@@ -281,7 +281,7 @@ q)sum each flip(0n 8;8 0n) /do this to fall back to vector case
 8 8f
 ```
 
-See also: [prd](arith-float/#prd), [prds](arith-float/#prds)
+<i class="fa fa-hand-o-right"></i> [prd](arith-float/#prd), [prds](arith-float/#prds)
 
 
 ## `sums`
@@ -370,7 +370,7 @@ close| sym
 
 !!! tip "Grouping at irregular intervals"
     To group at irregular intervals, one solution is to use `bin`.
-    ```
+    <pre><code class="language-q">
     q)x:`s#10:00+00:00 00:08 00:13 00:27 00:30 00:36 00:39 00:50
     q)select count i by x x bin time.minute from ([]time:`s#10:00:00+asc 100?3600)
     minute| x 
@@ -383,5 +383,5 @@ close| sym
     10:36 | 3 
     10:39 | 19
     10:50 | 20
-    ```
+    </code></pre>
 

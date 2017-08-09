@@ -112,26 +112,26 @@ time       sym  qty px
     Unlike in memory, to use `aj` with on-disk, you must map in your splay or day-at-a-time partitioned db:
     
     Splay:
-    ```q
+    <pre><code class="language-q">
     aj[`sym`time;select .. from trade where ..;select .. from quote]
-    ```
+    </code></pre>
     Partitioned db:
-    ```q
+    <pre><code class="language-q">
     aj[`sym`time;select .. from trade where ..;
                  select .. from quote where date = ..]
-    ```
+    </code></pre>
     Further `where` constraints cannot be used, or the columns will be copied instead of mapped into memory (resulting in slowdown for the `aj`).
 
 !!! tip "No need to `select` on quote"
     There is no need to select on quote, i.e. irrespective of the number of quote records, use:
-    ```q
+    <pre><code class="language-q">
     aj[`sym`time;select .. from trade where ..;quote]
-    ```
+    </code></pre>
     instead of
-    ```q
+    <pre><code class="language-q">
     aj[`sym`time;select .. from trade where ..;
                  select .. from quote where ..]
-    ```
+    </code></pre>
 
 
 ## `asof`
@@ -298,29 +298,28 @@ MSFT 0.5433888 CME 250
 
 !!! note "Changes in V3.0"
     Since V3.0, `ij` has changed behavior (similarly to `lj`): when there are nulls in `t2`, `ij` uses the `t2` null, where the earlier version left the corresponding value in `t1` unchanged:
-    ```q
-    q)show x:([]a:1 2;b:`x`y;c:10 20)
-    a b c
-    ------
-    1 x 10
-    2 y 20
-    q)show y:([a:1 2]b:``z;c:1 0N)
-    a| b c
-    -| ---
-    1|   1
-    2| z
-    q)x ij y        /V3.0
-    a b c
-    -----
-    1   1
-    2 z
-    q)x ij y        /V2.8
-    a b c
-    ------
-    1 x 1
-    2 z 20
-    q)
-    ```
+
+        q)show x:([]a:1 2;b:`x`y;c:10 20)
+        a b c
+        ------
+        1 x 10
+        2 y 20
+        q)show y:([a:1 2]b:``z;c:1 0N)
+        a| b c
+        -| ---
+        1|   1
+        2| z
+        q)x ij y        /V3.0
+        a b c
+        -----
+        1   1
+        2 z
+        q)x ij y        /V2.8
+        a b c
+        ------
+        1 x 1
+        2 z 20
+        q)
 
 
 ## `lj` `ljf` (left-join)
@@ -363,28 +362,28 @@ c d
     Since V3.0, the `lj` operator is a cover for `,\:` (_comma join_) that allows the left argument to be a keyed table. `,\:` was introduced in V2.7 2011.01.24.
 
     Prior to V3.0, `lj` had similar behavior, with one difference - when there are nulls in the right argument, `lj` in V3.0 uses the right-argument null, while the earlier version left the corresponding value in the left argument unchanged:
-    ```q
-    q)show x:([]a:1 2;b:`x`y;c:10 20)
-    a b c
-    ------
-    1 x 10
-    2 y 20
-    q)show y:([a:1 2]b:``z;c:1 0N)
-    a| b c
-    -| ---
-    1|   1
-    2| z
-    q)x lj y        / kdb+ 3.0
-    a b c
-    -----
-    1   1
-    2 z
-    q)x lj y        / kdb+ 2.8 
-    a b c
-    ------
-    1 x 1
-    2 z 20
-    ```
+
+        q)show x:([]a:1 2;b:`x`y;c:10 20)
+        a b c
+        ------
+        1 x 10
+        2 y 20
+        q)show y:([a:1 2]b:``z;c:1 0N)
+        a| b c
+        -| ---
+        1|   1
+        2| z
+        q)x lj y        / kdb+ 3.0
+        a b c
+        -----
+        1   1
+        2 z
+        q)x lj y        / kdb+ 2.8 
+        a b c
+        ------
+        1 x 1
+        2 z 20
+
     Since 2014.05.03, the earlier version is available in all V3.x versions as `ljf`.
 
 

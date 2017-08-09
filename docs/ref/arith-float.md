@@ -119,10 +119,10 @@ q)ratios 1 2 4 6 7 10
 
 !!! tip "Example"
     In a query to get returns on prices:
-    ```q
+    <pre><code class="language-q">
     q)update ret:ratios price by sym from trade
     q)select log ratios price from trade
-    ```
+    </code></pre>
 
 <i class="fa fa-hand-o-right"></i> [each-prior](adverbs/#each-prior), [`differ`](comparison/#differ)
 
@@ -165,7 +165,7 @@ q)1.5 xexp -4.2 0 0.1 0n 0w
 
 !!! Note
     The calculation is performed as `exp y * log x`. Note that if `y` is integer, this is not identical to `prd y#x`.
-    ```q
+    <pre><code class="language-q">
     q)\P 0
     q)prd 3#2
     8
@@ -173,7 +173,7 @@ q)1.5 xexp -4.2 0 0.1 0n 0w
     7.9999999999999982
     q)exp 3 * log 2
     7.9999999999999982
-    ```
+    </code></pre>
 
 
 ## `xlog`
@@ -192,8 +192,8 @@ q)1.5 xlog 0 0.125 1 3 0n
 
 !!! note "xlog and xexp"
     `xlog` is the inverse of `xexp`. Where both are defined, `y=x xexp x xlog y`.
-    ```q
+    <pre><code class="language-q">
     q)2 xexp 2 xlog -1 0 0.125 1 42
     0n 0 0.125 1 42
-    ```
+    </code></pre>
 

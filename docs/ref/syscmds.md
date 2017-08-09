@@ -11,7 +11,7 @@ Some system commands have equivalent command-line parameters.
 
 !!! tip "Call a system command in a q expression"
     To call a system command in a q expression, use `system`.
-    ```q
+    <pre><code class="language-q">
     q)\l sp.q
     ...
     q)\a                     / tables in namespace
@@ -22,7 +22,7 @@ Some system commands have equivalent command-line parameters.
     `p`s`sp
     q)count system "a"       / this returns a result
     3
-    ```
+    </code></pre>
 
 
 ## `\a` (tables)
@@ -626,34 +626,42 @@ q)system "pwd"
 ```
 
 !!! tip "Directing output to a file"
-    When redirecting output to a file, for efficiency purposes, avoiding using /tmp needlessly, append a semi-colon to the command.
-    ```q
+    When redirecting output to a file, for efficiency purposes, avoiding using `/tmp` needlessly, append a semi-colon to the command.
+    <pre><code class="language-q">
     q)system"cat x"
+    </code></pre>
     is essentially the same as the shell command
-    $cat x > tmpout
+    <pre><code class="language-bash">
+    $ cat x > tmpout
+    </code></pre>
     as q tries to capture the output.
     So if you do
+    <pre><code class="language-q">
     q)system"cat x > y"
+    </code></pre>
     under the covers that looks like
-    $cat x > y > tmpout
+    <pre><code class="language-bash">
+    $ cat x > y > tmpout
+    </code></pre>
     not good. So if you add the semi colon
+    <pre><code class="language-q">
     q)system"cat x > y;"
+    </code></pre>
     the shell interpreter considers it as 2 statements
-    $cat x > y; > tmpout
-    ```
+    <pre><code class="language-bash">
+    $ cat x > y; > tmpout
+    </code></pre>
 
 !!! tip "Capture stderr output"
     Can I capture the stderr output from the system call? Not directly, but a workaround is
-    ```q
-    / force capture to a file, and cat the file
-    q)system"ls egg > file 2>&amp;1;cat file"                                                                                                         
-    "ls: egg: No such file or directory"
-    
-    / try and fails to capture the text
-    q)@[system;"ls egg";{0N!"error - ",x;}]                                                                                                       
-    ls: egg: No such file or directory
-    "error - os"
-    ```
+
+        / force capture to a file, and cat the file
+        q)system"ls egg > file 2>&amp;1;cat file"
+        "ls: egg: No such file or directory"        
+        / try and fails to capture the text
+        q)@[system;"ls egg";{0N!"error - ",x;}]
+        ls: egg: No such file or directory
+        "error - os"
 
 !!! warning "Changing working directory in Windows"
     In the event of an unexpected change to the working directory, Windows users please note <http://blogs.msdn.com/b/oldnewthing/archive/2007/11/21/6447771.aspx>

@@ -24,11 +24,11 @@ q)rand 1 30 45 32
 
 !!! tip "First roll"
     `rand` is exactly equivalent to `{first 1?x}`. If you need a vector result, consider using _roll_ instead of `rand`. The following expressions all roll 100 six-sided dice.
-    ```q
+    <pre><code class="language-q">
     rand each 100#6
     {first 1?x} each 6
     100?6
-    ```
+    </code></pre>
 
 
 ## `?` (roll)
@@ -49,12 +49,11 @@ q)4?2012.09m
 
 !!! tip "Short symbols"
     There is a shorthand special case for generating short symbols (length between 1 and 8) using the first 16 lower-case letters of the alphabet.
-    ```q
-    q)10?`3
-    `bon`dec`nei`jem`pgm`kei`lpn`bjh`flj`npo
-    q)rand `6
-    `nemoad
-    ```
+
+        q)10?`3
+        `bon`dec`nei`jem`pgm`kei`lpn`bjh`flj`npo
+        q)rand `6
+        `nemoad
 
 - `y` is a list, returns `x` items randomly chosen from `y`. 
 ```q
@@ -85,17 +84,17 @@ q)(asc -20?20)~asc -20?20
 
 !!! tip "GUIDs"
     To deal a list of distinct GUIDs, use the null GUID for `y`.
-    ```q
+    <pre><code class="language-q">
     q)-1?0Ng 
     ,fd2db048-decb-0008-0176-01714e5eeced
     q)count distinct -1000?0Ng
     1000
-    ```
+    </code></pre>
     **Watch out** _Deal_ of GUID uses a mix of process ID, current time and IP address to generate the GUID, and successive calls may not allow enough time for the current time reading to change. 
-    ```q
+    <pre><code class="language-q">
     q)count distinct {-1?0ng}each til 10
     5
-    ```
+    </code></pre>
 
 - `y` is a list of unique values, and `x>=count y`, returns `x` items randomly chosen without repetition from `y`. 
 ```q
@@ -113,19 +112,13 @@ _Deal_, `rand` and _roll_ use a constant seed on q invocation: scripts using the
 
 !!! warning
     To use GUIDs as identifiers, ensure `x` is negative. Otherwise, you will get duplicates, given the same seed:
-    ```q
+    <pre><code class="language-q">
     $ q
     q)1?0Ng
     ,8c6b8b64-6815-6084-0a3e-178401251b68
     q)\\
-    ```
-
-    ```bash
-    $q
-    ```
-
-    ```q
+    $ q
     q)1?0Ng
     ,8c6b8b64-6815-6084-0a3e-178401251b68
-    ```
+    </code></pre>
 

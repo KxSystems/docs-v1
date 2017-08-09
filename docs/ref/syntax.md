@@ -45,14 +45,14 @@ q)+[2;3]    /function arguments
 
 !!! tip "Evaluating a sequence of expressions"
     When a _sequence_ of expressions is evaluated, only the last one returns a result. (They may all have side effects, such as setting a variable.) Evaluating a sequence of expressions is not the same as evaluating a _list_ of expressions.
-    ```q
+    <pre><code class="language-q">
     q)1+1;b:2+2;3+3
     6
     q)b
     4
     q)(1+1;b:2+2;3+3)
     2 4 6
-    ```
+    </code></pre>
 
 
 ## Naming and assignment
@@ -128,12 +128,12 @@ q)count(+;rotate;/)            /2 operators and an adverb
 
 !!! note "Functions and adverbs in lists"
     Functions and adverbs in lists are treated as nouns, but juxtaposition becomes application, not indexing.
-    ```q
+    <pre><code class="language-q">
     q)(count;+/;/)1          /indexing
     +/
     q)(count;+/;/)[1] 2 3 4  /application
     9
-    ```
+    </code></pre>
 
 
 ### Vectors
@@ -290,14 +290,14 @@ q)2+/2 3 4 5 6        /derivative
 ```
 
 !!! note "Infix is always optional"
-    ```q
+    <pre><code class="language-q">
     q)|[2;3]
     3
     q)rotate[2; 2 3 4 5 6]
     4 5 6 2 3
     q)+/[2;2 3 4 5 6]
     22
-    ```
+    </code></pre>
 A unary function can be applied by juxtaposition.
 ```q
 q)reverse[0 1 2]    /function syntax
@@ -348,17 +348,16 @@ In most cases, `@` can be replaced more readably with whitespace.
 
 !!! note "Function arguments and list indexes"
     A function is a mapping from its arguments to its result. A list is a mapping from its indexes to its values. They use the same syntax, including – for unary functions – juxtaposition. 
-    ```q
-    q){x*x}[3 4 5]
-    9 16 25
-    q)0 1 4 9 16 25 36 49[3 4 5]
-    9 16 25
-    q){x*x} 3 4 5
-    9 16 25
-    q)x:0 1 4 9 16 25 36 49
-    q)x 3 4 5
-    9 16 25
-    ```
+
+        q){x*x}[3 4 5]
+        9 16 25
+        q)0 1 4 9 16 25 36 49[3 4 5]
+        9 16 25
+        q){x*x} 3 4 5
+        9 16 25
+        q)x:0 1 4 9 16 25 36 49
+        q)x 3 4 5
+        9 16 25
 
 
 ### Definition
@@ -560,16 +559,16 @@ Expression <code>e<sub>0</sub></code> is always evaluated. Whether any other exp
 
 !!! warning "K is deprecated"
     Q is a domain-specific language for finance embedded in the k programming language. Many reserved words in q expose definitions in k. 
-    ```q
-    q)show rotate
-    k){$[0h>@y;'`rank;98h<@y;'`type;#y;,/|(0;mod[x;#y])_y;y]}[k){1 .Q.s x;}]
-    ```
+
+        q)show rotate
+        k){$[0h>@y;'`rank;98h<@y;'`type;#y;,/|(0;mod[x;#y])_y;y]}[k){1 .Q.s x;}]
+
     Because of this, there are k expressions that work in the q interpreter, but which are not defined as part of the q language. 
     
     Although q provides a toggle for switching in and out of k, k is currently undocumented and its use in q scripts is deprecated and unsupported.
     
     If you find a k expression in a q script, you should be able to replace it with a q expression.
-    ```q
+    <pre><code class="language-q">
     q)(-)1 2 3       /k - deprecated
     -1 -2 -3
     q)neg 1 2 3      /q equivalent
@@ -578,4 +577,4 @@ Expression <code>e<sub>0</sub></code> is always evaluated. Whether any other exp
     3 2 1
     q)reverse 1 2 3  /q equivalent
     3 2 1
-    ```
+    </code></pre>

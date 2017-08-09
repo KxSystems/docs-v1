@@ -184,15 +184,15 @@ A back tick without characters after it represents the _empty symbol_: `` ` ``.
 
 !!! tip "Cast string to symbol"
     The empty symbol can be used with [_cast_](casting/#cast) to cast a string into a symbol, creating symbols whose names could not otherwise be written, such as symbols containing spaces. `` `$x`` is shorthand for `"S"$x`. 
-    ```q
+    <pre><code class="language-q">
     q)s:`hello world
     'world
     q)s:`$"hello world"
     q)s
     `hello world
-    ```
+    </code></pre>
 
-<i class="fa fa-hand-o-right"></i> [_Q for Mortals_ 2.4 Basic Data Types – Atoms](http://code.kx.com/q4m3/2_Basic_Data_Types_Atoms/#24-text-data)
+<i class="fa fa-hand-o-right"></i> [_Q for Mortals_: 2.4 Basic Data Types – Atoms](http://code.kx.com/q4m3/2_Basic_Data_Types_Atoms/#24-text-data)
 
 
 ### Filepaths
@@ -230,19 +230,19 @@ The guid type (since V3.0) is a 16-byte type, and can be used for storing arbitr
 
 !!! tip "Generation"
     Use [_deal_](random/#deal) to generate a guid (global unique: uses `.z.a .z.i .z.p`).
-    ```q
+    <pre><code class="language-q">
     q)-2?0Ng
     337714f8-3d76-f283-cdc1-33ca89be59e9 0a369037-75d3-b24d-6721-5a1d44d4bed5
-    ```
+    </code></pre>
     If necessary, manipulate the bytes to make the uuid a [Version-4 'standard' uuid](http://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29).
     
     Guids can also be created from strings or byte vectors, using `sv` or `"G"$`, e.g.
-    ```q
+    <pre><code class="language-q">
     q)0x0 sv 16?0xff
     8c680a01-5a49-5aab-5a65-d4bfddb6a661
     q)"G"$"8c680a01-5a49-5aab-5a65-d4bfddb6a661"
     8c680a01-5a49-5aab-5a65-d4bfddb6a661
-    ```
+    </code></pre>
 
 `0Ng` is null guid. 
 ```q

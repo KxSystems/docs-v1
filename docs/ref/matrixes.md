@@ -66,7 +66,7 @@ q)a - (a lsq b) mmu b     / minimum squared difference
 
 !!! tip "Polynomial fitting"
     `lsq` can be used to approximate `x` and `y` values by polynomials.
-    ```q
+    <pre><code class="language-q">
     lsfit:{(enlist y) lsq x xexp/: til 1+z} / fit y to poly in x with degree z
     poly:{[c;x]sum c*x xexp til count c}    / polynomial with coefficients c
     x:til 6
@@ -75,7 +75,7 @@ q)a - (a lsq b) mmu b     / minimum squared difference
     -33 37.6
     7 -22.4 12
     1 5 -3 2
-    ```
+    </code></pre>
 
 ## `$` `mmu`
 
@@ -101,11 +101,11 @@ q)(1 2 3f;4 5 6f)$(7 8f;9 10f;11 12f)
 
 !!! tip "Parallel lines"
     Use slave threads via `peach`.
-    ```q
+    <pre><code class="language-q">
     q)mmu[;b]peach a
     87 104 121
     81 99  117
-    ```
+    </code></pre>
 
 ## `$` (product)
 

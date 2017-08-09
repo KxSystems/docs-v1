@@ -103,14 +103,14 @@ s2 | p1   300
 
 !!! note "Parsing views"
     Views are special in that they are not parsable (sensibly) with `-5!x` (`parse`).
-    ```q
-        q)eval parse"a::5"
-        5
-        q)a
-        5
-        q)views[]
-        `symbol$()
-    ```
+    <pre><code class="language-q">
+    q)eval parse"a::5"
+    5
+    q)a
+    5
+    q)views[]
+    `symbol$()
+    </code></pre>
 
 ## reval
 

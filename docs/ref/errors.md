@@ -52,22 +52,22 @@ q)f`err
 _Trap_ always receives a string regardless of the type of `x`.
 
 !!! warning "Signal has some restrictions"
-    ```q
+    <pre><code class="language-q">
     q)f 1         / signals a type error indicating ' will not signal a number
     "trap:stype"
     q)f"a"        /q will not signal a char
     "trap:stype"
-    ```
+    </code></pre>
     Using an undefined word signals the word as an error
-    ```q
+    <pre><code class="language-q">
     q)'word
     'word
-    ```
+    </code></pre>
     which is indistinguishable from
-    ```q
+    <pre><code class="language-q">
     q)word
     'word
-    ```
+    </code></pre>
 
 
 ## `.` `@` (trap)
@@ -111,14 +111,14 @@ q)
 
 !!! warning "Limit of the trap"
     _Trap_ catches only errors signalled in the applications of `f` or `g`. Errors in the evaluation of `fx` or `gg` themselves are not caught.
-    ```q
+    <pre><code class="language-q">
     q)@[2+;"42";`err]
     `err
     q)@[2+;"42"+3;`err]
     'type
       [0]  @[2+;"42"+3;`err]
                     ^
-    ```
+    </code></pre>
 
 `@[f;fx;e]` is equivalent to `.[f;enlist fx;e]`. "dot" trap is used for multi-argument `f`.
 ```q
@@ -135,14 +135,14 @@ q)@[parse;"22 1b1 44";::]
 
 !!! tip "When e is not a function"
     If `e` is a function it will be evaluated _only_ if `f` or `g` fails. It will however be _parsed_ before any of the other expressions are evaluated.
-    ```q
+    <pre><code class="language-q">
     q)@[2+;"42";{)}]
     ')
       [0]  @[2+;"42";{)}]
                       ^
-    ```
+    </code></pre>
     If `e` is any _other_ kind of expression it will _always_ be evaluated – and _first_, in the usual right-to-left sequence. In this respect _trap_ is unlike try/catch in other languages. 
-    ```q
+    <pre><code class="language-q">
     q)@[string;42;a:100] / expression not a function
     "42"
     q)a // but a was assigned anyway
@@ -153,7 +153,7 @@ q)@[parse;"22 1b1 44";::]
     'b
       [0]  b
            ^
-    ```
+    </code></pre>
     For most purposes, you will want `e` to be a function.
 
 <!-- 

@@ -154,12 +154,12 @@ q)s:get`:SNewTrade/                     / s has columns mapped on demand
 
 !!! Note "get and value"
     `get` has several other uses. However, the function [`value`](metadata/#value) is a synonym for `get` and by convention is used for other purposes. But the two are completely interchangeable.
-    ```q
+    <pre><code class="language-q">
     q)value "2+3"
     5
     q)get "2+3"
     5
-    ```
+    </code></pre>
 
 FIXME: describe other uses.
 
@@ -253,16 +253,16 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
 
 !!! note "File handles"
     A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
-    ```q
+    <pre><code class="language-q">
     q)hdat:hopen `:f.dat             / data file (bytes)
     q)htxt:hopen `:c:/q/test.txt     / text file
-    ```
+    </code></pre>
     To append to these files, the syntax is the same as for IPC:
-    ```q
+    <pre><code class="language-q">
     q)r:hdat 0x2324
     q)r:htxt "some text\n"
     q)r:htxt ` sv("asdf";"qwer")
-    ```
+    </code></pre>
 
 !!! tip "Fifo/named pipes"
     V3.4 Unix builds have support for reading from a Fifo/named pipe, where the `hopen` argument has the form `` `:fifo://filename``.
@@ -501,7 +501,7 @@ q)save `$"/tmp/t"
 
 !!! tip "Saving local data"
     To save local data you can do explicitly what `save` is doing under the covers.
-    ```q
+    <pre><code class="language-q">
     q)`:t set t /save in binary format as a single file
     q)/ save in binary format as a splayed table 
     q)/ (1 file/column, symbols enumerated against the sym file in current dir)
@@ -510,7 +510,7 @@ q)save `$"/tmp/t"
     q)`:t.txt 0:.h.tx[`txt;t] / save in txt format
     q)`:t.xml 0:.h.tx[`xml;t] / save in xml format
     q)`:t.xls 0:.h.tx[`xls;t] / save in xls format
-    ```
+    </code></pre>
 
 <i class="fa fa-hand-o-right"></i> [`.Q.Xf`](dotq/#qxf-create-file) (create file)
 

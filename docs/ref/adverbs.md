@@ -67,12 +67,12 @@ q)d[1;2;3;4]               / g f[1;2;3;4]
 
 !!! Tip "Compose a list of functions"
     This can be extended with [`over`](control/#over) to compose a list of functions.
-    ```q
+    <pre><code class="language-q">
     q)g1:{10*x}
     q)d1:('[;]) over (g1;g;f)  / Use ('[;]) so the correct form is used
     q)d1[1;2;3;4]
     200
-    ```
+    </code></pre>
 
 ## `'` (each-both)
 
@@ -135,15 +135,15 @@ q)(til 5),/:0 1
 
 !!! tip "Left, right, cross"
     _Each-left_ combined with _each-right_
-    ```q
+    <pre><code class="language-q">
     (til 4),\:/: til 4
     ((0 0;1 0;2 0;3 0);(0 1;1 1;2 1;3 1);(0 2;1 2;2 2;3 2);(0 3;1 3;2 3;3 3))
-    ```
+    </code></pre>
     resembles the result obtained by `cross`
-    ```q
+    <pre><code class="language-q">
     cross[til 4;til 4]
     (0 0;0 1;0 2;0 3;1 0;1 1;1 2;1 3;2 0;2 1;2 2;2 3;3 0;3 1;3 2;3 3)
-    ```
+    </code></pre>
 
 
 ## `':` (each-parallel)
@@ -382,16 +382,16 @@ q)2 total 3 4 5   /but not infix
 
 !!! tip "Projecting an ambivalent derivative"
     Applying a binary function to one argument _projects_ it on that argument: `treble:*[3]`. Ambivalent derivatives behave differently.
-    ```q
+    <pre><code class="language-q">
     q)+/[2 3 4]  /applied unary
     9
-    ```
+    </code></pre>
     An ambivalent derivative can still be projected using the full form.
-    ```q
+    <pre><code class="language-q">
     q)tenandsum:+/[10;]
     q)tenandsum 2 3 4
     19
-    ```
+    </code></pre>
 
 
 <!-- ## Ambivalent functions

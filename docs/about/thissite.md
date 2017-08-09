@@ -14,7 +14,7 @@ Truncated GitHub URLs are prefixed with the GitHub icon <i class="fa fa-github">
 For example, read <i class="fa fa-github"></i> `KxSystems/kdb` as `https://github.com/KxSystems/kdb`.
 
 
-## Search tips
+## <i class="fa fa-search"></i> Search tips
 
 The Search box offers two kinds of search. As you type, the internal search engine proposes matches from its index. Click on one of these to follow. Or type Return to send your query to Google Search. 
 
@@ -59,26 +59,6 @@ The new site reference has three aims:
 - to help _writing_ by categorising the tools by semantic topic 
 
 
-## <i class="fa fa-book"></i> Terminology
-
-<blockquote style="border: none;">
-    <p style="display: inline-block;">
-        And the words that are used for to get this ship confused<br>  
-        Will not be understood as they are spoken<br>
-        — <i>Bob Dylan</i> “When the ship comes in” 
-    </p>
-    <p style="display: inline-block; padding: 0 1em;">
-        <img alt="Bob Dylan" src="http://code.kx.com/q/img/dylan.png" style="height: 70px"/>
-    </p>
-</blockquote>
-
-We have revised the terms in which we talk about q, to align them with common usage. You will find _operators_ and _unary_ and _binary_ _functions_ applied _prefix_, _infix_ and _postfix_. Q’s _adverbs_ still need their distinctive name, but you will no longer find references to _verbs_, _monads_ or _dyads_. 
-
-We also now distinguish consistently between glyphs and what they denote. In some cases we’ve had to coin new names for what was previously conflated. So, for example, `/` denotes three adverbs: _over_, _fold_ and _converge-repeat_. 
-
-Overloads such as these are distinguished in use by syntax and arguments. Every operator, function and adverb now has its syntax and arguments consistently and clearly described. 
-
-
 ## <i class="fa fa-handshake-o"></i> Contribute
 
 > A finished work is exactly that, requires resurrection.  
@@ -90,7 +70,7 @@ The contribution model is GitHub and [Forking Workflow](https://www.atlassian.co
 To contribute, submit a pull request. 
 
 
-## License 
+## <i class="fa fa-balance-scales"></i> License 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></div>

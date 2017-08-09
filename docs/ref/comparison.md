@@ -42,14 +42,14 @@ q)(1 + 1e-13) = 1
 
 !!! warning "Non numerical arguments"
     The comparison operators also work on non-numerical values (characters, temporal values, symbols) – not always intuitively.
-    ```q
+    <pre><code class="language-q">
     q)"0" < ("4"; "f"; "F"; 4)  / characters are treated as their numeric value
     1110b
     q)"alpha" > "omega"         / strings are char lists
     00110b
     q)`alpha > `omega           / but symbols compare atomically
     0b
-    ```
+    </code></pre>
 
 
 ## `differ`

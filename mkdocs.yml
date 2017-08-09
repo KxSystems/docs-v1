@@ -4,6 +4,7 @@ docs_dir: 'docs'
 extra_css: 
   - 'http://code.kx.com/stylesheets/extra.css'
   # - stylesheets/extra.css
+  - 'stylesheets/prism.css'
 extra_javascript: 
   # See /ref/syntax/#projection to see if MathJax is working 
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
@@ -13,10 +14,14 @@ extra_javascript:
   # - 'http://code.kx.com/scripts/theme.js'
   - 'https://use.fontawesome.com/3dbf29ed12.js'
   - 'scripts/arrive.min.js' # required for theme.js
+  # theme.js modifies HTML to prepare for prism.js
   - 'scripts/theme.js'
+  # Prism script includes plugin Copy to Clipboard http://prismjs.com/download.html
+  # Omits plugins Command Line, Line highlight, and Line Numbers: no effect
+  - 'scripts/prism.js'
 markdown_extensions:
   - admonition
-  - codehilite(guess_lang=false)
+  # - codehilite(guess_lang=false)
   - extra
   # - fenced_code
   - fontawesome_markdown
@@ -30,7 +35,7 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   # - pymdownx.smartsymbols
-  - pymdownx.superfences
+  # - pymdownx.superfences
   # - pymdownx.tasklist(custom_checkbox=true)
   # - pymdownx.tilde
   - toc(permalink=true)
@@ -215,6 +220,6 @@ pages:
   - Q for Mortals 3: q4m3.md
   - Archive: archive.md
   - About: 
-    - This site: about/thissite.md
     - Kx technology: about/kxtechnology.md
-    # - Terms & conditions: about/TermsAndConditions.md
+    - Site news: about/site-news.md
+    - This site: about/thissite.md

@@ -114,7 +114,7 @@ q).z.p                         / UTC timestamp
 
 !!! tip "Namespaces are dictionaries"
     Namespace contents can be treated as dictionary entries. 
-    ```q
+    <pre><code class="language-q">
     q)v:5
     q).ns.v:6
     q)`.[`v]      / value of v in root namespace
@@ -127,7 +127,7 @@ q).z.p                         / UTC timestamp
     6 6
     q)`.`.ns@\:`v
     5 6
-    ```
+    </code></pre>
 
 <a class="fa fa-hand-o-right"></a> [Names in context](syntax/#name-scope)
 

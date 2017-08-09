@@ -85,28 +85,29 @@ C    b j z
 
 !!! note
     If your JSON data is spread over multiple lines, reduce those to a single char vector with `raze`.
-    ```bash
+    <pre><code class="language-bash">
     $ cat t1.json 
     {
         "code" : 3,
         "message" : "This request requires authorization"
     }
-    ```
-    ```q
+    </code></pre>
+    
+    <pre><code class="language-q">
     q).j.k raze read0`:t1.json
     code   | 3f
     message| "This request requires authorization"
-    ```
+    </code></pre>
+
     Otherwise you'll encounter an error similar to:
-    ```q
-    q).j.k read0`:t1.json
-    k){=\~("\"=-1_q,x)<q=x}
-    'length
-    <
-    (0b;,0b;000000000000b;00000000000000000000000000000000000000000000000000b)
-    (,0b;010000100000b;01000000010001000000000000000000000000000000000001b;,0b)
-    q.j))\\
-    ```
+    
+        q).j.k read0`:t1.json
+        k){=\~("\"=-1_q,x)<q=x}
+        'length
+        <
+        (0b;,0b;000000000000b;00000000000000000000000000000000000000000000000000b)
+        (,0b;010000100000b;01000000010001000000000000000000000000000000000001b;,0b)
+        q.j))\\
 
 
 ## Compression

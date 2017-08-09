@@ -64,4 +64,5 @@ $(function() {
 	// 	$(newElem).replaceWith('<a href="/about/thissite/#search-tips" title="Search tips">?</a>');
 	// 	// $(newElem).click(function(){window.location.href="/about/thissite";});
 	// });
+
 });

@@ -276,7 +276,7 @@ q)raze x #' til count x:2 3 0 1
 
 !!! tip 
     Where `x` is boolean, the result is the indices of the 1s. Thus `where` is often used after a logical test:
-    ```q
+    <pre><code class="language-q">
     q)where 0 1 1 0 1
     1 2 4
     q)x:1 5 6 8 11 17 20 21
@@ -284,7 +284,7 @@ q)raze x #' til count x:2 3 0 1
     2 3 6
     q)x where 0 = x mod 2      / select even numbers from list
     6 8 20
-    ```
+    </code></pre>
 
 - a dictionary whose values are non-negative integers, the result is a list of keys repeated as many times as the corresponding value. (If a list is viewed as a mapping from indices to entries, than the definition for the integer list above is a special case.)
     ```q
@@ -306,7 +306,7 @@ Syntax: `x xprev y` (uniform)
 
 Where `x` is an integer atom and `y` is a list, returns for each item of `y` the item `x` indices before it. The first `x` items of the result are null, empty or blank as appropriate.
 
-!!! Tip 
+!!! tip 
     There is no `xnext` function. Fortunately `xprev` with a negative number on the left can achieve this.
 
 ```q

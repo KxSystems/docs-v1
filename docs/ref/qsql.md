@@ -6,7 +6,7 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
     - by value, the expression returns a result
     - by reference, the table is _replaced_ as a side effect, and its name returned
 
-    ```q
+    <pre><code>
     q)t1:t2:([]a:1 2;b:3 4)
     q)update a:neg a from t1
     a  b
@@ -19,7 +19,8 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
     `t1
     q)t1~t2
     0b
-    ```
+    </code></pre>
+
 Q-SQL templates all have [functional forms](funsql), which can be used without performance penalty. 
 
 <i class="fa fa-hand-o-right"></i> [_Q for Mortals_: The `select` template](http://code.kx.com/q4m3/9_Queries_q-sql/#93-the-select-template)
@@ -374,9 +375,9 @@ Resolution of a name within select/exec/update is as follows:
 
 !!! tip 
     You can [refer explicitly to namespaces](elements/#names-and-namespaces):
-    ```q
+    <pre><code class="language-q">
     select (`. `toplevel) x from t
-    ```
+    </code></pre>
 
 
 ### Implicit arguments

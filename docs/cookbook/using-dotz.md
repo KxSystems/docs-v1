@@ -61,7 +61,7 @@ This script just saves original values of things like `.z.pg` so you can revert 
 Other functions and variables shared between multiple scripts (such as debug output level `.debug.LEVEL`, or the `.z.a` IP address &lt;-&gt; hostname cache `.dotz.IPA`) are defined here too. Although it would be simpler to embed this setup code in each script, allowing them to be standalone, one tires of the cut’n’paste forays required by every tiny change.
 
 !!! note
-    After the various state variables have been defined the script saveorig.custom.q is loaded, if found, allowing you to customise the setup without needing to have a modified version of the saveorig script.
+    After the various state variables have been defined the script `saveorig.custom.q` is loaded, if found, allowing you to customise the setup without needing to have a modified version of the saveorig script.
 
 Again, for production use you should rip out the unneeded definitions.
 

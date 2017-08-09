@@ -23,9 +23,9 @@ Start q and load odbc.k – this populates the `.odbc` context.
 !!! tip "Unix systems"
     Ensure you have [unixODBC](http://www.unixodbc.com) installed, 
     and that `LD_LIBRARY_PATH` includes the path to the odbc.so, e.g. for 64-bit Linux
-    ```bash
+    <pre><code class="language-bash">
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QHOME/l64
-    ```
+    </code></pre>
     <i class="fa fa-hand-o-right"></i> [unixODBC configuration guide](http://www.easysoft.com/developer/interfaces/odbc/linux.html)
 
 
