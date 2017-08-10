@@ -8,6 +8,7 @@ q)*/[2 3 4]      /reduce 2 3 4 with *
 <i class="fa fa-hand-o-right"></i> [Adverb syntax](syntax/#adverbs), [`.Q.fu`](dotq/#qfu-apply-unique) (apply unique)
 
 <div class="kx-compact" markdown="1">
+</div>
 
 | form            | adverb                        | semantics                                          |
 |-----------------|-------------------------------|----------------------------------------------------|
@@ -25,14 +26,13 @@ q)*/[2 3 4]      /reduce 2 3 4 with *
 | `x f\y`         | [iterate](#converge-iterate)  | apply `f` to `y`, `x` times or while `x`           |
 | `f\x`           | [scan](#scan)                 | apply `f/` to successive items of `x`              |
 
-</div>
 Key: `int`: int vector; `f`: function; `g`: function; `x`: data; `y`: data.
 
 
 
 ## `'` (case)
 
-Syntax: `x'` (unary)  
+Syntax: `d:x'` (unary, postfix)  
 Derivative: `d x` (unary) 
 
 Where `x` is an integer vector, the derivative `f'` returns `r` such that
@@ -53,7 +53,7 @@ q)0 1 0'["a";"xyz"]  /atom "a" repeated as needed
 
 ## `'` (compose)
 
-Syntax: `'[g;f]` (binary)  
+Syntax: `d:'[g;f]` (binary, prefix)  
 Derivative: `d[x;y;z;…]` (same rank as `f`)
 
 Where `f` is a **multi-argument** function and `g` is a **unary** function, the derivative `f'` has rank `f` and returns `g f[x;y;z;…]`. 
@@ -74,9 +74,14 @@ q)d[1;2;3;4]               / g f[1;2;3;4]
     200
     </code></pre>
 
+<div markdown="1" style="float: right; margin-left: 1em;">
+![each-both](img/each-both.png)
+</div>
 ## `'` (each-both)
 
-Syntax: `f'` (unary)  
+_Applies a function between corresponding items of the argument lists._
+
+Syntax: `d:f'` (unary, postfix)  
 Derivative: `x d y` (binary, uniform)
 
 Where `f` is a **binary** function, and `x` and `y` conform, the derivative `f'` applies `f` between corresponding items of `x` and `y`. 
@@ -97,9 +102,14 @@ q)0 1 2 3 ,' 10
 ```
 
 
+<div markdown="1" style="float: right; margin-left: 1em;">
+![each-left](img/each-left.png)
+</div>
 ## `\:` (each-left)
 
-Syntax: `f\:` (unary)  
+_Applies a function between each item of the left argument and the right argument._
+
+Syntax: `d:f\:` (unary, postfix)  
 Derivative: `x d y`(binary, uniform)
 
 Where `f` is a **binary** function, the derivative `f\:` applies `f` between `y` and each item of `x` where 
@@ -117,9 +127,14 @@ q)(til 5),\:0 1
 ```
 
 
+<div markdown="1" style="float: right; margin-left: 1em;">
+![each-right](img/each-right.png)
+</div>
 ## `/:` (each-right)
 
-Syntax: `f/:` (unary)  
+_Applies a function between the left argument and each item of the right argument._
+
+Syntax: `d:f/:` (unary, postfix)  
 Derivative: `x d y` (binary, uniform)
 
 Where `f` is a **binary** function, the derivative `f/:` applies `f` between `x` and each item of `y` where 
@@ -146,9 +161,14 @@ q)(til 5),/:0 1
     </code></pre>
 
 
+<div markdown="1" style="float: right; margin-left: 2em;">
+![each-parallel](img/each-parallel.png)
+</div>
 ## `':` (each-parallel)
 
-Syntax: `f':` (unary)  
+_Each item of the argument list is assigned to a slave task, where the function is applied to each of its items._
+
+Syntax: `d:f':` (unary, postfix)  
 Derivative: `d x` (unary, uniform) 
 
 Where `f` is a **unary** function, the derivative `f':` assigns the items of `x` to separate slave tasks, and in each task applies `f` to each item of the sublist. 
@@ -168,25 +188,31 @@ k){x':y}
 <i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [parallel processing, `peach`](peach)
 
 
+<div markdown="1" style="float: right; margin-left: 1em;">
+![each-prior](img/each-prior.png)
+</div>
 ## `':` (each-prior)
 
-Syntax: `f':`  (unary)  
-Derivative: `d x` (ambivalent, uniform)
+_Applies a function between each item of a list and its preceding item._
 
-Where `f` is a **binary** function, the derivative `f':` applies `f` between each item of `x` and its predecessor.
-<div class="kx-compact" markdown="1">
+Syntax: `d:f':`  (unary, postfix)  
+Derivative: `    d y` (unary, uniform)  
+Derivative: `[x] d y` (binary, uniform)
 
-| form       | example                             |
-|------------|-------------------------------------|
-| `f':[y]`   | `-':[   1 4 9 16]` /unary           |
-| `(f':)y`   | `(-':)  1 4 9 16`  /juxtaposition   |
-| `x f': y`  | `9-':   1 4 9 16`  /infix (binary)  |
-| `f':[x;y]` | `-':[9; 1 4 9 16]` /prefix (binary) |
-| `f':[x;]y` | `-':[9;]1 4 9 16   /projection`     |
+Where `f` is a **binary** function, the ambivalent derivative `f':` applies `f` between each item of `y` and `x,-1_y`. 
 
-</div>
-
+In unary application, `x` defaults to `(1#0#y)0`.
 ```q
+q)99,':til 4
+0 99
+1 0
+2 1
+3 2
+q)(,':)til 4  / x defaults to 0N
+0
+1 0
+2 1
+3 2
 q)"abc",':"xyz"
 ("xabc";"yx";"zy")
 q)0 1-':2 5 9
@@ -196,47 +222,65 @@ q)0-':2 5 9
 q)-':[2 5 9]     /deltas
 2 3 4
 ```
+| form       | example                             |
+|------------|-------------------------------------|
+| `f':[y]`   | `-':[   1 4 9 16]` /unary           |
+| `(f':)y`   | `(-':)  1 4 9 16`  /juxtaposition   |
+| `x f': y`  | `9-':   1 4 9 16`  /infix (binary)  |
+| `f':[x;y]` | `-':[9; 1 4 9 16]` /prefix (binary) |
+| `f':[x;]y` | `-':[9;]1 4 9 16   /projection`     |
 
 
+<div markdown="1" style="float: right; font-style: italic; font-size: 80%; margin-left: 1em; text-align: center; width: 150px">
+[![St Patrick driving the snakes out of Ireland](img/snakes.jpg)](img/snakes.jpg)  
+Are we there yet?
+</div>
 ## `/` (converge-repeat)
 
-Syntax: `d:f/`  (unary)  
+_Applies a function either a specified number of times, or until the result converges._
+
+Syntax: `d:f/`  (unary, postfix)  
 Derivative: `d y` (unary)  
 Derivative: `x d y` (binary)
 
 Where `f` is a **unary** function, the derivative `f/` 
 
 - (**converge**) applied **unary** applies `f` repeatedly to `y` until either (1) two successive results agree within comparison tolerance or (2) the result matches `y`. The latter will save you from some infinite cycles but not all.
-```q
+    <pre><code class="language-q">
 q)(not/) 1b
 0b
 q)(not/) 42  /never returns
-```
-The related form [_converge-iterate_](#converge-iterate) can be useful to see the intermediate results. (Set `\P 0` to see the convergence of your original computation.)
+    </code></pre>
+    The related form [_converge-iterate_](#converge-iterate) can be useful to see the intermediate results. (Set `\P 0` to see the convergence of your original computation.)
 
 - (**repeat**) applied **binary** where (a) `x` is a **positive int atom**, returns the result of `x` successive applications of `f` to `y`
 <code>f&nbsp;f&nbsp;f&nbsp;…&nbsp;f&nbsp;f&nbsp;y</code>
-```q
+    <pre><code class="language-q">
 /first 10+2 numbers of Fibonacci sequence
-q)10{x,sum -2#x}/0 1                      / derived binary applied infix
+q)10{x,sum -2#x}/0 1             / derived binary applied infix
 0 1 1 2 3 5 8 13 21 34 55 89
 /first n+2 numbers of Fibonacci sequence
-q)fibonacci:{x,sum -2#x}/[;0 1]           / projection of derived function
+q)fibonacci:{x,sum -2#x}/[;0 1]  / projection of derived function
 q)fibonacci 10
 0 1 1 2 3 5 8 13 21 34 55 89
-```
+    </code></pre>
 or where (b) `x` is a **function**, returns the result when `x` applied to the result returns `0b`.
-```q
+<pre><code class="language-q">
 q){x<1000}{x*x}/2      /infix: g f/y
 65536
 q){x*x}/[{x<1000};2]   /prefix: f/[g;y]
 65536
-```
+    </code></pre>
 
 
+<div markdown="1" style="float: right; margin-left: 2em;">
+![over](img/over.png)
+</div>
 ## `/` (over)
 
-Syntax: `f/`  (unary)  
+_Map-reduce: applies a binary function between elements of the argument, working from left to right._
+
+Syntax: `d:f/`  (unary, postfix)  
 Derivative: `x d y` (ambivalent, aggregate)
 
 Where `f` is a **binary** function
@@ -252,6 +296,8 @@ q)(+/)2 3 4  /unary
 9
 q)0+/2 3 4   /binary
 9
+q)-/[8 1 9 5 4]
+-11
 ```
 
 <i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over`](control/#over) operator.
@@ -259,7 +305,9 @@ q)0+/2 3 4   /binary
 
 ## `/` (fold)
 
-Syntax: `f/`  (unary)
+_Over (map-reduce) for functions with more than two arguments._
+
+Syntax: `d:f/`  (unary, postfix)  
 Derivative: `d[x;y;z;…]` (same rank as `f`)
 
 Where `f` is a **function with rank above 2** and `y`, `z`, etc. conform, the derivative `f/` has the same rank as `f`. Example: for `f` of rank 3 and `y` and `z` of count `n`)
@@ -278,14 +326,14 @@ q){x+y+z}/[1 5 6;2 22;3 33]
 
 ## `\` (converge-iterate)
 
-Syntax: `d:f\` (unary)  
+Syntax: `d:f\` (unary, postfix)  
 Derivative: `d y` (unary)  
 Derivative: `x d y` (binary)
 
 Where `f` is a **unary** function, the derivative `f\`
 
 - (**converge**) applied **unary** calls `f` on `y` repeatedly until a value matching the `y` or the last result is produced. The result is `y` followed by all the results except the last.
-```q
+    <pre><code class="language-q">
 q)(neg\)1
 1 -1
 q)(rotate[1]\)"abcd"
@@ -294,10 +342,10 @@ q)({x*x}\)0.1
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
 q){x*x}\[0.1]   / alternate syntax
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
-```
+    </code></pre>
 
 - (**iterate**) applied **binary**, `x` can be either an integer number of iterations or a while-condition that returns an int or boolean which can be applied to the result of `f`. 
-```q
+    <pre><code class="language-q">
 q)f:1+
 q)f\[3;100]
 100 101 102 103
@@ -308,12 +356,11 @@ q)f\[105>sum@;84 20]
 85 21
 q)3 f\100 /applied infix
 100 101 102 103
-```
-
+    </code></pre>
 
 ## `\` (scan)
 
-Syntax: `d:f\`  (unary)  
+Syntax: `d:f\`  (unary, postfix)  
 Derivative: `d y` (unary, uniform)  
 Derivative: `x d y` (binary, uniform)  
 Derivative: `d[x;y;z;…]` (uniform)
