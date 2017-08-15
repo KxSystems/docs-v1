@@ -303,9 +303,9 @@ q)(not/) 42  /never returns
     or where (b) `x` is a **function**, returns the result when `x` applied to the result returns `0b`.
 
     <pre><code class="language-q">
-    q){x*x}/[{x<1000};2]   /prefix: f/[g;y]
-    65536
     q){x+x}/[{x<1000};2]   /prefix: f/[g;y]
+    1024
+    q){x<1000}{x+x}/2      /infix: g f/y
     1024
     </code></pre>
 
@@ -380,7 +380,7 @@ q)(rotate[1]\)"abcd"
 "dabc"
 q)({x*x}\)0.1
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
-q){x*x}\[0.1]   / alternate syntax
+q){x*x}\[0.1]   / alternative syntax
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
 ```
 
