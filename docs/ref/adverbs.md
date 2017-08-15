@@ -31,11 +31,16 @@ Key: `int`: int vector; `f`: function; `g`: function; `x`: data; `y`: data.
 
 
 ## `'` (case)
+<div markdown="1" style="float: right; margin-left: 2em;">
+![case](img/case.png)
+</div>
+
+_Pick successive items from multiple series: the left argument determines from which series each item is picked._
 
 Syntax: `d:x'` (unary, postfix)  
 Derivative: `d x` (unary) 
 
-Where `x` is an integer vector, the derivative `f'` returns `r` such that
+Where `x` is an integer vector, the derivative `x'` returns `r` such that
 ```q
 r[i] ~ y[x i] i
 ```
@@ -43,11 +48,36 @@ Atom items of `y` are treated as infinitely repeated values.
 ```q
 q)0 1 0'["abc";"xyz"]
 "ayc"
+q)e:`one`two`three`four`five
+q)f:`un`deux`trois`quatre`cinq
+q)g:`ein`zwei`drei`vier`funf
+q)l:`English`French`German
+q)l?`German`English`French`French`German
+2 0 1 1 2
+q)(l?`German`English`French`French`German)'[e;f;g]
+`ein`two`trois`quatre`funf
+
 q)/extra arguments don't signal a rank error
 q)0 2 0'["abc";"xyz";"123";"789"]
 "a2c"
 q)0 1 0'["a";"xyz"]  /atom "a" repeated as needed
 "aya"
+```
+
+!!! tip "Where you gonna call?"
+    _Case_ is useful for selecting between record fields according to a test on some other field. 
+
+    Suppose from a CSV we have lists of home and office phone numbers `h` and `o` and a third list `p` indicating at which number the record subject prefers to be called. 
+
+```q
+q)([]pref: p;home: h; office: o; call: (`home`office?p)'[h;o])
+pref   home             office           call
+---------------------------------------------------------
+home   "(973)-902-8196" "(431)-158-8403" "(973)-902-8196"
+office "(448)-242-6173" "(123)-993-9804" "(123)-993-9804"
+office "(649)-678-6937" "(577)-671-6744" "(577)-671-6744"
+home   "(677)-200-5231" "(546)-864-5636" "(677)-200-5231"
+home   "(463)-653-5120" "(636)-437-2336" "(463)-653-5120"
 ```
 
 
@@ -151,12 +181,11 @@ q)(til 5),/:0 1
 !!! tip "Left, right, cross"
     _Each-left_ combined with _each-right_
     <pre><code class="language-q">
-    (til 4),\:/: til 4
-    ((0 0;1 0;2 0;3 0);(0 1;1 1;2 1;3 1);(0 2;1 2;2 2;3 2);(0 3;1 3;2 3;3 3))
-    </code></pre>
+    q){}0N!(til 4),\:/: til 4
+    ((0 0;1 0;2 0;3 0);(0 1;1 1;2 1;3 1);(0 2;1 2;2 2;3 2);(0 3;1 3;2 3;3 3))    </code></pre>
     resembles the result obtained by `cross`
     <pre><code class="language-q">
-    cross[til 4;til 4]
+    q){}0N!cross[til 4;til 4]
     (0 0;0 1;0 2;0 3;1 0;1 1;1 2;1 3;2 0;2 1;2 2;2 3;3 0;3 1;3 2;3 3)
     </code></pre>
 
@@ -172,15 +201,16 @@ Syntax: `d:f':` (unary, postfix)
 Derivative: `d x` (unary, uniform) 
 
 Where `f` is a **unary** function, the derivative `f':` assigns the items of `x` to separate slave tasks, and in each task applies `f` to each item of the sublist. 
-```q
+```bash
 $ q -s 2
 KDB+ 3.4 2016.06.14 Copyright (C) 1993-2016 Kx Systems
 m32/ 2()core 4096MB sjt mark.local 192.168.0.17 NONEXPIRE
+```
+```q
 q)\t ({sum exp x?1.0}' )2#1000000  / each
 185
 q)\t ({sum exp x?1.0}':)2#1000000  / peach
 79
-
 q)peach
 k){x':y}
 ```
@@ -196,12 +226,12 @@ k){x':y}
 _Applies a function between each item of a list and its preceding item._
 
 Syntax: `d:f':`  (unary, postfix)  
-Derivative: `    d y` (unary, uniform)  
-Derivative: `[x] d y` (binary, uniform)
+Derivative: `  d y` (unary, uniform)  
+Derivative: `x d y` (binary, uniform)
 
 Where `f` is a **binary** function, the ambivalent derivative `f':` applies `f` between each item of `y` and `x,-1_y`. 
 
-In unary application, `x` defaults to `(1#0#y)0`.
+In unary application of the derivative, `x` defaults to `(1#0#y)0`.
 ```q
 q)99,':til 4
 0 99
@@ -214,9 +244,13 @@ q)(,':)til 4  / x defaults to 0N
 2 1
 3 2
 q)"abc",':"xyz"
-("xabc";"yx";"zy")
-q)0 1-':2 5 9
-(2 1;3;4)
+"xabc"
+"yx"
+"zy"
+q)0 1-':2 5 9
+2 1
+3
+4
 q)0-':2 5 9
 2 3 4
 q)-':[2 5 9]     /deltas
@@ -255,21 +289,24 @@ q)(not/) 42  /never returns
 
 - (**repeat**) applied **binary** where (a) `x` is a **positive int atom**, returns the result of `x` successive applications of `f` to `y`
 <code>f&nbsp;f&nbsp;f&nbsp;…&nbsp;f&nbsp;f&nbsp;y</code>
+
     <pre><code class="language-q">
-/first 10+2 numbers of Fibonacci sequence
-q)10{x,sum -2#x}/0 1             / derived binary applied infix
-0 1 1 2 3 5 8 13 21 34 55 89
-/first n+2 numbers of Fibonacci sequence
-q)fibonacci:{x,sum -2#x}/[;0 1]  / projection of derived function
-q)fibonacci 10
-0 1 1 2 3 5 8 13 21 34 55 89
+    /first 10+2 numbers of Fibonacci sequence
+    q)10{x,sum -2#x}/0 1             / derived binary applied infix
+    0 1 1 2 3 5 8 13 21 34 55 89
+    /first n+2 numbers of Fibonacci sequence
+    q)fibonacci:{x,sum -2#x}/[;0 1]  / projection of derived function
+    q)fibonacci 10
+    0 1 1 2 3 5 8 13 21 34 55 89
     </code></pre>
-or where (b) `x` is a **function**, returns the result when `x` applied to the result returns `0b`.
-<pre><code class="language-q">
-q){x<1000}{x*x}/2      /infix: g f/y
-65536
-q){x*x}/[{x<1000};2]   /prefix: f/[g;y]
-65536
+
+    or where (b) `x` is a **function**, returns the result when `x` applied to the result returns `0b`.
+
+    <pre><code class="language-q">
+    q){x*x}/[{x<1000};2]   /prefix: f/[g;y]
+    65536
+    q){x+x}/[{x<1000};2]   /prefix: f/[g;y]
+    1024
     </code></pre>
 
 
@@ -333,19 +370,22 @@ Derivative: `x d y` (binary)
 Where `f` is a **unary** function, the derivative `f\`
 
 - (**converge**) applied **unary** calls `f` on `y` repeatedly until a value matching the `y` or the last result is produced. The result is `y` followed by all the results except the last.
-    <pre><code class="language-q">
+```q
 q)(neg\)1
 1 -1
 q)(rotate[1]\)"abcd"
-("abcd";"bcda";"cdab";"dabc")
+"abcd"
+"bcda"
+"cdab"
+"dabc"
 q)({x*x}\)0.1
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
 q){x*x}\[0.1]   / alternate syntax
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
-    </code></pre>
+```
 
 - (**iterate**) applied **binary**, `x` can be either an integer number of iterations or a while-condition that returns an int or boolean which can be applied to the result of `f`. 
-    <pre><code class="language-q">
+```q
 q)f:1+
 q)f\[3;100]
 100 101 102 103
@@ -356,7 +396,7 @@ q)f\[105>sum@;84 20]
 85 21
 q)3 f\100 /applied infix
 100 101 102 103
-    </code></pre>
+```
 
 ## `\` (scan)
 
