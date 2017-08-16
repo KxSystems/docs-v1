@@ -85,7 +85,7 @@ q)jedv["e.";"cat";"abcd"]
 110b
 ```
 Use J [plot](http://www.jsoftware.com/jwiki/Plot) library:
-```
+```q
 q)jedo "load 'plot'";
 q)jemv["plot"] 100?1f;
 q).q.plot:jedv["plot"];

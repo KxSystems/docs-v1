@@ -165,25 +165,25 @@ If `c.k()` is called with no arguments, the call will block until a message is r
 
 The methods for sending sync/async messages are overloaded as follows:
 
-- Methods which send async messages do not return a value:
-  ```java
-  public void ks(String s) throws IOException 
-  public void ks(String s, Object x) throws IOException
-  public void ks(String s, Object x, Object y) throws IOException
-  public void ks(String s, Object x, Object y, Object z) throws IOException
-  ```
-- Methods which send sync messages return an Object, the result from the remote processing the sync message:
-  ```java
-  public Object k(Object x) throws KException, IOException
-  public Object k(String s) throws KException, IOException
-  public Object k(String s, Object x) throws KException, IOException
-  public Object k(String s, Object x, Object y) throws KException, IOException
-  public Object k(String s, Object x, Object y, Object z) throws KException, IOException
-  ```
-- If no argument is given, the `k` call will block until a message is received, deserialized to an Object.
-  ```java 
-  public Object k() throws KException, IOException
-  ```
+-   Methods which send async messages do not return a value:
+```java
+public void ks(String s) throws IOException 
+public void ks(String s, Object x) throws IOException
+public void ks(String s, Object x, Object y) throws IOException
+public void ks(String s, Object x, Object y, Object z) throws IOException
+```
+-   Methods which send sync messages return an Object, the result from the remote processing the sync message:
+```java
+public Object k(Object x) throws KException, IOException
+public Object k(String s) throws KException, IOException
+public Object k(String s, Object x) throws KException, IOException
+public Object k(String s, Object x, Object y) throws KException, IOException
+public Object k(String s, Object x, Object y, Object z) throws KException, IOException
+```
+-   If no argument is given, the `k` call will block until a message is received, deserialized to an Object.
+```java 
+public Object k() throws KException, IOException
+```
 
 
 ## Exceptions

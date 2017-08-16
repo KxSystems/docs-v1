@@ -7,43 +7,44 @@ PyQ provides seamless integration of Python and q code. It brings Python and q i
 The following annotated session demonstrates some of the features:
 
 - start interactive session and import the `q` handle:
-    ```bash
-    $ pyq
-    >>> from pyq import q
-    ```
+<pre><code class="language-bash">
+$ pyq
+&gt;&gt;&gt; from pyq import q
+</code></pre>
 - create an empty table
-    ```python
-    >>> q.trade = q('([]date:();sym:();qty:())')
-    ```
+<pre><code class="language-python">
+&gt;&gt;&gt; q.trade = q('([]date:();sym:();qty:())')
+</code></pre>
 - insert data
-    ```python
-    >>> q.insert('trade', (date(2006,10,6), 'IBM', 200))
-    >>> q.insert('trade', (date(2006,10,6), 'MSFT', 100))
-    ```
+<pre><code class="language-python">
+&gt;&gt;&gt; q.insert('trade', (date(2006,10,6), 'IBM', 200))
+&gt;&gt;&gt; q.insert('trade', (date(2006,10,6), 'MSFT', 100))
+</code></pre>
 - display the result
-    ```python
-    >>> q.trade.show()
-    date       sym  qty
-    -------------------
-    2006.10.06 IBM  200
-    2006.10.06 MSFT 100
-    ```
+```python
+>>> q.trade.show()
+date       sym  qty
+-------------------
+2006.10.06 IBM  200
+2006.10.06 MSFT 100
+```
 - define a parameterized query
-    ```python
-    >>> query = q('{[s;d]select from trade where sym=s,date=d}')
-    ```
+<pre><code class="language-python">
+&gt;&gt;&gt; query = q('{[s;d]select from trade where sym=s,date=d}')
+</code></pre>
 - run a query
-    ```python
-    >>> query('IBM', date(2006,10,6))
-    k('+`date`sym`qty!(,2006.10.06;,`IBM;,200)')
-    ```
+<pre><code class="language-python">
+&gt;&gt;&gt; query('IBM', date(2006,10,6))
+k('+`date`sym`qty!(,2006.10.06;,`IBM;,200)')
+</code></pre>
 - pretty-print the result
-    ```python
-    >>> q.show(_)
-    date       sym  qty
-    ------------------
-    2006.10.06 IBM 200
-    ```
+
+```python
+>>> q.show(_)
+date       sym  qty
+------------------
+2006.10.06 IBM 200
+```
 
 
 ## Installation

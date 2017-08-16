@@ -9,7 +9,7 @@ Start a q session, listening on a given port. Load J, then:
 load 'qclient.ijs'           NB. load JQ client application
 ```
 Create a client instance, defining cover functions in `z`:
-```
+```j
    1 conew 'cqclient'
 +-+
 |1|

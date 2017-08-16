@@ -38,7 +38,7 @@ Key: `int`: int vector; `f`: function; `g`: function; `x`: data; `y`: data.
 _Pick successive items from multiple series: the left argument determines from which series each item is picked._
 
 Syntax: `d:x'` (unary, postfix)  
-Derivative: `d x` (unary) 
+Derivative: `d y` (unary) 
 
 Where `x` is an integer vector, the derivative `x'` returns `r` such that
 ```q
