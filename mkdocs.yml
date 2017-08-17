@@ -2,7 +2,7 @@ copyright: 'This work is licensed under a <a rel="license" href="http://creative
 dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: 
-  - 'cstylesheets/extra.css'
+  - 'http://code.kx.com/stylesheets/extra.css'
   # - stylesheets/extra.css
   - 'http://code.kx.com/stylesheets/prism.css'
 extra_javascript: 

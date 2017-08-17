@@ -194,3 +194,27 @@ q)'type
             ^
 q))                 / the server is suspended in a debug session
 ```
+
+
+## Resume 
+
+When execution is suspended, `:e` resumes with `e` as the result of the failed operation. `e` defaults to null `::`. 
+```q
+q)\cat q/test.q
+"/ test script"
+"a:b:0"
+"func:{1+x}"
+"a:func`a"
+"b:1"
+q)\l test.q
+'type
+  [3]  /Users/sjt/q/test.q:3: func:{1+x}
+                                     ^
+q)):42 / result of 1+x
+q)a
+42
+q)b
+1
+```
+
+<i class="fa fa-hand-o-right"></i> _Q for Mortals 3:_ [10.2 Debugging](http://code.kx.com/q4m3/10_Execution_Control/#102-debugging)
