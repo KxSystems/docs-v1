@@ -63,6 +63,7 @@ Update not allowed when using [negative port number](syscmds/#p-port).
 <tr><td>Q7</td><td/><td>nyi op on file nested array</td></tr>
 <tr><td>rank</td> <td class="nowrap">`+[2;3;4]`</td> <td>Invalid [rank](syntax/#rank)</td> </tr> 
 <tr><td>rb</td> <td/> <td>Encountered a problem while doing a blocking read</td> </tr> 
+<tr><td>restricted</td> <td>`0"2+3"`</td> <td>in a kdb+ process which was started with [`-b` cmd line](cmdline/#-b-blocked). Also for a kdb+ process using the username:password authentication file, or the `-b` cmd line option, `\x` cannot be used to reset handlers to their default. e.g. `\x .z.pg`</td> </tr> 
 <tr> <td>s-fail</td> <td class="nowrap">`` `s#3 2``</td> <td>Invalid attempt to set “sorted” [attribute](elements/#attributes). Also encountered with `` `s#enums`` when loading a database (`\l db`) and enum target is not already loaded.</td> </tr>
 <tr> <td>splay</td> <td/> <td>nyi op on [splayed table](/cookbook/splayed-tables)</td> </tr>
 <tr>
