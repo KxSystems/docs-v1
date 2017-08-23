@@ -50,12 +50,12 @@ q)0 1 0'["abc";"xyz"]
 "ayc"
 q)e:`one`two`three`four`five
 q)f:`un`deux`trois`quatre`cinq
-q)g:`ein`zwei`drei`vier`funf
+q)g:`eins`zwei`drei`vier`funf
 q)l:`English`French`German
 q)l?`German`English`French`French`German
 2 0 1 1 2
 q)(l?`German`English`French`French`German)'[e;f;g]
-`ein`two`trois`quatre`funf
+`eins`two`trois`quatre`funf
 
 q)/extra arguments don't signal a rank error
 q)0 2 0'["abc";"xyz";"123";"789"]

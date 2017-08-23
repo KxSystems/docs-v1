@@ -137,7 +137,7 @@ q).z.p                         / UTC timestamp
 Functions are:
 
 1. operators and primitive functions, eg `+`, `count`
-2. as defined in the [lambda notation](#definition), eg `{x+2*y}`
+2. as defined in the [lambda notation](syntax/#definition), eg `{x+2*y}`
 3. as _derived_ from (1) and (2) by [adverbs](adverbs), eg `+/`, `count'`
 4. q-SQL functions, e.g. `select`
 
@@ -187,7 +187,7 @@ q)2 rotate 0 1 2 3 4 5   / infix form
 2 3 4 5 0 1
 ```
 Operators are denoted by glyphs or reserved words or both – see note below on _minimum_ and _maximum_. 
-(They cannot be defined using the [lambda notation](#definition).) 
+(They cannot be defined using the [lambda notation](syntax/#definition).) 
 
 ### Glyphs
 <table class="kx-compact" markdown="1">
