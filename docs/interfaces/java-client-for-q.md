@@ -99,6 +99,7 @@ Kdb+ types are mapped to and from Java types by this driver, and the example `sr
 
 |            Java type|            kdb+ type|                            value sent|                            kdb+ value|
 |---------------------|---------------------|--------------------------------------|--------------------------------------|
+|   [Ljava.lang.Object|             (0) list|                                      |                                      |
 |    java.lang.Boolean|          (-1)boolean|                                  true|                                    1b|
 |                   [Z|    (1)boolean vector|                                  true|                                   ,1b|
 |       java.util.UUID|             (-2)guid|  f5889a7d-7c4a-4068-9767-a009c8ac46ef|  f5889a7d-7c4a-4068-9767-a009c8ac46ef|

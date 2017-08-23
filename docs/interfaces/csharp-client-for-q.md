@@ -112,6 +112,7 @@ and the following for complex data:
 
 | C\# object type | q type number    |
 |-----------------|------------------|
+| object\[\]      | 0                |
 | bool\[\]        | 1                |
 | byte\[\]        | 4                |
 | short\[\]       | 5                |
