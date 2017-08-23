@@ -17,19 +17,19 @@ Most of the wiki consists of three groups of articles:
 
 ## Reference 
 
-The Reference articles have been exported and their content incorporated into a hierarchical table of contents. 
+The Reference articles have been exported from the wiki and their content incorporated into a hierarchical table of contents. Details on each q function are arranged in pages grouped under /ref by semantic topic: see _Reference/Semantics_ in the LHS navigation. 
 
 
 ## Cookbook 
 
-The Cookbook articles are being migrated: see the ToDo list below. The most-used pages are being migrated first, along with pages they link to.  
+The Cookbook articles have been migrated. 
 
 
 ## Q for Mortals V3
 
-Unlike the first two editions, _Q for Mortals V3_ is now published in its entirety online in HTML. 
+Unlike the first two editions, _Q for Mortals V3_ is now published in its entirety [online in HTML](http://code.kx.com/q4m3). 
 
-Links from the Reference and Cookbook to _Q for Mortals_ are being replaced with links to _Q for Mortals V3_.
+Links from the Reference and Cookbook to _Q for Mortals_ have been replaced with links to _Q for Mortals V3_.
 
 
 ## Not upwardly compatible 
@@ -72,22 +72,6 @@ q)tot[til 6]    / unary
 q)tot[2;til 6]  / binary
 17
 ```
-
-
-## To do
-
-- [x] Tabulate .h and .Q contents on q/ref/card
-- [x] Distribute throughout the pages under Reference/Semantics references to .h, .Q and .z functions 
-- [x] Fill lacunae in .h and .Q pages
-- [x] Replace central table on home page with responsive version
-- [x] Migrate Cookbook articles
-- [x] Migrate Interfaces articles
-- [x] JS to insert target attribute on external links 
-- [x] Condensed style for larger displays
-- [ ] Control deadword list in search
-- [x] Split code.archive into 4 repos 
-- [x] Remove links to github.com/KxSystems/code.archive
-
 
 
 ## Contact
