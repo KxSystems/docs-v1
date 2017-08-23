@@ -21,25 +21,6 @@ q)eval ((/;+);(til;(+;2;2)))
 ```
 
 
-## eval
-
-Syntax: `eval x`
-
-Where `x` is a parse tree, returns the result of evaluating it. 
-
-The `eval` function is the complement of `parse` and can be used to evaluate the parse trees it returns. (Also parse trees constructed explicitly.)
-```q
-q)parse "2+3"
-+
-2
-3
-q)eval parse "2+3"
-5
-q)eval (+;2;3)      / constructed explicitly
-5
-```
-
-
 ## parse 
 
 Syntax: `parse x`
@@ -112,15 +93,33 @@ s2 | p1   300
     `symbol$()
     </code></pre>
 
+
+## eval
+
+Syntax: `eval x`
+
+Where `x` is a parse tree, returns the result of evaluating it. 
+
+The `eval` function is the complement of `parse` and can be used to evaluate the parse trees it returns. (Also parse trees constructed explicitly.)
+```q
+q)parse "2+3"
++
+2
+3
+q)eval parse "2+3"
+5
+q)eval (+;2;3)      / constructed explicitly
+5
+```
+
+
 ## reval
 
 Syntax: `reval x`
 
-Where `x` is a string representing a well-formed q or k expression, returns a parse tree. (V3.4 can accept newlines within the string; previous versions cannot.)
+The `reval` function is similar to `eval` (`-6!`), and behaves as if the [command-line option `-b`](cmdline/#-b-blocked) were active during evaluation.
 
-The `reval` function is similar to `eval` (`-6!`), and behaves as if the command-line option `-b` were active during evaluation.
-
-An example usage is inside the message handler `.z.pg`, useful for access control, here blocking sync messages from updating:
+An example usage is inside the message handler [`.z.pg`,](dotz/#zpg-get) useful for access control, here blocking sync messages from updating:
 ```q
 q).z.pg:{reval(value;x)} / define in process listening on port 5000
 q)h:hopen 5000 / from another process on same host
