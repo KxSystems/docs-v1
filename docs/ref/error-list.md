@@ -22,7 +22,7 @@
 <tr> <td>elim</td> <td class="nowrap">``((-58?`3) set\:(),`a)$`a``</td> <td>Too many enumerations (max: 57)</td> </tr>
 <tr> <td>from</td> <td class="nowrap">`select price trade`</td> <td>Badly formed select statement</td> </tr>
 <tr> <td>glim</td> <td/> <td>`` `g#`` limit (99 prior to V3.2, now unlimited</td> </tr>
-<tr> <td>hop</td><td/><td>Request to hopen a handle fails; includes message from OS</td> </tr>
+<tr> <td>hop</td><td/><td>Request to `hopen` a handle fails; includes message from OS</td> </tr>
 <tr> <td>hwr</td><td/><td>Handle write error, can't write inside a [`peach`](peach)</td> </tr>
 <tr> <td>insert</td> <td class="nowrap">``t:([k:0 1]a:2 3);`t insert(0;3)``</td> <td>Attempt to insert a record with an existing key into a keyed table</td> </tr>
 <tr> <td>length</td> <td class="nowrap">`()+til 1`</td> <td>Incompatible lengths</td> </tr>
@@ -81,7 +81,7 @@ instead of recursion.
 <tr> <td>stype</td> <td class="nowrap">`'42`</td> <td>Invalid [type](datatypes) used to [signal](errors/#signal)</td> </tr>
 <tr> <td>sys</td> <td>`{system "ls"}peach 0 1`</td> <td>Using system call from thread other than main thread</td> </tr>
 <tr> <td>threadview</td> <td/> <td>Trying to calc a [view](/tutorials/views) in a thread other than main thread. A view can be calculated in the main thread only. The cached result can be used from other threads.</td> </tr>
-<tr> <td>timeout</td><td/><td>Request to hopen a handle fails on a timeout; includes message from OS</td> </tr>
+<tr> <td>timeout</td><td/><td>Request to `hopen` a handle fails on a timeout; includes message from OS</td> </tr>
 <tr> <td>trunc</td> <td/> <td>The log had a partial transaction at the end but q couldn’t truncate the file.</td> </tr>
 <tr> <td>type</td> <td class="nowrap">`til 2.2`</td> <td>Wrong [type](datatypes). Also see `'limit`.</td> </tr>
 <tr> <td>type/attr error amending file</td> <td/> <td>Direct update on disk for this type or attribute is not allowed</td> </tr>
