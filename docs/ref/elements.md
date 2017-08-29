@@ -42,9 +42,50 @@ the restroom at the end of the universe
 
 </div>
 
-Lists are zero or more items, separated by semicolons, and enclosed in parentheses. An item can be any noun. 
 
-A _vector_ is a list in which all items are of the same datatype. It can be represented without parentheses. Numeric, boolean, char and symbol vectors have their own forms.
+### Atoms 
+
+An _atom_ is a single number, character, boolean, symbol, timestamp… a single instance of any [datatype](datatypes). 
+
+
+### Lists
+
+Lists are zero or more items, separated by semicolons, and enclosed in parentheses. An item can be any noun. 
+```q
+q)count(42;`ibm;2012.08.17)    /list of 3 items
+3
+```
+A list may have 0, 1 or more items. 
+```q
+q)count()              /empty list
+0
+q)count enlist 42      /1-list
+1
+q)count(42;43;44;45)   /4-list
+4
+```
+
+!!! warning "An atom is not a 1-list"
+    A list with 1 item is not an atom. The `enlist` function makes a 1-list from an atom.
+    <pre><code class="language-q">
+    q)42~enlist 42
+    0b
+    </code></pre>
+
+A list item may be a noun, function or adverb.
+```q
+q)count("abc";0000111111b;42)  /2 vectors and an atom
+3
+q)count(+;rotate;/)            /2 operators and an adverb
+3
+```
+
+
+### Vectors
+
+In a _vector_ (or _simple list_) all items are of the same datatype. 
+Char vectors are also known as _strings_.
+
 <div class="kx-compact" markdown="1">
 
 | type    | example                 |
@@ -57,13 +98,8 @@ A _vector_ is a list in which all items are of the same datatype. It can be repr
 
 </div>
 
-The syntactic class of nouns includes all data structures. Operators, functions and adverbs can be given noun syntax by listing or parenthesising them. 
-```q
-q)count(+)
-1
-q)count(+;within;\)
-3
-```
+<i class="fa fa-hand-o-right"></i> [Vector syntax](syntax/#vectors)
+
 
 ### Attributes
 
@@ -102,9 +138,58 @@ q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
 ```
 
 
-## Names and namespaces
 
-Names consist of upper- and lower-case alphabetics. They may contain, but not begin with, underscores and numbers. For example: `a`, `foo`, `foo2_bar`. 
+### Dictionaries
+
+A _dictionary_ is a map from a list of keys to a list of values. (The keys should be unique, though q does not enforce this.) The values of a dictionary can be any data structure. 
+```q
+q)/4 keys and 4 atomic values
+q)`bob`carol`ted`alice!42 39 51 44   
+bob  | 42
+carol| 39
+ted  | 51
+alice| 44
+q)/2 keys and 2 list values
+q)show kids:`names`ages!(`bob`carol`ted`alice;42 39 51 44)
+names| bob carol ted alice
+ages | 42  39    51  44
+```
+
+
+### Tables
+
+A dictionary in which the values are all lists of the same count can be flipped into a table. 
+```q
+q)count each kids
+names| 4
+ages | 4
+q)tkids:flip kids  / flipped dictionary
+names ages
+----------
+bob   42
+carol 39
+ted   51
+alice 44
+```
+Or the table specified directly using [table syntax](syntax/#tables), e.g.
+```q
+q)/a flipped dictionary is a table
+q)tkids~([]names:`bob`carol`ted`alice; ages:42 39 51 44)
+1b
+```
+Table syntax can declare one or more columns of a table as a _key_. The values of the key column/s of a table are unique. 
+```q
+q)([names:`bob`carol`bob`alice;city:`NYC`CHI`SFO`SFO]; ages:42 39 51 44)
+names city| ages
+----------| ----
+bob   NYC | 42
+carol CHI | 39
+bob   SFO | 51
+alice SFO | 44
+```
+
+
+## Names and namespaces
 
 A [namespace](https://en.wikipedia.org/wiki/Namespace) is a container or context within which a name resolves to a unique value. Namespaces are children of the _root namespace_ (usually just _root_) and are designated by a dot prefix. Names in the root have no prefix. The root namespace of a q session is parent to multiple namespaces, e.g. `h`, `Q` and `z`. (Namespaces with 1-character names – of either case – are reserved for use by Kx.) 
 ```q
@@ -142,6 +227,7 @@ Functions are:
 4. q-SQL functions, e.g. `select`
 
 Functions are first-class objects and can be passed as arguments to other functions. Functions that take other functions as arguments are known as _higher-order functions_.
+
 
 ### Reserved words
 

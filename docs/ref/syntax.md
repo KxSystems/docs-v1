@@ -32,7 +32,7 @@ the restroom at the end of the universe
 
 ## Separation
 
-The semicolon `;` is an all-purpose separator. It separates expressions, function arguments, list items, and so on.
+The semicolon `;` is an all-purpose separator. It separates expressions, [function](elements/#functions) arguments, list items, and so on.
 ```q
 q)a:5;b:3   /expressions
 q)a
@@ -56,6 +56,17 @@ q)+[2;3]    /function arguments
 
 
 ## Naming and assignment
+
+Names consist of upper- and lower-case alphabetics. They may contain, but not begin with, underscores and numbers. For example: `a`, `foo`, `foo2_bar`. 
+
+!!! warning "Underscores in names"
+    While q permits the use of underscores in names, this usage is **strongly deprecated** because it is easily confused with _drop_.
+    <pre><code class="language-q">
+    q)foo_bar:42
+    q)foo:3
+    q)bar:til 6
+    </code></pre>
+    Is `foo_bar` now `42` or `3 4 5`?
 
 Values may be named, using single or double colons. The double colon binds the value to a name in the session root; the single colon binds the name in the local context. In a session with no evaluation suspended their effects are the same.
 ```q
@@ -92,42 +103,27 @@ q)foo
 
 ## Nouns
 
-### Atoms 
+The syntactic class of [nouns](elements/#nouns) includes all data structures. 
 
-An _atom_ is a single number, character, boolean, symbol, timestamp… a single instance of any [datatype](datatypes). 
-
+!!! tip "Noun syntax for functions and adverbs"
+    Operators, functions and adverbs can be given noun syntax by listing or parenthesising them. 
+    <pre><code class="language-q">
+    q)count(+)
+    1
+    q)count(+;within;\)
+    3
+    </code></pre>
 
 ### Lists
 
-A _list_ is enclosed in parentheses, its items – if any – separated by semicolons. 
+A [_list_](elements/#lists) is enclosed in parentheses, its items – if any – separated by semicolons. 
 ```q
 q)count(42;`ibm;2012.08.17)    /list of 3 items
 3
 ```
-A list may have 0, 1 or more items. 
-```q
-q)count()              /empty list
-0
-q)count enlist 42      /1-list
-1
-q)count(42;43;44;45)   /4-list
-4
-```
-A list with 1 item is not an atom. The `enlist` function makes a 1-list from an atom.
-```q
-q)42~enlist 42
-0b
-```
-A list item may be a noun, function or adverb.
-```q
-q)count("abc";0000111111b;42)  /2 vectors and an atom
-3
-q)count(+;rotate;/)            /2 operators and an adverb
-3
-```
 
 !!! note "Functions and adverbs in lists"
-    Functions and adverbs in lists are treated as nouns, but juxtaposition becomes application, not indexing.
+    Functions and adverbs in lists are treated as nouns, but juxtaposition becomes [application](#application), not [indexing](#indexing).
     <pre><code class="language-q">
     q)(count;+/;/)1          /indexing
     +/
@@ -138,9 +134,24 @@ q)count(+;rotate;/)            /2 operators and an adverb
 
 ### Vectors
 
-A _vector_ is a _simple list_: all its items are of the same dataype. In writing a vector, parentheses and semicolons may be omitted. Char vectors are also known as _strings_.
+A [vector](elements/#vectors) can be represented without parentheses: numeric, boolean, char and symbol vectors all have distinct forms. 
+
+Char vectors are also known as _strings_.
+
+<div class="kx-compact" markdown="1">
+
+| type    | example                 |
+|---------|-------------------------|
+| numeric | `42 43 44`              |
+| date    | `2012.09.15 2012.07.05` |
+| char    | `"abc"`                 |
+| boolean | `0101b`                 |
+| symbol  | `` `ibm`att`ora``       |
+
+</div>
+
 ```q
-q)42 43 44 45~(42;43;44;45)    / simple 4-lists
+q)42 43 44 45~(42;43;44;45)    / 4-item vectors
 1b
 q)("a";"b";"c")~"abc"          / char vectors
 1b
@@ -148,55 +159,33 @@ q)3<til 10                     / boolean vector
 0000111111b
 ```
 
-!!! note "Escape characters in strings"
-    When `\` is used inside character or string displays, it serves as an escape character.
-    
-    |       |                                           |
-    |-------|-------------------------------------------|
-    | \\"   | double quote                              |
-    | \\NNN | character with octal value NNN (3 digits) |
-    | \\\\  | backslash                                 |
-    | \\n   | new line                                  |
-    | \\r   | carriage return                           |
-    | \\t   | horizontal tab                            |
+When `\` is used inside character or string displays, it serves as an escape character.
 
 
+|        |                                           |
+|--------|-------------------------------------------|
+|`\"`    | double quote                              |
+|`\NNN` | character with octal value NNN (3 digits) |
+|`\\`    | backslash                                 |
+|`\n`    | new line                                  |
+|`\r`    | carriage return                           |
+|`\t`    | horizontal tab                            |
 
-### Dictionaries
 
-A _dictionary_ is a map from a list of keys to a list of values. (The keys should be unique, though q does not enforce this.) The values of a dictionary can be any data structure. 
+### Simple tables
+A simple [table](elements/#tables) can be created by flipping a [dictionary](elements/#dictionary) in which all the values have the same count – or written directly in table syntax:
 ```q
-q)/4 keys and 4 atomic values
-q)`bob`carol`ted`alice!42 39 51 44   
-bob  | 42
-carol| 39
-ted  | 51
-alice| 44
-q)/2 keys and 2 list values
-q)show kids:`names`ages!(`bob`carol`ted`alice;42 39 51 44)
-names| bob carol ted alice
-ages | 42  39    51  44
-```
-
-
-### Tables
-
-A dictionary in which the values are all lists of the same count can be flipped into a table. Or the table specified directly using _table syntax_, e.g.
-```q
-q)count each kids
-names| 4
-ages | 4
-q)tkids:flip kids  / flipped dictionary
+q)([]names:`bob`carol`ted`alice; ages:42 39 51 44)
 names ages
 ----------
 bob   42
 carol 39
 ted   51
 alice 44
-q)/a flipped dictionary is a table
-q)tkids~([]names:`bob`carol`ted`alice; ages:42 39 51 44)
-1b
 ```
+
+
+### Keyed tables
 Table syntax can declare one or more columns of a table as a _key_. The values of the key column/s of a table are unique. 
 ```q
 q)([names:`bob`carol`bob`alice;city:`NYC`CHI`SFO`SFO]; ages:42 39 51 44)
@@ -207,6 +196,8 @@ carol CHI | 39
 bob   SFO | 51
 alice SFO | 44
 ```
+
+<i class="fa fa-hand-o-right"></i> [`!` _key_](dictsandtables/#key)
 
 ### Indexing
 
@@ -255,7 +246,7 @@ Bob   SFO  42
 
 ### Rank
 
-A function’s _rank_ is the number of arguments it takes. Functions of rank 1 or 2 are known respectively as _unary_ and _binary_. 
+A the _rank_ of a [function](elements/#functions) is the number of arguments it takes. Functions of rank 1 or 2 are known respectively as _unary_ and _binary_. 
 
 
 ### Application
@@ -367,7 +358,7 @@ A function is defined explicitly as a _signature_ (a list of up to 8 argument na
 q){[a;b] a2:a*a; b2:b*b; a2+b2+2*a*b}[20;4]  / binary function
 576
 ```
-Functions with 3 or fewer arguments may elide the signature and instead use default names `x`, `y` and `z`. 
+Functions with 3 or fewer arguments may omit the signature and instead use default names `x`, `y` and `z`. 
 ```q
 q){(x*x)+(y*y)+2*x*y}[20;4]
 576

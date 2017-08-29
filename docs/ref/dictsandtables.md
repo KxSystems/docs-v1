@@ -2,14 +2,14 @@
 
 Syntax: `x ! y`
 
-Where `x` and `y` are two lists of the same length, returns a dictionary
+Where `x` and `y` are two [lists](elements/#lists) of the same length, returns a [dictionary](elements/#dictionaries)
 ```q
 q)`a`b`c!1 2 3
 a| 1
 b| 2
 c| 3
 ```
-Because tables are collections of like dictionaries, `!` applied to each member of a list will return a table of that list. For example:
+Because [tables](elements/#tables) are collections of like dictionaries, `!` applied to each member of a list will return a table of that list. For example:
 ```
 q)(`a`b`c!)each(0 0 0;1 2 3;2 4 6)
 a b c
