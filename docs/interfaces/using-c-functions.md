@@ -70,12 +70,20 @@ and familiarity with [C client for q](/interfaces/c-client-for-q).
 **add.c**
 ```c
 #include"k.h"
-extern "C" K add(K x,K y)
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+K add(K x,K y)
 {
   if(x->t!=-KJ||y->t!=-KJ)
     return krr("type");
   return kj(x->j+y->j);
 }
+
+#ifdef __cplusplus
+}
+#endif
 ```
 Note that if compiling C (not C++), you may omit the `extern "C"`.
 
@@ -163,10 +171,10 @@ The value of the register is read in the following C code segment using a GCC-co
   */
 K q_read_cycles_of_this_cpu(K x)
 {
-           unsigned long a, d, reading;
-           asm volatile("rdtsc" : "=a" (a), "=d" (d));
-           reading = ((unsigned long long)a) | (((unsigned long long)d) << 32);
-           return kj((J)reading);
+  unsigned long a, d, reading;
+  asm volatile("rdtsc" : "=a" (a), "=d" (d));
+  reading = ((unsigned long long)a) | (((unsigned long long)d) << 32);
+  return kj((J)reading);
 }
 ```
 Note that the function takes and returns a K object. At least one K argument is required for integration into q. We compile as follows:
@@ -188,6 +196,12 @@ q)read_cycles[]-read_cycles[]
 
 Under the Linux operating system, the file /proc/cpuinfo contains many useful pieces of information on the processor cores in the system. Here we illustrate reading the current operating frequency of the first core found in this file. Note that the operating frequency may change on recent IA-32 implementations so this reading is valid only at the instant it was taken. The following function:
 ```c
+#include <fcntl.h>
+#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
+#include"k.h"
+#define MAX_PROCFILE_SIZE 32768
 /**
   * Get the current cpu frequency by reading /proc/cpuinfo, or -1
   * if there is a problem.
@@ -198,26 +212,27 @@ Under the Linux operating system, the file /proc/cpuinfo contains many useful pi
   */
 K q_get_first_cpu_frequency(K x)
 {
-           static double frequency = -1.0;
-           const char searchString[] = "cpu MHz                             : ";
-           char line[MAX_PROCFILE_SIZE];
-           int fd = open ("/proc/cpuinfo", O_RDONLY);
-           read (fd, line, MAX_PROCFILE_SIZE);
-           char* position = strstr (line, searchString);
-           if (NULL != position) {
-                       position += strlen (searchString);
-                       float f;
-                       sscanf (position, "%f", &f);
-                       frequency = (double) f;
-           }
-         return kf(frequency);
+  static double frequency = -1.0;
+  const char searchString[] = "cpu MHz";
+  char line[MAX_PROCFILE_SIZE];
+  int fd = open("/proc/cpuinfo", O_RDONLY);
+  if(fd==-1) return orr("open");
+  read (fd, line, MAX_PROCFILE_SIZE);
+  char* position = strstr (line, searchString);
+  if (position) {
+    position += strlen(searchString);
+    position = strchr(position,':');
+    sscanf (position+1, "%lf", &frequency);
+  }
+  close(fd);
+  return kf(frequency);
 }
 ```
 opens and parses the processor information file and extracts the first frequency reading. This is then wrapped as a double precison floating point number in a K object and returned.
 
 Compile as follows, and place in the l64 directory (which is searched for extensions by default):
 ```bash
-$ cc -I. -fPIC -shared -o ~/q/l64/cpu.so cpu.c
+$ cc -I. -fPIC -DKXVER=3 -shared -o $QHOME/l64/cpu.so cpu.c
 ```
 Then at a q prompt, we can load the function and use it to find the current processor frequency:
 ```q
@@ -239,6 +254,7 @@ K1(cpuf){J f;size_t l=sizeof(f);
  P(sysctlbyname("hw.cpufrequency",&f,&l,0,0),
    orr("sysctl"))R kj(f);}
 ```
+
 ```q
 q)cpuf:`cpu 2:(`cpuf;1)
 q)cpuf[]

@@ -1,14 +1,13 @@
+There are 3 cases to use C API for kdb+:
+
+1. Dynamically loaded library called by q, e.g. OS, math, analytics. [Read more](/interfaces/usinc-c-functions)
+2. Dynamically loaded library doing callbacks into q, e.g. feedhandlers([Bloomberg client](/interfaces/q-client-for-bloomberg/))
+3. C/C++ clients talking to q servers(standalone applications). e.g. feedhandlers and clients. Links with c.o/c.dll.
+
 The best way to understand the underpinnings of q, and to interact with it from C, is to start with the header file available from 
 <i class="fa fa-github"></i> [KxSystems/kdb/c/c/k.h](https://github.com/KxSystems/kdb/blob/master/c/c/k.h) .
 
-This is the file you will need to include in your C or C++ code in order to interact with q from a low level.
-
-!!! warning "Watch out"
-    The k struct changed with the release of V3.0, and if you are compiling using the C library (c.o/c.dll) stamped on or after 2012.06.25 you should ensure you use the correct k struct by defining KXVER accordingly, e.g. 
-
-    <pre><code class="language-bash">gcc -D KXVER=3 …</code></pre>
-    
-    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> [the earlier version](https://github.com/KxSystems/kdb/blob/6455fa25b0e1e5e403ded9bcec96728b4445ccac/c/c/k.h) of 2011.04.20. 
+This is the file you will need to include in your C or C++ code to interact with q from a low level.
 
 Let’s explore the basic types and their synonyms that you will commonly encounter when programming at this level. First though, it is worth noting the size of data types in 32- versus 64-bit operating systems to avoid a common mistake.
 
@@ -30,7 +29,7 @@ To provide succinct composable names, the q header defines synonyms for the comm
 
 </div>
 
-With this basic knowledge we can now tackle the types available in q+ and their matching C types and accessor functions provided in the C interface. We will see shortly how the accessor functions are used in practice.
+With this basic knowledge, we can now tackle the types available in q and their matching C types and accessor functions provided in the C interface. We will see shortly how the accessor functions are used in practice.
 
 <div class="kx-compact" markdown="1">
 
@@ -63,73 +62,83 @@ With this basic knowledge we can now tackle the types available in q+ and their 
 
 Note that the type numbers given are for vectors of that type. 
 For example, 9 for vectors of the q type float. 
-By convention, the negative value is an atom: -9 is the type of a atom float value.
+By convention, the negative value is an atom: -9 is the type of an atom float value.
 
 
 ## The K object structure
 
 The q types are all encapsulated at the C level as _K objects_. 
 Recall that k is the low-level language underlying the q language. 
-K objects are all instances of the following structure (note this is technically defining K objects as pointers to the the `k0` structure but we'll conflate the terms and refer to K objects as the actual instance).
+K objects are all instances of the following structure (note this is technically defining K objects as pointers to the `k0` structure but we'll conflate the terms and refer to K objects as the actual instance).
 
-- for V2.8 and prior
+- for V3.0 and later
+```c
+typedef struct k0{
+  signed char m,a;   // m,a are for internal use.
+  signed char t;     // The object's type
+  C u;               // The object's attribute flags
+  I r;               // The object's reference count
+  union{
+    // The atoms are held in the following members:
+    G g;H h;I i;J j;E e;F f;S s;
+    // The following members are used for more complex data.
+    struct k0*k;
+    struct{
+      J n;            // number of elements in vector
+      G G0[1];
+    };
+  };
+}*K;
+```
+
+- prior to V3.0 it is defined as
 ```c
 typedef struct k0 {
   I r;                   // The object's reference count
   H t, u;                // The object's type and attribute flags
   union {                // The data payload is contained within this union.
-     // The atoms are held in the following members:
-     G g;
-     H h;
-     I i;
-     J j;
-     E e;
-     F f;
-     S s;
-     // The following members are used for more complex data.
-     struct k0*k;
-     struct {
-       I n;
-       G G0[1];
-     };
+    // The atoms are held in the following members:
+    G g;H h;I i;J j;E e;F f;S s;
+    // The following members are used for more complex data.
+    struct k0*k;
+    struct {
+      I n;              // number of elements in vector
+      G G0[1];
+    };
   };
 }*K;
 ```
-- for V3.0 and later
-```c
-//For v3.0 and later, it is defined as
-typedef struct k0{
-  signed char m,a,t; // m,a are for internal use.
-  C u;
-  I r;
-  union{G g;H h;I i;J j;E e;F f;S s;struct k0*k;struct{J n;G G0[1];};};
-}*K;
-```
 
-As an exercise, it is instructive to count the minimum and maximum number of bytes a K object can use on your system, taking into account any padding or alignment constraints.
+As an exercise, it is instructive to count the minimum and the maximum number of bytes a K object can use on your system, taking into account any padding or alignment constraints.
 
-So, given a K object `x`, we can use the accessors noted in the table above to access elements of the object. 
-For example, given a K object containing a vector of floats, we can can access `kF(x)[42]` to get the 42nd element of the vector. 
+Given a K object `x`, we can use the accessors noted in the table above to access elements of the object. 
+For example, given a K object containing a vector of floats, we can access `kF(x)[42]` to get the 42nd element of the vector. 
 For accessing atoms, use the following accessors:
 
 <div class="kx-compact" markdown="1">
 
-| type   | accessor |
-|--------|----------|
-| byte   | `x->g`.  |
-| short  | `x->h`.  |
-| int    | `x->i`   |
-| long   | `x->j`   |
-| real   | `x->e`   |
-| float  | `x->f`   |
-| symbol | `x->s`   |
+| type   | accessor | additional types                  |
+|--------|----------|-----------------------------------|
+| byte   | `x->g`   | boolean, char                     |
+| short  | `x->h`   |                                   |
+| int    | `x->i`   | month, date, minute, second, time |
+| long   | `x->j`   | timestamp, timespan               |
+| real   | `x->e`   |                                   |
+| float  | `x->f`   | datetime                          |
+| symbol | `x->s`   | error                             |
 
 </div>
 
+!!! warning "Watch out"
+    The k struct changed with the release of V3.0, and if you are compiling using the C library (c.o/c.dll) stamped on or after 2012.06.25 you should ensure you use the correct k struct by defining KXVER accordingly, e.g. 
+
+    <pre><code class="language-bash">gcc -D KXVER=3 …</code></pre>
+    
+    If you need to link against earlier releases of the C library, you can obtain those files from <i class="fa fa-github"></i> [the earlier version](https://github.com/KxSystems/kdb/blob/6455fa25b0e1e5e403ded9bcec96728b4445ccac/c/c/k.h) of 2011.04.20. 
 
 ## Examining K objects
 
-Whether you know beforehand the type of the K objects, or you are writing a function to work over different types, it is useful to dispatch based on the type flag `x->t` for a given K object `x`.
+Whether you know beforehand the type of the K objects, or you are writing a function to work with different types, it is useful to dispatch based on the type flag `x->t` for a given K object `x`.
 
 Where `x->t` is: 
 
@@ -156,113 +165,7 @@ The next table provides the null and infinite immediate values for the q types. 
 
 </div>
 
-Null objects can be created using `ks(""),kh(nh),ki(ni),kj(nj),kp(" ")`, etc. A null guid can be created with `U g={0};ku(g);`
-
-
-## Connecting to a q server
-
-We use the `int khpu(host, port,username)` function to connect to a q server. 
-Note you _must_ call `khpu` before generating any q data, and the very first call to `khpu` must not be concurrent to other `khpu` calls. 
-To initialise memory without making a connection, use `khp("",-1);`
-
-It is highly recommended to use `khpu` and supply a meaningful username, as this will help server administrators identify a user’s connection.
-
-The `khp`,`khpu` and `khpun` functions are for use in stand-alone applications only; they are not for use within a q server via a shared library. Hence, to avoid potential confusion, these functions have been removed from more recent releases of q.
-
-A timeout can be specified with function `khpun`.
-```c
-int c=khpun("localhost",1234,"myname:mypassword",1000); // timeout in mS
-```
-Return values for `khp`/`khpu`/`khpun` are:
-```
->0 - active handle
- 0 - authentication error
--1 - error
--2 - timeout(khpun case)
-```
-Note that with the release of c.o with V2.6, c.o now tracks the connection type (pre2.6, or 2.6+). Hence to close the connection you must call `kclose` (instead of `close` or `closeSocket`) – this will clean up the connection tracking and close the socket.
-
-The `k` function is used to send messages over the connection. If a positive handle is used then the call is synchronous, otherwise it is an asynchronous call.
-```c
-// Connect to a q server on the localhost port 1234.
-int c = khpu("localhost", 1234,"myusername:mypassword"); 
-if(c<=0) {perror("Connection error");return;}
-K r = k(-c,"a:2+2",(K)0);      // Asynchronously set a to be 4 on the server.
-r = k(c,"b:til 1000000",(K)0); // Synchronously set b to be a list up to 1000000.
-r = k(c,(S)0);                 // Read incoming data (blocking call)
-```
-Note that the object returned from an async set call must not be passed to `r0`.
-
-There is no timeout argument for the `k(handle,…,(K)0)` call, but you can use socket timeouts as described below, or if you are _reading incoming async msgs_ only, you can use `select` to determine whether the handle has data pending.
-```c
-#include"k.h"
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<unistd.h>
-#include<sys/types.h>
-#include<sys/socket.h>
-#include<netinet/in.h>
-#include<arpa/inet.h>
-int main(){
-    int retval;
-    K x,r;
-    int fd=khp("localhost",9999); // In a production system, check return value
-    fd_set fds;
-    struct timeval tv;
-    while(1){
-        tv.tv_sec=5;
-        tv.tv_usec=0;
-        FD_ZERO(&fds);
-        FD_SET(fd,&fds);
-        retval=select(fd+1,&fds,NULL,NULL,&tv);
-        if(retval==-1)
-             perror("select()"),exit(1);
-        else if(retval){
-            printf("Data is available now.\n");
-            if(FD_ISSET(fd,&fds)){
-                x=k(fd,(S)0);
-                if(x){
-                  if(-128==x->t){printf("Error occurred:%s\n",x->s);return;}
-                  printf("%d\n",x->i);
-                  r0(x);
-                }
-                //else connection closed
-            }
-        }
-        else
-            printf("No data within five seconds.\n");
-    }
-    kclose(fd);
-    return 0;
-}
-```
-
-
-## Socket timeouts
-
-There are a number of reasons not to specify or implement timeouts. 
-Typically these will be hit at the least convenient of times when under load from e.g. a sudden increase in trading volumes. 
-Cascading timeouts can rapidly bring systems down and/or waste server resources. 
-But if you are convinced they are the only solution for your problem scenario, the following code may help you. 
-(Note that in the event of a timeout, you must close the connection.)
-```c
-#if defined(_WIN32) || defined(__WIN32__)
-V sst(I d,I sendTimeout,I recvTimeout){
-  setsockopt(d,SOL_SOCKET,SO_SNDTIMEO,(char*)&sendTimeout,sizeof(I));
-  setsockopt(d,SOL_SOCKET,SO_RCVTIMEO,(char*)&recvTimeout,sizeof(I));}
-#else
-V sst(I d,I sendTimeout,I recvTimeout){
-  struct timeval tv;tv.tv_sec=sendTimeout/1000;tv.tv_usec=sendTimeout%1000000;
-  setsockopt(d,SOL_SOCKET,SO_SNDTIMEO,(char*)&tv,sizeof(tv));
-  tv.tv_sec=recvTimeout/1000;tv.tv_usec=recvTimeout%1000000;
-  setsockopt(d,SOL_SOCKET,SO_RCVTIMEO,(char*)&tv,sizeof(tv));}
-#endif
-
-// usage
-int c=khpun("localhost",1234,"myname:mypassword",1000); // connect timeout 1000mS
-if(c>0) sst(c,30000,45000); // timeout sends with 30s, receives with 45s
-```
+Null objects can be created using `ks(""),kh(nh),ki(ni),kj(nj),kc(" ")`, etc. A null guid can be created with `U g={0};ku(g);`
 
 
 ## Managing memory and reference counting
@@ -274,57 +177,42 @@ The following functions are provided to interface with the q memory manager.
 
 | purpose                                        | function  |
 |------------------------------------------------|-----------|
-| Increment the object's reference count         | `r1(x)`   |
-| Decrement the object's reference count         | `r0(x)`   |
+| Increment the object's reference count         | `r1(K)`   |
+| Decrement the object's reference count         | `r0(K)`   |
 | Free up memory allocated for the thread's pool | `m9()`    |
-| Set whether interning symbols uses a lock      | `setm(f)` |
+| Set whether interning symbols uses a lock      | `setm(I)` |
 
 </div>
 
 A reference count indicates the usage of an object, allowing the same object to be used by more than one piece of code.
 
 If you create a K object through one of the ‘generator’ functions (`ki`, `kj`, `knk`, etc), you automatically have a reference to that object. 
-Once you have finished using that object, you should call `r0(x)`.
+Once you have finished using that object, you should call `r0`.
 ```c
 r0(ki(5));
 ```
 creates and immediately destroys an integer object.
 
+**Important**: Before calling any 'generator' functions in a standalone application, you must initialise kdb+ internal memory system. It is done automatically when you open a connection to other kdb+ process. Without making a connection, use `khp("",-1);`
+
 In the case of a function being called from q
-```q
+```c
 K myfunc(K x)
 {
-    return ki(5);
+  return ki(5);
 }
 ```
 the object is returned to q, and q will eventually decrement the reference count.
 
-In this scenario, the arg `x` from q is passed to the C function. If it is to be returned to q, the reference count must be incremented.
+In this scenario, the arg `x` from q is passed to the C function. If it is to be returned to q, the reference count must be incremented with `r1`.
 ```c
 K myfunc(K x)
 {
     return r1(x);
 }
 ```
-The function `k`, as in
-```c
-K r=k(handle,"functionname",params,(K)0);
-```
-requires a little more explanation.
 
-If the handle is 
-
-- &ge;0, it is a generator function, and can return 0 (indicating a network error) or a pointer to a K object. 
-If that object has type -128, it indicates an error, accessible as a null terminated string in `r->s`. When finished using this object, it should be freed through calling `r0(r)`.
-
-- &lt;0, this is for async messaging, and the return value can be either 0 (network error) or non-zero (ok). This result should _not_ be passed to `r0(r)`.
-
-K objects passed as parameters to the `k` function call have their reference counts decremented automatically on the return from that call. 
-(To continue to use the object later in that C function, after the `k` call, increment the reference count before the call.)
-```c
-K r=k(handle,"functionname",r1(param),(K)0);
-```
-It is absolutely vital to increment and decrement when adding or removing references to values that should be managed by the q runtime, in order to avoid memory leaks or access faults due to double frees.
+It is **vital** to increment and decrement when adding or removing references to values that should be managed by the q runtime, to avoid memory leaks or access faults due to double frees.
 
 Note that K objects must be freed from the thread they are allocated within, and `m9()` should be called when the thread is about to complete, freeing up memory allocated for that thread's pool. 
 Furthermore, to allow symbols to be created in other threads, `setm(1)` should be called from the main thread before any other threads are started.
@@ -341,6 +229,23 @@ printf("Reference count for x is %d\n",x->r);
 and in q with
 ```q
 -16!x
+```
+The function `k`, as in
+```c
+K r=k(handle,"functionname",params,(K)0);
+```
+requires a little more explanation.
+
+If the handle is 
+
+- &ge;0, it is a generator function, and can return 0 (indicating a network error) or a pointer to a k object. 
+If that object has type -128, it indicates an error, accessible as a null terminated string in `r->s`. When finished using this object, it should be freed by calling `r0(r)`.
+- &lt;0, this is for async messaging, and the return value can be either 0 (network error) or non-zero (success). This result should _not_ be passed to `r0`.
+
+K objects passed as parameters to the `k` function call have their reference counts decremented automatically on the return from that call. 
+(To continue to use the object later in that C function, after the `k` call, increment the reference count before the call.)
+```c
+K r=k(handle,"functionname",r1(param),(K)0);
 ```
 
 
@@ -389,13 +294,14 @@ To create
 - a simple list `K ktn(I type,J length);` 
 - a mixed list  `K knk(I n,...);` 
 
-where `length` is a positive integer. It may _not_ be `0N` (nj, null long).
+where `length` is a non-negative, non-null integer. 
 
 !!! warning "Limit of length"
-    Before V3.0. the `length` parameter had to be in the range 0…2 billion, and was type I. See KXVER sections in k.h.
+    Before V3.0. `length` had to be in the range 0…2147483647, and was type I. See KXVER sections in k.h.
 
-For example to create an integer list of 5 we say `ktn(KI,5)`. A mixed list of 5 items can be created with `ktn(0,5)` but note that each element _must_ be initialized before further usage. 
-A convenient shortcut to creating a mixed list when all items already exist at creation of the list is to use `knk`, e.g. `knk(2,kf(2.3),ktn(KI,10))`. 
+
+For example, to create an integer list of 5 we say `ktn(KI,5)`. A mixed list of 5 items can be created with `ktn(0,5)` but note that each element _must_ be initialized before further usage. 
+A convenient shortcut to creating a mixed list when all items already exist at the creation of the list is to use `knk`, e.g. `knk(2,kf(2.3),ktn(KI,10))`. 
 As we've noted, the type of a mixed list is 0, and the elements are pointers to other K objects – hence it is mandatory to initialize those n elements either via `knk` params, or explicitly setting each item when created with `ktn(0,n)`.
 
 To join
@@ -435,27 +341,27 @@ Strings and datetimes are special cases and extra utility functions are provided
 
 | purpose                            |                          |
 |------------------------------------|--------------------------|
-| Create a string                    | `K kp(string);`          |
-| Create a string of length n        | `K kpn(string, n);`      |
+| Create a char array from string    | `K kp(string);`          | 
+| Create a char array from string of length n | `K kpn(string, n);`|
 | Intern a string                    | `S ss(string);`          |
-| Intern n chars from a string       | `S sn(string, n);`       |
-| Create a q date from an integer    | `int dj(int n);`         |
-| Encode a year/month/day as an int  | `I ymd(year,month,day);` |
+| Intern n chars from a string       | `S sn(string,n);`        |
+| Convert q date to yyyymmdd integer | `I dj(date);`            |
+| Encode a year/month/day as q date <br/>`0==ymd(2000,1,1)`| `I ymd(year,month,day);` |
 
 </div>
 
-Recall that Unix time is the number of seconds since `1970.01.01T00:00:00` while q time types have an epoch of `2000.01.01T00:00:00`.
+Recall that Unix time is the number of seconds since `1970.01.01D00:00:00` while q time types have an epoch of `2000.01.01D00:00:00`.
 ```q
 q)`long$`timestamp$2000.01.01
-0j
-q)`int$2000.01.01
 0
+q)`int$2000.01.01
+0i
 ```
 Utilities to convert between Unix and q temporal types may be defined as below.
 ```c
 F zu(I u){return u/8.64e4-10957;}   // kdb+ datetime from unix
 I uz(F f){return 86400*(f+10957);}  // unix from kdb+ datetime
-J pu(I u){return 8.64e13*(u/8.64e4-10957);} // kdb+ timestamp from unix, use ktj(Kj,n) to create timestamp from n
+J pu(J u){return 1000000LL*(u-10957LL*86400000LL);} // kdb+ timestamp from unix, use ktj(Kj,n) to create timestamp from n
 I up(J f){return (f/8.64e13+10957)*8.64e4;}  // unix from kdb+ timestamp
 struct tm* lt(int kd) { time_t t = uz(kd); return localtime(&t); }
 struct tm* lt_r(int kd, struct tm* res) { time_t t = uz(kd); return localtime_r(&t, res); } 
@@ -472,14 +378,15 @@ char* ftsms(unsigned ts, char* d){char h, m, s; short mmm; tsms(ts, &h, &m, &s, 
 A symbol is a pointer to a location in an internal map of strings; that is, symbols are interned zero-terminated strings. 
 In contrast, a char vector is similar to an int vector and is instead a counted K vector as usual.
 
-In order to create a symbol we must intern a string and then use the resulting pointer in further expressions.
+When symbol is created it is automatically interned and stored in internal map of strings.
 ```c
-K someSymbol = ks(ss("some symbol"));
+K someSymbol = ks("some symbol");     // "some symbol" is placed into internal map
 K nullSymbol = ks("");
 ```
-(As of V2.4, `ks` calls `ss` internally. 
-It is still necessary to intern strings before storing them in a symbol vector, e.g. `kS(v)[i] = ss("some symbol");`.)
-
+When storing strings in symbol vector, they should be interned manually using `ss` function, i.e.
+```c
+kS(v)[i] = ss("some symbol");
+```
 
 ## Creating dictionaries and tables
 
@@ -489,13 +396,13 @@ To create
 - a table from a dict: `K xT(K);` 
 - a simple table from a keyed table: `K ktd(K);` 
 
-Recall that a dictionary is a K object of type 99. It contains a list of two K objects; the keys and the values. We can use `kK(x)[0]` and `kK(x)[1]` to get these contained data. 
-Also recall that a simple table (a ‘flip’) is a K object of type 98. 
-In terms of the K object, this is an atom that points to a dictionary. 
-This means that to access the columns we can use the `kK(x->k)[0]` accessor and the `kK(x->k)[1]` for the values.
+A dictionary is a K object of type 99. It contains a list of two K objects; the keys and the values. We can use `kK(x)[0]` and `kK(x)[1]` to get these contained data.
 
-A table with primary keys is a dictionary which maps a simple table to another simple table. 
-The following example shows the steps to create a table with primary keys:
+A simple table (a ‘flip’) is a K object of type 98. In terms of the K object, this is an atom that points to a dictionary. This means that to access the columns we can use the `kK(x->k)[0]` accessor and the `kK(x->k)[1]` for the values.
+
+A keyed table is a dictionary where keys and values are both simple tables. Keyed table has type 99.
+
+The following example shows the steps to create a keyed table:
 ```c
 K maketable(){
   K c,d,e,v,key,val;
@@ -515,28 +422,128 @@ K maketable(){
 ```
 Although we can thus access the data using the accessors already introduced, you many find it easier to first convert it to a simple table before manipulating it in C.
 ```c
-/*
-   Get a keyed table by executing a query.
-*/
-K x = k(h, "select sum size by sym", (K)0);
-if(!x) perror("network error");
-if(-128==x->t) { printf("Error occurred:%s\n",x->s);return;}
-/*
-   Convert the result to a simple table.
-   NB. x is no longer valid and has been deallocated.
-*/
+// Get a keyed table
+K x = maketable();
+
+// Convert the result to a simple table.
 K y=ktd(x);
 
 /*
-   Note that if the ktd conversion fails for any reason,
-   it returns 0 and x is not freed.
-   since 2011-01-27, ktd always decrements ref count of input.
+ Note that if the ktd conversion fails for any reason,
+ it returns 0 and x is not freed.
+ since 2011-01-27, ktd always decrements ref count of input.
 */
-if (0 == y)
-    (void) printf("x is still a keyed table because the conversion failed.");
+if (!y)
+  printf("x is still a keyed table because the conversion failed.");
 else
-    (void) printf("y is a simple table and x has been deallocated.");
+  printf("y is a simple table and x has been deallocated.");
 ```
+
+## Connecting to a q server
+
+We use the `int khpu(host, port,username)` function to connect to a q server. 
+Note you _must_ call `khpu` before generating any q data, and the very first call to `khpu` must not be concurrent to other `khpu` calls. 
+To initialise memory without making a connection, use `khp("",-1);`
+
+It is highly recommended to use `khpu` and supply a meaningful username, as this will help server administrators identify a user’s connection.
+
+The `khp`,`khpu` and `khpun` functions are for use in stand-alone applications only; they are not for use within a q server via a shared library. Hence, to avoid potential confusion, these functions have been removed from more recent releases of q.
+
+A timeout can be specified with function `khpun`.
+```c
+int c=khpun("localhost",1234,"myname:mypassword",1000); // timeout in mS
+```
+Return values for `khp`/`khpu`/`khpun` are:
+```
+>0 - active handle
+ 0 - authentication error
+-1 - error
+-2 - timeout(khpun case)
+```
+Note that with the release of c.o with V2.6, c.o now tracks the connection type (pre2.6, or 2.6+). Hence to close the connection you must call `kclose` (instead of `close` or `closeSocket`) – this will clean up the connection tracking and close the socket.
+
+The `k` function is used to send messages over the connection. If a positive handle is used then the call is synchronous, otherwise it is an asynchronous call.
+```c
+// Connect to a q server on the localhost port 1234.
+int c = khpu("localhost", 1234,"myusername:mypassword"); 
+if(c<=0) {perror("Connection error");return;}
+K r = k(-c,"a:2+2",(K)0);      // Asynchronously set a to be 4 on the server.
+r = k(c,"b:til 1000000",(K)0); // Synchronously set b to be a list up to 1000000.
+r = k(c,(S)0);                 // Read incoming data (blocking call)
+```
+Note that the object returned from an async set call must not be passed to `r0`.
+
+There is no timeout argument for the `k(handle,…,(K)0)` call, but you can use socket timeouts as described below, or if you are _reading incoming async msgs_ only, you can use `select` to determine whether the handle has data pending.
+```c
+#include"k.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+int main(){
+  int retval;
+  K x,r;
+  int fd=khp("localhost",9999); // In a production system, check return value
+  fd_set fds;
+  struct timeval tv;
+  while(1){
+    tv.tv_sec=5;
+    tv.tv_usec=0;
+    FD_ZERO(&fds);
+    FD_SET(fd,&fds);
+    retval=select(fd+1,&fds,NULL,NULL,&tv);
+    if(retval==-1)
+      perror("select()"),exit(1);
+    else if(retval){
+      printf("Data is available now.\n");
+      if(FD_ISSET(fd,&fds)){
+        x=k(fd,(S)0);
+        if(x){
+          if(-128==x->t){printf("Error occurred:%s\n",x->s);return;}
+          printf("%d\n",x->i);
+          r0(x);
+        }
+        //else connection closed
+      }
+    }
+    else
+      printf("No data within five seconds.\n");
+  }
+  kclose(fd);
+  return 0;
+}
+```
+
+
+## Socket timeouts
+
+There are a number of reasons not to specify or implement timeouts. 
+Typically these will be hit at the least convenient of times when under load from e.g. a sudden increase in trading volumes. 
+Cascading timeouts can rapidly bring systems down and/or waste server resources. 
+But if you are convinced they are the only solution for your problem scenario, the following code may help you. 
+(Note that in the event of a timeout, you must close the connection.)
+```c
+#if defined(_WIN32) || defined(__WIN32__)
+V sst(I d,I sendTimeout,I recvTimeout){
+  setsockopt(d,SOL_SOCKET,SO_SNDTIMEO,(char*)&sendTimeout,sizeof(I));
+  setsockopt(d,SOL_SOCKET,SO_RCVTIMEO,(char*)&recvTimeout,sizeof(I));}
+#else
+V sst(I d,I sendTimeout,I recvTimeout){
+  struct timeval tv;tv.tv_sec=sendTimeout/1000;tv.tv_usec=sendTimeout%1000000;
+  setsockopt(d,SOL_SOCKET,SO_SNDTIMEO,(char*)&tv,sizeof(tv));
+  tv.tv_sec=recvTimeout/1000;tv.tv_usec=recvTimeout%1000000;
+  setsockopt(d,SOL_SOCKET,SO_RCVTIMEO,(char*)&tv,sizeof(tv));}
+#endif
+
+// usage
+int c=khpun("localhost",1234,"myname:mypassword",1000); // connect timeout 1000mS
+if(c>0) sst(c,30000,45000); // timeout sends with 30s, receives with 45s
+```
+
 
 
 ## Bulk transfers
@@ -546,10 +553,10 @@ A kdb+tick feed handler can send one record at a time, like this
 I kdbSocketHandle = khpu("localhost", 5010, "username");
 if (kdbSocketHandle > 0)
 {
-    K row = knk(3, ks((S)"ibm"), kf (93.5), ki(300));
-    K r = k(-kdbSocketHandle, ".u.upd", ks((S)"trade"), row, (K)0);
-    if(!r) { perror("network error"); return;}
-    kclose(kdbSocketHandle);
+  K row = knk(3, ks((S)"ibm"), kf(93.5), ki(300));
+  K r = k(-kdbSocketHandle, ".u.upd", ks((S)"trade"), row, (K)0);
+  if(!r) { perror("network error"); return;}
+  kclose(kdbSocketHandle);
 }
 ```
 or send multiple records at a time:
@@ -558,9 +565,9 @@ int n = 100;
 S sid[] = {"ibm","gte","kvm"};
 K x = knk(3, ktn(KS, n), ktn(KF, n), ktn(KI, n));
 for(int i=0; i<n ; i++) {
-    kS(xK[0])[i] = ss(sid[i%3]);
-    kF(xK[1])[i] = 0.1*i;
-    kI(xK[2])[i] = i;
+  kS(kK(x)[0])[i] = ss(sid[i%3]);
+  kF(kK(x)[1])[i] = 0.1*i;
+  kI(kK(x)[2])[i] = i;
 }
 K r = k(-kdbSocketHandle, ".u.upd", ks((S)"trade"), x, (K)0);
 if(!r) perror("network");
@@ -576,12 +583,12 @@ It is similar to `krr(S)`, but it appends a system error message to the user-pro
 Note that `krr` does not create a copy of the string passed to it. 
 It is the user’s responsibility to ensure the string is valid for the expected lifetime of the error.
 
-To catch an error code from the results of a call to `r=k(h, …)`, check the return type. 
-If it is 0 (null), then a network error has occurred. 
-If it has type -128, then `r->s` will point to the error string.
+To catch an error code from the results of a call to `r=k(h, …)`, check the return value and type. 
+If result is `NULL`, then a network error has occurred. 
+If it has type -128, then `r->s` will point to the error string. Note that K object with type -128 acts as a marker only and other uses are not supported(i.e. passing it to other C API or kdb+ functions).
 ```c
-K r=k(handle, "f", arg1, arg2, NULL);
-if(-128==r->t)
+K r=k(handle, "f", arg1, arg2, (K)0);
+if(r && -128==r->t)
   printf("error string: %s\n", r->s);
 ```
 Under some network-error scenarios, `errno` can be used to obtain the details of the error,
@@ -590,15 +597,15 @@ e.g. `perror(“network”);`
 
 ## Return values
 
-If your own C function, called from q, has nothing to return to q, it can return `(K)0`.
+If your C function, called from q, has nothing to return to q, it can return `(K)0`.
 ```c
 K doSomething(K x)
 {
-    // do something with x;
-    return (K)0;
+  // do something with x;
+  return (K)0;
 }
 ```
-From a standalone C app, it can sometimes be convenient to return the identity function `(::)`. 
+From a standalone C application, it can sometimes be convenient to return the identity function `(::)`. 
 This atom can be created with
 ```c
 K identity(){
@@ -611,7 +618,7 @@ K identity(){
 
 ## Callbacks
 
-The `void sd0(I)` and `K sd1(I, K(*)(I))` functions are for use with callbacks, and are available only within q itself, i.e. used from a shared library loaded into q. 
+The `void sd0(I)` and `K sd1(I, K(*)(I))` functions are for use with callbacks and are available only within q itself, i.e. used from a shared library loaded into q. 
 The value of the file descriptor passed to `sd1` must be 0 &lt; `fd` &lt; 1024, and 1021 happens to be the maximum number of supported connections (recalling 0, 1, 2 used for stdin,stdout,stderr).
 ```c
 sd1(d,f);
@@ -619,9 +626,10 @@ sd1(d,f);
 puts the function `K f(I d){…}` on the q main event loop given a socket `d` (or `-d` for non-blocking). 
 The function `f` should return `(K)0` or a pointer to a K object, and its reference count will be decremented.
 ```c
-sd0(d); sd0x(d,1);
+sd0(d); 
+sd0x(d,1);
 ```
-Each of the above calls removes the callback on `d` and calls `close(d)`.  `sd0x(I d,I f)` was introduced in V3.0 2013.04.04: its second argument indicates whether to call `close(d)`.
+Each of the above calls removes the callback on `d` and calls `kclose(d)`.  `sd0x(I d,I f)` was introduced in V3.0 2013.04.04: its second argument indicates whether to call `kclose(d)`.
 
 On Linux, `eventfd` can be used with `sd1` and `sd0`. Given a file efd.c
 ```c
@@ -629,10 +637,10 @@ On Linux, `eventfd` can be used with `sd1` and `sd0`. Given a file efd.c
 // gcc -shared -m64 -DKXVER=3 efd.c -o efd.so -fPIC
 // or
 // g++ -shared -m64 -DKXVER=3 efd.cpp -o efd.so -fPIC
-#include"k.h"
 #include<stdio.h>
 #include<sys/eventfd.h>
 #include<unistd.h>
+#include"k.h"
 #ifdef __cplusplus
 extern"C"{
 #endif
@@ -662,14 +670,15 @@ Callbacks from `sd1` are executed on the main thread of q.
 
 The `K b9(I,K)` and `K d9(K)` functions serialize and deserialize K objects.
 ```c
-b9(preserveEnumerations,kObject);
+b9(mode,kObject);
 ```
 will generate a K byte vector that contains the serialized data for `kObject`. 
-Since V3.0, for shared libraries loaded into q the value for `preserveEnumerations` must be -1. 
-For standalone applications binding with c.o/c.dll, or shared libraries prior to V3.0, the values for `preserveEnumerations` can be
+Since V3.0, for shared libraries loaded into q the value for `mode` must be -1. 
+For standalone applications binding with c.o/c.dll, or shared libraries prior to V3.0, the values for `mode` can be
 
 value | effect
 ------|------
+-1| use within shared libraries only in V3.0
 0 | unenumerate, block serialization of timespan and timestamp (For working with versions prior to 2.6).
 1 | retain enumerations, allow serialization of timespan and timestamp. (Useful for passing data between threads).
 2 | unenumerate, allow serialization of timespan and timestamp
@@ -684,7 +693,7 @@ If you are concerned that the byte vector that you wish to deserialize may be co
 ```c
 unsigned char bytes[]={0x01,0x00,0x00,0x00,0x0f,0x00,0x00,0x00,0xf5,0x68,0x65,0x6c,0x6c,0x6f,0x00}; // -8!`hello
 K r,x=ktn(KG,sizeof(bytes));
-memcpy(kG(x),bytes,sizeof(bytes));
+memcpy(kG(x),bytes,x->n);
 int ok=okx(byteVector);
 if(ok){
   r=d9(byteVector);
@@ -697,7 +706,7 @@ else
 
 ## Miscellaneous
 
-The `K dot (K x, K y)` function is the same as the q function `.[x;y]`.
+The `K dot(K x, K y)` function is the same as the q function `.[x;y]`.
 ```q
 q).[{x+y};(1 2;3 4)]
 4 6
@@ -730,7 +739,7 @@ q).lib.f2 . 42 43
 
 It can be a struggle printing q values from a debugger, but you can call the handy k.h macros in gdb like `xt`, `xC`, `xK`, …
 
-If your client is an extension, you might get away with `p k(0,"show",r1(x),(K)0)`
+If your client is a shared library, you might get away with `p k(0,"show",r1(x),(K)0)`
 
 !!! tip
     [This section of the gdb manual](https://sourceware.org/gdb/onlinedocs/gdb/Macros.html) might help you.
@@ -833,5 +842,5 @@ Summary
 
 ## Example
 
-- <i class="fa fa-github"></i> [github.com/kxcontrib/wiki/csv.c](https://github.com/kxcontrib/wiki/blob/master/csv.c) – CSV export example in C <!--FIXME-->
+- <i class="fa fa-github"></i> [csv.c](https://github.com/kxcontrib/wiki/blob/master/csv.c) – CSV export example in C <!--FIXME-->
 
