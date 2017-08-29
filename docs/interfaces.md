@@ -149,6 +149,7 @@ about new repositories.</div>
 <tr><td>Betfair</td><td><i class="fa fa-github"></i> [picoDoc/betfair-data-capture](https://github.com/picoDoc/betfair-data-capture)</td></tr>
 <tr><td><i class="fa fa-bitcoin"></i> Bitcoin</td><td><i class="fa fa-github"></i> [bitmx/btceQ](https://github.com/bitmx/btceQ)</td></tr>
 <tr><td>Bloomberg</td><td>[Q client for Bloomberg](/interfaces/q-client-for-bloomberg)</td></tr>
+<tr><td>[BosonNLP](http://bosonnlp.com/)</td><td><i class="fa fa-github"></i> [FlyingOE/q_BosonNLP](https://github.com/FlyingOE/q_BosonNLP) ==new==</td></tr>
 <tr><td>CUDA</td><td>[GPUs](/interfaces/gpus/)</td></tr>
 <tr><td>Expat XML parser</td><td><i class="fa fa-github"></i> [felixlungu/qexpat](https://github.com/felixlungu/qexpat)</td></tr>
 <tr><td>ForexConnect</td><td><i class="fa fa-github"></i> [mortensorensen/qfxcm](https://github.com/mortensorensen/qfxcm)</td></tr>

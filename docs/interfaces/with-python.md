@@ -21,6 +21,7 @@ $ pyq
 &gt;&gt;&gt; q.insert('trade', (date(2006,10,6), 'MSFT', 100))
 </code></pre>
 - display the result
+<!-- Prism cannot render the code block if a child of list item -->
 ```python
 >>> q.trade.show()
 date       sym  qty
@@ -38,7 +39,7 @@ date       sym  qty
 k('+`date`sym`qty!(,2006.10.06;,`IBM;,200)')
 </code></pre>
 - pretty-print the result
-
+<!-- Prism cannot render code block if a child of list item -->
 ```python
 >>> q.show(_)
 date       sym  qty
