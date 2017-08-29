@@ -207,6 +207,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/KxSystems/kdb/blob/master/utils/dbmaint.md">dbmaint</a></td>
+<td>Database maintenance utilities. <span class="author"><a href="https://github.com/kxsystems?tab=repositories">
+						(Kx Systems)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/simongarland/diskdelete">diskdelete</a></td>
 <td>Delete data from disk directly, loading one col at a time rather than whole table. Preserves attributes. Goes to ridiculous lengths to avoid writing. <span class="author"><a href="https://github.com/simongarland?tab=repositories">
 						(Simon Garland)
