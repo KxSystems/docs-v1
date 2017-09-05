@@ -152,6 +152,7 @@ about new repositories.</div>
 <tr><td>[BosonNLP](http://bosonnlp.com/)</td><td><i class="fa fa-github"></i> [FlyingOE/q_BosonNLP](https://github.com/FlyingOE/q_BosonNLP) ==new==</td></tr>
 <tr><td>CUDA</td><td>[GPUs](/interfaces/gpus/)</td></tr>
 <tr><td>Expat XML parser</td><td><i class="fa fa-github"></i> [felixlungu/qexpat](https://github.com/felixlungu/qexpat)</td></tr>
+<tr><td>[Factom](https://www.factom.com/) blockchain</td><td><i class="fa fa-github"></i> [jlucid/qfactom](https://github.com/jlucid/qfactom) ==new==</td></tr>
 <tr><td>ForexConnect</td><td><i class="fa fa-github"></i> [mortensorensen/qfxcm](https://github.com/mortensorensen/qfxcm)</td></tr>
 <tr><td>Interactive Brokers</td><td><i class="fa fa-github"></i> [mortensorensen/QInteractiveBrokers](https://github.com/mortensorensen/QInteractiveBrokers)</td></tr>
 <tr><td>J</td><td>[Q client for J](/interfaces/q-client-for-j/)</td></tr>
@@ -164,6 +165,7 @@ about new repositories.</div>
 <tr><td>Reuters</td><td><i class="fa fa-github"></i> [KxSystems/kdb/c/feed/rfa.zip](https://github.com/KxSystems/kdb/blob/master/c/feed/rfa.zip)</td></tr>
 <tr><td>TSE FLEX</td><td><i class="fa fa-github"></i> [Naoki-Yatsu/TSE-FLEX-Converter](https://github.com/Naoki-Yatsu/TSE-FLEX-Converter)</td></tr>
 <tr><td><i class="fa fa-twitter"></i> Twitter</td><td><i class="fa fa-github"></i> [gartinian/kdbTwitter](https://github.com/gartinian/kdbTwitter)</td></tr>
+<tr><td>[Wind资讯](http://www.wind.com.cn/en/)</td><td><i class="fa fa-github"></i> [FlyingOE/q_Wind](https://github.com/FlyingOE/q_Wind)</td></tr>
 <tr><td><i class="fa fa-yahoo"></i> Yahoo!</td><td><i class="fa fa-github"></i> [fdeleze/tickYahoo](https://github.com/fdeleze/tickYahoo)</td></tr>
 </table>
 
