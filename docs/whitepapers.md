@@ -34,6 +34,7 @@
 * [An introduction to **graphical interfaces** for kdb+ using C#](wp/an_introduction_to_graphical_interfaces_for_kdb_using_csharp.pdf)
 * [Order Book: a kdb+ **intraday storage and access** methodology](wp/order_book_a_kdb_intraday_storage_and_access_methodology.pdf)
 * [**Intraday writedown** solutions](wp/intraday_writedown_solutions.pdf)
+* [**Machine learning** in kdb+: k-Nearest Neighbor classification and pattern recognition with q](wp/machine_learning_in_kdb.pdf) ==new==
 * [Sample aggregation engine for **market depth**](wp/sample_aggregation_engine_for_market_depth.pdf)
 * [Market Fragmentation: a kdb+ framework for **multiple liquidity sources**](wp/market_fragmentation_a_kdb_framework_for_multiple_liquidity_sources.pdf)
 * [**Multi-partitioned** kdb+ databases: an equity options case study](wp/multi_partitioned_kdb_databases_an_equity_options_case_study.pdf)
