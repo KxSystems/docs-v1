@@ -319,7 +319,7 @@ Returns the [datatype](datatypes) of `x` as a short integer atom: negative for a
 <tr><td class="nowrap">109</td><td/><td colspan="7">f':</td><td/><td/><td/></tr>
 <tr><td class="nowrap">110</td><td/><td colspan="7">f/:</td><td/><td/><td/></tr>
 <tr><td class="nowrap">111</td><td/><td colspan="7">f\:</td><td/><td/><td/></tr>
-<tr><td class="nowrap">111</td><td/><td colspan="7">dynamic load</td><td/><td/><td/></tr>
+<tr><td class="nowrap">112</td><td/><td colspan="7">dynamic load</td><td/><td/><td/></tr>
 </tbody>
 </table>
 

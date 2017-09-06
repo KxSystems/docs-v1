@@ -60,7 +60,7 @@ Primitive datatypes are in the range ± `1h` to `19h`: positive for a vector, ne
 <tr><td class="nowrap">109</td><td/><td colspan="7">f':</td><td/><td/><td/></tr>
 <tr><td class="nowrap">110</td><td/><td colspan="7">f/:</td><td/><td/><td/></tr>
 <tr><td class="nowrap">111</td><td/><td colspan="7">f\:</td><td/><td/><td/></tr>
-<tr><td class="nowrap">111</td><td/><td colspan="7">dynamic load</td><td/><td/><td/></tr>
+<tr><td class="nowrap">112</td><td/><td colspan="7">dynamic load</td><td/><td/><td/></tr>
 </tbody>
 </table>
 
