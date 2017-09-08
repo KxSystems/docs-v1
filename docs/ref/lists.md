@@ -291,6 +291,11 @@ a b c
 1 3 4
 ```
 
+!!! tip "Atoms to lists"
+    If you need to ensure, say, all items in a list are themselves lists and not atoms, use the ‘ravel’ expression `(),`, which leaves lists unchanged. 
+
+    For example, `{(),x} each foo` converts any atoms in list `foo` into singleton lists.
+
 
 ## `^` (fill)
 
