@@ -89,7 +89,6 @@ pages:
     - Semantics:
       - Arithmetic (integer): ref/arith-integer.md
       - Arithmetic (float): ref/arith-float.md
-      - Callbacks: ref/dotz.md
       - Casting & encoding: ref/casting.md
       - Comparison: ref/comparison.md
       - Database: ref/database.md
@@ -119,6 +118,7 @@ pages:
       - Statistics (aggregates): ref/stats-aggregates.md
       - Statistics (moving): ref/stats-moving.md
       - Strings: ref/strings.md
+      - System & callbacks: ref/dotz.md
       - Trigonometry: ref/trig.md
       - Unclassified: ref/unclassified.md
       - Utilities: ref/dotq.md

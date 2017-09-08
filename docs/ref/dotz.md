@@ -5,8 +5,39 @@ The `.z` namespace contains system variables and functions, and hooks for callba
 
     Consider all undocumented functions in the namespace as its private API – and do not use them. 
 
+```
+System information                Callbacks
+----------------------------------------------------------------
+.z.a    IP address                .z.ac    HTTP auth from cookie
+.z.b    dependencies              .z.bm    msg validator
+.z.c    cores                     .z.exit  action on exit
+.z.D/d  date shortcuts            .z.pc    close
+.z.e    TLS connection status     .z.pd    peach handles
+.z.f    file                      .z pg    get
+.z.h    host                      .z.ph    HTTP get
+.z.i    PID                       .z.pi    input
+.z.K    version                   .z.po    open
+.z.k    release date              .z.pp    HTTP post
+.z.l    license                   .z.ps    set
+.z.N/n  local/UTC timespan        .z.pw    validate user
+.z.o    OS version                .z.ts    timer
+.z.P/p  local/UTC timestamp       .z.vs    value set
+.z.pm   HTTP options              .z.wc    WebSocket close
+.z.q    quiet mode                .z.wo    WebSocket open
+.z.s    self
+.z.T/t  time shortcuts
+.z.u    user ID
+.z.W/w  handles/handle
+.z.ws   WebSockets
+.z.X/x  raw/parsed command line 
+.z.Z/z  local/UTC datetime
+```
 
-## `.z.a` (IP address)
+
+## System information
+
+
+### `.z.a` (IP address)
 
 Syntax: `.z.a`
 
@@ -22,7 +53,386 @@ q)"i"$0x0 vs .z.a
 ```
 
 
-## `.z.ac` (HTTP auth from cookie)
+### `.z.b` (dependencies)
+
+Syntax: `z.b`
+
+Returns the dependency dictionary.
+```q
+q)a::x+y
+q)b::x+1
+q).z.b
+x| `a`b
+y| ,`a
+```
+
+<i class="fa fa-hand-o-right"></i> [`\b`](syscmds/#b-views)
+
+
+### `.z.c` (cores)
+
+Syntax: `.z.c`
+
+Returns number of physical cores. 
+
+
+### `.z.e` (TLS connection status)
+
+Syntax: `.z.e`
+
+TLS connection status now reported via `.z.e`
+```q
+q)0N!h".z.e";
+`CIPHER`PROTOCOL!`AES128-GCM-SHA256`TLSV1.2
+```
+Since V3.4 2016.05.16.
+
+
+### `.z.f` (file)
+
+Syntax: `.z.f`
+
+Returns the name of the q script as a symbol.
+```q
+$ q test.q
+q).z.f
+`test.q
+```
+<i class="fa fa-hand-o-right"></i> [`.z.x` argv](#zx-argv)
+
+
+### `.z.h` (host)
+
+Syntax: `.z.h`
+
+Returns the host name as a symbol
+```
+q).z.h
+`demo.kx.com
+```
+On Linux this should return the same as the shell command 'hostname'. If you require a fully qualified domain name, and the hostname command returns a hostname only (with no domain name), this should be resolved by your system administrators. Often this can be traced to the ordering of entries in /etc/hosts, e.g.
+
+Non-working /etc/host look like :
+```
+127.0.0.1      localhost.localdomain localhost
+192.168.1.1  myhost.mydomain.com myhost
+```
+Working one has this ordering :
+```
+127.0.0.1      localhost.localdomain localhost
+192.168.1.1  myhost myhost.mydomain.com
+```
+One solution seems to be to flip around the entries, i.e. so the entries should be
+```
+ip hostname fqdn
+```
+A work around from within kdb+ is
+```q
+q).Q.host .z.a
+```
+
+
+### `.z.i` (PID)
+
+Syntax: `.z.i`
+
+Returns the process ID as an integer.
+```q
+q).z.i
+23219
+```
+
+
+### `.z.K` (version)
+
+Syntax: `.z.K`
+
+Returns as a float the major version number of the version of kdb+ being used (so a test version of 2.4t will be reported as 2.4)
+```q
+q).z.K
+2.4
+q).z.k
+2006.10.30
+```
+<i class="fa fa-hand-o-right"></i> [`.z.k` release date](#zk-release-date)
+
+
+### `.z.k` (release date)
+
+Syntax: `.z.k`
+
+Returns the date on which the version of kdb+ being used was released.
+```q
+q).z.k
+2006.10.30
+q)
+```
+This value is checked against `.Q.k` as part of the startup to make sure that the executable and the version of q.k being used are compatible.
+<i class="fa fa-hand-o-right"></i> [`.z.K` version](#zk-version)
+
+
+### `.z.l` (license)
+
+Syntax: `.z.l`
+
+Returns the license information as a list of strings; `()` for PLAY mode (non-commercial 32-bit versions 2.5 onwards).
+```q
+q).z.l
+("8";"2007.09.01";"2007.09.01";,"1";,"1";,"1";,"0";"text #4NNNN")
+```
+The important fields are `(maxCoresAllowed;expiryDate;updateDate;…;bannerText)`.
+
+`bannerText` is the custom text displayed at startup, and always contains the license number as the last token.
+
+
+### `.z.N` (local timespan)
+
+Syntax: `.z.N`
+
+Returns system local time as timespan in nanoseconds.
+(V2.6 upwards.)
+```q
+q).z.N
+0D23:30:10.827156000
+```
+
+
+### `.z.n` (UTC timespan)
+
+Syntax: `.z.n`
+
+Returns system UTC time as timespan in nanoseconds.
+(V2.6 upwards.)
+```q
+q).z.n
+0D23:30:10.827156000
+```
+
+
+### `.z.o` (OS version)
+
+Syntax: `.z.o`
+
+Returns the kdb+ operating system version as a symbol.
+```q
+q).z.o
+`w32
+```
+Current values are `w32`, `w64`, `l32`, `l64`, `s32`, `s64` (Solaris), `v64` (Solaris on Intel).
+
+Note this is the version of the kdb+ executable, NOT the OS itself. You may be running both 32-bit and 64-bit versions of kdb+ on the same machine to support older external interfaces.
+
+
+### `.z.P` (local timestamp)
+
+Syntax: `.z.P`
+
+Returns system localtime timestamp in nanoseconds. 
+(Since V2.6.)
+```q
+q).z.P
+2009.08.10D09:16:44.378274000
+```
+
+
+### `.z.p` (UTC timestamp)
+
+Syntax: `.z.P`
+
+Returns system localtime timestamp in nanoseconds. 
+(Since V2.6.)
+```q
+q).z.p
+2009.08.10D09:16:44.378274000
+```
+
+
+### `.z.pm` (HTTP options)
+
+Pass HTTP OPTIONS method through to `.z.pm` as (`` `OPTIONS;requestText;requestHeaderDict)``
+
+==FIXME==
+
+
+### `.z.q` (quiet mode)
+
+Syntax: `.z.q`
+
+Returns `1b` if Quiet Mode is set, else `0b`.
+
+
+### `.z.s` (self)
+
+Syntax: `.z.s`
+
+Returns the current function.
+```q
+q){.z.s}[]
+{.z.s}
+```
+Can be used to generate recursive function calls.
+```q
+q)fact:{$[x<=0;1;x*.z.s x-1]}
+q)fact[5]
+120
+```
+Note this is purely an example; there are other ways to achieve the same result.
+
+
+### `.z.u` (user ID)
+
+Syntax: `.z.u`
+
+Returns user's name as a symbol.
+```q
+q).z.u
+`demo
+```
+
+
+### `.z.W` (handles)
+
+Syntax: `.z.W`
+
+Returns a dictionary of IPC handles with the number of bytes waiting in their output queues.
+(Since V2.5 2008.12.31.) In V2.6 this was changed to a list of bytes per handle, see [Changes in V2.6](releases/ChangesIn2.6/#zw)
+```q
+q)h:hopen ...
+q)h
+3
+q)neg[h]({};til 1000000); neg[h]({};til 10); .z.W
+3| 4000030 70
+q)sum each .z.W
+3| 0
+```
+
+
+### `.z.w` (handle)
+
+Syntax: `.z.w`
+
+Returns the connection handle, 0 for current session console. 
+```q
+q).z.w
+0i
+```
+
+!!! note 
+    When called inside a `.z.p?` callback it is the handle of the client session, not the current session.
+
+
+### `.z.X` (raw command line)
+
+Syntax: `.z.X`
+
+Returns a list of strings of the raw, unfiltered command line with which kdb+ was invoked, including the name under which q was invoked, as well as single-letter arguments. 
+(Since V3.3 2015.02.12)
+```bash
+$ q somefile.q -customarg 42 -p localhost:17200
+```
+```q
+KDB+ 3.4 2016.09.22 Copyright (C) 1993-2016 Kx Systems
+m64/ 4()core 8192MB ...
+q).z.X
+,"q"
+"somefile.q"
+"-customarg"
+"42"
+"-p"
+"localhost:17200"
+```
+
+
+### `.z.x` (argv)
+
+Syntax: `.z.x`
+
+Returns the command line arguments as a list of strings
+```q
+$ q test.q -P 0 -abc 123
+q).z.x
+("-abc";"123")
+```
+Note that the script name and the single-letter options used by q itself are not included.
+
+Command-line options can be converted to a dictionary using the convenient `.Q.opt` function.
+```bash
+$ q -abc 123 -xyz 321
+```
+```q
+q).Q.opt .z.x
+abc| "123"
+xyz| "321"
+```
+Defaults and types can be provided with `.Q.def`.
+```bash
+$ q -abc 123 -xyz 321
+```
+```q
+q).Q.def[`abc`xyz`efg!(1;2.;`a)].Q.opt .z.x
+abc| 123
+xyz| 321f
+efg| `a
+q)\\
+```
+```bash
+$ q -abc 123 -xyz 321 -efg foo
+```
+```q
+q).Q.def[`abc`xyz`efg!(1;2.;`a)].Q.opt .z.x
+abc| 123
+xyz| 321f
+efg| `foo
+```
+
+<i class="fa fa-hand-o-right"></i> [`.z.f` file](#zf-file)
+
+
+### `.z.Z` (local datetime)
+
+Syntax: `.z.Z`
+
+Returns local time as a datetime atom.
+```q
+q).z.Z
+2006.11.13T21:16:14.601
+```
+The offset from UTC is fetched from the OS: kdb+ does not have its own time-offset database. 
+
+Which avoids problems like [this](http://it.slashdot.org/article.pl?sid=07/02/25/2038217).
+
+
+### `.z.z` (UTC datetime)
+
+Syntax: `.z.z`
+
+Returns UTC time as a datetime atom.
+```q
+q).z.Z
+2006.11.13T21:16:14.601
+```
+
+!!! note "Precision"
+    `z.z` calls `gettimeofday` and so has microsecond precision. (Unfortunately shoved into a 64-bit float.)
+
+
+### `.z.t` `.z.T` `.z.d` `.z.D` (time/date shortcuts)
+
+Shorthand forms:
+<table class="kx-compact" markdown="1">
+<tr><td>`.z.t`</td><td>`` `time$.z.z``</td><td>`.z.d`</td><td>`` `date$.z.z``</td></tr>
+<tr><td>`.z.T`</td><td>`` `time$.z.Z``</td><td>`.z.D`</td><td>`` `date$.z.Z``</td></tr>
+</table>
+
+
+
+## Callbacks
+
+!!! tip "Resetting defaults"
+    By default, callbacks are not defined in the session. After they have been assigned, you can restore the default using [`\x`](syscmds/#x-expunge) to delete the definition that was made.
+
+
+### `.z.ac` (HTTP auth from cookie)
 
 Syntax: `z.ac:x`
 
@@ -45,23 +455,7 @@ Note that if `.z.ac` is defined, `.z.pw` will _not_ be called for HTTP connectio
 <i class="fa fa-hand-o-right"></i> [`.z.pw` password check](#zpw-validate-user)
 
 
-## `.z.b` (dependencies)
-
-Syntax: `z.b`
-
-Returns the dependency dictionary.
-```q
-q)a::x+y
-q)b::x+1
-q).z.b
-x| `a`b
-y| ,`a
-```
-
-<i class="fa fa-hand-o-right"></i> [`\b`](syscmds/#b-views)
-
-
-## `.z.bm` (msg validator)
+### `.z.bm` (msg validator)
 
 Syntax: `z.bm:x`
 
@@ -80,26 +474,7 @@ q).z.bm:{`msg set (.z.p;x);}
 after a bad msg has been received, the global var `msg` will contain the timestamp, the handle and the full message. Note that this check validates only the data structures, it cannot validate the data itself.
 
 
-## `.z.c` (cores)
-
-Syntax: `.z.c`
-
-Returns number of physical cores. 
-
-
-## `.z.e` (TLS connection status)
-
-Syntax: `.z.e`
-
-TLS connection status now reported via `.z.e`
-```q
-q)0N!h".z.e";
-`CIPHER`PROTOCOL!`AES128-GCM-SHA256`TLSV1.2
-```
-Since V3.4 2016.05.16.
-
-
-## `.z.exit` (action on exit)
+### `.z.exit` (action on exit)
 
 Syntax: `z.exit:f`
 
@@ -151,166 +526,7 @@ os>..
 <i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-close), [`exit`](errors/#exit), [`\\` quit](syscmds/#quit)
 
 
-## `.z.f` (file)
-
-Syntax: `.z.f`
-
-Returns the name of the q script as a symbol.
-```q
-$ q test.q
-q).z.f
-`test.q
-```
-<i class="fa fa-hand-o-right"></i> [`.z.x` argv](#zx-argv)
-
-
-## `.z.h` (host)
-
-Syntax: `.z.h`
-
-Returns the host name as a symbol
-```
-q).z.h
-`demo.kx.com
-```
-On Linux this should return the same as the shell command 'hostname'. If you require a fully qualified domain name, and the hostname command returns a hostname only (with no domain name), this should be resolved by your system administrators. Often this can be traced to the ordering of entries in /etc/hosts, e.g.
-
-Non-working /etc/host look like :
-```
-127.0.0.1      localhost.localdomain localhost
-192.168.1.1  myhost.mydomain.com myhost
-```
-Working one has this ordering :
-```
-127.0.0.1      localhost.localdomain localhost
-192.168.1.1  myhost myhost.mydomain.com
-```
-One solution seems to be to flip around the entries, i.e. so the entries should be
-```
-ip hostname fqdn
-```
-A work around from within kdb+ is
-```q
-q).Q.host .z.a
-```
-
-
-## `.z.i` (PID)
-
-Syntax: `.z.i`
-
-Returns the process ID as an integer.
-```q
-q).z.i
-23219
-```
-
-
-## `.z.k` (release date)
-
-Syntax: `.z.k`
-
-Returns the date on which the version of kdb+ being used was released.
-```q
-q).z.k
-2006.10.30
-q)
-```
-This value is checked against `.Q.k` as part of the startup to make sure that the executable and the version of q.k being used are compatible.
-<i class="fa fa-hand-o-right"></i> [`.z.K` version](#zk-version)
-
-
-## `.z.K` (version)
-
-Syntax: `.z.K`
-
-Returns as a float the major version number of the version of kdb+ being used (so a test version of 2.4t will be reported as 2.4)
-```q
-q).z.K
-2.4
-q).z.k
-2006.10.30
-```
-<i class="fa fa-hand-o-right"></i> [`.z.k` release date](#zk-release-date)
-
-
-## `.z.l` (license)
-
-Syntax: `.z.l`
-
-Returns the license information as a list of strings; `()` for PLAY mode (non-commercial 32-bit versions 2.5 onwards).
-```q
-q).z.l
-("8";"2007.09.01";"2007.09.01";,"1";,"1";,"1";,"0";"text #4NNNN")
-```
-The important fields are `(maxCoresAllowed;expiryDate;updateDate;…;bannerText)`.
-
-`bannerText` is the custom text displayed at startup, and always contains the license number as the last token.
-
-
-## `.z.n` (UTC timespan)
-
-Syntax: `.z.n`
-
-Returns system UTC time as timespan in nanoseconds.
-(V2.6 upwards.)
-```q
-q).z.n
-0D23:30:10.827156000
-```
-
-
-## `.z.N` (local timespan)
-
-Syntax: `.z.N`
-
-Returns system local time as timespan in nanoseconds.
-(V2.6 upwards.)
-```q
-q).z.N
-0D23:30:10.827156000
-```
-
-
-## `.z.o` (OS version)
-
-Syntax: `.z.o`
-
-Returns the kdb+ operating system version as a symbol.
-```q
-q).z.o
-`w32
-```
-Current values are `w32`, `w64`, `l32`, `l64`, `s32`, `s64` (Solaris), `v64` (Solaris on Intel).
-
-Note this is the version of the kdb+ executable, NOT the OS itself. You may be running both 32-bit and 64-bit versions of kdb+ on the same machine to support older external interfaces.
-
-
-## `.z.p` (UTC timestamp)
-
-Syntax: `.z.P`
-
-Returns system localtime timestamp in nanoseconds. 
-(Since V2.6.)
-```q
-q).z.p
-2009.08.10D09:16:44.378274000
-```
-
-
-## `.z.P` (local timestamp)
-
-Syntax: `.z.P`
-
-Returns system localtime timestamp in nanoseconds. 
-(Since V2.6.)
-```q
-q).z.P
-2009.08.10D09:16:44.378274000
-```
-
-
-## `.z.pc` (close)
+### `.z.pc` (close)
 
 Syntax: `.z.pc:f`
 
@@ -339,7 +555,7 @@ q)
 ```
 
 
-## `.z.pd` (peach handles)
+### `.z.pd` (peach handles)
 
 Syntax: `.z.pd:x`
 
@@ -366,7 +582,7 @@ Note that the worker processes are not started automatically by kdb+.
 <i class="fa fa-hand-o-right"></i> [Cookbook/LoadBalancing](/cookbook/load-balancing)
 
 
-## `.z.pg` (get)
+### `.z.pg` (get)
 
 Syntax: `.z.pg:f`
 
@@ -379,7 +595,7 @@ The default behavior is equivalent to setting `.z.pg` to [`value`](metadata/#val
 <i class="fa fa-hand-o-right"></i> [`.z.ps`](#zps-set)
 
 
-## `.z.ph` (HTTP get)
+### `.z.ph` (HTTP get)
 
 Syntax: `.z.ph:f`
 
@@ -419,7 +635,7 @@ Host           | "localhost:5001"
 <i class="fa fa-hand-o-right"></i> [`.z.pp` port post](#zpp-http-post), [.h](doth.md)
 
 
-## `.z.pi` (input)
+### `.z.pi` (input)
 
 Syntax: `.z.pi:f`
 
@@ -446,14 +662,7 @@ q)\x .z.pi
 <i class="fa fa-hand-o-right"></i> [Changes in V2.4](releases/ChangesIn2.4/#zpi)
 
 
-## `.z.pm` (HTTP options)
-
-Pass HTTP OPTIONS method through to `.z.pm` as (`` `OPTIONS;requestText;requestHeaderDict)``
-
-==FIXME==
-
-
-## `.z.po` (open)
+### `.z.po` (open)
 
 Syntax: `.z.po:f`
 
@@ -464,7 +673,7 @@ Its argument is the handle and is typically used to build a dictionary of handle
 <i class="fa fa-hand-o-right"></i> [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
-## `.z.pp` (HTTP post)
+### `.z.pp` (HTTP post)
 
 Syntax: `.z.pp:f`
 
@@ -477,7 +686,7 @@ See `.z.ph` for details of the argument.
 <i class="fa fa-hand-o-right"></i> [`.h`](doth)
 
 
-## `.z.ps` (set)
+### `.z.ps` (set)
 
 Syntax: `.z.ps:f`
 
@@ -498,7 +707,7 @@ q)0 "2+2"
 <i class="fa fa-hand-o-right"></i> [`.z.pg`](#zpg-get)
 
 
-## `.z.pw` (validate user)
+### `.z.pw` (validate user)
 
 Syntax: `.z.pw:f`
 
@@ -515,33 +724,7 @@ The default definition is `{[user;pswd]1b}`
 <i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-open),  [Changes in 2.4](releases/ChangesIn2.4/#zpw)
 
 
-## `.z.q` (quiet mode)
-
-Syntax: `.z.q`
-
-Returns `1b` if Quiet Mode is set, else `0b`.
-
-
-## `.z.s` (self)
-
-Syntax: `.z.s`
-
-Returns the current function.
-```q
-q){.z.s}[]
-{.z.s}
-```
-Can be used to generate recursive function calls.
-```q
-q)fact:{$[x<=0;1;x*.z.s x-1]}
-q)fact[5]
-120
-```
-Note this is purely an example; there are other ways to achieve the same result.
-
-
-
-## `.z.ts` (timer )
+### `.z.ts` (timer )
 
 Syntax: `.z.ts:f`
 
@@ -562,18 +745,7 @@ When kdb+ has completed executing a script passed as a command-line argument, an
 <i class="fa fa-hand-o-right"></i> [`\t`](syscmds/#t-timer)
 
 
-## `.z.u` (user ID)
-
-Syntax: `.z.u`
-
-Returns user's name as a symbol.
-```q
-q).z.u
-`demo
-```
-
-
-## `.z.vs` (value set)
+### `.z.vs` (value set)
 
 Syntax: `.z.vs:f`
 
@@ -589,38 +761,7 @@ q)m[1;1]:0
 ```
 
 
-## `.z.w` (handle)
-
-Syntax: `.z.w`
-
-Returns the connection handle, 0 for current session console. 
-```q
-q).z.w
-0i
-```
-
-!!! note 
-    When called inside a `.z.p?` callback it is the handle of the client session, not the current session.
-
-
-## `.z.W` (handles)
-
-Syntax: `.z.W`
-
-Returns a dictionary of IPC handles with the number of bytes waiting in their output queues.
-(Since V2.5 2008.12.31.) In V2.6 this was changed to a list of bytes per handle, see [Changes in V2.6](releases/ChangesIn2.6/#zw)
-```q
-q)h:hopen ...
-q)h
-3
-q)neg[h]({};til 1000000); neg[h]({};til 10); .z.W
-3| 4000030 70
-q)sum each .z.W
-3| 0
-```
-
-
-## `.z.wc` (websocket close)
+### `.z.wc` (websocket close)
 
 Syntax: `.z.wc:f`
 
@@ -634,7 +775,7 @@ To allow you to clean up things like tables of users keyed by handle the handle 
 <i class="fa fa-hand-o-right"></i> [`.z.po` port open](#zpo-open), [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
-## `.z.wo` (websocket open)
+### `.z.wo` (websocket open)
 
 Syntax: `.z.wo:f`
 
@@ -646,7 +787,7 @@ The argument is the handle and is typically used to build a dictionary of handle
 <i class="fa fa-hand-o-right"></i> [`.z.wc` websocket close](#zwc-websocket-close), [`.z.po` port open](#zpo-open), [`.z.pc` port close](#zpc-close), [`.z.pw` validate user](#zpw-validate-user)
 
 
-## `.z.ws` (websockets)
+### `.z.ws` (websockets)
 
 Syntax: `z.ws:f`
 
@@ -657,111 +798,7 @@ Sending a websocket message is limited to async messages only (sync is `'nyi`). 
 The default definition is to echo the message back to the client, i.e. `{neg[.z.w]x}`
 
 
-## `.z.x` (argv)
-
-Syntax: `.z.x`
-
-Returns the command line arguments as a list of strings
-```q
-$ q test.q -P 0 -abc 123
-q).z.x
-("-abc";"123")
-```
-Note that the script name and the single-letter options used by q itself are not included.
-
-Command-line options can be converted to a dictionary using the convenient `.Q.opt` function.
-```bash
-$ q -abc 123 -xyz 321
-```
-```q
-q).Q.opt .z.x
-abc| "123"
-xyz| "321"
-```
-Defaults and types can be provided with `.Q.def`.
-```bash
-$ q -abc 123 -xyz 321
-```
-```q
-q).Q.def[`abc`xyz`efg!(1;2.;`a)].Q.opt .z.x
-abc| 123
-xyz| 321f
-efg| `a
-q)\\
-```
-```bash
-$ q -abc 123 -xyz 321 -efg foo
-```
-```q
-q).Q.def[`abc`xyz`efg!(1;2.;`a)].Q.opt .z.x
-abc| 123
-xyz| 321f
-efg| `foo
-```
-
-<i class="fa fa-hand-o-right"></i> [`.z.f` file](#zf-file)
-
-
-## `.z.X` (raw command line)
-
-Syntax: `.z.X`
-
-Returns a list of strings of the raw, unfiltered command line with which kdb+ was invoked, including the name under which q was invoked, as well as single-letter arguments. 
-(Since V3.3 2015.02.12)
-```bash
-$ q somefile.q -customarg 42 -p localhost:17200
-```
-```q
-KDB+ 3.4 2016.09.22 Copyright (C) 1993-2016 Kx Systems
-m64/ 4()core 8192MB ...
-q).z.X
-,"q"
-"somefile.q"
-"-customarg"
-"42"
-"-p"
-"localhost:17200"
-```
-
-
-## `.z.z` (UTC datetime)
-
-Syntax: `.z.z`
-
-Returns UTC time as a datetime atom.
-```q
-q).z.Z
-2006.11.13T21:16:14.601
-```
-
-!!! note "Precision"
-    `z.z` calls `gettimeofday` and so has microsecond precision. (Unfortunately shoved into a 64-bit float.)
-
-
-## `.z.Z` (local datetime)
-
-Syntax: `.z.Z`
-
-Returns local time as a datetime atom.
-```q
-q).z.Z
-2006.11.13T21:16:14.601
-```
-The offset from UTC is fetched from the OS: kdb+ does not have its own time-offset database. 
-
-Which avoids problems like [this](http://it.slashdot.org/article.pl?sid=07/02/25/2038217).
-
-
-## `.z.t` `.z.T` `.z.d` `.z.D` (time/date shortcuts)
-
-Shorthand forms:
-<table class="kx-compact" markdown="1">
-<tr><td>`.z.t`</td><td>`` `time$.z.z``</td><td>`.z.d`</td><td>`` `date$.z.z``</td></tr>
-<tr><td>`.z.T`</td><td>`` `time$.z.Z``</td><td>`.z.D`</td><td>`` `date$.z.Z``</td></tr>
-</table>
-
-
-## `.z.zd` (zip defaults)
+### `.z.zd` (zip defaults)
 
 Syntax: `.z.zd:x`
 
