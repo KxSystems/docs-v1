@@ -213,6 +213,8 @@ q)(`a`b`c!1 2 3)_`a`b
 'type
 ```
 
+<i class="fa fa-hand-o-right"></i> [_Q for Mortals_ 5. Dictionaries](http://code.kx.com/q4m3/5_Dictionaries/#522-extracting-a-sub-dictionary)
+
 !!! warning "Dropping dictionary entries with integer arguments"
     With dictionaries, distinguish the roles of integer arguments to _drop_.
     <pre><code class="language-q">

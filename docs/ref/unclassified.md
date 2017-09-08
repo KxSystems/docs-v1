@@ -16,6 +16,8 @@ q)execFunction[f2;(1 2)]
 ```
 > _Everything starts from a dot._ – Wassily Kandinsky
 
+<i class="fa fa-hand-o-right"></i> _Q for Mortals:_ [6.8 General Application](http://code.kx.com/q4m3/6_Functions/#68-general-application)
+
 ## `(::)` (identity)
 
 Syntax: `(::) x`
