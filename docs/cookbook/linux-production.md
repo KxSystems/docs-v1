@@ -76,6 +76,11 @@ Assuming you are using 128kB logical size blocks for your compressed files, a ge
 
 If you are encountering a SIGBUS error, please check that the size of /dev/shm is large enough to accommodate the decompressed data. Typically, you should set the size of /dev/shm to be at least as large as a fully decompressed HDB partition.
 
+Set `ulimit` to 4096 or higher: based on 1024+number of compressed columns which may be queried concurrently.
+```bash
+$ ulimit -n 4096
+```
+
 
 ## Timekeeping
 
@@ -99,3 +104,4 @@ $ echo tsc >/sys/devices/system/clocksource/clocksource0/current_clocksource
 $ cat /sys/devices/system/clocksource/clocksource*/available_clocksource
 ```
 If you are using PTP for timekeeping, your PTP hardware vendor might provide their own implementation of time. Check that those utilize VDSO mechanism for exposing time to user space.
+
