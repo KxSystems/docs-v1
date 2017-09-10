@@ -465,6 +465,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/pyq-market-prediction">pyq-market-prediction ==new==</a></td>
+<td>Predict the three-month price for Apple stock from 37 years of history (AAPL). <span class="author"><a href="https://github.com/t4joel?tab=repositories">
+						(Joel Oliveira)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/jpneill/qca">qca</a></td>
 <td>Simple cellular automata. <span class="author"><a href="https://github.com/jpneill?tab=repositories">
 						(James Neill)
@@ -496,6 +503,13 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/samkennerly/q_practice">q_practice</a></td>
 <td>Quick reference guide for some q tasks. <span class="author"><a href="https://github.com/samkennerly?tab=repositories">
 						(Sam Kennerly)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/ridge-regression-price-prediction">ridge-regression-price-prediction ==new==</a></td>
+<td>Predict Boston house prices using Ridge Regression. <span class="author"><a href="https://github.com/t4joel?tab=repositories">
+						(Joel Oliveira)
 					</a></span>
 </td>
 </tr>
