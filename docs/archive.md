@@ -28,13 +28,13 @@ A series by Jan Karman in [_Vector_](http://archive.vector.org.uk) (mostly k3 wi
 
 ![monk](./img/monk.png)
 
-* <i class="fa fa-github"></i> [Abridged q language manual](https://github.com/KxSystems/kdb/blob/master/d/q.htm), Arthur Whitney, 2009
-* <i class="fa fa-github"></i> [Abridged kdb+ database manual](https://github.com/KxSystems/kdb/blob/master/d/kdb+.htm), Arthur Whitney, 2006
-* <i class="fa fa-github"></i> [Kdb+ database reference manual](https://github.com/KxSystems/kdb/blob/master/d/kdb+1.htm), Don Orth, 2006
-* <i class="fa fa-github"></i> [Q language reference manual](https://github.com/KxSystems/kdb/blob/master/d/q1.htm) Don Orth, 2006
-* <i class="fa fa-github"></i> [Abridged kdb+tick manual](https://github.com/KxSystems/kdb/blob/master/d/tick.htm), Arthur Whitney, 2005
-* <i class="fa fa-github"></i> [Abridged kdb+taq manual](https://github.com/KxSystems/kdb/blob/master/d/taq.htm), Arthur Whitney, 2005
-* <i class="fa fa-github"></i> [Kdb+ database and language primer](https://github.com/KxSystems/kdb/blob/master/d/primer.htm), Dennis Sasha, 2005
+* [Abridged q language manual](https://legaldocumentation.kx.com/q/d/q.htm), Arthur Whitney, 2009
+* [Abridged kdb+ database manual](https://legaldocumentation.kx.com/q/d/kdb+.htm), Arthur Whitney, 2006
+* [Kdb+ database reference manual](https://legaldocumentation.kx.com/q/d/kdb+1.htm), Don Orth, 2006
+* [Q language reference manual](https://legaldocumentation.kx.com/q/d/q1.htm) Don Orth, 2006
+* [Abridged kdb+tick manual](https://legaldocumentation.kx.com/q/d/tick.htm), Arthur Whitney, 2005
+* [Abridged kdb+taq manual](https://legaldocumentation.kx.com/q/d/taq.htm), Arthur Whitney, 2005
+* [Kdb+ database and language primer](https://legaldocumentation.kx.com/q/d/primer.htm), Dennis Sasha, 2005
 * [_Q for Mortals 2nd edn_](http://code.kx.com/wiki/JB:QforMortals2/contents), a tutorial in q programming by Jeffry A. Borror. This version covers kdb+ version 2.4, and has been superseded by the book&rsquo;s [third edition](http://code.kx.com/q4m3).
 
 
