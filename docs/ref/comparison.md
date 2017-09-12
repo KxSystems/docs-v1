@@ -55,55 +55,23 @@ q)`alpha > `omega           / but symbols compare atomically
 Particularly notice the comparison of ordinal with cardinal datatypes, such as timestamps with minutes.
 ```q
 q)times: 09:15:37 09:29:01 09:29:15 09:29:15 09:30:01 09:35:27
- 
-q)tab:([] timeSpan:`timespan$times; timeStamp:.z.D+times)
-q)meta tab
-c        | t f a
----------| -----
-timeSpan | n
-timeStamp| p
- 
-q)select from tab where timeStamp>09:29
-timeSpan             timeStamp
---------------------------------------------------
-0D09:30:01.000000000 2016.09.06D09:30:01.000000000
-0D09:35:27.000000000 2016.09.06D09:35:27.000000000
- 
-q)select from tab where timeSpan>09:29
-timeSpan             timeStamp
---------------------------------------------------
-0D09:29:01.000000000 2016.09.06D09:29:01.000000000
-0D09:29:15.000000000 2016.09.06D09:29:15.000000000
-0D09:29:15.000000000 2016.09.06D09:29:15.000000000
-0D09:30:01.000000000 2016.09.06D09:30:01.000000000
-0D09:35:27.000000000 2016.09.06D09:35:27.000000000
+q)spans:`timespan$times  / timespans:  cardinal
+q)stamps:.z.D+times      / timestamps: ordinal 
+q)t:09:29                / minute:     cardinal
 ```
-It looks like the timestamp filter is searching for any _minute_ greater than `09:29`, while the timespan is returning any _times_ that are greater than `09:29`.
-
-When comparing ordinals with cardinals (i.e. timestamp with minute), ordinal is converted to the cardinal type first. E.g. in
+When comparing ordinals with cardinals, ordinal is converted to the cardinal type first: `stamps=t` is equivalent to ``(`minute$stamps)=t`` and thus 
 ```q
-q)select from tab where timeStamp=09:29
-timeSpan             timeStamp                    
---------------------------------------------------
-0D09:29:01.000000000 2016.09.06D09:29:01.000000000
-0D09:29:15.000000000 2016.09.06D09:29:15.000000000
-0D09:29:15.000000000 2016.09.06D09:29:15.000000000
-
-q)tab.timeStamp=09:29
-011100b
-```
-is equivalent to 
-```q
-q)(`minute$tab.timeStamp)=09:29
-011100b
-```
-and thus 
-```q
-q)tab.timeStamp<09:29
+q)(stamps<t;stamps=t;stamps>t)
 100000b
-q)tab.timeStamp>09:29
+011100b
 000011b
+q)(spans<t;spans=t;spans>t)
+100000b
+000000b
+011111b
 ```
+
+<i class="fa fa-hand-o-right"></i> Cookbook: [Temporal data](/cookbook/temporal-data/#comparing-temporals)
 
 
 ## `differ`

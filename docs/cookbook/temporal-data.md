@@ -1,3 +1,5 @@
+## Stepped attribute
+
 In traditional RDMSs temporal changes in data are often represented by adding valid-time-interval information to each relationship, usually achieved by adding start and end columns to the relational tables. This approach is often wasteful because in many cases the end of each interval is the start of the next leading to a lot of repetition. Q offers a better alternative. Recall that adding an `` `s `` attribute to a dictionary makes it behave as a step function.
 
 Compare
@@ -41,15 +43,6 @@ phone
 4444
 ```
 
-!!! warning "Upsert into a stepped dictionary"
-    If you try to upsert into a dict flagged as stepped, a `'step` error will be signalled.
-    <pre><code class="language-q">
-    q)d:`s#`a`b!1 2;
-    q)`d upsert `c`d!3 4
-    'step
-    </code></pre>
-    To update such a dict, remove the `` `s`` attribute, upsert, and add the `` `s`` attribute again.
-
 Such tables can be used with `lj`:
 ```q
 q)show x
@@ -70,3 +63,71 @@ John 2000.06.11| 3 4444
 John 2000.06.12| 4 4444
 ```
 
+
+### Upsert into a stepped dictionary
+
+If you try to upsert into a dict flagged as stepped, a `'step` error will be signalled.
+```q
+q)d:`s#`a`b!1 2;
+q)`d upsert `c`d!3 4
+'step
+```
+To update such a dict, remove the `` `s`` attribute, upsert, and add the `` `s`` attribute again.
+
+
+## Comparing temporals
+
+Particularly notice the comparison of ordinal with cardinal datatypes, such as timestamps with minutes.
+```q
+q)times: 09:15:37 09:29:01 09:29:15 09:29:15 09:30:01 09:35:27
+ 
+q)tab:([] timeSpan:`timespan$times; timeStamp:.z.D+times)
+q)meta tab
+c        | t f a
+---------| -----
+timeSpan | n
+timeStamp| p
+ 
+q)select from tab where timeStamp>09:29
+timeSpan             timeStamp
+--------------------------------------------------
+0D09:30:01.000000000 2016.09.06D09:30:01.000000000
+0D09:35:27.000000000 2016.09.06D09:35:27.000000000
+ 
+q)select from tab where timeSpan>09:29
+timeSpan             timeStamp
+--------------------------------------------------
+0D09:29:01.000000000 2016.09.06D09:29:01.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+0D09:30:01.000000000 2016.09.06D09:30:01.000000000
+0D09:35:27.000000000 2016.09.06D09:35:27.000000000
+```
+It looks like the timestamp filter is searching for any _minute_ greater than `09:29`, while the timespan is returning any _times_ that are greater than `09:29`.
+
+When comparing ordinals with cardinals (i.e. timestamp with minute), ordinal is converted to the cardinal type first. E.g. in
+```q
+q)select from tab where timeStamp=09:29
+timeSpan             timeStamp                    
+--------------------------------------------------
+0D09:29:01.000000000 2016.09.06D09:29:01.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+
+q)tab.timeStamp=09:29
+011100b
+```
+is equivalent to 
+```q
+q)(`minute$tab.timeStamp)=09:29
+011100b
+```
+and thus 
+```q
+q)tab.timeStamp<09:29
+100000b
+q)tab.timeStamp>09:29
+000011b
+```
+
+<i class="fa fa-hand-o-right"></i> Reference: [Comparison](/ref/comparison)
