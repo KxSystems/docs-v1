@@ -40,16 +40,70 @@ q)(1 + 1e-13) = 1
 !!! tip 
     For booleans, `<>` is the same as _exclusive or_ (XOR).
 
-!!! warning "Non numerical arguments"
-    The comparison operators also work on non-numerical values (characters, temporal values, symbols) – not always intuitively.
-    <pre><code class="language-q">
-    q)"0" < ("4"; "f"; "F"; 4)  / characters are treated as their numeric value
-    1110b
-    q)"alpha" > "omega"         / strings are char lists
-    00110b
-    q)`alpha > `omega           / but symbols compare atomically
-    0b
-    </code></pre>
+
+### Non-numerical arguments
+
+The comparison operators also work on non-numerical values (characters, temporal values, symbols) – not always intuitively.
+```q
+q)"0" < ("4"; "f"; "F"; 4)  / characters are treated as their numeric value
+1110b
+q)"alpha" > "omega"         / strings are char lists
+00110b
+q)`alpha > `omega           / but symbols compare atomically
+0b
+```
+Particularly notice the comparison of ordinal with cardinal datatypes, such as timestamps with minutes.
+```q
+q)times: 09:15:37 09:29:01 09:29:15 09:29:15 09:30:01 09:35:27
+ 
+q)tab:([] timeSpan:`timespan$times; timeStamp:.z.D+times)
+q)meta tab
+c        | t f a
+---------| -----
+timeSpan | n
+timeStamp| p
+ 
+q)select from tab where timeStamp>09:29
+timeSpan             timeStamp
+--------------------------------------------------
+0D09:30:01.000000000 2016.09.06D09:30:01.000000000
+0D09:35:27.000000000 2016.09.06D09:35:27.000000000
+ 
+q)select from tab where timeSpan>09:29
+timeSpan             timeStamp
+--------------------------------------------------
+0D09:29:01.000000000 2016.09.06D09:29:01.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+0D09:30:01.000000000 2016.09.06D09:30:01.000000000
+0D09:35:27.000000000 2016.09.06D09:35:27.000000000
+```
+It looks like the timestamp filter is searching for any _minute_ greater than `09:29`, while the timespan is returning any _times_ that are greater than `09:29`.
+
+When comparing ordinals with cardinals (i.e. timestamp with minute), ordinal is converted to the cardinal type first. E.g. in
+```q
+q)select from tab where timeStamp=09:29
+timeSpan             timeStamp                    
+--------------------------------------------------
+0D09:29:01.000000000 2016.09.06D09:29:01.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+0D09:29:15.000000000 2016.09.06D09:29:15.000000000
+
+q)tab.timeStamp=09:29
+011100b
+```
+is equivalent to 
+```q
+q)(`minute$tab.timeStamp)=09:29
+011100b
+```
+and thus 
+```q
+q)tab.timeStamp<09:29
+100000b
+q)tab.timeStamp>09:29
+000011b
+```
 
 
 ## `differ`
