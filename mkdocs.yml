@@ -9,7 +9,8 @@ extra_javascript:
   # See /ref/syntax/#projection to see if MathJax is working 
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
   - 'https://code.jquery.com/jquery-3.1.1.min.js'
-  - '//code.kx.com/scripts/fdtracker.js'
+  # - '//code.kx.com/scripts/fdtracker.js'
+  - 'https://tracker.mrpfd.com/tracker.js'
   - '//code.kx.com/scripts/googleanalytics.js'
   # - 'http://code.kx.com/scripts/theme.js'
   - 'https://use.fontawesome.com/3dbf29ed12.js'
