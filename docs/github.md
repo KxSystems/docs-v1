@@ -18,6 +18,10 @@ about new repositories.</div>
 	<td>companion files to the [Cookbook](/cookbook/introduction)</td>
 </tr>
 <tr>
+	<td class="nowrap">[docs](https://github.com/KxSystems/docs)</td>
+	<td>source files for this site</td>
+</tr>
+<tr>
 	<td class="nowrap">[help](https://github.com/KxSystems/help)</td>
 	<td>online help for q</td>
 </tr>
@@ -334,7 +338,7 @@ about new repositories.</div>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/nugend/qspec">qspec</a></td>
-<td>A testing framework lightly inspired by [Behaviour Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) and the [rspec](rspec.info) testing framework. <span class="author"><a href="https://github.com/nugend?tab=repositories">
+<td>A testing framework lightly inspired by [Behaviour Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) and the [rspec](http://rspec.info) testing framework. <span class="author"><a href="https://github.com/nugend?tab=repositories">
 						(Daniel Nugent)
 					</a></span>
 </td>
