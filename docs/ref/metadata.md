@@ -91,17 +91,17 @@ e
 ```
 
 - a **directory filepath**, returns a list of objects in the directory. 
-```
+```q
 q)key`:c:/q
 `c`profile.q`sp.q`trade.q`w32
 ```
 
-!!! tip "To select particular files, use `like`"
-    <pre><code class="language-q">
-    q)f:key`:c:/q
-    q)f where f like "*.q"
-    `profile.q`sp.q`trade.q
-    </code></pre>
+To select particular files, use `like`
+```q
+q)f:key`:c:/q
+q)f where f like "*.q"
+`profile.q`sp.q`trade.q
+```
 
 - a **filepath**, returns the descriptor if the file exists, otherwise an empty list.
 ```q
@@ -232,7 +232,7 @@ price| f
 size | i
 ```
 The `t` column denotes the column type. A lower-case letter indicates atomic entry and an upper-case letter indicates a list.
-```
+```q
 q)show u:([] code:`F1; vr:(enlist 2.3))
 code vr
 --------
@@ -259,7 +259,7 @@ vr  | F
 Syntax: `tables x`
 
 Where `x` is a reference to a namespace, returns as a symbol vector a sorted list of the tables in `x`
-```
+```q
 q)\l sp.q
 q)tables `.       / tables in root namespace
 `p`s`sp
@@ -328,32 +328,32 @@ Returns the [datatype](datatypes) of `x` as a short integer atom: negative for a
 `sz`: size in bytes  
 RO: read only; RW: read-write
 
-!!! tip "Looking up primitive datatypes"
-    <pre><code class="language-q">
-    q)20#.Q.t
-    " bg xhijefcspmdznuvt"
-    q){key x$()}'[.Q.t where " "<>20#.Q.t]
-    `boolean`guid`byte`short`int`long`real`float`char`symbol`timestamp`month`date`datetime`timespan`minute`second`time
-    q)flip{(x;.Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
-    1h  "b" `boolean
-    2h  "g" `guid
-    4h  "x" `byte
-    5h  "h" `short
-    6h  "i" `int
-    7h  "j" `long
-    8h  "e" `real
-    9h  "f" `float
-    10h "c" `char
-    11h "s" `symbol
-    12h "p" `timestamp
-    13h "m" `month
-    14h "d" `date
-    15h "z" `datetime
-    16h "n" `timespan
-    17h "u" `minute
-    18h "v" `second
-    19h "t" `time
-    </code></pre>
+Looking up primitive datatypes:
+```q
+q)20#.Q.t
+" bg xhijefcspmdznuvt"
+q){key x$()}'[(20#.Q.t)except" "]
+`boolean`guid`byte`short`int`long`real`float`char`symbol`timestamp`month`date`datetime`timespan`minute`second`time
+q)flip{(x;.Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
+1h  "b" `boolean
+2h  "g" `guid
+4h  "x" `byte
+5h  "h" `short
+6h  "i" `int
+7h  "j" `long
+8h  "e" `real
+9h  "f" `float
+10h "c" `char
+11h "s" `symbol
+12h "p" `timestamp
+13h "m" `month
+14h "d" `date
+15h "z" `datetime
+16h "n" `timespan
+17h "u" `minute
+18h "v" `second
+19h "t" `time
+```
 
 
 ## `value`
@@ -392,9 +392,8 @@ q)value x
 ```
 
 - a **function**, returns a list:
-```
-(bytecode;parameters;locals;(context;globals);constants[0];...;constants[n];definition)
-```
+
+(bytecode; parameters; locals; (context; globals); constants[0]; …; constants[n]; definition)
 ```q
 q)f:{[a;b]d::neg c:a*b+5;c+e}
 q)value f
@@ -417,9 +416,9 @@ q.test)value f
 ```
 
 - a **view**, returns a list:
-```
-(cached value;parse tree;dependencies;definition)
-```
+
+(cached value; parse tree; dependencies; definition)
+
 When the view is _pending_, the cached value is `::`.
 ```q
 q)a:1
@@ -460,7 +459,7 @@ q)value each (::;+;-;*;%)
 ```
 
 - a **derivative**, returns the original function.
-```
+```q
 q)f:+/
 q)f 1 2 3
 6
