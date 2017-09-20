@@ -82,6 +82,7 @@ instead of recursion.
 <tr> <td>sys</td> <td>`{system "ls"}peach 0 1`</td> <td>Using system call from thread other than main thread</td> </tr>
 <tr> <td>threadview</td> <td/> <td>Trying to calc a [view](/tutorials/views) in a thread other than main thread. A view can be calculated in the main thread only. The cached result can be used from other threads.</td> </tr>
 <tr> <td>timeout</td><td/><td>Request to `hopen` a handle fails on a timeout; includes message from OS</td> </tr>
+<tr> <td>too many syms</td><td/><td>Kdb+ currently allows for ~1.4B interned symbols in the pool and will exit with this error when this threshold is reached.</td> </tr>
 <tr> <td>trunc</td> <td/> <td>The log had a partial transaction at the end but q couldn’t truncate the file.</td> </tr>
 <tr> <td>type</td> <td class="nowrap">`til 2.2`</td> <td>Wrong [type](datatypes). Also see `'limit`.</td> </tr>
 <tr> <td>type/attr error amending file</td> <td/> <td>Direct update on disk for this type or attribute is not allowed</td> </tr>
