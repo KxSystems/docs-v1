@@ -49,9 +49,10 @@ The q null values are mapped to C\# values according to the following table:
 
 <div class="kx-compact" markdown="1">
 
-| q type | q null accessor | C\# null |
-|-----------|-----------|---------------------------|
+| q type    | q null accessor | C\# null |
+|-----------|-------------|-----------------------------|
 | Boolean   | `NULL('b')` | `false`                     |
+| Guid      | `NULL('g')` | `Guid.Empty`                |
 | Byte      | `NULL('x')` | `(byte)0`                   |
 | Short     | `NULL('h')` | `Int16.MinValue`            |
 | Integer   | `NULL('i')` | `Int32.MinValue`            |
