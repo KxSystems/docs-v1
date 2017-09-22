@@ -11,7 +11,7 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
     <i class="fa fa-windows"></i>](https://kx.com/download)
 </div>
 <div>
-    [<i class="fa fa-life-ring fa-border fa-5x"></i><br/>
+    [<i class="fa fa-question-circle fa-border fa-5x"></i><br/>
     Reference](/ref/card/)
 </div>
 <div>
@@ -24,11 +24,11 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 <div>
     [<i class="fa fa-quora fa-border fa-5x"></i><br/>
-    Q for Mortals](http://code.kx.com/q4m3/)
+    _Q for Mortals_](http://code.kx.com/q4m3/)
 </div>
 <div>
-    [<i class="fa fa-question-circle fa-border fa-5x"></i><br/>
-    FAQ](cookbook/faq)
+    [<i class="fa fa-life-ring fa-border fa-5x"></i><br/>
+    Support](support)
 </div>
 <div>
     [<i class="fa fa-hourglass-start fa-border fa-5x"></i><br/>
@@ -39,16 +39,11 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
     Share code](http://kxsystems.github.io/)
 </div>
 <div>
-    [<i class="fa fa-share-alt fa-border fa-5x"></i><br/>
-    Connect](https://kx.com/connect-with-us#support)
+    [<i class="fa fa-cutlery fa-border fa-5x"></i><br/>
+    Cookbook](cookbook/introduction/)
 </div>
 </div>
-<!-- 
-!!! tip "Search with Google"
-    Type in the Search box to see local search results.
-    Hit Return to search with Google.
 
- -->
 !!! info "New on code.kx.com"
     - [Syntax highlighting for q](/about/site-news/#syntax-highlighting)
     - [Improved search](/about/thissite/#search-tips)
