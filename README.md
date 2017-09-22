@@ -17,7 +17,7 @@ Most of the wiki consists of three groups of articles:
 
 ## Local copy
 
-If your Net connection is slow, you might prefer to download the site for local use from [code.kx.com/q.zip](http://code.kx.com/q.zip). 
+If your Net connection is slow, you might prefer to download the site for local use from [code.kx.com/site.zip](http://code.kx.com/site.zip). 
 
 
 ## Reference 
