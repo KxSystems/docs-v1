@@ -31,6 +31,7 @@ System information                Callbacks
 .z.ws   WebSockets
 .z.X/x  raw/parsed command line 
 .z.Z/z  local/UTC datetime
+.z.zd   zip defaults
 ```
 
 
@@ -416,12 +417,24 @@ q).z.Z
     `z.z` calls `gettimeofday` and so has microsecond precision. (Unfortunately shoved into a 64-bit float.)
 
 
-### `.z.t` `.z.T` `.z.d` `.z.D` (time/date shortcuts)
+### `.z.zd` (zip defaults)
+
+Syntax: `.z.zd:x`
+
+Where `x` is an int vector of default parameters for logical block size, compression algorithm and compression level that apply when saving to files with no file extension.
+```q
+q).z.zd:17 2 6        / set zip defaults
+q)\x .z.zd            / unset 
+```
+<i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
+
+
+### `.z.T` `.z.t` `.z.D` `.z.d` (time/date shortcuts)
 
 Shorthand forms:
 <table class="kx-compact" markdown="1">
-<tr><td>`.z.t`</td><td>`` `time$.z.z``</td><td>`.z.d`</td><td>`` `date$.z.z``</td></tr>
 <tr><td>`.z.T`</td><td>`` `time$.z.Z``</td><td>`.z.D`</td><td>`` `date$.z.Z``</td></tr>
+<tr><td>`.z.t`</td><td>`` `time$.z.z``</td><td>`.z.d`</td><td>`` `date$.z.z``</td></tr>
 </table>
 
 
@@ -430,6 +443,8 @@ Shorthand forms:
 
 !!! tip "Resetting defaults"
     By default, callbacks are not defined in the session. After they have been assigned, you can restore the default using [`\x`](syscmds/#x-expunge) to delete the definition that was made.
+
+<i class="fa fa-hand-o-right"></i> Cookbook: [Callbacks](/cookbook/callbacks/), _Q for Mortals:_ [11.6 Interprocess Communication](http://code.kx.com/q4m3/11_IO/#116-interprocess-communication)
 
 
 ### `.z.ac` (HTTP auth from cookie)
@@ -796,17 +811,5 @@ Where `f` is a unary function, `.z.ws` is evaluated on a message arriving at a w
 Sending a websocket message is limited to async messages only (sync is `'nyi`). A string will be sent as a text message; a byte vector as a binary message.
 
 The default definition is to echo the message back to the client, i.e. `{neg[.z.w]x}`
-
-
-### `.z.zd` (zip defaults)
-
-Syntax: `.z.zd:x`
-
-Where `x` is an int vector of default parameters for logical block size, compression algorithm and compression level that apply when saving to files with no file extension.
-```q
-q).z.zd:17 2 6        / set zip defaults
-q)\x .z.zd            / unset 
-```
-<i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
 
 

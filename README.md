@@ -15,6 +15,11 @@ Most of the wiki consists of three groups of articles:
 - Extracts from V1 and V2 of _Q for Mortals_
 
 
+## Local copy
+
+If your Net connection is slow, you might prefer to download the site for local use from [code.kx.com/q.zip](http://code.kx.com/q.zip). 
+
+
 ## Reference 
 
 The Reference articles have been exported from the wiki and their content incorporated into a hierarchical table of contents. Details on each q function are arranged in pages grouped under /ref by semantic topic: see _Reference/Semantics_ in the LHS navigation. 
