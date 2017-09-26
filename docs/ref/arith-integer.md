@@ -371,8 +371,8 @@ close| sym
 !!! tip "Grouping at irregular intervals"
     To group at irregular intervals, one solution is to use `bin`.
     <pre><code class="language-q">
-    q)x:`s#10:00+00:00 00:08 00:13 00:27 00:30 00:36 00:39 00:50
-    q)select count i by x x bin time.minute from ([]time:`s#10:00:00+asc 100?3600)
+    q)x:\`s#10:00+00:00 00:08 00:13 00:27 00:30 00:36 00:39 00:50
+    q)select count i by x x bin time.minute from ([]time:\`s#10:00:00+asc 100?3600)
     minute| x 
     ------| --
     10:00 | 8 
