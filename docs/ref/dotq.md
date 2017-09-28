@@ -527,18 +527,18 @@ q)count a:.Q.hg`:http:///www.google.com
 212
 q)show a
 "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>4..
+q).Q.hg`$“:http://username:password@www.google.com” / cast to include credentials
 ```
 If you have configured SSL/TLS, HTTPS can also be used.
 ```q
 q).Q.hg`:https://www.google.com
 ```
-It will utilize proxy settings from the environment, lower-case versions taking precedence:
+`.Q.hg` will utilize proxy settings from the environment, lower-case versions taking precedence:
 
-`HTTP_PROXY`, `http_proxy`
-: The URL of the HTTP proxy to use
-
-`NO_PROXY`, `no_proxy`
-: Comma-separated list of domains for which to disable use of proxy
+environment variable       | use
+---------------------------|----
+`http_proxy`, `HTTP_PROXY` | The URL of the HTTP proxy to use
+`no_proxy`, `NO_PROXY`     | Comma-separated list of domains for which to disable use of proxy
 
 N.B. HTTPS is not supported across proxies which require `CONNECT`.
 
