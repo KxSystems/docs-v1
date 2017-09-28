@@ -15,11 +15,11 @@ Some system commands have equivalent command-line parameters.
     q)\l sp.q
     ...
     q)\a                     / tables in namespace
-    `p`s`sp
+    \`p\`s\`sp
     q)count \a               / \ must be the first character
     '\
     q)system "a"             / same command called with system
-    `p`s`sp
+    \`p\`s\`sp
     q)count system "a"       / this returns a result
     3
     </code></pre>
@@ -494,23 +494,38 @@ Syntax: `\1 filename`
 Syntax: `\2 filename` 
 
 `\1` and `\2` allow redirecting stdout and stderr to files from within the q session. The files and intermediate directories are created if necessary.
-```
+```bash
 ~/q$ rm -f t1.txt t2.txt
 ~/q$ l64/q
-```
-```
 KDB+ 2.6 2010.05.10 Copyright (C) 1993-2010 Kx Systems
 ...
+```
+```q
 q)\1 t1.txt              / stdout
 q)\2 t2.txt              / stderr
 til 10
 2 + "hello"
 \\
+```
+```bash
 ~/q$ cat t1.txt          / entry in stdout
 0 1 2 3 4 5 6 7 8 9
 ~/q$ cat t2.txt          / entry in stderr
 q)q)'type
 ```
+
+!!! tip "Return stdout and stderr to the console"
+    On Linux, determine the process ID and use as follows.
+    <pre><code class="language-q">
+    q).z.i
+    1234i
+    q)\1 test456.txt
+    q)"hello"
+    q)\1 /proc/1234/fd/0
+    q)"hello"
+    "hello"
+    </code></pre>
+    On macOS and Unix-like systems without `/proc`, use `\1 /dev/tty`
 
 
 ## `\_` (hide q code)
@@ -523,13 +538,13 @@ If no parameter, then `\_` checks if client write access is blocked.
 <i class="fa fa-hand-o-right"></i> [`-b` command-line option](cmdline/#-b-blocked)
 
 If a parameter is given, it should be a scriptname and `\_` `f.q` makes a runtime script `f.q_`. The q code cannot be viewed or serialized.
-```
+```bash
 ~/q$ echo "a:123;f:{x+2*y}" > t1.q
 ~/q$ l64/q
-```
-```q
 KDB+ 2.6 2010.05.10 Copyright (C) 1993-2010 Kx Systems
 ..
+```
+```q
 q)\_ t1.q               / create locked script
 `t1.q_
 q)\l t1.q_              / can be loaded as usual

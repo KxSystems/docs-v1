@@ -19,9 +19,9 @@ q)@[d;1 1 1;+;3]
 !!! tip "Do it on disk"
     Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, and not compressed. e.g.
     <pre><code class="language-q">
-    q)`:data set til 20;
-    q)@[`:data;3 6 8;:;100 200 300]; 
-    q)get`:data 
+    q)\`:data set til 20;
+    q)@[\`:data;3 6 8;:;100 200 300]; 
+    q)get\`:data 
     0 1 2 100 4 5 200 7 300 9 10 11 12 13 14 15 16 17 18 19
     </code></pre>
 
@@ -174,82 +174,82 @@ Syntax: `x _ y`
 
 Drops items from a list, entries from a dictionary or columns from a table. Where
 
-- `x` is an int atom and `y` a list or dictionary, returns `y` without the first or last `x` items.
-```q
-q)5_0 1 2 3 4 5 6 7 8      /drop the first 5 items
-5 6 7 8
-q)-5_0 1 2 3 4 5 6 7 8     /drop the last 5 items
-0 1 2 3
-q)1 _ `a`b`c!1 2 3
-b| 2
-c| 3
-```
-
-!!! tip "Drop strings"
-    <pre><code class="language-q">
-    q)b:"apple: banana: cherry"
-    q)/find the first ":" and remove the prior portion of the sentence.
-    q)(b?":") _ b
-    ": banana: cherry"
+- `x` is an **int atom** and `y` a **list or dictionary**, returns `y` without the first or last `x` items.
+    <pre><code class="language-q"> 
+    q)5_0 1 2 3 4 5 6 7 8      /drop the first 5 items
+    5 6 7 8
+    q)-5_0 1 2 3 4 5 6 7 8     /drop the last 5 items
+    0 1 2 3
+    q)1 _ \`a\`b\`c!1 2 3
+    b| 2
+    c| 3
     </code></pre>
 
-- `x` is a list or dictionary and `y` is an index or key of `x`, returns `x` without `y`.
-```q
-q)0 1 2 3 4 5 6 7 8_5      /drop the 5th item
-0 1 2 3 4 6 7 8
-q)(`a`b`c!1 2 3)_`a        /drop the entry for `a`
-b| 2
-c| 3
-```
+    !!! tip "Drop strings"
+        <pre><code class="language-q">
+        q)b:"apple: banana: cherry"
+        q)/ find the first ":" and remove the prior portion of the sentence.
+        q)(b?":") _ b
+        ": banana: cherry"
+        </code></pre>
 
-- `x` is an atom or vector of keys to dictionary `y`, returns `y` without the entries for `x`.
-```q
-q)`a _`a`b`c!1 2 3
-b| 2
-c| 3
-q)`a`b _`a`b`c!1 2 3
-c| 3
-q)(`a`b`c!1 2 3)_`a`b
-'type
-```
-
-<i class="fa fa-hand-o-right"></i> [_Q for Mortals_ 5. Dictionaries](http://code.kx.com/q4m3/5_Dictionaries/#522-extracting-a-sub-dictionary)
-
-!!! warning "Dropping dictionary entries with integer arguments"
-    With dictionaries, distinguish the roles of integer arguments to _drop_.
-    <pre><code class="language-q">
-    q)d:100 200!`a`b
-    q)1 _ d            /drop the first entry
-    200| b
-    q)d _ 1            /drop where key=1
-    100| a
-    200| b
-    q)d _ 100          /drop where key=100
-    200| b
-    q)enlist[1] _ d    /drop where key=1
-    100| a
-    200| b
-    q)enlist[100] _ d  /drop where key=100
-    200| b
-    q)100 _ d          /drop first 100 entries
+- `x` is a **list or dictionary** and `y` is an **index or key** of `x`, returns `x` without `y`.
+    <pre><code class="language-q"> 
+    q)0 1 2 3 4 5 6 7 8_5      /drop the 5th item
+    0 1 2 3 4 6 7 8
+    q)(\`a\`b\`c!1 2 3)_\`a        /drop the entry for \`a\`
+    b| 2
+    c| 3
     </code></pre>
 
-- `x` is a vector of keys and `y` is a table returns `y` without columns `x`.
-```q
-q)t:([]a:1 2 3;b:4 5 6;c:`d`e`f)
-q)`a`b _t
-c
--
-d
-e
-f
-q)t _`a`b
-'type
-q)`a _t
-'type
-q)t _`a
-'type
-```
+- `x` is an **atom or vector of keys** to **dictionary** `y`, returns `y` without the entries for `x`. 
+
+    <pre><code class="language-q"> 
+    q)\`a _ \`a\`b\`c!1 2 3
+    b| 2
+    c| 3
+    q)\`a\`b _ \`a\`b\`c!1 2 3
+    c| 3
+    q)(\`a\`b\`c!1 2 3) _ \`a\`b
+    'type
+    </code></pre>
+    <i class="fa fa-hand-o-right"></i> _Q for Mortals_: [5. Dictionaries](http://code.kx.com/q4m3/5_Dictionaries/#522-extracting-a-sub-dictionary)
+
+    !!! warning "Dropping dictionary entries with integer arguments"
+        With dictionaries, distinguish the roles of integer arguments to _drop_.
+        <pre><code class="language-q">
+        q)d:100 200!\`a\`b
+        q)1 _ d            /drop the first entry
+        200| b
+        q)d _ 1            /drop where key=1
+        100| a
+        200| b
+        q)d _ 100          /drop where key=100
+        200| b
+        q)enlist[1] _ d    /drop where key=1
+        100| a
+        200| b
+        q)enlist[100] _ d  /drop where key=100
+        200| b
+        q)100 _ d          /drop first 100 entries
+        </code></pre>
+
+- `x` is a **vector of keys** and `y` is a **table**, returns `y` without columns `x`.
+    <pre><code class="language-q"> 
+    q)t:([]a:1 2 3;b:4 5 6;c:\`d\`e\`f)
+    q)\`a\`b _ t
+    c
+    -
+    d
+    e
+    f
+    q)t _ \`a\`b
+    'type
+    q)\`a _ t
+    'type
+    q)t _ \`a
+    'type
+    </code></pre>
 
 
 ## `enlist`
@@ -482,7 +482,7 @@ q)raze d
 !!! warning "Use only on items that can be joined"
     `raze` is defined in k as `,/` and requires items that can be joined together. 
     <pre><code class="language-q">
-    q)d:`a`b!(1 2;3 5)
+    q)d:\`a\`b!(1 2;3 5)
     q)10,d          / cannot join integer and dictionary
     'type
     q)raze (10;d)   / raze will not work
@@ -544,29 +544,30 @@ Syntax: `x sv y`
 Where:
 
 - (**join strings**) `y` is a list of strings, and `x` is a character or string, returns the strings in `y`, separated by `x`. Where `x` is the back tick `` ` ``, the strings are separated by the host line separator  – `\n` on Unix, `\r\n` on Windows.
-```q
-q)"," sv ("one";"two";"three")    / comma separated
-"one,two,three"
-q)"\t" sv ("one";"two";"three")   / tab separated
-"one\ttwo\tthree"
-q)", " sv ("one";"two";"three")   / x may be a string
-"one, two, three"
-q)"." sv string 192 168 1 23      / form IP address
-"192.168.1.23"
-q)` sv ("one";"two";"three")      / use host line separator
-"one\ntwo\nthree\n"
-```
+    <pre><code class="language-q"> 
+    q)"," sv ("one";"two";"three")    / comma separated
+    "one,two,three"
+    q)"\t" sv ("one";"two";"three")   / tab separated
+    "one\ttwo\tthree"
+    q)", " sv ("one";"two";"three")   / x may be a string
+    "one, two, three"
+    q)"." sv string 192 168 1 23      / form IP address
+    "192.168.1.23"
+    q)` sv ("one";"two";"three")      / use host line separator
+    "one\ntwo\nthree\n"
+    </code></pre>
 
 - (**join path components**) `y` is a symbol list of which the first item is a file handle, it returns a file handle where the items of the list are joined, separated by slashes. This is useful when building file paths.
-```q
-q)` sv `:/home/kdb/q`data`2010.03.22`trade
-`:/home/kdb/q/data/2010.03.22/trade
-```
-If the first item is not a file handle, returns a symbol where the items are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
-```q
-q)` sv `mywork`dat
-`mywork.dat
-```
+    <pre><code class="language-q"> 
+    q)\` sv \`:/home/kdb/q\`data\`2010.03.22\`trade
+    \`:/home/kdb/q/data/2010.03.22/trade
+    </code></pre>
+    If the first item is not a file handle, returns a symbol where the items are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
+    <pre><code class="language-q"> 
+    q)\` sv \`mywork\`dat
+    \`mywork.dat
+    </code></pre>
+
 <i class="fa fa-hand-o-right"></i> [`sv` decode](casting/#sv)
 
 
@@ -576,175 +577,175 @@ Syntax: `x # y`
 
 Returns `y` as a list, dictionary or table described or selected by `x`. 
 
-Where `x` is 
+Where 
 
-- an int atom, and `y` is an atom or list, returns a list of length `x` filled from `y`, starting at the front if `x` is positive and the end if negative.
-```q
-q)5#0 1 2 3 4 5 6 7 8      /take the first 5 items
-0 1 2 3 4
-q)-5#0 1 2 3 4 5 6 7 8     /take the last 5 items
-4 5 6 7 8
-```
-If `x>count y`, `y` is treated as circular.
-```q
-q)5#`Arthur`Steve`Dennis
-`Arthur`Steve`Dennis`Arthur`Steve
-q)-5#`Arthur`Steve`Dennis
-`Steve`Dennis`Arthur`Steve`Dennis
-q)3#9
-9 9 9
-q)2#`a
-`a`a
-```
-If `x` is 0, an empty list is returned.
-```q
-q)trade:([]time:();sym:();price:();size:())  /columns can hold anything
-q)trade
-+`time`sym`price`size!(();();();())
-q)/idiomatic way to initialise columns to appropriate types
-q)trade:([]time:0#0Nt;sym:0#`;price:0#0n;size:0#0N)
-q)trade
-+`time`sym`price`size!(`time$();`symbol$();`float$();`int$())
-```
-
-- an int atom and `y` is a dictionary, `x` entries are returned.
-```q
-q)d:`a`b`c!1 2 3
-q)2#d
-a| 1
-b| 2
-```
-
-- an int atom and `y` is a table, `x` rows are returned.
-```q
-q)\l sp.q
-..
-q)5#sp
-s  p  qty
----------
-s1 p1 300
-s1 p2 200
-s1 p3 400
-s1 p4 200
-s4 p5 100
-```
-
-- an int vector and `y` is an atom or list, returns a matrix or higher-dimensional array; `count x` gives the number of dimensions. (Since V2.3)
-```q
-q)2 5#"!"
-"!!!!!"
-"!!!!!"
-q)2 3#til 6
-(0 1 2;3 4 5)
-```
-A 2&times;4 matrix taken from the list `` `Arthur`Steve`Dennis``
-```q
-q)2 4#`Arthur`Steve`Dennis
-(`Arthur`Steve`Dennis`Arthur;`Steve`Dennis`Arthur`Steve)
-```
-Higher dimensions are not always easy to see.
-```q
-q)2 3 4#"a"
-"aaaa" "aaaa" "aaaa"
-"aaaa" "aaaa" "aaaa"
-q)show five3d:2 3 4#til 5
-0 1 2 3 4 0 1 2 3 4 0 1
-2 3 4 0 1 2 3 4 0 1 2 3
-q)count each five3d
-3 3
-q)first five3d
-0 1 2 3
-4 0 1 2
-3 4 0 1
-```
-A null in `x` will cause that dimension to be maximal.
-```q
-q)0N 3#til 10
-0 1 2
-3 4 5
-6 7 8
-,9
-```
-
-!!! note "Changes since V3.3"
-    From V3.4, if `x` is a list of length 1, the result has a single dimension. 
-    <pre><code class="language-q">
-    q)enlist[2]#til 10
-    0 1
+- `x` is an **int atom**, and `y` is an **atom or list**, returns a list of length `x` filled from `y`, starting at the front if `x` is positive and the end if negative.
+    <pre><code class="language-q"> 
+    q)5#0 1 2 3 4 5 6 7 8      /take the first 5 items
+    0 1 2 3 4
+    q)-5#0 1 2 3 4 5 6 7 8     /take the last 5 items
+    4 5 6 7 8
     </code></pre>
-    From V3.4, `x` can have length greater than 2 – but may not contain nulls.
-    <pre><code class="language-q">
-    q)(2 2 3#til 5)~((0 1 2;3 4 0);(1 2 3;4 0 1))
-    1b
-    q)(enlist("";""))~1 2 0#"a"
-    1b
-    q)all`domain=@[;1 2;{`$x}]each(#)@'(1 0 2;2 3 0N;0N 2 1;-1 2 3)
-    1b
+    If `x>count y`, `y` is treated as circular.
+    <pre><code class="language-q"> 
+    q)5#\`Arthur\`Steve\`Dennis
+    \`Arthur\`Steve\`Dennis\`Arthur\`Steve
+    q)-5#\`Arthur\`Steve\`Dennis
+    \`Steve\`Dennis\`Arthur\`Steve\`Dennis
+    q)3#9
+    9 9 9
+    q)2#\`a
+    \`a\`a
     </code></pre>
-    The effect of nulls in `x` changed in V3.3.
-        
-    Prior to V3.3:
-    <pre><code class="language-q">
-    q)3 0N # til 10
-    (0 1 2 3;4 5 6 7;8 9)
-    q)(10 0N)#(),10
-    10
-    q)4 0N#til 9
+    If `x` is 0, an empty list is returned.
+    <pre><code class="language-q"> 
+    q)trade:([]time:();sym:();price:();size:())  /columns can hold anything
+    q)trade
+    +\`time\`sym\`price\`size!(();();();())
+    q)/idiomatic way to initialise columns to appropriate types
+    q)trade:([]time:0#0Nt;sym:0#\`;price:0#0n;size:0#0N)
+    q)trade
+    +\`time\`sym\`price\`size!(\`time\$();\`symbol\$();\`float\$();\`int\$())
+    </code></pre>
+
+- `x` is an **int atom** and `y` is a **dictionary**, `x` entries are returned.
+    <pre><code class="language-q"> 
+    q)d:\`a\`b\`c!1 2 3
+    q)2#d
+    a| 1
+    b| 2
+    </code></pre>
+
+- `x` is an **int atom** and `y` is a **table**, `x` rows are returned.
+    <pre><code class="language-q"> 
+    q)\l sp.q
+    ..
+    q)5#sp
+    s  p  qty
+    ---------
+    s1 p1 300
+    s1 p2 200
+    s1 p3 400
+    s1 p4 200
+    s4 p5 100
+    </code></pre>
+
+- `x` is an **int vector** and `y` is an **atom or list**, returns a matrix or higher-dimensional array; `count x` gives the number of dimensions. (Since V2.3)
+    <pre><code class="language-q"> 
+    q)2 5#"!"
+    "!!!!!"
+    "!!!!!"
+    q)2 3#til 6
+    (0 1 2;3 4 5)
+    </code></pre>
+    A 2&times;4 matrix taken from the list `` `Arthur`Steve`Dennis``
+    <pre><code class="language-q"> 
+    q)2 4#\`Arthur\`Steve\`Dennis
+    (\`Arthur\`Steve\`Dennis\`Arthur;\`Steve\`Dennis\`Arthur\`Steve)
+    </code></pre>
+    Higher dimensions are not always easy to see.
+    <pre><code class="language-q"> 
+    q)2 3 4#"a"
+    "aaaa" "aaaa" "aaaa"
+    "aaaa" "aaaa" "aaaa"
+    q)show five3d:2 3 4#til 5
+    0 1 2 3 4 0 1 2 3 4 0 1
+    2 3 4 0 1 2 3 4 0 1 2 3
+    q)count each five3d
+    3 3
+    q)first five3d
+    0 1 2 3
+    4 0 1 2
+    3 4 0 1
+    </code></pre>
+    A null in `x` will cause that dimension to be maximal.
+    <pre><code class="language-q"> 
+    q)0N 3#til 10
     0 1 2
     3 4 5
     6 7 8
-    </code></pre>
-    From V3.3:
-    <pre><code class="language-q">
-    q)3 0N#til 10
-    (0 1 2;3 4 5;6 7 8 9)
-    q)2 0N#0#0
-    (`long$();`long$())
-    q)(10 0N)#(),10
-    (`long$();`long$();`long$();`long$();`long$();`long$();`long$();`long$();`long$();,10)
-    q)4 0N#til 9
-    0 1
-    2 3
-    4 5
-    6 7 8
+    ,9
     </code></pre>
 
-- a symbol vector and `y` is a dictionary, returns entries for `x`.
-```q
-q)d:`a`b`c!1 2 3
-q)`a`b#d
-a| 1
-b| 2
-```
+    !!! note "Changes since V3.3"
+        From V3.4, if `x` is a list of length 1, the result has a single dimension. 
+        <pre><code class="language-q">
+        q)enlist[2]#til 10
+        0 1
+        </code></pre>
+        From V3.4, `x` can have length greater than 2 – but may not contain nulls.
+        <pre><code class="language-q">
+        q)(2 2 3#til 5)~((0 1 2;3 4 0);(1 2 3;4 0 1))
+        1b
+        q)(enlist("";""))~1 2 0#"a"
+        1b
+        q)all\`domain=@[;1 2;{\`$x}]each(#)@'(1 0 2;2 3 0N;0N 2 1;-1 2 3)
+        1b
+        </code></pre>
+        The effect of nulls in `x` changed in V3.3.
+            
+        Prior to V3.3:
+        <pre><code class="language-q">
+        q)3 0N # til 10
+        (0 1 2 3;4 5 6 7;8 9)
+        q)(10 0N)#(),10
+        10
+        q)4 0N#til 9
+        0 1 2
+        3 4 5
+        6 7 8
+        </code></pre>
+        From V3.3:
+        <pre><code class="language-q">
+        q)3 0N#til 10
+        (0 1 2;3 4 5;6 7 8 9)
+        q)2 0N#0#0
+        (\`long\$();\`long\$())
+        q)(10 0N)#(),10
+        (\`long\$();\`long\$();\`long\$();\`long\$();\`long\$();\`long\$();\`long\$();\`long\$();\`long\$();,10)
+        q)4 0N#til 9
+        0 1
+        2 3
+        4 5
+        6 7 8
+        </code></pre>
 
-- a symbol vector and `y` is a table, returns columns `x`.
-```q
-q)`p`qty#sp
-p  qty
-------
-p1 300
-p2 200
-p3 400
-p4 200
-p5 100
-p6 100
-p1 300
-p2 400
-p2 200
-p2 200
-p4 300
-p5 400
-```
+- `x` is a **symbol vector** and `y` is a **dictionary**, returns entries for `x`.
+    <pre><code class="language-q"> 
+    q)d:\`a\`b\`c!1 2 3
+    q)\`a\`b#d
+    a| 1
+    b| 2
+    </code></pre>
 
-- a table and `y` is a table, returns matching rows, together with the respective keys. This is similar to retrieving multiple records through the square brackets syntax, except _take_ also returns the keys. 
-```q
-q)([]s:`s1`s2)#s
-s | name  status city  
---| -------------------
-s1| smith 20     london
-s2| jones 10     paris 
-```
-<i class="fa fa-hand-o-right"></i> [_Q for Mortals_: Retrieving Multiple Records](http://code.kx.com/q4m3/8_Tables/#845-retrieving-multiple-records)
+- `x` is a **symbol vector** and `y` is a **table**, returns columns `x`.
+    <pre><code class="language-q"> 
+    q)\`p\`qty#sp
+    p  qty
+    ------
+    p1 300
+    p2 200
+    p3 400
+    p4 200
+    p5 100
+    p6 100
+    p1 300
+    p2 400
+    p2 200
+    p2 200
+    p4 300
+    p5 400
+    </code></pre>
+
+- `x` is a **table** and `y` is a **keyed table**, where columns of `x` are keys of `y`, returns matching rows, together with the respective keys. This is similar to retrieving multiple records through the square brackets syntax, except _take_ also returns the keys. 
+    <pre><code class="language-q"> 
+    q)([]s:\`s1\`s2)#s
+    s | name  status city  
+    --| -------------------
+    s1| smith 20     london
+    s2| jones 10     paris 
+    </code></pre>
+    <i class="fa fa-hand-o-right"></i> _Q for Mortals_: [8.4.5 Retrieving Multiple Records](http://code.kx.com/q4m3/8_Tables/#845-retrieving-multiple-records)
 
 
 
@@ -771,11 +772,11 @@ q)?[0b;"abcd";"ABCD"]
 !!! tip "Not this, not that"
     It can be useful to have more than just a true/false selection, e.g. match1/match2/match3/others mapping to result1/result2/result3/default. This can be achieved with _find_.
     <pre><code class="language-q">
-    q)input:10?`m1`m2`m3`other`yetanother
+    q)input:10?\`m1\`m2\`m3\`other\`yetanother
     q)input
-    `yetanother`m1`m3`m2`m3`m2`m3`other`m3`yetanother
-    q)`r1`r2`r3`default `m1`m2`m3?input
-    `default`r1`r3`r2`r3`r2`r3`default`r3`default
+    \`yetanother\`m1\`m3\`m2\`m3\`m2\`m3\`other\`m3\`yetanother
+    q)\`r1\`r2\`r3\`default \`m1\`m2\`m3?input
+    \`default\`r1\`r3\`r2\`r3\`r2\`r3\`default\`r3\`default
     </code></pre>
     This avoids nesting _vector conditional_, and scales better.
 
@@ -786,43 +787,47 @@ Syntax: `x vs y`
 
 Partition: returns list `y` partitioned according to `x`.
 
-- Where `x` is a char atom or string, and `y` is a **string**, returns a list of strings: `y` cut using `x` as the delimiter.
-```q
-q)"," vs "one,two,three"
-"one"
-"two"
-"three"
-q)", " vs "spring, summer, autumn, winter"
-"spring"
-"summer"
-"autumn"
-"winter"
-q)"|" vs "red|green||blue"
-"red"
-"green"
-""
-"blue"
-```
+Where 
 
-- Where `x` is the empty symbol `` ` ``, and `y` is a **symbol**, returns as a symbol vector `y` split on `` `.` ``.
-```q
-q)` vs `mywork.dat 
-`mywork`dat
-```
-- Where `x` is the empty symbol `` ` ``, and `y` is a **file handle**, returns as a symbol vector `y` split into directory and  file parts.
-```q
-q)` vs `:/home/kdb/data/mywork.dat
-`:/home/kdb/data`mywork.dat
-```
-- Where `x` is the empty symbol `` ` ``, and `y` is a **string**, returns as a list of strings `y` partitioned on embedded line terminators into lines. (Recognizes both Unix `\n` and Windows `\r\n` terminators).
-```q
-q)` vs "abc\ndef\nghi"
-"abc"
-"def"
-"ghi"
-q)` vs "abc\r\ndef\r\nghi"
-"abc"
-"def"
-"ghi"
-```
+- `x` is a **char atom or string**, and `y` is a **string**, returns a list of strings: `y` cut using `x` as the delimiter.
+    <pre><code class="language-q"> 
+    q)"," vs "one,two,three"
+    "one"
+    "two"
+    "three"
+    q)", " vs "spring, summer, autumn, winter"
+    "spring"
+    "summer"
+    "autumn"
+    "winter"
+    q)"|" vs "red|green||blue"
+    "red"
+    "green"
+    ""
+    "blue"
+    </code></pre>
+
+- `x` is the **empty symbol** `` ` ``, and `y` is a **symbol**, returns as a symbol vector `y` split on `` `.` ``.
+    <pre><code class="language-q"> 
+    q)\` vs \`mywork.dat 
+    \`mywork\`dat
+    </code></pre>
+
+- `x` is the **empty symbol** `` ` ``, and `y` is a **file handle**, returns as a symbol vector `y` split into directory and  file parts.
+    <pre><code class="language-q"> 
+    q)\` vs \`:/home/kdb/data/mywork.dat
+    \`:/home/kdb/data\`mywork.dat
+    </code></pre>
+
+- `x` is the **empty symbol** `` ` ``, and `y` is a **string**, returns as a list of strings `y` partitioned on embedded line terminators into lines. (Recognizes both Unix `\n` and Windows `\r\n` terminators).
+    <pre><code class="language-q"> 
+    q)\` vs "abc\ndef\nghi"
+    "abc"
+    "def"
+    "ghi"
+    q)\` vs "abc\r\ndef\r\nghi"
+    "abc"
+    "def"
+    "ghi"
+    </code></pre>
 

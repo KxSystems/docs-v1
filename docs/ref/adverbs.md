@@ -218,6 +218,21 @@ k){x':y}
 <i class="fa fa-hand-o-right"></i> [command-line options](cmdline), [parallel processing, `peach`](peach)
 
 
+!!! tip "Projecting a unary function with _apply_"
+    You can use [_apply_ `.`](unclassified/#apply) to project a binary or higher-rank function as a unary function of a list of its arguments. The projection can then be combined with an adverb (such as _each-parallel_ or _converge-iterate_) that takes a unary function as its argument. 
+    <pre><code class="language-q">
+    q)f2:{(0|x-1;x rotate y)} / binary fn, returns 2-list
+    q)f1:f2 .                 / unary fn of a 2-list
+    q)f1\\[(4;"hello")]        / converge-iterate
+    4 "hello"
+    3 "ohell"
+    2 "llohe"
+    1 "ohell"
+    0 "hello"
+    </code></pre>
+    Note that for _converge-repeat_ and _converge-iterate_, the function must return a list of the same length as its rank.
+
+
 <div markdown="1" style="float: right; margin-left: 1em;">
 ![each-prior](img/each-prior.png)
 </div>
@@ -337,7 +352,7 @@ q)-/[8 1 9 5 4]
 -11
 ```
 
-<i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over`](control/#over) operator.
+<i class="fa fa-hand-o-right"></i> [ambivalent derivatives](syntax/#ambivalent-derivatives), [`over` operator](control/#over).
 
 
 ## `/` (fold)
@@ -434,7 +449,7 @@ q){(x;y;z)}\[0;1 2 3;4 5 6]
 0 1 4       2 5
 (0 1 4;2;5) 3 6
 ```
-As of V3.1 2013.07.07, `scan` has a built-in function for the following.
+As of V3.1 2013.07.07, _scan_ has a built-in function for the following.
 ```q
 q){{z+y*x}\[x;y;z]}
 {{z+y*x}\[x;y;z]}
