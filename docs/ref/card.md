@@ -192,7 +192,7 @@ The following glyphs represent operators, functions or adverbs – according to 
 </tbody>
 </table>
 
-If not set, `LINES COLUMNS` default to 25 80 for console, and 36 2000 for Web. `\c` clamps to range 10…2000 for both inputs.
+If not set, `LINES COLUMNS` default to 25 80 for console, and 36 2000 for Web. `\c` [clamps](https://en.wikipedia.org/wiki/Clamping_(graphics) "wikipedia definition") to range 10…2000 for both inputs.
 
 Ensure `LINES` and `COLUMNS` are exported. In Bash
 ```bash

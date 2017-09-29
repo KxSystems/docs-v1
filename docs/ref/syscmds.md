@@ -507,25 +507,13 @@ til 10
 2 + "hello"
 \\
 ```
-```bash
+<pre><code class="language-bash">
 ~/q$ cat t1.txt          / entry in stdout
 0 1 2 3 4 5 6 7 8 9
 ~/q$ cat t2.txt          / entry in stderr
 q)q)'type
-```
-
-!!! tip "Return stdout and stderr to the console"
-    On Linux, determine the process ID and use as follows.
-    <pre><code class="language-q">
-    q).z.i
-    1234i
-    q)\1 test456.txt
-    q)"hello"
-    q)\1 /proc/1234/fd/0
-    q)"hello"
-    "hello"
-    </code></pre>
-    On macOS and Unix-like systems without `/proc`, use `\1 /dev/tty`
+</code></pre>
+On macOS and Linux `\1 /dev/stdin` returns output to the default. 
 
 
 ## `\_` (hide q code)

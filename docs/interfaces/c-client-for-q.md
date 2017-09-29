@@ -503,7 +503,7 @@ int main(){
       if(FD_ISSET(fd,&fds)){
         x=k(fd,(S)0);
         if(x){
-          if(-128==x->t){printf("Error occurred:%s\n",x->s);return;}
+          if(-128==x->t){printf("Error occurred:%s\n",x->s);r0(x);return;}
           printf("%d\n",x->i);
           r0(x);
         }
