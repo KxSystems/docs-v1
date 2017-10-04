@@ -1,8 +1,10 @@
 .gitignore
+article_topics.md
 done.md
 5jt.txt
 todo.md
 scrap/
 site/
 migration.html
+*.sh
 *.zip
