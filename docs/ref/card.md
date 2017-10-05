@@ -86,7 +86,7 @@ The following glyphs represent operators, functions or adverbs – according to 
 </thead>
 <tbody>
 <tr><td class="kx-big kx-nowrap">`'`</td><td>[case](adverbs/#case)</td><td>[signal](errors/#signal)</td><td>[compose](adverbs/#compose), [each-both](adverbs/#each-both)</td></tr>
-<tr><td class="kx-big kx-nowrap">`@`</td><td>[index/apply](unclassified/#apply)</td><td>[amend](lists/#amend)</td><td>[trap](errors/#trap)</td></tr>
+<tr><td class="kx-big kx-nowrap">`@`</td><td>[index/apply](select/#index-at)</td><td>[amend](lists/#amend)</td><td>[trap](errors/#trap)</td></tr>
 <tr><td class="kx-big kx-nowrap">`.`</td><td>[index/apply](unclassified/#apply)</td><td/><td/></tr>
 <tr><td class="kx-big kx-nowrap">`?`</td><td>[find](search/#find), [roll](random/#roll), [deal](random/#deal), [enum-extend](enums/#enum-extend)</td><td>[vector conditional](lists/#vector-conditional), [exec](funsql/#exec), [select](funsql/#select)</td><td/></tr>
 <tr><td class="kx-big kx-nowrap">`!`</td><td>[dict](dictsandtables/#dict), [key](dictsandtables/#key), [enumerate](enums/#enumerate) , [ints to enum](casting/#ints-to-enum)</td><td>[update](funsql/#update), [delete](funsql/#delete)</td><td/></tr>

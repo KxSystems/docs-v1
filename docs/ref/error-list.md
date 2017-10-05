@@ -132,7 +132,7 @@ On execute or load
 <tr> <td>`[({])}"`</td> <td class="nowrap">`"hello`</td> <td>Open `([{` or `"`</td> </tr>
 <tr> <td>branch</td> <td class="nowrap">`a:"1;",254#"0;"`<br/>`value "{if[",a,"]}"`</td> <td>A branch (if;do;while;$[.;.;.]) more than 255 byte codes away</td> </tr>
 <tr> <td>char</td> <td class="nowrap">`value "\000"`</td> <td>Invalid character</td> </tr>
-<tr> <td>constants</td> <td class="nowrap">`a:";"sv string 2+til 97;`<br/>`value"{",a,"}"`</td> <td>Too many constants (max 96)</td> </tr>
+<tr> <td>constants</td> <td class="nowrap">`a:";"sv string 2+til 97;`<br/>`value"{",a,"}"`</td> <td>Too many constants (max 95)</td> </tr>
 <tr> <td>globals</td> <td class="nowrap">`a:"::a"sv string til 32;`<br/>`value"{a",a,"::0}"`</td> <td>Too many global variables (31 max)</td> </tr>
 <tr> <td>locals</td> <td class="nowrap">`a:":a"sv string til 24;`<br/>`value"{a",a,":0}"`</td> <td>Too many local variables (23 max)</td> </tr>
 <tr> <td>params</td> <td class="nowrap">`f:{[a;b;c;d;e;f;g;h;e]}`</td> <td>Too many parameters (8 max)</td> </tr>
