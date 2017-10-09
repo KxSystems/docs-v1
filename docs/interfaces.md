@@ -22,7 +22,8 @@ about new repositories.</div>
 <i class="fa fa-github"></i> [sv/kp.net](https://github.com/sv/kp.net)
     </td>
 </tr>
-<tr><td>amCharts</td><td><i class="fa fa-github"></i> [kxcontrib/cburke/amcharts/](https://github.com/kxcontrib/cburke/tree/master/amcharts/)</td></tr>
+<tr><td>amCharts</td><td><i class="fa fa-github"></i> [kxcontrib/cburke/amcharts](https://github.com/kxcontrib/cburke/tree/master/amcharts/)</td></tr>
+<tr><td>AQuery</td><td><i class="fa fa-github"></i> [josepablocam/aquery](https://github.com/josepablocam/aquery) ==new==</td></tr>
 <tr><td>C</td><td>[C client for kdb+](/interfaces/c-client-for-q)</td></tr>
 <tr><td>CZMQ</td><td><i class="fa fa-github"></i> [jaeheum/qzmq](https://github.com/jaeheum/qzmq)</i></td></tr>
 <tr><td>C#</td><td>[C# client for kdb+](/interfaces/csharp-client-for-q/)<br/>

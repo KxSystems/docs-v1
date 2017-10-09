@@ -216,7 +216,7 @@ q).h.htac[`a;(`href`target)!("http://www.example.com";"_blank");"Example.com Mai
 
 Syntax: `.h.htc[x;y]`
 
-Where `x` is the HTML element as a synbol atom, and `y` is the contet of the node as a string, returs as a astring the HTML node. 
+Where `x` is the HTML element as a symbol atom, and `y` is the content of the node as a string, returns as a string the HTML node. 
 ```q
 q).h.htc[`tag;"value"]
 "<tag>value</tag>"

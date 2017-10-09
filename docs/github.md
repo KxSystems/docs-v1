@@ -469,7 +469,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/pyq-market-prediction">pyq-market-prediction ==new==</a></td>
+<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/pyq-market-prediction">pyq-market-prediction</a></td>
 <td>Predict the three-month price for Apple stock from 37 years of history (AAPL). <span class="author"><a href="https://github.com/t4joel?tab=repositories">
 						(Joel Oliveira)
 					</a></span>
@@ -511,7 +511,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/ridge-regression-price-prediction">ridge-regression-price-prediction ==new==</a></td>
+<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/ridge-regression-price-prediction">ridge-regression-price-prediction</a></td>
 <td>Predict Boston house prices using Ridge Regression. <span class="author"><a href="https://github.com/t4joel?tab=repositories">
 						(Joel Oliveira)
 					</a></span>
@@ -525,7 +525,19 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/eepgwde/ticker-planto">ticker-planto</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/josepablocam/symfun">symfun</a> ==new==</td>
+<td>Studies and classic problems. 
+<span class="author"><a href="https://github.com/josepablocam?tab=repositories">(José Cambronero)</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/josepablocam/telescope">telescope</a> ==new==</td>
+<td>Simulate lexically scoped local variables in q functions. 
+<span class="author"><a href="https://github.com/josepablocam?tab=repositories">(José Cambronero)</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/eepgwde/ticker-planto">ticker-planto</a></td>
 <td>Simplified version of kdb+tick. 
 <span class="author"><a href="https://github.com/eepgwde?tab=repositories">(Walter Eaves)</a></span>
 </td>
