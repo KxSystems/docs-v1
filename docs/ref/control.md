@@ -82,7 +82,7 @@ q)count each (1 2 3;"hello")  /count is the left-argument of each
 
 ## `if` 
 
-Syntax: `if[count;e1;e2;e3;…;en]` (control word)
+Syntax: `if[test;e1;e2;e3;…;en]` (control word)
 
 - `test` is an expression that evaluates to an atom
 - `e1`, `e2`, … `en` are expressions
