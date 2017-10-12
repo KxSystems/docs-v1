@@ -6,7 +6,12 @@ These functions return results for a [sliding window](/cookbook/programming-idio
 
 Syntax: `x ema y` (binary, uniform)
 
-Returns the exponentially weighted moving averages (EWMA), also known as [**exponential moving average**](https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average) (EMA) of numeric list `y`, with `x` as the smoothing parameter.
+Where
+
+- `y` is a numeric list
+- `x` is a numeric atom or list of length `count y`
+
+returns the exponentially weighted moving averages (EWMA), also known as [**exponential moving average**](https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average) (EMA) of `y`, with `x` as the smoothing parameter.
 
 Example: An impulse response with decay of &frac13;.
 ```q
@@ -25,6 +30,12 @@ q)(2%1+10)ema p
 23.13129 23.28014 23.34375 23.43034 23.51028 23.53568 23.47283 23.40505 
 23.3914 23.26206 23.23259 23.08121 22.91554
 ```
+
+!!! tip "V3.1 to V3.3"
+    `ema` has been defined since V3.4. To use it in V3.1 to V3.3, define it in `.q`:
+    <pre><code class="language-q">
+    .q.ema:{first\[y\]("f"$1-x)\x*y}
+    </code></pre>
 
 
 ## `mavg`
