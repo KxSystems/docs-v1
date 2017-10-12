@@ -54,7 +54,7 @@ openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -se
 
 ## TLS cipher List
 
-The default cipher list is set to the `Intermediate compatibility (default)` as recommended by Mozilla.org, and you may override this via the environment variable `SSL_CIPHER_LIST`, to reduce the list to whatever your IT security policy requires. A good source for what is generally recommended can be found at [Ciphersuites](https://wiki.mozilla.org/Security/Server_Side_TLS).
+The default cipher list is set to the `Intermediate compatibility (default)` [as recommended by Mozilla.org](https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28default.29), and you may override this via the environment variable `SSL_CIPHER_LIST`, to reduce the list to whatever your IT security policy requires. A good source for what is generally recommended can be found at [Ciphersuites](https://wiki.mozilla.org/Security/Server_Side_TLS).
 
 e.g.
 ```bash

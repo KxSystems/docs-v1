@@ -53,6 +53,7 @@ about new repositories.</div>
 <i class="fa fa-github"></i> [jkozlowski/kdb-haskell](https://github.com/jkozlowski/kdb-haskell)
     </td>
 </tr>
+<tr><td>IntelliJ IDEA</td><td><i class="fa fa-github"></i> [k-intellij-plugin](https://github.com/a2ndrade/k-intellij-plugin) ==new==</td></tr>
 <tr><td>J</td><td>[J client for kdb+](/interfaces/j-client-for-q/)</td></tr>
 <tr>
     <td>Java</td>
