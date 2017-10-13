@@ -16,7 +16,7 @@ extra_javascript:
   - 'https://use.fontawesome.com/3dbf29ed12.js'
   # - 'scripts/arrive.min.js' # required for theme.js
   # theme.js modifies HTML to prepare for prism.js
-  - 'scripts/theme.js'
+  # - 'scripts/theme.js'
   # Prism script includes plugin Copy to Clipboard http://prismjs.com/download.html
   # Omits plugins Command Line, Line highlight, and Line Numbers: no effect
   - '//code.kx.com/scripts/prism.js'
