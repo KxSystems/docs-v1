@@ -867,7 +867,7 @@ q).Q.x
 
 ### `.Q.Xf` (create file)
 
-Syntax: `.QXf[x;y]`
+Syntax: `.Q.Xf[x;y]`
 
 Where `x` is a mapped nested datatype as either an upper-case char atom, or as a short symbol (e.g. `` `char``) and `y` is a filepath, creates an empty nested-vector file at `y`.
 ```q
@@ -875,7 +875,9 @@ q).Q.Xf["C";`:emptyNestedCharVector];
 q)type get`:emptyNestedCharVector
 87h 
 ```
+### `.Q.Cf` (create empty nested char file)
 
+Alias for `.Q.Xf[\`char;y]`
 
 ## Partitioned database state
 
