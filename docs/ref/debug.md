@@ -7,9 +7,9 @@ q)2+"hi"
   [0]  2+"hi"   / stack frame index and source code
         ^       / caret indicates the primitive that failed
 ```
-This will be augmented with file, line and function name, if such information is available.
+This will be augmented with file:line and function name, if such information is available.
 ```q
-q)myfun"hi"
+q)myfun"hi"    / myfun defined in test.q and loaded with \l
 'type
   [1]  /kdb+3.5/test.q:5: myfun:{2+x} / note the full path name
                                   ^
@@ -21,6 +21,7 @@ q)f0[2]
 'type
   [2]  f0@:{("hi";x+y)}
                    ^
+q)\
 ```
 
 
@@ -55,14 +56,6 @@ q)). / down
          ^
 q))
 ```
-`'err` will signal err from the deepest frame available, destroying it.
-```q
-q))'myerror
-'myerror
-  [1]  f:{g[x;2#y]}
-          ^
-q))
-```
 In a debugger session, `.z.ex` and `.z.ey` are set to the failed primitive and its argument list.
 ```q
 q)).z.ex
@@ -71,6 +64,44 @@ q)).z.ey
 6
 "he"
 ```
+`'err` will signal err from the deepest frame available, destroying it.
+```q
+q))'myerror
+'myerror
+  [1]  f:{g[x;2#y]}
+          ^
+q))
+```
+
+When execution is suspended, `:e` resumes with `e` as the result of the failed operation. `e` defaults to null `::`. 
+```q
+q)read0`:test.q
+"/ test script"
+"a:b:0"
+"func:{1+x}"
+"a:func`a"
+"b:1"
+q)\l test.q
+'type
+  [3]  <full path to file>/test.q:3: func:{1+x}
+                                            ^
+q)):42 / result of 1+x
+q)a
+42
+q)b
+1
+```
+Note that resume does _not_ return from enclosing function
+```
+q){0N!"x+1 is ",string x+1;x}`asd
+'type
+  [1]  {0N!"x+1 is ",string x+1;x}
+                             ^
+q)):17
+"x+1 is 17"
+`asd
+```
+
 Use `\` to exit the debugger and abort execution.
 ```q
 q))\
@@ -103,7 +134,7 @@ q)f 4
   [0]  f 4
        ^
 10                   / (4+1)*2
-q)f[3;"hello"]
+q)g[3;"hello"]
 'type
   [2]  g:{a:x*2;a+y}
                 ^
@@ -195,26 +226,6 @@ q)'type
 q))                 / the server is suspended in a debug session
 ```
 
-
-## Resume 
-
-When execution is suspended, `:e` resumes with `e` as the result of the failed operation. `e` defaults to null `::`. 
-```q
-q)\cat q/test.q
-"/ test script"
-"a:b:0"
-"func:{1+x}"
-"a:func`a"
-"b:1"
-q)\l test.q
-'type
-  [3]  /Users/sjt/q/test.q:3: func:{1+x}
-                                     ^
-q)):42 / result of 1+x
-q)a
-42
-q)b
-1
-```
+## See also
 
 <i class="fa fa-hand-o-right"></i> _Q for Mortals 3:_ [10.2 Debugging](http://code.kx.com/q4m3/10_Execution_Control/#102-debugging)

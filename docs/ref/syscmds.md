@@ -522,17 +522,16 @@ Syntax: `\_ [scriptname]`
 
 This command has two different uses depending on whether a parameter is given.
 
-If no parameter, then `\_` checks if client write access is blocked.  
+If no parameter, then `\_` checks if client write access is blocked. 
+```q
+q)\_
+0b
+```
 <i class="fa fa-hand-o-right"></i> [`-b` command-line option](cmdline/#-b-blocked)
 
-If a parameter is given, it should be a scriptname and `\_` `f.q` makes a runtime script `f.q_`. The q code cannot be viewed or serialized.
-```bash
-~/q$ echo "a:123;f:{x+2*y}" > t1.q
-~/q$ l64/q
-KDB+ 2.6 2010.05.10 Copyright (C) 1993-2010 Kx Systems
-..
-```
+If a parameter is given, it should be a scriptname and `\_ f.q` makes a runtime script `f.q_`. The q code cannot be viewed or serialized.
 ```q
+q)`:t1.q 0:enlist "a:123;f:{x+2*y}"
 q)\_ t1.q               / create locked script
 `t1.q_
 q)\l t1.q_              / can be loaded as usual
@@ -540,12 +539,17 @@ q)a                     / definitions are correct
 123
 q)f[10;1 2 3]
 12 14 16
-q)f                     / q code cannot be displayed
+q)f                     / q code is not displayed
 locked
 q)-8!f                  / or serialized
 'type
-q)read1`:t1.q_          / file contents are scrambled
-0x27fc45d98727b2ed0a530c25881733a5
+  [0]  -8!f
+         ^
+q)read0`:t1.q
+"a:123;f:{x+2*y}"
+q)read0`:t1.q_          / file contents are scrambled
+"'\374E\331\207'\262\355"
+"S\014%\210\0273\245"
 ```
 
 
