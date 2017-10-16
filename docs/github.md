@@ -163,6 +163,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/jwbuitenhuis/q-chess">q-chess</a> ==new==</td>
+<td>Simple chess engine. <span class="author"><a href="https://github.com/jwbuitenhuis?tab=repositories">
+						(Will Buitenhuis)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/simongarland/tickrecover">tickrecover</a></td>
 <td>Recover from tickerplant crash. <span class="author"><a href="https://github.com/simongarland?tab=repositories">
 						(Simon Garland)

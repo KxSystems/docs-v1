@@ -9,7 +9,7 @@ a| 1
 b| 2
 c| 3
 ```
-Because [tables](elements/#tables) are collections of like dictionaries, `!` applied to each member of a list will return a table of that list. For example:
+Because [tables](elements/#tables) are lists of dictionaries with the same keys, `!` applied to each member of a list will return a table of that list. For example:
 ```
 q)(`a`b`c!)each(0 0 0;1 2 3;2 4 6)
 a b c
