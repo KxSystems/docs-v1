@@ -6,5 +6,6 @@ todo.md
 scrap/
 site/
 migration.html
-*.sh
+build.sh
+send.sh
 *.zip

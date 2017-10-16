@@ -187,6 +187,7 @@ pages:
     - inetd/xinetd: cookbook/inetd.md
     - Interprocess communication: cookbook/ipc.md
     - Kdb+tick configuration: cookbook/kdb-tick.md
+    - Linear programming: cookbook/lp.md
     - Linking columns: cookbook/linking-columns.md
     - Linux production notes: cookbook/linux-production.md
     - Load balancing: cookbook/load-balancing.md
