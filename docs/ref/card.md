@@ -208,28 +208,28 @@ q)`VARNAME setenv "NEWVALUE"
 ## Datatypes
 <table class="kx-tight" markdown="1" style="font-size:80%">
 <thead>
-<tr><th>n</th><th>c</th><th>name</th><th>sz</th><th>literal</th><th>null</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
+<tr><th>n</th><th>c</th><th>name</th><th>sz</th><th>literal</th><th>null</th><th>inf</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
 </thead>
 <tbody>
-<tr><td class="nowrap">0</td><td>*</td><td>list</td><td/><td/><td/><td/><td/><td/></tr>
-<tr><td class="nowrap">1</td><td>b</td><td>boolean</td><td>1</td><td>`0b`</td><td/><td/><td>Boolean</td><td>boolean</td></tr>
-<tr><td class="nowrap">2</td><td>g</td><td>guid</td><td>16</td><td/><td>`0Ng`</td><td/><td>UUID</td><td>GUID</td></tr>
-<tr><td class="nowrap">4</td><td>x</td><td>byte</td><td>1</td><td>`0x00`</td><td/><td/><td>Byte</td><td>byte</td></tr>
-<tr><td class="nowrap">5</td><td>h</td><td>short</td><td>2</td><td>`0h`</td><td>`0Nh`</td><td>smallint</td><td>Short</td><td>int16</td></tr>
-<tr><td class="nowrap">6</td><td>i</td><td>int</td><td>4</td><td>`0i`</td><td>`0Ni`</td><td>int</td><td>Integer</td><td>int32</td></tr>
-<tr><td class="nowrap">7</td><td>j</td><td>long</td><td>8</td><td>`0j` or `0`</td><td>`0Nj` or `0N`</td><td>bigint</td><td>Long</td><td>int64</td></tr>
-<tr><td class="nowrap">8</td><td>e</td><td>real</td><td>4</td><td>`0e`</td><td>`0Ne`</td><td>real</td><td>Float</td><td>single</td></tr>
-<tr><td class="nowrap">9</td><td>f</td><td>float</td><td>8</td><td>`0.0` or `0f`</td><td>`0n`</td><td>float</td><td>Double</td><td>double</td></tr>
-<tr><td class="nowrap">10</td><td>c</td><td>char</td><td>1</td><td>`" "`</td><td>`" "`</td><td/><td>Character</td><td>char</td></tr>
-<tr><td class="nowrap">11</td><td>s</td><td>symbol</td><td>.</td><td>`` ` ``</td><td>`` ` ``</td><td>varchar</td><td>String</td><td>string</td></tr>
-<tr><td class="nowrap">12</td><td>p</td><td>timestamp</td><td>8</td><td>dateDtimespan</td><td>`0Np`</td><td/><td>Timestamp</td><td>DateTime (RW)</td></tr>
-<tr><td class="nowrap">13</td><td>m</td><td>month</td><td>4</td><td>`2000.01m`</td><td>`0Nm`</td><td/><td/><td/></tr>
-<tr><td class="nowrap">14</td><td>d</td><td>date</td><td>4</td><td>`2000.01.01`</td><td>`0Nd`</td><td>date</td><td>Date</td><td/></tr>
-<tr><td class="nowrap">15</td><td>z</td><td>datetime</td><td>8</td><td>dateTtime</td><td>`0Nz`</td><td>timestamp</td><td>Timestamp</td><td>DateTime (RO)</td></tr>
-<tr><td class="nowrap">16</td><td>n</td><td>timespan</td><td>8</td><td>`00:00:00.000000000`</td><td>`0Nn`</td><td/><td>Timespan</td><td>TimeSpan</td></tr>
-<tr><td class="nowrap">17</td><td>u</td><td>minute</td><td>4</td><td>`00:00`</td><td>`0Nu`</td><td/><td/><td/></tr>
-<tr><td class="nowrap">18</td><td>v</td><td>second</td><td>4</td><td>`00:00:00`</td><td>`0Nv`</td><td/><td/><td/></tr>
-<tr><td class="nowrap">19</td><td>t</td><td>time</td><td>4</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
+<tr><td class="nowrap">0</td><td>*</td><td>list</td><td/><td/><td/><td/><td/><td/><td/></tr>
+<tr><td class="nowrap">1</td><td>b</td><td>boolean</td><td>1</td><td>`0b`</td><td/><td/><td/><td>Boolean</td><td>boolean</td></tr>
+<tr><td class="nowrap">2</td><td>g</td><td>guid</td><td>16</td><td/><td>`0Ng`</td><td/><td/><td>UUID</td><td>GUID</td></tr>
+<tr><td class="nowrap">4</td><td>x</td><td>byte</td><td>1</td><td>`0x00`</td><td/><td/><td/><td>Byte</td><td>byte</td></tr>
+<tr><td class="nowrap">5</td><td>h</td><td>short</td><td>2</td><td>`0h`</td><td>`0Nh`</td><td>`0Wh`</td><td>smallint</td><td>Short</td><td>int16</td></tr>
+<tr><td class="nowrap">6</td><td>i</td><td>int</td><td>4</td><td>`0i`</td><td>`0Ni`</td><td>`0Wi`</td><td>int</td><td>Integer</td><td>int32</td></tr>
+<tr><td class="nowrap">7</td><td>j</td><td>long</td><td>8</td><td>`0j` or `0`</td><td>`0Nj`<br>or `0N`</td><td>`0Wj`<br>or `0W`</td><td>bigint</td><td>Long</td><td>int64</td></tr>
+<tr><td class="nowrap">8</td><td>e</td><td>real</td><td>4</td><td>`0e`</td><td>`0Ne`</td><td>`0We`</td><td>real</td><td>Float</td><td>single</td></tr>
+<tr><td class="nowrap">9</td><td>f</td><td>float</td><td>8</td><td>`0.0` or `0f`</td><td>`0n`</td><td>`0w`</td><td>float</td><td>Double</td><td>double</td></tr>
+<tr><td class="nowrap">10</td><td>c</td><td>char</td><td>1</td><td>`" "`</td><td>`" "`</td><td/><td/><td>Character</td><td>char</td></tr>
+<tr><td class="nowrap">11</td><td>s</td><td>symbol</td><td>.</td><td>`` ` ``</td><td>`` ` ``</td><td/><td>varchar</td><td>String</td><td>string</td></tr>
+<tr><td class="nowrap">12</td><td>p</td><td>timestamp</td><td>8</td><td>dateDtimespan</td><td>`0Np`</td><td>`0Wp`</td><td/><td>Timestamp</td><td>DateTime (RW)</td></tr>
+<tr><td class="nowrap">13</td><td>m</td><td>month</td><td>4</td><td>`2000.01m`</td><td>`0Nm`</td><td/><td/><td/><td/></tr>
+<tr><td class="nowrap">14</td><td>d</td><td>date</td><td>4</td><td>`2000.01.01`</td><td>`0Nd`</td><td>`0Wd`</td><td>date</td><td>Date</td><td/></tr>
+<tr><td class="nowrap">15</td><td>z</td><td>datetime</td><td>8</td><td>dateTtime</td><td>`0Nz`</td><td>`0wz`</td><td>timestamp</td><td>Timestamp</td><td>DateTime (RO)</td></tr>
+<tr><td class="nowrap">16</td><td>n</td><td>timespan</td><td>8</td><td>`00:00:00.000000000`</td><td>`0Nn`</td><td>`0Wn`</td><td/><td>Timespan</td><td>TimeSpan</td></tr>
+<tr><td class="nowrap">17</td><td>u</td><td>minute</td><td>4</td><td>`00:00`</td><td>`0Nu`</td><td>`0Wu`</td><td/><td/><td/></tr>
+<tr><td class="nowrap">18</td><td>v</td><td>second</td><td>4</td><td>`00:00:00`</td><td>`0Nv`</td><td>`0Nv`</td><td/><td/><td/></tr>
+<tr><td class="nowrap">19</td><td>t</td><td>time</td><td>4</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>`0Wt`</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
 <tr><td class="nowrap" colspan="2">20-76</td><td>enums</td><td/><td/><td/><td/><td/><td/></tr>
 <tr><td class="nowrap">77</td><td/><td colspan="7">(unused)</td><td/><td/><td/></tr>
 <tr><td class="nowrap" colspan="2">78-96</td><td colspan="7">77+t – mapped list of lists of type t</td><td/><td/><td/></tr>
@@ -252,73 +252,16 @@ q)`VARNAME setenv "NEWVALUE"
 </tbody>
 </table>
 
-`n`: short int returned by [`type`](metadata/#type)  
-`c`: character used for [casting](casting) and [load-csv](filenumbers/#load-csv)  
-`sz`: size in bytes  
+_n_: short int returned by [`type`](metadata/#type) and used for [casting](casting), e.g. `9h$3`  
+_c_: character used lower-case for [casting](casting) and upper-case for [load-csv](filenumbers/#load-csv)  
+_sz_: size in bytes  
+_inf_: infinity (no math on temporal types); `0Wh` is `32767h`  
 RO: read only; RW: read-write
 
-<!-- 
-<table class="kx-tight" markdown="1" style="font-size:80%">
-<thead>
-<tr><th>char</th><th>size</th><th>num</th><th>literal</th><th>null</th><th>name</th><th>SQL</th><th>Java</th><th>.Net</th></tr>
-</thead>
-<tbody>
-<tr><td>b</td><td>1</td><td>1</td><td>`0b`</td><td/><td>boolean</td><td/><td>Boolean</td><td>boolean</td></tr>
-<tr><td>g</td><td>16</td><td>2</td><td/><td>`0Ng`</td><td>guid</td><td/><td>UUID</td><td>GUID</td></tr>
-<tr><td>x</td><td>1</td><td>4</td><td>`0x00`</td><td/><td>byte</td><td/><td>Byte</td><td>byte</td></tr>
-<tr><td>h</td><td>2</td><td>5</td><td>`0h`</td><td>`0Nh`</td><td>short</td><td>smallint</td><td>Short</td><td>int16</td></tr>
-<tr><td>i</td><td>4</td><td>6</td><td>`0i`</td><td>`0Ni`</td><td>int</td><td>int</td><td>Integer</td><td>int32</td></tr>
-<tr><td>j</td><td>8</td><td>7</td><td>`0j` or `0`</td><td>`0Nj` or `0N`</td><td>long</td><td>bigint</td><td>Long</td><td>int64</td></tr>
-<tr><td>e</td><td>4</td><td>8</td><td>`0e`</td><td>`0Ne`</td><td>real</td><td>real</td><td>Float</td><td>single</td></tr>
-<tr><td>f</td><td>8</td><td>9</td><td>`0.0` or `0f`</td><td>`0n`</td><td>float</td><td>float</td><td>Double</td><td>double</td></tr>
-<tr><td>c</td><td>1</td><td>10</td><td>`" "`</td><td>`" "`</td><td>char</td><td/><td>Character</td><td>char</td></tr>
-<tr><td>s</td><td>.</td><td>11</td><td>`` ` ``</td><td>`` ` ``</td><td>symbol</td><td>varchar</td><td>String</td><td>string</td></tr>
-<tr><td>p</td><td>8</td><td>12</td><td>dateDtimespan</td><td>`0Np`</td><td>timestamp</td><td/><td>Timestamp</td><td>DateTime (r/w)</td></tr>
-<tr><td>m</td><td>4</td><td>13</td><td>`2000.01m`</td><td>`0Nm`</td><td>month</td><td/><td/><td/></tr>
-<tr><td>d</td><td>4</td><td>14</td><td>`2000.01.01`</td><td>`0Nd`</td><td>date</td><td>date</td><td>Date</td><td/></tr>
-<tr><td>z</td><td>8</td><td>15</td><td>dateTtime</td><td>`0Nz`</td><td>datetime</td><td>timestamp</td><td>Timestamp</td><td>DateTime (read only)</td></tr>
-<tr><td>n</td><td>8</td><td>16</td><td>`00:00:00.000000000`</td><td>`0Nn`</td><td>timespan</td><td/><td>Timespan</td><td>TimeSpan</td></tr>
-<tr><td>u</td><td>4</td><td>17</td><td>`00:00`</td><td>`0Nu`</td><td>minute</td><td/><td/><td/></tr>
-<tr><td>v</td><td>4</td><td>18</td><td>`00:00:00`</td><td>`0Nv`</td><td>second</td><td/><td/><td/></tr>
-<tr><td>t</td><td>4</td><td>19</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
-</tbody>
-</table>
- -->
-<!--
-<div markdown="1" class="kx-compact">
-
-| char | size | num | literal              | null         | name      | sql       | java      | .net                 |
-|------|------|-----|----------------------|--------------|-----------|-----------|-----------|----------------------|
-| b    | 1    | 1   | `0b`                 |              | boolean   |           | Boolean   | boolean              |
-| g    | 16   | 2   |                      | `0Ng`        | guid      |           | UUID      | GUID                 |
-| x    | 1    | 4   | `0x00`               |              | byte      |           | Byte      | byte                 |
-| h    | 2    | 5   | `0h`                 | `0Nh`        | short     | smallint  | Short     | int16                |
-| i    | 4    | 6   | `0i`                 | `0Ni`        | int       | int       | Integer   | int32                |
-| j    | 8    | 7   | `0j` or `0`          | `0Nj` or `0N`| long      | bigint    | Long      | int64                |
-| e    | 4    | 8   | `0e`                 | `0Ne`        | real      | real      | Float     | single               |
-| f    | 8    | 9   | `0.0` or `0f`        | `0n`         | float     | float     | Double    | double               |
-| c    | 1    | 10  | `" "`                | `" "`        | char      |           | Character | char                 |
-| s    | .    | 11  | `` ` ``              | `` ` ``      | symbol    | varchar   | String    | string               |
-| p    | 8    | 12  | dateDtimespan        | `0Np`        | timestamp |           | Timestamp | DateTime (r/w)       |
-| m    | 4    | 13  | `2000.01m`           | `0Nm`        | month     |           |           |                      |
-| d    | 4    | 14  | `2000.01.01`         | `0Nd`        | date      | date      | Date      |                      |
-| z    | 8    | 15  | dateTtime            | `0Nz`        | datetime  | timestamp | Timestamp | DateTime (read only) |
-| n    | 8    | 16  | `00:00:00.000000000` | `0Nn`        | timespan  |           | Timespan  | TimeSpan             |
-| u    | 4    | 17  | `00:00`              | `0Nu`        | minute    |           |           |                      |
-| v    | 4    | 18  | `00:00:00`           | `0Nv`        | second    |           |           |                      |
-| t    | 4    | 19  | `00:00:00.000`       | `0Nt`        | time      | time      | Time      | TimeSpan             |
-
-</div>
--->
 
 Nested types are 77+t (e.g. 78 is boolean. 96 is time.)
 
 **Cast** `char$data:CHAR$string`
-
-Int, float, char, symbol, literal **nulls**: `0N` `0n` `" "`, `` `. ``  
-Rest use type extensions, e.g. `0Nd`. No boolean or byte nulls. 
-
-**Infinite** dates, times, datetimes: `0Wd` `0Wz` `0Wt` (No math.)
 
 `date.(year month week mm dd)`  
 ``dict:`a`b!…``  
