@@ -3,7 +3,7 @@ There are three cases in which to to use the C API for kdb+:
 1. Dynamically-loaded library called by q, e.g. OS, math, analytics.  
 <i class="fa fa-hand-o-right"></i> [Using C functions](/interfaces/using-c-functions)
 2. Dynamically-loaded library doing callbacks into q, e.g. feedhandlers ([Bloomberg client](/interfaces/q-client-for-bloomberg/))
-3. C/C++ clients talking to q servers (standalone applications), e.g. feedhandlers and clients. From <i class="fa fa-github"></i> [KxSystems/kdb](https://github.com/KxSystems/kdb):
+3. C/C++ clients talking to q servers (standalone applications), e.g. feedhandlers and clients. Links with c.o/c.dll. From <i class="fa fa-github"></i> [KxSystems/kdb](https://github.com/KxSystems/kdb):
 
     architecture | Linux       | macOS     | Windows
     -------------|-------------|-----------|--------------
