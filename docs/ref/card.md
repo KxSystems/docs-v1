@@ -78,20 +78,21 @@
 
 ### Overloads
 
-The following glyphs represent operators, functions or adverbs – according to use.
+The following glyphs denote operators, functions or adverbs – according to use.
+(Operators are listed here with infix syntax but have the same semantics in prefix syntax.)
 
 <table class="kx-tight kx-ruled kx-shrunk" markdown="1">
 <thead>
 <tr><th/><th>infix</th><th>prefix</th><th>postfix</th></tr>
 </thead>
 <tbody>
-<tr><td class="kx-big kx-nowrap">`'`</td><td>[case](adverbs/#case)</td><td>[signal](errors/#signal)</td><td>[compose](adverbs/#compose), [each-both](adverbs/#each-both)</td></tr>
-<tr><td class="kx-big kx-nowrap">`@`</td><td>[index/apply](select/#index-at)</td><td>[amend](lists/#amend)</td><td>[trap](errors/#trap)</td></tr>
-<tr><td class="kx-big kx-nowrap">`.`</td><td>[index/apply](unclassified/#apply)</td><td/><td/></tr>
+<tr><td class="kx-big kx-nowrap">`@`</td><td>[index/apply](select/#index-at)</td><td>[amend](lists/#amend), [trap](errors/#trap)</td><td/></tr>
+<tr><td class="kx-big kx-nowrap">`.`</td><td>[index/apply](unclassified/#apply)</td><td>[trap](errors/#trap)</td><td/></tr>
 <tr><td class="kx-big kx-nowrap">`?`</td><td>[find](search/#find), [roll](random/#roll), [deal](random/#deal), [enum-extend](enums/#enum-extend)</td><td>[vector conditional](lists/#vector-conditional), [exec](funsql/#exec), [select](funsql/#select)</td><td/></tr>
 <tr><td class="kx-big kx-nowrap">`!`</td><td>[dict](dictsandtables/#dict), [key](dictsandtables/#key), [enumerate](enums/#enumerate) , [ints to enum](casting/#ints-to-enum)</td><td>[update](funsql/#update), [delete](funsql/#delete)</td><td/></tr>
 <tr><td class="kx-big kx-nowrap">`$`</td><td>[cast](casting/#cast), [tok](casting/#tok), [enum](enums/#enum), [pad](strings/#pad), [product](matrixes/#product), [`mmu`](matrixes/#mmu)</td><td>[cond](control/#cond)</td><td/></tr>
 <tr><td class="kx-big kx-nowrap">`:`</td><td>[assign/amend](syntax/#naming-and-assignment)</td><td>[return](syntax/#definition)</td><td/></tr>
+<tr><td class="kx-big kx-nowrap">`'`</td><td/><td>[signal](errors/#signal), [compose](adverbs/#compose)</td><td>[case](adverbs/#case), [each-both](adverbs/#each-both)</td></tr>
 <tr><td class="kx-big kx-nowrap">`\:`</td><td>[int to byte](casting/#int-to-byte)</td><td/><td>[each-left](adverbs/#each-left)</td></tr>
 <tr><td class="kx-big kx-nowrap">`/:`</td><td/><td/><td>[each-right](adverbs/#each-right)</td></tr>
 <tr><td class="kx-big kx-nowrap">`':`</td><td/><td/><td>[each-parallel](adverbs/#each-parallel), [each-prior](adverbs/#each-prior)</td></tr>

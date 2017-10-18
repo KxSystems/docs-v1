@@ -35,16 +35,15 @@ Key: `int`: int vector; `f`: function; `g`: function; `x`: data; `y`: data.
 ![case](img/case.png)
 </div>
 
-_Pick successive items from multiple series: the left argument determines from which series each item is picked._
+_Pick successive items from multiple list arguments: the left argument of the adverb determines from which argument of the derivative each item is picked._
 
 Syntax: `d:x'` (unary, postfix)  
-Derivative: `d y` (unary) 
+Derivative: `d y` (multivalent) 
 
-Where `x` is an integer vector, the derivative `x'` returns `r` such that
-```q
-r[i] ~ y[x i] i
-```
-Atom items of `y` are treated as infinitely repeated values.
+Where `x` is an integer vector and $args$ are the arguments to the derivative, the derivative `x'` returns $r$ such that 
+$r_i$ is ($args_{x_i})_i$
+
+Atom arguments in `y` are treated as infinitely-repeated values.
 ```q
 q)0 1 0'["abc";"xyz"]
 "ayc"
@@ -64,10 +63,9 @@ q)0 1 0'["a";"xyz"]  /atom "a" repeated as needed
 "aya"
 ```
 
-!!! tip "Where you gonna call?"
-    _Case_ is useful for selecting between record fields according to a test on some other field. 
+_Case_ is useful for selecting between record fields according to a test on some other field. 
 
-    Suppose from a CSV we have lists of home and office phone numbers `h` and `o` and a third list `p` indicating at which number the record subject prefers to be called. 
+Suppose we have lists `h` and `o` of home and office phone numbers, and a third list `p` indicating at which number the subject prefers to be called. 
 
 ```q
 q)([]pref: p;home: h; office: o; call: (`home`office?p)'[h;o])
