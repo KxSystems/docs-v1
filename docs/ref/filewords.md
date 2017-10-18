@@ -196,7 +196,7 @@ On a compressed file returns the size of the original uncompressed file.
 
 Syntax: `hdel x`
 
-Where `x` id a file or folder or symbol, deletes it.
+Where `x` is a file or folder symbol, deletes it.
 ```q
 q)hdel`:test.txt   / delete test.txt in current working directory
 `:test.txt
