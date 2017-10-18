@@ -74,6 +74,19 @@ RO: read only; RW: read-write
 !!! note "Strings"
     There is no string datatype. The nearest equivalent to a string is a symbol, or a char vector. On this site, _string_ is a synonym for character vector.
 
+### Temporal
+
+The valid date range for parsing is ​1709.01.01 to 2290.12.31.
+Date arithmetic is not checked, so you can go out of this range.
+```q
+q)2290.12.31
+2290.12.31
+q)2291.01.01 / out of range
+'2291.01.01
+q)2290.12.31+0 1
+2290.12.31 2291.01.01
+```
+
 
 ### Symbols
 
@@ -94,7 +107,7 @@ A back tick without characters after it represents the _empty symbol_: `` ` ``.
     `hello world
     </code></pre>
 
-<i class="fa fa-hand-o-right"></i> [_Q for Mortals_: 2.4 Basic Data Types – Atoms](http://code.kx.com/q4m3/2_Basic_Data_Types_Atoms/#24-text-data)
+<i class="fa fa-hand-o-right"></i> _Q for Mortals_: [2.4 Basic Data Types – Atoms](http://code.kx.com/q4m3/2_Basic_Data_Types_Atoms/#24-text-data)
 
 
 ### Filepaths
