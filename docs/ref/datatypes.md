@@ -81,12 +81,23 @@ Date arithmetic is not checked, so you can go out of this range.
 ```q
 q)2290.12.31
 2290.12.31
-q)2291.01.01 / out of range
+q)2291.01.01        / out of range
 '2291.01.01
 q)2290.12.31+0 1
 2290.12.31 2291.01.01
+q)2000.01.01+2000.01.01-1709.01.01
+2290.12.31
 ```
-The range of timespans is `-106751D23:47:16.854775806` to `106751D23:47:16.854775806`.
+Valid ranges can be seen by incrementing or decrementing the infinities.
+```q
+q)-0W 0Wp+1 -1      / limit of timestamp type
+1707.09.22D00:12:43.145224194 2292.04.10D23:47:16.854775806
+
+q)0p+ -0W 0Wp+1 -1  / timespan offset of those from 0p
+-106751D23:47:16.854775806 106751D23:47:16.854775806
+
+q)-0W 0Wn+1 -1      / coincide with the min/max for timespan
+```
 
 
 ### Symbols
