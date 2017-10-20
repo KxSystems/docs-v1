@@ -3,11 +3,11 @@
 
 !!! warning "This article is a draft"
 
-!!! note "Editor’s note"
+_Linear Programming is a large topic, of which this article reviews just a few applications. More articles on it would be very welcome: please contact librarian@kx.com._
+
+!!! note "Linear algebra"
     [![Ken Iverson](/img/kei01.jpg)](https://en.wikipedia.org/wiki/Kenneth_E._Iverson "Wikipedia: Kenneth E. Iverson")
     Q is a descendant of the notation devised by mathematician [Ken Iverson](https://en.wikipedia.org/wiki/Kenneth_E._Iverson) when he worked at Harvard with [Howard Aiken](https://en.wikipedia.org/wiki/Howard_H._Aiken) and Nobel Prize winner [Wassily Leontief](https://en.wikipedia.org/wiki/Wassily_Leontief) on the computation of economic input-output tables. Like other descendants of Iverson Notation (e.g. [A+](http://www.aplusdev.org/index.html), [APL](https://en.wikipedia.org/wiki/APL_(programming_language)), [J](https://en.wikipedia.org/wiki/J_(programming_language))), q inherits compact and powerful expression of linear algebra. 
-
-    Linear Programming is a large topic, of which this article reviews just a few applications. More articles on it would be very welcome: please contact librarian@kx.com.
 
 
 ## Problem
@@ -30,7 +30,7 @@ q)node6:`a`b`c`d`e`f
 q)bgn:`a`a`a`b`b`b`b`d`d`e`e`f`f`f
 q)end:`b`d`c`a`d`e`f`a`e`d`f`b`c`e
 q)far:30 40 80 21 25 16 23 12 30 23 25 17 18 22
-q)show dist6:flip `src`dst`dist!(bgn;end;`float$far)
+q)show dist6:flip `src`dst`dist!(bgn;end;far)
 src dst dist
 ------------
 a   b   30
@@ -53,29 +53,28 @@ First, transform the above table into a connectivity matrix of path lengths.
 !!! note "Symmetry"
     In this example a->b can differ from b->a, which is more general than the problem requires, but you could make the matrix symmetric for real distances.
 
-For no connection we use infinity, so the inner product of cumulative minimums works properly over the iterations.
+For ‘no connection’ we use infinity, so the inner product of cumulative minimums works properly over the iterations.
 ```q
-q)cm[node6;dist6]
-0w 30 80 40 0w 0w
-21 0w 0w 25 16 23
-0w 0w 0w 0w 0w 0w
-12 0w 0w 0w 30 0w
-0w 0w 0w 23 0w 25
-0w 17 18 0w 22 0w
+q)cm[node6;dist6;`inf]
+0  30 80 40 0w 0w
+21 0  0w 25 16 23
+0w 0w 0  0w 0w 0w
+12 0w 0w 0  30 0w
+0w 0w 0w 23 0  25
+0w 17 18 0w 22 0
 ```
 `cm` is a simple function to produce the connectivity matrix. 
 
 -   `cm` creates a connectivity matrix from nodes and a distance table.
--    Result is a square matrix where a cell contains distance to travel between nodes.
+-    Result is a square float matrix where a cell contains distance to travel between nodes.
 -    An unreachable node is marked with the infinity value for minimum path distance. (Or 0 for credit matrix – see below).
 ```q
-cm:{[nodes;d]
-  if[9<>type d`dist;'`type];     / floats only
-  n:count nodes;
-  res:(n;n)#0w;
-  ip:flip nodes?/:d`src`dst;     / index pairs
-  res:./[res;ip;:;d`dist];       / set reachable index pairs
-  ./[res;til[n],'til[n];:;n#0f]  / diagonal to zero: exclude node to itself
+cm:{[n;d;nopath]
+  nn:count n;                         / number of nodes
+  res:(2#nn)#(0 0w)`zero`inf?nopath;  / default whole matrix to nopath
+  ip:flip n?/:d`src`dst;              / index pairs
+  res:./[res;ip;:;`float$d`dist];     / set reachable index pairs
+  ./[res;til[nn],'til[nn];:;0f]       / zero on diagonal to exclude a node with itself
   }
 ```
 
@@ -96,7 +95,7 @@ tview:{[mat]
 ```
 To improve the display of the connection matrix:
 ```q
-q)tview cm[node6;dist6]
+q)tview cm[node6;dist6;`inf]
    a   b   c   d   e   f
 `a 0f  30f 80f 40f 0w  0w
 `b 21f 0f  0w  25f 16f 23f
@@ -108,7 +107,7 @@ q)tview cm[node6;dist6]
 In the above result note that `[a;e]` is not directly accessible.
 So we use a bridge function to jump through one intermediate node and see new paths.
 ```q
-q)tview bridge cm[node6;dist6]
+q)tview bridge cm[node6;dist6;`inf]
    a   b   c   d   e   f
 `a 0f  30f 80f 40f 46f 53f
 `b 21f 0f  41f 25f 16f 23f
@@ -123,11 +122,11 @@ After 1 hop we also see path `[d;c]` of 92, \[d->a(12), then a->c(80)\].
 `bridge` applies connectivity over each hop by using a Minimum.Sum inner product cumulatively:
 ```q
 q)bridge
-{x & (&/) each' x+/:\: flip x}
+{x & x('[min;+])\: x}
 ```
 So for 2 hops:
 ```q
-q)tview bridge bridge cm[node6;dist6]
+q)tview bridge bridge cm[node6;dist6;`inf]
    a   b   c   d   e   f
 `a 0f  30f 71f 40f 46f 53f
 `b 21f 0f  41f 25f 16f 23f
@@ -140,7 +139,7 @@ Note with 2 hops we improve `[d;c]` to 73 [d->e(30), then e->f(25), then f->c(18
 
 For ‘transitive closure’ iterate until no further improvement (i.e. optimal path lengths reached)
 ```
-q)tview (bridge/) cm[node6;dist6]
+q)tview (bridge/) cm[node6;dist6;`inf]
    a   b   c   d   e   f
 `a 0f  30f 71f 40f 46f 53f
 `b 21f 0f  41f 25f 16f 23f
@@ -170,7 +169,7 @@ q)node:0N!distinct raze dist`src`dst
 ```
 Repeating the above process with this `node` and `dist` for the optimal solution, also showing calculation time and space (using `\ts`):
 ```q
-q)\ts opt:(bridge/) cm[node;dist]
+q)\ts opt:(bridge/) cm[node;dist;`inf`]
 128 89464576
 ```
 Check node length from node 2 to node 174.
@@ -185,8 +184,8 @@ q)opt . node?2 174  / Or in one simple step using . index notation
 This does not get the hops, although the hops could be calculated by ‘capturing’ the intermediate results in the optimal case.
 To do this use `bridge\` instead of `bridge/`, then count changes between iterations, or just index in to see the path length converge …
 ```q
-q)count iters:(bridge\) cm[node;dist]  / Calculate all iterations
-5                                      / It took 5 iterations to find the optimal paths
+q)count iters:(bridge\) cm[node;dist;`inf]  / Calculate all iterations
+5                                            / It took 5 iterations to find the optimal paths
 ```
 Now we can see how the path length changes during the iterations: here we see it “first converges” to 398 after 1 hop for node [2;174].
 ```q
@@ -214,11 +213,11 @@ Here is a summary of three related use cases, starting with the above minimum-pa
 
 ### Minimum distances 
 
-For minimum distances in a path table (example above), using an inner product of `Minimum.Sum`, where `no path` is represented by `0w` (float infinity) to determine minimums properly.
+For minimum distances in a path table (example above), using an inner product of `Minimum.Sum`, where ‘no path’ is represented by `0w` (float infinity) to determine minimums properly.
 
-This calculates the minimum (`&/`) of the sums (`+/`) of distances between nodes at each pivot. The `bridge` function looks like this:
+This calculates the minimum of the sums of distances between nodes at each pivot. The `bridge` function looks like this:
 ```
-bridge:{x & (&/) each' x+/:\: flip x}
+bridge:{x & x('[min;+])\: x}
 ```
 
 
@@ -226,9 +225,9 @@ bridge:{x & (&/) each' x+/:\: flip x}
 
 For a counterparty credit-matrix solution, using an inner product of `Maximum.Minimum`, where no credit is represented by 0 to determine maximums properly.
 
-This calculates the maximum (`|/`) of the minimum (`&/`) credit between nodes at each pivot, the `bridge` function looks like this;
+This calculates the maximum of the minimum credit between nodes at each pivot, the `bridge` function looks like this;
 ```q
-bridge:{x | (|/) each’ x&/:\: flip x}
+bridge:{x | x('[max;&])\: x}
 ```
 This returns the optimal possible credit by allowing credit through intermediate counterparties.
 For example if A only has credit with B, but B has credit with C, then after 1 hop, A actually has credit with C through B, but capped by the credit path in the same way.
@@ -241,34 +240,52 @@ Each iteration improves the connections by adding additional 1s into the matrix 
 
 For generalised matrix multiplication, using an inner product of `Sum.Times`.
 
-This calculates the sum (`+/`) of the product (`*`) between nodes at each pivot, the bridge function looks like this;
+This calculates the sum of the product between nodes at each pivot, the bridge function looks like this;
 ```q
-bridge:{x + (+/) each’ x*/:\: flip x}
+bridge:{x + x('[sum;*])\: x}
 ```
    
-The inner product for the above 3 `bridge` use cases could be further generalised as projections of a generalised cumulative inner product function (thanks to Stephen Taylor for this contribution):
+
+## Generalisation
+
+The inner product for the above 3 `bridge` use cases could be further generalised as projections of a cumulative inner product function.
 ```q
-q)cip:{[f;g;z] f[x;] (f/) each' x g/:\: flip z}
-q)bridgeMS:cip[&;+]   / Minimum.Sum (minimum path)
-q)bridgeMM:cip[|;&;]  / Maximum.Minimum (credit matrix)
-q)bridgeMS:cip[+;*]   / Sum.Times (matrix multiplication)
+q)cip:{[f;g;z] f[z;] z('[f/;g])\: z}
+q)bridgeMS:cip[&;+;]  / Minimum.Sum (minimum path)
+q)bridgeCM:cip[|;&;]  / Maximum.Minimum (credit matrix)
+q)bridgeMM:cip[+;*;]  / Sum.Times (matrix multiplication)
 ```
 
 
-## Further optimisation of the bridge function.
+## Performance
 
-The `bridge` function was further optimised for performance (2 models), shown here for the first case (minimum-path problem) as `bridge1` and `bridge2`, with thanks to Jonny Press.
-However I used the above version for `bridge` as I find the Linear Algebra is clearer.
+The version of `bridge` used above shows the Linear Algebra most clearly.
+It can be further optimised for performance, as shown here for the first case (minimum-path problem).
+
+Although all operations are atomic, flipping the argument seems to improve cache efficiency.
+```q
+bridgef:{x + x('[sum;*])/:\: flip x}
+```
+The `peach` operator can be used to parallelise evaluation.
 ```q
 / Parallel version (multithreaded run q -s 6)
-bridge1: {x & {min each x +\: y}[flip x;] peach x}
-
-/ .Q.fc version (fastest) with input from Jonny Press
-bridge2:{x & .Q.fc[{{{min x+y}[x] each y}[;y] each x}[;flip x];x]}
+bridgep: {x & {min each x +\: y}[flip x;] peach x}
 ```
+The [`.Q.fc` utility](/ref/dotq#qfc-parallel-on-cut) uses multi-threading where possible.
+```q
+/ .Q.fc version
+bridgefc:{x & .Q.fc[{{{min x+y}[x] each y}[;y] each x}[;flip x];x]}
+```
+As always, optimisations need to be tested on the hardware and data in use. 
 
 A colleague, Ryan Sparks, is presently experimenting with further (significant) performance improvements by using [CUDA](/interfaces/gpus) on a graphics coprocessor for the inner product function `bridge`.
 This work is evolving and looks very promising.  I look forward to Ryan presenting a paper and/or presentation on his results when complete as perhaps a sequel to this article.
+
+<i class="fa fa-download"></i> [Script with examples from this article](assets/mp.q)
+
+## Acknowledgements
+
+My thanks to Jonny Press, Pierre Kovalev and Stephen Taylor for contributions to this article. 
 
 
 Rob Hodgkinson  
