@@ -1,8 +1,10 @@
-These functions return results for a [sliding window](/cookbook/programming-idioms/#how-do-i-apply-a-function-to-a-sequence-sliding-window) on a list.
+These functions return results for a [sliding window](/cookbook/programming-idioms/#how-do-i-apply-a-function-to-a-sequence-sliding-window "Cookbook: Programming idioms") on a list.
 
 
 `ema`
 -----
+
+**Exponential moving average**
 
 Syntax: `x ema y` (binary, uniform)
 
@@ -11,7 +13,7 @@ Where
 - `y` is a numeric list
 - `x` is a numeric atom or list of length `count y`
 
-returns the exponentially weighted moving averages (EWMA), also known as [**exponential moving average**](https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average) (EMA) of `y`, with `x` as the smoothing parameter.
+returns the [exponentially-weighted moving averages](https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average "Wikipedia") (EWMA, also known as _exponential moving average_ , EMA) of `y`, with `x` as the smoothing parameter.
 
 Example: An impulse response with decay of &frac13;.
 ```q
@@ -35,9 +37,11 @@ q)(2%1+10)ema p
 
 ## `mavg`
 
+**Moving average**
+
 Syntax: `x mavg y` (binary, uniform)
 
-Moving average: where `x` is an int atom (not infinite), returns the `x`-item **moving averages** of numeric list `y`, with any nulls after the first item replaced by zero. The first `x` items of the result are the averages of the terms so far, and thereafter the result is the moving average. The result is floating point.
+Where `x` is an int atom (not infinite), returns the `x`-item [simple moving averages](https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average) of numeric list `y`, with any nulls after the first item replaced by zero. The first `x` items of the result are the averages of the terms so far, and thereafter the result is the moving average. The result is floating point.
 ```q
 q)2 mavg 1 2 3 5 7 10
 1 1.5 2.5 4 6 8.5
@@ -48,12 +52,13 @@ q)5 mavg 0N 2 0N 5 7 0N    / nulls after the first are replaced by 0
 ```
 
 
-`mcount`
---------
+## `mcount`
+
+**Moving counts**
 
 Syntax: `x mcount y` (binary, uniform)
 
-The `mcount` operator returns the `x`-item **moving counts** of the non-null items of  numeric list `y`. The first `x` items of the result are the counts so far, and thereafter the result is the moving count.
+Returns the `x`-item moving counts of the non-null items of numeric list `y`. The first `x` items of the result are the counts so far, and thereafter the result is the moving count.
 ```q
 q)3 mcount 0 1 2 3 4 5
 1 2 3 3 3 3
@@ -62,12 +67,13 @@ q)3 mcount 0N 1 2 3 0N 5
 ```
 
 
-`mdev`
-------
+## `mdev`
+
+**Moving deviations**
 
 Syntax: `x mdev y` (binary, uniform)
 
-Returns the floating-point `x`-item **moving deviations** of numeric list `y`, with any nulls after the first item replaced by zero. The first `x` items of the result are the deviations of the terms so far, and thereafter the result is the moving deviation. 
+Returns the floating-point `x`-item moving deviations of numeric list `y`, with any nulls after the first item replaced by zero. The first `x` items of the result are the deviations of the terms so far, and thereafter the result is the moving deviation. 
 ```q
 q)2 mdev 1 2 3 5 7 10
 0 0.5 0.5 1 1 1.5
@@ -78,12 +84,13 @@ q)5 mdev 0N 2 0N 5 7 0N    / nulls after the first are replaced by 0
 ```
 
 
-`mmax`
-------
+## `mmax`
+
+**Moving maximums** 
 
 Syntax: `x mmax y` (binary, uniform)
 
-Returns the `x`-item **moving maximums** of numeric `y`, with nulls after the first replaced by the preceding maximum. The first `x` items of the result are the maximums of the items so far, and thereafter the result is the moving maximum.
+Returns the `x`-item moving maximums of numeric `y`, with nulls after the first replaced by the preceding maximum. The first `x` items of the result are the maximums of the items so far, and thereafter the result is the moving maximum.
 ```q
 q)3 mmax 2 7 1 3 5 2 8
 2 7 7 7 5 5 8
@@ -92,12 +99,13 @@ q)3 mmax 0N -3 -2 0N 1 0  / initial null returns negative infinity
 ```
 
 
-`mmin`
-------
+## `mmin`
+
+**Moving minimums**
 
 Syntax: `x mdev y` (binary, uniform)
 
-Returns the `x`-item **moving minimums** of numeric list `y`, with nulls treated as the minimum value. The first `x` items of the result are the minimums of the terms so far, and thereafter the result is the moving minimum.
+Returns the `x`-item moving minimums of numeric list `y`, with nulls treated as the minimum value. The first `x` items of the result are the minimums of the terms so far, and thereafter the result is the moving minimum.
 ```q
 q)3 mmin 0N -3 -2 1 -0W 0
 0N 0N 0N -3 -0W -0W
@@ -106,12 +114,13 @@ q)3 mmin 0N -3 -2 1 0N -0W    / null is the minimum value
 ```
 
 
-`msum`
-------
+## `msum`
+
+**Moving sums**
 
 Syntax: `x msum y` (binary, uniform) 
 
-Returns the `x`-item **moving sums** of numeric list `y`, with nulls replaced by zero. The first `x` items of the result are the sums of the terms so far, and thereafter the result is the moving sum.
+Returns the `x`-item moving sums of numeric list `y`, with nulls replaced by zero. The first `x` items of the result are the sums of the terms so far, and thereafter the result is the moving sum.
 ```q
 q)3 msum 1 2 3 5 7 11
 1 3 6 10 15 23

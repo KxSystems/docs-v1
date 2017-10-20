@@ -38,8 +38,7 @@ q)avgs 1 2 3 0n 4 -0w 0w
 
 Syntax: `x cor y` (binary, aggregate)
 
-Returns the [**correlation**](https://en.wikipedia.org/wiki/Correlation_and_dependence) of `x` and `y` as a floating point number in the range `-1f` to `1f`. Applies to all numeric data types and signals an error with temporal types, char and sym.
-
+Returns the **correlation** (<i class="fa fa-hand-o-right"></i> [Wikipedia](https://en.wikipedia.org/wiki/Correlation_and_dependence), [accessible version](http://financereference.com/learn/correlation "financereference.com")) of `x` and `y` as a floating point number in the range `-1f` to `1f`. Applies to all numeric data types and signals an error with temporal types, char and sym. 
 ```q
 q)29 10 54 cor 1 3 9
 0.7727746
@@ -59,7 +58,7 @@ q)select price cor size by sym from trade
 
 Syntax: `x cov y` (binary, aggregate)
 
-Returns the [**covariance**](https://en.wikipedia.org/wiki/Covariance) of `x` and `y` as a floating point number. Applies to all numeric data types and signals an error with temporal types, char and sym.
+Returns the [**covariance**](https://en.wikipedia.org/wiki/Covariance "Wikipedia") of `x` and `y` as a floating point number. Applies to all numeric data types and signals an error with temporal types, char and sym.
 ```q
 q)2 3 5 7 cov 3 3 5 9
 4.5
@@ -73,7 +72,7 @@ q)select price cov size by sym from trade
 
 Syntax: `dev x` (unary, aggregate)
 
-Returns the [**standard deviation**](https://en.wikipedia.org/wiki/Standard_deviation "Wikipedia") of list `x` (as the square root of the variance). Applies to all numeric data types and signals an error with temporal types, char and sym.
+Returns the **standard deviation** (<i class="fa fa-hand-o-right"></i> [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation), [accessible version](http://financereference.com/learn/standard-deviation "financereference.com")) of list `x` (as the square root of the variance). Applies to all numeric data types and signals an error with temporal types, char and sym.
 ```q
 q)dev 10 343 232 55
 134.3484
@@ -128,7 +127,7 @@ q)select med price by sym from trade where date=2001.10.10,sym in`AAPL`LEH
 !!! warning "Partitions and segments"
     In V3.0 upwards `med` signals a rank error when running a median over partitions, or segments. This is deliberate, as previously `med` was returning median of medians for such cases. This should now be explicitly coded as a cascading select.
     <pre><code class="language-q">
-    q)select med price by sym from select price,sym from trade where date=2001.10.10,sym in`AAPL`LEH
+    q)select med price by sym from select price,sym from trade where date=2001.10.10,sym in\`AAPL\`LEH
     </code></pre>
 
 
@@ -228,7 +227,7 @@ q)select svar price by sym from trade where date=2010.10.10,sym in`IBM`MSFT
 
 Syntax: `var x` (unary, aggregate)
 
-Returns the [**variance**](https://en.wikipedia.org/wiki/Variance) of numeric list `x` as a float atom. Nulls are ignored.
+Returns the **variance** (<i class="fa fa-hand-o-right"></i> [Wikipedia](https://en.wikipedia.org/wiki/Variance), [accessible version](http://financereference.com/learn/variance "financereference.com")) of numeric list `x` as a float atom. Nulls are ignored.
 ```q
 q)var 2 3 5 7
 3.6875
@@ -242,7 +241,7 @@ q)select var price by sym from trade where date=2010.10.10,sym in`IBM`MSFT
 
 Syntax: `x wavg y` (binary, aggregate)
 
-**Weighted average**: returns the average of numeric list `y` weighted by numeric list `x`. The result is a float atom. The calculation is `(sum x*y) % sum x`.
+Returns the [**weighted average**](https://en.wikipedia.org/wiki/Weighted_arithmetic_mean "Wikipedia") of numeric list `y` weighted by numeric list `x`. The result is a float atom. The calculation is `(sum x*y) % sum x`.
 ```q
 q)2 3 4 wavg 1 2 4
 2.666667
@@ -251,7 +250,7 @@ q)2 0N 4 5 wavg 1 2 0N 8  / nulls in either argument ignored
 ```
 
 !!! tip "Volume-weighted average price"
-    The financial analytic known as VWAP is a weighted average.
+    The financial analytic known as [VWAP](https://en.wikipedia.org/wiki/Volume-weighted_average_price "Wikipedia") is a weighted average.
     <pre><code class="language-q">
     q)select size wavg price by sym from trade
     sym| price
@@ -264,7 +263,7 @@ q)2 0N 4 5 wavg 1 2 0N 8  / nulls in either argument ignored
 
 Syntax: `x wsum y` (binary, aggregate)
 
-**Weighted sum**: returns the sum of the products of `x` and `y`. When both `x` and `y` are integer lists, they are first converted to floats. The calculation is `sum x *y`.
+Returns the [**weighted sum**](https://en.wikipedia.org/wiki/Weight_function "Wikipedia") of the products of `x` and `y`. When both `x` and `y` are integer lists, they are first converted to floats. The calculation is `sum x *y`.
 ```q
 q)2 3 4 wsum 1 2 4   / equivalent to sum 2 3 4 * 1 2 4f
 24f
