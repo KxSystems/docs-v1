@@ -16,7 +16,9 @@ For example, read <i class="fa fa-github"></i> `KxSystems/kdb` as `https://githu
 
 ## <i class="fa fa-search"></i> Search tips
 
-The Search box offers two kinds of search. As you type, the internal search engine proposes matches from its index. Click on one of these to follow. Or type Return to send your query to Google Search. 
+The first time you use the Search box it will download and cache the site’s index files. This will take a while, depending on your connection, but please be patient: searches will then be very responsive. 
+
+The Search box offers two kinds of search. As you type, the local search engine proposes matches from its index. Click on one of these to follow. Or type Return to send your query to Google Search. 
 
 1. For single-character queries such as `?`, `$` and `@` use the [Reference Card](/ref/card) 
 

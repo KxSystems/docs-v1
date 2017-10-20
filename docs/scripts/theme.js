@@ -1,4 +1,4 @@
-/** 
+    /** 
  * https://gist.github.com/wpscholar/4637176#file-jquery-external-links-new-window-js-L4
  * Open all external links in a new window
  */
