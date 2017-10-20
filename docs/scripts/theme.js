@@ -1,4 +1,4 @@
-/** 
+    /** 
  * https://gist.github.com/wpscholar/4637176#file-jquery-external-links-new-window-js-L4
  * Open all external links in a new window
  */
@@ -11,13 +11,13 @@ $(function() {
 		}
 	});
 	// Supplement local search: send query to Web search engine on Return
-/*	$("[data-md-component=query]").change(function() {
+	$("[data-md-component=query]").change(function() {
 		var qry = "http://www.google.com/search?q="; // www.bing.com is an alternative
 		qry += "site%3Acode.kx.com/q/+"; // non-portable, excludes wiki
 		window.location = qry + $(this).val();
 		return false; // prevents submitting form to server
 	});
-*/	// replace Close button with link to Search tips
+	// replace Close button with link to Search tips
 	var btn = $("button.md-icon.md-search__icon");
 	$(btn).text("?");
 	$(btn).attr("title","Search help");

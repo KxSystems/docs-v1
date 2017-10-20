@@ -39,3 +39,5 @@ process:{[x]
 	}
 
 process each hf;
+
+exit 0

@@ -8,3 +8,5 @@ site/
 migration.html
 send.sh
 *.zip
+docs copy/
+docx/
