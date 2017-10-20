@@ -1,3 +1,5 @@
+<i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)
+
 `kfk` is a thin wrapper for kdb+ around the <i class="fa fa-github"></i> [edenhill/librdkafka](https://github.com/edenhill/librdkafka) C API for [Apache Kafka](https://kafka.apache.org/). 
 
 Follow the [installation instructions](https://github.com/KxSystems/kafka#building-and-installation) for set-up.

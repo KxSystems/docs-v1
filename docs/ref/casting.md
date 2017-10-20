@@ -61,6 +61,18 @@ q)("*";0h)$\:"2012-02-02"
 "2012-02-02"
 ```
 
+!!! warning "To infinity!"
+    Casting an infinity from a narrower to a wider datatype does not always return another infinity.  
+    <div src="/img/buzz_lightyear.jpg" style="display: block; float: left; padding-right: 1em; width: 120px;" markdown="1">
+    ![Buzz Lightyear](/img/buzz_lightyear.jpg)
+    </div>
+    <pre><code class="language-q">
+    q)\`float$0Wh
+    32767f
+    </code></pre>
+    Buzz’s tip: for numeric `x` the corresponding infinity is `min 0#x`.
+
+
 ## `\:` (int to byte)
 
 Syntax: `0x0\:x`
