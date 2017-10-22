@@ -122,9 +122,11 @@ AAPL 2
 
 Syntax: `x cut y`
 
+Cuts a list or table into a matrix of `x` columns – or close as can be.
+
 Where 
 
-- `x` is an integer atom, returns `y` splits into a list of items, all (except perhaps the last) of count `x`.
+- `x` is an **integer atom**, returns `y` splits into a list of lists, all (except perhaps the last) of count `x`.
 ```q
 q)4 cut til 10
 0 1 2 3
@@ -135,12 +137,13 @@ q)4 cut til 10
 - otherwise `cut` is synonymous with `_` _cut_.
 
 
-
 ## `_` (cut)
 
 Syntax: `x _ y` 
 
-Where `x` is a non-decreasing list of integers, and `y` is a list or table, returns `y` cut at the indexes given in `x`. The result is a list with the same count as `x`.
+Cuts a list or table into sub-arrays.
+
+Where `x` is a **non-decreasing list of integers** in the domain `til count y`, and `y` is a list or table, returns `y` cut at the indexes given in `x`. The result is a list with the same count as `x`.
 ```q
 q)2 4 9 _ til 10           /first result item starts at index 2
 2 3
@@ -152,27 +155,14 @@ q)2 4 4 9 _ til 10         /cuts are empty for duplicate indexes
 `long$()
 4 5 6 7 8
 ,9
-```
-If the number of items to cut is larger than the list specified, the empty list is returned. 
-```
-q)show each 2 5 7 _ til 12
+q)2 5 7 _ til 12
 2 3 4
 5 6
 7 8 9 10 11
-::
-::
-::
 q)\l sp.q
 q)count sp
 12
-q)count 1_sp
-11
-q)show 10_sp
-s  p  qty
----------
-s4 p4 300
-s1 p5 400
-q)show each 2 5 7_sp
+q){}show each 2 5 7_sp / `show` returns the generic null ::
 s  p  qty
 ---------
 s1 p3 400
@@ -189,9 +179,6 @@ s3 p2 200
 s4 p2 200
 s4 p4 300
 s1 p5 400
-::
-::
-::
 ```
 
 
@@ -199,20 +186,21 @@ s1 p5 400
 
 Syntax: `x _ y`
 
-Drops items from a list, entries from a dictionary or columns from a table. Where
+Drops items from a list, entries from a dictionary or columns from a table. 
+
+Where
 
 - `x` is an **int atom** and `y` a **list or dictionary**, returns `y` without the first or last `x` items.
-    <pre><code class="language-q"> 
-    q)5_0 1 2 3 4 5 6 7 8      /drop the first 5 items
-    5 6 7 8
-    q)-5_0 1 2 3 4 5 6 7 8     /drop the last 5 items
-    0 1 2 3
-    q)1 _ \`a\`b\`c!1 2 3
-    b| 2
-    c| 3
-    </code></pre>
+<pre><code class="language-q">q)5_0 1 2 3 4 5 6 7 8      /drop the first 5 items
+5 6 7 8
+q)-5_0 1 2 3 4 5 6 7 8     /drop the last 5 items
+0 1 2 3
+q)1 _ \`a\`b\`c!1 2 3
+b| 2
+c| 3
+</code></pre>
 
-    !!! tip "Drop strings"
+    !!! tip "Drop from string"
         <pre><code class="language-q">
         q)b:"apple: banana: cherry"
         q)/ find the first ":" and remove the prior portion of the sentence.
@@ -221,18 +209,16 @@ Drops items from a list, entries from a dictionary or columns from a table. Wher
         </code></pre>
 
 - `x` is a **list or dictionary** and `y` is an **index or key** of `x`, returns `x` without `y`.
-    <pre><code class="language-q"> 
-    q)0 1 2 3 4 5 6 7 8_5      /drop the 5th item
-    0 1 2 3 4 6 7 8
-    q)(\`a\`b\`c!1 2 3)_\`a        /drop the entry for \`a\`
-    b| 2
-    c| 3
-    </code></pre>
+<pre><code class="language-q">q)0 1 2 3 4 5 6 7 8_5      /drop the 5th item
+0 1 2 3 4 6 7 8
+q)(\`a\`b\`c!1 2 3)_\`a        /drop the entry for \`a\`
+b| 2
+c| 3
+</code></pre>
 
 - `x` is an **atom or vector of keys** to **dictionary** `y`, returns `y` without the entries for `x`. 
 
-    <pre><code class="language-q"> 
-    q)\`a _ \`a\`b\`c!1 2 3
+    <pre><code class="language-q">q)\`a _ \`a\`b\`c!1 2 3
     b| 2
     c| 3
     q)\`a\`b _ \`a\`b\`c!1 2 3
@@ -244,8 +230,7 @@ Drops items from a list, entries from a dictionary or columns from a table. Wher
 
     !!! warning "Dropping dictionary entries with integer arguments"
         With dictionaries, distinguish the roles of integer arguments to _drop_.
-        <pre><code class="language-q">
-        q)d:100 200!\`a\`b
+        <pre><code class="language-q">q)d:100 200!\`a\`b
         q)1 _ d            /drop the first entry
         200| b
         q)d _ 1            /drop where key=1
@@ -262,8 +247,7 @@ Drops items from a list, entries from a dictionary or columns from a table. Wher
         </code></pre>
 
 - `x` is a **vector of keys** and `y` is a **table**, returns `y` without columns `x`.
-    <pre><code class="language-q"> 
-    q)t:([]a:1 2 3;b:4 5 6;c:\`d\`e\`f)
+    <pre><code class="language-q">q)t:([]a:1 2 3;b:4 5 6;c:\`d\`e\`f)
     q)\`a\`b _ t
     c
     -
@@ -278,12 +262,27 @@ Drops items from a list, entries from a dictionary or columns from a table. Wher
     'type
     </code></pre>
 
+!!! tip "Drop in place"
+    Assign through _drop_ to delete in place. 
+    <pre><code class="language-q">
+    q)show d:\`a\`b\`c\`x!(1;2 3;4;5)
+    a| 1
+    b| 2 3
+    c| 4
+    x| 5
+    q)d _:\`x
+    q)d
+    a| 1
+    b| 2 3
+    c| 4
+    </code></pre>
+
 
 ## `enlist`
 
 Syntax: `enlist x` 
 
-Returns its argument/s in a list. Where `x` is a dictionary, the result is the corresponding table.
+Returns its argument/s in a list. 
 
 An atom is not a one-item list. `enlist` and `first` will convert between the two.
 ```q
@@ -310,12 +309,12 @@ q)show a:enlist[til 5;`ibm`goog;"hello"]
 q)count a
 3
 ```
-Returns a table from a dictionary.
+Where `x` is a dictionary, the result is the corresponding table.
 ```q
-q)enlist `a`b`c!1 3 4
-a b c
------
-1 3 4
+q)enlist `a`b`c!(1;2 3; 4)
+a b   c
+-------
+1 2 3 4
 ```
 
 !!! tip "Atoms to lists"
@@ -414,6 +413,8 @@ q)D~flip flip D
 ## `,` (join)
 
 Syntax: `x join y`
+
+Joins list, dictionaries or tables. 
 
 Where `x` and `y` are atoms, lists, dictionaries or tables returns `x` joined to `y`. 
 ```q
@@ -567,6 +568,8 @@ a b
 ## `sv`
 
 Syntax: `x sv y` 
+
+‘Scalar to vector’ – joins stuff together. 
 
 Where:
 
@@ -779,6 +782,8 @@ Where
 ## `?` (vector conditional)
 
 Syntax: `?[x;y;z]`
+
+Braids two vectors. 
 
 Where `x`, `y` and `z` are conforming vectors or atoms, `x` is boolean, and `y` and `z` are of the same type, returns a vector with items of `y` where `x` is `1b`, otherwise of `z`. All three arguments are evaluated.
 ```q
