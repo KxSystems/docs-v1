@@ -7,7 +7,12 @@ _Linear Programming is a large topic, of which this article reviews just a few a
 
 !!! note "Linear algebra"
     [![Ken Iverson](/img/kei01.jpg)](https://en.wikipedia.org/wiki/Kenneth_E._Iverson "Wikipedia: Kenneth E. Iverson")
-    Q is a descendant of the notation devised by mathematician [Ken Iverson](https://en.wikipedia.org/wiki/Kenneth_E._Iverson) when he worked at Harvard with [Howard Aiken](https://en.wikipedia.org/wiki/Howard_H._Aiken) and Nobel Prize winner [Wassily Leontief](https://en.wikipedia.org/wiki/Wassily_Leontief) on the computation of economic input-output tables. Like other descendants of Iverson Notation (e.g. [A+](http://www.aplusdev.org/index.html), [APL](https://en.wikipedia.org/wiki/APL_(programming_language)), [J](https://en.wikipedia.org/wiki/J_(programming_language))), q inherits compact and powerful expression of linear algebra. 
+    Q is a descendant of the notation devised at Harvard by the [Turing Award](https://en.wikipedia.org/wiki/Turing_Award) winner, mathematician [Ken Iverson](https://en.wikipedia.org/wiki/Kenneth_E._Iverson), when he worked with [Howard Aiken](https://en.wikipedia.org/wiki/Howard_H._Aiken) and Nobel Prize winner [Wassily Leontief](https://en.wikipedia.org/wiki/Wassily_Leontief) on the computation of economic input-output tables. At Harvard, Ken Iverson and fellow Turing Award winner [Fred Brooks](https://en.wikipedia.org/wiki/Fred_Brooks) gave the world’s first course in what was then called ‘data processing’.
+
+    Like other descendants of Iverson Notation (e.g. [A+](http://www.aplusdev.org/index.html), [APL](https://en.wikipedia.org/wiki/APL_(programming_language)), [J](https://en.wikipedia.org/wiki/J_(programming_language))), q inherits compact and powerful expression of linear algebra. 
+
+    <i class="fa fa-camera"></i> [Ken Iverson & Arthur Whitney, APL89, New York City](/img/keiandatw89.png "photo courtesy Rob Hodgkinson")
+
 
 
 ## Problem
@@ -276,12 +281,33 @@ The [`.Q.fc` utility](/ref/dotq#qfc-parallel-on-cut) uses multi-threading where 
 / .Q.fc version
 bridgefc:{x & .Q.fc[{{{min x+y}[x] each y}[;y] each x}[;flip x];x]}
 ```
-As always, optimisations need to be tested on the hardware and data in use. 
-
 A colleague, Ryan Sparks, is presently experimenting with further (significant) performance improvements by using [CUDA](/interfaces/gpus) on a graphics coprocessor for the inner product function `bridge`.
 This work is evolving and looks very promising.  I look forward to Ryan presenting a paper and/or presentation on his results when complete as perhaps a sequel to this article.
 
 <i class="fa fa-download"></i> [Script with examples from this article](assets/mp.q)
+
+
+### Test results
+
+Ryan Sparks reports the following test results running V3.5 2017.05.02 using 6 slaves:
+
+code | \ts:1000  20×20 | \ts:100 100×100 | 1000×1000 | 2000×2000 | 4000×4000
+-----|-----------------|-----------------|-----------|-----------|----------
+`bridge0:`<br>`{x & (&/) each' x+/:\: flip x}` | 178<br>63,168 | 689 5,330,880 | 6,488 4,112,433,152 | 35,068 32,833,633,920 | untested
+`bridge1:`<br>`{x & x(min@+)/:\: flip x}` | 296<br>9,456 | 1,065 159,728 | 2,255 12,337,200 | 11,327 49,249,968 | untested
+`bridge2:`<br>`{x & x((&/)@+)\: x}` | 207<br>9,008 | 1,249 157,616 | 6,496 12,317,152 | 40,073 49,209,824 | untested
+`bridge3:`<br>`{x&&/''x+/:\:+x}` | 171<br>63,136 | 683 5,330,848 | 6,292 4,112,433,168 | 32,446 32,833,633,936 | untested
+`bridge4:`<br>`{x&(min'(+x)+\:)':x}` | **165<br>6,560** | **182 106,912** | **425  8,225,232** | 5,967  32,834,000 | 48,271 131,203,536
+`bridge5:`<br>`{x&.Q.fc[{(min y+)'x}[+x]';x]}` | 612<br>6,656 | 1,823 106,624 | 1,695 8,221,360 | 5,112  32,826,032 | **32,915 131,187,376**
+`bridgejp:`<br>`{x & .Q.fc[{{{min x+y}[x] each y}[;y] each x}[;flip x];x]}` | 556<br>6,704 | 1,507 106,672 | 1,330 8,221,360 | **3,904  32,826,032** | **32,402 131,187,376**
+`bridgep:`<br>`{x & {min each x +\: y}[flip x;] peach x}` | 193<br>6,560 | **219 106,912** | **429  8,225,184** | 5,922  32,833,952 | 53,890 131,203,488
+`bridgef:`<br>`{x & x('[min;+])/:\: flip x}` | 201<br>9392 | 778 159,664 | 2,030 1,233,713 | 10,625 49,249,904 | untested
+`bridgef2:`<br>`{x & .Q.fc[{x('[min;+])/:\: y}[;flip x];x]}` | 546<br>6,704 | 1,807 106,672 | 1,701 8,221,360 | 5,552 32,826,032 | **31,428 131,187,376**
+
+!!! warning "Your mileage may vary"
+    As always, optimisations need to be tested on the hardware and data in use. 
+
+ 
 
 ## Acknowledgements
 
