@@ -161,7 +161,7 @@ about new repositories.</div>
 <tr><td>JDBC</td><td><i class="fa fa-github"></i> [CharlesSkelton/babel](https://github.com/CharlesSkelton/babel)</i></td></tr>
 <tr><td>ODBC</td><td>[Q client for ODBC](/interfaces/q-client-for-odbc)<br/>
 <i class="fa fa-github"></i> [johnanthonyludlow/kdb/docs/odbc.pdf](https://github.com/johnanthonyludlow/kdb/blob/master/docs/odbc.pdf)</td></tr>
-<tr><td>[Kafka](https://kafka.apache.org/)</td><td><i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka) ==new==</td></tr>
+<tr><td>[Kafka](https://kafka.apache.org/)</td><td>[Q client for Kafka](/interfaces/kafka) ==new==</td></tr>
 <tr><td>Philips Hue</td><td><i class="fa fa-github"></i> [jparmstrong/qphue](https://github.com/jparmstrong/qphue)</td></tr>
 <tr><td>R</td><td>[Using R with kdb+](/interfaces/with-r/#calling-r-from-q)</td></tr>
 <tr><td>Reuters</td><td><i class="fa fa-github"></i> [KxSystems/kdb/c/feed/rfa.zip](https://github.com/KxSystems/kdb/blob/master/c/feed/rfa.zip)</td></tr>

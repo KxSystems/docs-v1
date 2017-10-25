@@ -45,9 +45,9 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 
 !!! info "New on code.kx.com"
+    - Cookbook: [Linear programming](/cookbook/lp)
     - [Syntax highlighting for q](/about/site-news/#syntax-highlighting)
-    - [Improved search](/about/thissite/#search-tips)
-
+    
 !!! caution "The Kx wiki"
     The documentation from the [Kx wiki](http://code.kx.com/wiki) has moved to this new platform. All source code can now be found on [GitHub](https://kxsystems.github.io). 
     The wiki remains in place for now, but is no longer maintained. 

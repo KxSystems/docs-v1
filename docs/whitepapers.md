@@ -51,7 +51,7 @@
 * [**Transaction-cost** analysis using kdb+](wp/transaction_cost_analysis_using_kdb.pdf)
 * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
 
-These whitepapers originally appeared as the _q for Gods_ series of white papers from [First Derivatives](http://firstderivatives.com).
+Some of these whitepapers originally appeared as the _q for Gods_ series of white papers from [First Derivatives](http://firstderivatives.com).
 
 <!-- 
 

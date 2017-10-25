@@ -16,13 +16,13 @@ For example, read <i class="fa fa-github"></i> `KxSystems/kdb` as `https://githu
 
 ## <i class="fa fa-search"></i> Search tips
 
-The first time you use the Search box it will download and cache the site’s index files. This will take a while, depending on your connection, but please be patient: searches will then be very responsive. 
+The first time you use the Search box it will download and cache the site’s index files. This may take some seconds, depending on your connection, but please be patient: searches will then be very responsive. 
 
-The Search box offers two kinds of search. As you type, the local search engine proposes matches from its index. Click on one of these to follow. Or type Return to send your query to Google Search. 
-
+<!-- The Search box offers two kinds of search. As you type, the local search engine proposes matches from its index. Click on one of these to follow. Or type Return to send your query to Google Search. 
+ -->
 1. For single-character queries such as `?`, `$` and `@` use the [Reference Card](/ref/card) 
 
-1. The internal search index omits common English words like _like_ or _or_, which Google finds 
+1. The internal search index omits common English words like _like_ or _or_.<!-- , which Google finds --> 
 
 1. Reference articles are grouped by semantic topic. Your query might be in a heading rather than the title of the page you need. For example, the [definition of `ss`](/ref/strings/#ss) is on the Strings page.
 1. Use quotes to search for an exact phrase
@@ -37,11 +37,11 @@ The Search box offers two kinds of search. As you type, the local search engine 
 
     Eliminate results with certain words if you’re getting a lot of results that aren’t of interest to you. Figure out what terms you’re not interested in (e.g. `avg -antivirus`) and re-run the search.
 
-<i class="fa fa-hand-o-right"></i> [How to search on Google](https://support.google.com/websearch/answer/134479?hl=en)
+<!-- <i class="fa fa-hand-o-right"></i> [How to search on Google](https://support.google.com/websearch/answer/134479?hl=en)
 
 !!! warning "Ads in results from Google Search"
     Our sister site [kx.com](http://kx.com) offers an ad-free custom Google Search. Sadly, Google no longer offers this service, even for paid custom searches. We regret this means you may see advertisements in Google search results. 
-
+ -->
 
 <!-- ## <i class="fa fa-keyboard-o"></i> Keyboard shortcuts for Search
 
