@@ -136,7 +136,12 @@ Setting or unsetting an attribute other than `s`, i.e. `upg`, causes a copy of t
 q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
 ``s
 ```
+Some q functions use attributes to work faster:
 
+-    Where-clauses in [`select` and `exec` templates](qsql) run faster with `where =`, `where in` and `where within`
+-    Searching: [`bin`](search/#bin-binr), [`distinct`](search/#distinct), [_find_](search/#find) and [`in`](search/#in) (if the right argument has an attribute)
+-    Sorting: [`iasc`](sort/#iasc) and [`idesc`](sort/#idesc)
+-    Dictionaries: [`group`](dictsandtables/#group)
 
 
 ### Dictionaries
