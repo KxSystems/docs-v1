@@ -76,22 +76,22 @@ The result in this case is a `K` vector whose elements are obtained by applying 
 As you can see in the table below, most of the mathematical functions provided by q are similar to the Python standard library functions in the `math` module.
 
 q              | Python           | Return
----------------|------------------|-------
-`neg()`        | `operator.neg()` | the negative of the argument
-`abs() `       | `abs()`          | the absolute value
-`signum()`     |                  | ±1 or 0 depending on the sign of the argument
-`sqrt()`       | `math.sqrt()`    | the square root of the argument
-`exp()`        | `math.exp()`     | _e_ raised to the power of the argument
-`log()`        | `math.log()`     | the natural logarithm (base e) of the argument
-`cos()`        | `math.cos()`     | the cosine of the argument
-`sin()`        | `math.sin()`     | the sine of the argument
-`tan()`        | `math.tan()`     | the tangent of the argument
-`acos()`       | `math.acos()`    | the arc cosine of the argument
-`asin()`       | `math.asin()`    | the arc sine of the argument
-`atan()`       | `math.atan()`    | the arc tangent of the argument
-`ceiling()`    | `math.ceil()`    | the smallest integer &ge; the argument
-`floor()`      | `math.floor()`   | the largest integer &le; the argument
-`reciprocal()` |                  | 1 divided by the argument
+---------------|------------------|---------------------------------------
+[`neg()`](/ref/arith-integer/#neg) | [`operator.neg()`](https://docs.python.org/3.6/library/operator.html#operator.neg) | the negative of the argument
+[`abs()`](/ref/arith-integer/#abs) | [`abs()`](https://docs.python.org/3.6/library/functions.html#abs) | the absolute value
+[`signum()`](/ref/arith-integer/#signum) |   | ±1 or 0 depending on the sign of the argument
+[`sqrt()`](/ref/arith-float/#sqrt) | [`math.sqrt()`](https://docs.python.org/3.6/library/math.html#math.sqrt) | the square root of the argument
+[`exp()`](/ref/arith-float/#exp) | [`math.exp()`](https://docs.python.org/3.6/library/math.html#math.exp) | _e_ raised to the power of the argument
+[`log()`](/ref/arith-float/#log)) | [`math.log()`](https://docs.python.org/3.6/library/math.html#math.log)     | the natural logarithm (base e) of the argument
+[`cos()`](/ref/trig/#cos) | [`math.cos()`](https://docs.python.org/3.6/library/math.html#math.cos) | the cosine of the argument
+[`sin()`](/ref/trig/#sin) | [`math.sin()`](https://docs.python.org/3.6/library/math.html#math.sin) | the sine of the argument
+[`tan()`](/ref/trig/#tan) | [`math.tan()`](https://docs.python.org/3.6/library/math.html#math.tan) | the tangent of the argument
+[`acos()`](/ref/trig/#acos) | [`math.acos()`](https://docs.python.org/3.6/library/math.html#math.acos) | the arc cosine of the argument
+[`asin()`](/ref/trig/#asin) | [`math.asin()`](https://docs.python.org/3.6/library/math.html#math.asin) | the arc sine of the argument
+[`atan()`](/ref/trig/#atan) | [`math.atan()`](https://docs.python.org/3.6/library/math.html#math.atan) | the arc tangent of the argument
+[`ceiling()`](/ref/arith-integer/#ceiling) | [`math.ceil()`](https://docs.python.org/3.6/library/math.html#math.ceil) | the smallest integer &ge; the argument
+[`floor()`](/ref/arith-integer/#floor) | [`math.floor()`](https://docs.python.org/3.6/library/math.html#math.floor) | the largest integer &le; the argument
+[`reciprocal()`](https://pyq.enlnt.com/reference/pyq-auto.html#pyq.q.reciprocal) |  | 1 divided by the argument
 
 Other than being able to operate on lists of of numbers, q functions differ from Python functions in the way they treat out-of-domain errors.
 
@@ -459,25 +459,25 @@ To get the same from a scalar – convert it to a vector first:
 k('long')
 ```
 
-Code | Kdb+ type | Python type
------|-----------|-------------------
-1    | boolean   | bool
-2    | guid      | uuid.UUID
-4    | byte     
-5    | short    
-6    | int  
-7    | long      | int
-8    | real     
-9    | float     | float
-10   | char      | bytes (*)
-11   | symbol    | str
-12   | timestamp    
-13   | month    
-14   | date      | datetime.date
-16   | timespan  | datetime.timedelta
-17   | minute   
-18   | second   
-19   | time      | datetime.time
+code | kdb+ type   | Python type
+-----|-------------|-------------------
+1    | `boolean`   | [`bool`](https://docs.python.org/3.6/library/functions.html#bool)
+2    | `guid`      | [`uuid.UUID`](https://docs.python.org/3.6/library/uuid.html#uuid.UUID)
+4    | `byte`     
+5    | `short`    
+6    | `int`  
+7    | `long`      | [`int`](https://docs.python.org/3.6/library/functions.html#int)
+8    | `real`     
+9    | `float`     | [`float`](https://docs.python.org/3.6/library/functions.html#float)
+10   | `char`      | [`bytes`](https://docs.python.org/3.6/library/functions.html#bytes) (*)
+11   | `symbol`    | [`str`](https://docs.python.org/3.6/library/stdtypes.html#str)
+12   | `timestamp`    
+13   | `month`    
+14   | `date`      | [`datetime.date`](https://docs.python.org/3.6/library/datetime.html#datetime.date)
+16   | `timespan`  | [`datetime.timedelta`](https://docs.python.org/3.6/library/datetime.html#datetime.timedelta)
+17   | `minute`   
+18   | `second`   
+19   | `time`      | [`datetime.time`](https://docs.python.org/3.6/library/datetime.html#datetime.time)
 
 
 (\*) Unlike other Python types mentioned in the table above, bytes instances get converted to a vector type:
@@ -493,6 +493,7 @@ There is no scalar character type in Python, so in order to create a `K` charact
 k('"x"')
 ```
 Typed constructors are discussed in the next section.
+
 
 ### Constructors and casts
 
@@ -516,8 +517,8 @@ To create an empty list of a specific type -- pass `[]` to one of the named cons
 k('time$()')
 ```
 
-constructor | accepts                      | description
-------------|------------------------------|-----------------------------------------------
+constructor   | accepts                          | description
+--------------|----------------------------------|-----------------------------------------------
 `K.boolean()` | `int`, `bool`                    | logical type `0b` is false and `1b` is true
 `byte()`      | `int`, `bytes`                   | 8-bit bytes
 `short()`     | `int`                            | 16-bit integers
@@ -593,15 +594,12 @@ One exception is the Python `time` type. Starting with version 3.5 all `time` in
     Python changed the rule for `time(0)` because `time` instances can be timezone-aware and because they do not support addition making 0 less than special. Neither of those arguments apply to `q` time, second or minute data types which behave more like `timedelta`.
 
 
-BOOKMARK 
-
-
 #### Arithmetic operations
 
 Python has the four familiar arithmetic operators `+`, `-`, `*` and `/` as well as less common `**` (exponentiation), `%` (modulo) and `//` (floor division). PyQ maps those operators to q "verbs" as follows
 
 | Operation      | Python | q      |
-|----------------|--------|--------|
+|----------------|:------:|:------:|
 | addition       | `+`    | `+`    |
 | subtraction    | `-`    | `-`    |
 | multiplication | `*`    | `*`    |
@@ -610,215 +608,249 @@ Python has the four familiar arithmetic operators `+`, `-`, `*` and `/` as well 
 | floor division | `//`   | `div`  |
 | modulo         | `%`    | `mod`  |
 
-~pyq.K objects can be freely mixed with Python native types in arithmetic expressions and the result is a `K` object in most cases:
+`K` objects can be freely mixed with Python native types in arithmetic expressions and the result is a `K` object in most cases:
 ```python
->>> q.til(10) % 3 k('0 1 2 0 1 2 0 1 2 0')
+>>> q.til(10) % 3
+k('0 1 2 0 1 2 0 1 2 0')
 ```
 A notable exception occurs when the modulo operator is used for string formatting
 ```python
->>> "%.5f" % K(3.1415) '3.14150'
+>>> "%.5f" % K(3.1415)
+'3.14150'
 ```
-Unlike python sequences, `K` lists behave very similar to atoms: arithmetic operations act element-wise on them.
+Unlike Python sequences, `K` lists behave very similarly to atoms: arithmetic operations act element-wise on them.
 
 Compare
 ```python
->>> \[1, 2\] \* 5 \[1, 2, 1, 2, 1, 2, 1, 2, 1, 2\]
+>>> [1, 2] * 5
+[1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
 ```
 and
 ```python
->>> K(\[1, 2\]) \* 5 k('5 10')
+>>> K([1, 2]) * 5
+k('5 10')
 ```
 or
 ```python
->>> \[1, 2\] + \[3, 4\] \[1, 2, 3, 4\]
+>>> [1, 2] + [3, 4]
+[1, 2, 3, 4]
 ```
 and
 ```python
->>> K(\[1, 2\]) + \[3, 4\] k('4 6')
+>>> K([1, 2]) + [3, 4]
+k('4 6')
 ```
+
+
 #### The flip (`+`) operator
 
-The unary `+` operator acts as`flip()` function on `K` objects. Applied to atoms, it has no effect:
+The unary `+` operator acts as the `flip()` function on `K` objects. Applied to atoms, it has no effect:
 ```python
->>> +K(0) k('0')
+>>> +K(0)
+k('0')
 ```
 but it can be used to transpose a matrix:
 ```python
->>> m = K(\[\[1, 2\], \[3, 4\]\]) &gt;&gt;&gt; m.show() 1 2 3 4 &gt;&gt;&gt; (+m).show() 1 3 2 4
+>>> m = K([[1, 2], [3, 4]])
+>>> m.show()
+1 2
+3 4
+>>> (+m).show()
+1 3
+2 4
 ```
 or turn a dictionary into a table:
 ```python
->>> d = q('!', \['a', 'b'\], m) &gt;&gt;&gt; d.show() a| 1 2 b| 3 4 &gt;&gt;&gt; (+d).show() a b ---1 3 2 4
+>>> d = q('!', ['a', 'b'], m)
+>>> d.show()
+a| 1 2
+b| 3 4
+>>> (+d).show()
+a b
+---
+1 3
+2 4
 ```
+
+
 #### Bitwise operators
 
 Python has six bitwise operators: `|`, `^`, `&`, `<<`, `>>`, and `~`. Since there are no bitwise operations in q, PyQ redefines them as follows:
 
-<table style="width:79%;">
-<colgroup>
-<col width="18%" />
-<col width="45%" />
-<col width="15%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Operation</th>
-<th>Result</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>x | y</code></td>
-<td>element-wise maximum of <em>x</em> and <em>y</em></td>
-<td>(1)</td>
-</tr>
-<tr class="even">
-<td><code>x ^ y</code></td>
-<td><em>y</em> with null elements filled with <em>x</em></td>
-<td>(2)</td>
-</tr>
-<tr class="odd">
-<td><code>x &amp; y</code></td>
-<td>element-wise minimum of <em>x</em> and <em>y</em></td>
-<td>(1)</td>
-</tr>
-<tr class="even">
-<td><code>x &lt;&lt; n</code></td>
-<td><em>x</em> shifted left by <em>n</em> elements</td>
-<td>(3)</td>
-</tr>
-<tr class="odd">
-<td><code>x &gt;&gt; n</code></td>
-<td><em>x</em> shifted right by <em>n</em> elements</td>
-<td>(3)</td>
-</tr>
-<tr class="even">
-<td><code>~x</code></td>
-<td>a boolean vector with 1's for zero elements of <em>x</em></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+operation | result                                             | note
+:--------:|----------------------------------------------------| :---:
+`x | y`   | element-wise maximum of `x` and `y`                | 1
+`x ^ y`   | `y` with null elements filled with `x`             | 2
+`x & y`   | element-wise minimum of `x` and `y`                | 1
+`x << n`  | `x` shifted left by `n` elements                   | 3
+`x >> n`  | `x` shifted right by `n` elements                  | 3
+`~x`      | a boolean vector with 1s for zero elements of `x` | 
 
 Notes:
 
-(1)  
-For boolean vectors, `|` and `&` are also element-wise *or* and *and* operations.
+1.   For boolean vectors, `|` and `&` are also element-wise _or_ and _and_ operations.
 
-(2) For Python integers, the result of `x ^ y` is the bitwise exclusive  
-or. There is no similar operation in `q`, but for boolean vectors exclusive or is equivalent to q `<>` (not equal).
+2.   For Python integers, the result of `x^y` is the bitwise exclusive 
+_or_. There is no similar operation in `q`, but for boolean vectors _exclusive or_ is equivalent to q `<>` (_not equal_).
 
-(3)  
-Negative shift counts result in a shift in the opposite direction to that indicated by the operator: `x >> -n` is the same as `x << n`.
+3.   Negative shift counts result in a shift in the opposite direction to that indicated by the operator: `x >> -n` is the same as `x << n`.
+
 
 ##### Minimum and maximum
 
-Minimum and maximum operators are `&` and `|` in q. PyQ maps similar looking Python bitwise operators to the corresponding q ones:
+Minimum and maximum operators are `&` and `|` in q. PyQ maps similar-looking Python bitwise operators to the corresponding q ones:
 ```python
->>> q.til(10) | 5 k('5 5 5 5 5 5 6 7 8 9') &gt;&gt;&gt; q.til(10) & 5 k('0 1 2 3 4 5 5 5 5 5')
+>>> q.til(10) | 5 
+k('5 5 5 5 5 5 6 7 8 9')
+>>> q.til(10) & 5
+k('0 1 2 3 4 5 5 5 5 5')
 ```
+
+
 ##### The `^` operator
 
-Unlike Python where caret (`^`) is the binary xor operator, q defines it to denote the [fill](http://code.kx.com/wiki/Reference/Caret) operation that replaces null values in the right argument with the left argument. PyQ follows the q definition:
+Unlike Python where caret (`^`) is the binary _xor_ operator, q defines it to denote the [fill](http://code.kx.com/q/ref/lists/#fill) operation that replaces null values in the right argument with the left argument. PyQ follows the q definition:
 ```python
 >>> x = q('1 0N 2') &gt;&gt;&gt; 0 ^ x k('1 0 2')
 ```
+
+
 #### The `@` operator
 
-Python 3.5 introduced the `@` operator that can be used by user types. Unlike numpy that defines `@` as the matrix multiplication operator, PyQ uses `@` for function application and composition:
+Python 3.5 introduced the `@` operator that can be used by user types. Unlike numpy that defines `@` as the matrix-multiplication operator, PyQ uses `@` for function application and composition:
 ```python
->>> q.log @ q.exp @ 1 k('1f')
+>>> q.log @ q.exp @ 1
+k('1f')
 ```
+
+
 ### Adverbs
 
 Adverbs in q are somewhat similar to Python decorators. They act on functions and produce new functions. The six adverbs are summarized in the table below.
 
-The functionality provided by the first three adverbs is similar to functional programming features scattered throughout Python standard library. Thus `each` is similar to map. For example, given a list of lists of numbers
+PyQ         | q    | description
+------------|------|--------------------------------
+`K.each()`  | `'`  | map or case
+`K.over()`  | `/`  | reduce
+`K.scan()`  | `\`  | accumulate
+`K.prior()` | `':` | each-prior
+`K.sv()`    | `/:` | each-right or scalar from vector
+`K.vs()`    | `\:` | each-left or vector from scalar
+
+The functionality provided by the first three adverbs is similar to functional programming features scattered throughout Python standard library. Thus `each` is similar to `map()`. For example, given a list of lists of numbers
 ```python
->>> data = \[\[1, 2\], \[1, 2, 3\]\]
+>>> data = [[1, 2], [1, 2, 3]]
 ```
 One can do
 ```python
->>> q.sum.each(data) k('3 6')
+>>> q.sum.each(data)
+k('3 6')
 ```
 or
 ```python
->>> list(map(sum, \[\[1, 2\], \[1, 2, 3\]\])) \[3, 6\]
+>>> list(map(sum, [[1, 2], [1, 2, 3]]))
+[3, 6]
 ```
 and get similar results.
 
-The `over` adverb is similar to the functools.reduce function. Compare
+The `over` adverb is similar to the `functools.reduce()` function. Compare
 ```python
->>> q(',').over(data) k('1 2 1 2 3')
+>>> q(',').over(data)
+k('1 2 1 2 3')
 ```
 and
 ```python
->>> functools.reduce(operator.concat, data) \[1, 2, 1, 2, 3\]
+>>> functools.reduce(operator.concat, data)
+[1, 2, 1, 2, 3]
 ```
-Finally, the `scan` adverb is similar to the itertools.accumulate function.
+Finally, the `scan` adverb is similar to the `itertools.accumulate()` function.
 ```python
->>> q(',').scan(data).show() 1 2 1 2 1 2 3
+>>> q(',').scan(data).show()
+1 2
+1 2 1 2 3
 ```
-&gt;&gt;&gt; for x in itertools.accumulate(data, operator.concat): ... print(x) ... \[1, 2\] \[1, 2, 1, 2, 3\]
+```python
+>>> for x in itertools.accumulate(data, operator.concat):
+... print(x)
+... 
+[1, 2] [1, 2, 1, 2, 3]
+```
+
 
 #### Each
 
-The `each` adverb serves double duty in q. When it is applied to a function, it returns a new function that expects lists as arguments and maps the original function over those lists. For example, we can write a "daily return" function in q that takes yesterday's price as the first argument (x), today's price as the second (y) and dividend as the third (z) as follow:
+The `each` adverb serves double duty in q. When it is applied to a function, it returns a new function that expects lists as arguments and maps the original function over those lists. For example, we can write a ‘daily return’ function in q that takes yesterday’s price as the first argument `x`, today’s price as the second `y`, and dividend as the third `z` as follows:
 ```python
->>> r = q('{(y+z-x)%x}') \# Recall that % is the division operator in q.
+>>> r = q('{(y+z-x)%x}') # Recall that % is the division operator in q.
 ```
 and use it to compute returns from a series of prices and dividends using `r.each`:
 ```python
->>> p = \[50.5, 50.75, 49.8, 49.25\] &gt;&gt;&gt; d = \[.0, .0, 1.0, .0\] &gt;&gt;&gt; r.each(q.prev(p), p, d) k('0n 0.004950495 0.0009852217 -0.01104418')
+>>> p = [50.5, 50.75, 49.8, 49.25]
+>>> d = [.0, .0, 1.0, .0]
+>>> r.each(q.prev(p), p, d)
+k('0n 0.004950495 0.0009852217 -0.01104418')
 ```
-When the `each` adverb is applied to an integer vector, it turns the vector v into an n-ary function that for each i-th argument selects its v\[i\]-th element. For example,
+When the `each` adverb is applied to an integer vector, it turns the vector `v` into an n-ary function that for each `i`th argument selects its `v[i]`th element. For example,
 ```python
->>> v = q.til(3) &gt;&gt;&gt; v.each(\[1, 2, 3\], 100, \[10, 20, 30\]) k('1 100 30')
+>>> v = q.til(3)
+>>> v.each([1, 2, 3], 100, [10, 20, 30])
+k('1 100 30')
 ```
 Note that scalars passed to `v.each` are treated as infinitely repeated values. Vector arguments must all be of the same length.
+
 
 #### Over and scan
 
 Given a function `f`, `f.over` and `f.scan` adverbs are similar as both apply `f` repeatedly, but `f.over` only returns the final result, while `f.scan` returns all intermediate values as well.
 
-For example, recall that the Golden Ratio can be written as a continued fraction as follows
+For example, recall that the Golden Ratio can be written as a continued fraction as follows:
 
-$$\\phi = 1+\\frac{1}{1+\\frac{1}{1+\\cdots}}$$
+$$\phi = 1+\frac{1}{1+\frac{1}{1+\cdots}}$$
 
 or equivalently as the limit of the sequence that can be obtained by starting with 1 and repeatedly applying the function
 
-$$f(x) = 1+\\frac{1}{1+x}$$
+$$f(x) = 1+\frac{1}{1+x}$$
 
 The numerical value of the Golden Ratio can be found as
 
-$$\\phi = \\frac{1+\\sqrt{5}}{2} \\approx 1.618033988749895$$
+$$\phi = \frac{1+\sqrt{5}}{2} \approx 1.618033988749895$$
+
 ```python
->>> phi = (1+math.sqrt(5)) / 2 &gt;&gt;&gt; phi 1.618033988749895
+>>> phi = (1+math.sqrt(5)) / 2
+>>> phi
+1.618033988749895
 ```
-Function *f* can be written in q as follows:
+Function $f$ can be written in q as follows:
 ```python
 >>> f = q('{1+reciprocal x}')
 ```
 and
 ```python
->>> f.over(1.) k('1.618034')
+>>> f.over(1.)
+k('1.618034')
 ```
 indeed yields a number recognizable as the Golden Ratio. If instead of `f.over`, we compute `f.scan`, we will get the list of all convergents.
 ```python
->>> x = f.scan(1.) &gt;&gt;&gt; len(x) 32
+>>> x = f.scan(1.)
+>>> len(x)
+32
 ```
 Note that `f.scan` (and `f.over`) stop calculations when the next iteration yields the same value and indeed `f` applied to the last value returns the same value:
 ```python
->>> f(x.last) == x.last True
+>>> f(x.last) == x.last
+True
 ```
 which is close to the value computed using the exact formula
 ```python
->>> math.isclose(x.last, phi) True
+>>> math.isclose(x.last, phi)
+True
 ```
 The number of iterations can be given explicitly by passing two arguments to `f.scan` or `f.over`:
 ```python
->>> f.scan(10, 1.) k('1 2 1.5 1.666667 1.6 1.625 1.615385 1.619048 1.617647 1.618182 1.617978') &gt;&gt;&gt; f.over(10, 1.) k('1.617978')
+>>> f.scan(10, 1.)
+k('1 2 1.5 1.666667 1.6 1.625 1.615385 1.619048 1.617647 1.618182 1.617978')
+>>> f.over(10, 1.)
+k('1.617978')
 ```
 This is useful when you need to iterate a function that does not converge.
 
@@ -828,37 +860,44 @@ Continuing with the Golden Ratio theme, let's define a function
 ```
 that given a pair of numbers returns another pair made out of the last and the sum of the numbers in the original pair. Iterating this function yields the Fibonacci sequence
 ```python
->>> x = f.scan(10,\[0, 1\]) &gt;&gt;&gt; q.first.each(x) k('0 1 1 2 3 5 8 13 21 34 55')
+>>> x = f.scan(10,[0, 1])
+>>> q.first.each(x)
+k('0 1 1 2 3 5 8 13 21 34 55')
 ```
 and the ratios of consecutive Fibonacci numbers form the sequence of Golden Ratio convergents that we have seen before:
 ```python
->>> q.ratios(\_) k('0 0w 1 2 1.5 1.666667 1.6 1.625 1.615385 1.619048 1.617647')
+>>> q.ratios(_)
+k('0 0w 1 2 1.5 1.666667 1.6 1.625 1.615385 1.619048 1.617647')
 ```
+
+
 #### Each previous
 
-In the previous section we have seen a function ~pyq.K.ratios that takes a vector and produces the ratios of the adjacent elements. A similar function called ~pyq.K.deltas produces the differences between the adjacent elements:
+In the previous section we have seen a function `ratios()` that takes a vector and produces the ratios of the adjacent elements. A similar function called `deltas()` produces the differences between the adjacent elements:
 ```python
->>> q.deltas(\[1, 3, 2, 5\]) k('1 2 -1 3')
+>>> q.deltas([1, 3, 2, 5])
+k('1 2 -1 3')
 ```
 These functions are in fact implemented in q by applying the `prior` adverb to the division (`%`) and subtraction functions respectively:
 ```python
->>> q.ratios == q('%').prior and q.deltas == q('-').prior True
+>>> q.ratios == q('%').prior and q.deltas == q('-').prior
+True
 ```
-In general, for any binary function *f* and a vector *v*
+In general, for any binary function $f$ and a vector $v$
 
-f.prior(*v*)=(*f*(*v*<sub>1</sub>, *v*<sub>0</sub>), *f*(*v*<sub>2</sub>, *v*<sub>1</sub>), ⋯)
+$$f.prior(v)=(f(v_1, v_0), f(v_2, v_1), ⋯)$$
 
-#### Adverbs vs and sv
+#### Adverbs `vs` and `sv`
 
 Of all adverbs, these two have the most cryptic names and offer some non-obvious features.
 
-To illustrate how vs and sv modify binary functions, lets give a Python name to the q `,` operator:
+To illustrate how `vs` and `sv` modify binary functions, lets give a Python name to the q `,` operator:
 ```python
 >>> join = q(',')
 ```
 Suppose you have a list of file names
 ```python
->>> name = K.string(\['one', 'two', 'three'\])
+>>> name = K.string(['one', 'two', 'three'])
 ```
 and an extension
 ```python
@@ -866,20 +905,35 @@ and an extension
 ```
 You want to append the extension to each name on your list. If you naively call `join` on `name` and `ext`, the result will not be what you might expect:
 ```python
->>> join(name, ext) k('("one";"two";"three";".";"p";"y")')
+>>> join(name, ext
+k('("one";"two";"three";".";"p";"y")')
 ```
 This happened because `join` treated `ext` as a list of characters rather than an atomic string and created a mixed list of three strings followed by three characters. What we need is to tell `join` to treat its first argument as a vector and the second as a scalar and this is exactly what the `vs` adverb will achieve:
 ```python
->>> join.vs(name, ext) k('("one.py";"two.py";"three.py")')
+>>> join.vs(name, ext)
+k('("one.py";"two.py";"three.py")')
 ```
 The mnemonic rule is "vs" = "vector, scalar". Now, if you want to prepend a directory name to each resulting file, you can use the `sv` attribute:
 ```python
->>> d = K.string("/tmp/") &gt;&gt;&gt; join.sv(d, \_) k('("/tmp/one.py";"/tmp/two.py";"/tmp/three.py")')
+>>> d = K.string("/tmp/")
+>>> join.sv(d, _)
+k('("/tmp/one.py";"/tmp/two.py";"/tmp/three.py")')
 ```
+
+
 ### Input/Output
 ```python
->>> import os &gt;&gt;&gt; r, w = os.pipe() &gt;&gt;&gt; h = K(w)(kp("xyz")) &gt;&gt;&gt; os.read(r, 100) b'xyz' &gt;&gt;&gt; os.close(r); os.close(w)
+>>> import os
+>>> r, w = os.pipe()
+>>> h = K(w)(kp("xyz"))
+>>> os.read(r, 100)
+b'xyz'
+>>> os.close(r); os.close(w)
 ```
-Q variables can be accessed as attributes of the 'q' object:
-
-&gt;&gt;&gt; q.t = q('(\[\]a:1 2i;b:xy)') &gt;&gt;&gt; sum(q.t.a) 3 &gt;&gt;&gt; del q.t
+Q variables can be accessed as attributes of the `q` object:
+```python
+>>> q.t = q('([]a:1 2i;b:xy)')
+>>> sum(q.t.a)
+3
+>>> del q.t
+```
