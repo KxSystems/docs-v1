@@ -1,3 +1,6 @@
+# Using Java with kdb+
+
+
 <i class="fa fa-github"></i> [KxSystems/javakdb](https://github.com/KxSystems/javakdb) is the original Java driver, a.k.a `c.java`, from Kx Systems for interfacing Java with kdb+ via TCP/IP. This driver allows Java applications to
 
  - query kdb+
@@ -6,11 +9,11 @@
 
 using a straightforward and compact API. The four methods of the single class `c` of immediate interest are
 
-method |
---- | ---
-`c` | the constructor
-`c.ks` | send an async message
-`c.k` | send a sync message
+method    | purpose
+--------- | --------
+`c`.      | the constructor
+`c.ks`    | send an async message
+`c.k`.    | send a sync message
 `c.close` | close the connection
 
 To establish a connection to a kdb+ process listening on the localhost on port 12345, invoke the relevant constructor of the `c` class
