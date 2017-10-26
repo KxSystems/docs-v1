@@ -54,6 +54,18 @@ q)\_
 ```
 
 
+## `-C` (HTTP size)
+
+Syntax: `-C r c`
+  
+HTTP display maxRows maxCols, default 36 2000
+
+The defaults are 36&times;2000, and values are coerced to the range \[10,2000\].
+
+<i class="fa fa-hand-o-right"></i> [`\C`](syscmds/#c-http-size), [Gnu Shopt documentation](http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html)
+
+
+
 ## `-c` (console size)
 
 Syntax: `-c r c`
@@ -81,25 +93,6 @@ q)til each 20+til 10
 <i class="fa fa-hand-o-right"></i> [`\c`](syscmds/#c-console-size), [Gnu Shopt documentation](http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html)
 
 
-## `-C` (HTTP size)
-
-Syntax: `-C r c`
-  
-HTTP display maxRows maxCols, default 36 2000
-
-The defaults are 36&times;2000, and values are coerced to the range \[10,2000\].
-
-<i class="fa fa-hand-o-right"></i> [`\C`](syscmds/#c-http-size), [Gnu Shopt documentation](http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html)
-
-
-
-## `-e` (error traps)
-
-Syntax: `-e B`
-  
-Enable client error trapping
-
-
 ## `-E` (TLS Server Mode)
 
 Syntax: `-E x` (since V3.4)
@@ -111,6 +104,13 @@ x   | mode
 2   | TLS only
 
 <i class="fa fa-hand-o-right"></i> [Cookbook: SSL/TLS](/cookbook/ssl/#tls-server-mode)
+
+
+## `-e` (error traps)
+
+Syntax: `-e B`
+  
+Enable client error trapping
 
 
 ## `-g` (garbage collection)
@@ -126,14 +126,6 @@ Immediate mode is the V2.5/2.6 default, deferred is the V2.7 default.
 To use immediate mode, invoke as `q -g 1`. (Since V2.7 2011.02.04.)
 
 
-## `-l` (log updates)
-
-Syntax: `-l`
-  
-Log updates to filesystem  
-<i class="fa fa-hand-o-right"></i> [Cookbook/Logging](/cookbook/logging)
-
-
 ## `-L` (log sync)
 
 Syntax: `-L`
@@ -142,25 +134,19 @@ As `-l`, but sync logging
 <i class="fa fa-hand-o-right"></i>  [Cookbook/Logging](/cookbook/logging)
 
 
+## `-l` (log updates)
+
+Syntax: `-l`
+  
+Log updates to filesystem  
+<i class="fa fa-hand-o-right"></i> [Cookbook/Logging](/cookbook/logging)
+
+
 ## `-o` (UTC offset)
 
 Syntax: `-o N`
   
 Offset hours from UTC, or minutes if `abs[N]>23` (Affects [`.z.Z`](dotz/#zz-local-datetime))
-
-
-## `-p` (port)
-
-Syntax: `-p N`
-  
-Port on which q server listens. Use for [client/server](/cookbook/client-server), e.g. kdbc(JDBC ODBC), HTTP (HTML XML TXT CSV).
-
-
-## `-p` (multithread port)
-
-Syntax: `-p -N`
-  
-Port for [multithreaded input mode](/cookbook/multithreaded-input/)
 
 
 ## `-P` (display precision)
@@ -220,6 +206,20 @@ q)\\
 <i class="fa fa-hand-o-right"></i> [What Every Computer Scientist Should Know About Floating-Point Arithmetic](http://docs.sun.com/source/806-3568/ncg_goldberg.html)
 
 
+## `-p` (port)
+
+Syntax: `-p N`
+  
+Port on which q server listens. Use for [client/server](/cookbook/client-server), e.g. kdbc(JDBC ODBC), HTTP (HTML XML TXT CSV).
+
+
+## `-p` (multithread port)
+
+Syntax: `-p -N`
+  
+Port for [multithreaded input mode](/cookbook/multithreaded-input/)
+
+
 ## `-q` (quiet mode)
 
 Syntax: `-q`
@@ -254,9 +254,18 @@ Replicate from :host:port
 
 ## `-s` (slaves)
   
-Syntax: `-s N
+Syntax: `-s N`
   
 Start `N` slaves for parallel execution
+
+The sign of `N` indicates whether threads or processes should be used for `peach`. If negative, the absolute value is ignored, as the handles to the processes to be used are retrieved from `.z.pd` during `peach`.
+
+
+## `-T` (timeout)
+
+Syntax: `-T N`
+  
+Timeout in seconds for client queries, i.e. maximum time a client call will execute. Default is 0, for no timeout.
 
 
 ## `-t` (timer ticks)
@@ -266,11 +275,11 @@ Syntax: `-t N`
 Timer in milliseconds between timer ticks. Default is 0, for no timer.
 
 
-## `-T` (timeout)
+## `-U` (usr-pwd)
 
-Syntax: `-T N`
+Syntax: `-U F`
   
-Timeout in seconds for client queries, i.e. maximum time a client call will execute. Default is 0, for no timeout.
+As `-u`, but no access restrictions
 
 
 ## `-u` (disable syscmds)
@@ -287,11 +296,11 @@ Syntax: `-u F`
 Sets usr:pwd file, no access above start directory
 
 
-## `-U` (usr-pwd)
+## `-W` (start week)
 
-Syntax: `-U F`
+Syntax: `-W N`
   
-As `-u`, but no access restrictions
+Start of week as an offset from Saturday. Default is 2, meaning that Monday is the start of week.
 
 
 ## `-w` (memory)
@@ -299,13 +308,6 @@ As `-u`, but no access restrictions
 Syntax: `-w N`
   
 Workspace MB limit (default: 2&times;RAM)
-
-
-## `-W` (start week)
-
-Syntax: `-W N`
-  
-Start of week as an offset from Saturday. Default is 2, meaning that Monday is the start of week.
 
 
 ## `-z` (date format)

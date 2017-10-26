@@ -60,20 +60,6 @@ q.nn)
 ```
 
 
-## `\b` (views)
-
-Syntax: `\b [namespace]`
-
-Lists all dependencies (views). 
-```q
-q)a::x+y
-q)b::x+1
-q)\b
-`s#`a`b
-```
-<i class="fa fa-hand-o-right"></i> [.z.b](dotz/#zb-dependencies).
-
-
 ## `\B` (pending views)
 
 Syntax: `\B [namespace]`
@@ -90,6 +76,44 @@ q)a               / use a
 11
 q)\B              / no longer pending
 `symbol$()
+```
+
+
+## `\b` (views)
+
+Syntax: `\b [namespace]`
+
+Lists all dependencies (views). 
+```q
+q)a::x+y
+q)b::x+1
+q)\b
+`s#`a`b
+```
+<i class="fa fa-hand-o-right"></i> [.z.b](dotz/#zb-dependencies).
+
+
+## `\C` (HTTP size)
+
+Syntax: `\C [h,w]`
+
+Sets the HTTP height and width. This is the same as [command-line option `-C`](cmdline/#-c-http-size). 
+
+
+## `\cd` (change directory)
+
+Syntax: `\cd [name]` 
+
+Changes the current directory.
+```q
+~/q$ q
+KDB+ 2.6 2010.05.10 Copyright (C) 1993-2010 Kx Systems
+..
+q)\cd
+"/home/guest/q"
+q)\cd /home/guest/dev
+q)\cd
+"/home/guest/dev"
 ```
 
 
@@ -121,30 +145,6 @@ q)til each 20+til 10
 0 1 2 3..
 0 1 2 3..
 ..
-```
-
-
-## `\C` (HTTP size)
-
-Syntax: `\C [h,w]`
-
-Sets the HTTP height and width. This is the same as [command-line option `-C`](cmdline/#-c-http-size). 
-
-
-## `\cd` (change directory)
-
-Syntax: `\cd [name]` 
-
-Changes the current directory.
-```q
-~/q$ q
-KDB+ 2.6 2010.05.10 Copyright (C) 1993-2010 Kx Systems
-..
-q)\cd
-"/home/guest/q"
-q)\cd /home/guest/dev
-q)\cd
-"/home/guest/dev"
 ```
 
 
@@ -247,6 +247,14 @@ q).z.P
 This corresponds to the `-o` command line parameter.
 
 
+## `\P` (precision)
+
+Syntax: `\P [n]`
+
+Sets display precision for floating point numbers, i.e. the number of digits shown.  
+<i class="fa fa-hand-o-right"></i> [`-P` command-line option](cmdline/#-p-display-precision)
+
+
 ## `\p` (port)
 
 Syntax: `\p [i]`
@@ -268,14 +276,6 @@ q)\p 0        / turn off listening port
 This corresponds to the `-p` command line parameter.
 
 
-## `\P` (precision)
-
-Syntax: `\P [n]`
-
-Sets display precision for floating point numbers, i.e. the number of digits shown.  
-<i class="fa fa-hand-o-right"></i> [`-P` command-line option](cmdline/#-p-display-precision)
-
-
 ## `\r` (replication master)
 
 Syntax: `\r`
@@ -289,13 +289,6 @@ This should not be executed manually otherwise it can disrupt replication. It is
 Syntax: `\r src dst`
 
 This renames file `src` to `dst`. It is equivalent to the Unix `mv` command, or the windows `move` command (except that it will not rename to a different disk drive).
-
-
-## `\s` (number of slaves)
-
-Syntax: `\s`
-
-This queries the number of slaves, set with the `-s` command line parameter (query only).
 
 
 ## `\S` (random seed)
@@ -325,6 +318,32 @@ q)\S              / seed is not updated
     The rng in a slave thread is assigned a seed based on the slave thread number.
     In multithreaded input mode, the seed is based on socket descriptor.
     Instances started on ports 20000 thru 20099 (slave procs, used with e.g. `q -s -4` have the main thread’s default seed based on the port number.
+
+
+## `\s` (number of slaves)
+
+Syntax: `\s`
+
+This queries the number of slaves, set with the `-s` command line parameter (query only).
+
+As of V3.5 2017.05.02, slave threads can be adjusted dynamically up to the maximum specified on the command line. A negative number indicates that processes should be used, instead of threads.
+```q
+q)0N!("current slave threads";system"s");system"s 4";0N!("current,max slave threads";system"s";system"s 0N"); / q -s 8
+("current slave threads";0i)
+("current,max slave threads";4i;8i)
+q)system"s 0" / disable slave threads
+q)system"s 0N" / show max slave threads
+8i
+```
+
+
+## `\T` (timeout)
+
+Syntax: `\T [n]`
+
+This sets the client execution timeout, as the integer number of seconds a client call will execute before timing out, default 0 (no timeout). Note this is in seconds, not milliseconds like `\t`.
+
+This corresponds to the `-T` command line parameter.
 
 
 ## `\t` (timer)
@@ -373,15 +392,6 @@ q)\ts:10000 log til 1000           /same as \ts do[10000; log til 1000]
 ```
 
 
-## `\T` (timeout)
-
-Syntax: `\T [n]`
-
-This sets the client execution timeout, as the integer number of seconds a client call will execute before timing out, default 0 (no timeout). Note this is in seconds, not milliseconds like `\t`.
-
-This corresponds to the `-T` command line parameter.
-
-
 ## `\u` (reload user password file)
 
 Syntax: `\u`
@@ -407,6 +417,15 @@ q){x where x like"????"}system"v .h"
 !!! tip "Expunging variables"
     To expunge `a` from the workspace root, ``delete a from `.``  
     <i class="fa fa-hand-o-right"></i> _Q for Mortals_: [12.5 Expunging from a Context](http://code.kx.com/q4m3/12_Workspace_Organization/#125-expunging-from-a-context)
+
+
+## `\W` (week offset)
+
+Syntax: `\W [n]`
+
+Specifies the start of week offset, where 0 is Saturday. The default is 2 = Monday.
+
+This corresponds to the `-W` command line parameter.
 
 
 ## `\w` (workspace)
@@ -446,14 +465,6 @@ syms| 577
 symw| 25436
 ```
 <i class="fa fa-hand-o-right"></i> [`.Q.w`](dotq/#qw-memory-stats) (memory stats)
-
-## `\W` (week offset)
-
-Syntax: `\W [n]`
-
-Specifies the start of week offset, where 0 is Saturday. The default is 2 = Monday.
-
-This corresponds to the `-W` command line parameter.
 
 
 ## `\x` (expunge)
