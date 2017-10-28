@@ -224,8 +224,8 @@ k('9 7 5 3 1')
 !!! note "Sorted attribute"
     The `s#` prefix that appears in the display of the output for the `asc()` function indicates that the resulting vector has a _sorted_ attribute set. An attribute can be queried by calling the `attr()` function or accessing the `attr` property of the result:
     <pre><code class="language-python"> 
-    &gt;&gt;&gt; s = q.asc(a) &gt;&gt;&gt; q.attr(s) k('s')
-    &gt;&gt;&gt; s.attr
+    >>> s = q.asc(a) >>> q.attr(s) k('s')
+    >>> s.attr
     k('s')
     </code></pre>
     When the`asc()` function gets a vector with the `s` attribute set, it skips sorting and immediately returns the same vector.
@@ -711,7 +711,7 @@ k('0 1 2 3 4 5 5 5 5 5')
 
 Unlike Python where caret (`^`) is the binary _xor_ operator, q defines it to denote the [fill](http://code.kx.com/q/ref/lists/#fill) operation that replaces null values in the right argument with the left argument. PyQ follows the q definition:
 ```python
->>> x = q('1 0N 2') &gt;&gt;&gt; 0 ^ x k('1 0 2')
+>>> x = q('1 0N 2') >>> 0 ^ x k('1 0 2')
 ```
 
 
@@ -937,3 +937,348 @@ Q variables can be accessed as attributes of the `q` object:
 3
 >>> del q.t
 ```
+
+
+## Numeric Computing
+
+NumPy is the fundamental package for scientific computing in Python. NumPy shares common APL ancestry with q and can often operate directly on `K` objects.
+
+### Primitive data types
+
+There are eighteen primitive data types in kdb+, eight of those closely match their NumPy analogues and will be called _simple types_ in this section. Simple types consist of booleans, bytes, characters, integers of three different sizes, and floating point numbers of two sizes. Seven kdb+ types  represent dates, times and durations. Similar data types are available in recent versions of NumPy, but they differ from kdb+ types in many details. Finally, kdb+ symbol, enum and guid types have no direct analogue in NumPy.
+
+No  | kdb+ type | array type      | raw         | description
+:--:|-----------|-----------------|-------------|-----------------------------------------------
+1   | boolean   | bool_           | bool_       | Boolean (True or False) stored as a byte
+2   | guid      | uint8 (x16)     | uint8 (x16) | Globally unique 16-byte identifier
+4   | byte      | uint8           | uint8       | Byte (0 to 255)
+5   | short     | int16           | int16       | Signed 16-bit integer
+6   | int       | int32           | int32       | Signed 32-bit integer
+7   | long      | int64           | int64       | Signed 64-bit integer
+8   | real      | float32         | float32     | Single-precision 32-bit float
+9   | float     | float64         | float64     | Double-precision 64-bit float
+10  | char      | S1              | S1          | (byte-)string
+11  | symbol    | str             | P           | Strings from a pool
+12  | timestamp | datetime64[ns]  | int64       | Date and time with nanosecond resolution
+13  | month     | datetime64[M]   | int32       | Year and month
+14  | date      | datetime64[D]   | int32       | Date (year, month, day)
+16  | timespan  | timedelta64[ns] | int64       | Time duration in nanoseconds
+17  | minute    | datetime64[m]   | int32       | Time duration (or time of day) in minutes
+18  | second    | datetime64[s]   | int32       | Time duration (or time of day) in seconds
+19  | time      | datetime64[ms]  | int32       | Time duration (or time of day) in milliseconds
+20+ | enum      | str             | int32       | Enumerated strings
+
+
+#### Simple types
+
+Kdb+ atoms and vectors of the simple types (booleans, characters, integers and floats) can be viewed as 0- or 1-dimensional NumPy arrays. For example,
+```Python
+>>> x = K.real([10, 20, 30])
+>>> a = numpy.asarray(x)
+>>> a.dtype
+dtype('float32')
+```
+Note that `a` in the example above is not a copy of `x`. It is an array view into the same data:
+```python
+>>> a.base.obj
+k('10 20 30e')
+```
+If you modify `a`, you modify `x` as well:
+```python
+>>> a[:] = 88
+>>> x
+k('88 88 88e')
+```
+
+
+#### Dates, times and durations
+
+The age-old question of when to start counting calendar years did not get any easier in the computer age. Python standard `date` starts at
+```python
+>>> date.min
+datetime.date(1, 1, 1)
+```
+more commonly known as
+```python
+>>> date.min.strftime('%B %d, %Y')
+'January 01, 0001'
+```
+and this date is considered to be day 1
+```python
+>>> date.min.toordinal()
+1
+```
+Note that, according to the Python calendar, the world did not exist before that date:
+```python
+>>> date.fromordinal(0)
+Traceback (most recent call last):
+ File "<stdin>", line 1, in <module> 
+ValueError: ordinal must be >= 1
+```
+At the time of this writing,
+```python
+>>> date.today().toordinal()
+736335
+```
+The designer of kdb+ made the more practical choice for date 0 to be January 1, 2000. As a result, in PyQ we have
+```python
+>>> K.date(0)
+k('2000.01.01')
+```
+and
+```python
+>>> (-2 + q.til(5)).date
+k('1999.12.30 1999.12.31 2000.01.01 2000.01.02 2000.01.03')
+```
+Similarly, the 0 timestamp was chosen to be at midnight of the day 0
+```python
+>>> K.timestamp(0)
+k('2000.01.01D00:00:00.000000000')
+```
+With NumPy, however the third choice was made. Bowing to the UNIX tradition, NumPy took midnight of January 1, 1970 as the zero mark on its timescales.
+```python
+>>> numpy.array([0], 'datetime64[D]')
+array(['1970-01-01'], dtype='datetime64[D]') 
+>>> numpy.array([0], 'datetime64[ns]') 
+array(['1970-01-01T00:00:00.000000000'], dtype='datetime64[ns]')
+```
+PyQ will automatically adjust the epoch when converting between NumPy arrays and `K` objects.
+```python
+>>> d = q.til(2).date 
+>>> a = numpy.array(d) 
+>>> d 
+k('2000.01.01 2000.01.02') 
+>>> a
+array(['2000-01-01', '2000-01-02'], dtype='datetime64[D]') 
+>>> K(a)
+k('2000.01.01 2000.01.02')
+```
+This convenience comes at a cost of copying the data
+```python
+>>> a[0] = 0 
+>>> a array(['1970-01-01', '2000-01-02'], dtype='datetime64[D]') 
+>>> d
+k('2000.01.01 2000.01.02')
+```
+To avoid such copying, `K` objects can expose their raw data to numpy:
+```python
+>>> b = numpy.asarray(d.data)
+>>> b.tolist()
+[0, 1]
+```
+Arrays created this way share their data with the underlying `K` objects. Any change to the array is reflected in kdb+.
+```python
+>>> b[:] += 42
+>>> d
+k('2000.02.12 2000.02.13')
+```
+
+
+#### Characters, strings and symbols
+
+Text data appears in kdb+ as character atoms and strings or as symbols and enumerations. Character strings are compatible with NumPy "bytes" type:
+```python
+>>> x = K.string("abc")
+>>> a = numpy.asarray(x)
+>>> a.dtype.type
+<class 'numpy.bytes_'>
+``` 
+In the example above, data is shared between the kdb+ string `x` and NumPy array `a`:
+```python
+>>> a[:] = 'x'
+>>> x
+k('"xxx"')
+```
+
+
+### Nested lists
+
+Kdb+ does not have a data type representing multi-dimensional contiguous arrays. In PyQ, a multi-dimensional NumPy array becomes a nested list when passed to `q` functions or converted to `K` objects. For example,
+```python
+>>> a = numpy.arange(12, dtype=float).reshape((2,2,3))
+>>> x = K(a)
+>>> x
+k('((0 1 2f;3 4 5f);(6 7 8f;9 10 11f))')
+```
+Similarly, kdb+ nested lists of regular shape, become multi-dimensional NumPy arrays when passed to numpy.array:
+```python
+>>> numpy.array(x)
+array([[[ 0., 1., 2.],
+        [ 3., 4., 5.]],
+
+        [[ 6., 7., 8.], 
+         [ 9., 10., 11.]]])
+```
+Moreover, many NumPy functions can operate directly on kdb+ nested lists, but they internally create a contiguous copy of the data
+```python
+>>> numpy.mean(x, axis=2)
+array([[ 1., 4.],
+       [ 7., 10.]])
+```
+
+
+### Tables and dictionaries
+
+Unlike kdb+, NumPy does not implement column-wise tables. Instead it has record arrays that can store table-like data row by row. PyQ supports two-way conversion between kdb+ tables and NumPy record arrays:
+```python
+>>> trades.show()
+sym time  size
+--------------
+a   09:31 100 
+a   09:33 300 
+b   09:32 200 
+b   09:35 100
+```
+```python
+>>> numpy.array(trades)
+array([('a', datetime.timedelta(0, 34260), 100), 
+       ('a', datetime.timedelta(0, 34380), 300), 
+       ('b', datetime.timedelta(0, 34320), 200), 
+       ('b', datetime.timedelta(0, 34500), 100)], 
+      dtype=[('sym', 'O'), ('time', '<m8[m]'), ('size', '<i8')])
+```
+
+
+## Enhanced shell
+
+If you have IPython installed in your environment, you can run an interactive IPython shell as follows:
+```bash
+$ pyq -m IPython
+```
+For a better experience, load the `pyq.magic` extension:
+```
+In [1]: %load_ext pyq.magic
+```
+This makes K objects display nicely in the output and gives you access to the PyQ-specific IPython magic commands:
+
+Line magic `%q`:
+```
+In [2]: %q ([]a:til 3;b:10*til 3)
+Out[2]:
+a b
+----
+0 0
+1 10
+2 20
+```
+Cell magic `%%q`:
+```
+In [4]: %%q
+   ....: a: exec a from t where b=20
+   ....: b: exec b from t where a=2
+   ....: a+b
+   ....:
+Out[4]: ,22
+```
+You can pass following options to the `%%q` cell magic:
+```
+-l (dir|script)
+    pre-load database or script
+-h host:port
+    execute on the given host
+-o var
+    send output to a variable named var
+-i var1, .., varN
+    input variables
+-1
+    redirect stdout
+-2
+    redirect stderr
+```
+
+## q) prompt
+
+While in PyQ, you can drop in to an emulated kdb+ Command Line Interface (CLI). Here is how:
+
+Start pyq:
+```python
+$ pyq
+>>> from pyq import q
+```
+Enter kdb+ CLI:
+```q
+>>> q()
+q)t:([]a:til 5; b:10*til 5)
+q)t
+a b
+----
+0 0
+1 10
+2 20
+3 30
+4 40
+```
+Exit back to Python:
+```python
+q)\
+>>> print("Back to Python")
+Back to Python
+```
+Or you can exit back to shell:
+```q
+q)\\
+$
+```
+
+
+## Calling Python from KDB+
+
+Kdb+ is designed as a platform for multiple programming languages. Out of the box, it comes with q, K, and a variant of ANSI SQL as the [s language](https://github.com/KxSystems/kdb/blob/master/s.k). Installing pyq gives access to the p language, where "p" stands for "Python". In addition, PyQ provides a mechanism for exporting Python functions to q where they can be called as native q functions.
+
+### The p language
+
+To access Python from the `q)` prompt, simply start the line with the `p)` prefix and continue with the Python statement/s. Since the standard `q)` prompt does not allow multi-line entries, you are limited to what can be written in one line and need to separate Python statements with semicolons.
+```python
+q)p)x = 42; print(x)
+42
+```
+The `p)` prefix can also be used in q scripts. In this case, multi-line Python statements can be used provided additional lines start with one or more spaces. For example, with the following code in `hello.q`
+```q
+p)def f():
+      print('Hello')
+p)f()
+```
+we get
+```bash
+$ q hello.q -q
+Hello
+```
+If your script contains more Python code than q, you can avoid sprinkling it with `p)`s by placing the code in a file with `.p` extension. Thus instead of `hello.q` described above, we can write the following code in `hello.p`
+```python
+def f():
+    print('Hello')
+f()
+q.exit(0)
+```
+and run it the same way:
+```bash
+$ q hello.p -q
+Hello
+```
+It is recommended that any substantial amount of Python code be placed in regular Python modules or packages, with only top-level entry points imported and called in q scripts.
+
+
+### Exporting Python functions to q
+
+As we have seen in the previous section, calling Python by evaluating `p)` expressions has several limitations. For tighter integration between q and Python, PyQ supports exporting Python functions to q. Once exported, Python functions appear in q as unary functions that take a single argument that should be a list. For example, we can make Python’s `%`-formatting available in q as follows:
+```python
+>>> def fmt(f, x): 
+...     return K.string(str(f) % x)
+>>> q.fmt = fmt
+```
+Now, calling the `fmt` function from q will pass the argument list to Python and return the result back to q:
+```q
+q)fmt("%10.6f";acos -1)
+"  3.141593"
+```
+Python functions exported to q should return a `K` object or an instance of one of the simple scalar types: [`None`](https://docs.python.org/3.6/library/constants.html#None "(in Python v3.6)"), [`bool`](https://docs.python.org/3.6/library/functions.html#bool "(in Python v3.6)"), [`int`](https://docs.python.org/3.6/library/functions.html#int "(in Python v3.6)"), [`float`](https://docs.python.org/3.6/library/functions.html#float "(in Python v3.6)") or [`str`](https://docs.python.org/3.6/library/stdtypes.html#str "(in Python v3.6)") which are automatically converted to q `::`, boolean, long, float or symbol respectively.
+
+Exported functions are called from q by supplying a single argument that contains a list of objects to be passed to the Python functions as `K`-valued arguments.
+
+To pass a single argument to an exported function, it has to be enlisted. For example,
+```q
+q)p)q.erf = math.erf
+q)erf enlist 1
+0.8427008
+```
+
