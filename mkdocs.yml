@@ -152,7 +152,7 @@ pages:
       - Java: interfaces/java-client-for-q.md
       - Kafka: interfaces/kafka.md
       - Python (embedPy): interfaces/embedpy.md
-      - Python (PyQ): # interfaces/with-python.md
+      - Python (PyQ):
         - Introduction: interfaces/pyq/introduction.md
         - Installation: interfaces/pyq/install.md
         - User guide: interfaces/pyq/user-guide.md
