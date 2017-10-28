@@ -105,43 +105,30 @@ Char vectors are also known as _strings_.
 
 Attributes are metadata that apply to lists of special form. They are often used on a dictionary domain or a table column to reduce storage requirements or speed retrieval. 
 
-<div class="kx-compact" markdown="1">
-
-| example       |         | overhead               |
+| example       |         | byte overhead          |
 |---------------|---------|------------------------|
 | `` `s#2 2 3`` | sorted  | `0`                    |
-| `` `u#2 4 5`` | unique  | `16*u`                 |
-| `` `p#2 2 1`` | parted  | `(4*u;16*u;4*u+1)`     |
-| `` `g#2 1 2`` | grouped | `(4*u;16*u;4*u+1;4*n)` |
+| `` `u#2 4 5`` | unique  | `16*d`                 |
+| `` `p#2 2 1`` | parted  | `(4*d;16*d;4*d+1)`     |
+| `` `g#2 1 2`` | grouped | `(4*d;16*d;4*d+1;4*n)` |
 
-</div>
+For the byte overhead, `n` is the number of items and `d` is the number of distinct (unique) items.
 
-The byte overheads use `n` (number of elements) and `u` (number of uniques).
+Attribute `u` is for unique lists.
 
-* `` `u`` is for unique lists.
-* `` `p`` and `` `g`` are for lists with a lot of repetition.
+!!! tip "Grouped and parted"
+    Attributes `p` and `g` are useful for lists in memory with a lot of repetition.
+     
+    Attribute `g` is not helpful for columns on disk. <!-- TRUE? -->
 
-`` `s#``, `` `u#`` and `` `g#`` are preserved on append in memory, if possible.
-Only `` `s#`` is preserved on append to disk.
-
-To set or unset an attribute:
-```q
-q)`s#1 2 3
-`s#1 2 3
-q)`#`s#1 2 3
-1 2 3
-```
-Setting or unsetting an attribute other than `s`, i.e. `upg`, causes a copy of the object to be made. Setting/unsetting the `s` attribute on a list which is already sorted will not cause a copy to be made, and hence will affect the original list in-place. Setting the `s` attr on a dictionary or table, where the key is already in sorted order, in order to obtain a step-function, causes the `s` attribute to be set in place for the key but copies the outer object. 
-```q
-q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
-``s
-```
 Some q functions use attributes to work faster:
 
 -    Where-clauses in [`select` and `exec` templates](qsql) run faster with `where =`, `where in` and `where within`
 -    Searching: [`bin`](search/#bin-binr), [`distinct`](search/#distinct), [_find_](search/#find) and [`in`](search/#in) (if the right argument has an attribute)
 -    Sorting: [`iasc`](sort/#iasc) and [`idesc`](sort/#idesc)
 -    Dictionaries: [`group`](dictsandtables/#group)
+
+<i class="fa fa-hand-o-right"></i> [`#` Set attribute](lists/#set-attribute)
 
 
 ### Dictionaries

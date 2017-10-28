@@ -58,11 +58,12 @@
 ### Punctuation
 
 <table class="kx-tight" markdown="1">
-<tr><td class="kx-big kx-nowrap">`()`</td><td colspan="3">precedence; [list definition](syntax/#lists); [table definition](syntax/#tables)</td></tr>
-<tr><td class="kx-big kx-nowrap">`[]`</td><td colspan="3">expression block; [arguments](syntax/#application); [table definition](syntax/#tables)</td></tr>
-<tr><td class="kx-big kx-nowrap">`{}`</td><td colspan="3">[function definition](syntax/#definition) (lambda)</td></tr>
-<tr><td class="kx-big kx-nowrap">`;`</td><td>[separator](syntax/#separation)</td><td class="kx-big kx-nowrap">`#`</td><td>[attribute](elements/#attributes)</td></tr>
-<tr><td class="kx-big kx-nowrap">`` ` ``</td><td>[symbol](datatypes/#symbols)</td><td class="kx-big kx-nowrap">`` `:``</td><td>[filepath](datatypes/#filepaths)</td></tr>
+<tr><td>`()`</td><td>precedence; [list definition](syntax/#lists); [table definition](syntax/#tables)</td></tr>
+<tr><td>`[]`</td><td>expression block; [arguments](syntax/#application); [table definition](syntax/#tables)</td></tr>
+<tr><td>`{}`</td><td>[function definition](syntax/#definition) (lambda)</td></tr>
+<tr><td>`;`</td><td>[separator](syntax/#separation)</td></tr>
+<tr><td>`` ` ``</td><td>[symbol](datatypes/#symbols)</td></tr>
+<tr><td>`` `:``</td><td>[filepath](datatypes/#filepaths)</td></tr>
 </table>
 
 ### Operators
@@ -71,7 +72,7 @@
 <tr><td>[`=`](comparison/#six-comparison-operators)</td><td>[equal](comparison/#six-comparison-operators)</td><td>[`<>`](comparison/#six-comparison-operators)</td><td>[not equal](comparison/#six-comparison-operators)</td><td>[`~`](comparison/#match)</td><td>[match](comparison/#match)</td></tr>
 <tr><td>[`<`](comparison/#six-comparison-operators)</td><td>[less than](comparison/#six-comparison-operators)</td><td>[`<=`](comparison/#six-comparison-operators)</td><td>[less than or equal](comparison/#six-comparison-operators)</td><td>[`>`](comparison/#six-comparison-operators)</td><td>[greater than](comparison/#six-comparison-operators)</td><td>[`>=`](comparison/#six-comparison-operators)</td><td>[greater than or equal](comparison/#six-comparison-operators)</td></tr>
 <tr><td>[`+`](arith-integer/#add)</td><td>[plus](arith-integer/#add)</td><td>[`-`](arith-integer/#-minus)</td><td>[minus](arith-integer/#-minus)</td><td>[`*`](arith-integer/#multiply)</td><td>[times](arith-integer/#multiply)</td><td>[`%`](arith-float/#divide)</td><td>[divided by](arith-float/#divide)</td></tr>
-<tr><td>[`#`](lists/#take)</td><td>[take](lists/#take)</td><td>[`,`](lists/#join)</td><td>[join](lists/#join)</td><td>`^`</td><td>[fill](lists/#fill), [coalesce](joins/#coalesce)</td><td>`_`</td><td>[drop](lists/#_-drop); [cut](lists/#_-cut)</td></tr>
+<tr><td>[`#`](lists/#take)</td><td>[set attribute](lists/#set-attribute), [take](lists/#take)</td><td>[`,`](lists/#join)</td><td>[join](lists/#join)</td><td>`^`</td><td>[fill](lists/#fill), [coalesce](joins/#coalesce)</td><td>`_`</td><td>[drop](lists/#_-drop); [cut](lists/#_-cut)</td></tr>
 <tr><td>`|`</td><td>[maximum](arith-integer/#or-maximum), [`or`](logic/#or-maximum)</td><td>`&`</td><td>[minimum](arith-integer/#and-minimum), [`and`](logic/#and-minimum)</td></tr>
 </table>
 
