@@ -571,7 +571,7 @@ Syntax: `x # y`
 
 Where `y` is a list and atom `x` is 
 
--   an item from the list `` `g`p`s`u ``, returns `y` with the corresponding [attribute](elements/#aatributes) set
+-   an item from the list `` `s`u`p`g ``, returns `y` with the corresponding [attribute](elements/#aatributes) set
 -   the null symbol `` ` ``, returns `y` with all attributes removed
 
 ```q

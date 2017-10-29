@@ -103,7 +103,8 @@ Char vectors are also known as _strings_.
 
 ### Attributes
 
-Attributes are metadata that apply to lists of special form. They are often used on a dictionary domain or a table column to reduce storage requirements or speed retrieval. 
+Attributes are metadata that apply to lists of special form. They are often used on a dictionary domain or a table column to reduce storage requirements or to speed retrieval.  
+<i class="fa fa-hand-o-right"></i> [`#` Set attribute](lists/#set-attribute)
 
 | example       |         | byte overhead          |
 |---------------|---------|------------------------|
@@ -118,8 +119,10 @@ Attribute `u` is for unique lists.
 
 !!! tip "Grouped and parted"
     Attributes `p` and `g` are useful for lists in memory with a lot of repetition.
-     
-    Attribute `g` is not helpful for columns on disk. <!-- TRUE? -->
+
+    If the data can be sorted such that `p` can be applied, the `p` attribute effects better speedups than `g`, both on disk and in memory. 
+
+    The `g` attribute implies an entry’s data may be dispersed – and possibly slow to retrieve from disk. 
 
 Some q functions use attributes to work faster:
 
@@ -127,8 +130,6 @@ Some q functions use attributes to work faster:
 -    Searching: [`bin`](search/#bin-binr), [`distinct`](search/#distinct), [_find_](search/#find) and [`in`](search/#in) (if the right argument has an attribute)
 -    Sorting: [`iasc`](sort/#iasc) and [`idesc`](sort/#idesc)
 -    Dictionaries: [`group`](dictsandtables/#group)
-
-<i class="fa fa-hand-o-right"></i> [`#` Set attribute](lists/#set-attribute)
 
 
 ### Dictionaries
@@ -163,7 +164,7 @@ carol 39
 ted   51
 alice 44
 ```
-Or the table specified directly using [table syntax](syntax/#tables), e.g.
+Or the table specified directly using [table syntax](syntax/#simple-tables), e.g.
 ```q
 q)/a flipped dictionary is a table
 q)tkids~([]names:`bob`carol`ted`alice; ages:42 39 51 44)
@@ -271,9 +272,9 @@ Operators are denoted by glyphs or reserved words or both – see note below on
 <table class="kx-compact" markdown="1">
 <tr><td>[`=`](comparison)</td><td>[equal](comparison)</td><td>[`<>`](comparison)</td><td>[not equal](comparison)</td><td>[`~`](comparison)</td><td>[match](comparison)</td></tr>
 <tr><td>[`<`](comparison)</td><td>[less than](comparison)</td><td>[`<=`](comparison)</td><td>[less than or equal](comparison)</td><td>[`>`](comparison)</td><td>[greater than](comparison)</td><td>[`>=`](comparison)</td><td>[greater than or equal](comparison)</td></tr>
-<tr><td>[`+`](arith-integer/#add)</td><td>[plus](arith-integer/#add)</td><td>[`-`](arith-integer/#minus)</td><td>[minus](arith-integer/#minus)</td><td>[`*`](arith-integer/#multiply])</td><td>[times](arith-integer/#multiply)</td><td>[`%`](arith-float/#divide)</td><td>[divided by](arith-float/#divide)</td></tr>
-<tr><td>[`&`](arith-integer/#and-minimum)</td><td>[minimum](arith-integer/#and-minimum)</td><td>[`|`](arith-integer/#and-maximum)</td><td>[maximum](arith-integer/#and-maximum)</td></tr>
-<tr><td>[`#`](lists/#take)</td><td>[take](lists/#take)</td><td>[`,`](lists/#join)</td><td>[join](lists/#join)</td><td>`^`</td><td>[fill](lists/#fill); [coalesce](joins/#coalesce)</td><td>`_`</td><td>[drop](lists/#drop); [cut](lists/#cut)</td></tr>
+<tr><td>[`+`](arith-integer/#add)</td><td>[plus](arith-integer/#add)</td><td>[`-`](arith-integer/#-minus)</td><td>[minus](arith-integer/#-minus)</td><td>[`*`](arith-integer/#multiply)</td><td>[times](arith-integer/#multiply)</td><td>[`%`](arith-float/#divide)</td><td>[divided by](arith-float/#divide)</td></tr>
+<tr><td>[`&`](arith-integer/#and-minimum)</td><td>[minimum](arith-integer/#and-minimum)</td><td>[`|`](arith-integer/#or-maximum)</td><td>[maximum](arith-integer/#or-maximum)</td></tr>
+<tr><td>`#`</td><td>[take](lists/#take), [set attribute](lists/#set-attribute)</td><td>[`,`](lists/#join)</td><td>[join](lists/#join)</td><td>`^`</td><td>[fill](lists/#fill); [coalesce](joins/#coalesce)</td><td>`_`</td><td>[drop](lists/#_-drop); [cut](lists/#cut)</td></tr>
 <tr><td>`!`</td><td colspan="7">[dict](dictsandtables/#dict); [key](dictsandtables/#key); [enumerate](enums/#enumerate); [ints to enum](casting/#ints-to-enum); [update](funsql/#update); [delete](funsql/#delete)</td></tr>
 </table>
 
@@ -288,20 +289,20 @@ The following reserved words denote operators.
 <table markdown="1" class="kx-compact">
 <tr><td>A</td><td>[`and`](logic/#and-minimum "minimum"), [`asof`](joins/#asof "as-of operator")</td></tr>
 <tr><td>B</td><td>[`bin`](search/#bin-binr "binary search"), [`binr`](search/#bin-binr "binary search right")</td></tr>
-<tr><td>C</td><td>[`cor`](stats-aggregates/#cor "correlation"), [`cov`](trig/#cov "statistical covariance"), [`cross`](lists/#cross "cross product"), [`cut`](lists/#cut "cut array into pieces")</td></tr>
+<tr><td>C</td><td>[`cor`](stats-aggregates/#cor-correlation "correlation"), [`cov`](stats-aggregates/#cov-covariance "covariance"), [`cross`](lists/#cross "cross product"), [`cut`](lists/#cut "cut array into pieces")</td></tr>
 <tr><td>D</td><td>[`div`](arith-integer/#div "integer division"), [`dsave`](filewords/#dsave "save global tables to disk")</td></tr>
 <tr><td>E</td><td>[`each`](control/#each "apply to each item"), [`ema`](stats-moving/#ema "exponentially-weighted moving average"), [`except`](select/#except "left argument without items in right argument")</td></tr>
 <tr><td>F</td><td>[`fby`](qsql/#fby "filter-by")</td></tr>
-<tr><td>I</td><td>[`ij`](joins/#ij "inner join"), [`in`](search/#in "membership"), [`insert`](qsql/#insert "append records to a table"), [`inter`](select/#inter "items common to both arguments")</td></tr>
-<tr><td>L</td><td>[`like`](strings/#like "pattern matching"), [`lj`](joins/#lj "left join"), [`ljf`](joins/#lj "left join"), [`lsq`](matrixes/#lsq "least squares – matrix divide")</td></tr>
+<tr><td>I</td><td>[`ij`](joins/#ij-inner-join "inner join"), [`in`](search/#in "membership"), [`insert`](qsql/#insert "append records to a table"), [`inter`](select/#inter "items common to both arguments")</td></tr>
+<tr><td>L</td><td>[`like`](strings/#like "pattern matching"), [`lj`](joins/#lj-ljf-left-join "left join"), [`ljf`](joins/#lj-ljf-left-join "left join"), [`lsq`](matrixes/#lsq "least squares – matrix divide")</td></tr>
 <tr><td>M</td><td>[`mavg`](stats-moving/#mavg "moving average"), [`mcount`](stats-moving/#mcount "moving count"), [`mdev`](stats-moving/#mdev "moving deviation"), [`mmax`](stats-moving/#mmax "moving maxima"), [`mmin`](stats-moving/#mmin "moving minima"), [`mmu`](matrixes/#mmu "matrix multiplication"), [`mod`](arith-integer/#mod "remainder"), [`msum`](stats-moving/#msum "moving sum")</td></tr>
 <tr><td>O</td><td>[`or`](logic/#or-maximum "maximum"), [`over`](control/#over "reduce an array with a function")</td></tr>
-<tr><td>P</td><td>[`peach`](control/#peach "parallel each"), [`pj`](joins/#pj "plus join"), [`prior`](select/#prior "apply function between each item and its predecessor")</td></tr>
-<tr><td>S</td><td>[`scan`](control/#scan "apply function to successive items"), [`scov`](stats-aggregates/#scov "statistical covariance"), [`set`](filewords/#set "asign a value to a name"), [`setenv`](os/#setenv "set an environment variable"), [`ss`](strings/#ss "string search"), [`sublist`](select/#sublist "sublist of a list"), [`sv` consolidate](lists/#sv "consolidate")</td></tr>
-<tr><td>U</td><td>[`uj`](joins/#uj "union join"), [`union`](lists/#union "distinct items of combination of two lists"), [`upsert`](qsql/#upsert "add table records")</td></tr>
+<tr><td>P</td><td>[`peach`](control/#peach "parallel each"), [`pj`](joins/#pj-plus-join "plus join"), [`prior`](control/#prior "apply function between each item and its predecessor")</td></tr>
+<tr><td>S</td><td>[`scan`](control/#scan "apply function to successive items"), [`scov`](stats-aggregates/#scov-statistical-covariance "statistical covariance"), [`set`](filewords/#set "asign a value to a name"), [`setenv`](os/#setenv "set an environment variable"), [`ss`](strings/#ss "string search"), [`sublist`](select/#sublist "sublist of a list"), [`sv` consolidate](lists/#sv "consolidate")</td></tr>
+<tr><td>U</td><td>[`uj`](joins/#uj-union-join "union join"), [`union`](select/#union "distinct items of combination of two lists"), [`upsert`](qsql/#upsert "add table records")</td></tr>
 <tr><td>V</td><td>[`vs` encode](casting/#vs "encode"), [`vs` split](lists/#vs "split")</td></tr>
-<tr><td>W</td><td>[`wavg`](stats-aggregates/#wavg "weighted average"), [`within`](search/#within "flag items within range"), [`wsum`](stats-aggregates/#wsum "weighted sum")</td></tr>
-<tr><td>X</td><td>[`xasc`](sort/#xasc "table sorted ascending by columns"), [`xbar`](arith-integer/#xbar "interval bar"), [`xcol`](dictsandtables/#xcol "rename table columns"), [`xcols`](dictsandtables/#xcols "re-order table columns"), [`xdesc`](sort/#xdesc "table sorted descending by columns"), [`xexp`](arith-float/#xexp "raised to a power"), [`xgroup`](dictsandtables/#xgroup "table grouped by keys"), [`xkey`](dictsandtables/#xkey "set primary keys of a table"), [`xlog`](arith-float/#xlog "base-x logarithm"), [`xprev`](select/#xprev "previous items"), [`xrank`](sort/#xrank "items assigned to buckets")</td></tr>
+<tr><td>W</td><td>[`wavg`](stats-aggregates/#wavg-weighted-average "weighted average"), [`within`](search/#within "flag items within range"), [`wsum`](stats-aggregates/#wsum-weighted-sum "weighted sum")</td></tr>
+<tr><td>X</td><td>[`xasc`](dictsandtables/#xasc "table sorted ascending by columns"), [`xbar`](arith-integer/#xbar "interval bar"), [`xcol`](dictsandtables/#xcol "rename table columns"), [`xcols`](dictsandtables/#xcols "re-order table columns"), [`xdesc`](dictsandtables/#xdesc "table sorted descending by columns"), [`xexp`](arith-float/#xexp "raised to a power"), [`xgroup`](dictsandtables/#xgroup "table grouped by keys"), [`xkey`](dictsandtables/#xkey "set primary keys of a table"), [`xlog`](arith-float/#xlog "base-x logarithm"), [`xprev`](select/#xprev "previous items"), [`xrank`](sort/#xrank "items assigned to buckets")</td></tr>
 </table>
 
 <i class="fa fa-hand-o-right"></i> [`.Q.res`](dotq/#qres-k-words) (reserved words)
