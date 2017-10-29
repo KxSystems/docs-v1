@@ -1,18 +1,25 @@
 # Using foreign functions with kdb+
 
-`ffiq` is an extension to kdb+ for loading and calling dynamic libraries using pure `q`. 
+!!! info "FUSE"
+    This is a [FUSE interface](/interfaces/fuse) to kdb+
+
+<i class="fa fa-github"></i> [KxSystems/ffi](https://github.com/kxsystems/ffi)
+is an extension to kdb+ for loading and calling dynamic libraries using pure `q`. 
 
 The main purpose of the library is to build stable interfaces on top of external libraries, or to interact with the operating system from `q`. No compiler toolchain or writing C/C++ code is required to use this library.
 
 **Watch out** You don’t need to write C code, but you do need to know what you are doing. You can easily crash the kdb+ process or corrupt in-memory data structures with no hope of finding out what happened. No support is offered for crashes caused by use of this library.
 
-We are grateful to @abalkin for allowing us to adapt and expand on the [original codebase](https://github.com/enlnt/ffiq). 
+We are grateful to Alexander Belopolsky for allowing us to adapt and expand on the original codebase 
+<i class="fa fa-github"></i> [enlnt/ffiq](https://github.com/enlnt/ffiq). 
 
 
 ## Requirements
 
 ### Operating system
-Linux, macOS 10.10+, Windows 7+
+<i class="fa fa-linux"></i> Linux, 
+<i class="fa fa-apple"></i> macOS 10.10+, 
+<i class="fa fa-windows"></i> Windows 7+
 
 ### libffi 3.1+
 environment                          | installation
@@ -25,16 +32,16 @@ Windows                              | (no action required)
 
 ### kdb+ V3.4+
 
-- [download](http://kx.com/download/)
-- [install](http://code.kx.com/q/tutorials/install/)
+-    <i class="fa fa-download"></i> [Download](http://kx.com/download/)
+-    <i class="fa fa-hand-o-right"></i> [Install](http://code.kx.com/q/tutorials/install/)
 
 
 ## Installation
 
-### Download
-Download the appropriate release archive from [releases](../../releases/latest) page. 
+<i class="fa fa-download"></i>
+Download the appropriate release archive from ==FIXME==[releases](../../releases/latest) page. 
 
-### Unpack and install content of the archive 
+Unpack and install content of the archive: 
 
 environment     | action
 ----------------|---------------------------------------------------------------------------------------
@@ -55,7 +62,7 @@ The argument types are derived from data passed to the function (in case of `cf`
 The return type is specified as a single character and can be `' '` (space), which means to discard the result (i.e. `void`). If not provided, defaults to `int`.
 
 char             | C type       
------------------| -------------------------|
+-----------------| -------------------------
 b, c, x          | unsigned int8
 h                | signed int16
 i                | signed int32

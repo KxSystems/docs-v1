@@ -11,24 +11,25 @@ $ pip install pyq
 
 ### Operating system
 
-Linux, macOS 10.11+
+<i class="fa fa-linux"></i> Linux, 
+<i class="fa fa-apple"></i> macOS 10.11+
 
 Solaris is supported, but has not been tested recently.
 
-Windows is [supported as an experiment](#installing-on-windows)
+<i class="fa fa-windows"></i> Windows is [supported as an experiment](#installing-on-windows)
 
 ### kdb+ 
 
 V2.8+
 
--   [download](https://kx.com/download)
--   [install](http://code.kx.com/q/tutorials/install/)
+-   <i class="fa fa-download"></i> [Download](https://kx.com/download)
+-   <i class="fa fa-hand-o-right"></i> [Install](http://code.kx.com/q/tutorials/install/)
 
 ### Python 
 
 2.7, or 3.5+
 
--    [download](https://www.python.org/downloads/)
+-    <i class="fa fa-download"></i> [Download](https://www.python.org/downloads/)
 
 ### Compiler
 

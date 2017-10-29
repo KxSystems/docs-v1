@@ -11,6 +11,30 @@ Other repositories are maintained by their owners.
 <div style="background-color: #efefef; border: 1px solid #005499; border-radius: 10px; display: inline-block; padding: 0 1em;" markdown="1">Please tell [librarian@kx.com](mailto:librarian@kx.com)
 about new repositories.</div>
 
+
+## FUSE interfaces
+
+The [FUSE interfaces](interfaces/fuse) to kdb+ are
+
+-   released under the [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0)
+-   well documented, with understandable and useful examples
+-   free for all use cases, including 64-bit and commercial use
+-   maintained and supported by Kx (on a best-efforts basis) at no cost to customers
+-   written from the perspective of the ‘remote’ technology: e.g. a Java interface that is intelligible to a Java programmer
+
+<table class="kx-compact" markdown="1">
+<tr><td>Foreign functions</td><td>[Using foreign functions with kdb+](/interfaces/ffi) ==new==</td></tr>
+<tr><td>Java</td><td>[Java client for kdb+](/interfaces/java-client-for-q) ==updated==</td>
+<tr><td>Kafka</td><td>[Q client for Kafka](/interfaces/kafka) ==new==</td></tr>
+<tr><td>Python</td>
+    <td>
+[Using Python with kdb+ (PyQ)](/interfaces/pyq/introduction)<br/>
+[Using Python with kdb+ (embedPy)](/interfaces/embedpy) ==new==
+    </td></tr>
+<tr><td>R</td><td>[Using R with kdb+](/interfaces/with-r/#calling-q-from-r) ==new==</td>
+</tr>
+</table>
+
 ## <i class="fa fa-server"></i> Kdb+ as server
 
 <table class="kx-compact" markdown="1">
@@ -58,7 +82,6 @@ about new repositories.</div>
 <tr>
     <td>Java</td>
     <td>
-[Java client for kdb+](/interfaces/java-client-for-q) ==updated==<br/>
 <i class="fa fa-github"></i> [CharlesSkelton/jshow](https://github.com/CharlesSkelton/jshow)<br/>
 <i class="fa fa-github"></i> [exxeleron/qJava](https://github.com/exxeleron/qJava)<br/>
 <i class="fa fa-github"></i> [michaelwittig/java-q](https://github.com/michaelwittig/java-q)
@@ -117,23 +140,17 @@ about new repositories.</div>
 <tr><td>PLplot</td><td><i class="fa fa-github"></i> [jaeheum/qplplot](https://github.com/jaeheum/qplplot)</td></tr>
 <tr><td>Python</td>
     <td>
-[Using Python with kdb+](/interfaces/with-python/)<br/>
+<!-- [Using Python with kdb+](/interfaces/with-python/)<br/> -->
 <i class="fa fa-github"></i> [brogar/pykdb](https://github.com/brogar/pykdb)<br/>
 <i class="fa fa-github"></i> [enlnt/pyk](https://github.com/enlnt/pyk)<br/>
-<i class="fa fa-github"></i> [enlnt/pyq](https://github.com/enlnt/pyq)<br/>
+<!-- <i class="fa fa-github"></i> [enlnt/pyq](https://github.com/enlnt/pyq)<br/> -->
 <i class="fa fa-github"></i> [eschnapp/q](https://github.com/eschnapp/q)<br/>
 <i class="fa fa-github"></i> [nugend/q](https://github.com/nugend/q)<br/>
 <i class="fa fa-github"></i> [nugend/qPython](https://github.com/nugend/qPython)<br/>
 <i class="fa fa-github"></i> [exxeleron/qPython](https://github.com/exxeleron/qPython)<br/>
 <i class="fa fa-github"></i> [kingan/mongodb_kdb_python_connection](https://github.com/kingan/mongodb_kdb_python_connection)
     </td></tr>
-<tr><td>R</td>
-    <td>
-[Using R with kdb+](/interfaces/with-r/#calling-q-from-r)<br/>
-<i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb) ==new==<br/>
-<i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)
-    </td>
-</tr>
+<tr><td>R</td><td><i class="fa fa-github"></i> [yang-guo/qserver](https://github.com/yang-guo/qserver)</td></tr> 
 <tr>
     <td>Rust</td>
     <td>
@@ -161,7 +178,6 @@ about new repositories.</div>
 <tr><td>JDBC</td><td><i class="fa fa-github"></i> [CharlesSkelton/babel](https://github.com/CharlesSkelton/babel)</i></td></tr>
 <tr><td>ODBC</td><td>[Q client for ODBC](/interfaces/q-client-for-odbc)<br/>
 <i class="fa fa-github"></i> [johnanthonyludlow/kdb/docs/odbc.pdf](https://github.com/johnanthonyludlow/kdb/blob/master/docs/odbc.pdf)</td></tr>
-<tr><td>[Kafka](https://kafka.apache.org/)</td><td>[Q client for Kafka](/interfaces/kafka) ==new==</td></tr>
 <tr><td>Philips Hue</td><td><i class="fa fa-github"></i> [jparmstrong/qphue](https://github.com/jparmstrong/qphue)</td></tr>
 <tr><td>R</td><td>[Using R with kdb+](/interfaces/with-r/#calling-r-from-q)</td></tr>
 <tr><td>Reuters</td><td><i class="fa fa-github"></i> [KxSystems/kdb/c/feed/rfa.zip](https://github.com/KxSystems/kdb/blob/master/c/feed/rfa.zip)</td></tr>
@@ -193,7 +209,6 @@ about new repositories.</div>
 <tr><td>Matlab</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qmatlab](https://github.com/kxcontrib/zuoqianxu/tree/master/qmatlab)</td></tr>
 <tr><td>Perl</td><td><i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qperl](https://github.com/kxcontrib/zuoqianxu/tree/master/qperl)</td></tr>
 <tr><td>Python</td><td>
-[Using Python with kdb+](/interfaces/with-python/)<br/>
 <i class="fa fa-github"></i> [kxcontrib/serpent.speak](https://github.com/kxcontrib/serpent.speak)<br/>
 <i class="fa fa-github"></i> [kxcontrib/zuoqianxu/qpython](https://github.com/kxcontrib/zuoqianxu/tree/master/qpython)
 </td></tr>
