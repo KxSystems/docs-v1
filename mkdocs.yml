@@ -145,20 +145,21 @@ pages:
       - 5. HDB: tutorials/startingq/hdb.md
       - 6. Kdb+tick: tutorials/startingq/tick.md
     - Views: tutorials/views.md
-  - Interfaces: interfaces.md
+  - Interface summary: interfaces.md
   - Interfaces: 
-    - FUSE interfaces:
+    - Kdb+ Fusion:
       - Introduction: interfaces/fuse.md
-      - Foreign functions: interfaces/ffi.md
+      - FFI: interfaces/ffi.md
       - Java: interfaces/java-client-for-q.md
       - Kafka: interfaces/kafka.md
       - Python (embedPy): interfaces/embedpy.md
       - Python (PyQ):
-        - Introduction: interfaces/pyq/introduction.md
+        - Quick start: interfaces/pyq/quickstart.md
         - Installation: interfaces/pyq/install.md
         - User guide: interfaces/pyq/user-guide.md
         - Reference: interfaces/pyq/reference.md
-        - Versions: interfaces/pyq/versions.md
+        - What’s new: interfaces/pyq/whats-new.md
+        - Version history: interfaces/pyq/history.md
       - R: interfaces/with-r.md
     - Q client for Bloomberg: interfaces/q-client-for-bloomberg.md
     - C client for kdb+: interfaces/c-client-for-q.md

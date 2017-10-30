@@ -6,7 +6,7 @@ Meet `q` – your portal to kdb+. Once you import `q` from `pyq`, you get access
 ```python
 >>> from pyq import q 
 >>> dir(q) 
-['abs', 'acos', 'aj', 'aj0', 'all', '[and]()', 'any', 'asc', 'asin', ...]
+['abs', 'acos', 'aj', 'aj0', 'all', 'and_', 'any', 'asc', 'asin', ...]
 ```
 These functions should be familiar to anyone who knows the q language and this is exactly what these functions are: q functions repackaged so that they can be called from Python. Some of the q functions are similar to Python builtins or math functions which is not surprising because q like Python is a complete general-purpose language. In the following sections we will systematically draw an analogy between q and Python functions and explain the differences between them.
 
@@ -30,7 +30,7 @@ True
 ```
 Many q functions are designed to ‘map’ themselves automatically over sequences passed as arguments. Those functions are called _atomic_ and will be covered in the next section. The `til()` function is not atomic, but it can be mapped explicitly:
 ```python
->>> q.til.each(range(5)).show() long$()
+>>> q.til.each(range(1,5)).show()
 ,0
 0 1
 0 1 2
@@ -40,7 +40,8 @@ The last example requires some explanation.  First we have used the `show()` met
 
 The `each()` adverb is similar to Python’s `map()`, but is often much faster.
 ```python
->>> q.til.each(range(5)) == map(q.til, range(5)) True
+>>> q.til.each(range(5)) == map(q.til, range(5))
+True
 ```
 
 
@@ -50,11 +51,13 @@ As we mentioned in the previous section, atomic functions operate on numbers or 
 
 Compare
 ```python
->>> q.exp(1) k('2.718282')
+>>> q.exp(1)
+k('2.718282')
 ```
 and
 ```python
->>> math.exp(1) 2.718281828459045
+>>> math.exp(1)
+2.718281828459045
 ```
 
 Want to see more digits? Set `q` display precision using the `system()` function:
@@ -67,9 +70,11 @@ k('2.718281828459045')
 
 Unlike their native Python analogues, atomic `q` functions can operate on sequences:
 ```python
->>> q.exp(range(5)) k('1 2.718282 7.389056 20.08554 54.59815')
+>>> q.exp(range(5))
+k('1 2.718282 7.389056 20.08554 54.59815')
 ```
 The result in this case is a `K` vector whose elements are obtained by applying the function to each element of the given sequence.
+
 
 #### Mathematical functions
 
@@ -93,7 +98,7 @@ q              | Python           | Return
 [`floor()`](/ref/arith-integer/#floor) | [`math.floor()`](https://docs.python.org/3.6/library/math.html#math.floor) | the largest integer &le; the argument
 [`reciprocal()`](https://pyq.enlnt.com/reference/pyq-auto.html#pyq.q.reciprocal) |  | 1 divided by the argument
 
-Other than being able to operate on lists of of numbers, q functions differ from Python functions in the way they treat out-of-domain errors.
+Other than being able to operate on lists of numbers, q functions differ from Python functions in the way they treat out-of-domain errors.
 
 Where Python functions raise an exception,
 ```python
@@ -147,8 +152,8 @@ q        | Python                   | Return
 ---------|--------------------------|-------------------------------------------------------
 `sum()`  | `sum()`                  | the sum of the elements
 `prd()`  |                          | the product of the elements
-`all()`  | `all()`                  | `1b` if all elements are nonzero, 0b otherwise
-`any()`  | `any()`                  | `1b `if any of the elements is nonzero, 0b otherwise
+`all()`  | `all()`                  | `1b` if all elements are nonzero, `0b` otherwise
+`any()`  | `any()`                  | `1b `if any of the elements is nonzero, `0b` otherwise
 `min()`  | `min()`                  | the smallest element
 `max()`  | `max()`                  | the largest element
 `avg()`  | `statistics.mean()`      | the arithmetic mean
@@ -179,7 +184,8 @@ There are no direct analogues of these functions in the Python standard library,
 >>> list(itertools.accumulate(range(10)))
 [0, 1, 3, 6, 10, 15, 21, 28, 36, 45]
 ```
-Passing `operator.mul`, `max` or `min` as the second optional argument to `itertools.accumulate()`, one can get analogues of `q.prds()`, `q.maxs()` and `q.mins()`.
+Passing `operator.mul()`, `max()` or `min()` as the second optional argument to `itertools.accumulate()`, one can get analogues of `q.prds()`, `q.maxs()` and `q.mins()`.
+
 
 ### Sliding window statistics
 
@@ -189,6 +195,7 @@ Passing `operator.mul`, `max` or `min` as the second optional argument to `itert
 -    `mmax()`
 -    `mmin()`
 -    `msum()`
+
 
 ### Uniform functions
 
@@ -216,7 +223,7 @@ Functions `asc()` and `desc()` sort lists in ascending and descending order resp
 ```python
 >>> a = [9, 5, 7, 3, 1]
 >>> q.asc(a)
-k('s\#1 3 5 7 9')
+k('`s#1 3 5 7 9')
 >>> q.desc(a)
 k('9 7 5 3 1')
 ```
@@ -224,8 +231,8 @@ k('9 7 5 3 1')
 !!! note "Sorted attribute"
     The `s#` prefix that appears in the display of the output for the `asc()` function indicates that the resulting vector has a _sorted_ attribute set. An attribute can be queried by calling the `attr()` function or accessing the `attr` property of the result:
     <pre><code class="language-python"> 
-    >>> s = q.asc(a) >>> q.attr(s) k('s')
-    >>> s.attr
+    &gt;&gt;&gt; s = q.asc(a) >>> q.attr(s) k('s')
+    &gt;&gt;&gt; s.attr
     k('s')
     </code></pre>
     When the`asc()` function gets a vector with the `s` attribute set, it skips sorting and immediately returns the same vector.
@@ -242,7 +249,7 @@ k('1')
 >>> q.bin([10, 20, 20, 20, 30], 20)
 k('3')
 ```
-When no matching element can be found,`binr()` (`q.bin()`) returns the index of the position before (after) which the key can be inserted so that the list remains sorted.
+When no matching element can be found, `binr()` (`bin()`) returns the index of the position before (after) which the key can be inserted so that the list remains sorted.
 ```python
 >>> q.binr([10, 20, 20, 20, 30], [5, 15, 20, 25, 35])
 k('0 1 1 4 5')
@@ -270,17 +277,17 @@ Note that our home-brewed `index` function is similar to the `list.index()` meth
 2
 >>> list.index([10, 30, 20, 40], 25)
 Traceback (most recent call last):
-...
+  ...
 ValueError: 25 is not in list
 ```
 If you are not interested in the index, but only want to know whether the keys can be found in a list, you can use the `in_()` function:
 ```python
->>> [q.in]()([20, 25], [10, 30, 20, 40])
+>>> q.in_([20, 25], [10, 30, 20, 40])
 k('10b')
 ```
 
 !!! note "Trailing underscore"
-    The `q.in_`  function has a trailing underscore because otherwise it would conflict with the Python `in`.
+    The `q.in_`  function has a trailing underscore because otherwise it would conflict with the Python keyword `in`.
 
 ### From Python to kdb+
 
@@ -321,7 +328,7 @@ Some q functions don’t have names because q uses special characters. For examp
 ```
 And use it as you would any other Python function
 ```python
->>> x = rand(10, 2) # generates 10 random 0's or 1's (coin toss)
+>>> x = rand(10, 2) # generates 10 random 0s or 1s (coin toss)
 ```
 
 
@@ -346,7 +353,7 @@ Note that the result of operations are (handles to) kdb+ objects. The only excep
 ```python
 >>> list(q.a)
 [1, 2, 3]
->>> q.a\[-1\]
+>>> q.a[-1]
 3
 ```
 In addition to Python operators, one invoke q functions on kdb+ objects directly from Python using convenient attribute access / method call syntax.
@@ -366,7 +373,7 @@ but shorter and closer to `q` syntax
 >>> q('(log exp neg i)mod 5')
 k('3f')
 ```
-The difference being that in q, functions are applied right to left, by in PyQ left to right.
+The difference being that in q, functions are applied right to left, but in PyQ left to right.
 
 Finally, if q does not provide the function that you need, you can unleash the full power of numpy or scipy on your kdb+ data.
 ```python
@@ -419,9 +426,9 @@ k('0 1 2 3 4 5 6 7 8 9')
 ```python
 >>> data_path = pathlib.Path('data')
 >>> q.save(data_path)
-k(':data')
+k('`:data')
 >>> q.load(data_path)
-k('data')
+k('`data')
 >>> data_path.unlink()
 ```
 It is not necessary to assign data to a global variable before saving it to a file. We can save our 10 integers directly to a file using the `pyq.q.set` function
@@ -449,7 +456,7 @@ k('7h')
 >>> scalar.type
 k('-7h')
 ```
-Basic vector types have type codes in the range 1 through 19 and their elements have the type code equal to the negative of the vector type code. For the basic vector types, one can also get a human readable type name by accessing the `key` property:
+Basic vector types have type codes in the range 1 through 19 and their elements have the type code equal to the negative of the vector type code. For the basic vector types, one can also get a human-readable type name by accessing the `key` property:
 ```python
 >>> vector.key k('long')
 ```
@@ -480,7 +487,7 @@ code | kdb+ type   | Python type
 19   | `time`      | [`datetime.time`](https://docs.python.org/3.6/library/datetime.html#datetime.time)
 
 
-(\*) Unlike other Python types mentioned in the table above, bytes instances get converted to a vector type:
+(\*) Unlike other Python types mentioned in the table above, `bytes` instances get converted to a vector type:
 ```python
 >>> K(b'x')
 k(',"x"')
@@ -511,31 +518,31 @@ k('()')
 >>> q.type(_)
 k('0h')
 ```
-To create an empty list of a specific type -- pass `[]` to one of the named constructors:
+To create an empty list of a specific type, pass `[]` to one of the named constructors:
 ```python
 >>> K.time([])
-k('time$()')
+k('`time$()')
 ```
 
 constructor   | accepts                          | description
 --------------|----------------------------------|-----------------------------------------------
-`K.boolean()` | `int`, `bool`                    | logical type `0b` is false and `1b` is true
-`byte()`      | `int`, `bytes`                   | 8-bit bytes
-`short()`     | `int`                            | 16-bit integers
-`int()`       | `int`                            | 32-bit integers
-`long()`      | `int`                            | 64-bit integers
-`real()`      | `int`, `float`                   | 32-bit floating point numbers
-`float()`     | `int`, `float`                   | 32-bit floating point numbers
-`char()`      | `str`, `bytes`                   | 8-bit characters
-`symbol()`    | `str`, `bytes`                   | interned strings
-`timestamp()` | `int` (nanoseconds), `datetime`  | date and time
-`month()`     | `int` (months), `date`           | year and month
-`date()`      | `int` (days), `date`             | year, month and day
+`K.boolean()` | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6" "in Python V3.6"), [`bool`](https://docs.python.org/3.6/library/functions.html#bool "in Python V3.6")                    | logical type `0b` is false and `1b` is true
+`byte()`      | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6"), [`bytes`](https://docs.python.org/3.6/library/functions.html#bytes "in Python V3.6")                   | 8-bit bytes
+`short()`     | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6")                            | 16-bit integers
+`int()`       | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6")                            | 32-bit integers
+`long()`      | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6")                            | 64-bit integers
+`real()`      | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6"), [`float`](https://docs.python.org/3.6/library/functions.html#float "in Python V3.6")                   | 32-bit floating point numbers
+`float()`     | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6"), [`float`](https://docs.python.org/3.6/library/functions.html#float "in Python V3.6")                   | 32-bit floating point numbers
+`char()`      | [`str`](https://docs.python.org/3.6/library/stdtypes.html#str "in Python V3.6"), [`bytes`](https://docs.python.org/3.6/library/functions.html#bytes "in Python V3.6")                   | 8-bit characters
+`symbol()`    | [`str`](https://docs.python.org/3.6/library/stdtypes.html#str "in Python V3.6"), [`bytes`](https://docs.python.org/3.6/library/functions.html#bytes "in Python V3.6")                   | interned strings
+`timestamp()` | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (nanoseconds), [`datetime`](https://docs.python.org/3.6/library/datetime.html#datetime.datetime "in Python V3.6")  | date and time
+`month()`     | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (months), [`date`](https://docs.python.org/3.6/library/datetime.html#datetime.date "in Python V3.6")           | year and month
+`date()`      | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (days), [`date`](https://docs.python.org/3.6/library/datetime.html#datetime.date "in Python V3.6")             | year, month and day
 `datetime()`  |                                  | (deprecated)
-`timespan()`  | `int` (nanoseconds), `timedelta` | duration in nanoseconds
-`minute()`    | `int` (minutes), `time`          | duration or time of day in minutes
-`second()`    | `int` (seconds), `time`          | duration or time of day in seconds
-`time()`      | `int` (milliseconds), `time`     | duration or time of day in milliseconds
+`timespan()`  | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (nanoseconds), [`timedelta`](https://docs.python.org/3.6/library/datetime.html#datetime.timedelta "in Python V3.6") | duration in nanoseconds
+`minute()`    | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (minutes), [`time`](https://docs.python.org/3.6/library/datetime.html#datetime.time "in Python V3.6")          | duration or time of day in minutes
+`second()`    | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (seconds), [`time`](https://docs.python.org/3.6/library/datetime.html#datetime.time "in Python V3.6")          | duration or time of day in seconds
+`time()`      | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (milliseconds), [`time`](https://docs.python.org/3.6/library/datetime.html#datetime.time "in Python V3.6")     | duration or time of day in milliseconds
 
 The typed constructors can also be used to access infinities and missing values of the given type:
 ```python
@@ -576,9 +583,9 @@ k('+')
 ```
 Dictionaries and tables are treated as sequences: they are true if non-empty.
 
-Note that in most cases how the object test does not change when Python native types are converted to ~pyq.K:
+Note that in most cases how the object test does not change when Python native types are converted to `K`:
 ```python
->>> objects = [None, 1, 0, True, False, 'x', '', {1:2}, {}, date(2000, 1, 1)] &
+>>> objects = [None, 1, 0, True, False, 'x', '', {1:2}, {}, date(2000, 1, 1)]
 >>> [bool(o) for o in objects]
 [False, True, False, True, False, True, False, True, False, True] 
 >>>[bool(K(o)) for o in objects]
@@ -591,14 +598,14 @@ One exception is the Python `time` type. Starting with version 3.5 all `time` in
 ```
 
 !!! info
-    Python changed the rule for `time(0)` because `time` instances can be timezone-aware and because they do not support addition making 0 less than special. Neither of those arguments apply to `q` time, second or minute data types which behave more like `timedelta`.
+    Python changed the rule for `time(0)` because `time` instances can be timezone-aware and because they do not support addition, making 0 less than special. Neither of those arguments apply to `q` time, second or minute data types which behave more like `timedelta`.
 
 
 #### Arithmetic operations
 
-Python has the four familiar arithmetic operators `+`, `-`, `*` and `/` as well as less common `**` (exponentiation), `%` (modulo) and `//` (floor division). PyQ maps those operators to q "verbs" as follows
+Python has the four familiar arithmetic operators `+`, `-`, `*` and `/` as well as less common `**` (exponentiation), `%` (modulo) and `//` (floor division). PyQ maps those to q operators as follows
 
-| Operation      | Python | q      |
+| operation      | Python | q      |
 |----------------|:------:|:------:|
 | addition       | `+`    | `+`    |
 | subtraction    | `-`    | `-`    |
@@ -618,7 +625,7 @@ A notable exception occurs when the modulo operator is used for string formattin
 >>> "%.5f" % K(3.1415)
 '3.14150'
 ```
-Unlike Python sequences, `K` lists behave very similarly to atoms: arithmetic operations act element-wise on them.
+Unlike Python sequences, `K` lists behave very similarly to atoms: arithmetic operations act item-wise on them.
 
 Compare
 ```python
@@ -711,7 +718,8 @@ k('0 1 2 3 4 5 5 5 5 5')
 
 Unlike Python where caret (`^`) is the binary _xor_ operator, q defines it to denote the [fill](http://code.kx.com/q/ref/lists/#fill) operation that replaces null values in the right argument with the left argument. PyQ follows the q definition:
 ```python
->>> x = q('1 0N 2') >>> 0 ^ x k('1 0 2')
+>>> x = q('1 0N 2') >>> 0 ^ x
+k('1 0 2')
 ```
 
 
@@ -737,7 +745,9 @@ PyQ         | q    | description
 `K.sv()`    | `/:` | each-right or scalar from vector
 `K.vs()`    | `\:` | each-left or vector from scalar
 
-The functionality provided by the first three adverbs is similar to functional programming features scattered throughout Python standard library. Thus `each` is similar to `map()`. For example, given a list of lists of numbers
+The functionality provided by the first three adverbs is similar to functional programming features scattered throughout Python standard library. 
+Thus `each` is similar to [`map()`](https://docs.python.org/3.6/library/functions.html#map "in Python V3.6"). 
+For example, given a list of lists of numbers
 ```python
 >>> data = [[1, 2], [1, 2, 3]]
 ```
@@ -753,7 +763,7 @@ or
 ```
 and get similar results.
 
-The `over` adverb is similar to the `functools.reduce()` function. Compare
+The `over` adverb is similar to the [`functools.reduce()`](https://docs.python.org/3.6/library/functools.html#functools.reduce "in Python V3.6") function. Compare
 ```python
 >>> q(',').over(data)
 k('1 2 1 2 3')
@@ -763,7 +773,7 @@ and
 >>> functools.reduce(operator.concat, data)
 [1, 2, 1, 2, 3]
 ```
-Finally, the `scan` adverb is similar to the `itertools.accumulate()` function.
+Finally, the `scan` adverb is similar to the [`itertools.accumulate()`](https://docs.python.org/3.6/library/itertools.html#itertools.accumulate  "in Python V3.6") function.
 ```python
 >>> q(',').scan(data).show()
 1 2
@@ -790,7 +800,7 @@ and use it to compute returns from a series of prices and dividends using `r.eac
 >>> r.each(q.prev(p), p, d)
 k('0n 0.004950495 0.0009852217 -0.01104418')
 ```
-When the `each` adverb is applied to an integer vector, it turns the vector `v` into an n-ary function that for each `i`th argument selects its `v[i]`th element. For example,
+When the `each` adverb is applied to an integer vector, it turns the vector `v` into an n-ary function that for each `i`<sup>th</sup> argument selects its `v[i]`<sup>th</sup> element. For example,
 ```python
 >>> v = q.til(3)
 >>> v.each([1, 2, 3], 100, [10, 20, 30])
@@ -809,7 +819,7 @@ $$\phi = 1+\frac{1}{1+\frac{1}{1+\cdots}}$$
 
 or equivalently as the limit of the sequence that can be obtained by starting with 1 and repeatedly applying the function
 
-$$f(x) = 1+\frac{1}{1+x}$$
+$$f(x) = 1+\frac{1}{x}$$
 
 The numerical value of the Golden Ratio can be found as
 
@@ -887,6 +897,7 @@ In general, for any binary function $f$ and a vector $v$
 
 $$f.prior(v)=(f(v_1, v_0), f(v_2, v_1), ⋯)$$
 
+
 #### Adverbs `vs` and `sv`
 
 Of all adverbs, these two have the most cryptic names and offer some non-obvious features.
@@ -905,7 +916,7 @@ and an extension
 ```
 You want to append the extension to each name on your list. If you naively call `join` on `name` and `ext`, the result will not be what you might expect:
 ```python
->>> join(name, ext
+>>> join(name, ext)
 k('("one";"two";"three";".";"p";"y")')
 ```
 This happened because `join` treated `ext` as a list of characters rather than an atomic string and created a mixed list of three strings followed by three characters. What we need is to tell `join` to treat its first argument as a vector and the second as a scalar and this is exactly what the `vs` adverb will achieve:
@@ -942,6 +953,7 @@ Q variables can be accessed as attributes of the `q` object:
 ## Numeric Computing
 
 NumPy is the fundamental package for scientific computing in Python. NumPy shares common APL ancestry with q and can often operate directly on `K` objects.
+
 
 ### Primitive data types
 
@@ -1012,7 +1024,7 @@ Note that, according to the Python calendar, the world did not exist before that
 ```python
 >>> date.fromordinal(0)
 Traceback (most recent call last):
- File "<stdin>", line 1, in <module> 
+  File "<stdin>", line 1, in <module> 
 ValueError: ordinal must be >= 1
 ```
 At the time of this writing,
@@ -1093,14 +1105,14 @@ k('"xxx"')
 
 ### Nested lists
 
-Kdb+ does not have a data type representing multi-dimensional contiguous arrays. In PyQ, a multi-dimensional NumPy array becomes a nested list when passed to `q` functions or converted to `K` objects. For example,
+Kdb+ does not have a datatype representing multi-dimensional contiguous arrays. In PyQ, a multi-dimensional NumPy array becomes a nested list when passed to `q` functions or converted to `K` objects. For example,
 ```python
 >>> a = numpy.arange(12, dtype=float).reshape((2,2,3))
 >>> x = K(a)
 >>> x
 k('((0 1 2f;3 4 5f);(6 7 8f;9 10 11f))')
 ```
-Similarly, kdb+ nested lists of regular shape, become multi-dimensional NumPy arrays when passed to numpy.array:
+Similarly, kdb+ nested lists of regular shape, become multi-dimensional NumPy arrays when passed to `numpy.array()`:
 ```python
 >>> numpy.array(x)
 array([[[ 0., 1., 2.],
@@ -1171,24 +1183,20 @@ In [4]: %%q
 Out[4]: ,22
 ```
 You can pass following options to the `%%q` cell magic:
-```
--l (dir|script)
-    pre-load database or script
--h host:port
-    execute on the given host
--o var
-    send output to a variable named var
--i var1, .., varN
-    input variables
--1
-    redirect stdout
--2
-    redirect stderr
-```
+
+option              | effect
+--------------------|--------------------------------------
+`-l (dir|script)`   | pre-load database or script
+`-h host:port`      | execute on the given host
+`-o var`            | send output to a variable named `var`
+`-i var1, .., varN` | input variables
+`-1`                | redirect stdout
+`-2`                | redirect stderr
+
 
 ## q) prompt
 
-While in PyQ, you can drop in to an emulated kdb+ Command Line Interface (CLI). Here is how:
+While in PyQ, you can drop in to an emulated kdb+ Command-Line Interface (CLI). Here is how:
 
 Start pyq:
 ```python
@@ -1214,7 +1222,7 @@ q)\
 >>> print("Back to Python")
 Back to Python
 ```
-Or you can exit back to shell:
+Or you can exit back to the shell:
 ```q
 q)\\
 $
@@ -1281,4 +1289,5 @@ q)p)q.erf = math.erf
 q)erf enlist 1
 0.8427008
 ```
+
 

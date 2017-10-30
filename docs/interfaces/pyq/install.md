@@ -33,7 +33,7 @@ V2.8+
 
 ### Compiler
 
-GNU `make`, `gcc` or `clang`
+`gcc` or `clang`
 
 
 ## Installing from the package repository
@@ -53,7 +53,7 @@ $ pip install pyq==4.1.2
 1.  Get the source code using one of the following:
 
     -   Clone the Github repository
-        <pre><code class="language-bash">$ git clone https://github.com/enlnt/pyq.git</code></pre>
+        <pre><code class="language-bash">$ git clone https://github.com/kxsystems/pyq.git</code></pre>
 
     -   Download the source archive as a [tar file](https://github.com/kxsystems/pyq/archive/master.tar.gz) or a [zip file](https://github.com/kxsystems/pyq/archive/master.zip) and extract it.
 
@@ -332,11 +332,11 @@ Requirements are:
 -   Ensure that kdb+ is installed under `C:\q`, or that the `QHOME` environment variable is set to the location of the kdb+ executable.
 
 Install PyQ:
-```bash
+```powershell
 pip install -U pyq
 ```
 You can start PyQ by running
-```bash
+```powershell
 c:\q\w32\q.exe python.q
 ```
 
@@ -344,15 +344,15 @@ c:\q\w32\q.exe python.q
     You will have to press `^Z` and then `Enter` key in order to get into the Python REPL. 
 
 You can run tests too: first install required packages:
-```bash
+```powershell
 pip install pytest pytest-pyq
 ```
 Then run:
-```bash
+```powershell
 set QBIN=c:\q\w32\q.exe
 %QBIN% python.q -mpytest --pyargs pyq < nul
 ```
-You can follow latest updates on Windows support on [issue gh\#1]().
+You can follow latest updates on Windows support on [issue gh\#1](https://github.com/kxsystems/pyq/issues/1).
 
 
 ### Installing Jupyter kernel

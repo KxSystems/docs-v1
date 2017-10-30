@@ -12,9 +12,9 @@ Other repositories are maintained by their owners.
 about new repositories.</div>
 
 
-## FUSE interfaces
+## Fusion interfaces
 
-The [FUSE interfaces](interfaces/fuse) to kdb+ are
+The [Fusion interfaces](interfaces/fuse) to kdb+ are
 
 -   released under the [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0)
 -   well documented, with understandable and useful examples

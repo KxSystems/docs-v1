@@ -54,7 +54,7 @@ Define a function in q:
 ```q
 q)f:{[s;d]select from trade where sym=s,date=d}
 ```
-Call the `q` function from python and pretty-print the result:
+Call the `q` function from Python and pretty-print the result:
 ```python
 >>> x = q.f('IBM', date(2006,10,6))
 >>> x.show()
@@ -62,9 +62,8 @@ date       sym qty
 ------------------
 2006.10.06 IBM 200
 ```
-For an enhanced interactive shell, use `pyq` to start IPython:
+For an enhanced interactive shell, use `pyq` to start [IPython](https://ipython.org/):
 ```bash
 $ pyq -m IPython
 ```
-<i class="fa fa-hand-o-right"></i> [ipython]()
 

@@ -1,315 +1,4 @@
-## Version 4.1
-
-Released 2017.08.30
-
-
-### Highlights
-
--   Improved calling Python functions from q:
-    -   Objects of any type supported by `K()` can be returned
-    -   Python functions can be called from multiple q threads
--   Calls from Python to q will now release GIL allowing concurrent execution of q code from multiple threads
--   Added a backtrace mode (requires kdb+ V3.5+) in which q stack trace is printed on q errors
--   Experimental Windows support
--   Performance improvements
-
-
-### Return arbitrary objects from Python functions called from q
-
-When a Python function is called from q, the returned Python objects are now automatically converted to q. Any type accepted by the `K()` constructor can be successfully converted. For example, the `numpy.eye` function returns a 2-D array with 1s on the diagonal and 0s elsewhere. It can be called from q as follows:
-```q
-  q)p)import numpy
-  q)p)q.eye = numpy.eye
-  q)eye 3 4 1
-  0 1 0 0
-  0 0 1 0
-  0 0 0 1
-```
-
-
-### Calling Python from `peach`
-
-Python functions can now be safely called from multiple q threads. For example, the following session illustrates how `peach` distributes work between four threads:
-```bash
-$ q -s 4
-```
-```q
-q)p)import threading
-q)p)q.tid = threading.get_ident
-q){group (distinct x)?x} {tid()} peach til 19
-0| 0 4 8 12 16
-1| 1 5 9 13 17
-2| 2 6 10 14 18
-3| 3 7 11 15
-```
-
-
-### Backtrace mode
-
-Backtrace mode is available when PyQ is running under kdb+ V3.5+.
-
-To activate the backtrace mode, set the environment variable `PYQ_BACKTRACE`.
-
-For example:
-```bash
-$ PYQ_BACKTRACE=yes pyq
-```
-```python
->>> q('f:{g[]};g:{1+`};f[]')
-Traceback (most recent call last):
-  ..
-_k.error: ('type', k('((({1+`};2);("..g";"";-1;"{1+`}");2;5);(({g[]};2);("..f";"";-1;"{g[]}");1;4);..'))
-kdb+ backtrace:
-  [5]  g:{1+`}
-           ^
-  [4]  f:{g[]}
-          ^
-  [3]  f:{g[]};g:{1+`};f[]
-                       ^
-  ..
-```
-
-
-### Experimental Windows support
-
-PyQ can now be installed on Windows. We tested PyQ 4.1.0 with Python 3.6 build using VS 2015 and 2017 and 32-bit kdb+ 3.5.
-
-PyQ 4.1.1 adds support for Python 2.7.x with [Microsoft Visual C++ Compiler for Python 2.7](http://aka.ms/vcpython27).
-
-Latest updates on Windows support, as well as latest patches can be found at [Github](https://github.com/kxsystems/pyq/issues/1).
-
-
-## Version 4.0
-
-Released 2017.03.02
-
-
-### Highlights
-
--   Enhanced q) prompt with syntax highlighting
--   New operators: `<<`, `>>` and `@`
--   Improved means for constructing `K` objects of arbitrary types
--   Type casts using attribute syntax
--   Improved numpy interoperability
--   Restored support for KDB+ 2.x
--   Better documentation
--   More `k.h` functions are exposed to Python internally
--   Added convenience scripts for starting different interactive sessions
--   Additional conversions between ~pyq.K and native Python objects
--   Redesigned adverbs
-
-
-### Enhanced `q)` prompt
-
-The `q)` prompt will now use the prompt toolkit when available to provide a separate command history, q syntax highlighting and a status bar displaying system information.
-
-![q prompt](img/q-prompt.png)
-
-
-### New operators
-
-Three new operators are defined for `K` objects: `<<`, `>>` and `@`.
-
-
-#### Shift operators
-
-Shift operators `<<` and `>>` can now be used to shift elements in `K` lists:
-```python
->>> q.til(10) << 3
-k('3 4 5 6 7 8 9 0N 0N 0N')
->>> q.til(10) >> 3
-k('0N 0N 0N 0 1 2 3 4 5 6')
-```
-
-
-### The `@` operator
-
-Users of Python 3.5 or later can now use the new binary operator `@` to call q functions without using parentheses:
-```python
->>> q.til @ 5
-k('0 1 2 3 4')
-```
-The same operator between two functions creates a function composition. For example, the dot product can be defined succinctly as
-```python
->>> dot = q.sum @ q('*')
->>> dot([1, 2, 3], [3, 2, 1])
-k('10')
-```
-
-
-### Typed constructors and casts
-
-Atoms and lists of like atoms can now be constructed from Python objects using typed constructors. For example, by default, a list of strings passed to the default `K` constructor becomes a symbol list:
-```python
->>> colors = K(['white', 'blue', 'red']) 
->>> colors k('`white`blue`red')
-```
-If you want to create a list of strings, you can use a typed constructor:
-```python
->>> K.string(["Donald E. Knuth", "Edsger W. Dijkstra"])
-k('("Donald E. Knuth";"Edsger W. Dijkstra")')
-```
-If you already have a symbol list and want to convert it to strings, you can use the attribute-access notation to perform the cast:
-```python
->>> colors.string
-k('("white";"blue";"red")')
-```
-Similar operations can be performed with numeric data. For example, to create a matrix of single-precision floats (real), call
-```python
->>> m = K.real([[1, 0, 0], 
-...             [0, 1, 0], 
-...             [0, 0, 1]])
->>> m
-k('(1 0 0e;0 1 0e;0 0 1e)')
-```
-To cast the result to booleans — access the `K`.boolean attribute:
-```python
->>> m.boolean.show()
-100b 010b 001b
-```
-Unlike q, Python does not have special syntax for missing values and infinities. Those values can now be created in PyQ by accessing `na` and `inf` attributes on the typed constructors:
-```python
->>> for x in [K.int, K.float, K.date, K.timespan]: 
-...     print(x.na, x.inf)
-0Ni 0Wi 
-0n 0w 
-0Nd 0Wd 
-0Nn 0Wn
-```
-
-
-### Interoperability with NumPy
-
-#### Matrices and arrays of higher dimensions
-
-Arrays with `ndim > 1` can now be passed to `q` and they become nested lists. For example:
-```python
->>> q.x = numpy.arange(12, dtype=float).reshape((2, 3, 2))
->>> q.x
-k('((0 1f;2 3f;4 5f);(6 7f;8 9f;10 11f))')
-```
-Similarly, `ndim > 1` arrays can be constructed from lists of regular shape:
-```python
->>> numpy.array(q.x)
-array([[[ 0., 1.], 
-        [ 2., 3.], 
-        [ 4., 5.]], 
-
-      [[  6., 7.], 
-       [  8., 9.], 
-       [ 10., 11.]]])
-```
-
-
-### Times, dates and timedeltas
-
-Prior to 4.0, conversion of temporal data to NumPy arrays would expose internal integer values. For example, a list of months
-```python
->>>months = q('2001.01m + til 3')
-```
-would become an integer array when converted to NumPy:
-```python
->>> numpy.array(months).tolist()
-[12, 13, 14]
-```
-Now, an array of type datetime64 is returned:
-```python
->>> numpy.array(months)
- array(['2001-01', '2001-02', '2001-03'], dtype='datetime64[M]')
-```
-Note that the resulting array has different numeric values and cannot share the data with the `K` object. To share the data and/or to get an array as in older versions, one should use the new `data` attribute:
-```python
->>> a = numpy.asarray(months.data) 
->>> a.tolist()
-[12, 13, 14]
-```
-An array constructed from the `data` attribute will use the same underlying storage. This means that changing the array will change the `K` object.
-```python
->>> a[:] += 998*12
->>> months
-k('2999.01 2999.02 2999.03m')
-```
-
-
-### Additional conversions
-
-#### Complex numbers
-
-Complex numbers can now be passed to and obtained from kdb+. When passed to kdb+, complex numbers are automatically converted to dictionaries with keys `re` and `im` and lists of complex numbers are converted to tables with columns `re` and `im`.
-```python
->>> q.z = [1 + 2j, 3 + 4j, 5 + 6j] 
->>> q.z.show() 
-re im 
------
-1 2 
-3 4 
-5 6 
->>> [complex(x) for x in q.z]
-[(1+2j), (3+4j), (5+6j)]
-```
-
-
-#### Path objects
-
-`Path` objects can now be used where q path handle symbols are expected
-```python
->>> import pathlib 
->>> path = pathlib.Path('xyz')
->>> q.set(path, 42) 
-k(':xyz')
->>> q.get(path)
-k('42')
->>> path.unlink()
-```
-
-
-#### Named tuples
-
-Named tuples are now converted to dictionaries:
-```python
->>> from collections import namedtuple
->>> Point = namedtuple('Point', 'x,y')
->>> q.point = Point(1, 2)
->>> q.point
-k('`x`y!1 2')
-```
-As a consequence, a uniform list of named tuples is converted to a table:
-```python
->>> q.points = [Point(1, 2), Point(3, 4), Point(5, 6)] 
->>> q.points.show() 
-x y 
----
-1 2 
-3 4 
-5 6
-```
-
-
-### Redesigned adverbs
-
-Adverbs can now be used on functions with different ranks. For example, `scan` and `over` can be used with unary functions. To illustrate, the following code generates a Pascal triangle:
-```python
->>> f = q('{(0,x)+x,0}') 
->>> f.scan(6, 1).show()
-1 
-1 1 
-1 2 1 
-1 3 3 1 
-1 4 6 4 1 
-1 5 10 10 5 1 
-1 6 15 20 15 6 1
-```
-If only the last row is of interest – use `over`:
-```python
->>> f.over(6, 1)
-k('1 6 15 20 15 6 1')
-
-
-
-## History
-
-
-### [Version 4.1.2](http://pyq.readthedocs.io/en/pyq-4.1.2/)
+## [Version 4.1.2](http://pyq.readthedocs.io/en/pyq-4.1.2/)
 Released 2017.10.12
 
 Bug fixes and enhancements
@@ -328,7 +17,7 @@ Documentation
 -   !599 – DOC #964 Updated documentation in preparation for 4.1.2 release.
 
 
-### [Version 4.1.1](http://pyq.readthedocs.io/en/pyq-4.1.1/)
+## [Version 4.1.1](http://pyq.readthedocs.io/en/pyq-4.1.1/)
 Released 2017.09.21
 
 Bug fixes and enhancements
@@ -346,7 +35,7 @@ CI
 -   !584 – TST #952 Attempt to fix failing tests on Windows.
 
 
-### [Version 4.1.0](http://pyq.readthedocs.io/en/pyq-4.1.0/)
+## [Version 4.1.0](http://pyq.readthedocs.io/en/pyq-4.1.0/)
 Released 2017.08.30
 
 New features
@@ -399,7 +88,7 @@ CI
 -   !531 – #909 Added ubuntu job to CI in develop branch
 
 
-### [Version 4.0.3](http://pyq.readthedocs.io/en/pyq-4.0.3/)
+## [Version 4.0.3](http://pyq.readthedocs.io/en/pyq-4.0.3/)
 Released 2017.07.17
 
 Bug fixes:
@@ -412,7 +101,7 @@ Documentation:
 -   !547 – DOC: Minor documentation corrections
 
 
-### [Version 4.0.2](http://pyq.readthedocs.io/en/pyq-4.0.2/)
+## [Version 4.0.2](http://pyq.readthedocs.io/en/pyq-4.0.2/)
 Released 2017.05.12
 
 Enhancements:
@@ -428,7 +117,7 @@ Documentation:
 -   !533 – #914: Use new kx.code.com.
 
 
-### [Version 4.0.1](http://pyq.readthedocs.io/en/pyq-4.0.1/)
+## [Version 4.0.1](http://pyq.readthedocs.io/en/pyq-4.0.1/)
 Released 2017.03.15
 
 Enhancements:
@@ -443,7 +132,7 @@ Documentation:
 -   !506 – #902 Updated README.
 
 
-### [Version 4.0](http://pyq.readthedocs.io/en/pyq-4.0/)
+## [Version 4.0](http://pyq.readthedocs.io/en/pyq-4.0/)
 Released 2017.03.02
 
 New Features:
@@ -574,27 +263,27 @@ Setup:
 -   !340 – #788: Add ipython extras.
 
 
-### [Version 3.8.5](http://pyq.readthedocs.io/en/pyq-3.8.5/)
+## [Version 3.8.5](http://pyq.readthedocs.io/en/pyq-3.8.5/)
 Released 2017.03.16
 
 -   !517 – #901: Provide a fallback for systems that lack `CPU_COUNT`.
 
 
-### [Version 3.8.4](http://pyq.readthedocs.io/en/pyq-3.8.4/)
+## [Version 3.8.4](http://pyq.readthedocs.io/en/pyq-3.8.4/)
 Released 2017.01.13
 
 -   !414 – #843: Setup should not fail if `VIRTUAL_ENV` is undefined
 -   !395 – #825: Fixed uninitialized "readonly" field in getbuffer
 
 
-### [Version 3.8.3](http://pyq.readthedocs.io/en/pyq-3.8.3/)
+## [Version 3.8.3](http://pyq.readthedocs.io/en/pyq-3.8.3/)
 Released 2016.12.15
 
 -   !357 – #799: Several documentation fixes.
 -   !368 – #802: Setup should not fail if `$VIRTUAL_ENV/q` does not exist.
 
 
-### [Version 3.8.2](http://pyq.readthedocs.io/en/pyq-3.8.2/)
+## [Version 3.8.2](http://pyq.readthedocs.io/en/pyq-3.8.2/)
 Released 2016.12.01
 
 Documentation improvements:
@@ -631,7 +320,7 @@ Improvement in the (internal) CI:
 -   !319 – #770: Run doctests in tox.
 
 
-### [Version 3.8.1](http://pyq.readthedocs.io/en/pyq-3.8.1/)
+## [Version 3.8.1](http://pyq.readthedocs.io/en/pyq-3.8.1/)
 Released 2016.06.21
 
 -   !292 – #744: Print guessed path of q executable when exec fails.
@@ -642,7 +331,7 @@ Released 2016.06.21
 -   !302 – #755: Use preserveEnumerations=1 option to b9 instead of -1.
 
 
-### [Version 3.8](http://pyq.readthedocs.io/en/pyq-3.8/)
+## [Version 3.8](http://pyq.readthedocs.io/en/pyq-3.8/)
 Released 2016.04.26.
 
 -   !256 – #670: Enable 32-bit CI
@@ -664,7 +353,7 @@ Released 2016.04.26.
 -   !287 – #745: Automatically generate version.py for PyQ during setup.
 
 
-### Version 3.7.2
+## Version 3.7.2
 Released 2015.07.28.
 
 -   !270 – #726 Reuse dict converter for OrderedDict.
@@ -675,7 +364,7 @@ Released 2015.07.28.
 -   CI Improvements (!257, !262, !269, !268).
 
 
-### Version 3.7.1
+## Version 3.7.1
 Released 2015.02.12.
 
 -   !244 – #701 Fixed using q datetime (z) objects in format().
@@ -688,7 +377,7 @@ Released 2015.02.12.
 -   !255 – #691 Remove redundant code in slice implementation
 
 
-### Version 3.7
+## Version 3.7
 Released 2015.01.15.
 
 -   !222 – #581 Implements conversion of record arrays.
@@ -711,7 +400,7 @@ Released 2015.01.15.
 -   !243 – #697 Fixed a datetime bug.
 
 
-### Version 3.6.2
+## Version 3.6.2
 Released 2014.12.23.
 
 -   !198 – #654 Restore python 3 compatibility
@@ -723,7 +412,7 @@ Released 2014.12.23.
 -   !219 – #676 Implemented numpy.timedelta64 to q conversion
 
 
-### Version 3.6.1
+## Version 3.6.1
 Released 2014.11.06.
 
 -   !206 – #663 Fixed nil repr
@@ -734,7 +423,7 @@ Released 2014.11.06.
 -   !212 – Bump version to 3.6.1b1
 
 
-### Version 3.6.0
+## Version 3.6.0
 Released 2014.10.23.
 
 -   !189 – #647 Fix pyq.q() prompt
@@ -752,7 +441,7 @@ Released 2014.10.23.
 -   !204 – #633 Added boundary and None checks in ja
 
 
-### Version 3.5.2
+## Version 3.5.2
 Released 2014.07.03.
 
 -   !184, !186 – #639 taskset support. Use CPUS variable to assign CPU affinity.
@@ -760,7 +449,7 @@ Released 2014.07.03.
 -   !185 – #640 Restore minimal support for old buffer protocol
 
 
-### Version 3.5.1
+## Version 3.5.1
 Released 2014.06.27.
 
 -   !177, !178 – #631 pyq is binary executable, not script and can be used in hashbang.
@@ -770,7 +459,7 @@ Released 2014.06.27.
 -   !183 – #638 Calling q() with no arguments produces an emulation of q) prompt
 
 
-### Version 3.5.0
+## Version 3.5.0
 Released 2014.06.20.
 
 -   !164 – #611 Updated k.h
@@ -787,7 +476,7 @@ Released 2014.06.20.
 -   !176 – #635 Disable strict aliasing
 
 
-### Version 3.4.5
+## Version 3.4.5
 Released 2014.05.27.
 
 -   614: Expose dj and ktj
@@ -795,20 +484,20 @@ Released 2014.05.27.
 -   622: Convert datetime to "p", not "z"
 
 
-### Version 3.4.4
+## Version 3.4.4
 Released 2014.05.23.
 
 -   python.q returns correct exit code
 
 
-### Version 3.4.3
+## Version 3.4.3
 Released 2014.04.11.
 
 -   617: Dict Conversion
 -   619: Len Keyed Table
 
 
-### Version 3.4.2
+## Version 3.4.2
 Released 2014.04.11.
 
 -   589: Symbol array roundtripping
@@ -824,14 +513,14 @@ Released 2014.04.11.
 -   NUC: Only true division is supported. Use "from \_\_future\_\_ import division" in python 2.x.
 
 
-### Version 3.4.1
+## Version 3.4.1
 Released 2014.03.14.
 
 -   Add support for char arrays #588
 -   PyQ can now be properly installed with pip -r requirements.txt #572
 
 
-### Version 3.4
+## Version 3.4
 Released 2014.03.07.
 
 -   Issues fixed: #582, #583, #584, #586
@@ -840,13 +529,13 @@ Released 2014.03.07.
 -   Add support for comparison of q scalars
 
 
-### Version 3.3
+## Version 3.3
 Released 2014.02.05.
 
 -   Issues fixed: #574, #575, #576, #577, #578
 
 
-### Version 3.2
+## Version 3.2
 Released 2013.12.24.
 
 -   Issues fixed: #556, #559, #560, #561, #562, #564, #565, #566, #569, #570, #573
@@ -856,23 +545,23 @@ Released 2013.12.24.
 -   Support to use 32-bit Q under 64-bit OS X
 
 
-### Version 3.2.0 beta
+## Version 3.2.0 beta
 -   Convert int to KI if KXVER &lt; 3, KJ otherwise
 -   In Python 2.x convert long to KJ for any KXVER
 
 
-### Version 3.1.0
+## Version 3.1.0
 Released 2012.08.25.
 
 -   support Python 3.2
 -   release pyq-3.1.0 as a source archive
 
 
-### 2012.08.10
+## 2012.08.10
 -   basic guid support
 
 
-### Version 3.0.1
+## Version 3.0.1
 Released 2012.08.09.
 
 -   support both q 2.x and 3.x
@@ -880,27 +569,27 @@ Released 2012.08.09.
 -   release pyq-3.0.1 as a source archive
 
 
-### 2009.10.23
+## 2009.10.23
 -   NUC: k3i
 -   K(None) =&gt; k("::")
 -   K(timedelta) =&gt; timespan
 
 
-### 2009.01.02
+## 2009.01.02
 -   Use k(0, ..) instead of dot() and aN() to improve compatibility
 -   Default to python 2.6
 -   Improvements to q script.p
 -   NUC: extra info on q errors
 
 
-### 2007.03.30
+## 2007.03.30
 implemented `K._ja`
 
-### Version 0.3
+## Version 0.3
 
 -   Added support for arrays of strings
 
-### Version 0.2
+## Version 0.2
 
 -   Implemented iterator protocol.
 

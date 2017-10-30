@@ -185,7 +185,7 @@ False
 
     Among other uses, enables interoperability between q and Python dicts. <pre><code class="language-python">
     &gt;&gt;&gt; from collections import OrderedDict
-    &gt;&gt;&gt; OrderedDict(q('\`a\b!1 2'))
+    &gt;&gt;&gt; OrderedDict(q('\`a\`b!1 2'))
     OrderedDict([('a', 1), ('b', 2)])
     &gt;&gt;&gt; d = {}; d.update(q('\`a\`b!1 2'))
     &gt;&gt;&gt; list(sorted(d.items()))
@@ -614,3 +614,4 @@ K class | q namespace | q   | function
 <code class="nowrap">q.xrank()</code> | [<code class="nowrap">xrank</code>](/ref/sort#xrank) | items assigned to buckets
  <code class="nowrap">pyq.kerr</code> |   | alias of `error`
  -->
+
