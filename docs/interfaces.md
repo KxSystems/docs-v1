@@ -19,8 +19,8 @@ The [Fusion interfaces](interfaces/fuse) to kdb+ are
 -   released under the [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0)
 -   well documented, with understandable and useful examples
 -   free for all use cases, including 64-bit and commercial use
--   maintained and supported by Kx (on a best-efforts basis) at no cost to customers
--   written from the perspective of the ‘remote’ technology: e.g. a Java interface that is intelligible to a Java programmer
+-   maintained and supported by Kx, on a best-efforts basis, at no cost to customers
+<!-- -   written from the perspective of the ‘remote’ technology: e.g. a Java interface that is intelligible to a Java programmer -->
 
 <table class="kx-compact" markdown="1">
 <tr><td>Foreign functions</td><td>[Using foreign functions with kdb+](/interfaces/ffi) ==new==</td></tr>
@@ -28,12 +28,13 @@ The [Fusion interfaces](interfaces/fuse) to kdb+ are
 <tr><td>Kafka</td><td>[Q client for Kafka](/interfaces/kafka) ==new==</td></tr>
 <tr><td>Python</td>
     <td>
-[Using Python with kdb+ (PyQ)](/interfaces/pyq/introduction)<br/>
-[Using Python with kdb+ (embedPy)](/interfaces/embedpy) ==new==
+[Using Python with kdb+ (PyQ)](/interfaces/pyq/quickstart)<br/>
+[Using Python with kdb+ (embedPy)](/interfaces/embedpy) ==beta==
     </td></tr>
 <tr><td>R</td><td>[Using R with kdb+](/interfaces/with-r/#calling-q-from-r) ==new==</td>
 </tr>
 </table>
+
 
 ## <i class="fa fa-server"></i> Kdb+ as server
 
