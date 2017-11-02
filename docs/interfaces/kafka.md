@@ -1,8 +1,8 @@
 # Using Kafka with kdb+
 
 
-!!! info "FUSE"
-    This is a [FUSE interface](/interfaces/fuse) to kdb+
+!!! info "Fusion"
+    This is a [Fusion interface](/interfaces/fuse) to kdb+
 
 <i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)
 

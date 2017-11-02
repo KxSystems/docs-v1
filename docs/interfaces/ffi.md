@@ -1,7 +1,7 @@
 # Using foreign functions with kdb+
 
-!!! info "FUSE"
-    This is a [FUSE interface](/interfaces/fuse) to kdb+
+!!! info "Fusion"
+    This is a [Fusion interface](/interfaces/fuse) to kdb+
 
 <i class="fa fa-github"></i> [KxSystems/ffi](https://github.com/kxsystems/ffi)
 is an extension to kdb+ for loading and calling dynamic libraries using pure `q`. 

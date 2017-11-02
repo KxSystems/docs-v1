@@ -63,8 +63,8 @@ q)("*";0h)$\:"2012-02-02"
 
 !!! warning "To infinity and beyond!"
     Casting an infinity from a narrower to a wider datatype does not always return another infinity.  
-    <div src="/img/buzz_lightyear.jpg" style="display: block; float: left; padding-right: 1em; width: 120px;" markdown="1">
-    [![Buzz Lightyear](/img/buzz_lightyear.jpg)](http://toystory.disney.com/buzz-lightyear "Buzz Lightyear at disney.com")
+    <div style="display: block; float: left; padding-right: 1em; width: 140px;" markdown="1">
+    [![Buzz Lightyear](/img/earthrise.jpg)](https://www.nasa.gov/multimedia/imagegallery/image_feature_1400.html "Earthrise: NASA galleries")
     </div>
     <pre><code class="language-q">
     q)\`float$0Wh
