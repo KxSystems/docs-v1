@@ -2,6 +2,8 @@ Q can be constrained to run on specific cores through the setting of CPU affinit
 
 Typically, you can set the CPU affinity for the shell you are in, and then processes started within that shell will inherit the affinity.
 
+<i class="fa fa-hand-o-right"></i> Command-line parameter [`-w`](/ref/cmdline/#-w-memory), System command [`\w`](/ref/syscmds/#w-workspace), utility [`.Q.w`](/ref/dotq/#qw-memory-stats) (memory stats)
+
 
 ## Linux
 
@@ -42,6 +44,11 @@ $ find /proc -name numa_maps
 ...
 ```
 
+!!! tip "Other ways to limit resources"
+    On Linux systems, administrators might prefer [cgroups](https://en.wikipedia.org/wiki/Cgroups) as a way of limiting resources.
+
+    On Unix systems, memory usage can be constrained using `ulimit`, e.g.<pre><code class="language-bash">$ ulimit -v 262144</code></pre>limits virtual address space to 256MB.
+
 
 ## Solaris
 
@@ -62,3 +69,4 @@ Start q.exe with the OS command `start` with the `/affinity` flag set
 C> start /affinity 3 c:\q\w64\q.exe 
 ```
 will run q on core 3.
+

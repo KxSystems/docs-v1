@@ -845,6 +845,7 @@ mphy| 8589934592
 syms| 577
 symw| 25436
 ```
+<i class="fa fa-hand-o-right"></i> Command-line parameter [`-w`](cmdline/#-w-memory), system command [`\w`](syscmds/#w-workspace)
 
 
 ### `.Q.x` (non-command parameters)

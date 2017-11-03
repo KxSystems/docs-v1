@@ -434,17 +434,21 @@ Syntax: `\w [0]`
 
 If there is no parameter, lists current memory usage, as a list of 6 long integers:
   
-- `[0]` number of bytes allocated
-- `[1]` bytes available in heap
-- `[2]` maximum heap size so far
-- `[3]` maximum bytes available, given in `-w` command line parameter
-- `[4]` mapped bytes
-- `[5]` physical memory
+index | meaning
+:----:|--------
+0     | number of bytes allocated
+1     | bytes available in heap
+2     | maximum heap size so far
+3     | limit on thread heap size, given in [`-w` command-line parameter](cmdline/#-w-memory)
+4     | mapped bytes
+5     | physical memory
 
 If there is a parameter, returns a pair:
   
-- `[0]` number of internalized symbols
-- `[1]` corresponding memory usage
+index | meaning
+:----:|--------
+0     | number of internalized symbols
+1     | corresponding memory usage
 
 ```q
 q)\w
@@ -452,19 +456,7 @@ q)\w
 q)\w 0
 577 25436j
 ```
-The function `.Q.w` formats all this information:
-```q
-q).Q.w[]
-used| 168304
-heap| 67108864
-peak| 67108864
-wmax| 0
-mmap| 0
-mphy| 8589934592
-syms| 577
-symw| 25436
-```
-<i class="fa fa-hand-o-right"></i> [`.Q.w`](dotq/#qw-memory-stats) (memory stats)
+The utility [`.Q.w`](dotq/#qw-memory-stats) formats all this information.
 
 
 ## `\x` (expunge)
