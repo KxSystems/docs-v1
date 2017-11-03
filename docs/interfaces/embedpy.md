@@ -1,4 +1,4 @@
-# Using Python with kdb+ (embedPy)
+# ![Python](img/python.png) Using Python with kdb+ (embedPy)
 
 
 !!! info "Fusion"

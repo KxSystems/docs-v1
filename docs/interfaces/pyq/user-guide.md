@@ -1,3 +1,6 @@
+# ![PyQ](../img/pyq.png) User guide
+
+
 PyQ lets you enjoy the power of kdb+ in a comfortable environment provided by a mainstream programming language. In this guide we will assume that the reader has a working knowledge of Python, but we will explain the q language concepts as we encounter them.
 
 ## The q namespace
@@ -1284,8 +1287,17 @@ Now, calling the `fmt` function from q will pass the argument list to Python and
 q)fmt("%10.6f";acos -1)
 "  3.141593"
 ```
-Python functions exported to q should return a `K` object or an instance of one of the simple scalar types: [`None`](https://docs.python.org/3.6/library/constants.html#None "(in Python v3.6)"), [`bool`](https://docs.python.org/3.6/library/functions.html#bool "(in Python v3.6)"), [`int`](https://docs.python.org/3.6/library/functions.html#int "(in Python v3.6)"), [`float`](https://docs.python.org/3.6/library/functions.html#float "(in Python v3.6)") or [`str`](https://docs.python.org/3.6/library/stdtypes.html#str "(in Python v3.6)") which are automatically converted to q `::`, boolean, long, float or symbol respectively.
-
+<!-- Python functions exported to q should return a `K` object or an instance of one of the simple scalar types: [`None`](https://docs.python.org/3.6/library/constants.html#None "(in Python v3.6)"), [`bool`](https://docs.python.org/3.6/library/functions.html#bool "(in Python v3.6)"), [`int`](https://docs.python.org/3.6/library/functions.html#int "(in Python v3.6)"), [`float`](https://docs.python.org/3.6/library/functions.html#float "(in Python v3.6)") or [`str`](https://docs.python.org/3.6/library/stdtypes.html#str "(in Python v3.6)") which are automatically converted to q `::`, boolean, long, float or symbol respectively.
+ -->
+When a Python function is called from q, the returned Python objects are automatically converted to q. Any type accepted by the `K()` constructor can be successfully converted. For example, the `numpy.eye` function returns a 2-D array with 1s on the diagonal and 0s elsewhere. It can be called from q as follows:
+```q
+  q)p)import numpy
+  q)p)q.eye = numpy.eye
+  q)eye 3 4 1
+  0 1 0 0
+  0 0 1 0
+  0 0 0 1
+```
 Exported functions are called from q by supplying a single argument that contains a list of objects to be passed to the Python functions as `K`-valued arguments.
 
 To pass a single argument to an exported function, it has to be enlisted. For example,

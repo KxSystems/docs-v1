@@ -1,4 +1,4 @@
-# Using R with kdb+
+# ![R](img/r.png) Using R with kdb+
 
 
 !!! info "Fusion"

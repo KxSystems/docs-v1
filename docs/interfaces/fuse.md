@@ -1,7 +1,7 @@
 # Fusion interfaces for kdb+
 
 
-[![fusion](/img/fusion.jpg)](https://mad-science.wonderhowto.com/how-to/turn-microwave-oven-transformer-into-high-amperage-metal-melter-0140772/ "wonderhowto.com")
+![fusion](img/840166516.jpg) <!-- Licensed from getty Images -->
 
 The Fusion interfaces to kdb+ are
 

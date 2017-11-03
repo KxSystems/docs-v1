@@ -1,4 +1,4 @@
-# Using Java with kdb+
+# ![Java](img/java.jpg) Using Java with kdb+
 
 
 !!! info "Fusion"

@@ -1,4 +1,4 @@
-# Using Kafka with kdb+
+# ![Apache Kafka](img/apache.png) Using Kafka with kdb+
 
 
 !!! info "Fusion"

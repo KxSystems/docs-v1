@@ -1,3 +1,6 @@
+# ![Perl](img/perl.png) Perl client for kdb+
+
+
 <i class="fa fa-hand-o-right"></i> [cpan.org/~markpf/Kx-0.039/](http://search.cpan.org/~markpf/Kx-0.039/)
 
 !!! note "From Mark Pfeiffer"

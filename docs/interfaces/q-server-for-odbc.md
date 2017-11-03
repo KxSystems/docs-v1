@@ -1,3 +1,5 @@
+# ![ODBC](img/odbc.png) Kdb+ server for ODBC
+
 In Windows only, you can use ODBC to connect to a q database from a non-q client.  
 <i class="fa fa-hand-o-right"></i> [Cookbook/ODBC](/cookbook/odbc/)
 

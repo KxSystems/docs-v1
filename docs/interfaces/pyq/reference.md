@@ -1,3 +1,6 @@
+# ![PyQ](../img/pyq.png) Reference
+
+
 <!-- This section is generated from the PyQ source code.  -->
 You can access most of this material using pydoc or the built-in `help` method.
 

@@ -1,3 +1,6 @@
+# ![Matlab](img/matlab.png) Matlab client for kdb+
+
+
 Support for Matlab is a part of [Datafeed Toolbox for Matlab](https://uk.mathworks.com/help/datafeed/kx-systems-inc-.html): since R2007a edition.
 
 MathWorks provides functions overview, usage instructions and some examples on the toolbox webpage.

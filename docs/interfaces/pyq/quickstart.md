@@ -1,4 +1,4 @@
-# Using Python with kdb+ (PyQ)
+# ![Python](../img/python.png) Using Python with kdb+ (PyQ)
 
 
 !!! info "Fusion"

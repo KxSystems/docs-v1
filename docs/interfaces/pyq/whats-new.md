@@ -1,3 +1,6 @@
+# ![PyQ](../img/pyq.png) What’s new
+
+
 ## Version 4.1
 
 Released 2017.08.30

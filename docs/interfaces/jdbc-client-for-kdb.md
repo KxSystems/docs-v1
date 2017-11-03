@@ -1,3 +1,6 @@
+# ![Java](img/java.jpg) JDBC client for kdb+
+
+
 <i class="fa fa-github"></i> [KxSystems/kdb/c/jdbc.java](https://github.com/KxSystems/kdb/blob/master/c/jdbc.java)
 
 Compile:

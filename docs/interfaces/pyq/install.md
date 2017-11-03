@@ -1,3 +1,6 @@
+# ![PyQ](../img/pyq.png)  Installation
+
+
 PyQ can be installed using the standard Python package management tool `pip`.  
 <i class="fa fa-hand-o-right"></i> [Installing Python Modules](https://docs.python.org/3/installing)
 
