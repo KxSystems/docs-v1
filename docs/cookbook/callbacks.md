@@ -21,7 +21,7 @@ Second, it is safest to make remote calls with the IPC form that calls a functio
 ```q
 q)(neg h) (`proc; arg1;..;argn ; `callback)
 ```
-Here `` `proc`` is a symbol representing the name of the “remote” function to be called, `arg1`, … , `argn` are the data arguments to be passed to the remote calculation and `` `callback`` is a symbol containing the name of the client function for `proc` to call back. If the remote function is takes no argument, pass `::` as its argument.
+Here `` `proc`` is a symbol representing the name of the “remote” function to be called, `arg1`, … , `argn` are the data arguments to be passed to the remote calculation and `` `callback`` is a symbol containing the name of the client function for `proc` to call back. If the remote function takes no argument, pass `::` as its argument.
 
 Next, ensure that the “remote” function on the server is expecting the name of the callback routine as one of its arguments. For example, a call of the form given in the previous paragraph assumes that `proc` has the signature,
 ```q
