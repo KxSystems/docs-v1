@@ -725,7 +725,7 @@ k('1 0 2')
 
 #### The `@` operator
 
-Python 3.5 introduced the `@` operator that can be used by user types. Unlike numpy that defines `@` as the matrix-multiplication operator, PyQ uses `@` for function application and composition:
+Python 3.5 introduced the `@` operator that can be used by user types. Unlike NumPy that defines `@` as the matrix-multiplication operator, PyQ uses `@` for function application and composition:
 ```python
 >>> q.log @ q.exp @ 1
 k('1f')
@@ -789,7 +789,7 @@ Finally, the `scan` adverb is similar to the [`itertools.accumulate()`](https://
 
 #### Each
 
-The `each` adverb serves double duty in q. When it is applied to a function, it returns a new function that expects lists as arguments and maps the original function over those lists. For example, we can write a ‘daily return’ function in q that takes yesterday’s price as the first argument `x`, today’s price as the second `y`, and dividend as the third `z` as follows:
+The `each` adverb serves double duty in q. When it is applied to a **function**, it returns a new [derivative](/ref/adverbs) function that expects lists as arguments and maps the original function over those lists. For example, we can write a ‘daily return’ function in q that takes yesterday’s price as the first argument `x`, today’s price as the second `y`, and dividend as the third `z` as follows:
 ```python
 >>> r = q('{(y+z-x)%x}') # Recall that % is the division operator in q.
 ```
@@ -800,18 +800,20 @@ and use it to compute returns from a series of prices and dividends using `r.eac
 >>> r.each(q.prev(p), p, d)
 k('0n 0.004950495 0.0009852217 -0.01104418')
 ```
-When the `each` adverb is applied to an integer vector, it turns the vector `v` into an n-ary function that for each `i`<sup>th</sup> argument selects its `v[i]`<sup>th</sup> element. For example,
+When the `each` adverb is applied to an **integer vector**, it returns a n-ary derivative function that for each `i`<sup>th</sup> argument selects its `v[i]`<sup>th</sup> element. For example,
 ```python
 >>> v = q.til(3)
 >>> v.each([1, 2, 3], 100, [10, 20, 30])
 k('1 100 30')
 ```
+<i class="fa fa-hand-o-right"></i> [_case_](/ref/adverbs/#case) adverb
+
 Note that scalars passed to `v.each` are treated as infinitely repeated values. Vector arguments must all be of the same length.
 
 
 #### Over and scan
 
-Given a function `f`, `f.over` and `f.scan` adverbs are similar as both apply `f` repeatedly, but `f.over` only returns the final result, while `f.scan` returns all intermediate values as well.
+Given a function `f`, the derivatives `f.over` and `f.scan` are similar as both apply `f` repeatedly, but `f.over` only returns the final result, while `f.scan` returns all intermediate values as well.
 
 For example, recall that the Golden Ratio can be written as a continued fraction as follows:
 
@@ -881,7 +883,7 @@ k('0 0w 1 2 1.5 1.666667 1.6 1.625 1.615385 1.619048 1.617647')
 ```
 
 
-#### Each previous
+#### Each-prior
 
 In the previous section we have seen a function `ratios()` that takes a vector and produces the ratios of the adjacent elements. A similar function called `deltas()` produces the differences between the adjacent elements:
 ```python
@@ -899,6 +901,9 @@ $$f.prior(v)=(f(v_1, v_0), f(v_2, v_1), ⋯)$$
 
 
 #### Adverbs `vs` and `sv`
+
+!!! note "`vs` and `sv`"
+    `K.vs` and `K.sv` correspond to q’s `vs` and `sv` and _also_ behave as the adverbs _each-left_ and _each-right_.
 
 Of all adverbs, these two have the most cryptic names and offer some non-obvious features.
 
@@ -924,7 +929,7 @@ This happened because `join` treated `ext` as a list of characters rather than a
 >>> join.vs(name, ext)
 k('("one.py";"two.py";"three.py")')
 ```
-The mnemonic rule is "vs" = "vector, scalar". Now, if you want to prepend a directory name to each resulting file, you can use the `sv` attribute:
+The mnemonic rule is "vs" = "vector, scalar". (_Scalar_ is a synonym for _atom_.) Now, if you want to prepend a directory name to each resulting file, you can use the `sv` attribute:
 ```python
 >>> d = K.string("/tmp/")
 >>> join.sv(d, _)
@@ -932,7 +937,7 @@ k('("/tmp/one.py";"/tmp/two.py";"/tmp/three.py")')
 ```
 
 
-### Input/Output
+### Input/output
 ```python
 >>> import os
 >>> r, w = os.pipe()
@@ -950,7 +955,7 @@ Q variables can be accessed as attributes of the `q` object:
 ```
 
 
-## Numeric Computing
+## Numeric computing
 
 NumPy is the fundamental package for scientific computing in Python. NumPy shares common APL ancestry with q and can often operate directly on `K` objects.
 
@@ -1072,7 +1077,7 @@ This convenience comes at a cost of copying the data
 >>> d
 k('2000.01.01 2000.01.02')
 ```
-To avoid such copying, `K` objects can expose their raw data to numpy:
+To avoid such copying, `K` objects can expose their raw data to `numpy`:
 ```python
 >>> b = numpy.asarray(d.data)
 >>> b.tolist()
@@ -1198,7 +1203,7 @@ option              | effect
 
 While in PyQ, you can drop in to an emulated kdb+ Command-Line Interface (CLI). Here is how:
 
-Start pyq:
+Start PyQ:
 ```python
 $ pyq
 >>> from pyq import q
@@ -1231,7 +1236,7 @@ $
 
 ## Calling Python from KDB+
 
-Kdb+ is designed as a platform for multiple programming languages. Out of the box, it comes with q, K, and a variant of ANSI SQL as the [s language](https://github.com/KxSystems/kdb/blob/master/s.k). Installing pyq gives access to the p language, where "p" stands for "Python". In addition, PyQ provides a mechanism for exporting Python functions to q where they can be called as native q functions.
+Kdb+ is designed as a platform for multiple programming languages. Out of the box, it comes with q, K, and a variant of ANSI SQL as the [s language](https://github.com/KxSystems/kdb/blob/master/s.k). Installing PyQ gives access to the p language, where "p" stands for "Python". In addition, PyQ provides a mechanism for exporting Python functions to q where they can be called as native q functions.
 
 ### The p language
 
