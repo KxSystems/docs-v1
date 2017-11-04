@@ -19,8 +19,8 @@ extra_javascript:
   - 'scripts/theme.js'
   # Prism script includes plugin Copy to Clipboard http://prismjs.com/download.html
   # Omits plugins Command Line, Line highlight, and Line Numbers: no effect
-  # - '//code.kx.com/scripts/prism.js'
-  - 'scripts/prism.js'
+  - '//code.kx.com/scripts/prism.js'
+  # - 'scripts/prism.js'
 markdown_extensions:
   - admonition
   # - codehilite(guess_lang=false)

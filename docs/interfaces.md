@@ -23,7 +23,7 @@ The [Fusion interfaces](interfaces/fuse) to kdb+ are
 <!-- -   written from the perspective of the ‘remote’ technology: e.g. a Java interface that is intelligible to a Java programmer -->
 
 <table class="kx-compact" markdown="1">
-<tr><td>Foreign functions</td><td>[Using foreign functions with kdb+](/interfaces/ffi) ==new==</td></tr>
+<tr><td>FFI</td><td>[Using foreign functions with kdb+](/interfaces/ffi) ==new==</td></tr>
 <tr><td>Java</td><td>[Java client for kdb+](/interfaces/java-client-for-q) ==updated==</td>
 <tr><td>Kafka</td><td>[Q client for Kafka](/interfaces/kafka) ==new==</td></tr>
 <tr><td>Python</td>

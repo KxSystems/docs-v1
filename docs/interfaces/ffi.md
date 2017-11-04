@@ -1,5 +1,6 @@
 # Using foreign functions with kdb+
 
+
 !!! info "Fusion"
     This is a [Fusion interface](/interfaces/fuse) to kdb+
 
@@ -8,7 +9,10 @@ is an extension to kdb+ for loading and calling dynamic libraries using pure `q`
 
 The main purpose of the library is to build stable interfaces on top of external libraries, or to interact with the operating system from `q`. No compiler toolchain or writing C/C++ code is required to use this library.
 
-**Watch out** You don’t need to write C code, but you do need to know what you are doing. You can easily crash the kdb+ process or corrupt in-memory data structures with no hope of finding out what happened. No support is offered for crashes caused by use of this library.
+!!! warning "Know what you’re doing"
+    You don’t need to write C code, but you do need to know what you are doing. You can easily crash the kdb+ process or corrupt in-memory data structures with no hope of finding out what happened. 
+
+    No support is offered for crashes caused by use of this library.
 
 We are grateful to Alexander Belopolsky for allowing us to adapt and expand on his original codebase. 
 
@@ -20,16 +24,17 @@ We are grateful to Alexander Belopolsky for allowing us to adapt and expand on h
 <i class="fa fa-apple"></i> macOS 10.10+, 
 <i class="fa fa-windows"></i> Windows 7+
 
-### libffi 3.1+
+
+### Libffi 3.1 or later
 environment                          | installation
 -------------------------------------|----------------------------------------------------------
 Ubuntu Linux 64-bit with 64-bit kdb+ | `sudo apt-get install libffi-dev`
 Ubuntu Linux 64-bit with 32-bit kdb+ | `sudo apt-get install libffi-dev:i386`
-macOS                                | `brew install libffi`(at time of writing is libffi 3.2.1)
+macOS                                | already installed, otherwise<br>`brew install libffi`(at time of writing is libffi 3.2.1)
 Windows                              | (no action required)
 
 
-### kdb+ V3.4+
+### Kdb+ V3.4 or later
 
 -    <i class="fa fa-download"></i> [Download](http://kx.com/download/)
 -    <i class="fa fa-hand-o-right"></i> [Install](http://code.kx.com/q/tutorials/install/)
@@ -38,44 +43,22 @@ Windows                              | (no action required)
 ## Installation
 
 <i class="fa fa-download"></i>
-Download the appropriate release archive from ==FIXME==[releases](../../releases/latest) page. 
+Download the appropriate release archive from the [releases](https://github.com/sv/ffi/releases) page. 
 
-Unpack and install content of the archive: 
+Unpack and install the content of the archive: 
 
 environment     | action
 ----------------|---------------------------------------------------------------------------------------
 Linux and macOS | `tar xzvf ffi_osx-v0.9.2.tar.gz -C $QHOME --strip 1`
-Windows         | Open the archive and copy content of the `ffi` folder (`ffi\*`) to `%QHOME%` or `c:\q`
+Windows         | Open the archive and copy the content of the `ffi` folder (`ffi\*`) to `%QHOME%` or `c:\q`
 
 
 ## API
 
-`ffi.q` exposes two main functions in the `.ffi` namespace. See `test_ffi.q` for detailed examples of usage.
+<i class="fa fa-hand-o-right"></i> [<i class="fa fa-github"></i> kxsystems/ffi/README.md](https://github.com/kxsystems/ffi/blob/master/README.md)
 
-
-### Passing data and getting back results
-
-Throughout the library, characters are used to encode the types of data provided and expected as a result. These are based on the `c` column of [primitive data types](http://code.kx.com/q/ref/datatypes/#primitive-datatypes) and the corresponding upper case for vectors of the same type. The `sz` column is useful to work out what type can hold enough data passing to/from C.
-
-The argument types are derived from data passed to the function (in case of `cf`) or explicitly specified (in case of `bind`). The number of character types provided must match the number of arguments expected by the C function.
-The return type is specified as a single character and can be `' '` (space), which means to discard the result (i.e. `void`). If not provided, defaults to `int`.
-
-char             | C type       
------------------| -------------------------
-b, c, x          | unsigned int8
-h                | signed int16
-i                | signed int32
-j                | signed int64
-e                | float
-f                | double
-g, s             | uint8*
-`' '` (space)    | void (only as return type)
-r                | raw pointer
-k                | K object
-uppercase letter | pointer to the same type
-
-It is possible to pass a q function to C code as a callback (see `qsort` example below). The function must be presented as a mixed list `(func;argument_types;return_type)`, where `func` is a q function (type `100h`), `argument_types` is a char array with the types the function expects, and `return_type` is a char corresponding to the return type of the function. Note that, as callbacks potentially have unbounded life in C code, they are not deleted after the function completes.
-
+<!-- `ffi.q` exposes two main functions in the `.ffi` namespace. See `test_ffi.q` for detailed examples of usage.
+ -->
 
 ### `cf` – call function
 
@@ -108,29 +91,77 @@ Function arguments should be passed as a generic list to `cf`, `call`, and the f
 `cf` and `call` perform native function loading and resolution at the time of the call, which creates significant overhead. Use `bind` to perform this step in advance and reduce runtime overhead.
 
 
-## Examples
-```q
-q)\l ffi.q / populates .ffi namespace
-q).ffi.cf[`strlen](`abc;::) / arguments should be passed as generic lists
-3i
-q).ffi.cf[`strlen]("abc\000";::) / null-terminate q-strings
-3i
-q)n:.ffi.cf[`printf]("%s %c %hd %d %ld %g\n\000";`test;"x";1h;2;3j;4f)
-test x 1 2 3 4
-q)b:n#"\000" / buffer
-q)n:.ffi.cf[`sprintf](b;"%s %c %hd %d %ld %g\n\000";`test;"x";1h;2;3j;4f)
-q)b
-"test x 1 2 3 4\n"
+### Passing data and getting back results
 
-q).ffi.cf[("h";`getppid)]() / specify return type, no args
-13615h
-// only Linux
-q).ffi.cf[("e";`libm.so`powf)]2 2e,(::) / explicit library
-4e
+Throughout the library, characters are used to encode the types of data provided and expected as a result. These are based on the `c` column of [primitive data types](http://code.kx.com/q/ref/datatypes/#primitive-datatypes) and the corresponding upper case for vectors of the same type. The `sz` column is useful to work out what type can hold enough data passing to/from C.
+
+The argument types are derived from data passed to the function (in case of `cf`) or explicitly specified (in case of `bind`). The number of character types provided must match the number of arguments expected by the C function.
+The return type is specified as a single character and can be `' '` (space), which means to discard the result (i.e. `void`). If not provided, defaults to `int`.
+
+char             | C type       
+-----------------| -------------------------
+b, c, x          | unsigned int8
+h                | signed int16
+i                | signed int32
+j                | signed int64
+e                | float
+f                | double
+g, s             | uint8*
+`' '` (space)    | void (only as return type)
+r                | raw pointer
+k                | K object
+uppercase letter | pointer to the same type
+
+It is possible to pass a q function to C code as a callback (see `qsort` example below). The function must be presented as a mixed list `(func;argument_types;return_type)`, where `func` is a q function (type `100h`), `argument_types` is a char array with the types the function expects, and `return_type` is a char corresponding to the return type of the function. Note that, as callbacks potentially have unbounded life in C code, they are not deleted after the function completes.
+
+
+## Examples
+
+### PCRE library
+
+Bindings to [PCRE (POSIX variant)](https://www.pcre.org/original/doc/html/pcreposix.html) using FFI for kdb+.
+
+`pcreposix` is a set of functions providing a POSIX-style API for the PCRE regular-expression 8-bit library.  
+
+!!! warning "Complex regular expressions"
+    Complex regular expressions can be catastrophic, exhibiting
+    [exponential run time](https://www.regular-expressions.info/catastrophic.html) 
+    that leads to real [outages](http://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016).
+
+<i class="fa fa-github"></i> [FFI for kdb+](https://github.com/kxsystems/ffi) is required for this library. `pcre` is normally available on modern Linux distributions and macOS.
+
+As any standard, PCRE POSIX has some [quirks](https://eli.thegreenplace.net/2012/11/14/some-notes-on-posix-regular-expressions) and differences between platforms ([Linux](https://linux.die.net/man/3/pcreposix)), which this library is trying to resolve.
+
+Script to match multiline email:
+```q
+reg:.pcre.regcomp["From:([^@]+)@([^\r]+)";2 sv sum 2 vs .pcre[`REG_EXTENDED`REG_NEWLINE]]  // compile regex
+show "Regex compiled";
+multiline:"From:regular.expressions@example.com\r\nFrom:exddd@43434.com\r\nFrom:7853456@exgem.com\r\n";
+emailmatch:.pcre.rlike[reg;`$multiline]
+```
+
+
+### Rmath library
+
+Bindings to [Rmath](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#The-standalone-Rmath-library) using FFI for kdb+.
+
+`Rmath` provides the routines supporting the distribution and special (e.g. Bessel, beta and gamma functions) functions in `R`. 
+
+Using this library requires the stand-alone Rmath library to be installed as well as FFI for kdb+. On Ubuntu:
+```bash
+sudo apt-get install r-mathlib
+```
+
+Generate 100K numbers from normal distribution:
+```q
+q)do[100000;r,:.rm.rnorm[0f;1f]]   // generate 100K N(0,1) random numbers
+q)(avg;dev)@\:r                    // verify that avg and dev are 0 and 1
+0.0009293088 1.002748
 ```
 
 
 ### BLAS 
+
 All arguments should be vectors (i.e. pointers to appropriate type).
 ```q
 q)x:10#2f;
