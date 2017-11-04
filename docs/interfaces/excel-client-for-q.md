@@ -1,3 +1,6 @@
+# ![Microsoft Excel](img/excel.png) Excel client for kdb+
+
+
 ## Interfacing via HTTP and CSV files
 
 Assume that a q server process is listening on port 5001. Then an HTTP client can send a request that will return a CSV file. For instance, you can type this URL into a browser

@@ -1,3 +1,5 @@
+# ![Bloomberg](img/bloomberg.png) Q client for Bloomberg
+
 Marshall Wace has kindly contributed a Linux-based Bloomberg Feed Handler, written by Sufian Al-Qasem & Attila Vrabecz, using the [Bloomberg Open Api](http://www.openbloomberg.com/open-api/).  
 <i class="fa fa-github"></i> [KxSystems/cookbook/bloomberg](https://github.com/KxSystems/cookbook/tree/master/bloomberg)
 

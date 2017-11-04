@@ -1,3 +1,6 @@
+# ![ODBC](img/odbc.png) Q client for ODBC
+
+
 In Windows and Linux, you can use ODBC to connect to a non-q database from q.  
 <i class="fa fa-hand-o-right"></i> [Cookbook/ODBC](/cookbook/odbc)
 

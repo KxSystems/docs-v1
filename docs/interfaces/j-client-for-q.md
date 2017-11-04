@@ -1,4 +1,7 @@
-JQ is a socket interface to q from J, for example to provide a GUI for a q server. JQ was written in J602 for V2.4, and has been tested on w32, l32 and l64.  
+# ![J](img/j.png) J client for kdb+
+
+
+JQ is a socket interface to q from [J](http://jsoftware.com), for example to provide a GUI for a q server. JQ was written in J602 for V2.4, and has been tested on w32, l32 and l64.  
 <i class="fa fa-github"></i> [kxcontrib/cburke/jk](https://github.com/kxcontrib/cburke/tree/master/jk) 
 
 
@@ -560,3 +563,5 @@ These are sent as an object list. The first item is the function name as a text 
 
 Error messages from q have a type byte of 128, followed by a zero-terminated text string.
 
+
+![Zippy the Pinhead](img/zippy.gif)

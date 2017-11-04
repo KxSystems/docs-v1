@@ -1,6 +1,12 @@
+# ![R](img/r.png) Using R with kdb+
+
+
+!!! info "Fusion"
+    This is a [Fusion interface](/interfaces/fusion) to kdb+
+
 ## Introduction
 
-Kdb+ and R are complementary technologies. Kdb+ is the world’s leading timeseries database and incorporates a programming language called q. R is a programming language and environment for statistical computing and graphics. Both are tools used by data scientists to interrogate and analyze data. Their features sets overlap in that they both:
+Kdb+ and R are complementary technologies. Kdb+ is the world’s leading timeseries database and incorporates a programming language called q. [R](https://www.r-project.org/) is a programming language and environment for statistical computing and graphics. Both are tools used by data scientists to interrogate and analyze data. Their features sets overlap in that they both:
 
 - are interactive development environments
 - incorporate vector languages

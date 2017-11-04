@@ -1,3 +1,6 @@
+# ![Scala](img/scala.png) Scala client for kdb+
+
+
 Download 
 <i class="fa fa-github"></i> [KxSystems/kdb/c/kx/c.java](https://github.com/KxSystems/kdb/blob/master/c/kx/c.java) to subfolder kx and compile it.
 ```bash

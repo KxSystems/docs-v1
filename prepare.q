@@ -25,14 +25,15 @@ hf:{([]h1:x 0;file:x 1)}flip ": " vs/: pd   		/ table of H1s and filepaths
 mt:{0=count trim x}                         		/ test for blank or empty string
 
 hasH1:{[lines]
-	l:{((+/)(&\)mt each x)_x}lines;					/ drop leading blank lines
+	l:{$[count x;((+/)(&\)mt each x)_x;()]}lines;	/ drop leading blank lines
 	if[not count l;'`$"empty file"]; 				/ break on empty file
 	("# "~2#lines 0) or "===="~4#(2#l)1				/ look for H1
 	};
 
 process:{[x]
-	ff:`$":Docs/",x`file;
+	ff:`$":docs/",x`file;
 	ll:read0 ff;
+	if[not count ll;: ::];                          / ignore empty file
 	fix:not hasH1 ll;
 	if[fix; ff 0:("# ",x`h1;""),ll;];				/ insert h1
 	0N!x[`file]," ",?[fix;"fixed";"has H1"];		/ log

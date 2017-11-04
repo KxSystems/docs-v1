@@ -39,7 +39,7 @@ For single-character queries such as `?`, `$` and `@` use the [Reference card](/
         — <i>Bob Dylan</i> “When the ship comes in” 
     </p>
     <p style="display: inline-block; padding: 0 1em;">
-        <img alt="Bob Dylan" src="http://code.kx.com/q/img/dylan.png" style="height: 70px"/>
+        <a href="http://bobdylan.com/albums/the-times-they-are-a-changin/" title="The Times they Are A’Changin’"><img alt="Bob Dylan" src="http://code.kx.com/q/img/dylan.png" style="height: 70px"/></a>
     </p>
 </blockquote>
 

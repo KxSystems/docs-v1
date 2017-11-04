@@ -1,3 +1,6 @@
+# ![C](img/c.png) C client for kdb+
+
+
 There are three cases in which to to use the C API for kdb+:
 
 1. Dynamically-loaded library called by q, e.g. OS, math, analytics.  
