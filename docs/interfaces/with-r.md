@@ -2,7 +2,7 @@
 
 
 !!! info "Fusion"
-    This is a [Fusion interface](/interfaces/fuse) to kdb+
+    This is a [Fusion interface](/interfaces/fusion) to kdb+
 
 ## Introduction
 

@@ -2,7 +2,7 @@
 
 
 !!! info "Fusion"
-    This is a [Fusion interface](/interfaces/fuse) to kdb+
+    This is a [Fusion interface](/interfaces/fusion) to kdb+
 
 <i class="fa fa-github"></i> [KxSystems/ffi](https://github.com/kxsystems/ffi)
 is an extension to kdb+ for loading and calling dynamic libraries using pure `q`. 

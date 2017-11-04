@@ -147,7 +147,7 @@ pages:
     - Views: tutorials/views.md
   - Interface summary: interfaces.md
   - Fusion interfaces:
-    - Introduction: interfaces/fuse.md
+    - Introduction: interfaces/fusion.md
     - FFI: interfaces/ffi.md
     - Java: interfaces/java-client-for-q.md
     - Kafka: interfaces/kafka.md

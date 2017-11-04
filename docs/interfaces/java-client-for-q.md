@@ -2,7 +2,7 @@
 
 
 !!! info "Fusion"
-    This is a [Fusion interface](/interfaces/fuse) to kdb+
+    This is a [Fusion interface](/interfaces/fusion) to kdb+
 
 <i class="fa fa-github"></i> [KxSystems/javakdb](https://github.com/KxSystems/javakdb) is the original Java driver, a.k.a `c.java`, from Kx Systems for interfacing [Java](https://www.java.com) with kdb+ via TCP/IP. This driver allows Java applications to
 
