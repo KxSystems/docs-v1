@@ -143,7 +143,7 @@ head(res)
 ```
 which produces the plot in Figure 1: 
 
-![Last-traded price plot drawn from R](/img/r-interface-figure1.png)  
+![Last-traded price plot drawn from R](/img/r/figure1.svg)  
 _Figure 1: Last-traded price plot drawn from R_
 
 More comprehensive graphing is available in additional R packages, which can be freely downloaded. 
@@ -163,7 +163,7 @@ For example, using the [xts](http://r-forge.r-project.org/projects/xts) package:
 ```
 produces the plot in Figure 2: 
 
-![Candlestick plot using xts package](/img/r-interface-figure2.png)  
+![Candlestick plot using xts package](/img/r/figure2.png)  
 _Figure 2: Candlestick plot using xts package_
 
 Another popular package is the [quantmod](http://www.quantmod.com) package which contains the `chartSeries` function.
@@ -179,7 +179,7 @@ Another popular package is the [quantmod](http://www.quantmod.com) package which
 ```
 This produces the plot shown in Figure 3: 
 
-![Chart example from quantmod package](/img/r-interface-figure3.png)  
+![Chart example from quantmod package](/img/r/figure3.svg)  
 _Figure 3: Chart example from quantmod package_
 
 Close the connection when done: ￼
@@ -312,7 +312,7 @@ q)Rcmd["plot(mids$time,mids$mid,type=\"l\",xlab=\"time\",ylab=\"price\")"]
 ```
 This will produce a plot as shown in Figure 4: 
 
-![Quote mid price plot drawn from q](/img/r-interface-figure1.png)  
+![Quote mid price plot drawn from q](/img/r/figure4.svg)  
 _Figure 4: Quote mid price plot drawn from q_
 
 To close the graphics window, use `dev.off()` rather than the close button on the window.
@@ -666,7 +666,7 @@ for each customer type (res = residential, com = commercial, ind = industrial) o
 ```
 which produces the plot in Figure 5: 
 
-![Customer usage profiles generated in q and drawn in R](/img/r-interface-figure5.png)  
+![Customer usage profiles generated in q and drawn in R](/img/r/figure5.png)  
 _Figure 5: Customer usage profiles generated in q and drawn in R_
 
 
