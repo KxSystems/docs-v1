@@ -15,7 +15,7 @@ about new repositories.</div>
 <table class="kx-compact" markdown="1">
 <tr>
 	<td class="nowrap">[cookbook](https://github.com/KxSystems/cookbook)</td>
-	<td>companion files to the [Cookbook](/cookbook/introduction)</td>
+	<td>companion files to the [Cookbook](/cookbook)</td>
 </tr>
 <tr>
 	<td class="nowrap">[docs](https://github.com/KxSystems/docs)</td>

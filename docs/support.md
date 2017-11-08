@@ -50,7 +50,7 @@ This site is the primary resource for kdb+ developers.
 <i class="fa fa-map-o"></i> [Technical Whitepapers](whitepapers)
 : An occasional series of whitepapers on developing systems with kdb+.
 
-<i class="fa fa-cutlery"></i> [Cookbook](cookbook/introduction)
+<i class="fa fa-cutlery"></i> [Cookbook](cookbook)
 : A collection of shorter articles on developing systems with kdb+.
 
 <i class="fa fa-handshake-o"></i> [Interfaces](interfaces)

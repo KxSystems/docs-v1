@@ -29,7 +29,7 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr><td>Kafka</td><td>[Q client for Kafka](/interfaces/kafka) ==new==</td></tr>
 <tr><td>Python</td>
     <td>
-[Using Python with kdb+ (PyQ)](/interfaces/pyq/quickstart)<br/>
+[Using Python with kdb+ (PyQ)](/interfaces/pyq)<br/>
 [Using Python with kdb+ (embedPy)](/interfaces/embedpy) ==beta==
     </td></tr>
 <tr><td>R</td><td>[Using R with kdb+](/interfaces/with-r/#calling-q-from-r) ==new==</td>

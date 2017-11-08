@@ -1,8 +1,8 @@
-# The q cookbook
+# The kdb+ cookbook
 
-![cooking](/img/cooking.jpg)
+![cooking](/img/89158587.jpg)
 
-The cookbook contains articles and recipes for getting things done with q.
+The cookbook contains articles and recipes for getting things done with kdb+.
 
 Popular articles:
 

@@ -153,7 +153,7 @@ pages:
     - Kafka: interfaces/kafka.md
     - Python (embedPy): interfaces/embedpy.md
     - Python (PyQ):
-      - Quick start: interfaces/pyq/quickstart.md
+      - Quick start: interfaces/pyq/index.md
       - Installation: interfaces/pyq/install.md
       - User guide: interfaces/pyq/user-guide.md
       - Reference: interfaces/pyq/reference.md
@@ -163,7 +163,7 @@ pages:
   - Other interfaces: 
     - Q client for Bloomberg: interfaces/q-client-for-bloomberg.md
     - C client for kdb+: interfaces/c-client-for-q.md
-    - C API Reference: interfaces/capiref.md
+    - C API reference: interfaces/capiref.md
     - Using C/C++ functions: interfaces/using-c-functions.md
     - C# client for kdb+: interfaces/csharp-client-for-q.md
     - Excel client for kdb+: interfaces/excel-client-for-q.md
@@ -178,7 +178,7 @@ pages:
     - Perl client for kdb+: interfaces/perl-client-for-q.md 
     - Scala client for kdb+: interfaces/scala-client-for-q.md 
   - Cookbook:
-    - Introduction: cookbook/introduction.md
+    - Introduction: cookbook/index.md
     - Alternative in-memory layouts: cookbook/alternative-in-memory-layouts.md
     - Authentication and access: cookbook/authentication.md
     - Bulk Copy Program: cookbook/bcp.md

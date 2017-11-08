@@ -210,5 +210,5 @@ You can install kdb+ where you please. The environment variable `QHOME` (specifi
 
 ## <i class="fa fa-hand-o-right"></i> What’s next?
 
-[Get started](/learn) with the q programming language, look through the [reference card](/ref/card), or see what you can do with kdb+ in the [Cookbook](/cookbook/introduction) section.
+[Get started](/learn) with the q programming language, look through the [reference card](/ref/card), or see what you can do with kdb+ in the [Cookbook](/cookbook) section.
 
