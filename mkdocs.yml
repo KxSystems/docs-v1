@@ -163,6 +163,7 @@ pages:
   - Other interfaces: 
     - Q client for Bloomberg: interfaces/q-client-for-bloomberg.md
     - C client for kdb+: interfaces/c-client-for-q.md
+    - C API Reference: interfaces/capiref.md
     - Using C/C++ functions: interfaces/using-c-functions.md
     - C# client for kdb+: interfaces/csharp-client-for-q.md
     - Excel client for kdb+: interfaces/excel-client-for-q.md
