@@ -236,3 +236,8 @@ pages:
     - Kx technology: about/kxtechnology.md
     - Site news: about/site-news.md
     - This site: about/thissite.md
+    - Style guide:
+      - Introduction: about/sg/index.md
+      - Case: about/sg/case.md
+      - Style: about/sg/style.md
+      - Vocabulary: about/sg/vocabulary.md
