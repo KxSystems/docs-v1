@@ -463,6 +463,10 @@ a b| c  d
 3 7| 30 C
 ```
 
+!!! note "Generalizing the `,` operator"
+    The `uj` operator is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
+
+
 !!! note "Changes in V3.0"
 	The union join of two keyed tables is equivalent to a left join of the two tables with the catenation of unmatched rows from the second table. As a result a change in the behaviour of `lj` causes a change in the behaviour of `uj`:
 
@@ -488,10 +492,6 @@ a b| c  d
 		2| z 20
 
     Since 2017.04.10, the earlier version is available in all V3.5 and later versions as `ujf`.
-
-
-!!! note "Generalizing the `,` operator"
-    The `uj` operator is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
 
 
 ## `wj` `wj1` (window-join)
