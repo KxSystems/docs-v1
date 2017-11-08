@@ -1,9 +1,6 @@
 # ![R](img/r.png) Using R with kdb+
 
 
-!!! info "Fusion"
-    This is a [Fusion interface](/interfaces/fusion) to kdb+
-
 ## Introduction
 
 Kdb+ and R are complementary technologies. Kdb+ is the world’s leading timeseries database and incorporates a programming language called q. [R](https://www.r-project.org/) is a programming language and environment for statistical computing and graphics. Both are tools used by data scientists to interrogate and analyze data. Their features sets overlap in that they both:
@@ -89,10 +86,18 @@ and in R:
 
 ### rkdb: R client for kdb+
 
+<div class="fusion" markdown="1">
+<i class="fa fa-superpowers"></i> A [Fusion interface](/interfaces/fusion)
+</div>
+
 Connects R to a kdb+ database to extract partially analyzed data into R 
 for further local manipulation, analysis and display. 
 
-Tested and available for Linux (64-bit), Windows (32-bit and 64-bit) and macOS operating systems. 
+Operating systems: tested and available for 
+
+-   <i class="fa fa-linux"></i> Linux (64-bit)
+-   <i class="fa fa-apple"></i> macOS 
+-   <i class="fa fa-windows"></i> Windows (32-bit and 64-bit)
 
 Download from <i class="fa fa-github"></i> [KxSystems/rkdb](https://github.com/KxSystems/rkdb) and follow the [installation instructions](https://github.com/KxSystems/rkdb#installation). 
 

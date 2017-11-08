@@ -1,8 +1,10 @@
 # ![Java](img/java.jpg) Using Java with kdb+
 
+<div class="fusion" markdown="1">
+<i class="fa fa-superpowers"></i> A [Fusion interface](/interfaces/fusion)
+</div>
 
-!!! info "Fusion"
-    This is a [Fusion interface](/interfaces/fusion) to kdb+
+
 
 <i class="fa fa-github"></i> [KxSystems/javakdb](https://github.com/KxSystems/javakdb) is the original Java driver, a.k.a `c.java`, from Kx Systems for interfacing [Java](https://www.java.com) with kdb+ via TCP/IP. This driver allows Java applications to
 
@@ -241,4 +243,6 @@ keytool -importcert -file example.pem -alias example.com -storepass changeit -ke
 java -Djavax.net.ssl.trustStore=./keystore -Djavax.net.ssl.keystore=./keystore kx.c
 ```
 To troubleshoot ssl, supply `-Djavax.net.debug=ssl` on the command line when invoking your Java application.
+
+
 

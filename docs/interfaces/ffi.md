@@ -1,8 +1,10 @@
 # Using foreign functions with kdb+
 
+<div class="fusion" markdown="1">
+<i class="fa fa-superpowers"></i> A [Fusion interface](/interfaces/fusion)
+</div>
 
-!!! info "Fusion"
-    This is a [Fusion interface](/interfaces/fusion) to kdb+
+
 
 <i class="fa fa-github"></i> [KxSystems/ffi](https://github.com/kxsystems/ffi)
 is an extension to kdb+ for loading and calling dynamic libraries using pure `q`. 
@@ -200,3 +202,4 @@ r:{b:20#"\000";n:.ffi.cf[`read](x;b;20);0N!n#b;0}
 .ffi.cf[`sd1](h;(r;(),"i"))   / start handler
 .ffi.cf[`sd0](h;::)           / stop handler
 ```
+

@@ -3,7 +3,7 @@ dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: 
   - '//code.kx.com/stylesheets/extra.css'
-  # - stylesheets/extra.css
+  - stylesheets/extra.css
   - '//code.kx.com/stylesheets/prism.css'
 extra_javascript: 
   # See /ref/syntax/#projection to see if MathJax is working 

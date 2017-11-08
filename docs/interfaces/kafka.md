@@ -1,10 +1,12 @@
-# ![Apache Kafka](img/apache.png) Using Kafka with kdb+
+# ![Apache Kafka](img/kafka.png) Using Kafka with kdb+
 
+<div class="fusion" markdown="1">
+<i class="fa fa-superpowers"></i> A [Fusion interface](/interfaces/fusion)
+</div>
 
-!!! info "Fusion"
-    This is a [Fusion interface](/interfaces/fusion) to kdb+
 
 <i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)
+
 
 `kfk` is a thin wrapper for kdb+ around the <i class="fa fa-github"></i> [edenhill/librdkafka](https://github.com/edenhill/librdkafka) C API for [Apache Kafka](https://kafka.apache.org/). 
 
@@ -111,3 +113,4 @@ The messages will now flow from producer to consumer and the publishing rate can
 <i class="fa fa-hand-o-right"></i> [<i class="fa fa-github"></i> edenhill/librdkafka/wiki/How-to-decrease-message-latency](https://github.com/edenhill/librdkafka/wiki/How-to-decrease-message-latency)
 
 There are numerous configuration options and it is best to find settings that suit your needs and setup. See [Configuration](#configuration) above. 
+

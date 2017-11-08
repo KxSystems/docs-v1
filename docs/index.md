@@ -39,14 +39,14 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
     Share code](http://kxsystems.github.io/ "Kdb+ repositories on GitHub")
 </div>
 <div>
-    [<i class="fa fa-cutlery fa-border fa-5x"></i><br/>
-    Cookbook](cookbook/introduction/ "Recipes for developing with kdb+")
+    [<i class="fa fa-superpowers fa-border fa-5x"></i><br/>
+    Fusion interfaces](interfaces/fusion "Interfaces to other technologies")
 </div>
 </div>
 
 !!! info "New on code.kx.com"
+    - [Fusion interfaces](/interfaces/fusion)
     - Cookbook: [Linear programming](/cookbook/lp)
-    - [Syntax highlighting for q](/about/site-news/#syntax-highlighting)
     
 !!! caution "The Kx wiki"
     The documentation from the [Kx wiki](http://code.kx.com/wiki) has moved to this new platform. All source code can now be found on [GitHub](https://kxsystems.github.io). 

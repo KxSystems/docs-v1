@@ -12,14 +12,15 @@ Other repositories are maintained by their owners.
 about new repositories.</div>
 
 
-## Fusion interfaces
+## <i class="fa fa-superpowers"></i> Fusion interfaces
 
 The [Fusion interfaces](interfaces/fusion) to kdb+ are
 
--   released under the [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0)
+-   written for non-kdb+ programmers to use
 -   well documented, with understandable and useful examples
+-   maintained and supported by Kx on a best-efforts basis, at no cost to customers
+-   released under the [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0)
 -   free for all use cases, including 64-bit and commercial use
--   maintained and supported by Kx, on a best-efforts basis, at no cost to customers
 <!-- -   written from the perspective of the ‘remote’ technology: e.g. a Java interface that is intelligible to a Java programmer -->
 
 <table class="kx-compact" markdown="1">
