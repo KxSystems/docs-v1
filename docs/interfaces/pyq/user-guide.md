@@ -7,8 +7,8 @@ PyQ lets you enjoy the power of kdb+ in a comfortable environment provided by a 
 
 Meet `q` – your portal to kdb+. Once you import `q` from `pyq`, you get access to over 170 functions:
 ```python
->>> from pyq import q 
->>> dir(q) 
+>>> from pyq import q
+>>> dir(q)
 ['abs', 'acos', 'aj', 'aj0', 'all', 'and_', 'any', 'asc', 'asin', ...]
 ```
 These functions should be familiar to anyone who knows the q language and this is exactly what these functions are: q functions repackaged so that they can be called from Python. Some of the q functions are similar to Python builtins or math functions which is not surprising because q like Python is a complete general-purpose language. In the following sections we will systematically draw an analogy between q and Python functions and explain the differences between them.
@@ -18,7 +18,7 @@ These functions should be familiar to anyone who knows the q language and this i
 
 Since Python does not have language constructs to loop over integers, many Python tutorials introduce the `range()` function early on. In the q language, the situation is similar and the function that produces a sequence of integers is called `til`. Mnemonically, `q.til(n)` means _Count from zero ’til n_:
 ```python
->>> q.til(10) 
+>>> q.til(10)
 k('0 1 2 3 4 5 6 7 8 9')
 ```
 The return value of a q function is always an instance of the class `K` which will be described in the next chapter. In the case of `q.til(n)`, the result is a `K` vector, which is similar to a Python list. In fact, you can get the Python list by simply calling the `list()` constructor on the q vector:
@@ -105,14 +105,14 @@ Other than being able to operate on lists of numbers, q functions differ from Py
 
 Where Python functions raise an exception,
 ```python
->>> math.log(0) 
-Traceback (most recent call last): 
-... 
+>>> math.log(0)
+Traceback (most recent call last):
+...
 ValueError: math domain error
 ```
 q functions return special values:
 ```python
->>> q.log([-1, 0, 1]) 
+>>> q.log([-1, 0, 1])
 k('0n -0w 0')
 ```
 
@@ -121,12 +121,12 @@ k('0n -0w 0')
 
 Unlike Python, q allows division by zero. The reciprocal of zero is infinity, which shows up as `0w` or `0W` in displays.
 ```python
->>> q.reciprocal(0) 
+>>> q.reciprocal(0)
 k('0w')
 ```
 Multiplying infinity by zero produces a null value that generally indicates missing data
 ```python
->>> q.reciprocal(0) * 0 
+>>> q.reciprocal(0) * 0
 k('0n')
 ```
 Null values and infinities can also appear as a result of applying a mathematical function to numbers outside of its domain:
@@ -146,7 +146,7 @@ k('100b')
 Aggregation functions (also known as _reduction_ functions) are functions that given a sequence of atoms produce an atom. For example,
 ```python
 >>> sum(range(10))
-45 
+45
 >>>  q.sum(range(10))
 k('45')
 ```
@@ -171,7 +171,7 @@ q        | Python                   | Return
 
 Given a sequence of numbers, one may want to compute not just total sum, but all the intermediate sums as well. In q, this can be achieved by applying the `sums` function to the sequence:
 ```python
->>> q.sums(range(10)) 
+>>> q.sums(range(10))
 k('0 1 3 6 10 15 21 28 36 45')
 ```
 
@@ -233,7 +233,7 @@ k('9 7 5 3 1')
 
 !!! note "Sorted attribute"
     The `s#` prefix that appears in the display of the output for the `asc()` function indicates that the resulting vector has a _sorted_ attribute set. An attribute can be queried by calling the `attr()` function or accessing the `attr` property of the result:
-    <pre><code class="language-python"> 
+    <pre><code class="language-python">
     &gt;&gt;&gt; s = q.asc(a) >>> q.attr(s) k('s')
     &gt;&gt;&gt; s.attr
     k('s')
@@ -248,7 +248,7 @@ k('4 3 1 2 0')
 Sorted lists can be efficiently searched using `bin()` and `binr()` functions. As the names suggest, both use binary search to locate the position of the element that is equal to the search key, but in the case when there is more than one such element, `binr()` returns the index of the first match while `bin()` returns the index of the last.
 ```python
 >>> q.binr([10, 20, 20, 20, 30], 20)
-k('1') 
+k('1')
 >>> q.bin([10, 20, 20, 20, 30], 20)
 k('3')
 ```
@@ -380,12 +380,12 @@ The difference being that in q, functions are applied right to left, but in PyQ 
 
 Finally, if q does not provide the function that you need, you can unleash the full power of numpy or scipy on your kdb+ data.
 ```python
->>> numpy.log2(q.a) 
+>>> numpy.log2(q.a)
 array([ 0.       , 1.        ,  1.5849625])
 ```
 Note that the result is a numpy array, but you can redirect the output back to kdb+. To illustrate this, create a vector of 0s in kdb+
 ```python
->>> b = q.a * 0.0 
+>>> b = q.a * 0.0
 ```
 and call a numpy function on one kdb+ object redirecting the output to another:
 ```python
@@ -393,7 +393,7 @@ and call a numpy function on one kdb+ object redirecting the output to another:
 ```
 The result of a numpy function is now in the kdb+ object
 ```python
->>> b 
+>>> b
 k('0 1 1.584963')
 ```
 
@@ -554,7 +554,7 @@ The typed constructors can also be used to access infinities and missing values 
 ```
 If you already have a `K` object and want to convert it to a different type, you can access the property named after the type name. For example,
 ```python
->>> x = q.til(5) 
+>>> x = q.til(5)
 >>> x.date
 k('2000.01.01 2000.01.02 2000.01.03 2000.01.04 2000.01.05')
 ```
@@ -590,13 +590,13 @@ Note that in most cases how the object test does not change when Python native t
 ```python
 >>> objects = [None, 1, 0, True, False, 'x', '', {1:2}, {}, date(2000, 1, 1)]
 >>> [bool(o) for o in objects]
-[False, True, False, True, False, True, False, True, False, True] 
+[False, True, False, True, False, True, False, True, False, True]
 >>>[bool(K(o)) for o in objects]
 [False, True, False, True, False, True, False, True, False, True]
 ```
 One exception is the Python `time` type. Starting with version 3.5 all `time` instances test as true, but `time(0)` converts to `k('00:00:00.000')` which tests false:
 ```python
->>> [bool(o) for o in (time(0), K(time(0)))] 
+>>> [bool(o) for o in (time(0), K(time(0)))]
 [True, False]
 ```
 
@@ -694,13 +694,13 @@ operation | result                                             | note
 `x & y`   | element-wise minimum of `x` and `y`                | 1
 `x << n`  | `x` shifted left by `n` elements                   | 3
 `x >> n`  | `x` shifted right by `n` elements                  | 3
-`~x`      | a boolean vector with 1s for zero elements of `x` | 
+`~x`      | a boolean vector with 1s for zero elements of `x` |
 
 Notes:
 
 1.   For boolean vectors, `|` and `&` are also element-wise _or_ and _and_ operations.
 
-2.   For Python integers, the result of `x^y` is the bitwise exclusive 
+2.   For Python integers, the result of `x^y` is the bitwise exclusive
 _or_. There is no similar operation in `q`, but for boolean vectors _exclusive or_ is equivalent to q `<>` (_not equal_).
 
 3.   Negative shift counts result in a shift in the opposite direction to that indicated by the operator: `x >> -n` is the same as `x << n`.
@@ -710,7 +710,7 @@ _or_. There is no similar operation in `q`, but for boolean vectors _exclusive o
 
 Minimum and maximum operators are `&` and `|` in q. PyQ maps similar-looking Python bitwise operators to the corresponding q ones:
 ```python
->>> q.til(10) | 5 
+>>> q.til(10) | 5
 k('5 5 5 5 5 5 6 7 8 9')
 >>> q.til(10) & 5
 k('0 1 2 3 4 5 5 5 5 5')
@@ -748,8 +748,8 @@ PyQ         | q    | description
 `K.sv()`    | `/:` | each-right or scalar from vector
 `K.vs()`    | `\:` | each-left or vector from scalar
 
-The functionality provided by the first three adverbs is similar to functional programming features scattered throughout Python standard library. 
-Thus `each` is similar to [`map()`](https://docs.python.org/3.6/library/functions.html#map "in Python V3.6"). 
+The functionality provided by the first three adverbs is similar to functional programming features scattered throughout Python standard library.
+Thus `each` is similar to [`map()`](https://docs.python.org/3.6/library/functions.html#map "in Python V3.6").
 For example, given a list of lists of numbers
 ```python
 >>> data = [[1, 2], [1, 2, 3]]
@@ -785,7 +785,7 @@ Finally, the `scan` adverb is similar to the [`itertools.accumulate()`](https://
 ```python
 >>> for x in itertools.accumulate(data, operator.concat):
 ... print(x)
-... 
+...
 [1, 2] [1, 2, 1, 2, 3]
 ```
 
@@ -1032,7 +1032,7 @@ Note that, according to the Python calendar, the world did not exist before that
 ```python
 >>> date.fromordinal(0)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module> 
+  File "<stdin>", line 1, in <module>
 ValueError: ordinal must be >= 1
 ```
 At the time of this writing,
@@ -1058,25 +1058,25 @@ k('2000.01.01D00:00:00.000000000')
 With NumPy, however the third choice was made. Bowing to the UNIX tradition, NumPy took midnight of January 1, 1970 as the zero mark on its timescales.
 ```python
 >>> numpy.array([0], 'datetime64[D]')
-array(['1970-01-01'], dtype='datetime64[D]') 
->>> numpy.array([0], 'datetime64[ns]') 
+array(['1970-01-01'], dtype='datetime64[D]')
+>>> numpy.array([0], 'datetime64[ns]')
 array(['1970-01-01T00:00:00.000000000'], dtype='datetime64[ns]')
 ```
 PyQ will automatically adjust the epoch when converting between NumPy arrays and `K` objects.
 ```python
->>> d = q.til(2).date 
->>> a = numpy.array(d) 
->>> d 
-k('2000.01.01 2000.01.02') 
+>>> d = q.til(2).date
+>>> a = numpy.array(d)
+>>> d
+k('2000.01.01 2000.01.02')
 >>> a
-array(['2000-01-01', '2000-01-02'], dtype='datetime64[D]') 
+array(['2000-01-01', '2000-01-02'], dtype='datetime64[D]')
 >>> K(a)
 k('2000.01.01 2000.01.02')
 ```
 This convenience comes at a cost of copying the data
 ```python
->>> a[0] = 0 
->>> a array(['1970-01-01', '2000-01-02'], dtype='datetime64[D]') 
+>>> a[0] = 0
+>>> a array(['1970-01-01', '2000-01-02'], dtype='datetime64[D]')
 >>> d
 k('2000.01.01 2000.01.02')
 ```
@@ -1102,7 +1102,7 @@ Text data appears in kdb+ as character atoms and strings or as symbols and enume
 >>> a = numpy.asarray(x)
 >>> a.dtype.type
 <class 'numpy.bytes_'>
-``` 
+```
 In the example above, data is shared between the kdb+ string `x` and NumPy array `a`:
 ```python
 >>> a[:] = 'x'
@@ -1126,7 +1126,7 @@ Similarly, kdb+ nested lists of regular shape, become multi-dimensional NumPy ar
 array([[[ 0., 1., 2.],
         [ 3., 4., 5.]],
 
-        [[ 6., 7., 8.], 
+        [[ 6., 7., 8.],
          [ 9., 10., 11.]]])
 ```
 Moreover, many NumPy functions can operate directly on kdb+ nested lists, but they internally create a contiguous copy of the data
@@ -1144,17 +1144,17 @@ Unlike kdb+, NumPy does not implement column-wise tables. Instead it has record 
 >>> trades.show()
 sym time  size
 --------------
-a   09:31 100 
-a   09:33 300 
-b   09:32 200 
+a   09:31 100
+a   09:33 300
+b   09:32 200
 b   09:35 100
 ```
 ```python
 >>> numpy.array(trades)
-array([('a', datetime.timedelta(0, 34260), 100), 
-       ('a', datetime.timedelta(0, 34380), 300), 
-       ('b', datetime.timedelta(0, 34320), 200), 
-       ('b', datetime.timedelta(0, 34500), 100)], 
+array([('a', datetime.timedelta(0, 34260), 100),
+       ('a', datetime.timedelta(0, 34380), 300),
+       ('b', datetime.timedelta(0, 34320), 200),
+       ('b', datetime.timedelta(0, 34500), 100)],
       dtype=[('sym', 'O'), ('time', '<m8[m]'), ('size', '<i8')])
 ```
 
@@ -1165,6 +1165,8 @@ If you have IPython installed in your environment, you can run an interactive IP
 ```bash
 $ pyq -m IPython
 ```
+or use the `ipyq` script.
+
 For a better experience, load the `pyq.magic` extension:
 ```
 In [1]: %load_ext pyq.magic
@@ -1278,7 +1280,7 @@ It is recommended that any substantial amount of Python code be placed in regula
 
 As we have seen in the previous section, calling Python by evaluating `p)` expressions has several limitations. For tighter integration between q and Python, PyQ supports exporting Python functions to q. Once exported, Python functions appear in q as unary functions that take a single argument that should be a list. For example, we can make Python’s `%`-formatting available in q as follows:
 ```python
->>> def fmt(f, x): 
+>>> def fmt(f, x):
 ...     return K.string(str(f) % x)
 >>> q.fmt = fmt
 ```
@@ -1306,5 +1308,3 @@ q)p)q.erf = math.erf
 q)erf enlist 1
 0.8427008
 ```
-
-
