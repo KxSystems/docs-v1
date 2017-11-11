@@ -228,7 +228,10 @@ pages:
     - Write-only RDB: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
-  - Platform for Kx: platform.md
+  - Platform for Kx:
+    - Introduction: platform/index.md
+    - Analyst for Kx: platform/analyst.md
+    - Dashboards for Kx: platform/dashboards.md
   - White papers: whitepapers.md
   - GitHub: github.md
   - Q for Mortals 3: q4m3.md

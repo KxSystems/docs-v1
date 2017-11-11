@@ -112,11 +112,11 @@ A back tick without characters after it represents the _empty symbol_: `` ` ``.
 !!! tip "Cast string to symbol"
     The empty symbol can be used with [_cast_](casting/#cast) to cast a string into a symbol, creating symbols whose names could not otherwise be written, such as symbols containing spaces. `` `$x`` is shorthand for `"S"$x`. 
     <pre><code class="language-q">
-    q)s:`hello world
+    q)s:\`hello world
     'world
-    q)s:`$"hello world"
+    q)s:\`$"hello world"
     q)s
-    `hello world
+    \`hello world
     </code></pre>
 
 <i class="fa fa-hand-o-right"></i> _Q for Mortals_: [2.4 Basic Data Types – Atoms](http://code.kx.com/q4m3/2_Basic_Data_Types_Atoms/#24-text-data)
