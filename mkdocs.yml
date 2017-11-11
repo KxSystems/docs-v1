@@ -160,23 +160,24 @@ pages:
       - What’s new: interfaces/pyq/whats-new.md
       - Version history: interfaces/pyq/history.md
     - R: interfaces/with-r.md
-  - Other interfaces: 
-    - Q client for Bloomberg: interfaces/q-client-for-bloomberg.md
-    - C client for kdb+: interfaces/c-client-for-q.md
+  - Interfaces to kdb+ for: 
+    - C: interfaces/c-client-for-q.md
     - C API reference: interfaces/capiref.md
-    - Using C/C++ functions: interfaces/using-c-functions.md
-    - C# client for kdb+: interfaces/csharp-client-for-q.md
-    - Excel client for kdb+: interfaces/excel-client-for-q.md
+    - C#: interfaces/csharp-client-for-q.md
+    - Excel: interfaces/excel-client-for-q.md
+    - J: interfaces/j-client-for-q.md
+    - JDBC: interfaces/jdbc-client-for-kdb.md
+    - Matlab: interfaces/matlab-client-for-q.md
+    - ODBC: interfaces/q-server-for-odbc.md
+    - ODBC3: interfaces/q-server-for-odbc3.md 
+    - Perl: interfaces/perl-client-for-q.md 
+    - Scala: interfaces/scala-client-for-q.md 
+  - Interfaces from q to: 
+    - Bloomberg: interfaces/q-client-for-bloomberg.md
+    - C/C++ functions: interfaces/using-c-functions.md
     - GPUs: interfaces/gpus.md
-    - J client for kdb+: interfaces/j-client-for-q.md
-    - Q client for J: interfaces/q-client-for-j.md
-    - JDBC client for kdb+: interfaces/jdbc-client-for-kdb.md
-    - Matlab client for kdb+: interfaces/matlab-client-for-q.md
-    - Kdb+ server for ODBC: interfaces/q-server-for-odbc.md
-    - Kdb+ server for ODBC3: interfaces/q-server-for-odbc3.md 
-    - Q client for ODBC: interfaces/q-client-for-odbc.md
-    - Perl client for kdb+: interfaces/perl-client-for-q.md 
-    - Scala client for kdb+: interfaces/scala-client-for-q.md 
+    - J: interfaces/q-client-for-j.md
+    - ODBC: interfaces/q-client-for-odbc.md
   - Cookbook:
     - Introduction: cookbook/index.md
     - Alternative in-memory layouts: cookbook/alternative-in-memory-layouts.md

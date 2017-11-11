@@ -1,5 +1,6 @@
 # ![C](img/c.png) C client for kdb+
 
+<i class="fa fa-hand-o-right"></i> [C API reference](capiref)
 
 There are three cases in which to to use the C API for kdb+:
 

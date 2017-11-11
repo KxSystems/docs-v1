@@ -1,3 +1,5 @@
+<i class="fa fa-hand-o-right"></i> [C client for kdb+](c-client-for-q)
+
 ## Overview
 
 ### K object
@@ -127,283 +129,268 @@ nf        | log(-1.0) on Windows or (0/0.0) on Linux | floating point null
 wf        | -log(0.0) in Windows or (1/0.0) on Linux | floating point infinity
 
 
-## Variables
-
-`es`
-: Global `char*`, a pointer to an error string if the last operation returned `NULL`.
-
-
 ## Functions 
-Unless otherwise specified, no function accepting `K` objects should be passed `NULL`.
 
+### Constructors
 
-`b9`
-: `K b9(I mode,K x)`
-: Serialise `x` using q IPC, using `mode` capabilities level, where `mode` is:
+function      | constructs | function      | constructs  | function      | constructs 
+--------------|------------|---------------|-------------|---------------|------------
+[`ka`](#ka)   | atom       | [`ki`](#ki)   | int         | [`ktd`](#ktd) | simple table
+[`kb`](#kb)   | boolean    | [`kj`](#kj)   | long        | [`ktj`](#ktj) | timestamp  
+[`kc`](#kc)   | char       | [`knk`](#knk) | list        | [`ktj`](#ktj) | timespan   
+[`kd`](#kd)   | date       | [`knt`](#knt) | keyed table | [`ktn`](#ktn) | vector 
+[`ke`](#ke)   | real       | [`kp`](#kp)   | char array  | [`ku`](#ku)   | guid
+[`kf`](#kf)   | float      | [`kpn`](#kpn) | char array  | [`kz`](#kz)   | datetime
+[`kg`](#kg)   | byte       | [`ks`](#ks)   | symbol      | [`xD`](#xD)   | dictionary 
+[`kh`](#kh)   | short      | [`kt`](#kt)   | time        | [`xT`](#xT)   | table 
 
-    value | effect
-    ------|------
-    -1    | use within shared libraries from V3.0 onwards
-    0     | unenumerate, block serialization of timespan and timestamp (for working with versions prior to V2.6)
-    1     | retain enumerations, allow serialization of timespan and timestamp: Useful for passing data between threads
-    2     | unenumerate, allow serialization of timespan and timestamp
-    3     | unenumerate, compress, allow serialization of timespan and timestamp
+### Joins
 
-: On success, returns byte array K object with serialised representation. On error, `NULL` is returned, and `es` will contain error string.
-
-`d9`
-: `K d9(K x)`
-: Deserialize the byte array in `x`. 
-: The byte array `x` passed to `d9` is not altered in any way. 
-
-: On success, returns deserialized K object. On error, `NULL` is returned, and `es` will contain error string.
-
-
-`dj`
-: `I dj(I date)`
-: Convert q date to `yyyymmdd` integer.
-
-`dl`
-: `K dl(V* f, I n)`
-: The dynamic link. Function takes a C function that would take _n_ K objects as arguments and returns a K object. Shared library only.
-: Returns a q function. 
-
-`dot`
-: `K dot(K x, K y)`
-: The same as the q function `.[x;y]`. Shared library only.
-
-: On success, returns K object with result of `.` application. On error, `NULL` is returned, and `es` will contain error string. See `ee` for result-handling example.
-
-
-`ee`
-: `K ee(K)`
-: Helper function to capture (and reset) error string into usual error object, e.g.
-: `K x=ee(dot(a,b));if(xt==-128)printf("error %s\n",x->s);`
-: Since V3.5 2017.02.16, V3.4 2017.03.13
-
-
-### Appending to a list
+function    | joins             | function    | joins
+------------|-------------------|-------------|----------------------------------
+[`ja`](#ja) | raw value to list | [`js`](#js) | interned string to symbol vector 
+[`jk`](#jk) | K object to list  | [`jv`](#jv) | K list to first of same type 
 
 When appending to a list, if the capacity of the list is 
 insufficient to accommodate the new data, the list is reallocated with the contents of `x` updated. The new data is always appended.
 
-`ja`
-: `K ja(K* x,V*)` 
-: Appends a raw value to a list. 
-: Returns the value of the contents of `x`.
+
+### Other functions
+
+function      | action              | function        | action
+--------------|---------------------|-----------------|-----------------------------------------
+[`b9`](#b9)   | serialize           | [`orr`](#orr)   | signal error        
+[`d9`](#d9)   | deserialize         | [`r0`](#r0)     | decrement ref count 
+[`dj`](#dj)   | date to integer     | [`r1`](#r1)     | increment ref count 
+[`dl`](#dl)   | dynamic link        | [`sd0`](#sd0)   | remove callback
+[`dot`](#dot) | apply               | [`sd0x`](#sd0x) | remove callback
+[`ee`](#ee)   | capture error       | [`sd1`](#sd1)   | function on event loop
+[`k`](#k)     | evaluate            | [`setm`](#setm) | set whether interning symbols uses a lock
+[`krr`](#krr) | signal error        | [`sn`](#sn)     | intern chars from string
+[`m9`](#m9)   | release memory      | [`ss`](#ss)     | intern null-terminated string
+[`okx`](#okx) | verify byte stream  | [`ymd`](#ymd)   | encode q date
 
 
-`jk`
-: `K jk(K* x,K y)` 
-: Append another K object to a mixed list. Takes ownership of `y`. 
-: Returns the value of the contents of `x`.
+### Standalone applications
 
-`js`
-: `K js(K* x,S s)` 
-: Append an interned string `s` to a symbol list. 
-: Returns the value of the contents of `x`.
+function            | action
+--------------------|-----------------------------------
+[`khpun`](#khpun)   | connect to host
+[`khpu`](#khpu)     | connect to host without timeout
+[`khp`](#khp)       | connect to host without credentials
+[`kclose`](#kclose) | disconnect from host
 
-`jv`
-: `K jv(K* x,K y)`
-: Append K list `y` to the first of the same type. Takes ownership of `y`.
-: Returns the value of the contents of `x`.
 
-`k`
-: `K k(I handle,const S s,...)__attribute__((sentinel))`
-: Evaluate `s` with optional parameters either locally (shared library only) or remotely. The last argument must be `NULL`.
+!!! warning "No NULL"
+    Unless otherwise specified, no function accepting `K` objects should be passed `NULL`.
 
-: Behavior depends on value of `handle`.
 
-    -    `handle>0`, sends sync message to handle, to evaluate a string or function with parameters, and then blocks until a message of any type is received on handle. It can return `NULL` (indicating a network error) or a pointer to a k object. `k(handle,(S)NULL)` does not send a message, and blocks until a message of any type is received on handle.
+### By name 
+
+#### `b9` – serialize
+
+Signature: `K b9(I mode,K x)`
+
+Uses q IPC and  `mode` capabilities level, where `mode` is:
+
+value | effect
+:----:|------
+-1    | use within shared libraries from V3.0 onwards
+0     | unenumerate, block serialization of timespan and timestamp (for working with versions prior to V2.6)
+1     | retain enumerations, allow serialization of timespan and timestamp: Useful for passing data between threads
+2     | unenumerate, allow serialization of timespan and timestamp
+3     | unenumerate, compress, allow serialization of timespan and timestamp
+
+
+On success, returns a byte-array K object with serialized representation. On error, `NULL` is returned; use `ee` to retrieve error string.
+
+
+#### `d9` – deserialize
+
+Signature: `K d9(K x)`
+
+The byte array `x` is not modified. 
+
+On success, returns deserialized K object. On error, `NULL` is returned; use `ee` to retrieve the error string.
+
+
+#### `dj` – date to number
+
+Signature: `I dj(I date)`
+
+Converts a q date to a `yyyymmdd` integer.
+
+
+#### `dl` – dynamic link
+
+Signature: `K dl(V* f, I n)`
+
+Function takes a C function that would take _n_ K objects as arguments and returns a K object. Shared library only.
+
+Returns a q function. 
+
+
+#### `dot` – apply
+
+Signature: `K dot(K x, K y)`
+
+The same as the q function [_apply_](/ref/unclassified/#apply), i.e. `.[x;y]`. Shared library only.
+
+On success, returns a K object with the result of the `.` application. On error, `NULL` is returned<!-- , and `es` will contain error string -->. See `ee` for result-handling example.
+
+
+#### `ee` – error string
+
+Signature: `K ee(K)`
+
+Capture (and reset) error string into usual error object, e.g.
+```c
+K x=ee(dot(a,b));if(xt==-128)printf("error %s\n",x->s);
+```
+
+Since V3.5 2017.02.16, V3.4 2017.03.13
+
+
+#### `ja` – join value
+
+Signature: `K ja(K* x,V*)` 
+
+Appends a raw value to a list. 
+`x` points to a K object, which may be reallocated during the function.
+The contents of `x`, i.e. `*x`, will be updated in case of reallocation. 
+
+Returns a pointer to the (potentially reallocated) K object.
+
+
+#### `jk` – join K object
+
+Signature: `K jk(K* x,K y)` 
+
+Appends another K object to a mixed list. Takes ownership of `y`. 
+
+Returns the value of the contents of `x`.
+
+
+#### `js` – join string
+
+Signature: `K js(K* x,S s)` 
+
+Appends an interned string `s` to a symbol list. 
+
+Returns the value of the contents of `x`.
+
+
+#### `jv` – join K lists
+
+Signature: `K jv(K* x,K y)`
+
+Append a K list `y` to K list `x`. 
+
+Returns the value of the contents of `x`.
+
+
+#### `k` – evaluate
+
+Signature: `K k(I handle,const S s,...)__attribute__((sentinel))`
+
+Evaluates `s`. 
+Optional parameters are either local (shared library only) or remote. 
+The last argument must be `NULL`.
+
+Behavior depends on the value of `handle`.
+
+-    `handle>0`, sends sync message to handle, to evaluate a string or function with parameters, and then blocks until a message of any type is received on handle. It can return `NULL` (indicating a network error) or a pointer to a K object. `k(handle,(S)NULL)` does not send a message, and blocks until a message of any type is received on handle.
     If that object has type -128, it indicates an error, accessible as a null-terminated string in `r->s`. When you have finished using this object, it should be freed by calling `r0(r)`.
 
-    -    `handle<0`, this is for async messaging, and the return value can be either 0 (network error) or non-zero (success). This result should _not_ be passed to `r0`.
+-    `handle<0`, this is for async messaging, and the return value can be either 0 (network error) or non-zero (success). This result should _not_ be passed to `r0`.
 
-    -   `handle=0`, this function is equivalent of `dot`.
+<!-- -   `handle=0`, this function is equivalent of [_apply_](/ref/unclassified/#apply) (`.`). -->
+-   `handle==0` is valid only for a plugin, and executes against the kdb+ process in which it is loaded. 
 
-: See more on [message types](java-client-for-q.md#message-types). Note that `k` call will block until messages is sent/received (`handle!=0`) or evaluated (`handle=0`).
-
-`ka`
-: `K ka(I t)` 
-: Create an atom of type `t`
-
-`kb`
-: `K kb(I)` 
-: Create a boolean
-
-`kc`
-: `K kc(I)`
-: Create a char
-: Null: `kc(" ")`
-
-`kd`
-: `K kd(I)` 
-: Create a date
-: Null: `kd(ni)`
-
-`ke`
-: `K ke(F)`
-: Create a real
-: Null: `ke(nf)`
-
-`kf`
-: `K kf(F)` 
-: Create a float
-: Null: `kf(nf)`
-
-`kg`
-: `K kg(I)` 
-: Create a byte
-
-`kh`
-: `K kh(I)`
-: Create a short
-: Null: `kh(nh)`
-
-`ki`
-: `K ki(I)` 
-: Create an int
-: Null: `ki(ni)`
-
-`kj`
-: `K kj(J)`
-: Create a long.
-: Null: `kj(nj)`
-
-`knk`
-: `K knk(I n,...)` 
-: Create a mixed list. 
-: Takes ownership of arguments.
-
-`knt`
-: `K knt(J n,K x)`
-: Makes table `x` keyed by `n` first columns.
-: Takes ownership of arguments. `x` is untouched unless the number of columns exceeds `n`.
-
-`kp`
-: `K kp(S x)` 
-: Create a char array from string
-
-`kpn`
-: `K kpn(S x, J n)`
-: Create a char array from string of length `n`
-
-`krr`
-: `K krr(const S)`
-: To signal an error from your C code use the function `krr(S);`. ) 
-: It is the user’s responsibility to ensure the string is valid for the expected lifetime of the error.
-
-`ks`
-: `K ks(S)`
-:Create a symbol
-: Null: `ks("")`
-
-`kt`
-: `K kt(I)`
-: Create a time
-: Null: `ki(ni)`
-
-`ktd`
-: `K ktd(K)` 
-: A simple table from a keyed table
-
-`ktj`
-: `K ktj(I t,J j)`
-: Create a timestamp or a timespan object, where `t` is either `-KP` or `-KN`.
-
-    type      | object          | null
-    ----------|-----------------|--------------
-    timestamp | `K ktj(-KP,J);` | `ktj(-KP,nj)`
-    timespan  | `K ktj(-KN,J);` | `ktj(-KN,nj)`
-
-`ktn`
-: `K ktn(I type,J length)` 
-: Create a simple list where `length` is a non-negative, non-null integer.
-
-`ku`
-: `K ku(U)`
-: Create a guid
-: Null: `U g={0};ku(g);`
-
-`kz`
-: `K kz(F)`
-: Create a datetime
-: Null: `kz(nf)`
-
-`m9`
-: `V m9(V)`
-: Free up memory allocated for the thread’s pool. Call `m9()` when the thread is about to complete, freeing up memory allocated for that thread’s pool.
-
-`okx`
-: `I okx(K x)` 
-: Verify that byte vector `x` is a valid q IPC byte stream. Decompressed data only. `x` is untouched.
-: Returns `0` if not valid.
-
-`orr`
-: `K orr(const S)`
-: A utility function  can be used to signal system errors. 
-: It is similar to `krr`, but appends a system error message to the user-provided string before passing it to `krr`. 
-
-`r0`
-: `V r0(K)`
-: Decrement the object‘s reference count.
-
-`r1`
-: `K r1(K)`
-: Increment the object‘s reference count.
-
-`sd0`
-: `V sd0(I d)`
-: Removes the callback on `d` and calls `kclose`. Shared library only.
-
-`sd0x`
-: `V sd0x(I d,I f)`
-: Removes the callback on `d` and calls `kclose` on `d` if `f` is 1. Shared library only.
-: Since V3.0 2013.04.04. 
-
-`sd1`
-: `K sd1(I d,f);`
-: Puts the function `K f(I d){…}` on the q main event loop given a socket `d`. : If `d` is negative, the socket is switched to non-blocking. 
-: The function `f` should return `NULL` or a pointer to a K object, and its reference count will be decremented.
-: Shared library only.
-: On success, returns int K object containing `d`. On error, `NULL` is returned, `d` is closed and `es` will contain error string.
-
-`setm`
-: `I setm(I m)`
-: Set whether interning symbols uses a lock. `m` is either 0 or 1.
-: Returns previously set value.
-
-`sn`
-: `S sn(S,J n)`
-: Intern n chars from a string. 
-: Returns an interned string and should be used to store string in symbol vector.
-
-`ss`
-: `S ss(S)`
-: Intern a null terminated string. 
-: Returns an interned string and should be used to store string in symbol vector.
-
-`xD`
-: `K xD(K,K)`
-: Create a dictionary  
-: Takes ownership of arguments. Destroys arguments on failure.
-
-`xT`
-: `K xT(K)` 
-: Create a table from a dictionary
-: Takes ownership of arguments. Destroys arguments on failure.
-
-`ymd`
-: `I ymd(year,month,day)`
-: Encode a year/month/day as q date, e.g. `0==ymd(2000,1,1)`
+See more on [message types](java-client-for-q.md#message-types). Note that a `k` call will block until a message is sent/received (`handle!=0`) or evaluated (`handle=0`).
 
 
-### Standalone app only
+#### `ka` – create atom
 
-`khpun`
-: `I khpun(const S h,I p,const S u,I n)`
-: Establish a connection to host `h` on port `p` providing credentials ("username:password" format) `u` with timeout `n`.
-: On success, returns positive file descriptor for established connection. On error, 0 or a negative value is returned.
+Signature: `K ka(I t)`
+
+Creates an atom of type `t`.
+
+
+#### `kb` – create boolean
+
+Signature: `K kb(I)`
+
+
+
+#### `kc` – create char
+
+Signature: `K kc(I)`
+
+Null: `kc(" ")`
+
+
+#### `kclose` – close connection
+
+Signature: `V kclose(I)`
+
+With the release of `c.o` with V2.6, `c.o` now tracks the connection type (pre V2.6, or V2.6+). Hence, to close the connection, you must call `kclose` (instead of `close` or `closeSocket`): this will clean up the connection tracking and close the socket.
+
+
+#### `kd` – create date
+
+Signature: `K kd(I)`
+
+Null: `kd(ni)`
+
+
+#### `ke` – create real
+
+Signature: `K ke(F)`
+
+Null: `ke(nf)`
+
+
+#### `kf` – create float
+
+Signature: `K kf(F)`
+
+Null: `kf(nf)`
+
+
+#### `kg` – create byte
+
+Signature: `K kg(I)`
+
+
+#### `kh` – create short
+
+Signature: `K kh(I)`
+
+Null: `kh(nh)`
+
+
+#### `khp` – connect anonymously
+
+Signature: `I khp(const S h,I p)`
+
+<i class="fa fa-hand-o-right"></i> `khpu(h,p,"")`
+
+
+#### `khpu` – connect, no timeout
+
+Signature: `I khpu(const S h,I p,const S u)`
+
+<i class="fa fa-hand-o-right"></i> `khpun(h,p,u,0)`
+
+
+#### `khpun` – connect
+
+Signature: `I khpun(const S h,I p,const S u,I n)`
+
+Establish a connection to host `h` on port `p` providing credentials ("username:password" format) `u` with timeout `n`.
+
+On success, returns positive file descriptor for established connection. On error, 0 or a negative value is returned.
 
     code | error
     -----|-------
@@ -411,15 +398,248 @@ insufficient to accommodate the new data, the list is reallocated with the conte
      -1  | Connection error
      -2  | Time out error 
 
-`khpu`
-: `I khpu(const S h,I p,const S u)`
-: <i class="fa fa-hand-o-right"></i> `khpun(h,p,u,0)`.
 
-`khp`
-: `I khp(const S h,I p)`
-: <i class="fa fa-hand-o-right"></i> `khpu(h,p,"")`.
+#### `ki` – create int
 
-`kclose`
-: `V kclose(I)`
-: Note that with the release of `c.o` with V2.6, `c.o` now tracks the connection type (pre V2.6, or V2.6+). Hence, to close the connection, you must call `kclose` (instead of `close` or `closeSocket`) – this will clean up the connection tracking and close the socket.
+Signature: `K ki(I)`
+
+Null: `ki(ni)`
+
+
+#### `kj` – create long
+
+Signature: `K kj(J)`
+
+Null: `kj(nj)`
+
+
+#### `knk` – create list
+
+Signature: `K knk(I n,...)`
+
+Create a mixed list.
+
+Takes ownership of arguments.
+
+
+#### `knt` – create keyed table
+
+Signature: `K knt(J n,K x)`
+
+Create a table keyed by `n` first columns if number of columns exceeds `n`. Takes ownership of arguments.
+
+
+#### `kp` – create string
+
+Signature: `K kp(S x)`
+
+Create a char array from a string.
+
+
+#### `kpn` – create fixed string 
+
+Signature: `K kpn(S x, J n)`
+
+Create a char array from a string of length `n`.
+
+
+#### `krr` – signal C error
+
+Signature: `K krr(const S)`
+
+Signal an error from your C code.
+
+It is the user’s responsibility to ensure the string is valid for the expected lifetime of the error.
+
+
+#### `ks` – create symbol
+
+Signature: `K ks(S)`
+
+Null: `ks("")`
+
+
+#### `kt` – create time
+
+Signature: `K kt(I)`
+
+Create a time from a number of milliseconds since midnight.
+
+Null: `ki(ni)`
+
+
+#### `ktd` – create simple table
+
+Signature: `K ktd(K)`
+
+Create a simple table from a keyed table.
+
+
+#### `ktj` – create timestamp
+
+Signature: `K ktj(-KP,x);`
+
+Create a timestamp from a number of nanos since 2000.01.01.
+
+Null: `ktj(-KP,nj)`
+
+
+#### `ktj` – create timespan
+
+Signature: `K ktj(-KN,x);`
+
+Create a timespan from a number of nanos since the beginning of the interval: midnight in the case of `.z.n`.
+
+Null: `ktj(-KN,nj)`
+
+
+#### `ktn` – create vector
+
+Signature: `K ktn(I type,J length)`
+
+
+#### `ku` – create guid
+
+Signature: `K ku(U)`
+
+Null: `U g={0};ku(g);`
+
+
+#### `kz` – create datetime
+
+Signature: `K kz(F)`
+
+Create a datetime from the number of days since 2000.01.01. 
+The fractional part is the time.
+
+Null: `kz(nf)`
+
+
+#### `m9` – release memory
+
+Signature: `V m9(V)`
+
+Release the memory allocated for the thread’s pool. 
+
+Call `m9()` when the thread is about to complete, releasing the memory allocated for that thread’s pool.
+
+
+#### `okx` – verify IPC message
+
+Signature: `I okx(K x)` 
+
+Verify that the byte vector `x` is a valid IPC message. 
+
+Decompressed data only. `x` is not modified.
+
+Returns `0` if not valid.
+
+
+#### `orr` – signal system error
+
+Signature: `K orr(const S)`
+
+Similar to `krr`, this appends a system-error message to string `S` before passing it to `krr`. 
+
+
+#### `r0` – decrement refcount
+
+Signature: `V r0(K)`
+
+Decrement an object‘s reference count.
+
+If `x->r` is 0, `x` is unusable after the `r0(x)` call, and the memory pointed to by it may have been freed.
+
+!!! tip "Start from nothing"
+    Reference counting starts (ends?) with 0, not 1.
+
+
+#### `r1` – increment refcount
+
+Signature: `K r1(K)`
+
+Increment an object‘s reference count.
+
+
+#### `sd0` – remove callback
+
+Signature: `V sd0(I d)`
+
+Remove the callback on `d` and call `kclose`. 
+
+Shared library only.
+
+
+#### `sd0x` – remove callback conditional
+
+Signature: `V sd0x(I d,I f)`
+
+Remove the callback on `d` and call `kclose` on `d` if `f` is 1. 
+
+Shared library only. Since V3.0 2013.04.04. 
+
+
+#### `sd1` – set function on loop
+
+Signature: `K sd1(I d,f);`
+
+Put the function `K f(I d){…}` on the q main event loop given a socket `d`. 
+
+If `d` is negative, the socket is switched to non-blocking. 
+
+The function `f` should return `NULL` or a pointer to a K object, and its reference count will be decremented.
+(It is the return value of `f` that will be `r0`’d – and only if not null.)
+
+Shared library only.
+
+On success, returns int K object containing `d`. On error, `NULL` is returned, `d` is closed and `es` will contain error string.
+
+
+#### `setm` – toggle symbol lock
+
+Signature: `I setm(I m)`
+
+Set whether interning symbols uses a lock: `m` is either 0 or 1.
+
+Returns the previously set value.
+
+
+#### `sn` – intern chars
+
+Signature: `S sn(S,J n)`
+
+Intern `n` chars from a string. 
+
+Returns an interned string and should be used to store the string in a symbol vector.
+
+
+#### `ss` – intern string
+
+Signature: `S ss(S)`
+
+Intern a null-terminated string. 
+
+Returns an interned string and should be used to store the string in a symbol vector.
+
+
+#### `xD` – create dictionary
+
+Signature: `K xD(K,K)`
+
+Create a dictionary from two K objects. 
+
+Takes ownership of the arguments; destroys the arguments on failure.
+
+
+#### `xT` – table from dictionary
+
+Signature: `K xT(K)`
+
+
+#### `ymd` – numbers to date
+
+Signature: `I ymd(year,month,day)`
+
+Encode a year/month/day as a q date, e.g. `0==ymd(2000,1,1)`
+
 
