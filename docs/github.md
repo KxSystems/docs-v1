@@ -604,13 +604,6 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/yang-guo/conn">conn</a></td>
-<td>Hooks into .z.pc and .z.po for better connection handling. <span class="author"><a href="https://github.com/yang-guo?tab=repositories">
-						(Yang Guo)
-					</a></span>
-</td>
-</tr>
-<tr>
 <td class="nowrap"><a href="https://github.com/tjcelaya/jwt.q">jwt.q</a></td>
 <td>[JSON Web Token](https://jwt.io/) signing and parsing for q. <span class="author"><a href="https://github.com/tjcelaya?tab=repositories">
 						(Tomas Celaya)
@@ -691,13 +684,6 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/nugend/qutil">qutil</a></td>
 <td>Provides several different common utility functions. These currently include: an option-parsing facility as an alternative to .Q.opt; and a file-loading facility based on a pathlist and supporting version numbers. <span class="author"><a href="https://github.com/nugend?tab=repositories">
 						(Daniel Nugent)
-					</a></span>
-</td>
-</tr>
-<tr>
-<td class="nowrap"><a href="https://github.com/yang-guo/timer">timer</a></td>
-<td>Overwrites .z.ts to become a timer-based callback function. <span class="author"><a href="https://github.com/yang-guo?tab=repositories">
-						(Yang Guo)
 					</a></span>
 </td>
 </tr>
