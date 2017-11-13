@@ -1,3 +1,17 @@
+## <i class="fa fa-code"></i> Fusion interfaces
+
+2017.11.06
+
+The [Fusion interfaces](/interfaces/fusion) are libraries for connecting kdb+ to other technologies. The libraries are
+
+-   written for non-kdb+ programmers to use
+-   well documented, with understandable and useful examples
+-   maintained and supported by Kx on a best-efforts basis, at no cost to customers
+-   released under the [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0)
+-   free for all use cases, including 64-bit and commercial use
+
+
+
 ## <i class="fa fa-code"></i> Syntax highlighting
 
 <small>2017.08.09</small>

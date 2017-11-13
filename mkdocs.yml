@@ -242,3 +242,10 @@ pages:
     - Kx technology: about/kxtechnology.md
     - Site news: about/site-news.md
     - This site: about/thissite.md
+    - Style guide:
+      - Introduction: about/sg/index.md
+      - Characters: about/sg/characters.md
+      - Miscellaneous: about/sg/miscellaneous.md
+      - Style: about/sg/style.md
+      - Typography: about/sg/typography.md
+      - Terminology: about/sg/terminology.md
