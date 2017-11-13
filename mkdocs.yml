@@ -238,6 +238,8 @@ pages:
     - This site: about/thissite.md
     - Style guide:
       - Introduction: about/sg/index.md
-      - Case: about/sg/case.md
+      - Characters: about/sg/characters.md
+      - Miscellaneous: about/sg/miscellaneous.md
       - Style: about/sg/style.md
-      - Vocabulary: about/sg/vocabulary.md
+      - Typography: about/sg/typography.md
+      - Terminology: about/sg/terminology.md

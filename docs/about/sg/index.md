@@ -6,7 +6,7 @@ Here are typographical, spelling and lexical conventions for the content of this
 
 ## Scope
 
-It applies to 
+They apply to 
 
 -   Markdown source files for code.kx.com, hosted at <i class="fa fa-github"></i> [KxSystems/docs](https://github.com/kxsystems/docs)
 -   Technical Whitepapers prepared as PDFs for code.kx.com 
@@ -16,6 +16,7 @@ It applies to
 The object of these conventions is to remove ambiguity. In practice, they rarely do, because in most instances of potential ambiguity the author’s intent can be deduced by an intelligent reader. 
 
 The conventions are nonethless valuable, because occasionally they have important work to do. 
+For example:
 
 > The adverb _over_ (`/`) is to be preferred over the operator `over`.
 
@@ -28,7 +29,8 @@ The conventions are nonethless valuable, because occasionally they have importan
 Here are the most important – or the most commonly neglected – rules.
 
 -   Use **American spelling**, e.g. _customize_ not _customise_
--   Use **title case** for headings with minimal punctuation and no final periods, e.g. _Coding conventions for interfaces_, not _Coding Conventions for Interfaces._
+-   Use the **revised terminology** to describe the grammar of q
+-   Use **sentence case** for headings, with minimal punctuation and no final periods, e.g. _Coding conventions for interfaces_, not _Coding Conventions for Interfaces._
 -   Use **italic type** for emphasis and **bold type** for keywords to assist a visual search. 
 -   Use **spaced endashes** for parenthetical phrases – such as this – not spaced hyphens and not emdashes, spaced or unspaced. 
 -   Use **numbered lists** (or headings) only when there are multiple references to the numbers; otherwise use bulleted lists. 

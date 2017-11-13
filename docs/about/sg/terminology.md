@@ -1,7 +1,11 @@
-# Vocabulary and spelling
+# Terminology
 
 
-In 2017 the terminology used to describe Kx technology was reviewed and revised. 
+!!! info "Terminology review 2017"
+    In 2017 the terminology used to describe Kx technology was reviewed and revised to 
+
+    -   use common terms for common concepts
+    -   distinguish adverbs more clearly
 
 The following terms are no longer used to describe q:
 
@@ -10,7 +14,7 @@ The following terms are no longer used to describe q:
 -   nilad, niladic
 -   verb
 
-Q defines twelve adverbs, denoted by six glyphs. 
+Q defines twelve adverbs, denoted by six characters and character pairs. 
 
 
 ## Q and kdb+
@@ -43,7 +47,7 @@ q)3 sum 1 2 3
 The term _verb_ is no longer used. 
 
 
-### Adverbs
+### Twelve adverbs
 
 > An _adverb_ is a primitive higher-order function that is applied postfix and returns a _derived function_, also known as a _derivative_.
 ```
@@ -51,12 +55,12 @@ q)total:+/
 q)total[1 2 3]
 6
 ```
-Adverbs are distinguished from the overloaded glyphs that denote them. For example, the glyph `'` is overloaded with the adverbs _case_, _compose_, and _each-both_. 
+Adverbs are distinguished from the overloaded characters and character pairs that denote them. For example, the character `'` is overloaded with the adverbs _case_, _compose_, and _each-both_. 
 
-Between them, six glyphs denote twelve [adverbs](/ref/adverbs). 
+Between them, six characters and character pairs denote twelve [adverbs](/ref/adverbs). 
 
 !!! note "Refer to an adverb by its name"
-    Refer to an adverb by its name, not the (overloaded) symbol that denotes it. 
+    Refer to an adverb by its name, not the (overloaded) character that denotes it. 
 
     For example, in `2 +//5 5#til 25` the adverb denoted by the first `/` is _over_ and the adverb denoted by the second `/` is _converge-repeat_.
 
