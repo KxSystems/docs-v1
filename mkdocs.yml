@@ -103,6 +103,7 @@ pages:
       - Files (words): ref/filewords.md
       - Functional SQL: ref/funsql.md
       - Joins: ref/joins.md
+      - JSON: ref/dotj.md
       - Lists: ref/lists.md
       - Logic: ref/logic.md
       - Markup: ref/doth.md

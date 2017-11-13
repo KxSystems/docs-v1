@@ -45,6 +45,7 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 
 !!! info "New on code.kx.com"
+    - [JSON](/ref/dotj)
     - [C API reference](/interfaces/capiref)
     - [Fusion interfaces](/interfaces/fusion)
     - Cookbook: [Linear programming](/cookbook/lp)

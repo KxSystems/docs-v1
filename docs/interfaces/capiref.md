@@ -133,23 +133,23 @@ wf        | -log(0.0) in Windows or (1/0.0) on Linux | floating point infinity
 
 ### Constructors
 
-function      | constructs | function      | constructs  | function      | constructs 
---------------|------------|---------------|-------------|---------------|------------
-[`ka`](#ka)   | atom       | [`ki`](#ki)   | int         | [`ktd`](#ktd) | simple table
-[`kb`](#kb)   | boolean    | [`kj`](#kj)   | long        | [`ktj`](#ktj) | timestamp  
-[`kc`](#kc)   | char       | [`knk`](#knk) | list        | [`ktj`](#ktj) | timespan   
-[`kd`](#kd)   | date       | [`knt`](#knt) | keyed table | [`ktn`](#ktn) | vector 
-[`ke`](#ke)   | real       | [`kp`](#kp)   | char array  | [`ku`](#ku)   | guid
-[`kf`](#kf)   | float      | [`kpn`](#kpn) | char array  | [`kz`](#kz)   | datetime
-[`kg`](#kg)   | byte       | [`ks`](#ks)   | symbol      | [`xD`](#xD)   | dictionary 
-[`kh`](#kh)   | short      | [`kt`](#kt)   | time        | [`xT`](#xT)   | table 
+function                   | constructs | function                          | constructs  | function                          | constructs 
+---------------------------|------------|-----------------------------------|-------------|-----------------------------------|-------------
+[`ka`](#ka-create-atom)    | atom       | [`ki`](#ki-create-int)            | int         | [`ktd`](#ktd-create-simple-table)        | simple table
+[`kb`](#kb-create-boolean) | boolean    | [`kj`](#kj-create-long)           | long        | [`ktj`](#ktj-create-timestamp)    | timestamp  
+[`kc`](#kc-create-char)    | char       | [`knk`](#knk-create-list)         | list        | [`ktj`](#ktj-create-timespan)      | timespan   
+[`kd`](#kd-create-date)    | date       | [`knt`](#knt-create-keyed-table)  | keyed table | [`ktn`](#ktn-create-vector)       | vector 
+[`ke`](#ke-create-real)    | real       | [`kp`](#kp-create-string)         | char array  | [`ku`](#ku-create-guid)           | guid
+[`kf`](#kf-create-float)   | float      | [`kpn`](#kpn-create-fixed-string) | char array  | [`kz`](#kz-create-datetime)       | datetime
+[`kg`](#kg-create-byte)    | byte       | [`ks`](#ks-create-symbol)         | symbol      | [`xD`](#xd-create-dictionary)     | dictionary 
+[`kh`](#kh-create-short)   | short      | [`kt`](#kt-create-time)           | time        | [`xT`](#xt-table-from-dictionary) | table 
 
 ### Joins
 
-function    | joins             | function    | joins
-------------|-------------------|-------------|----------------------------------
-[`ja`](#ja) | raw value to list | [`js`](#js) | interned string to symbol vector 
-[`jk`](#jk) | K object to list  | [`jv`](#jv) | K list to first of same type 
+function                  | joins             | function                 | joins
+--------------------------|-------------------|--------------------------|---------------------------------
+[`ja`](#ja-join-value)    | raw value to list | [`js`](#js-join-string)  | interned string to symbol vector 
+[`jk`](#jk-join-k-object) | K object to list  | [`jv`](#jv-join-k-lists) | K list to first of same type 
 
 When appending to a list, if the capacity of the list is 
 insufficient to accommodate the new data, the list is reallocated with the contents of `x` updated. The new data is always appended.
@@ -157,28 +157,28 @@ insufficient to accommodate the new data, the list is reallocated with the conte
 
 ### Other functions
 
-function      | action              | function        | action
---------------|---------------------|-----------------|-----------------------------------------
-[`b9`](#b9)   | serialize           | [`orr`](#orr)   | signal error        
-[`d9`](#d9)   | deserialize         | [`r0`](#r0)     | decrement ref count 
-[`dj`](#dj)   | date to integer     | [`r1`](#r1)     | increment ref count 
-[`dl`](#dl)   | dynamic link        | [`sd0`](#sd0)   | remove callback
-[`dot`](#dot) | apply               | [`sd0x`](#sd0x) | remove callback
-[`ee`](#ee)   | capture error       | [`sd1`](#sd1)   | function on event loop
-[`k`](#k)     | evaluate            | [`setm`](#setm) | set whether interning symbols uses a lock
-[`krr`](#krr) | signal error        | [`sn`](#sn)     | intern chars from string
-[`m9`](#m9)   | release memory      | [`ss`](#ss)     | intern null-terminated string
-[`okx`](#okx) | verify byte stream  | [`ymd`](#ymd)   | encode q date
+function                         | action              | function                                    | action
+---------------------------------|---------------------|---------------------------------------------|-------------
+[`b9`](#b9-serialize)            | serialize           | [`orr`](#orr-signal-system-error)           | signal system error        
+[`d9`](#d9-deserialize)          | deserialize         | [`r0`](#r0-decrement-refcount)              | decrement ref count 
+[`dj`](#dj-date-to-number)       | date to integer     | [`r1`](#r1-increment-refcount)              | increment ref count 
+[`dl`](#dl-dynamic-link)         | dynamic link        | [`sd0`](#sd0-remove-callback)               | remove callback
+[`dot`](#dot-apply)              | apply               | [`sd0x`](#sd0x-remove-callback-conditional) | remove callback
+[`ee`](#ee-error-string)         | capture error       | [`sd1`](#sd1-set-function-on-loop)          | function on event loop
+[`k`](#k-evaluate)               | evaluate            | [`setm`](#setm-toggle-symbol-lock)          | toggle symbol lock
+[`krr`](#krr-signal-c-error)     | signal C error      | [`sn`](#sn-intern-chars)                    | intern chars from string
+[`m9`](#m9-release-memory)       | release memory      | [`ss`](#ss-intern-string)                   | intern null-terminated string
+[`okx`](#okx-verify-ipc-message) | verify IPC message  | [`ymd`](#ymd-numbers-to-date)               | encode q date
 
 
 ### Standalone applications
 
-function            | action
---------------------|-----------------------------------
-[`khpun`](#khpun)   | connect to host
-[`khpu`](#khpu)     | connect to host without timeout
-[`khp`](#khp)       | connect to host without credentials
-[`kclose`](#kclose) | disconnect from host
+function                           | action
+-----------------------------------|-----------------------------------
+[`kclose`](#kclose-disconnect)     | disconnect from host
+[`khp`](#khp-connect-anonymously)  | connect to host without credentials
+[`khpu`](#khpu-connect-no-timeout) | connect to host without timeout
+[`khpun`](#khpun-connect)          | connect to host
 
 
 !!! warning "No NULL"
@@ -330,7 +330,7 @@ Signature: `K kc(I)`
 Null: `kc(" ")`
 
 
-#### `kclose` – close connection
+#### `kclose` – disconnect
 
 Signature: `V kclose(I)`
 
