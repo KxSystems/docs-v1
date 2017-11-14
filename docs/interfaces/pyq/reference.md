@@ -329,8 +329,8 @@ K class | q namespace | q   | function
 <code class="nowrap">K.hsym()</code> | <code class="nowrap">q.hsym()</code> | [<code class="nowrap">hsym</code>](/ref/filewords/#hsym) | convert symbol to filename or IP address
 <code class="nowrap">K.iasc()</code> | <code class="nowrap">q.iasc()</code> | [<code class="nowrap">iasc</code>](/ref/sort/#iasc) | indices of ascending sort
 <code class="nowrap">K.idesc()</code> | <code class="nowrap">q.idesc()</code> | [<code class="nowrap">idesc</code>](/ref/sort/#idesc) | indices of descending sort
-<code class="nowrap">K.ij()</code> | <code class="nowrap">q.ij()</code> | [<code class="nowrap">ij</code>](/ref/joins/#ij-inner-join) | inner join
-<code class="nowrap">K.ijf()</code> | <code class="nowrap">q.ijf()</code> | [<code class="nowrap">ijf</code>](/ref/joins/#ij-inner-join) | The ijf function.
+<code class="nowrap">K.ij()</code> | <code class="nowrap">q.ij()</code> | [<code class="nowrap">ij</code>](/ref/joins/#ij-ijf-inner-join) | inner join
+<code class="nowrap">K.ijf()</code> | <code class="nowrap">q.ijf()</code> | [<code class="nowrap">ijf</code>](/ref/joins/#ij-ijf-inner-join) | The ijf function.
 <code class="nowrap">K.in_()</code> | <code class="nowrap">q.in_()</code> | [<code class="nowrap">in</code>](/ref/search/#in) | membership
 <code class="nowrap">K.insert()</code> | <code class="nowrap">q.insert()</code> | [<code class="nowrap">insert</code>](/ref/qsql/#insert) | append records to a table
 <code class="nowrap">K.inter()</code> | <code class="nowrap">q.inter()</code> | [<code class="nowrap">inter</code>](/ref/select/#inter) | items common to both arguments
@@ -413,8 +413,8 @@ K class | q namespace | q   | function
 <code class="nowrap">K.til()</code> | <code class="nowrap">q.til()</code> | [<code class="nowrap">til</code>](/ref/arith-integer/#til) | integers up to x
 <code class="nowrap">K.trim()</code> | <code class="nowrap">q.trim()</code> | [<code class="nowrap">trim</code>](/ref/strings/#trim) | remove leading and trailing spaces
 <code class="nowrap">K.type()</code> | <code class="nowrap">q.type()</code> | [<code class="nowrap">type</code>](/ref/metadata/#type) | data type
-<code class="nowrap">K.uj()</code> | <code class="nowrap">q.uj()</code> | [<code class="nowrap">uj</code>](/ref/joins/#uj-union-join) | union join
-<code class="nowrap">K.ujf()</code> | <code class="nowrap">q.ujf()</code> | [<code class="nowrap">ujf</code>](/ref/joins/#uj-union-join) | The ujf function.
+<code class="nowrap">K.uj()</code> | <code class="nowrap">q.uj()</code> | [<code class="nowrap">uj</code>](/ref/joins/#uj-ujf-union-join) | union join
+<code class="nowrap">K.ujf()</code> | <code class="nowrap">q.ujf()</code> | [<code class="nowrap">ujf</code>](/ref/joins/#uj-ujf-union-join) | The ujf function.
 <code class="nowrap">K.ungroup()</code> | <code class="nowrap">q.ungroup()</code> | [<code class="nowrap">ungroup</code>](/ref/dictsandtables/#ungroup) | flattened table
 <code class="nowrap">K.union()</code> | <code class="nowrap">q.union()</code> | [<code class="nowrap">union</code>](/ref/select/#union) | distinct items of combination of two lists
 <code class="nowrap">K.upper()</code> | <code class="nowrap">q.upper()</code> | [<code class="nowrap">upper</code>](/ref/strings/#upper) | upper-case
@@ -502,8 +502,8 @@ K class | q namespace | q   | function
 <code class="nowrap">q.hsym()</code> | [<code class="nowrap">hsym</code>](/ref/filewords#hsym) | convert symbol to filename or IP address
 <code class="nowrap">q.iasc()</code> | [<code class="nowrap">iasc</code>](/ref/sort#iasc) | indices of ascending sort
 <code class="nowrap">q.idesc()</code> | [<code class="nowrap">idesc</code>](/ref/sort#idesc) | indices of descending sort
-<code class="nowrap">q.ij()</code> | [<code class="nowrap">ij</code>](/ref/joins#ij-inner-join) | inner join
-<code class="nowrap">q.ijf()</code> | [<code class="nowrap">ijf</code>](/ref/joins#ij-inner-join) | The ijf function.
+<code class="nowrap">q.ij()</code> | [<code class="nowrap">ij</code>](/ref/joins#ij-ijf-inner-join) | inner join
+<code class="nowrap">q.ijf()</code> | [<code class="nowrap">ijf</code>](/ref/joins#ij-ijf-inner-join) | The ijf function.
 <code class="nowrap">q.in_()</code> | [<code class="nowrap">in</code>](/ref/search#in) | membership
 <code class="nowrap">q.insert()</code> | [<code class="nowrap">insert</code>](/ref/qsql#insert) | append records to a table
 <code class="nowrap">q.inter()</code> | [<code class="nowrap">inter</code>](/ref/select#inter) | items common to both arguments
@@ -586,8 +586,8 @@ K class | q namespace | q   | function
 <code class="nowrap">q.til()</code> | [<code class="nowrap">til</code>](/ref/arith-integer#til) | integers up to x
 <code class="nowrap">q.trim()</code> | [<code class="nowrap">trim</code>](/ref/strings#trim) | remove leading and trailing spaces
 <code class="nowrap">q.type()</code> | [<code class="nowrap">type</code>](/ref/metadata#type) | data type
-<code class="nowrap">q.uj()</code> | [<code class="nowrap">uj</code>](/ref/joins#uj-union-join) | union join
-<code class="nowrap">q.ujf()</code> | [<code class="nowrap">ujf</code>](/ref/joins#uj-union-join) | The ujf function.
+<code class="nowrap">q.uj()</code> | [<code class="nowrap">uj</code>](/ref/joins#uj-ujf-union-join) | union join
+<code class="nowrap">q.ujf()</code> | [<code class="nowrap">ujf</code>](/ref/joins#uj-ujf-union-join) | The ujf function.
 <code class="nowrap">q.ungroup()</code> | [<code class="nowrap">ungroup</code>](/ref/dictsandtables#ungroup) | flattened table
 <code class="nowrap">q.union()</code> | [<code class="nowrap">union</code>](/ref/select#union) | distinct items of combination of two lists
 <code class="nowrap">q.upper()</code> | [<code class="nowrap">upper</code>](/ref/strings#upper) | upper-case
