@@ -11,27 +11,27 @@ Meet `q` – your portal to kdb+. Once you import `q` from `pyq`, you get access
 >>> dir(q)
 ['abs', 'acos', 'aj', 'aj0', 'all', 'and_', 'any', 'asc', 'asin', ...]
 ```
-These functions should be familiar to anyone who knows the q language and this is exactly what these functions are: q functions repackaged so that they can be called from Python. Some of the q functions are similar to Python builtins or math functions which is not surprising because q like Python is a complete general-purpose language. In the following sections we will systematically draw an analogy between q and Python functions and explain the differences between them.
+These functions should be familiar to anyone who knows the q language and this is exactly what these functions are: q functions repackaged so that they can be called from Python. Some of the q functions are similar to Python built-ins or math functions, which is not surprising because q, like Python, is a complete general-purpose language. In the following sections we will systematically draw an analogy between q and Python functions and explain the differences between them.
 
 
 ### The `til` function
 
-Since Python does not have language constructs to loop over integers, many Python tutorials introduce the `range()` function early on. In the q language, the situation is similar and the function that produces a sequence of integers is called `til`. Mnemonically, `q.til(n)` means _Count from zero ’til n_:
+Since Python does not have language constructs to loop over integers, many Python tutorials introduce the `range()` function early on. In the q language, the situation is similar and the function that produces a sequence of integers is called `til`. Mnemonically, `q.til(n)` means _count from zero until n_.
 ```python
 >>> q.til(10)
 k('0 1 2 3 4 5 6 7 8 9')
 ```
-The return value of a q function is always an instance of the class `K` which will be described in the next chapter. In the case of `q.til(n)`, the result is a `K` vector, which is similar to a Python list. In fact, you can get the Python list by simply calling the `list()` constructor on the q vector:
+The return value of a q function is always an instance of the class `K`, which will be described in the next chapter. In the case of `q.til(n)`, the result is a `K` vector, which is similar to a Python list. In fact, you can get the Python list simply by calling the `list()` constructor on the q vector.
 ```python
 >>> list(_)
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
-While useful for illustrative purposes, you should avoid converting `K` vectors to Python lists in real programs. It is often more efficient to manipulate `K` objects directly. For example, unlike `range()`, `til()` does not have optional start or step arguments. This is not necessary because you can do arithmetic on the `K` vectors to achieve a similar result:
+While useful for illustrative purposes, you should avoid converting `K` vectors to Python lists in real programs. It is often more efficient to manipulate `K` objects directly. For example, unlike `range()`, `til()` does not have optional start or step arguments. This is not necessary because you can do arithmetic on the `K` vectors to achieve a similar result.
 ```python
 >>> range(10, 20, 2) == 10 + 2 * q.til(5)
 True
 ```
-Many q functions are designed to ‘map’ themselves automatically over sequences passed as arguments. Those functions are called _atomic_ and will be covered in the next section. The `til()` function is not atomic, but it can be mapped explicitly:
+Many q functions are designed to ‘map’ themselves automatically over sequences passed as arguments. Those functions are called _atomic_ and will be covered in the next section. The `til()` function is not atomic, but it can be mapped explicitly.
 ```python
 >>> q.til.each(range(1,5)).show()
 ,0
@@ -39,7 +39,7 @@ Many q functions are designed to ‘map’ themselves automatically over sequenc
 0 1 2
 0 1 2 3
 ```
-The last example requires some explanation.  First we have used the `show()` method to provide a nice multi-line display of a list of vectors. This method is available for all `K` objects. Second, the first line in the display shows an empty list of type _long_. Note that unlike Python lists `K` vectors come in different types and `til()` returns vectors of type _long_. Finally, the second line in the display starts with `,` to emphasize that this is a vector of size 1 rather than an atom.
+The last example requires some explanation.  First we have used the `show()` method to provide a nice multi-line display of a list of vectors. This method is available for all `K` objects. Second, the first line in the display shows an empty list of type _long_. Note that, unlike Python lists, `K` vectors come in different types, and `til()` returns vectors of type _long_. Finally, the second line in the display starts with `,` to emphasize that this is a vector of length 1 rather than an atom.
 
 The `each()` adverb is similar to Python’s `map()`, but is often much faster.
 ```python
@@ -57,13 +57,13 @@ Compare
 >>> q.exp(1)
 k('2.718282')
 ```
-and
+to
 ```python
 >>> math.exp(1)
 2.718281828459045
 ```
 
-Want to see more digits? Set `q` display precision using the `system()` function:
+Want to see more digits? Set `q`’s display precision using the `system()` function:
 ```python
 >>> q.system(b"P 16")
 k('::')
@@ -169,7 +169,7 @@ q        | Python                   | Return
 
 ### Accumulation functions
 
-Given a sequence of numbers, one may want to compute not just total sum, but all the intermediate sums as well. In q, this can be achieved by applying the `sums` function to the sequence:
+Given a sequence of numbers, one may want to compute not just the sum total, but all the intermediate sums as well. In q, this can be achieved by applying the `sums` function to the sequence:
 ```python
 >>> q.sums(range(10))
 k('0 1 3 6 10 15 21 28 36 45')
@@ -240,19 +240,19 @@ k('9 7 5 3 1')
     </code></pre>
     When the`asc()` function gets a vector with the `s` attribute set, it skips sorting and immediately returns the same vector.
 
-Functions `iasc()` and `idesc()` return the indices indicating the order in which the elements of the incoming list should be taken to make them sorted:
+Functions `iasc()` and `idesc()` return the indices indicating the order in which the items of the incoming list should be arranged to be sorted.
 ```python
 >>> q.iasc(a)
 k('4 3 1 2 0')
 ```
-Sorted lists can be efficiently searched using `bin()` and `binr()` functions. As the names suggest, both use binary search to locate the position of the element that is equal to the search key, but in the case when there is more than one such element, `binr()` returns the index of the first match while `bin()` returns the index of the last.
+Sorted lists can be searched efficiently using the `bin()` and `binr()` functions. As their names suggest, both use binary search to locate the position of an item equal to the search key; but where there is more than one such element, `binr()` returns the index of the first match while `bin()` returns the index of the last.
 ```python
 >>> q.binr([10, 20, 20, 20, 30], 20)
 k('1')
 >>> q.bin([10, 20, 20, 20, 30], 20)
 k('3')
 ```
-When no matching element can be found, `binr()` (`bin()`) returns the index of the position before (after) which the key can be inserted so that the list remains sorted.
+When no item matches, `binr()` (`bin()`) returns the index of the position before (after) which the key can be inserted so that the list remains sorted.
 ```python
 >>> q.binr([10, 20, 20, 20, 30], [5, 15, 20, 25, 35])
 k('0 1 1 4 5')
@@ -268,13 +268,13 @@ In the Python standard library similar functionality is provided by the `bisect`
 ```
 Note that while `binr()` and `bisect.bisect_left()` return the same values, `bin()` and `bisect.bisect_right()` are off by 1.
 
-Q does not have a named function for searching in an unsorted list because it uses the `?` operator for that. We can easily expose this functionality in PyQ as follows:
+Q does not have a named function for searching an unsorted list because it uses the `?` operator for that. We can easily expose this functionality in PyQ as follows:
 ```python
 >>> index = q('?')
 >>> index([10, 30, 20, 40], [20, 25])
 k('2 4')
 ```
-Note that our home-brewed `index` function is similar to the `list.index()` method, but it returns the one after last index when the key is not found while `list.index()` raises an exception.
+Note that our home-brewed `index` function resembles the `list.index()` method, but it returns the one-after-last index when the key is not found, where `list.index()` raises an exception.
 ```python
 >>> list.index([10, 30, 20, 40], 20)
 2
@@ -283,7 +283,7 @@ Traceback (most recent call last):
   ...
 ValueError: 25 is not in list
 ```
-If you are not interested in the index, but only want to know whether the keys can be found in a list, you can use the `in_()` function:
+If you are not interested in the index, but want to know only whether the keys can be found in a list, you can use the `in_()` function:
 ```python
 >>> q.in_([20, 25], [10, 30, 20, 40])
 k('10b')
@@ -291,6 +291,7 @@ k('10b')
 
 !!! note "Trailing underscore"
     The `q.in_`  function has a trailing underscore because otherwise it would conflict with the Python keyword `in`.
+
 
 ### From Python to kdb+
 
@@ -313,7 +314,7 @@ For example, passing an `int` to `q` results in
 >>> q.i
 k('42')
 ```
-If you want a Python integer instead, you have to convert explicitly
+If you want a Python integer instead, you have to convert explicitly.
 ```python
 >>> int(q.i)
 42
@@ -337,7 +338,7 @@ And use it as you would any other Python function
 
 ### From kdb+ to Python
 
-In many cases your data is already stored in kdb+, and PyQ philosophy is that it should stay there. Rather than converting kdb+ objects to Python, manipulating Python objects and converting them back to kdb+, PyQ lets you work directly with kdb+ data as if it was already in Python.
+In many cases your data is already stored in kdb+, and PyQ philosophy is that it should stay there. Rather than converting kdb+ objects to Python, manipulating Python objects and converting them back to kdb+, PyQ lets you work directly with kdb+ data as if it were already in Python.
 
 For example, let us retrieve the release date from kdb+:
 ```python
@@ -359,7 +360,7 @@ Note that the result of operations are (handles to) kdb+ objects. The only excep
 >>> q.a[-1]
 3
 ```
-In addition to Python operators, one invoke q functions on kdb+ objects directly from Python using convenient attribute access / method call syntax.
+In addition to Python operators, one invokes q functions on kdb+ objects directly from Python using the convenient attribute access / method call syntax.
 
 For example
 ```python
@@ -378,7 +379,7 @@ k('3f')
 ```
 The difference being that in q, functions are applied right to left, but in PyQ left to right.
 
-Finally, if q does not provide the function that you need, you can unleash the full power of numpy or scipy on your kdb+ data.
+Finally, if q does not provide the function you need, you can unleash the full power of numpy or scipy on your kdb+ data.
 ```python
 >>> numpy.log2(q.a)
 array([ 0.       , 1.        ,  1.5849625])
@@ -387,11 +388,11 @@ Note that the result is a numpy array, but you can redirect the output back to k
 ```python
 >>> b = q.a * 0.0
 ```
-and call a numpy function on one kdb+ object redirecting the output to another:
+and call a numpy function on one kdb+ object, redirecting the output to another:
 ```python
 >>> numpy.log2(q.a, out=numpy.asarray(b))
 ```
-The result of a numpy function is now in the kdb+ object
+The result of a numpy function is now in the kdb+ object.
 ```python
 >>> b
 k('0 1 1.584963')
@@ -400,16 +401,16 @@ k('0 1 1.584963')
 
 ### Working with files
 
-Kdb+ uses the unmodified host file system to store data and therefore q has excellent support for working with files. Recall that we can send Python objects to kdb+ by simply assigning them to a `q` attribute:
+Kdb+ uses the unmodified host file system to store data and therefore q has excellent support for working with files. Recall that we can send Python objects to kdb+ simply by assigning them to a `q` attribute:
 ```python
 >>> q.data = range(10)
 ```
-This code saves 10 integers in kdb+ memory and makes a global variable `data` available to kdb+ clients, but it does not save the data in any persistent storage. To save `data` as a file "data", we can simply call the `pyq.q.save` function as follows:
+This code saves 10 integers in kdb+ memory and makes a global variable `data` available to kdb+ clients, but it does not save the data in any persistent storage. To save `data` as a file `data`, we can simply call the `pyq.q.save` function as follows:
 ```python
 >>> q.save('data')
 k(':data')
 ```
-Note that the return value of the `pyq.q.save` function is a `K` symbol that is formed by prepending `:` to the file name. Such symbols are known as _file handles_ in q. Given a file handle, the kdb+ object stored in the file can be obtained by accessing the `value` property of the file handle:
+Note that the return value of the `pyq.q.save` function is a `K` symbol that is formed by prepending `:` to the file name. Such symbols are known as _file handles_ in q. Given a file handle, the kdb+ object stored in the file can be obtained by accessing the `value` property of the file handle.
 ```python
 >>> _.value
 k('0 1 2 3 4 5 6 7 8 9')
@@ -459,11 +460,11 @@ k('7h')
 >>> scalar.type
 k('-7h')
 ```
-Basic vector types have type codes in the range 1 through 19 and their elements have the type code equal to the negative of the vector type code. For the basic vector types, one can also get a human-readable type name by accessing the `key` property:
+Basic vector types have type codes in the range 1 through 19 and their elements have the type code equal to the negative of the vector type code. For the basic vector types, one can also get a human-readable type name by accessing the `key` property.
 ```python
 >>> vector.key k('long')
 ```
-To get the same from a scalar – convert it to a vector first:
+To get the same from a scalar, convert it to a vector first.
 ```python
 >>> scalar.enlist.key
 k('long')
@@ -490,14 +491,14 @@ code | kdb+ type   | Python type
 19   | `time`      | [`datetime.time`](https://docs.python.org/3.6/library/datetime.html#datetime.time)
 
 
-(\*) Unlike other Python types mentioned in the table above, `bytes` instances get converted to a vector type:
+(\*) Unlike other Python types mentioned in the table above, `bytes` instances get converted to a vector type.
 ```python
 >>> K(b'x')
 k(',"x"')
 >>> q.type(_)
 k('10h')
 ```
-There is no scalar character type in Python, so in order to create a `K` character scalar, one will need to use a typed constructor:
+There is no scalar character type in Python, so to create a `K` character scalar, use a typed constructor:
 ```python
 >>> K.char(b'x')
 k('"x"')
@@ -507,21 +508,21 @@ Typed constructors are discussed in the next section.
 
 ### Constructors and casts
 
-As we have seen in the previous chapter, it is often not necessary to construct `K` objects explicitly because they are created automatically whenever a Python object is passed to a q function. This is done by passing the Python object to the default `K` constructor.
+As we have seen in the previous chapter, it is seldom necessary to construct `K` objects explicitly, because they are created automatically whenever a Python object is passed to a q function. This is done by passing the Python object to the default `K` constructor.
 
-For example, if you need to pass a type long atom to a q function, you can use a Python int instead, but if a different integer type is required, you will need to create it explicitly:
+For example, if you need to pass a long atom to a q function, you can use a Python int instead, but if a different integer type is required, you will need to create it explicitly.
 ```python
 >>> K.short(1)
 k('1h')
 ```
-Since an empty list does not know its type, passing `[]` to the default `K` constructor produces a generic (type `0h`) list:
+Since an empty list does not know its type, passing `[]` to the default `K` constructor produces a generic (type `0h`) list.
 ```python
 >>> K([])
 k('()')
 >>> q.type(_)
 k('0h')
 ```
-To create an empty list of a specific type, pass `[]` to one of the named constructors:
+To create an empty list of a specific type, pass `[]` to one of the named constructors.
 ```python
 >>> K.time([])
 k('`time$()')
@@ -547,7 +548,7 @@ constructor   | accepts                          | description
 `second()`    | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (seconds), [`time`](https://docs.python.org/3.6/library/datetime.html#datetime.time "in Python V3.6")          | duration or time of day in seconds
 `time()`      | [`int`](https://docs.python.org/3.6/library/functions.html#int "in Python V3.6") (milliseconds), [`time`](https://docs.python.org/3.6/library/datetime.html#datetime.time "in Python V3.6")     | duration or time of day in milliseconds
 
-The typed constructors can also be used to access infinities and missing values of the given type:
+The typed constructors can also be used to access infinities and missing values of the given type.
 ```python
 >>> K.real.na, K.real.inf
 (k('0Ne'), k('0we'))
@@ -573,13 +574,13 @@ k('3')
 
 #### The if statement and boolean operators
 
-Python has three boolean operators `or`, `and` and `not` and `K` objects can appear in boolean expressions. The result of boolean expressions depends on how the objects are tested in Python if statements.
+Python has three boolean operators `or`, `and` and `not` and `K` objects can appear in boolean expressions. The result of a boolean expression depends on how the objects are tested in Python if-statements.
 
-All `K` objects can be tested for ‘truth’. Similarly to the Python numeric types and sequences, `K` atoms of numeric types are true is they are not zero and vectors are true if they are non-empty.
+All `K` objects can be tested for ‘truth’. Similarly to the Python numeric types and sequences, `K` atoms of numeric types are true if they are not zero, and vectors are true if they are non-empty.
 
 Atoms of non-numeric types follow different rules. Symbols test true except for the empty symbol; characters and bytes tested true except for the null character/byte; guid, timestamp, and (deprecated) datetime types always test as true.
 
-Functions test as true except for the monadic pass-through function:
+Functions test as true, except for the monadic pass-through function:
 ```python
 >>> q('::') or q('+') or 1
 k('+')
@@ -623,7 +624,7 @@ Python has the four familiar arithmetic operators `+`, `-`, `*` and `/` as well 
 >>> q.til(10) % 3
 k('0 1 2 0 1 2 0 1 2 0')
 ```
-A notable exception occurs when the modulo operator is used for string formatting
+A notable exception occurs when the modulo operator is used for string formatting.
 ```python
 >>> "%.5f" % K(3.1415)
 '3.14150'
@@ -698,7 +699,7 @@ operation | result                                             | note
 
 Notes:
 
-1.   For boolean vectors, `|` and `&` are also element-wise _or_ and _and_ operations.
+1.   For boolean vectors, `|` and `&` are also item-wise _or_ and _and_ operations.
 
 2.   For Python integers, the result of `x^y` is the bitwise exclusive
 _or_. There is no similar operation in `q`, but for boolean vectors _exclusive or_ is equivalent to q `<>` (_not equal_).
@@ -719,7 +720,7 @@ k('0 1 2 3 4 5 5 5 5 5')
 
 ##### The `^` operator
 
-Unlike Python where caret (`^`) is the binary _xor_ operator, q defines it to denote the [fill](http://code.kx.com/q/ref/lists/#fill) operation that replaces null values in the right argument with the left argument. PyQ follows the q definition:
+Unlike Python, where caret (`^`) is the binary _xor_ operator, q defines it to denote the [fill](http://code.kx.com/q/ref/lists/#fill) operation that replaces null values in the right argument with the left argument. PyQ follows the q definition:
 ```python
 >>> x = q('1 0N 2') >>> 0 ^ x
 k('1 0 2')
@@ -728,7 +729,7 @@ k('1 0 2')
 
 #### The `@` operator
 
-Python 3.5 introduced the `@` operator that can be used by user types. Unlike NumPy that defines `@` as the matrix-multiplication operator, PyQ uses `@` for function application and composition:
+Python 3.5 introduced the `@` operator, which can be used by user types. Unlike NumPy that defines `@` as the matrix-multiplication operator, PyQ uses `@` for function application and composition:
 ```python
 >>> q.log @ q.exp @ 1
 k('1f')
@@ -869,11 +870,11 @@ k('1.617978')
 ```
 This is useful when you need to iterate a function that does not converge.
 
-Continuing with the Golden Ratio theme, let's define a function
+Continuing with the Golden Ratio theme, define a function
 ```python
 >>> f = q('{(last x;sum x)}')
 ```
-that given a pair of numbers returns another pair made out of the last and the sum of the numbers in the original pair. Iterating this function yields the Fibonacci sequence
+that, given a pair of numbers, returns another pair made out of the last and the sum of the numbers in the original pair. Iterating this function yields the Fibonacci sequence
 ```python
 >>> x = f.scan(10,[0, 1])
 >>> q.first.each(x)
@@ -888,12 +889,12 @@ k('0 0w 1 2 1.5 1.666667 1.6 1.625 1.615385 1.619048 1.617647')
 
 #### Each-prior
 
-In the previous section we have seen a function `ratios()` that takes a vector and produces the ratios of the adjacent elements. A similar function called `deltas()` produces the differences between the adjacent elements:
+In the previous section we saw a function `ratios()` that takes a vector and returns the ratios between adjacent items. A similar function `deltas()` returns the differences between adjacent items.
 ```python
 >>> q.deltas([1, 3, 2, 5])
 k('1 2 -1 3')
 ```
-These functions are in fact implemented in q by applying the `prior` adverb to the division (`%`) and subtraction functions respectively:
+These functions are in fact implemented in q by applying the `prior` adverb to the division (`%`) and subtraction functions respectively.
 ```python
 >>> q.ratios == q('%').prior and q.deltas == q('-').prior
 True
@@ -910,7 +911,7 @@ $$f.prior(v)=(f(v_1, v_0), f(v_2, v_1), ⋯)$$
 
 Of all adverbs, these two have the most cryptic names and offer some non-obvious features.
 
-To illustrate how `vs` and `sv` modify binary functions, lets give a Python name to the q `,` operator:
+To illustrate how `vs` and `sv` modify binary functions, let’s give a Python name to the q `,` operator:
 ```python
 >>> join = q(',')
 ```
@@ -960,12 +961,12 @@ Q variables can be accessed as attributes of the `q` object:
 
 ## Numeric computing
 
-NumPy is the fundamental package for scientific computing in Python. NumPy shares common APL ancestry with q and can often operate directly on `K` objects.
+NumPy is the fundamental package for scientific computing in Python. NumPy shares APL ancestry with q and can often operate directly on `K` objects.
 
 
 ### Primitive data types
 
-There are eighteen primitive data types in kdb+, eight of those closely match their NumPy analogues and will be called _simple types_ in this section. Simple types consist of booleans, bytes, characters, integers of three different sizes, and floating point numbers of two sizes. Seven kdb+ types  represent dates, times and durations. Similar data types are available in recent versions of NumPy, but they differ from kdb+ types in many details. Finally, kdb+ symbol, enum and guid types have no direct analogue in NumPy.
+There are eighteen primitive data types in kdb+. Eight closely match their NumPy analogues and will be called _simple types_ in this section. Simple types consist of booleans, bytes, characters, integers of three different sizes, and floating point numbers of two sizes. Seven kdb+ types  represent dates, times and durations. Similar data types are available in recent versions of NumPy, but they differ from kdb+ types in many details. Finally, kdb+ symbol, enum and guid types have no direct analogue in NumPy.
 
 No  | kdb+ type | array type      | raw         | description
 :--:|-----------|-----------------|-------------|-----------------------------------------------
@@ -1040,7 +1041,7 @@ At the time of this writing,
 >>> date.today().toordinal()
 736335
 ```
-The designer of kdb+ made the more practical choice for date 0 to be January 1, 2000. As a result, in PyQ we have
+The designer of kdb+ made the more practical choice: date 0 is January 1, 2000. As a result, in PyQ we have
 ```python
 >>> K.date(0)
 k('2000.01.01')
@@ -1050,7 +1051,7 @@ and
 >>> (-2 + q.til(5)).date
 k('1999.12.30 1999.12.31 2000.01.01 2000.01.02 2000.01.03')
 ```
-Similarly, the 0 timestamp was chosen to be at midnight of the day 0
+Similarly, the 0 timestamp was chosen to be midnight of the day 0
 ```python
 >>> K.timestamp(0)
 k('2000.01.01D00:00:00.000000000')
@@ -1062,7 +1063,7 @@ array(['1970-01-01'], dtype='datetime64[D]')
 >>> numpy.array([0], 'datetime64[ns]')
 array(['1970-01-01T00:00:00.000000000'], dtype='datetime64[ns]')
 ```
-PyQ will automatically adjust the epoch when converting between NumPy arrays and `K` objects.
+PyQ automatically adjusts the epoch when converting between NumPy arrays and `K` objects.
 ```python
 >>> d = q.til(2).date
 >>> a = numpy.array(d)
@@ -1073,14 +1074,14 @@ array(['2000-01-01', '2000-01-02'], dtype='datetime64[D]')
 >>> K(a)
 k('2000.01.01 2000.01.02')
 ```
-This convenience comes at a cost of copying the data
+This convenience comes at the cost of copying the data.
 ```python
 >>> a[0] = 0
 >>> a array(['1970-01-01', '2000-01-02'], dtype='datetime64[D]')
 >>> d
 k('2000.01.01 2000.01.02')
 ```
-To avoid such copying, `K` objects can expose their raw data to `numpy`:
+To avoid such copying, `K` objects can expose their raw data to `numpy`.
 ```python
 >>> b = numpy.asarray(d.data)
 >>> b.tolist()
@@ -1096,14 +1097,14 @@ k('2000.02.12 2000.02.13')
 
 #### Characters, strings and symbols
 
-Text data appears in kdb+ as character atoms and strings or as symbols and enumerations. Character strings are compatible with NumPy "bytes" type:
+Text data appears in kdb+ as character atoms and strings or as symbols and enumerations. Character strings are compatible with the NumPy "bytes" type:
 ```python
 >>> x = K.string("abc")
 >>> a = numpy.asarray(x)
 >>> a.dtype.type
 <class 'numpy.bytes_'>
 ```
-In the example above, data is shared between the kdb+ string `x` and NumPy array `a`:
+In the example above, data is shared between the kdb+ string `x` and the NumPy array `a`:
 ```python
 >>> a[:] = 'x'
 >>> x
@@ -1239,9 +1240,10 @@ $
 ```
 
 
-## Calling Python from KDB+
+## Calling Python from kdb+
 
-Kdb+ is designed as a platform for multiple programming languages. Out of the box, it comes with q, K, and a variant of ANSI SQL as the [s language](https://github.com/KxSystems/kdb/blob/master/s.k). Installing PyQ gives access to the p language, where "p" stands for "Python". In addition, PyQ provides a mechanism for exporting Python functions to q where they can be called as native q functions.
+Kdb+ is designed as a platform for multiple programming languages. Out of the box, it comes with q, k, and a variant of ANSI SQL: the [s language](https://github.com/KxSystems/kdb/blob/master/s.k). Installing PyQ gives access to the p language, where "p" stands for "Python". In addition, PyQ provides a mechanism for exporting Python functions to q where they can be called as native q functions.
+
 
 ### The p language
 

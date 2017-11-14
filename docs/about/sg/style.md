@@ -12,6 +12,7 @@ Use italics for:
 -   the name of a q function or adverb denoted by a character, e.g. “the adverb _over_ is denoted by `/`”
 -   for definitions, e.g. “An adverb takes a function argument and returns a function: the  _derivative_.” 
 -   citations of books or periodicals (but use double typographers’ quotes for the title of an article) e.g. “see “Functions and shadows” in _Vector_ 23:4” 
+-   the names of GUI controls, using `>` to show descent through menus, e.g. “Click _File > New_ to…”
 
 !!! tip "Foreign languages"
     Avoid using words or phrases in languages other than English. 

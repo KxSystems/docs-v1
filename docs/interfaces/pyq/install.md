@@ -9,11 +9,12 @@ To install the latest version, run the following command
 $ pip install pyq
 ```
 
-!!! tip Extras
-    For best experience with PyQ, you should also install some 3rd party
+!!! tip "Extras"
+    For the best experience with PyQ, you should also install some third-party
     packages such as numpy and IPython.  The extra packages recommended by
     the PyQ developers can be installed using the `pip install pyq[all]`
     command. 
+
 
 ## Requirements
 
@@ -87,7 +88,7 @@ Download [kdb+](https://kx.com/download/) and save into your `~/Downloads` folde
 ```bash
 $ unzip ${HOME}/Downloads/macosx.zip -d ${VIRTUAL_ENV}
 ```
-If you have a licensed version of the kdb+, you should create a directory for it first:
+If you have a license for kdb+, create a directory for it first:
 ```bash
 $ mkdir -p ${VIRTUAL_ENV}/q && unzip path/to/m64.zip -d ${VIRTUAL_ENV}/q
 ```
@@ -103,7 +104,6 @@ $ pip install pyq
 
 
 
-
 ## Installing 32-bit PyQ with 32-bit kdb+ on a 64-bit CentOS 7
 
 !!! tip "Python 2.7"
@@ -112,7 +112,7 @@ $ pip install pyq
     To use Python 2.7, replace `3.6.0` with `2.7.13` where necessary.
 
 
-1. Install development tools and libraries required to build 32-bit Python
+1. Install the development tools and libraries to build 32-bit Python
 <pre><code class="language-bash">
 $ sudo yum install gcc gcc-c++ rpm-build subversion git zip unzip bzip2 \
   libgcc.i686 glibc-devel.i686 glibc.i686 zlib-devel.i686 \
@@ -121,9 +121,8 @@ $ sudo yum install gcc gcc-c++ rpm-build subversion git zip unzip bzip2 \
   tk-devel.i686 libpcap-devel.i686 xz-devel.i686 libffi-devel.i686
 </code></pre>
 
-2. Download, compile and install the 32-bit version of Python 3.6.0
-
-    We are going to install Python 3.6 into `/opt/python3.6.i686`:
+2. Download, compile and install 32-bit Python 3.6.0 
+into `/opt/python3.6.i686`
 
     <pre><code class="language-bash">
     $ mkdir -p ${HOME}/Archive ${HOME}/Build
@@ -139,7 +138,7 @@ $ sudo yum install gcc gcc-c++ rpm-build subversion git zip unzip bzip2 \
     $ unset CFLAGS LDFLAGS
     </code></pre>
 
-    Let's confirm we have a 32-bit Python on our 64-bit system:
+    Let’s confirm we have 32-bit Python on our 64-bit system
 
     <pre><code class="language-bash">
     $ uname -mip
@@ -149,11 +148,9 @@ $ sudo yum install gcc gcc-c++ rpm-build subversion git zip unzip bzip2 \
     x86_64 ('32bit', 'ELF')
     </code></pre>
 
-    Yes, it is exactly what we desired.
+    Yes, exactly what we wanted.
 
-3. Install virtualenv into Python installation
-
-    We are going to use virtual environments, download and extract virtualenv package:
+3.    We are going to use virtual environments, so download, extract, and install virtualenv
 
     <pre><code class="language-bash">
     $ curl -Ls https://pypi.org/packages/source/v/virtualenv/virtualenv-15.1.0.tar.gz \
@@ -161,16 +158,14 @@ $ sudo yum install gcc gcc-c++ rpm-build subversion git zip unzip bzip2 \
     $ tar xzf ${HOME}/Archive/virtualenv-15.1.0.tar.gz -C ${HOME}/Build
     </code></pre>
 
-4. Create 32-bit Python virtual environment
-
-    Create a virtual environment:
+4. Create a 32-bit Python virtual environment; first, create a virtual environment:
 
     <pre><code class="language-bash">
     $ /opt/python3.6.i686/bin/python3.6 ${HOME}/Build/virtualenv-15.1.0/virtualenv.py \
       ${HOME}/Work/pyq3
     </code></pre>
 
-    Enter the virtual environment that we created, confirm that we have a 32-bit Python there:
+    Enter the new virtual environment, confirm you have 32-bit Python there:
 
     <pre><code class="language-bash">
     (pyq3) $ source ${HOME}/Work/pyq3/bin/activate
@@ -178,28 +173,22 @@ $ sudo yum install gcc gcc-c++ rpm-build subversion git zip unzip bzip2 \
     32
     </code></pre>
 
-5. Download the 32-bit Linux x86 version of kdb+ from kx.com
-
-    Download [kdb+ by following this link](https://kx.com/download/).
-
-    Save downloaded file as ${HOME}/Work/linux-x86.zip.
+5. Download the 32-bit Linux x86 version of kdb+ from [kx.com](https://kx.com/download/) and save it as `${HOME}/Work/linux-x86.zip`.
 
 
-6. Extract kdb+ and install PyQ
-
-    Extract downloaded file:
+6. Extract and install kdb+
 
     <pre><code class="language-bash">
     (pyq3) $ unzip ${HOME}/Work/linux-x86.zip -d ${VIRTUAL_ENV}
     </code></pre>
 
-    Install PyQ (note, PyQ 3.8.2 or newer required):
+7. Install PyQ 3.8.2 or newer
 
     <pre><code class="language-bash">
     (pyq3) $ pip install pyq>=3.8.2
     </code></pre>
 
-7. Start PyQ
+8. Start PyQ
 
     <pre><code class="language-bash">
     (pyq3) $ pyq
@@ -257,22 +246,26 @@ Install PyQ:
 
 ## Installing with 32-bit kdb+ on macOS
 
-To use PyQ with the free 32-bit kdb+ on macOS, you need a 32-bit version of Python. Out of the box, macOS Sierra and High Sierra come with a universal version of Python 2.7.10.
+To use PyQ with the free 32-bit kdb+ on macOS, you need a 32-bit version of Python. 
+
+!!! info "Python installed on macOS"
+    MacOS Sierra and High Sierra ship with a universal version of Python 2.7.10.
+
 
 ### System Python 2
 
-Install virtualenv module:
+Install the virtualenv module:
 ```bash
 $ pip install virtualenv
 ```
 If your system, does not have `pip` installed, follow [`pip` installation guide](https://pip.pypa.io/en/stable/installing/).
 
-Create and activate virtual environment:
+Create and activate a virtual environment:
 ```bash
 $ virtualenv ${HOME}/pyq2
 $ source ${HOME}/pyq2/bin/activate
 ```
-[Download kdb+](https://kx.com/download/) and save the downloaded file as ${HOME}/Downloads/macosx.zip.
+[Download kdb+](https://kx.com/download/) and save the downloaded file as `${HOME}/Downloads/macosx.zip`.
 
 Install kdb+ and PyQ:
 ```bash
@@ -284,9 +277,10 @@ PyQ is ready and can be launched:
 (pyq2) $ pyq
 ```
 
+
 ### Brewing Universal Python
 
-If you would like to use latest version of the Python 2.7 or Python 3, you will need to install it using package manager Homebrew.
+To use the latest version of Python 2.7 or Python 3, install it using the package manager Homebrew.
 
 1.  Install [Homebrew](https://brew.sh/).
 
@@ -296,15 +290,15 @@ If you would like to use latest version of the Python 2.7 or Python 3, you will 
     $ brew install --universal sashkab/python/python27 sashkab/python/python36
     </code></pre>
 
-1.  Install virtualenv package.
+1.  Install the virtualenv package.
 
     <pre><code class="language-bash">
     $ /usr/local/opt/pythonXY/bin/pythonX -mpip install -U virtualenv
     </code></pre>
 
-    `X` is major version of the Python; `Y` the minor, i.e. 2.7 or 3.6.
+    `X` is the major version of the Python; `Y` the minor, i.e. 2.7 or 3.6.
 
-1.  Create new virtual environment and activate it:
+1.  Create a new virtual environment and activate it:
 
     <pre><code class="language-bash">
     $ mkvirtualenv -p /usr/local/opt/pythonXY/bin/pythonX ${HOME}/pyq
@@ -334,7 +328,7 @@ PyQ 4.1.0 introduced **experimental support** for Windows.
 
 Requirements are:
 
--   Installation should be started using Windows Command Prompt.
+-   Installation should be started using the Windows Command Prompt.
 -   [Visual Studio 9 for Python](http://aka.ms/vcpython27), if using Python 2.7.x.
 -   [Microsoft Build Tools for Visual Studio 2017](https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2017), if using Python 3.6.x
 -   Ensure that kdb+ is installed under `C:\q`, or that the `QHOME` environment variable is set to the location of the kdb+ executable.
@@ -351,7 +345,7 @@ c:\q\w32\q.exe python.q
 !!! warning "Known limitation"
     You will have to press `^Z` and then `Enter` key in order to get into the Python REPL.
 
-You can run tests too: first install required packages:
+You can run tests too: first install the required packages:
 ```powershell
 pip install pytest pytest-pyq
 ```
@@ -360,14 +354,14 @@ Then run:
 set QBIN=c:\q\w32\q.exe
 %QBIN% python.q -mpytest --pyargs pyq < nul
 ```
-You can follow latest updates on Windows support on [issue gh\#1](https://github.com/kxsystems/pyq/issues/1).
+You can follow the latest updates on Windows support on [issue gh\#1](https://github.com/kxsystems/pyq/issues/1).
 
 
-### Installing Jupyter kernel
+### Installing the Jupyter kernel
 
 Since we have not ported the `pyq` executable to the Windows platform yet, setting up a working PyQ environment on Windows requires several manual steps.
 
-First, it is strongly recommended to use a dedicated Python virtual environment and install `q` in `%VIRTUAL_ENV%`. Assuming that you have downloaded `windows.zip` from [kx.com](https://kx.com/download) into your `Downloads` folder, enter the following commands:
+First, you are strongly recommended to use a dedicated Python virtual environment and install `q` in `%VIRTUAL_ENV%`. Assuming that you have downloaded `windows.zip` from [kx.com](https://kx.com/download) into your `Downloads` folder, enter the following commands:
 ```bash
 python -mvenv py36
 py36\Scripts\activate.bat
@@ -381,7 +375,7 @@ Now you should be able to install `jupyter`, `pyq` and `pyq-kernel` in one comma
 ```bash
 pip install jupyter pyq pyq-kernel
 ```
-Finally, to install pyq kernel specs, run
+Finally, to install PyQ kernel specs, run
 ```bash
 %QBIN% python.q -mpyq.kernel install
 ```

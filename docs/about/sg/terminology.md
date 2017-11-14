@@ -13,6 +13,7 @@ The following terms are no longer used to describe q:
 -   dyad, dyadic
 -   nilad, niladic
 -   verb
+-   element of a list
 
 Q defines twelve adverbs, denoted by six characters and character pairs. 
 
@@ -22,6 +23,17 @@ Q defines twelve adverbs, denoted by six characters and character pairs.
 -   _kdb+_ denotes the database and the process that manages it;
 -   _q_ denotes the programming language, a domain-specific language for time series embedded in 
 -   the _k_ language;
+
+
+## Lists
+
+> A list is an ordered collection of zero or more _items_. 
+
+Any q element (atom, list, function, adverb) may be an item of a list. 
+
+Where all its items are of the same type, a list is a _vector_ of that type. 
+
+_Mixed list_, _general list_ or _simple list_ may be used for emphasis, but _list_ and _vector_ usually suffice. 
 
 
 ### Function rank
