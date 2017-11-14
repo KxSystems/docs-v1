@@ -71,14 +71,25 @@ The contribution model is GitHub and [Forking Workflow](https://www.atlassian.co
 
 To contribute, submit a pull request. 
 
+### Honor roll
 
-## <i class="fa fa-balance-scales"></i> License 
+We gratefully acknowledge contributions by pull requests from
+
+-   Alexander Belopolsky
+-   Aleks Bunin
+-   Geo Carncross
+-   Rikesh
+-   Thomas Smyth
+-   Sergey Vidyuk
+
+
+## <i class="fa fa-balance-scale"></i> License 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></div>
 
 
-## Images
+## <i class="fa fa-picture-o"></i> Images
 
 This site includes images for which Kx holds neither copyright nor permission. 
 These images serve as links to their original sites. 
