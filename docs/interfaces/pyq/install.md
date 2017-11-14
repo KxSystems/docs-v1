@@ -9,26 +9,31 @@ To install the latest version, run the following command
 $ pip install pyq
 ```
 
+!!! tip Extras
+    For best experience with PyQ, you should also install some 3rd party
+    packages such as numpy and IPython.  The extra packages recommended by
+    the PyQ developers can be installed using the `pip install pyq[all]`
+    command. 
 
 ## Requirements
 
 ### Operating system
 
-<i class="fa fa-linux"></i> Linux, 
+<i class="fa fa-linux"></i> Linux,
 <i class="fa fa-apple"></i> macOS 10.11+
 
 Solaris is supported, but has not been tested recently.
 
 <i class="fa fa-windows"></i> Windows is [supported as an experiment](#installing-on-windows)
 
-### kdb+ 
+### kdb+
 
 V2.8+
 
 -   <i class="fa fa-download"></i> [Download](https://kx.com/download)
 -   <i class="fa fa-hand-o-right"></i> [Install](http://code.kx.com/q/tutorials/install/)
 
-### Python 
+### Python
 
 2.7, or 3.5+
 
@@ -102,7 +107,7 @@ $ pip install pyq
 ## Installing 32-bit PyQ with 32-bit kdb+ on a 64-bit CentOS 7
 
 !!! tip "Python 2.7"
-    This guide is for installing Python 3.6. 
+    This guide is for installing Python 3.6.
 
     To use Python 2.7, replace `3.6.0` with `2.7.13` where necessary.
 
@@ -344,7 +349,7 @@ c:\q\w32\q.exe python.q
 ```
 
 !!! warning "Known limitation"
-    You will have to press `^Z` and then `Enter` key in order to get into the Python REPL. 
+    You will have to press `^Z` and then `Enter` key in order to get into the Python REPL.
 
 You can run tests too: first install required packages:
 ```powershell
