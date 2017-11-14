@@ -17,7 +17,7 @@ In each case, the result has the merge of columns from both arguments. Where nec
 [`ej`](#ej-equi-join) equi-join
 : Similar to `ij`, where the columns to be matched are given as a parameter.
 
-[`ij`](#ij-inner-join) inner-join 
+[`ij` `ijf`](#ij-ijf-inner-join) inner-join
 : Joins on the key columns of the second table. The result has one row for each row of the first table that matches the key columns of the second table.
 
 [`lj` `ljf`](#lj-ljf-left-join) left-join 
@@ -26,7 +26,7 @@ In each case, the result has the merge of columns from both arguments. Where nec
 [`pj`](#pj-plus-join) plus-join 
 : A variation on left join. For each matching row, values from the second table are added to the first table, instead of replacing values from the first table.
 
-[`uj`](#uj-union-join) union-join 
+[`uj` `ujf`](#uj-ujf-union-join) union-join
 : Uses all rows from both tables. If the second table is not keyed, the result is the catenation of the two tables. Otherwise, the result is the left join of the tables, catenated with the unmatched rows of the second table.
 
 [`upsert`](qsql/#upsert) 
@@ -268,7 +268,7 @@ IBM  0.2608152 N   1000
 MSFT 0.5433888 CME 250
 ```
 
-## `ij` (inner-join)
+## `ij` `ijf` (inner-join)
 
 Syntax: `t1 ij t2`
 
@@ -320,6 +320,8 @@ MSFT 0.5433888 CME 250
         1 x 1
         2 z 20
         q)
+
+    Since 2016.02.17, the earlier version is available in all V3.4 and later versions as `ijf`.
 
 
 ## `lj` `ljf` (left-join)
@@ -422,7 +424,7 @@ a b c  d
 In the example above, `pj` is equivalent to `` x+0^y[`a`b#x] `` (compute the value of `y` on `a` and `b` columns of `x`, fill the result with zeros and add to `x`).
 
 
-## `uj` (union-join)
+## `uj` `ujf` (union-join)
 
 Syntax: `t1 uj t2`
 
@@ -463,6 +465,33 @@ a b| c  d
 
 !!! note "Generalizing the `,` operator"
     The `uj` operator is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
+
+
+!!! note "Changes in V3.0"
+	The union join of two keyed tables is equivalent to a left join of the two tables with the catenation of unmatched rows from the second table. As a result a change in the behaviour of `lj` causes a change in the behaviour of `uj`:
+
+        q)show x:([a:1 2]b:`x`y;c:10 20)
+        a b c
+        ------
+        1 x 10
+        2 y 20
+        q)show y:([a:1 2]b:``z;c:1 0N)
+        a| b c
+        -| ---
+        1|   1
+        2| z
+		q)x uj y		/ kdb+ 3.0
+		a| b c
+		-| ---
+		1|   1
+		2| z
+        q)x uj y        / kdb+ 2.8
+		a| b c
+		-| ----
+		1| x 1
+		2| z 20
+
+    Since 2017.04.10, the earlier version is available in all V3.5 and later versions as `ujf`.
 
 
 ## `wj` `wj1` (window-join)
