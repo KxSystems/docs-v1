@@ -176,6 +176,7 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr><td>[Factom](https://www.factom.com/) blockchain</td><td><i class="fa fa-github"></i> [jlucid/qfactom](https://github.com/jlucid/qfactom) ==new==</td></tr>
 <tr><td>ForexConnect</td><td><i class="fa fa-github"></i> [mortensorensen/qfxcm](https://github.com/mortensorensen/qfxcm)</td></tr>
 <tr><td>Interactive Brokers</td><td><i class="fa fa-github"></i> [mortensorensen/QInteractiveBrokers](https://github.com/mortensorensen/QInteractiveBrokers)</td></tr>
+<tr><td>[IEX](https://iextrading.com)</td><td><i class="fa fa-github"></i> [himoacs/iex_q](https://github.com/himoacs/iex_q) ==new==</td></tr>
 <tr><td>J</td><td>[Q client for J](/interfaces/q-client-for-j/)</td></tr>
 <tr><td>JDBC</td><td><i class="fa fa-github"></i> [CharlesSkelton/babel](https://github.com/CharlesSkelton/babel)</i></td></tr>
 <tr><td>ODBC</td><td>[Q client for ODBC](/interfaces/q-client-for-odbc)<br/>
