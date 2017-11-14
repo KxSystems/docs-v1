@@ -108,16 +108,16 @@ time       sym  qty px
     
     Note that on-disk `` `g#sym `` does not help.
 
-!!! warning "Map in splays and partions"
+!!! warning "Map in splays and partitions"
     Unlike in memory, to use `aj` with on-disk, you must map in your splay or day-at-a-time partitioned db:
     
     Splay:
     <pre><code class="language-q">
-    aj[`sym`time;select .. from trade where ..;select .. from quote]
+    aj[\`sym\`time;select .. from trade where ..;select .. from quote]
     </code></pre>
     Partitioned db:
     <pre><code class="language-q">
-    aj[`sym`time;select .. from trade where ..;
+    aj[\`sym\`time;select .. from trade where ..;
                  select .. from quote where date = ..]
     </code></pre>
     Further `where` constraints cannot be used, or the columns will be copied instead of mapped into memory (resulting in slowdown for the `aj`).
@@ -125,11 +125,11 @@ time       sym  qty px
 !!! tip "No need to `select` on quote"
     There is no need to select on quote, i.e. irrespective of the number of quote records, use:
     <pre><code class="language-q">
-    aj[`sym`time;select .. from trade where ..;quote]
+    aj[\`sym\`time;select .. from trade where ..;quote]
     </code></pre>
     instead of
     <pre><code class="language-q">
-    aj[`sym`time;select .. from trade where ..;
+    aj[\`sym\`time;select .. from trade where ..;
                  select .. from quote where ..]
     </code></pre>
 
