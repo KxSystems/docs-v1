@@ -63,6 +63,9 @@ Note the license number (`#400` in the example) and quote it in any corresponden
 
 The default location for the license key file is the `QHOME` folder. You do not have to keep the license there. You can use the environment variable `QLIC` to specify a different filepath.
 
+!!! tip "Folder not file"
+    Like `QHOME`, `QLIC` points to a folder, not a file. For example,<pre><code class="language-bash">$ QLIC='/Users/simon/q'</code></pre>
+
 
 ## Core restrictions
 
