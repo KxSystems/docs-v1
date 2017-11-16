@@ -147,7 +147,7 @@ pages:
       - 6. Kdb+tick: tutorials/startingq/tick.md
     - Views: tutorials/views.md
   - Interface summary: interfaces.md
-  - Fusion interfaces:
+  - Fusion for kdb+:
     - Introduction: interfaces/fusion.md
     - FFI: interfaces/ffi.md
     - Java: interfaces/java-client-for-q.md

@@ -1,7 +1,7 @@
 # ![Python](../img/python.png) Using Python with kdb+ (PyQ)
 
 <div class="fusion" markdown="1">
-<i class="fa fa-superpowers"></i> A [Fusion interface](/interfaces/fusion)
+<i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
 </div>
 
 

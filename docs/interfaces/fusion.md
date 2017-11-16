@@ -1,4 +1,4 @@
-# <i class="fa fa-superpowers"></i> Fusion interfaces for kdb+
+# <i class="fa fa-superpowers"></i> Fusion for kdb+
 
 
 ![fusion](img/840166516.jpg) <!-- Licensed from getty Images -->

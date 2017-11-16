@@ -87,7 +87,7 @@ and in R:
 ### rkdb: R client for kdb+
 
 <div class="fusion" markdown="1">
-<i class="fa fa-superpowers"></i> A [Fusion interface](/interfaces/fusion)
+<i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
 </div>
 
 Connects R to a kdb+ database to extract partially analyzed data into R 
