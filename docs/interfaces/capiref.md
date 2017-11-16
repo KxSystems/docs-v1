@@ -38,7 +38,7 @@ The members which are common to all variant types are `t`, `u`, and `r`. The fie
 |----------|-----------------------------------|
 | `x->t`   | type of K object. (`signed char`).|
 | `x->u`   | attribute. `0` means no attributes. (`C`).|
-| `x->r`   | reference count. Modify only via `r1(x),r0(x)`. (`I`) |
+| `x->r`   | reference count. Modify only via `r1(x), r0(x)`. (`I`) |
 | `x->n`   | number of elements in a list. (`J`)|
 
 #### Atom accessors for object x
@@ -189,7 +189,7 @@ function                           | action
 
 #### `b9` – serialize
 
-Signature: `K b9(I mode,K x)`
+Signature: `K b9(I mode, K x)`
 
 Uses q IPC and  `mode` capabilities level, where `mode` is:
 
@@ -245,7 +245,7 @@ Signature: `K ee(K)`
 
 Capture (and reset) error string into usual error object, e.g.
 ```c
-K x=ee(dot(a,b));if(xt==-128)printf("error %s\n",x->s);
+K x=ee(dot(a,b));if(xt==-128)printf("error %s\n", x->s);
 ```
 
 Since V3.5 2017.02.16, V3.4 2017.03.13
@@ -253,7 +253,7 @@ Since V3.5 2017.02.16, V3.4 2017.03.13
 
 #### `ja` – join value
 
-Signature: `K ja(K* x,V*)` 
+Signature: `K ja(K* x, V*)` 
 
 Appends a raw value to a list. 
 `x` points to a K object, which may be reallocated during the function.
@@ -264,34 +264,34 @@ Returns a pointer to the (potentially reallocated) K object.
 
 #### `jk` – join K object
 
-Signature: `K jk(K* x,K y)` 
+Signature: `K jk(K* x, K y)` 
 
 Appends another K object to a mixed list. Takes ownership of `y`. 
 
-Returns the value of the contents of `x`.
+Returns a pointer to the (potentially reallocated) K object.
 
 
 #### `js` – join string
 
-Signature: `K js(K* x,S s)` 
+Signature: `K js(K* x, S s)` 
 
 Appends an interned string `s` to a symbol list. 
 
-Returns the value of the contents of `x`.
+Returns a pointer to the (potentially reallocated) K object.
 
 
 #### `jv` – join K lists
 
-Signature: `K jv(K* x,K y)`
+Signature: `K jv(K* x, K y)`
 
 Append a K list `y` to K list `x`. 
 
-Returns the value of the contents of `x`.
+Returns a pointer to the (potentially reallocated) K object.
 
 
 #### `k` – evaluate
 
-Signature: `K k(I handle,const S s,...)__attribute__((sentinel))`
+Signature: `K k(I handle, const S s, …)__attribute__((sentinel))`
 
 Evaluates `s`. 
 Optional parameters are either local (shared library only) or remote. 
@@ -372,21 +372,21 @@ Null: `kh(nh)`
 
 #### `khp` – connect anonymously
 
-Signature: `I khp(const S h,I p)`
+Signature: `I khp(const S h, I p)`
 
-<i class="fa fa-hand-o-right"></i> `khpu(h,p,"")`
+<i class="fa fa-hand-o-right"></i> `khpu(h, p, "")`
 
 
 #### `khpu` – connect, no timeout
 
-Signature: `I khpu(const S h,I p,const S u)`
+Signature: `I khpu(const S h, I p, const S u)`
 
-<i class="fa fa-hand-o-right"></i> `khpun(h,p,u,0)`
+<i class="fa fa-hand-o-right"></i> `khpun(h, p, u, 0)`
 
 
 #### `khpun` – connect
 
-Signature: `I khpun(const S h,I p,const S u,I n)`
+Signature: `I khpun(const S h, I p, const S u, I n)`
 
 Establish a connection to host `h` on port `p` providing credentials ("username:password" format) `u` with timeout `n`.
 
@@ -415,7 +415,7 @@ Null: `kj(nj)`
 
 #### `knk` – create list
 
-Signature: `K knk(I n,...)`
+Signature: `K knk(I n, …)`
 
 Create a mixed list.
 
@@ -424,7 +424,7 @@ Takes ownership of arguments.
 
 #### `knt` – create keyed table
 
-Signature: `K knt(J n,K x)`
+Signature: `K knt(J n, K x)`
 
 Create a table keyed by `n` first columns if number of columns exceeds `n`. Takes ownership of arguments.
 
@@ -477,32 +477,32 @@ Create a simple table from a keyed table.
 
 #### `ktj` – create timestamp
 
-Signature: `K ktj(-KP,x);`
+Signature: `K ktj(-KP, x)`
 
 Create a timestamp from a number of nanos since 2000.01.01.
 
-Null: `ktj(-KP,nj)`
+Null: `ktj(-KP, nj)`
 
 
 #### `ktj` – create timespan
 
-Signature: `K ktj(-KN,x);`
+Signature: `K ktj(-KN, x)`
 
 Create a timespan from a number of nanos since the beginning of the interval: midnight in the case of `.z.n`.
 
-Null: `ktj(-KN,nj)`
+Null: `ktj(-KN, nj)`
 
 
 #### `ktn` – create vector
 
-Signature: `K ktn(I type,J length)`
+Signature: `K ktn(I type, J length)`
 
 
 #### `ku` – create guid
 
 Signature: `K ku(U)`
 
-Null: `U g={0};ku(g);`
+Null: `U g={0};ku(g)`
 
 
 #### `kz` – create datetime
@@ -572,7 +572,7 @@ Shared library only.
 
 #### `sd0x` – remove callback conditional
 
-Signature: `V sd0x(I d,I f)`
+Signature: `V sd0x(I d, I f)`
 
 Remove the callback on `d` and call `kclose` on `d` if `f` is 1. 
 
@@ -581,7 +581,7 @@ Shared library only. Since V3.0 2013.04.04.
 
 #### `sd1` – set function on loop
 
-Signature: `K sd1(I d,f);`
+Signature: `K sd1(I d, f)`
 
 Put the function `K f(I d){…}` on the q main event loop given a socket `d`. 
 
@@ -606,7 +606,7 @@ Returns the previously set value.
 
 #### `sn` – intern chars
 
-Signature: `S sn(S,J n)`
+Signature: `S sn(S, J n)`
 
 Intern `n` chars from a string. 
 
@@ -624,7 +624,7 @@ Returns an interned string and should be used to store the string in a symbol ve
 
 #### `xD` – create dictionary
 
-Signature: `K xD(K,K)`
+Signature: `K xD(K, K)`
 
 Create a dictionary from two K objects. 
 
@@ -638,8 +638,8 @@ Signature: `K xT(K)`
 
 #### `ymd` – numbers to date
 
-Signature: `I ymd(year,month,day)`
+Signature: `I ymd(year, month, day)`
 
-Encode a year/month/day as a q date, e.g. `0==ymd(2000,1,1)`
+Encode a year/month/day as a q date, e.g. `0==ymd(2000, 1, 1)`
 
 
