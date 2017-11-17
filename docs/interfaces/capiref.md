@@ -152,7 +152,7 @@ function                  | joins             | function                 | joins
 [`jk`](#jk-join-k-object) | K object to list  | [`jv`](#jv-join-k-lists) | K list to first of same type 
 
 When appending to a list, if the capacity of the list is 
-insufficient to accommodate the new data, the list is reallocated with the contents of `x` updated. The new data is always appended.
+insufficient to accommodate the new data, the list is reallocated with the contents of `x` updated. The new data is always appended, unless the reallocation causes an out-of-memory condition which is then fatal; these functions never return `NULL`. The reallocation of the list will cause the initial list’s reference count to be decremented. The target list passed to join functions should not have an attribute, and the caller should consider that modifications to that target object will be visible to all references to that object unless a reallocation occurred.
 
 
 ### Other functions
@@ -291,7 +291,8 @@ Returns a pointer to the (potentially reallocated) K object.
 
 #### `k` – evaluate
 
-Signature: `K k(I handle, const S s, …)__attribute__((sentinel))`
+<!-- Signature: `K k(I handle, const S s, …)__attribute__((sentinel))` -->
+Signature: `K k(I handle, const S s, …)`
 
 Evaluates `s`. 
 Optional parameters are either local (shared library only) or remote. 
