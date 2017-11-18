@@ -106,16 +106,17 @@ Char vectors are also known as _strings_.
 Attributes are metadata that apply to lists of special form. They are often used on a dictionary domain or a table column to reduce storage requirements or to speed retrieval.  
 <i class="fa fa-hand-o-right"></i> [`#` Set attribute](lists/#set-attribute)
 
+For 64-bit V3.0+, where `n` is the number of items and `d` is the number of distinct (unique) items, the byte overhead in memory is:
+
 | example       |         | byte overhead          |
 |---------------|---------|------------------------|
 | `` `s#2 2 3`` | sorted  | `0`                    |
-| `` `u#2 4 5`` | unique  | `16*d`                 |
-| `` `p#2 2 1`` | parted  | `(4*d;16*d;4*d+1)`     |
-| `` `g#2 1 2`` | grouped | `(4*d;16*d;4*d+1;4*n)` |
+| `` `u#2 4 5`` | unique  | `32*d`                 |
+| `` `p#2 2 1`` | parted  | `(8*d;32*d;8*d+1)`     |
+| `` `g#2 1 2`` | grouped | `(8*d;8*n)` |
 
-For the byte overhead, `n` is the number of items and `d` is the number of distinct (unique) items.
 
-Attribute `u` is for unique lists.
+Attribute `u` is for unique lists – where all items are distinct.
 
 !!! tip "Grouped and parted"
     Attributes `p` and `g` are useful for lists in memory with a lot of repetition.
