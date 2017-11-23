@@ -111,7 +111,7 @@ Three methods are available:
 : Close a connection
 
 `execute(connectionhandle, request)`
-: Execute a request on the specified connection handle
+: Execute a request on the specified connection handle. `connectionhandle`>0 will execute request synchronously(blocking call) In the case of  `connectionhandle`<0 `request` is asynchronous and result may come in later.
 
 To open and initialize a connection from R to a kdb+ process on `localhost` listening on port 5000, with a trade table loaded:
 ```r
