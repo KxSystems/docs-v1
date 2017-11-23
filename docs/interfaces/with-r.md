@@ -111,7 +111,10 @@ Three methods are available:
 : Close a connection
 
 `execute(connectionhandle, request)`
-: Execute a request on the specified connection handle. `connectionhandle`>0 will execute request synchronously(blocking call) In the case of  `connectionhandle`<0 `request` is asynchronous and result may come in later.
+: Execute a request on the specified connection handle. Where `connectionhandle` is:
+
+    -   &gt;0, executes the request synchronously, blocking the call
+    -   &lt;0, executes the request asynchronously; the result may arrive later
 
 To open and initialize a connection from R to a kdb+ process on `localhost` listening on port 5000, with a trade table loaded:
 ```r
@@ -250,6 +253,10 @@ it can be built from source by following the instructions outlined in the associ
 
 
 ### embedR: Embedding R inside q
+
+<div class="fusion" markdown="1">
+<i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
+</div>
 
 A shared library can be loaded which brings R into the q memory space, 
 meaning all the R statistical routines and graphing capabilities can be invoked directly from q. 
