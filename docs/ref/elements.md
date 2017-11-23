@@ -112,8 +112,8 @@ For 64-bit V3.0+, where `n` is the number of items and `d` is the number of dist
 |---------------|---------|------------------------|
 | `` `s#2 2 3`` | sorted  | `0`                    |
 | `` `u#2 4 5`` | unique  | `32*d`                 |
-| `` `p#2 2 1`` | parted  | `(8*d;32*d;8*d+1)`     |
-| `` `g#2 1 2`` | grouped | `(8*d;8*n)` |
+| `` `p#2 2 1`` | parted  | `(48*d)+8*n`     |
+| `` `g#2 1 2`` | grouped | `(16*d)+8*n` |
 
 
 Attribute `u` is for unique lists – where all items are distinct.

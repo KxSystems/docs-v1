@@ -127,17 +127,10 @@ The following glyphs denote operators, functions or adverbs – according to use
 
 ## Attributes
 
-<table class="kx-tight">
-<thead>
-    <tr><th>example</th><th/><th>overhead</th></tr>
-</thead>
-<tbody>
-    <tr><td class="kx-nowrap"><code>`s#2 2 3</code></td><td>sorted</td><td><code>0</code></td></tr>
-    <tr><td class="kx-nowrap"><code>`u#2 4 5</code></td><td>unique</td><td><code>16*u</code></td></tr>
-    <tr><td class="kx-nowrap"><code>`p#2 2 1</code></td><td>parted</td><td><code>(4*u;16*u;4*u+1)</code></td></tr>
-    <tr><td class="kx-nowrap"><code>`g#2 1 2</code></td><td>grouped</td><td><code>(4*u;16*u;4*u+1;4*n)</code></td></tr>
-</tbody>
-</table>
+```
+`s  sorted     `u  unique
+`p  parted     `g  grouped
+```
 
 <i class="fa fa-hand-o-right"></i> [Attributes](elements/#attributes)
 
