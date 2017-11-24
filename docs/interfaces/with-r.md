@@ -258,6 +258,8 @@ it can be built from source by following the instructions outlined in the associ
 <i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
 </div>
 
+<i class="fa fa-github"></i> [kxsystems/embedr](https://github.com/kxsystems/embedr)
+
 A shared library can be loaded which brings R into the q memory space, 
 meaning all the R statistical routines and graphing capabilities can be invoked directly from q. 
 Using this method means data is not passed between remote processes. The library has five methods:
