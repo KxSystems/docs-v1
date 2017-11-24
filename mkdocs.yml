@@ -44,22 +44,21 @@ markdown_extensions:
 site_dir: 'site'
 site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
-site_favicon: './img/favicon.ico'
 # config.site_name: 'code.kx.com'
 site_name: 'code.kx.com'
 site_url: 'http://code.kx.com'
 remote_branch: 'master'
 # repo_name: 'GitHub'
 # repo_url: 'https://github.com/kxsystems/docs'
-theme: 'material'
-# theme_dir for favicon
-#theme_dir: 'theme'
-extra:
+theme: 
+  favicon: './img/favicon.ico'
+  name: 'material'
   logo: 'img/kx.jpeg'
   palette: 
     primary: 'blue'
     accent: 'deep orange'
-  # version: '0.1.0'
+plugins: 
+  - search
 pages:
   - Home: index.md
   - Get started: learn.md
