@@ -45,7 +45,7 @@ Windows                              | (no action required)
 ## Installation
 
 <i class="fa fa-download"></i>
-Download the appropriate release archive from the [releases](https://github.com/sv/ffi/releases) page. 
+Download the appropriate release archive from the [releases](https://github.com/KxSystems/ffi/releases) page. 
 
 Unpack and install the content of the archive: 
 
