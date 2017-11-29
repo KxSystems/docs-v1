@@ -62,40 +62,43 @@ q)hopen(`:tcps://myhost:5000:username:password;30000)
 
 We have tried to make the process of upgrading seamless, however please pay attention to the following NUCs to consider whether they impact your particular installation
 
-- added `ujf` (new keyword) which mimics the behaviour of `uj` from V2.x, i.e. that it fills from lhs. e.g.
-```q
+- added `ujf` (new keyword) which mimics the behaviour of `uj` from V2.x, i.e. that it fills from lhs, e.g.
+<pre><code class="language-q">
 q)([a:1 2 3]b:2 3 7;c:10 20 30;d:"WEC")~([a:1 2]b:2 3;c:5 7;d:"WE")ujf([a:1 2 3]b:2 3 7;c:10 20 30;d:"  C")
-```
+</code></pre>
 
-- constants limit in lambdas reduced from 96 to 95; could cause existing user code to signal `'constants` error. e.g.
-```q
+- constants limit in lambdas reduced from 96 to 95; could cause existing user code to signal a `'constants` error, e.g.
+<pre><code class="language-q">
 q)value raze"{",(string[10+til 96],\:";"),"}"
-```
+</code></code>
 
-- now uses abstract namespace for Unix domain sockets on Linux to avoid file permission issues in /tmp.
+- now uses abstract namespace for Unix domain sockets on Linux to avoid file permission issues in `/tmp`.
 N.B. hence V3.5 cannot connect to V3.4 using UDS. e.g.
-```q
+<pre><code class="language-q">
 q)hopen`:unix://5000
-```
+</code></pre>
 
-- comments no longer stripped from the function text by the tokenizer (`-4!x`); they can be stripped explicitly from the `-4!` result with
-```q
- q){x where not(1<count each x)&x[;0]in" /\t\n"} -4!"/a comment\n{2+ 3; /another comment\n3\n\t/yet another\n \n} /and one more"
-```
+- comments are no longer stripped from the function text by the tokenizer (`-4!x`); comments within functions can be stripped explicitly from the `-4!` result with
+<pre><code class="language-q">
+q){x where not(1&lt;count each x)&x[;0]in" \t\n"} -4!"{2+ 3; /comment\n3\n\t/ another comment\n \n/yet another\n /and one more\n}"
+</code></code>
 
-- the structure of the result of value lambda, e.g. `value {x+y}`, is:
-```q
-(bytecode;parameters;locals;(namespace,globals);constants[0];...;constants[n];m;n;f;l;s)
-```
-where
+- the structure of the result of `value` on a lambda, e.g. `value {x+y}`, is:
+<pre><code class="language-q">
+(bytecode;parameters;locals;(namespace,globals);constants[0];…;constants[n];m;n;f;l;s)
+</code></pre>
 
-    - `m`: bytecode to source position map, -1 if position unknown
-    - `n`: fully qualified (with namespace) function name as a string, set on first global assignment, with @ appended for inner lambdas. () if n/a
-    - `f`: full path to the file where the function originated from, "" if n/a
-    - `l`: line number in said file, -1 if n/a
-    - `s`: source code
+    where
 
-this structure is subject to change.
+    this | is
+    -----|------
+    `m`  | bytecode to source position map; `-1` if position unknown
+    `n`  | fully qualified (with namespace) function name as a string, set on first global assignment, with `@` appended for inner lambdas; `()` if not applicable
+    `f`  | full path to the file where the function originated from; `""` if not applicable
+    `l`  | line number in said file; `-1` if n/a
+    `s`  | source code
+
+    This structure is subject to change.
 
 
 ## Suggested upgrade process
