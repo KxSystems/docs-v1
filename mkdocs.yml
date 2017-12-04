@@ -2,9 +2,10 @@ copyright: 'This work is licensed under a <a rel="license" href="http://creative
 dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
 extra_css: 
-  - '//code.kx.com/stylesheets/extra.css'
-  - stylesheets/extra.css
-  - '//code.kx.com/stylesheets/prism.css'
+  # - stylesheets/kendo.common.min.css
+  # - stylesheets/kendo.material.min.css
+  - 'stylesheets/extra.css'
+  - 'stylesheets/prism.css'
 extra_javascript: 
   # See /ref/syntax/#projection to see if MathJax is working 
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
@@ -19,7 +20,7 @@ extra_javascript:
   - 'scripts/theme.js'
   # Prism script includes plugin Copy to Clipboard http://prismjs.com/download.html
   # Omits plugins Command Line, Line highlight, and Line Numbers: no effect
-  - '//code.kx.com/scripts/prism.js'
+  - 'scripts/prism.js'
   # - 'scripts/prism.js'
 markdown_extensions:
   - admonition
