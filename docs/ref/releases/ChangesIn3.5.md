@@ -33,6 +33,18 @@ Use cases include coarse load-balancing and HA/failover.
     When using socket sharding (e.g. `-p rp,5000`) the Unix domain socket (`uds`) is not active; this is deliberate and not expected to change.
 
 
+## Number of slaves
+
+Slave threads can now be adjusted dynamically up to the maximum [specified on the command line](/ref/syscmds/#s-number-of-slaves). A negative number indicates that processes should be used, instead of threads.
+```q
+q)0N!("current slave threads";system"s");system"s 4";0N!("current,max slave threads";system"s";system"s 0N"); / q -s 8
+("current slave threads";0i)
+("current,max slave threads";4i;8i)
+q)system"s 0" / disable slave threads
+q)system"s 0N" / show max slave threads
+8i
+```
+
 ## Improved sort performance
 
 Kdb+ uses a hybrid sort, selecting the algorithm it deems best for the data type, size and domain of the input. With V3.5, this has been tweaked to improve significantly the sort performance of certain distributions, typically those including a null. e.g.
