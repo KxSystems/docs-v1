@@ -19,9 +19,11 @@ q)execFunction[f2;(1 2)]
 !!! warning "Applying an operator"
     Where _apply_ is used infix and its left argument `f` is an operator, parenthesize `f`.
     <pre><code class="language-q">
-    q)(mod) . 2 3      / operator
+    q).[mod;2 3]       / prefix, operator
     2
-    q){x mod y} . 2 3  / lambda
+    q)(mod) . 2 3      / infix, operator
+    2
+    q){x mod y} . 2 3  / infix, lambda
     2
     q)g:mod
     q)g . 2 3
