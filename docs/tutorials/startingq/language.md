@@ -350,6 +350,15 @@ q)b
 "abc"
 ```
 
+!!! warning "Multi-line function definitions"
+    In scripts, indentation allows function definitions to span multiple lines. 
+    <pre><code class="language-q">
+    fn:{[x,y]
+      a:x*2.5;
+      b:x+til floor y;
+      a & b
+      }</code></pre>
+    The convention entails that in a multi-line definition **the closing brace must also be indented**.
 
 ## 2.10 Q queries
 
