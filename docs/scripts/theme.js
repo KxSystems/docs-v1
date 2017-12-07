@@ -21,7 +21,7 @@ $(function() {
     <div class="md-search" data-md-component="search" role="dialog">
       <label class="md-search__overlay" for="search"></label>
       <div class="md-search__inner">
-        <form class="md-search__form" name="search">
+        <form class="md-search__form" id="kx-search-form" name="search">
           <input type="text" class="md-search__input" id="kx-search-query" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
           <label class="md-icon md-search__icon" for="search"></label>
           <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
@@ -40,6 +40,17 @@ $(function() {
     </div>
 	`;
 	$("div.md-flex div").last().append(html);
+	var serviceRoot = "http://localhost:5022";
+	var srchHandler =function( evt ) {
+		console.log(evt.which);
+		if( evt.which===13 ) {
+			var url = serviceRoot + "/?query=" + $("#kx-search-query").val();
+			console.log(url);
+			window.location = url;
+			return false;
+		};
+	};
+	$("#kx-search-form").keypress(srchHandler);
 
 /*	$('#kx-search-query').kendoAutoComplete({				/// Initialise autocomplete functionality
 		autoWidth: true,

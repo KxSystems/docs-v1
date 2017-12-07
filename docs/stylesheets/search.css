@@ -15,7 +15,7 @@ html {
 	font-size: 62.5%;
 }
 body {
-	padding: 1em;
+	/*padding: 1em;*/
 }
 h1, h2 {
  	color: rgba(0,0,0,.3);
@@ -39,10 +39,16 @@ dl {
 dt {
 	font-weight: 900;
 }
-
 dd {
 	color: rgba(0,0,0,.75);
 	margin: 0 0 1em 1.875em;
+}
+
+ul {
+	font-size: 1.6rem;
+	padding-left: 2em;
+	line-height: 1.6;
+	list-style: none;
 }
 
 a {
@@ -50,4 +56,30 @@ a {
 }
 a:hover {
 	color: #ff6e40;
+}
+
+form {
+	background: url(http://code.kx.com/q/img/kx.jpeg);
+	background-color: #0070cd;
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	color: white;
+	display: block;
+	font-size: 1.4em;
+	padding: 1em 1em 1em 50px;
+}
+label, input {
+	display: inline-block;
+}
+label {
+}
+input {
+	font-size: 1.2em;
+	margin: 0 1em;
+}
+
+
+#wrapper {
+	padding: 1em;
 }
