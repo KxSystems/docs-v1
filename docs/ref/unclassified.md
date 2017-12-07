@@ -17,17 +17,17 @@ q)execFunction[f2;(1 2)]
 ```
 
 !!! warning "Applying an operator"
-    Where _apply_ is used infix and its left argument `f` is an operator, parenthesize `f`.
+    Where _apply_ is applied infix, and its left argument `f` is an operator, parenthesize `f`.
     <pre><code class="language-q">
-    q).[mod;2 3]       / prefix, operator
+    q).[mod;2 3]       / apply applied prefix to an operator
     2
-    q)(mod) . 2 3      / infix, operator
+    q)(mod) . 2 3      / apply applied infix to an operator
     2
-    q){x mod y} . 2 3  / infix, lambda
+    q){x mod y} . 2 3  / apply applied infix to a lambda
     2
     q)g:mod
     q)g . 2 3
-    2</code></pre>The parser requires this because `f` can itself be used infix.
+    2</code></pre>The operator `mod` can itself be applied infix. In the second expression, the parentheses create a noun `(mod)`, which is then parsed as the left argument of the _apply_ operator. In the remaining examples, the lambda and `g` are parsed as nouns.
 
 > _Everything starts from a dot._ – Wassily Kandinsky
 
