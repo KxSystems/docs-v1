@@ -1,4 +1,6 @@
-Q has built-in authentication via the `-u` and `-U` [command line options](/ref/cmdline/). 
+# Authentication and access control
+
+Q has built-in authentication via the [`-U`](/ref/cmdline/#-u-usr-pwd) and [`-u`](/ref/cmdline/#-u-usr-pwd-local) command line options.
 
 Access control is very flexible, through hooking the message interface [`.z.pg`](/ref/dotz/#zpg-get "get"), [`.z.ps`](/ref/dotz/#zps-set "set"), and validating the input before execution.
 ```q
