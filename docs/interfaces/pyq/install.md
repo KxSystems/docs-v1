@@ -1,7 +1,7 @@
 # ![PyQ](../img/pyq.png)  Installation
 
 
-PyQ can be installed using the standard Python package management tool `pip`.  
+PyQ can be installed using the standard Python package management tool `pip`.
 <i class="fa fa-hand-o-right"></i> [Installing Python Modules](https://docs.python.org/3/installing)
 
 To install the latest version, run the following command
@@ -13,7 +13,7 @@ $ pip install pyq
     For the best experience with PyQ, you should also install some third-party
     packages such as numpy and IPython.  The extra packages recommended by
     the PyQ developers can be installed using the `pip install pyq[all]`
-    command. 
+    command.
 
 
 ## Requirements
@@ -121,7 +121,7 @@ $ sudo yum install gcc gcc-c++ rpm-build subversion git zip unzip bzip2 \
   tk-devel.i686 libpcap-devel.i686 xz-devel.i686 libffi-devel.i686
 </code></pre>
 
-2. Download, compile and install 32-bit Python 3.6.0 
+2. Download, compile and install 32-bit Python 3.6.0
 into `/opt/python3.6.i686`
 
     <pre><code class="language-bash">
@@ -246,7 +246,7 @@ Install PyQ:
 
 ## Installing with 32-bit kdb+ on macOS
 
-To use PyQ with the free 32-bit kdb+ on macOS, you need a 32-bit version of Python. 
+To use PyQ with the free 32-bit kdb+ on macOS, you need a 32-bit version of Python.
 
 !!! info "Python installed on macOS"
     MacOS Sierra and High Sierra ship with a universal version of Python 2.7.10.
@@ -301,7 +301,7 @@ To use the latest version of Python 2.7 or Python 3, install it using the packag
 1.  Create a new virtual environment and activate it:
 
     <pre><code class="language-bash">
-    $ mkvirtualenv -p /usr/local/opt/pythonXY/bin/pythonX ${HOME}/pyq
+    $ /usr/local/opt/pythonXY/bin/pythonX -mvirtualenv -p /usr/local/opt/pythonXY/bin/pythonX ${HOME}/pyq
     $ source ${HOME}/pyq/bin/activate
     </code></pre>
 
