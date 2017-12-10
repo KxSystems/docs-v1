@@ -1,14 +1,9 @@
 ## Non-Uniform Access Memory (NUMA) hardware
 
-Historically, there have been a number of situations where the choice of NUMA memory management settings in the kernel would adversely affect the performance of q on systems using NUMA memory architectures. These effects included higher-than-expected system-process usage for q, and lower memory performance. 
+Historically, there have been a number of situations where the choice of NUMA memory management settings in the kernel would adversely affect the performance of q on systems using NUMA memory architectures. This resulted in higher-than-expected system-process usage for q, and lower memory performance. For this reason we made certain recommendations for the settings for memory interleave and transparent huge pages. 
 
-The performance issues have been observed in a couple of situations. Firstly, in the case where q writes down to memory-mapped pages backed by swap, e.g  an RDB writing down to memory then being written out to backing swap before a close/commit to backing store. Once this situation was observed, performance would drop once the pages were refreshed to RAM. Secondly, in some cases where HDB pages are paged out and then later paged back in because of a re-read of the same data. An example of this is when your are short of physical memory pages for large HDB reads.
-
-The existing NUMA recommendation remains valid for those cases where your code drives the q processes to demand memory pages that are in excess of the physical memory capacity of the node. For example, this might occur during a write-down of an RDB that spans more than available RAM, as stated above.
-
-For this reason we made certain recommendations for the settings for memory interleave and transparent huge pages.
-
-However, with the introduction of new Linux distributions based on newer kernel versions we now recommend different NUMA settings, depending on the version of the distribution being used. 
+One of the performance issues seen by q in this context is the same as the “swap insanity” issue, as linked below. Essentially, when the Linux kernel decides to swap out dirty pages, due to memory exhaustion, it was observed to affect performance of q, significantly more than expected. A relief for this situation was achieved via setting NUMA interleaving options in the kernel.
+However, with the introduction of new Linux distributions based on newer kernel versions we now recommend different NUMA settings, depending on the version of the distribution being used. The use of the interleave feature should still be considered for those cases where your code drives the q processes to write to memory pages in excess of the physical memory capacity of the node. 
 
 -   For distributions based on kernels **3.x**, please disable interleave, and enable zone_reclaim. For all situations where memory page demand is constrained to the physical memory space of the node, this should return a better overall performance.  
 
