@@ -29,7 +29,7 @@
 <tr>
 <td>limit</td>
 <td class="nowrap">`0W#2`</td>
-<td>Tried to generate a list longer than 2,000,000,000, or serialized object is &gt; 2GB, or `'type` if trying to serialize a nested object which has &gt; 2 billion elements</td>
+<td>Tried to generate a list longer than 2,000,000,000, or serialized object is &gt; 1TB (2GB until V3.4), or `'type` if trying to serialize a nested object which has &gt; 2 billion elements</td>
 </tr>
 <tr> <td>loop</td> <td class="nowrap">`a::a`</td> <td>Dependency loop</td> </tr>
 <tr> <td>mismatch</td> <td class="nowrap">`([]a:til 4),([]b:til 3)`</td> <td>Columns that can't be aligned for R,R or K,K</td> </tr>
