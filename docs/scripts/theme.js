@@ -40,7 +40,7 @@ $(function() {
     </div>
 	`;
 	$("div.md-flex div").last().append(html);
-	var serviceRoot = "http://localhost:5022";
+	var serviceRoot = "http://139.59.172.244:5022"; // search engine on DigitalOcean VPS
 	var srchHandler =function( evt ) {
 		console.log(evt.which);
 		if( evt.which===13 ) {
