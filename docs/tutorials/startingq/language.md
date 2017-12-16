@@ -56,17 +56,15 @@ q)\dir *.q
 ...
 ```
 - in Linux/macOS:
-    ```q
+    <pre><code class="language-q">
     q)\ls *.q
     ...
     "sp.q"
     "trade.q"
     ...
-    ```
+    </code></pre>
     <i class="fa fa-hand-o-right"></i> [Command-line parameters](/ref/cmdline/) e.g.
-    ```bash
-    $ q profile.q -p 5001
-    ```
+    `$ q profile.q -p 5001`
 
     + loads script profile.q at startup. This can in turn load other scripts.
     + sets listening port to 5001
@@ -79,19 +77,20 @@ At any prompt, enter `\\` to exit q.
 The usual prompt is `q)`. Sometimes a different prompt is given; you need to understand why this is, and how to return to the standard prompt.
 
 1. If a function is suspended, then the prompt has two or more `)`. In this case, enter a single `\` to remove one level of suspension, and repeat until the prompt becomes `q)`. For example:
-    ```q
+    <pre><code class="language-q">
     q)f:{2+x}        / define function f
-    q)f `sym         / function call fails with symbol argument
+    q)f \`sym         / function call fails with symbol argument
     {2+x}            / and is left suspended
     'type
     +
     2
-    `sym
+    \`sym
     q))\             / prompt becomes q)). Enter \ to return to usual prompt
     q)
-    ```
+    </code></pre>
+
 2. If there is no suspension, then a single `\` will toggle between q and k modes:
-    ```q
+    <pre><code class="language-q">
     q)count each (1 2;"abc")    / q expression for length of each list item
     2 3
     q)\                         / toggle to k mode
@@ -99,13 +98,14 @@ The usual prompt is `q)`. Sometimes a different prompt is given; you need to und
     2 3
       \                         / toggle back to q mode
     q)
-    ```
+    </code></pre>
+
 3. If you change namespace, then the prompt includes the namespace.  
-    ```q
+    <pre><code class="language-q">
     q)\d .h                     / change to h namespace
     q.h)\d .                    / change back to root namespace
     q)
-    ```
+    </code></pre>
     <i class="fa fa-hand-o-right"></i> [Reference/System commands `\d`](/ref/syscmds/#d-directory)
 
 
