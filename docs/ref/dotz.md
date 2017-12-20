@@ -219,7 +219,15 @@ Returns the kdb+ operating system version as a symbol.
 q).z.o
 `w32
 ```
-Current values are `w32`, `w64`, `l32`, `l64`, `s32`, `s64` (Solaris), `v64` (Solaris on Intel).
+Values for V3.5 are shown below in bold type.
+
+os               | 32-bit  | 64-bit
+-----------------|---------|--------
+Linux            | **l32** | **l64**
+macOS            | **m32** | **m64**
+Solaris          | s32     | s64
+Solaris on Intel | **v32** | **v64**
+Windows          | **w32** | **w64**
 
 Note this is the version of the kdb+ executable, NOT the OS itself. You may be running both 32-bit and 64-bit versions of kdb+ on the same machine to support older external interfaces.
 
@@ -572,7 +580,7 @@ q)
 
 ### `.z.pd` (peach handles)
 
-Syntax: `.z.pd:x`
+Syntax: `.z.pd: x`
 
 Where q has been started with slave tasks for use by _peach_,  `x` is 
 
@@ -582,7 +590,7 @@ Where q has been started with slave tasks for use by _peach_,  `x` is
 For evaluating the function passed to _peach_, kdb+ gets the handles to those worker processes by calling `.z.pd[]`. These handles must not be used for other messaging; _peach_ will close them if it receives anything other than a response message.
 ```q
 q)/open connections to 4 processes on the localhost 
-q).z.pd:`u#hopen each 20000+til 4localhost 
+q).z.pd:`u#hopen each 20000+til 4
 ```
 The int vector (returned by) `x` _must_ have the `` `u`` attribute set.
 

@@ -306,6 +306,14 @@ q)hsym`10.43.23.197
 ```
 
 
+## `key`
+
+<i class="fa fa-hand-o-right"></i> [`key`](metadata/key) for
+
+-   contents of a directory
+-   existence of a file
+
+
 ## `load`
 
 Syntax: `load x`
