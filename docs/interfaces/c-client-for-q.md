@@ -671,7 +671,7 @@ For standalone applications binding with c.o/c.dll, or shared libraries prior to
 
 value | effect
 ------|------
--1    | use within shared libraries only in V3.0
+-1    | valid for V3.0+ for serializing/deserializing within the same process
 0     | unenumerate, block serialization of timespan and timestamp (For working with versions prior to 2.6).
 1     | retain enumerations, allow serialization of timespan and timestamp. (Useful for passing data between threads).
 2     | unenumerate, allow serialization of timespan and timestamp

@@ -20,6 +20,7 @@
 <tr> <td>d8</td><td/><td>The log had a partial transaction at the end but q couldn’t truncate the file</td></tr>
 <tr> <td>domain</td> <td class="nowrap">`til -1`</td> <td>Out of domain</td> </tr>
 <tr> <td>elim</td> <td class="nowrap">``((-58?`3) set\:(),`a)$`a``</td> <td>Too many enumerations (max: 57)</td> </tr>
+<tr> <td>enable slave threads via cmd line -s only</td> <td class="nowrap">`\s 4`</td> <td>Command line enabled processes for parallel processing</td> </tr>
 <tr> <td>from</td> <td class="nowrap">`select price trade`</td> <td>Badly formed select statement</td> </tr>
 <tr> <td>glim</td> <td/> <td>`` `g#`` limit (99 prior to V3.2, now unlimited</td> </tr>
 <tr> <td>hop</td><td/><td>Request to `hopen` a handle fails; includes message from OS</td> </tr>

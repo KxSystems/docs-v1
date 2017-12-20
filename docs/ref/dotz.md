@@ -582,12 +582,15 @@ q)
 
 Syntax: `.z.pd: x`
 
-Where q has been started with slave tasks for use by _peach_,  `x` is 
+Where q has been [started with slave processes for use in parallel processing](cmdline/#-s-slaves),  `x` is 
 
-- an int vector of handles to worker processes
-- a function that returns a list of) handles to those worker processes
+-    an int vector of handles to slave processes
+-    a function that returns a list of handles to those slave processes
 
-For evaluating the function passed to _peach_, kdb+ gets the handles to those worker processes by calling `.z.pd[]`. These handles must not be used for other messaging; _peach_ will close them if it receives anything other than a response message.
+For evaluating the function passed to `peach` or `':`, kdb+ gets the handles to the slave processes by calling [`.z.pd[]`](dotz/#zpd-peach-handles). 
+
+!!! warning "Slaves to peach"
+    The processes with these handles must not be used for other messaging; _peach_ will close them if it receives anything other than a response message.
 ```q
 q)/open connections to 4 processes on the localhost 
 q).z.pd:`u#hopen each 20000+til 4
@@ -600,7 +603,7 @@ q).z.pd:{n:abs system"s";$[n=count handles;handles;[hclose each handles;:handles
 q).z.pc:{handles::`u#handles except x;}
 q)handles:`u#`int$();
 ```
-Note that the worker processes are not started automatically by kdb+.
+Note that (since V3.1) the worker processes are not started automatically by kdb+.
 
 <i class="fa fa-hand-o-right"></i> [Cookbook/LoadBalancing](/cookbook/load-balancing)
 

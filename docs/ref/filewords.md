@@ -232,26 +232,31 @@ q)nuke:visitNode[hdel]
 
 Syntax: `hopen x`
 
-Opens a file or a process handle, where `x` is one of 
+Where `x` is one of 
 
 - a process handle
-- a 2-item list of a process handle and a timeout
+- a 2-item list of a process handle and a timeout in milliseconds
 - a filename
 
-and returns a positive integer handle.
+opens a file or a process handle, and returns a positive integer handle.
 
-Where `x` has the form:
+A _process handle_ has the form:
 
-- (**TCP**) `` `:host:port[:user:password]``. `host` can be a hostname or IP address. (Left empty, it denotes the localhost.)
+TCP
+: `` `:host:port[:user:password]`` 
+: `host` can be a hostname or IP address; omitted, it denotes the localhost
 
-- (**Unix domain socket**) `` `:unix://port[:user:password] ``. 
-(Since V3.4.) Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection.
+Unix domain socket
+: `` `:unix://port[:user:password] `` 
+: (Since V3.4.) Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection
 
-- (**SSL/TLS connection**) `` `:tcps://host:port[:user:password] ``. See Cookbook: [SSL/TLS](/cookbook/ssl/)
+SSL/TLS
+: `` `:tcps://host:port[:user:password] `` 
+: <i class="fa fa-hand-o-right"></i> Cookbook: [SSL/TLS](/cookbook/ssl/)
 
-User and password are required if the server session has been started with the `-u` or `-U` command line options, and are passed to `.z.pw` for (optional) additional processing.
+User and password are required if the server session has been started with the [`-u`](cmdline/#-u-usr-pwd-local) or [`-U`](cmdline/#-u-usr-pwd) command line options, and are passed to [`.z.pw`](dotz/#zpw-validate-user) for (optional) additional processing.
 
-The optional timeout is in milliseconds and applies to the initial connection, not subsequent use of the connection.
+The optional timeout applies to the initial connection, not subsequent use of it.
 ```q
 q)h:hopen `:10.43.23.198:5010                    / IP address
 q)h:hopen `:mydb.us.com:5010                     / hostname
