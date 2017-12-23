@@ -1,6 +1,8 @@
-TCP/IP is used for communicating between processes. The protocol is extremely simple, as is the message format. One can see what a TCP/IP message looks like by using `-8!object`, which generates the byte vector for the serialization of the object.
+TCP/IP is used for communicating between processes. The protocol is extremely simple, as is the message format. 
 
-!!! note
+!!! tip "TCP/IP message format" 
+    One can see what a TCP/IP message looks like by using `-8!object`, which generates the byte vector for the serialization of the object.
+
     This information is provided for debugging and troubleshooting only.
 
 
@@ -340,11 +342,6 @@ q.d)-8!test
 - `00`: attributes
 - `05000000`: length (5)
 - `7b782b797d`: {x+y}
-
-
-## `.z`
-
-
 
 
 ## Notes

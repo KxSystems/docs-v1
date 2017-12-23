@@ -45,7 +45,6 @@ To ensure an async message has been processed by the remote, follow with a sync 
 q)h"";
 ```
 You may consider increasing the size of TCP send/receive buffers on your system to reduce the amount of blocking whilst trying to write into a socket.  
-<i class="fa fa-hand-o-right"></i> [Interprocess communication](ipc)
 
 
 ## Sync request (get)
