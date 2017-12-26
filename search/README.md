@@ -22,13 +22,13 @@ The very large majority of code.kx.com visitors use desktop or laptops, where a 
 The script `docs/scripts/theme.js` restores the HTML previously generated for the Search box. 
 A query from the Search box for `xxx` is sent to the server as `/search?query=xxx`. 
 
-The Apache server acts as a [reverse proxy][3] and directs the query to the Searcher. 
+The Apache server acts as a [reverse proxy](https://www.digitalocean.com/community/tutorials/how-to-use-apache-as-a-reverse-proxy-with-mod_proxy-on-ubuntu-16-04) and directs the query to the Searcher. 
 
 
 Searcher
 --------
 
-The Searcher is a kdb+ process run by user `indy` as a daemon under [`systemd`][5], as specified by `/etc/systemd/system/kxsearch.service`.
+The Searcher is a kdb+ process run by user `indy` as a daemon under [`systemd`](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units), as specified by `/etc/systemd/system/kxsearch.service`.
 This service runs `srchr.q`.
 
 It listens on 127.0.0.1:5022 – i.e. will accept internal connections only. 
@@ -43,7 +43,7 @@ The engine logs every request by passing it in an async call over a Unix connect
 Logger
 ------
 
-The Logger is a kdb+ process run by user `logger` as a daemon under [`systemd`][5], as specified by `/etc/systemd/system/kxlogger.service`.
+The Logger is a kdb+ process run by user `logger` as a daemon under [`systemd`](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units), as specified by `/etc/systemd/system/kxlogger.service`.
 This service runs `loggr.q`.
 
 It listens on 127.0.0.1:5202 – i.e. will accept internal connections only. 
@@ -87,11 +87,11 @@ To do
 - [ ] Variant: Search box from `theme.js` to make Ajax call with `fmt=ul` and display results in MkDocs search results container 
 
 
-Bibliography
-------------
+Further reading
+---------------
 
-[1]: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04 "How To Set Up a Firewall with UFW on Ubuntu 14.04"
-[2]: https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands "UFW Essentials: Common Firewall Rules and Commands"
-[3]: https://www.digitalocean.com/community/tutorials/how-to-use-apache-as-a-reverse-proxy-with-mod_proxy-on-ubuntu-16-04 "How To Use Apache as a Reverse Proxy with mod_proxy on Ubuntu 16.04"
-[4]: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04 "How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 16.04"
-[5]: https://cloudsupport.digitalocean.com/s/#none|ka21N000000Cp7aQAC "How To Use Systemctl to Manage Systemd Services and Units"
+* [How To Set Up a Firewall with UFW on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04)
+* [UFW Essentials: Common Firewall Rules and Commands](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands)
+* [How To Use Apache as a Reverse Proxy with mod_proxy on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-use-apache-as-a-reverse-proxy-with-mod_proxy-on-ubuntu-16-04)
+* [How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04)
+* [How To Use Systemctl to Manage Systemd Services and Units](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units) 
