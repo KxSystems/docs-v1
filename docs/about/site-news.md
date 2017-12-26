@@ -1,3 +1,12 @@
+## <i class="fa fa-search"></i> Custom search engine
+
+2017.12.26
+
+We have replaced the native MkDocs client-side search engine with a custom search engine written in q. 
+
+The large majority of visits to this site are from laptops and desktops, so the new search engine displays results as a page, rather than a popup list. 
+
+
 ## <i class="fa fa-code"></i> Fusion interfaces
 
 2017.11.06

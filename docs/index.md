@@ -45,10 +45,10 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 
 !!! info "New on code.kx.com"
+    - [Custom search engine](/about/site-news/)
     - [JSON](/ref/dotj)
     - [C API reference](/interfaces/capiref)
     - [Fusion interfaces](/interfaces/fusion)
-    - Cookbook: [Linear programming](/cookbook/lp)
     
 !!! caution "The Kx wiki"
     The documentation from the [Kx wiki](http://code.kx.com/wiki) has moved to this new platform. All source code can now be found on [GitHub](https://kxsystems.github.io). 

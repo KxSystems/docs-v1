@@ -1,7 +1,7 @@
 /*
     Title: Style rules for search engine results
     Author: stephen@kx.com
-    Version: 2017.12.10
+    Version: 2017.12.17
 */
 
 * {
@@ -42,6 +42,17 @@ dt {
 dd {
 	color: rgba(0,0,0,.75);
 	margin: 0 0 1em 1.875em;
+}
+
+p {
+	/* No results */
+	font-size: 1.4em;
+	margin: 1em;
+}
+p.colophon {
+        color: gray;
+        font-size: 1em;
+        margin-top: 2em;
 }
 
 ul {

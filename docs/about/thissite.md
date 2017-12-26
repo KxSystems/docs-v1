@@ -14,42 +14,6 @@ Truncated GitHub URLs are prefixed with the GitHub icon <i class="fa fa-github">
 For example, read <i class="fa fa-github"></i> `KxSystems/kdb` as `https://github.com/KxSystems/kdb`.
 
 
-## <i class="fa fa-search"></i> Search tips
-
-The first time you use the Search box it will download and cache the site’s index files. This may take some seconds, depending on your connection, but please be patient: searches will then be very responsive. 
-
-<!-- The Search box offers two kinds of search. As you type, the local search engine proposes matches from its index. Click on one of these to follow. Or type Return to send your query to Google Search. 
- -->
-1. For single-character queries such as `?`, `$` and `@` use the [Reference Card](/ref/card) 
-
-1. The internal search index omits common English words like _like_ or _or_.<!-- , which Google finds --> 
-
-1. Reference articles are grouped by semantic topic. Your query might be in a heading rather than the title of the page you need. For example, the [definition of `ss`](/ref/strings/#ss) is on the Strings page.
-1. Use quotes to search for an exact phrase
-
-    Searching for a phrase in quotes will yield only pages with the same words in the same order as what is in the quotes. 
-
-1. Use an asterisk within quotes to specify unknown or variable words
-
-    Searching a phrase in quotes with an asterisk replacing a word will search all variations of that phrase. For example, `imagine all the * living for today`, or `* is thicker than water`.
-
-1. Use the minus sign to eliminate results containing certain words
-
-    Eliminate results with certain words if you’re getting a lot of results that aren’t of interest to you. Figure out what terms you’re not interested in (e.g. `avg -antivirus`) and re-run the search.
-
-<!-- <i class="fa fa-hand-o-right"></i> [How to search on Google](https://support.google.com/websearch/answer/134479?hl=en)
-
-!!! warning "Ads in results from Google Search"
-    Our sister site [kx.com](http://kx.com) offers an ad-free custom Google Search. Sadly, Google no longer offers this service, even for paid custom searches. We regret this means you may see advertisements in Google search results. 
- -->
-
-<!-- ## <i class="fa fa-keyboard-o"></i> Keyboard shortcuts for Search
-
-In Chrome, Firefox, Safari and Internet Explorer 11, one or more tabs will take you to the site Search box. Results appear as you type. 
-
-In Chrome you can select a result with the arrow keys; in Internet Explorer 11, with the Tab key. 
-
- -->
 ## <i class="fa fa-life-ring"></i> Reference
 
 The wiki’s Reference section, organised by glyphs, was a good tool for _reading_ q. It was easy to find, for example, all the possible meanings of `$`. On the other hand, a writer looking for tools to convert between datatypes and representations would have to explore most of the Reference section to be confident she had found them all. 

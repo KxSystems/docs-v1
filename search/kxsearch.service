@@ -1,0 +1,13 @@
+[Unit]
+Description=Search engine for code.kx.com
+
+[Service]
+User=indy
+NoNewPrivileges=true
+WorkingDirectory=~
+Environment="QHOME=/opt/q"
+ExecStart=/opt/q/l64/q srchr.q -p 127.0.0.1:5022
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -2,11 +2,6 @@
  * https://gist.github.com/wpscholar/4637176#file-jquery-external-links-new-window-js-L4
  * Open all external links in a new window
  */
-// // window.addEventListener('load', function(e) {
-// // var serviceRoot = new String("http://"+location.hostname+":5021");
-// var serviceRoot = new String("http://localhost:5021");
-// var dbgX;
-
 $(function() {
     $('a').not('[href*="mailto:"]').each(function () {
 		var isInternalLink = new RegExp('/' + window.location.host + '/');
@@ -40,12 +35,12 @@ $(function() {
     </div>
 	`;
 	$("div.md-flex div").last().append(html);
-	var serviceRoot = "http://139.59.172.244:5022"; // search engine on DigitalOcean VPS
+	// var serviceRoot = "http://139.59.172.244:5022"; // search engine on DigitalOcean VPS
 	var srchHandler =function( evt ) {
-		console.log(evt.which);
+		// console.log(evt.which);
 		if( evt.which===13 ) {
-			var url = serviceRoot + "/?query=" + $("#kx-search-query").val();
-			console.log(url);
+			var url = window.location.host + "/?query=" + $("#kx-search-query").val();
+			// console.log(url);
 			window.location = url;
 			return false;
 		};

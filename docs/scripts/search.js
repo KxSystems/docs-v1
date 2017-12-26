@@ -1,6 +1,8 @@
 /*
 	Title: Search code.kx.com
 	Author: stephen@kx.com
+
+	Script for results from custom search engine
 */
 $(function() {
 	$("form").submit(function(){
@@ -9,4 +11,5 @@ $(function() {
 		window.location = (url);
 		return false;
 	});
+	$("#query").focus();
 });

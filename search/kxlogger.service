@@ -1,0 +1,14 @@
+[Unit]
+Description=Logging for kxsearch
+
+[Service]
+User=logger
+NoNewPrivileges=true
+WorkingDirectory=~
+Environment="QHOME=/opt/q"
+ExecStart=/opt/q/l64/q loggr.q -p 5202
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=kxsearch
