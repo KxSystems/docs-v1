@@ -653,6 +653,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/prodrive11/log4q">log4q ==new==</a></td>
+<td>A concise logger for q/kdb+ applications. <span class="author"><a href="https://github.com/prodrive11?tab=repositories">
+						(Pat Bukowinski)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/komsit37/qchart">qchart</a></td>
 <td>Plot data directly from q (using JavaScript). Works well with sublime-q. Transform your data into [JSON](http://www.json.org/) and renders it into a HTML/JavaScript template. <span class="author"><a href="https://github.com/komsit37?tab=repositories">
 						(Eugene Kononov)
