@@ -35,13 +35,19 @@ $(function() {
     </div>
 	`;
 	$("div.md-flex div").last().append(html);
-	// var serviceRoot = "http://139.59.172.244:5022"; // search engine on DigitalOcean VPS
+	// var serviceRoot = "http://139.59.172.244"; // search engine on DigitalOcean VPS
+	var serviceRoot = window.location.host; // queries revert to originating site for redirection by reverse proxy
 	var srchHandler =function( evt ) {
 		// console.log(evt.which);
 		if( evt.which===13 ) {
-			var url = window.location.host + "/?query=" + $("#kx-search-query").val();
-			// console.log(url);
-			window.location = url;
+			var url = serviceRoot + "/q/search?query=" + $("#kx-search-query").val();
+			console.log(url);
+			// window.location = url;
+			$.get(url, function( data ) {
+				alert( 'ping!' );
+				console.log( data );
+				$( ".md-search-result__list" ).html( data );
+			});
 			return false;
 		};
 	};
