@@ -75,4 +75,4 @@ $ git commit -a -F done.md
 $ git push origin master
 ```
 
-The procedure can be adapted for updating code.kx.com/q4m3. The source for this is not on GitHub but in a private BitBucket repository shared with the author, Jeffry Borror. 
+The procedure can be adapted for updating code.kx.com/q4m3. The source for this is not on GitHub but in a private repository shared with the author, Jeffry Borror. 
