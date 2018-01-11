@@ -1,7 +1,7 @@
 /*
     Title: Style rules for search engine results
     Author: stephen@kx.com
-    Version: 2017.12.17
+    Version: 2018.01.10
 */
 
 * {
@@ -36,14 +36,18 @@ dl {
 	line-height: 1.6;
 	margin: 1em 1em 0 0;
 }
-dt {
+dt a {
 	font-weight: 900;
 }
 dd {
-	color: rgba(0,0,0,.75);
+	color: rgba(0,0,0,.5);
 	margin: 0 0 1em 1.875em;
 }
-
+dd.href {
+	color: #aaa;
+	font-size: 80%;
+	margin: 0 0 0 1.875em;
+}
 p {
 	/* No results */
 	font-size: 1.4em;
@@ -70,7 +74,7 @@ a:hover {
 }
 
 form {
-	background: url(http://code.kx.com/q/img/kx.jpeg);
+	background: url(https://code.kx.com/q/img/kx.jpeg);
 	background-color: #0070cd;
 	background-position: 10px center;
 	background-repeat: no-repeat;
@@ -91,6 +95,9 @@ input {
 }
 
 
-#wrapper {
-	padding: 1em;
+#kxsearch-results-wrapper {
+	padding: 0 1em 1em;
+}
+.kdb {
+	color: #0070cd;
 }

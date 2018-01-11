@@ -36,19 +36,20 @@ $(function() {
 	`;
 	$("div.md-flex div").last().append(html);
 	// var serviceRoot = "http://139.59.172.244"; // search engine on DigitalOcean VPS
-	var serviceRoot = window.location.host; // queries revert to originating site for redirection by reverse proxy
+	// var serviceRoot = window.location.host; // queries revert to originating site for redirection by reverse proxy
+	var serviceRoot = 'https://code.kx.com/preview/q/search'; // >>> reverse-proxy directive on Apache httpd
 	var srchHandler =function( evt ) {
 		// console.log(evt.which);
 		if( evt.which===13 ) {
-			var url = serviceRoot + "/q/search?query=" + $("#kx-search-query").val();
+			var url = serviceRoot + "?query=" + $("#kx-search-query").val();
 			console.log(url);
-			// window.location = url;
-			$.get(url, function( data ) {
+			window.location = url;
+/*			$.get(url, function( data ) {
 				alert( 'ping!' );
 				console.log( data );
 				$( ".md-search-result__list" ).html( data );
 			});
-			return false;
+*/			return false;
 		};
 	};
 	$("#kx-search-form").keypress(srchHandler);
