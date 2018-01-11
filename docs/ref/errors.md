@@ -112,11 +112,11 @@ q)
 !!! warning "Limit of the trap"
     _Trap_ catches only errors signalled in the applications of `f` or `g`. Errors in the evaluation of `fx` or `gg` themselves are not caught.
     <pre><code class="language-q">
-    q)@[2+;"42";`err]
-    `err
-    q)@[2+;"42"+3;`err]
+    q)@[2+;"42";\`err]
+    \`err
+    q)@[2+;"42"+3;\`err]
     'type
-      [0]  @[2+;"42"+3;`err]
+      [0]  @[2+;"42"+3;\`err]
                     ^
     </code></pre>
 

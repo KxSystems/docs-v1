@@ -372,7 +372,7 @@ Resolution of a name within select/exec/update is as follows:
 !!! tip 
     You can [refer explicitly to namespaces](elements/#names-and-namespaces):
     <pre><code class="language-q">
-    select (`. `toplevel) x from t
+    select (\`. \`toplevel) x from t
     </code></pre>
 
 

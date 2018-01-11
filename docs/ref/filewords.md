@@ -282,14 +282,14 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
 !!! note "File handles"
     A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
     <pre><code class="language-q">
-    q)hdat:hopen `:f.dat             / data file (bytes)
-    q)htxt:hopen `:c:/q/test.txt     / text file
+    q)hdat:hopen \`:f.dat             / data file (bytes)
+    q)htxt:hopen \`:c:/q/test.txt     / text file
     </code></pre>
     To append to these files, the syntax is the same as for IPC:
     <pre><code class="language-q">
     q)r:hdat 0x2324
     q)r:htxt "some text\n"
-    q)r:htxt ` sv("asdf";"qwer")
+    q)r:htxt \` sv("asdf";"qwer")
     </code></pre>
 
 !!! tip "Fifo/named pipes"
@@ -538,14 +538,14 @@ q)save `$"/tmp/t"
 !!! tip "Saving local data"
     To save local data you can do explicitly what `save` is doing under the covers.
     <pre><code class="language-q">
-    q)`:t set t /save in binary format as a single file
+    q)\`:t set t /save in binary format as a single file
     q)/ save in binary format as a splayed table 
     q)/ (1 file/column, symbols enumerated against the sym file in current dir)
-    q)`:t/ set .Q.en[`:.;t] 
-    q)`:t.csv 0:.h.tx[`csv;t] / save in csv format
-    q)`:t.txt 0:.h.tx[`txt;t] / save in txt format
-    q)`:t.xml 0:.h.tx[`xml;t] / save in xml format
-    q)`:t.xls 0:.h.tx[`xls;t] / save in xls format
+    q)\`:t/ set .Q.en[\`:.;t] 
+    q)\`:t.csv 0:.h.tx[\`csv;t] / save in csv format
+    q)\`:t.txt 0:.h.tx[\`txt;t] / save in txt format
+    q)\`:t.xml 0:.h.tx[\`xml;t] / save in xml format
+    q)\`:t.xls 0:.h.tx[\`xls;t] / save in xls format
     </code></pre>
 
 <i class="fa fa-hand-o-right"></i> [`.Q.Xf`](dotq/#qxf-create-file) (create file)

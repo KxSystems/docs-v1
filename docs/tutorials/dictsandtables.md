@@ -105,7 +105,7 @@ ibm| 400    amd
 amd| 600    intel
 ```
 Finally, let's check the result of `^`:
-```
+```q
 q)kr:([sym:`ibm`amd]; price:10 20)
 q)kt^kr
 sym| volume price

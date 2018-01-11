@@ -126,7 +126,7 @@ In this case _find_ matches items of `x` with `2` `3` and `` `ab `` , not `(2 3;
     A solution to find ``(2 3;`ab)`` is
     <pre><code class="language-q">
     q)f:{where x~\:y}
-    q)f[u;(2 3;`ab)]
+    q)f[u;(2 3;\`ab)]
     ,2
     </code></pre>
 
@@ -134,9 +134,9 @@ In this case _find_ matches items of `x` with `2` `3` and `` `ab `` , not `(2 3;
     Where `x` is a table then `y` must be a compatible record (dictionary or list) or table. That is, each column of `x`, paired with the corresponding item of `y`, must be valid arguments of _find_.
     <pre><code class="language-q">
     q)\l sp.q
-    q)sp?(`s1;`p4;200)
+    q)sp?(\`s1;\`p4;200)
     3
-    q)sp?`s`p`qty!(`s2;`p5;450)
+    q)sp?\`s\`p\`qty!(\`s2;\`p5;450)
     12
     </code></pre>
 

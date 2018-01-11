@@ -447,7 +447,7 @@ Imagine that we want to save a CSV file without the first row that contains the 
 This can be done by extracting the columns from a table, without the row name, and then saving in CSV format.
 
 Here, we assume that tables are not keyed. We’ll use this table as our example:
-```
+```q
 q)trade
 date       open  high  low   close volume   sym
 ------------------------------------------------
@@ -474,7 +474,7 @@ q)trade (cols trade)
 AMD        MSFT       AMD        MSFT       AMD        MSFT       AMD        ..
 ```
 The second one turns the table into a dictionary and then gets the values
-```
+```q
 q)value flip trade
 2006.10.03 2006.10.03 2006.10.04 2006.10.04 2006.10.05 2006.10.05 2006.10.06 ..
 24.5       27.37      24.1       27.39      24.8       27.92      24.66      ..
