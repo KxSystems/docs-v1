@@ -97,48 +97,70 @@ time       sym  qty px
 10:01:04 ge   150
 ```
 
-!!! tip "Use `aj0` for quote time"
-    If the resulting time value is to be from the quote (actual time) instead of the (boundary time) from trade, use `aj0` instead of `aj`.
+`aj` and `aj0` return different times in their results:
 
-!!! tip "Speed"
-    `aj` should run at a million or two trade records per second; whether trade/quote are mapped or not is irrelevant. However, for speed:
-    
-    - in-memory quote must have `` `g#sym `` and time sorted within sym. 
-    - on-disk quote must have `` `p#sym `` and time sorted within sym.
-    
-    Note that on-disk `` `g#sym `` does not help.
+join  | time in result
+------|------------------------
+`aj`  | boundary time from `t1`
+`aj0` | actual time from `t2`
 
-!!! warning "Map in splays and partitions"
-    Unlike in memory, to use `aj` with on-disk, you must map in your splay or day-at-a-time partitioned db:
-    
-    Splay:
-    <pre><code class="language-q">
-    aj[\`sym\`time;select .. from trade where ..;select .. from quote]
-    </code></pre>
-    Partitioned db:
-    <pre><code class="language-q">
-    aj[\`sym\`time;select .. from trade where ..;
-                 select .. from quote where date = ..]
-    </code></pre>
-    Further `where` constraints cannot be used, or the columns will be copied instead of mapped into memory (resulting in slowdown for the `aj`).
 
-!!! tip "No need to `select` on quote"
-    There is no need to select on quote, i.e. irrespective of the number of quote records, use:
-    <pre><code class="language-q">
-    aj[\`sym\`time;select .. from trade where ..;quote]
-    </code></pre>
-    instead of
-    <pre><code class="language-q">
-    aj[\`sym\`time;select .. from trade where ..;
-                 select .. from quote where ..]
-    </code></pre>
+**Performance** 
+
+`aj` should run at a million or two trade records per second; whether the tables are mapped or not is irrelevant. However, for speed:
+
+medium | c<sub>1</sub> | c<sub>2</sub>…
+-------|---------------|-----------------------------------------
+memory | `g#`          | sorted within <code>c<sub>1</sub></code>
+disk   | `p#`          | sorted within <code>c<sub>1</sub></code>
+
+Departure from this incurs a severe performance penalty. 
+
+Note that, on disk, the `g#` attribute does not help.
+
+!!! warning "Virtual partition column"
+    Select the virtual partition column only if you need it. It is fabricated on demand, which can be slow for large partitions.
+
+**`select` from `t2`**
+
+In memory, there is no need to select from `t2`. Irrespective of the number of records, use, e.g.:
+```q
+aj[`sym`time;select … from trade where …;quote]
+```
+instead of
+```q
+aj[`sym`time;select … from trade where …;
+             select … from quote where …]
+```
+In contrast, on disk you must map in your splay or day-at-a-time partitioned database:
+
+Splay:
+```q
+aj[`sym`time;select … from trade where …;select … from quote]
+```
+Partitioned:
+```q
+aj[`sym`time;select … from trade where …;
+             select … from quote where date = …]
+```
+
+!!! warning "Further `where` constraints"
+    If further `where` constraints are used, the columns will be _copied_ instead of mapped into memory, slowing down the join.
+
+If you are using a database where an individual day’s data is spread over multiple partitions the on-disk `p#` will be lost when retrieving data with a constraint such as `…date=2011.08.05`. In this case you will have to reduce the number of quotes retrieved by applying further constraints – or by re-applying the attribute.
 
 
 ## `asof`
 
 Syntax: `t1 asof t2`
 
-Where `t1` is a table and `t2` is a table or dictionary, and the last key or column of `t2` corresponds to a time column in `t1`, returns the values from the last rows matching the rest of the keys and time less-or-equal-to the time in `t2`.
+Where 
+
+-   `t1` is a table
+-   `t2` is a table or dictionary
+-   the last key or column of `t2` corresponds to a time column in `t1`
+
+returns the values from the last rows matching the rest of the keys and time &le; the time in `t2`.
 ```q
 q)show trade asof`sym`time!(`IBM;09:30:00.0)
 price| 96.3e
@@ -330,8 +352,9 @@ Syntax: `t1 lj t2`
 
 Where `t1` and `t2` are tables, `t2` is keyed, and the key column/s of `t2` are columns of `t1`, returns `t1` and `t2` joined on the key columns of `t2`. 
 For each record in `t1`, the result has one record with the columns of `t1` joined to columns of `t2`:
-- if there is a matching record in `t2`, it is joined to the `t1` record. Common columns are replaced.
-- if there is no matching record in `t2`, common columns are left unchanged, and new columns are null
+
+-   if there is a matching record in `t2`, it is joined to the `t1` record. Common columns are replaced.
+-   if there is no matching record in `t2`, common columns are left unchanged, and new columns are null
 ```q
 q)show x:([]a:1 2 3;b:`x`y`z;c:10 20 30)
 a b c

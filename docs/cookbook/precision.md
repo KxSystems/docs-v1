@@ -165,8 +165,8 @@ q)a~b
 1b
 q)a>b
 0b
-q)floor b
-1
+q)floor b /before V3.0, returned 1
+0
 ```
 In the following examples, `b` is treated not equal to `a`:
 ```q

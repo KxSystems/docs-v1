@@ -256,9 +256,19 @@ Replicate from :host:port
   
 Syntax: `-s N`
   
-Start `N` slaves for parallel execution
+Slave threads or processes for parallel processing
 
-The sign of `N` indicates whether threads or processes should be used for `peach`. If negative, the absolute value is ignored, as the handles to the processes to be used are retrieved from `.z.pd` during `peach`.
+N        | parallel processing uses
+---------|-------------------------
+positive | `N` threads
+negative | processes with handles in `.z.pd`
+
+For processes:
+
+-   `peach` or `':` will call [`.z.pd`](dotz/#zpd-peach-handles) for a list of handles to the processes, which must have been started previously
+-   the absolute value of `-N` in the command line is ignored. 
+
+<i class="fa fa-hand-o-right"></i> System command [`\s`](syscmds/#s-number-of-slaves), [Parallel processing](peach)
 
 
 ## `-T` (timeout)

@@ -2,23 +2,23 @@ The functional forms of [`delete`](qsql/#delete), [`exec`](qsql/#exec), [`select
 ```q
 ![t;c;b;a]                /update and delete
 ?[t;c;b;a]                /select and exec
-?[t;i;x]                  /simple exec
+?[t;i;p]                  /simple exec
 ```
 
 `t`
-: is a table. 
+: is a table 
 
 `c`
-: is a list of **where**-specifications (constraints). 
-: Every item in `c` is a triple consisting of a boolean- or int- valued binary function together with its arguments, each an expression containing column names and other variables. The function is applied to the two arguments, producing a boolean vector. The resulting boolean vector selects the rows that yield non-zero results. The selection is performed in the order of the items in `c`, from left to right.
+: is a list of **where** specifications (constraints) 
+: Each item in `c` is a [parse tree](parsetrees) of a boolean- or int- valued binary function together with its arguments; each argument an expression containing column names and other variables. The function is applied to the two arguments, producing a boolean vector. The resulting boolean vector selects the rows that yield non-zero results. The selection is performed in the order of the items in `c`, from left to right.
 
 `b`
-: is a dictionary of **group-by**-specifications (by phrase). 
-: The domain of `b` is a list of symbols that are the key names for the grouping. The range of `b` is a list of column expressions whose results are used to construct the groups. The grouping is ordered by the domain items, from major to minor.
+: is a dictionary of **group-by** specifications (by phrase)
+: The domain of `b` is a list of symbols: the key names for the grouping. The range of `b` is a list of column expressions whose results are used to construct the groups. The grouping is ordered by the keys, from major to minor.
 
 `a`
-: is a dictionary of **select** specifications (aggregations). 
-: The domain of `a` is a list of symbols containing the names of the produced columns. Each item of the range of `a` is an evaluation list consisting of a function and its argument/s, each of which is a column name or another such result list. For each evaluation list, the function is applied to the specified value(s) for each row and the result is returned. The evaluation lists are resolved recursively when operations are nested.
+: is a dictionary of **select** specifications (aggregations)
+: The domain of `a` is a list of symbols: the names of the produced columns. Each item of the range of `a` is a [parse tree](parsetrees) consisting of a function and its argument/s, each of which is a column name or another parse tree. For each parse tree, the function is applied to the specified value/s for each row and the result is returned. When nested, the parse trees are evaluated recursively.
 
 `i`
 : is a list of indexes
@@ -117,7 +117,7 @@ More complex examples of _exec_ seem to reduce to the equivalent _select_.
 Syntax: `?[t;i;p]`
 
 Where `t` is a (non-partitioned) table, `i` is a list of indices, and `p` is a [parse tree](parsetrees), is another form of _exec_.
-```
+```q
 q)show t:([]a:1 2 3;b:4 5 6;c:7 9 0)
 a b c
 -----

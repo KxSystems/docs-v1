@@ -232,26 +232,31 @@ q)nuke:visitNode[hdel]
 
 Syntax: `hopen x`
 
-Opens a file or a process handle, where `x` is one of 
+Where `x` is one of 
 
 - a process handle
-- a 2-item list of a process handle and a timeout
+- a 2-item list of a process handle and a timeout in milliseconds
 - a filename
 
-and returns a positive integer handle.
+opens a file or a process handle, and returns a positive integer handle.
 
-Where `x` has the form:
+A _process handle_ has the form:
 
-- (**TCP**) `` `:host:port[:user:password]``. `host` can be a hostname or IP address. (Left empty, it denotes the localhost.)
+TCP
+: `` `:host:port[:user:password]`` 
+: `host` can be a hostname or IP address; omitted, it denotes the localhost
 
-- (**Unix domain socket**) `` `:unix://port[:user:password] ``. 
-(Since V3.4.) Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection.
+Unix domain socket
+: `` `:unix://port[:user:password] `` 
+: (Since V3.4.) Unix domain sockets can have significantly lower latency and higher throughput than a localhost TCP connection
 
-- (**SSL/TLS connection**) `` `:tcps://host:port[:user:password] ``. See Cookbook: [SSL/TLS](/cookbook/ssl/)
+SSL/TLS
+: `` `:tcps://host:port[:user:password] `` 
+: <i class="fa fa-hand-o-right"></i> Cookbook: [SSL/TLS](/cookbook/ssl/)
 
-User and password are required if the server session has been started with the `-u` or `-U` command line options, and are passed to `.z.pw` for (optional) additional processing.
+User and password are required if the server session has been started with the [`-u`](cmdline/#-u-usr-pwd-local) or [`-U`](cmdline/#-u-usr-pwd) command line options, and are passed to [`.z.pw`](dotz/#zpw-validate-user) for (optional) additional processing.
 
-The optional timeout is in milliseconds and applies to the initial connection, not subsequent use of the connection.
+The optional timeout applies to the initial connection, not subsequent use of it.
 ```q
 q)h:hopen `:10.43.23.198:5010                    / IP address
 q)h:hopen `:mydb.us.com:5010                     / hostname
@@ -277,14 +282,14 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
 !!! note "File handles"
     A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
     <pre><code class="language-q">
-    q)hdat:hopen `:f.dat             / data file (bytes)
-    q)htxt:hopen `:c:/q/test.txt     / text file
+    q)hdat:hopen \`:f.dat             / data file (bytes)
+    q)htxt:hopen \`:c:/q/test.txt     / text file
     </code></pre>
     To append to these files, the syntax is the same as for IPC:
     <pre><code class="language-q">
     q)r:hdat 0x2324
     q)r:htxt "some text\n"
-    q)r:htxt ` sv("asdf";"qwer")
+    q)r:htxt \` sv("asdf";"qwer")
     </code></pre>
 
 !!! tip "Fifo/named pipes"
@@ -304,6 +309,14 @@ q)hsym`c:/q/test.txt
 q)hsym`10.43.23.197
 `:10.43.23.197
 ```
+
+
+## `key`
+
+<i class="fa fa-hand-o-right"></i> [`key`](metadata/key) for
+
+-   contents of a directory
+-   existence of a file
 
 
 ## `load`
@@ -525,14 +538,14 @@ q)save `$"/tmp/t"
 !!! tip "Saving local data"
     To save local data you can do explicitly what `save` is doing under the covers.
     <pre><code class="language-q">
-    q)`:t set t /save in binary format as a single file
+    q)\`:t set t /save in binary format as a single file
     q)/ save in binary format as a splayed table 
     q)/ (1 file/column, symbols enumerated against the sym file in current dir)
-    q)`:t/ set .Q.en[`:.;t] 
-    q)`:t.csv 0:.h.tx[`csv;t] / save in csv format
-    q)`:t.txt 0:.h.tx[`txt;t] / save in txt format
-    q)`:t.xml 0:.h.tx[`xml;t] / save in xml format
-    q)`:t.xls 0:.h.tx[`xls;t] / save in xls format
+    q)\`:t/ set .Q.en[\`:.;t] 
+    q)\`:t.csv 0:.h.tx[\`csv;t] / save in csv format
+    q)\`:t.txt 0:.h.tx[\`txt;t] / save in txt format
+    q)\`:t.xml 0:.h.tx[\`xml;t] / save in xml format
+    q)\`:t.xls 0:.h.tx[\`xls;t] / save in xls format
     </code></pre>
 
 <i class="fa fa-hand-o-right"></i> [`.Q.Xf`](dotq/#qxf-create-file) (create file)

@@ -3,11 +3,13 @@
 
 ## Case
 
-Use title case for proper names, e.g. _Python_, _C#_, _WebSocket_, _GitHub_. 
+Use title case for **proper names**, e.g. _Python_, _C#_, _WebSocket_, _GitHub_. 
 Among the notable exceptions are _macOS_, _q_ and _kdb+_.
 
-The language is _q_. 
-The database, process and product are all known as _kdb+_. 
+Also use title case for the names of **panels, tabs and dialogs** in a UI, e.g. _Dashboard Manager_, _Connection Editor_. 
+
+The **language** is _q_. 
+The **database, process and product** are all known as _kdb+_. 
 Although both are proper names they are both set in lower case, except where they begin sentences or headings. 
 
 

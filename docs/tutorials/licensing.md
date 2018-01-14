@@ -2,7 +2,7 @@
 
 Everyone. All use of kdb+ is governed by a license. 
 
-Commercial versions of kdb+ also need a **license key file** `k4lic` to run.
+Commercial versions of kdb+ also need a **license key file** (`k4lic`, or `kc.lic` for kdb+ on demand) to run.
 
 
 ## Free, non-commercial, 32-bit kdb+
@@ -21,7 +21,7 @@ Enjoy.
 
 ## Commercial kdb+
 
-If you have a commercial distribution of kdb+, it will abort without a suitable license key file `k4.lic`. For example, with no license key file:
+If you have a commercial distribution of kdb+, it will abort without a suitable license key file `k4.lic`  or `kc.lic`. For example, with no license key file:
 ```bash
 tom@mb13:~/q$ q
 ```
@@ -43,9 +43,9 @@ Kdb+ signals the [error](/ref/error-list/#license-errors) `'k4.lic` and aborts.
 
 The banner at the top of the aborted q session above contains machine-configuration information but no license information. 
 
-The Designated Contact sends a copy of the banner to licadmin@kx.com to receive a `k4.lic` license file in return. 
+The Designated Contact sends a copy of the banner to licadmin@kx.com to receive a license file in return. 
 
-Save a copy of `k4.lic` in the `QHOME` folder. Restart kdb+ and note the change in the banner. 
+Save a copy of the license file in the `QHOME` folder. Restart kdb+ and note the change in the banner. 
 ```bash
 tom@mb13:~/q$ q
 ```
@@ -73,23 +73,10 @@ If the license is for fewer cores than the total number on the machine, the numb
 
 <i class="fa fa-hand-o-right"></i> [License errors](/ref/error-list/#license-errors)
 
-<!-- ## License errors
-
-Kdb+ reports license problems at startup by signalling one of the following errors, then aborting. 
-
-error | cause
-------| -----
-`'cores` | The license is for [fewer cores than available](/cookbook/cpu-affinity).
-`'exp` | The license’s expiry date is in the past.
-`'host` | The hostname reported by the OS does not match the hostname or hostname-pattern in the license. If you see 255.255.255.255 in the kdb+ banner, the machine almost certainly cannot resolve its hostname to an IP address, which will cause a `'host` error. 
-`'k4.lic` | No license file found. 
-`'os` | The license is for a different operating system. (No distinction is made between 32-bit and 64-bit versions.) 
-`'upd` | The license’s Maintenance Update Date (the date until which maintenance has been paid) precedes this version of kdb+. For example, a license with an Maintenance Update Date of 2015.01.01 covers any version of kdb+ dated before 2015.
-
- -->
 ## License questions
 
 Designated Contacts should send license questions to licadmin@kx.com. 
 
 !!! tip "Emergency failover licenses"
     In case of an emergency, such as a hardware or infrastructure failure that renders your license key file unusable, the Designated Contact can email failover@kx.com to request a temporary failover license to allow use of a different machine or IP address. 
+

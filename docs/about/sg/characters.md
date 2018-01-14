@@ -75,3 +75,12 @@ Commas can have semantic force outside lists, e.g. _Let’s eat, Grandma!_
 Hyphenate **adjectival phrases**, e.g. _real-time systems do things in real time_. 
 
 Use **spaced endashes** for parenthetical remarks – such as this one – but never hyphens or unspaced emdashes. (The longer emdash—like this—is the more common style in American typography.) 
+
+
+## Ampersands
+
+Use sparingly, not simply as a synonym for _and_, but to mark an association closer than conjunction.
+
+Thus, _Kernigan & Ritchie_, and _Proctor & Gamble_, but _authentication and access control_.
+
+**Exception** Wherean ampersand is part of a label on a UI control, reprosduce it faithfully.

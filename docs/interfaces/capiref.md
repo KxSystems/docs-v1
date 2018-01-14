@@ -195,7 +195,7 @@ Uses q IPC and  `mode` capabilities level, where `mode` is:
 
 value | effect
 :----:|------
--1    | use within shared libraries from V3.0 onwards
+-1    | valid for V3.0+ for serializing/deserializing within the same process
 0     | unenumerate, block serialization of timespan and timestamp (for working with versions prior to V2.6)
 1     | retain enumerations, allow serialization of timespan and timestamp: Useful for passing data between threads
 2     | unenumerate, allow serialization of timespan and timestamp

@@ -1,10 +1,19 @@
-## Non-Uniform Access Memory (NUMA) Hardware
+## Non-Uniform Access Memory (NUMA) hardware
 
-For the majority of use cases, running q on a NUMA system can cause a number of operational issues, including high system-process usage and poor performance. Hence for these systems, you should disable NUMA and set an interleave memory policy. Q is unaware of whether NUMA is enabled or not.
+Historically, there have been a number of situations where the choice of NUMA memory management settings in the kernel would adversely affect the performance of q on systems using NUMA memory architectures. This resulted in higher-than-expected system-process usage for q, and lower memory performance. For this reason we made certain recommendations for the settings for memory interleave and transparent huge pages. 
 
-If possible, disable NUMA in bios. Otherwise use the technique below.
+One of the performance issues seen by q in this context is the same as the “swap insanity” issue, as linked below. Essentially, when the Linux kernel decides to swap out dirty pages, due to memory exhaustion, it was observed to affect performance of q, significantly more than expected. A relief for this situation was achieved via setting NUMA interleaving options in the kernel.
+However, with the introduction of new Linux distributions based on newer kernel versions we now recommend different NUMA settings, depending on the version of the distribution being used. The use of the interleave feature should still be considered for those cases where your code drives the q processes to write to memory pages in excess of the physical memory capacity of the node. 
 
-To fully disable NUMA and set an interleave memory policy, start q with the `numactl` command as follows
+-   For distributions based on kernels **3.x**, please disable interleave, and enable zone_reclaim. For all situations where memory page demand is constrained to the physical memory space of the node, this should return a better overall performance.  
+
+-   For Linux distributions based on Linux kernel **2.6 or earlier** (e.g RHEL 6.7 or CentoS 6.7 or earlier), we recommend to disable NUMA, and instead set an interleave memory policy, especially in the use-case described above.
+
+In both cases, q is unaware of whether NUMA is enabled or not.
+
+If possible, you should change the  NUMA settings via a BIOS setting, if that is supported by your system. Otherwise use the technique below.
+
+To fully disable NUMA and enable an interleave memory policy, start q with the `numactl` command as follows
 ```bash
 $ numactl --interleave=all q
 ```
@@ -12,7 +21,7 @@ _and_ disable zone-reclaim in the proc settings as follows
 ```bash
 $ echo 0 > /proc/sys/vm/zone_reclaim_mode
 ```
-<i class="fa fa-hand-o-right"></i> [The MySQL “swap insanity” problem and the effects of NUMA](http://jcole.us/blog/archives/2010/09/28/mysql-swap-insanity-and-the-numa-architecture/)
+<i class="fa fa-hand-o-right"></i> [The MySQL “swap insanity” problem and the effects of NUMA](http://jcole.us/blog/archives/2010/09/28/mysql-swap-insanity-and-the-numa-architecture/)  
 Although the post is about the impact on MySQL, the issues are the same for other databases such as q.
 
 To find out whether NUMA is enabled in your bios, use
@@ -24,14 +33,18 @@ And to see if NUMA is enabled on a process basis
 $ numactl -s
 ```
 
-
 ## Huge Pages and Transparent Huge Pages (THP)
 
-A number of customers have been impacted by bugs in the Linux kernel with respect to Transparent Huge Pages. These issues manifest themselves as process crashes, stalls at 100% CPU usage, and sporadic performance degradation. Until further notice, we strongly recommend disabling THP on Linux systems that run q. 
+A number of customers have been impacted by bugs in the Linux kernel with respect to Transparent Huge Pages. These issues manifest themselves as process crashes, stalls at 100% CPU usage, and sporadic performance degradation. Our recommendation for THP is similar to the recommendation for memory interleaving. 
+
+Linux kernel   | THP
+---------------|--------
+2.6 or earlier | disable
+3.x            | enable
 
 Other database vendors are also reporting similar issues with THP.
 
-Note that disabling Transparent Huge Pages isn’t possible via `sysctl(8)`. Rather, it requires manually echoing settings into /sys/kernel at or after boot. In /etc/rc.local or by hand:
+Note that changing Transparent Huge Pages isn’t possible via `sysctl(8)`. Rather, it requires manually echoing settings into `/sys/kernel` at or after boot. In `/etc/rc.local` or by hand. To disable THP, do this:
 ```bash
 if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
   echo never > /sys/kernel/mm/transparent_hugepage/enabled
@@ -41,20 +54,33 @@ if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
   echo never > /sys/kernel/mm/transparent_hugepage/defrag
 fi
 ```
-Redhat users may need a slightly different path
+Some distributions may require a slightly different path, e.g:
+
+
 ```bash
 $ echo never >/sys/kernel/mm/redhat_transparent_hugepage/enabled
 ```
-Another possibility to configure this is via grub
+Another possibility to configure this is via `grub`
 ```
 transparent_hugepage=never
 ```
+To enable THP for Linux kernel 3.x, do this:
+```bash
+if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+  echo always > /sys/kernel/mm/transparent_hugepage/enabled
+fi
+
+if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
+  echo always > /sys/kernel/mm/transparent_hugepage/defrag
+fi
+```
+
 Q must be restarted to pick up the new setting.
 
 
 ## Monitoring free disk space
 
-In addition to monitoring free disk space for your usual partitions which you write to, ensure you also monitor free space of /tmp on Unix, since q uses this area for capturing the output from system commands, such as `system "ls"`.
+In addition to monitoring free disk space for the usual partitions you write to, ensure you also monitor free space of `/tmp` on Unix, since q uses this area for capturing the output from system commands, such as `system "ls"`.
 
 
 ## Compression
@@ -63,7 +89,7 @@ If you find that q is seg faulting (crashing) when accessing compressed files, t
 ```bash
 $ sysctl vm.max_map_count=16777216
 ```
-and/or make a suitable change for this parameter more permanent through /etc/sysctl.conf. As root
+and/or make a suitable change for this parameter more permanent through `/etc/sysctl.conf`. As root
 ```bash
 $ echo "vm.max_map_count = 16777216" | tee -a /etc/sysctl.conf
 $ sysctl -p
@@ -72,11 +98,11 @@ You can check current settings with
 ```bash
 $ more /proc/sys/vm/max_map_count
 ```
-Assuming you are using 128kB logical size blocks for your compressed files, a general guide is, at a minimum, set `max_map_count` to 1 map per 128kB of memory, or 65530, whichever is higher.
+Assuming you are using 128Kb logical size blocks for your compressed files, a general guide is, at a minimum, set `max_map_count` to one map per 128Kb of memory, or 65530, whichever is higher.
 
-If you are encountering a SIGBUS error, please check that the size of /dev/shm is large enough to accommodate the decompressed data. Typically, you should set the size of /dev/shm to be at least as large as a fully decompressed HDB partition.
+If you are encountering a SIGBUS error, please check that the size of `/dev/shm` is large enough to accommodate the decompressed data. Typically, you should set the size of `/dev/shm` to be at least as large as a fully decompressed HDB partition.
 
-Set `ulimit` to 4096 or higher: based on 1024+number of compressed columns which may be queried concurrently.
+Set `ulimit` to the higher of 4096 and 1024 plus the number of compressed columns which may be queried concurrently.
 ```bash
 $ ulimit -n 4096
 ```
@@ -86,7 +112,7 @@ $ ulimit -n 4096
 
 Timekeeping on production servers is a complicated topic. These are just a few notes which can help.
 
-If you are using any of local time functions `.z.(TPNZD)` q will use the `localtime(3)` system function to determine time offset from GMT. In some setups (GNU libc) this can cause excessive system calls to /etc/localtime.  
+If you are using any of local time functions `.z.(TPNZD)` q will use the `localtime(3)` system function to determine time offset from GMT. In some setups (GNU libc) this can cause excessive system calls to `/etc/localtime`.  
 <i class="fa fa-hand-o-right"></i> [chemie.fu-berlin.de](http://www.chemie.fu-berlin.de/chemnet/use/info/libc/libc_17.html#SEC301), [stackoverflow.com](http://stackoverflow.com/questions/4554271/how-to-avoid-excessive-stat-etc-localtime-calls-in-strftime-on-linux/4554302#4554302)
 
 Setting TZ environment helps this:
@@ -104,4 +130,5 @@ $ echo tsc >/sys/devices/system/clocksource/clocksource0/current_clocksource
 $ cat /sys/devices/system/clocksource/clocksource*/available_clocksource
 ```
 If you are using PTP for timekeeping, your PTP hardware vendor might provide their own implementation of time. Check that those utilize VDSO mechanism for exposing time to user space.
+
 

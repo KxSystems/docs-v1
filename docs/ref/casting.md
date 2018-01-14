@@ -42,8 +42,30 @@ Find parts of time:
 ```q
 q)`hh`uu`ss$03:55:58.11
 3 55 58i
-q)`year`dd`mm`hh`uu`ss$2015.10.28D03:55:58
-2015 28 10 3 55 58i
+q)show timestamp:.z.p
+2018.01.05D14:14:34.728805000
+q)`year`dd`mm`hh`uu`ss$timestamp
+2018 5 1 14 14 34i
+q)timestamp.year
+2018i
+```
+
+```
+          | year | month | mm | week | dd | hh | uu | ss
+--------------------------------------------------------
+timestamp |  x   |   x   | x  |  x   | x  | x  | x  | x
+month     |  x   |   x   | x  |      |    |    |    |
+date      |  x   |   x   | x  |  x   | x  |    |    |
+datetime  |  x   |   x   | x  |  x   | x  | x  | x  | x
+timespan  |      |       |    |      |    | x  | x  | x
+minute    |      |       |    |      |    | x  | x  | x
+second    |      |       |    |      |    | x  | x  | x
+time      |      |       |    |      |    | x  | x  | x
+
+
+milliseconds: "i"$time mod 1000
+milliseconds: "i"$mod[;1000]"t"$datetime
+nanoseconds: "i"$timestamp mod 1000000000
 ```
 
 !!! Note "Casting string to symbol"

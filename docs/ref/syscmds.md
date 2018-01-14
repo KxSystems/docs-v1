@@ -324,7 +324,7 @@ q)\S              / seed is not updated
 
 Syntax: `\s`
 
-This queries the number of slaves, set with the `-s` command line parameter (query only).
+This queries or limits the number of slaves, set with the [`-s` command line  option](cmdline/#-s-slaves).
 
 As of V3.5 2017.05.02, slave threads can be adjusted dynamically up to the maximum specified on the command line. A negative number indicates that processes should be used, instead of threads.
 ```q

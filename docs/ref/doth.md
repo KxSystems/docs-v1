@@ -132,24 +132,25 @@ q).h.he "<rubbish>"
 
 Syntax: `.h.hn[x;y;z]`
 
-Where `x` is a string containing the type of error; `y` a symbol holding the response type (e.g. `` `csv``); and `z` a string containing the content, returns as a string an HTTP error.
+Where 
+
+-   `x` is the [type of error](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) (string) 
+-   `y` is the [content type](#hty-mime-types) (symbol) 
+-   `z` is the error message (string) 
+
+returns as a string an HTTP error response.
 ```q
-q).h.hn["very bad";`csv;"rubbish"]
-"HTTP/1.1 very bad\r\nContent-Type: text/comma-separated-values\r\nConnection..
+q).h.hn["404";`txt;"Not found: favicon.ico"]
+"HTTP/1.1 404\r\nContent-Type: text/plain\r\nConnection: close\r\nContent-Len..
 ```
-
-<!--
-## `.h.hp`
-
-Contains the string “html”.
--->
+<i class="fa fa-hand-o-right"></i> [Content types](#hty-mime-types)
 
 
 ## `.h.hp` (HTTP response)
 
 Syntax: `.h.hp x`
 
-Where `x` is a list of strings, returns as a string a valid HTTP response displaying these strings, for the web console.
+Where `x` is a list of strings, returns as a string a valid HTTP response displaying them.
 ```q
 q).h.hp("foo";"bar")
 "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nConnection: close\r\nContent-L..
@@ -491,7 +492,7 @@ xls | k){ex eb es[`Sheet1]x}
 
 Syntax: `.h.ty`
 
-Returns a dictionary of response types (e.g. `` `csv``, `` `bmp``, `` `doc``) and corresponding Media Types.
+Returns a dictionary of content types (e.g. `` `csv``, `` `bmp``, `` `doc``) and corresponding [Media Types](https://en.wikipedia.org/wiki/MIME).
 ```q
 q).h.ty
 htm | "text/html"

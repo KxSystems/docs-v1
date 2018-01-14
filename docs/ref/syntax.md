@@ -173,7 +173,7 @@ When `\` is used inside character or string displays, it serves as an escape cha
 
 
 ### Simple tables
-A simple [table](elements/#tables) can be created by flipping a [dictionary](elements/#dictionary) in which all the values have the same count – or written directly in table syntax:
+A simple [table](elements/#tables) can be created by flipping a [dictionary](elements/#dictionaries) in which all the values have the same count – or written directly in table syntax:
 ```q
 q)([]names:`bob`carol`ted`alice; ages:42 39 51 44)
 names ages

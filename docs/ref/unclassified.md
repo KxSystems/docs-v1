@@ -1,6 +1,7 @@
 ## `.` (apply)
 
-Syntax: `f . x` 
+Syntax: `f . x`  
+Syntax: `.[f;x]`
 
 Where `f` is a function of rank $N$ and `x` is a list of count $N$, returns the result of applying `f` to the items of `x` as its arguments, i.e. `f.(x;y;z)` is equivalent to `f[x;y;z]`.
 
@@ -14,6 +15,20 @@ q)execFunction[f1;enlist 1]
 q)execFunction[f2;(1 2)]
 3
 ```
+
+!!! warning "Applying an operator"
+    Where _apply_ is applied infix, and its left argument `f` is an operator, parenthesize `f`.
+    <pre><code class="language-q">
+    q).[mod;2 3]       / apply applied prefix to an operator
+    2
+    q)(mod) . 2 3      / apply applied infix to an operator
+    2
+    q){x mod y} . 2 3  / apply applied infix to a lambda
+    2
+    q)g:mod
+    q)g . 2 3
+    2</code></pre>The operator `mod` can itself be applied infix. In the second expression, the parentheses create a noun `(mod)`, which is then parsed as the left argument of the _apply_ operator. In the remaining examples, the lambda and `g` are parsed as nouns.
+
 > _Everything starts from a dot._ – Wassily Kandinsky
 
 <i class="fa fa-hand-o-right"></i> _Q for Mortals:_ [6.8 General Application](http://code.kx.com/q4m3/6_Functions/#68-general-application)

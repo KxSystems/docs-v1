@@ -227,7 +227,7 @@ q)M ./:a,'a:key count M /main diagonal
 
 
 ## Selection
-```
+```q
 q)N:((0 1 2;3 4 5);(6 7 8;9 10 11))
 q)((N 1) 1) 1 /repetitive selection of items From list
 10

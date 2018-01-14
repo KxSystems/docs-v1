@@ -10,29 +10,45 @@ The dataset is from a fictional computer-monitoring application. A company owns 
 
 ## Random data generation
 
-The code below will generate some semi-realistic random data. It is quite complex for beginners – please do not dwell on it! Paste it in line-by-line to a q session. (You don't need to paste in lines starting with / as they are comments). Or, you can paste it all into [q script](/ref/syscmds/#l-load-file-or-directory) and load it from there.
-
-Each desktop reports its CPU usage every minute (the computer table). The CPU usage is a value between 3% and 100%, and moves by between -2 and +2 between each sample period. The data is generated over a 5-day period, for 1000 machines. You can modify the number of machines, time range and sample frequency.
-
-Call records (the calls table) are generated with a severity whenever a user reports a problem. A call record has different severity levels possible. 3000 call records are generated in the 5-day period.
-
-Static information (the `computerlookup` table) is stored about each desktop computer, keyed by id. At present, this is only the department the machine belongs to and the operating system.
+The script `calls.q` below will generate some semi-realistic random data. It is quite complex for beginners – please do not dwell on it!  
 ```q
-/ Generate some random computer statistics (cpu usage only)
+/ calls.q
+/ Generate some random computer statistics (CPU usage only)
 / You can modify n (number of unique computers), timerange (how long the data is for)
-/ freq (how often a computer publishes a statistic) and calls (the number of logged calls)
-n:1000; timerange:5D; freq:0D00:01; calls:3000;
-depts:`finance`packing`logistics`management`hoopjumping`trading`telesales; startcpu:(til n)!25+n?20; fcn:n*fc:`long$timerange%freq;
+/ freq (how often a computer publishes a statistic) 
+/ and calls (the number of logged calls)
+n:1000; timerange:5D; freq:0D00:01; calls:3000
+depts:`finance`packing`logistics`management`hoopjumping`trading`telesales
+startcpu:(til n)!25+n?20 
+fcn:n*fc:`long$timerange%freq
 
-computer:([]time:(-0D00:00:10 + fcn?0D00:00:20)+fcn#(.z.p - timerange)+freq*til fc; id:raze fc#'key startcpu)
-computer:update `g#id from `time xasc update cpu:{100&amp;3|startcpu[first x]+sums(count x)?-2 -1 -1 0 0 1 1 2}[id] by id from computer
+computer:([]
+    time:(-0D00:00:10 + fcn?0D00:00:20)+fcn#(.z.p - timerange)+freq*til fc; 
+    id:raze fc#'key startcpu
+    )
+computer:update `g#id from `time xasc update cpu:{
+    100&3|startcpu[first x]+sums(count x)?-2 -1 -1 0 0 1 1 2
+    }[id] by id from computer
 
-/ And generate some random logged calls
-calls:([] time:(.z.p - timerange)+asc calls?timerange; id:calls?key startcpu; severity:calls?1 2 3)
+/ Generate some random logged calls
+calls:([] 
+    time:(.z.p - timerange)+asc calls?timerange; 
+    id:calls?key startcpu; 
+    severity:calls?1 2 3
+    )
 
-/ create a lookup table of computer information
+/ Create a lookup table of computer information
 computerlookup:([id:key startcpu] dept:n?depts; os:n?`win7`win8`osx`vista)
 ```
+Download [<i class="fa fa-download"></i> `calls.q`](assets.calls.q) into your `QHOME` folder, then [load it](/ref/syscmds/#l-load-file-or-directory):
+```q
+q)\l calls.q
+```
+Each desktop reports its CPU usage every minute (the computer table). The CPU usage is a value between 3% and 100%, and moves by between -2 and +2 between each sample period. The data is generated over a 5-day period, for 1000 machines. You can modify the number of machines, time range and sample frequency.
+
+Call records (the `calls` table) are generated with a severity whenever a user reports a problem. A call record has different severity levels possible. 3000 call records are generated in the 5-day period.
+
+Static information (the `computerlookup` table) is stored about each desktop computer, keyed by `id`. At present, this is only the department the machine belongs to and the operating system.
 
 
 ## Data overview
@@ -83,7 +99,7 @@ computerlookup| 1000
 
 ## Aggregation queries
 
-Q is much used to aggregate across large datasets. For these examples, we will use simple aggregators (max, min, avg) and concentrate on doing complex things in the by-clause. One of the most powerful aspects of q is its ability to extend the query language with user-defined functions – so users can easily build custom aggregators.
+Q is much used to aggregate across large datasets. For these examples, we will use simple aggregators (`max`, `min`, `avg`) and concentrate on doing complex things in the by-clause. One of the most powerful aspects of q is its ability to extend the query language with user-defined functions – so users can easily build custom aggregators.
 
 For the first example, we will calculate the max, min and average CPU usage for every machine, across the whole data set:
 ```q
@@ -100,7 +116,7 @@ id| mxc mnc avc
 ..
 ```
 We can also do this for every date, by extracting the date component from the time field:
-```
+```q
 q)select mxc:max cpu,mnc:min cpu,avc:avg cpu by id,time.date from computer                                                                                                          
 id date      | mxc mnc avc     
 -------------| ----------------
@@ -114,7 +130,7 @@ id date      | mxc mnc avc
 ..
 ```
 Similarly, we can do this for the time portion. The code below will aggregate across hours in different days:
-```
+```q
 q)select mxc:max cpu,mnc:min cpu,avc:avg cpu by id,time.hh from computer                                                                                                            
 id hh| mxc mnc avc     
 -----| ----------------
@@ -156,7 +172,7 @@ id time                         | mxc mnc avc
 ..
 ```
 Another approach to breaking up the day might be to define a set of “daily periods”, e.g. early morning is from 00:00 to 07:00, midmorning is from 07:00 to 12:00, lunch is from 12:00 to 13:30, afternoon is from 13:30 to 17:00 and evening is after 17:00. We can aggregate the data according to these groupings by creating a function to map a minute value to a period of the day. This user-defined function drops in to the `select` statement in the same way as any built-in function.
-```
+```q
 q)timeofday:{`0earlymorn`1midmorn`2lunch`3afternoon`4evening 00:00 07:00 12:00 13:30 17:00 bin x}
 q)select mxc:max cpu,mnc:min cpu,avc:avg cpu by id,time.date,tod:timeofday[time.minute] from computer                                                                               
 id date       tod       | mxc mnc avc     
@@ -252,7 +268,7 @@ Now this is where it gets interesting…
 Q has some specialized time joins. The joins aren’t restricted to time fields (any numeric type will work) but that is what they are predominantly used for. The first, [ `aj` (asof join)](/ref/joins/#aj-aj0-asof-join) is used to align two tables, aligning the prevailing value from the value table with each record in the source table.
 
 It’s probably easier to explain with an example. For our dataset, let’s say that for every helpdesk call we have received we want to get the prevailing data from the computer table (i.e. when the user called the help desk, what was the CPU reading from the computer). We can't use an `lj` here because the time fields are very unlikely to match exactly – so instead we use an `aj` to get the last value from the computer table prior to the record in the call table. Like this:
-```
+```q
 q)aj[`id`time;calls;computer]                                                                                                                                                       
 time                          id  severity cpu
 ----------------------------------------------

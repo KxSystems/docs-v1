@@ -823,10 +823,14 @@ Where `x` is
 
 Syntax: `.Q.view x`
 
-Set a subview
+Where `x` is a list of partition values that serves as a filter for all queries against any partitioned table in the database, `x` is added as a constraint in the first sub-phrase of the where-clause of every query. 
+
+`.Q.view` is handy when you are executing queries against partitioned or segmented tables. Recall that multiple tables can share the partitioning. `Q.view` can guard against runaway queries that ask for all historical data.
 ```q
 .Q.view 2#date
 ```
+
+<i class="fa fa-hand-o-right"></i> _Q for Mortals_: [14.5.8 `Q.view`](http://code.kx.com/q4m3/14_Introduction_to_Kdb+/#1458-qview)
 
 
 ### `.Q.w` (memory stats)
@@ -876,11 +880,19 @@ q).Q.Xf["C";`:emptyNestedCharVector];
 q)type get`:emptyNestedCharVector
 87h 
 ```
+
+
 ### `.Q.Cf` (create empty nested char file)
 
-Alias for `.Q.Xf[\`char;y]`
+Syntax: `.Q.Cf x`
+
+A projection of `.Q.Xf`: i.e. ``.Q.Xf[`char;]``
+
 
 ## Partitioned database state
+
+
+In non-partitioned databases the variables described below remain undefined. 
 
 
 ### `.Q.bv` (build vp)
@@ -918,8 +930,8 @@ q)@[get;"select from tt";-2@]; / no error
 
 Syntax: `.Q.PD`
 
-In partitioned DBs, returns a list of partition locations – conformant to `.Q.PV` – which represents the partition location for each partition.
-(In non-segmented DBs, this will be simply `count[.Q.PV]#`:.`.)
+In partitioned DBs, a list of partition locations – conformant to `.Q.PV` – which represents the partition location for each partition.
+(In non-segmented DBs, this will be simply ``count[.Q.PV]#`:.``.)
 `.Q.PV!.Q.PD` can be used to create a dictionary of partition-to-location information.
 ```q
 q).Q.PV
@@ -946,9 +958,9 @@ In partitioned DBs, `.Q.PD` as modified by `.Q.view`.
 
 ### `.Q.pf` (partition type)
 
-Syntax: ==FIXME==
+Syntax: `.Q.pf`
 
-In partitioned DBs, returns the partition type.
+In partitioned DBs, the partition type. 
 Possible values are `` `date`month`year`int``.
 
 

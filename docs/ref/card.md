@@ -256,14 +256,21 @@ RO: read only; RW: read-write
 
 Nested types are 77+t (e.g. 78 is boolean. 96 is time.)
 
-**Cast** `char$data:CHAR$string`
+**Cast and tok** `char$data:CHAR$string`
 
-`date.(year month week mm dd)`  
+```
+date.(year month week mm dd)
+time.(hh minute second uu ss)
+milliseconds: "i"$time mod 1000
+timestamp.(year month week mm dd hh minute uu ss)
+nanoseconds: "i"$timestamp mod 1000000000
+datetime.(year month week mm dd hh minute uu ss)
+milliseconds: "i"$mod[;1000]"t"$datetime
+```
+<i class="fa fa-hand-o-right"></i> [Casting](casting)
+
 ``dict:`a`b!…``  
-`table:([]x:…;y:…)` or ``+`x`y!…``  
-`time.(minute second mm ss)`  
-`milliseconds: time mod 1000`
-
+`table:([]x:…;y:…)` or ``(+)`x`y!…``  
 
 ## Namespaces
 

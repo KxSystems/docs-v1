@@ -15,6 +15,21 @@ The syntax for the definition is
 ```q
 q)viewname::[expression;expression;…]expression
 ```
+
+!!! warning "Terminating semicolon"
+    The result returned by a view is the result of the last expression in the list, just as in a lambda.
+    <pre><code class="language-q">
+    q)a: til 5
+    q)uu:: a
+    q)uu
+    0 1 2 3 4
+    q)vv:: a;
+    q)vv
+    q)vv ~ (::)
+    1b
+    q)vv ~ {[];}[]
+    1b </code></pre>
+
 The following defines a view called `myview` which depends on vars `a` and `b`.
 ```q
 q)myview::a+b
