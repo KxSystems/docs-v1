@@ -37,7 +37,7 @@ $(function() {
 	$("div.md-flex div").last().append(html);
 	// var serviceRoot = "http://139.59.172.244"; // search engine on DigitalOcean VPS
 	// var serviceRoot = window.location.host; // queries revert to originating site for redirection by reverse proxy
-	var serviceRoot = 'https://code.kx.com/preview/q/search'; // >>> reverse-proxy directive on Apache httpd
+	var serviceRoot = 'https://code.kx.com/q/search'; // >>> reverse-proxy directive on Apache httpd
 	var srchHandler =function( evt ) {
 		// console.log(evt.which);
 		if( evt.which===13 ) {

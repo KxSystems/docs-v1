@@ -1,10 +1,13 @@
 ## <i class="fa fa-search"></i> Custom search engine
 
-2017.12.26
+2018.01.14
 
 We have replaced the native MkDocs client-side search engine with a custom search engine written in q. 
 
 The large majority of visits to this site are from laptops and desktops, so the new search engine displays results as a page, rather than a popup list. 
+
+The engine is still being developed. 
+Please send your comments, suggestions and requests to librarian@kx.com. 
 
 
 ## <i class="fa fa-code"></i> Fusion interfaces
@@ -62,7 +65,7 @@ For single-character queries such as `?`, `$` and `@` use the [Reference card](/
         — <i>Bob Dylan</i> “When the ship comes in” 
     </p>
     <p style="display: inline-block; padding: 0 1em;">
-        <a href="http://bobdylan.com/albums/the-times-they-are-a-changin/" title="The Times they Are A’Changin’"><img alt="Bob Dylan" src="http://code.kx.com/q/img/dylan.png" style="height: 70px"/></a>
+        <a href="//bobdylan.com/albums/the-times-they-are-a-changin/" title="The Times they Are A’Changin’"><img alt="Bob Dylan" src="//code.kx.com/q/img/dylan.png" style="height: 70px"/></a>
     </p>
 </blockquote>
 
