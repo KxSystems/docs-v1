@@ -12,4 +12,4 @@ The Fusion interfaces to kdb+ are
 -   free for all use cases, including 64-bit and commercial use
 <!-- -   written from the perspective of the ‘remote’ technology: e.g. a Java interface that is intelligible to a Java programmer -->
 
-User suggestions and improvements, including pull requests, are welcomed. Write to librarian@code.kx.com.
+User suggestions and improvements, including pull requests, are welcomed: see the GitHub repo for each interface.

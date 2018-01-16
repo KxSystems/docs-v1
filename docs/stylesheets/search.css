@@ -87,7 +87,8 @@ form {
 label, input {
 	display: inline-block;
 }
-label {
+label a {
+	color: white;
 }
 input {
 	font-size: 1.2em;
