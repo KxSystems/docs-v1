@@ -74,27 +74,26 @@ a:hover {
 }
 
 form {
-	background: url(https://code.kx.com/q/img/kx.jpeg);
 	background-color: #0070cd;
-	background-position: 10px center;
-	background-repeat: no-repeat;
-	background-size: 25px 25px;
 	color: white;
 	display: block;
 	font-size: 1.4em;
 	padding: 1em 1em 1em 50px;
+        position: relative;
 }
 label, input {
 	display: inline-block;
-}
-label a {
-	color: white;
 }
 input {
 	font-size: 1.2em;
 	margin: 0 1em;
 }
-
+#kx-logo {
+        position: absolute; top: 12px; left: 12px;
+}
+#kx-logo img {
+        width: 25px;
+}
 
 #kxsearch-results-wrapper {
 	padding: 0 1em 1em;
