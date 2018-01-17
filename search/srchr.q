@@ -18,21 +18,34 @@ tttt:value each{[x] update descr:lower each description from x}each `refs`pages`
 // SEARCHING
 
 .hidden.displayResults:{[s; r]
+// HTML page
+    wr: "https://code.kx.com/q";  / web root
     head: .h.htac[`meta;;""] (`$("http-equiv";"content"))!("Content-Type";"text/html; charset=utf-8");
-    head,: .h.htac[`link;;""] `rel`href!("shortcut icon";"/img/favicon.ico");
-    head,: .h.htac[`link;;""] `rel`type`href!("stylesheet"; "text/css"; "/stylesheets/search.css");
+    head,: .h.htac[`link;;""] `rel`href!("shortcut icon";wr,"/img/favicon.ico");
+    head,: .h.htac[`link;;""] `rel`type`href!("stylesheet"; "text/css"; wr,"/stylesheets/search.css");
     head,: .h.htac[`script;;""] `type`src!("text/javascript"; "https://code.jquery.com/jquery-3.1.1.min.js");
-    head,: .h.htac[`script;;""] `type`src!("text/javascript"; "/scripts/search.js");
+    / head,: .h.htac[`script;;""] `type`src!("text/javascript"; wr,"/scripts/search.js");
+    head,: .h.htac[`script;;""] `type`src!("text/javascript"; wr,"/scripts/search.js");
+    head,: .h.htac[`script;;""] `type`src!("text/javascript"; "https://www.google-analytics.com/analytics.js");
+    head,: .h.htac[`script;;""] `type`src!("text/javascript"; "https://code.kx.com/scripts/googleanalytics.js");
+    head,: .h.htac[`script;;""] `type`src!("text/javascript"; "https://tracker.mrpfd.com/tracker.js");
     head,: .h.htc[`title;] s," - search code.kx.com";
-    niq:  .h.htc[`label; "Search code.kx.com/q for"];
+    niq: .h.htac[`img;;""] `alt`src!("Kx"; wr,"/img/kx.jpeg");  /Kx logo
+    niq: .h.htac[`a; `href`title!(wr; "code.kx.com"); niq];     /link to code.kx.com
+    niq: .h.htac[`div; (enlist`id)!enlist"kx-logo"; niq];       /enclosing div
+    niq,: .h.htc[`label; "Search code.kx.com/q for"];
     niq,: .h.htac[`input; `id`type`value!("query"; "text"; s); ""];
     body: .h.htc[`form; niq];
+//
     fmt: {[r]
         grps: {[x;y](2_string y; select from x where grp=y)}/:[r; distinct r`grp];
-        .h.htac[`div;(enlist`id)!enlist"wrapper";] raze (.hidden.muag .) each grps
+        .h.htac[`div;(enlist`id)!enlist"kxsearch-results-wrapper";] raze (.hidden.muag .) each grps
         };
     body,: $[count r; fmt r; .h.htc[`p;] "No results found"];
-    body,: .h.htac[`p;;"Search powered by kdb+"] (enlist`class)!enlist"colophon";
+//  body:  $[count r; fmt r; .h.htc[`p;] "No results found"];
+    kdb: .h.htac[`a; ; "kdb+"] `class`href`title!("kdb"; "https://kx.com"; "Kx: it's about time");
+    body,: .h.htac[`p;;"Search powered by ",kdb] (enlist`class)!enlist"kx-search-colophon";
+//  body,: .h.htac[`p;;"Search powered by kdb+"] (enlist`class)!enlist"colophon";
     "<!DOCTYPE html>\n",.h.htac[`html;(enlist`lang)!enlist"en";] raze .h.htc'[`head`body; (head;body)]
     };
 
@@ -51,9 +64,11 @@ tttt:value each{[x] update descr:lower each description from x}each `refs`pages`
 
 .hidden.muat:{[x] /mark up a tuple
     href: (enlist`href)!enlist x`url;
-    dt: .h.htac[`a; href; x`topic];
-    raze .h.htc'[`dt`dd; (dt; ?[x[`excerpt]~"";"";"&hellip;",x[`excerpt],"&hellip;"])]
-    }; 
+    ctx:(count"http://code.kx.com/q/") _ {(-1+x?"#")#x} x`url;      /context
+    r: .h.htc[`dt;] .h.htac[`a; href; x`topic]," &ndash; ",ctx;
+//  r,: .h.htac[`dd; ; x`url] (enlist`class)!enlist "href";         /url
+    r, {?[x~""; ""; .h.htc[`dd;] y,x,y]}[x`excerpt; "&hellip;"]     /excerpt
+   }; 
 
 .hidden.murt:{[x] /mark up a reference tuple
     raze .h.htc[`li;] .h.htac[`a; (enlist`href)!enlist x`url; x`topic]
@@ -83,7 +98,7 @@ tttt:value each{[x] update descr:lower each description from x}each `refs`pages`
     :dbgR1::select grp, topic, excerpt, url: 1_' url from r;
     };
 
-.hidden.unescape: {ssr/[x; ("%3C";"%3E"); "<>"]}                /reverse HTTP escaping
+//.hidden.unescape: {ssr/[x; ("%22";"%27";"%3C";"%3E"); "\"'<>"]}                /reverse HTTP escaping
 
 // SET CALLBACKS
 show "Connecting to logger";
@@ -100,18 +115,38 @@ LOGGR: hopen `:unix://5202;                                     /logger FIXME tr
 .z.wo:{neg[.z.w]0N!"Go away from wo"};
 .z.ws:{neg[.z.w]0N!"Go away from ws"};
 
+// SPECIAL SEARCH CASES
+subs: flip({count[x]#x}'')(
+    ("and";  "&"); 
+    ("or";   "|"); 
+    ("<";    "less than"); 
+    (">";    "greater than");
+    ("\"";   "primitive datatypes");
+    ("`";    "symbols");
+    (":";    "assign");
+    ("[";    "indexing");
+    ("]";    "indexing");
+    ("[]";   "indexing");
+    ("{";    "lambda");
+    ("}";    "lambda");
+    ("{}";   "lambda")
+    );
+substitute:{(y,enlist z)@(x,enlist z)?z}[subs 0; subs 1;]; 
+
 .z.ph: {[x]
     dbgx:: x;
     neg[LOGGR] x;                                               /async: log whatever it is
     if[not 2=count x; :.h.he .Q.s x];                           /malformed query, gtfo
     str: x[0];
-    if["favicon.ico"~11#str; :.h.hn["404";`text;str]];          /refuse request for favicon
+    if["favicon.ico"~11#str; :.h.hn["404"; `text; str]];        /refuse request for favicon
     show dbgX:: x;
-    if[not"?query="~7#str; :.h.he str];                         /not a query, gtfo
-    qry: .hidden.unescape 7 _ str;                              /search term
-    dbgR::rslts: .hidden.srch qry;
+    iq: {x?"?"}str;
+    if[not"?query="~7#iq _ str; :.h.he str];                    /not a query, gtfo
+    dbgQ::qry: {?[x~1#"%"; x; .h.uh x]} (iq+7) _ str;           /search term - special case "%"
+    dbgR::rslts: .hidden.srch substitute qry;
     uniq: select from rslts where {(x?x)=til count x} url;      /unique URLs
-    .h.hy[`html] .hidden.displayResults[qry; uniq]
+    .h.hy[`html;] .hidden.displayResults[qry; uniq]
+//  .h.hy[`json;] .j.j uniq
     };
 
 show "Started search engine at ",string .z.p;
