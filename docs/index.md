@@ -44,10 +44,6 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 </div>
 
-!!! warning "Search box missing on Internet Explorer 11"
-    The Search box has been reported missing on Internet Explorer 11.
-    Workaround: [click here](http://code.kx.com/q/search?query=iasc)
-
 !!! info "New on code.kx.com"
     - [Custom search engine](/about/site-news/)
     - [JSON](/ref/dotj)

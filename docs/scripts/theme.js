@@ -17,26 +17,26 @@ $(function() {
 	var html=`
     <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
 
-    <div class="md-search" data-md-component="search" role="dialog">
-      <label class="md-search__overlay" for="search"></label>
-      <div class="md-search__inner">
-        <form class="md-search__form" id="kx-search-form" name="search">
-          <input type="text" class="md-search__input" id="kx-search-query" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
-          <label class="md-icon md-search__icon" for="search"></label>
-          <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
-        </form>
-        <div class="md-search__output">
-          <div class="md-search__scrollwrap" data-md-scrollfix>
-            <div class="md-search-result" data-md-component="result">
-              <div class="md-search-result__meta">
-                Type a query and hit Enter
-              </div>
-              <div class="md-search-result__list"/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div class="md-search" data-md-component="search" role="dialog">
+	  <label class="md-search__overlay" for="search"></label>
+	  <div class="md-search__inner" role="search">
+	    <form class="md-search__form" id="kx-search-form" name="search">
+	      <input type="text" class="md-search__input" id="kx-search-query" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+	      <label class="md-icon md-search__icon" for="search"></label>
+	      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button>
+	    </form>
+	    <div class="md-search__output">
+	      <div class="md-search__scrollwrap" data-md-scrollfix>
+	        <div class="md-search-result" data-md-component="result">
+	          <div class="md-search-result__meta">
+	            Type a query and hit Enter
+	          </div>
+	          <ol class="md-search-result__list"></ol>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	`;
 	$("div.md-flex div").last().append(html);
 	// var serviceRoot = "http://139.59.172.244"; // search engine on DigitalOcean VPS
