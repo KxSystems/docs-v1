@@ -17,7 +17,7 @@ Allows the kdb+ interpreter to manipulate Python objects and call Python functio
 
 ## Build and install
 
-<i class="fa fa-download"></i> Download the code from <i class="fa fa-github"></i> [KxSystems/embedPy](https://github.com/ksystems/embedpy).
+<i class="fa fa-download"></i> Download the code from <i class="fa fa-github"></i> [KxSystems/embedPy](https://github.com/kxsystems/embedpy).
 
 Build the interface and run sanity checks with 
 
