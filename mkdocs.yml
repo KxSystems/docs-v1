@@ -147,6 +147,16 @@ pages:
       - 6. Kdb+tick: tutorials/startingq/tick.md
     - Views: tutorials/views.md
   - Interface summary: interfaces.md
+  - Machine learning:
+    - Introduction: ml/index.md
+    - embedPy:
+      - Overview: ml/embedpy/index.md
+      - Running Python code: ml/embedpy/running.md
+      - EmbedPy objects: ml/embedpy/objects.md
+      - Function calls: ml/embedpy/functions.md
+      - Printing and help: ml/embedpy/printing.md
+      - Closures and generators: ml/embedpy/closures.md
+      - Reference: ml/embedpy/reference.md
   - Fusion for kdb+:
     - Introduction: interfaces/fusion.md
     - FFI: interfaces/ffi.md

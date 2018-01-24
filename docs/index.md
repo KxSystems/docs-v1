@@ -45,10 +45,10 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 
 !!! info "New on code.kx.com"
+    - [Machine learning](/ml/)
     - [Custom search engine](/about/site-news/)
-    - [JSON](/ref/dotj)
-    - [C API reference](/interfaces/capiref)
     - [Fusion interfaces](/interfaces/fusion)
+    - [C API reference](/interfaces/capiref)
 
 !!! tip "[Careers at Kx and First Derivatives](http://www.firstderivatives.com/careers/)"
     

@@ -22,15 +22,19 @@ about new repositories.</div>
 	<td>source files for this site</td>
 </tr>
 <tr>
+	<td class="nowrap">[embedPy](https://github.com/KxSystems/embedPy) ==new==</td>
+	<td>calling Python from q</td>
+</tr>
+<tr>
 	<td class="nowrap">[help](https://github.com/KxSystems/help)</td>
 	<td>online help for q</td>
 </tr>
 <tr>
-	<td class="nowrap">[javakdb](https://github.com/KxSystems/javakdb) ==updated==</td>
+	<td class="nowrap">[javakdb](https://github.com/KxSystems/javakdb)</td>
 	<td>Java client for kdb+</td>
 </tr>
 <tr>
-	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka) ==new==</td>
+	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka)</td>
 	<td>kdb+ client for [Apache Kafka](https://kafka.apache.org)</td>
 </tr>
 <tr>
@@ -46,7 +50,11 @@ about new repositories.</div>
 	<td>ticker plant</td>
 </tr>
 <tr>
-	<td class="nowrap">[rkdb](https://github.com/KxSystems/rkdb) ==new==</td>
+	<td class="nowrap">[pyq](https://github.com/KxSystems/pyq)</td>
+	<td>calling Python from q</td>
+</tr>
+<tr>
+	<td class="nowrap">[rkdb](https://github.com/KxSystems/rkdb)</td>
 	<td>R client for q</td>
 </tr>
 </table>
