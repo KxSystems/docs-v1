@@ -46,6 +46,7 @@
 * [Order Book: a kdb+ **intraday storage and access** methodology](wp/order_book_a_kdb_intraday_storage_and_access_methodology.pdf)
 * [**Intraday writedown** solutions](wp/intraday_writedown_solutions.pdf)
 * [**Permissions** with kdb+](wp/permissions_with_kdb.pdf)
+* [**Socket sharding** with kdb+ and Linux](wp/socket-sharding.pdf)
 * [Kdb+tick profiling for **throughput optimization**](wp/kdbtick_profiling_for_throughput_optimization.pdf)
 
 
