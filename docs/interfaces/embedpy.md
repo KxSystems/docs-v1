@@ -3,6 +3,9 @@
 <div class="fusion" markdown="1">
 <i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
 </div>
+<div class="fusion" markdown="1">
+<i class="fa fa-share-alt"></i> [Machine learning](/ml)
+</div>
 
 
 The embedPy library opens [Python](https://python.org) to q programmers. It allows q to call Python functions. 

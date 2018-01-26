@@ -1,4 +1,4 @@
-# Machine learning
+# <i class="fa fa-share-alt"></i> Machine learning
 
 
 ![Machine learning](/img/ml.png)

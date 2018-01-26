@@ -1,3 +1,17 @@
+## <i class="fa fa-map-o"></i> Socket sharding on Linux
+
+2018.01.25
+
+New whitepaper [Socket sharding with kdb+ on Linux](/wp/socket-sharding.pdf)
+
+
+## <i class="fa fa-share-alt"></i> Machine learning
+
+2018.01.24
+
+New section on [Machine Learning](/ml) opens with the [embedPy](/ml/embedpy) library.
+
+
 ## <i class="fa fa-search"></i> Custom search engine
 
 2018.01.14
@@ -10,7 +24,7 @@ The engine is still being developed.
 Please send your comments, suggestions and requests to librarian@kx.com. 
 
 
-## <i class="fa fa-code"></i> Fusion interfaces
+## <i class="fa fa-superpowers"></i> Fusion interfaces
 
 2017.11.06
 
