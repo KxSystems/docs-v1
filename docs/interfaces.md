@@ -26,6 +26,7 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <table class="kx-compact" markdown="1">
 <tr><td>FFI</td><td>[Using foreign functions with kdb+](/interfaces/ffi)</td></tr>
 <tr><td>Java</td><td>[Java client for kdb+](/interfaces/java-client-for-q)</td>
+<tr><td>Jupyter</td><td>[Jupyter kernel for kdb+](https://github.com/kxsystems/jupyterq) ==beta==</td>
 <tr><td>Kafka</td><td>[Q client for Kafka](/interfaces/kafka)</td></tr>
 <tr><td>Python</td>
     <td>

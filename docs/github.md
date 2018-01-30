@@ -34,6 +34,14 @@ about new repositories.</div>
 	<td>Java client for kdb+</td>
 </tr>
 <tr>
+	<td class="nowrap">[javakdb](https://github.com/KxSystems/javakdb)</td>
+	<td>Java client for kdb+</td>
+</tr>
+<tr>
+	<td class="nowrap">[jupyterq](https://github.com/kxsystems/jupyterq) ==beta==</td>
+	<td>Jupyter kernel for kdb+</td>
+</tr>
+<tr>
 	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka)</td>
 	<td>kdb+ client for [Apache Kafka](https://kafka.apache.org)</td>
 </tr>
