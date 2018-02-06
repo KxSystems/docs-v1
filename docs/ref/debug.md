@@ -92,7 +92,7 @@ q)b
 1
 ```
 Note that resume does _not_ return from enclosing function
-```
+```q
 q){0N!"x+1 is ",string x+1;x}`asd
 'type
   [1]  {0N!"x+1 is ",string x+1;x}

@@ -172,11 +172,11 @@ q)mins 0N 5 0N 1 3         / initial nulls return infinity
 ```
 
 
-## `scov` (statistical covariance)
+## `scov` (sample covariance)
 
 Syntax: `x scov y` (binary, aggregate)
 
-Returns the **statistical covariance** of `x` and `y` as a float atom.
+Returns the **sample covariance** of `x` and `y` as a float atom.
 
 $$scov(x,y)=\frac{n}{n-1}cov(x,y)$$
 
@@ -190,11 +190,11 @@ q)select price scov size by sym from trade
 ```
 
 
-## `sdev` (statistical standard deviation)
+## `sdev` (sample standard deviation)
 
 Syntax: `sdev x` (unary, aggregate)
 
-Returns the **statistical standard deviation** of list `x` (as the square root of the statistical variance).
+Returns the **sample standard deviation** of list `x` (as the square root of the statistical variance).
 
 $$sdev(x)=\sqrt{\frac{n}{n-1}var(x)}$$
 
@@ -206,11 +206,11 @@ q)select sdev price by sym from trade
 ```
 
 
-## `svar` (statistical variance)
+## `svar` (sample variance)
 
 Syntax: `svar x` (unary, aggregate)
 
-Returns the **statistical variance** of numeric list `x` as a float atom.
+Returns the **sample variance** of numeric list `x` as a float atom.
 
 $$svar(x)=\frac{n}{n-1}var(x)$$
 
@@ -271,4 +271,27 @@ q)2 wsum 1 2 4       / equivalent to sum 2 * 1 2 4
 14
 ```
 
+
+<script type="text/javascript">
+    // redirect old anchors on load
+    var hash = window.location.hash;
+    var frag = hash.substr(0,6);
+    console.log( frag );
+    switch( frag ){
+        case '#scov-': 
+            var tgt = '#scov-sample-covariance';
+            break;
+        case '#sdev-': 
+            var tgt = '#sdev-sample-standard-deviation'; 
+            break;
+        case '#svar-': 
+            var tgt = '#svar-sample-variance';
+            break;
+        default:
+            var tgt = hash;
+            break;
+    }
+    console.log( tgt );
+    window.location.hash = tgt;
+</script>
 

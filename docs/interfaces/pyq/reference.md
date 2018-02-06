@@ -388,10 +388,8 @@ K class | q namespace | q   | function
 <code class="nowrap">K.rsave()</code> | <code class="nowrap">q.rsave()</code> | [<code class="nowrap">rsave</code>](/ref/filewords/#rsave) | rsave
 <code class="nowrap">K.rtrim()</code> | <code class="nowrap">q.rtrim()</code> | [<code class="nowrap">rtrim</code>](/ref/strings/#rtrim) | remove trailing spaces
 <code class="nowrap">K.save()</code> | <code class="nowrap">q.save()</code> | [<code class="nowrap">save</code>](/ref/filewords/#save) | save global data to file
-<code class="nowrap">K.scov()</code> | <code class="nowrap">q.scov()</code> | [<code class="nowrap">scov</code>](/ref/stats-aggregates/#scov-statistical-covariance) | statistical covariance
-<code class="nowrap">K.scov()</code> | <code class="nowrap">q.scov()</code> | [<code class="nowrap">scov</code>](/ref/stats-aggregates/#scov-statistical-covariance) | statistical covariance
-<code class="nowrap">K.sdev()</code> | <code class="nowrap">q.sdev()</code> | [<code class="nowrap">sdev</code>](/ref/stats-aggregates/#sdev-statistical-standard-deviation) | statistical standard deviation
-<code class="nowrap">K.sdev()</code> | <code class="nowrap">q.sdev()</code> | [<code class="nowrap">sdev</code>](/ref/stats-aggregates/#sdev-statistical-standard-deviation) | statistical standard deviation
+<code class="nowrap">K.scov()</code> | <code class="nowrap">q.scov()</code> | [<code class="nowrap">scov</code>](/ref/stats-aggregates/#scov-sample-covariance) | sample covariance
+<code class="nowrap">K.sdev()</code> | <code class="nowrap">q.sdev()</code> | [<code class="nowrap">sdev</code>](/ref/stats-aggregates/#sdev-sample-standard-deviation) | sample standard deviation
 <code class="nowrap">K.set()</code> | <code class="nowrap">q.set()</code> | [<code class="nowrap">set</code>](/ref/dotz/#zps-set) | set
 <code class="nowrap">K.setenv()</code> | <code class="nowrap">q.setenv()</code> | [<code class="nowrap">setenv</code>](/ref/os/#setenv) | set an environment variable
 <code class="nowrap">K.show()</code> | <code class="nowrap">q.show()</code> | [<code class="nowrap">show</code>](/ref/devtools/#show) | format to the console
@@ -405,8 +403,7 @@ K class | q namespace | q   | function
 <code class="nowrap">K.sum()</code> | <code class="nowrap">q.sum()</code> | [<code class="nowrap">sum</code>](/ref/arith-integer/#sum) | sum of a list
 <code class="nowrap">K.sums()</code> | <code class="nowrap">q.sums()</code> | [<code class="nowrap">sums</code>](/ref/arith-integer/#sums) | cumulative sums of a list
 <code class="nowrap">K.sv()</code> | <code class="nowrap">q.sv()</code> | [<code class="nowrap">sv</code>](/ref/lists/#sv) | consolidate
-<code class="nowrap">K.svar()</code> | <code class="nowrap">q.svar()</code> | [<code class="nowrap">svar</code>](/ref/stats-aggregates/#svar-statistical-variance) | statistical variance
-<code class="nowrap">K.svar()</code> | <code class="nowrap">q.svar()</code> | [<code class="nowrap">svar</code>](/ref/stats-aggregates/#svar-statistical-variance) | statistical variance
+<code class="nowrap">K.svar()</code> | <code class="nowrap">q.svar()</code> | [<code class="nowrap">svar</code>](/ref/stats-aggregates/#svar-sample-variance) | sample variance
 <code class="nowrap">K.system()</code> | <code class="nowrap">q.system()</code> | [<code class="nowrap">system</code>](/ref/syscmds) | system
 <code class="nowrap">K.tables()</code> | <code class="nowrap">q.tables()</code> | [<code class="nowrap">tables</code>](/ref/metadata/#tables) | sorted list of tables
 <code class="nowrap">K.tan()</code> | <code class="nowrap">q.tan()</code> | [<code class="nowrap">tan</code>](/ref/trig/#tan) | tangent
@@ -422,7 +419,7 @@ K class | q namespace | q   | function
 <code class="nowrap">K.value()</code> | <code class="nowrap">q.value()</code> | [<code class="nowrap">value</code>](/ref/dotz/#zvs-value-set) | value
 <code class="nowrap">K.var()</code> | <code class="nowrap">q.var()</code> | [<code class="nowrap">var</code>](/ref/stats-aggregates/#var-variance) | variance
 <code class="nowrap">K.view()</code> | <code class="nowrap">q.view()</code> | [<code class="nowrap">view</code>](/ref/metadata/#view) | definition of a dependency
-<code class="nowrap">K.views()</code> | <code class="nowrap">q.views()</code> | [<code class="nowrap">views</code>](/ref/environment/#views) | list of defined views
+<code class="nowrap">K.views()</code> | <code class="nowrap">q.views()</code> | [<code class="nowrap">views</code>](/ref/metadata/#views) | list of defined views
 <code class="nowrap">K.vs()</code> | <code class="nowrap">q.vs()</code> | [<code class="nowrap">vs</code>](/ref/lists/#vs) | split
 <code class="nowrap">K.wavg()</code> | <code class="nowrap">q.wavg()</code> | [<code class="nowrap">wavg</code>](/ref/stats-aggregates/#wavg-weighted-average) | weighted average
 <code class="nowrap">K.where()</code> | <code class="nowrap">q.where()</code> | [<code class="nowrap">where</code>](/ref/select/#where) | replicated items
@@ -561,10 +558,8 @@ K class | q namespace | q   | function
 <code class="nowrap">q.rsave()</code> | [<code class="nowrap">rsave</code>](/ref/filewords#rsave) | rsave
 <code class="nowrap">q.rtrim()</code> | [<code class="nowrap">rtrim</code>](/ref/strings#rtrim) | remove trailing spaces
 <code class="nowrap">q.save()</code> | [<code class="nowrap">save</code>](/ref/filewords#save) | save global data to file
-<code class="nowrap">q.scov()</code> | [<code class="nowrap">scov</code>](/ref/stats-aggregates#scov-statistical-covariance) | statistical covariance
-<code class="nowrap">q.scov()</code> | [<code class="nowrap">scov</code>](/ref/stats-aggregates#scov-statistical-covariance) | statistical covariance
-<code class="nowrap">q.sdev()</code> | [<code class="nowrap">sdev</code>](/ref/stats-aggregates#sdev-statistical-standard-deviation) | statistical standard deviation
-<code class="nowrap">q.sdev()</code> | [<code class="nowrap">sdev</code>](/ref/stats-aggregates#sdev-statistical-standard-deviation) | statistical standard deviation
+<code class="nowrap">q.scov()</code> | [<code class="nowrap">scov</code>](/ref/stats-aggregates#scov-sample-covariance) | sample covariance
+<code class="nowrap">q.sdev()</code> | [<code class="nowrap">sdev</code>](/ref/stats-aggregates#sdev-sample-sample-deviation) | sample standard deviation
 <code class="nowrap">q.set()</code> | [<code class="nowrap">set</code>](/ref/dotz#zps-set) | set
 <code class="nowrap">q.setenv()</code> | [<code class="nowrap">setenv</code>](/ref/os#setenv) | set an environment variable
 <code class="nowrap">q.show()</code> | [<code class="nowrap">show</code>](/ref/devtools#show) | format to the console
@@ -578,8 +573,7 @@ K class | q namespace | q   | function
 <code class="nowrap">q.sum()</code> | [<code class="nowrap">sum</code>](/ref/arith-integer#sum) | sum of a list
 <code class="nowrap">q.sums()</code> | [<code class="nowrap">sums</code>](/ref/arith-integer#sums) | cumulative sums of a list
 <code class="nowrap">q.sv()</code> | [<code class="nowrap">sv</code>](/ref/lists#sv) | consolidate
-<code class="nowrap">q.svar()</code> | [<code class="nowrap">svar</code>](/ref/stats-aggregates#svar-statistical-variance) | statistical variance
-<code class="nowrap">q.svar()</code> | [<code class="nowrap">svar</code>](/ref/stats-aggregates#svar-statistical-variance) | statistical variance
+<code class="nowrap">q.svar()</code> | [<code class="nowrap">svar</code>](/ref/stats-aggregates#svar-sample-variance) | sample variance
 <code class="nowrap">q.system()</code> | [<code class="nowrap">system</code>](/ref/syscmds) | system
 <code class="nowrap">q.tables()</code> | [<code class="nowrap">tables</code>](/ref/metadata#tables) | sorted list of tables
 <code class="nowrap">q.tan()</code> | [<code class="nowrap">tan</code>](/ref/trig#tan) | tangent
