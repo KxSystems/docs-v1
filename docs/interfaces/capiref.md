@@ -475,6 +475,12 @@ Signature: `K ktd(K)`
 
 Create a simple table from a keyed table.
 
+If the input is 
+
+-   a simple table (i.e. no key) this is a no-op, returning that same table, unchanged
+-   a keyed table, a simple table is returned and the input’s ref count is decremented
+-   anything else, the input’s ref count is decremented and `NULL` is returned.
+
 
 #### `ktj` – create timestamp
 
