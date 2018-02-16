@@ -28,3 +28,5 @@ Some of the restrictions are:
 6.  views can be recalculated from the main thread only
 
 The use of sockets from within those threads is not allowed for anything other than the [single-shot sync request](/ref/filewords/#hopen), which is the only socket op supported in multithreaded mode. (Inefficient as it opens, queries and closes each time).
+
+In multithreaded input mode, the seed for the random-number generator used for threads other than the main thread is based on the socket descriptor for that connection; these threads are transient – destroyed when the socket is closed, and no context is carried over for new threads/connections.
