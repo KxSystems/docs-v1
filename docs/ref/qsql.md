@@ -152,7 +152,13 @@ s4| 600
 
 Syntax: `(aggr;data) fby group`
 
-Where `aggr` is an aggregate function and `data` and `group` are conforming vectors, collects the items of `data` into sublists according to the corresponding items of `group`, applies `aggr` to each sublist, and returns the results as a vector with the same count as `data`.
+Where 
+
+-   `aggr` is an aggregate function 
+-   `data` is a vector
+-   `group` is either a vector conforming to `data` or a table 
+
+collects the items of `data` into sublists according to the corresponding items of `group`, applies `aggr` to each sublist, and returns the results as a vector with the same count as `data`.
 
 !!! tip
     `fby` is designed to collapse cascaded `select … from select … by … from t` expressions into a single `select … by … from … where … fby …`. Think of `fby` when you find yourself trying to apply a filter to the aggregated column of a table produced by `select … by …`.
@@ -164,7 +170,7 @@ q)(sum;dat) fby grp
 11 4 11 4 10 20 10 20 20 11
 ```
 Collect the items of `data` into sublists according to the items of `group`.
-```
+```q
 0 2 9  (`a)
 1 3    (`b)
 4 6    (`c)
@@ -234,7 +240,38 @@ s2 p2 400
 s4 p4 300
 s1 p5 400
 ```
-
+To group on multiple columns, tabulate them in `group`.
+```q
+q)update x:12?3 from `sp
+`sp
+q)sp
+s  p  qty x
+-----------
+s1 p1 300 0
+s1 p2 200 2
+s1 p3 400 0
+s1 p4 200 1
+s4 p5 100 0
+s1 p6 100 0
+s2 p1 300 0
+s2 p2 400 2
+s3 p2 200 2
+s4 p2 200 2
+s4 p4 300 1
+s1 p5 400 1
+q)select from sp where qty = (max;qty) fby ([]s;x)
+s  p  qty x
+-----------
+s1 p2 200 2
+s1 p3 400 0
+s4 p5 100 0
+s2 p1 300 0
+s2 p2 400 2
+s3 p2 200 2
+s4 p2 200 2
+s4 p4 300 1
+s1 p5 400 1
+```
 !!! note "`fby` before V2.7"
     In V2.6 and below, `fby`’s behaviour is undefined if the aggregation function returns a list; it usually signals an error from the k definition of `fby`. However, if the concatenation of all list results from the aggregation function results `raze` has the same length as the original vectors, a list of some form is returned, but the order of its items is not clearly defined.
 
