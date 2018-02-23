@@ -419,44 +419,65 @@ Derivative: `d y` (unary, uniform)
 Derivative: `x d y` (binary, uniform)  
 Derivative: `d[x;y;z;…]` (uniform)
 
-Where `f` is a **binary** function, the derivative `f\` applies `f/` to successive items of `x`. Its result is a list of the same count, built up as follows:
+Where `f` is a **binary** function (or **matrix** – see below), the derivative `f\` applies `f/` to successive items of `x`. Its result is a list of the same count, built up as follows:
 <code><pre>r<sub>0</sub> = x<sub>0</sub>
 r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
 
 Where `f\` is applied
 
 - **unary**
-```q
-q)(+\)til 10
-0 1 3 6 10 15 21 28 36 45
-q)+\[til 10]
-0 1 3 6 10 15 21 28 36 45
-```
+    <pre><code class="language-q">
+    q)(+\)til 10
+    0 1 3 6 10 15 21 28 36 45
+    q)+\[til 10]
+    0 1 3 6 10 15 21 28 36 45
+    </code></pre>
 
 - **binary**, `x` is used as the initial value.
-```q
-q)1+\1 2 3
-2 4 7
-q)+\[1;1 2 3]
-2 4 7
-```
+    <pre><code class="language-q">
+    q)1+\1 2 3
+    2 4 7
+    q)+\[1;1 2 3]
+    2 4 7
+    </code></pre>
 
 - **&gt;rank 2**, `x` is used as the initial value and other arguments are corresponding items from the lists.
+    <pre><code class="language-q">
+    q){(x;y;z)}\[0;1 2 3;4 5 6]
+    0           1 4
+    0 1 4       2 5
+    (0 1 4;2;5) 3 6
+    </code></pre>
+
+
+### Finite-state machine
+
+Consider a matrix as both a _binary function_ (of row- and column-indexes) and a _finite-state machine_. Such a matrix can be applied via _scan_ and _over_:
 ```q
-q){(x;y;z)}\[0;1 2 3;4 5 6]
-0           1 4
-0 1 4       2 5
-(0 1 4;2;5) 3 6
+initialstate transitionmatrix\input
+initialstate transitionmatrix/input
 ```
+```q
+q)m:(0 2;1 1;0 1)
+q)0 m\1 0 1 1 0 1
+2 0 2 1 1 1
+q)0 m/1 0 1 1 0 1
+1
+```
+
+
+### Alternative syntax
+
 As of V3.1 2013.07.07, _scan_ has a built-in function for the following.
 ```q
 q){{z+y*x}\[x;y;z]}
 {{z+y*x}\[x;y;z]}
 q){x y\z}           /alternative syntax using built-in function
+{x y\z}
 ```
 Note that for the built-in version it is for floats.
 
-<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](control/#over), [`scan` operator](control/#scan) 
+<i class="fa fa-hand-o-right"></i> [`/` _over_ adverb](#over), [`over` operator](control/#over), [`scan` operator](control/#scan), Tutorial: [Shifts and scans](/tutorials/shifts-scans/) 
 
 
 ## Derivatives
