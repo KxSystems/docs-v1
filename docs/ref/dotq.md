@@ -210,7 +210,7 @@ q)\t f vec
 q)\t .Q.fc[f]vec
 6
 ```
-In this case the overhead of creating 100,000 threads in `peach` significantly outweighs the computational benefit of parallel execution.
+In this case the overhead of creating threads in `peach` significantly outweighs the computational benefit of parallel execution.
 ```q
 q)\t f peach vec
 45
