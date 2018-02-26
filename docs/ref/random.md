@@ -112,11 +112,11 @@ _Deal_, `rand` and _roll_ use a constant seed on q invocation: scripts using the
 
 !!! warning
     To use GUIDs as identifiers, ensure `x` is negative. Otherwise, you will get duplicates, given the same seed:
-    <pre><code class="language-q">
+    <pre><code>
     $ q
     q)1?0Ng
     ,8c6b8b64-6815-6084-0a3e-178401251b68
-    q)\\
+    q)\\\\
     $ q
     q)1?0Ng
     ,8c6b8b64-6815-6084-0a3e-178401251b68
