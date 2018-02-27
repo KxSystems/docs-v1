@@ -1,8 +1,6 @@
-# ![Java](img/java.jpg) Using Java with kdb+
+hero: Fusion for kdb+
 
-<div class="fusion" markdown="1">
-<i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
-</div>
+# ![Java](img/java.jpg) Using Java with kdb+
 
 
 

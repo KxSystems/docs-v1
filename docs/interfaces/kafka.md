@@ -1,8 +1,7 @@
+hero: Fusion for kdb+
+
 # ![Apache Kafka](img/kafka.png) Using Kafka with kdb+
 
-<div class="fusion" markdown="1">
-<i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
-</div>
 
 
 <i class="fa fa-github"></i> [KxSystems/kafka](https://github.com/KxSystems/kafka)

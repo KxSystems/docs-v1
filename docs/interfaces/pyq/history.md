@@ -1,3 +1,5 @@
+hero: Fusion for kdb+
+
 # ![PyQ](../img/pyq.png) Version history
 
 

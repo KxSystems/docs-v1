@@ -1,11 +1,10 @@
+hero: Machine learning
+
 # ![Python](/interfaces/img/python.png) embedPy
 
 
 <div class="fusion" markdown="1">
 <i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
-</div>
-<div class="fusion" markdown="1">
-<i class="fa fa-share-alt"></i> [Machine learning](/ml)
 </div>
 
 Allows the kdb+ interpreter to manipulate Python objects and call Python functions.

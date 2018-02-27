@@ -1,8 +1,6 @@
-# Using foreign functions with kdb+
+hero: Fusion for kdb+
 
-<div class="fusion" markdown="1">
-<i class="fa fa-superpowers"></i> [Fusion for kdb+](/interfaces/fusion)
-</div>
+# Using foreign functions with kdb+
 
 
 

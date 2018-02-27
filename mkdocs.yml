@@ -242,6 +242,7 @@ pages:
   - Platform for Kx:
     - Introduction: platform/index.md
     - Analyst for Kx: platform/analyst.md
+    - Control for Kx: platform/control.md
     - Dashboards for Kx: platform/dashboards.md
   - White papers: whitepapers.md
   - GitHub: github.md
