@@ -40,7 +40,7 @@ Here are the most important – or the most commonly neglected – rules.
 
 ## References
 
--   [**Grammarly**](https://www.grammary.com) checks spelling and grammar
+-   [**Grammarly**](https://www.grammarly.com) checks spelling and grammar
 -   **Markdown** original definition at [Daring Fireball](https://daringfireball.net/projects/markdown/) 
 -   [**MkDocs**](https://mkdocs.org): static site generator
 -   [**Material for MkDocs**](https://squidfunk.github.io/mkdocs-material/): Material theme for code.kx.com
