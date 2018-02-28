@@ -62,6 +62,23 @@ a
 3
 4
 ```
+Within a lambda, `::` amends a global variable. It does not define a view.
+```q
+q)x:2
+q)y:3
+q)v::x+y           /view
+q)v
+5
+q)x:10000
+q)v                /depends on x
+10003
+q){v::x+y}[10;20]  /v now a global variable
+q)v
+30
+q)x:-1000000
+q)v                /global variable, no longer depends on x
+30
+```
 
 
 ## How to list views

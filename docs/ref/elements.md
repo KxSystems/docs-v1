@@ -339,6 +339,9 @@ The act of defining a view does not trigger its evaluation.
 
 A view should not have side-effects, i.e. should not update global variables. 
 
+!!! warning "In functions"
+    Inside a lambda, `::` assigns a global variable. It does not define a view.
+
 <i class="fa fa-hand-o-right"></i> [Views tutorial](/tutorials/views), [`view`](metadata/#view), [`views`](metadata/#views), [`.Q.view`](dotq/#qview-subview) (subview) 
 
 

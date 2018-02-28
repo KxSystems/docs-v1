@@ -1,3 +1,7 @@
+----
+description: Technical documentation and resources for q and kdb+
+----
+
 # Get going with kdb+
 
 Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
