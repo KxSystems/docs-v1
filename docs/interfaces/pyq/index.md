@@ -8,6 +8,8 @@ PyQ brings the [Python programming language](https://www.python.org/about) to th
 
 In PyQ, Python and q objects live in the same memory space and share the same data.
 
+Please report any issues in the [GitHub repository](https://github.com/KxSystems/pyq). 
+
 ## Quick start
 
 Install `pyq`:
