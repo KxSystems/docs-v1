@@ -220,6 +220,8 @@ Signature: `I dj(I date)`
 
 Converts a q date to a `yyyymmdd` integer.
 
+<i class="fa fa-hand-o-right"></i> [`ymd` – numbers to date](#ymd-numbers-to-date)
+
 
 #### `dl` – dynamic link
 
@@ -649,4 +651,5 @@ Signature: `I ymd(year, month, day)`
 
 Encode a year/month/day as a q date, e.g. `0==ymd(2000, 1, 1)`
 
+<i class="fa fa-hand-o-right"></i> [`dj` – date to number](#dj-date-to-number)
 
