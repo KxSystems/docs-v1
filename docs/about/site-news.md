@@ -1,3 +1,19 @@
+## <i class="fa fa-github"></i> New development tools
+
+2018.03.01
+
+Listed on [GitHub](/github/#development-tools): three new development tools  by legendary developer [Leslie Goldsmith](https://github.com/LeslieGoldsmith).
+
+<i class="fa fa-hand-o-right"></i> [Kx blog](https://kx.com/blog/kdb-utilities-essential-utility-identifying-performance-problems/)
+
+
+## <i class="fa fa-github"></i> Jupyter kernel for kdb+
+
+2018.01.30
+
+In beta on [GitHub](https://github.com/KxSystems/jupyterq): a Jupyter kernel for kdb+ 
+
+
 ## <i class="fa fa-map-o"></i> Socket sharding on Linux
 
 2018.01.25

@@ -49,9 +49,9 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 
 !!! info "New on code.kx.com"
+    - [New development tools](/about/site-news/#new-development-tools) from Leslie Goldsmith
     - [Jupyter kernel for kdb+](https://github.com/kxsystems/jupyterq)
     - Whitepaper: [Socket Sharding with kdb+ on Linux](wp/socket-sharding.pdf)
-    - [Machine learning](/ml/) section
 
 !!! tip "[Careers at Kx and First Derivatives](http://www.firstderivatives.com/careers/)"
     

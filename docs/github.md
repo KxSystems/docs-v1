@@ -67,7 +67,7 @@ about new repositories.</div>
 </tr>
 </table>
 
-## <i class="fa fa-star-o"></i> Featured
+## <i class="fa fa-star"></i> Featured
 
 <small>Repositories by kdb+ users</small>
 
@@ -79,11 +79,11 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/MdSalih/Kdb-stuff">Kdb-stuff</a></td>
-<td>ServerChecker: how to execute commands on a remote box via SSH from within a q process and parse Linux system info (cpuinfo/meminfo/df). 
-<span class="author"><a href="https://github.com/MdSalih?tab=repositories">(Mohammad Noor)</a></span>
+<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/qprof">qprof</a> ==new==</td>
+<td>Profiler for q. <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
+						(Leslie Goldsmith)
+					</a></span>
 </td>
-</tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/CharlesSkelton//studio">studio</a></td>
 <td>A rapid-development environment for q. 
@@ -255,6 +255,14 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/dpy">dpy</a> ==new==</td>
+<td>General object display with type and structure <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
+						(Leslie Goldsmith)
+<i class="fa fa-star"></i>
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/simongarland/help">help</a></td>
 <td>Create a helpfile from a directory of TXTs. <span class="author"><a href="https://github.com/simongarland?tab=repositories">
 						(Simon Garland)
@@ -279,6 +287,7 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/MdSalih/Kdb-stuff">Kdb-stuff</a></td>
 <td>ServerChecker: how to execute commands on a remote box via SSH from within a q process and parse Linux system info (cpuinfo/meminfo/df). <span class="author"><a href="https://github.com/MdSalih?tab=repositories">
 						(Mohammad Noor)
+<i class="fa fa-star"></i>
 					</a></span>
 </td>
 </tr>
@@ -346,8 +355,16 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/qprof">qprof</a> ==new==</td>
+<td>Code profiler <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
+						(Leslie Goldsmith)
+<i class="fa fa-star"></i>
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/patmok/qprofiler">qprofiler</a></td>
-<td>Simple profiler for q. <span class="author"><a href="https://github.com/patmok?tab=repositories">
+<td>Simple code profiler for q <span class="author"><a href="https://github.com/patmok?tab=repositories">
 						(patmok)
 					</a></span>
 </td>
@@ -377,7 +394,8 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/CharlesSkelton//studio">studio</a></td>
 <td>A rapid-development environment for q. <span class="author"><a href="https://github.com/CharlesSkelton/?tab=repositories">
 						(Charles Skelton)
-					</a></span>
+					<i class="fa fa-star"></i>
+</a></span>
 </td>
 </tr>
 <tr>
@@ -402,9 +420,10 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/AffinitySystems/ws">ws</a></td>
-<td>Workspace utilities for developers. Contains routines for searching functions within a workspace for one or more substrings. Functions can be specified explicitly or by referencing a parent namespace (in which case all functions in all namespaces below it are examined). <span class="author"><a href="https://github.com/AffinitySystems?tab=repositories">
+<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/ws">ws</a> ==new==</td>
+<td>Workspace utilities <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
+<i class="fa fa-star"></i>
 					</a></span>
 </td>
 </tr>
@@ -439,6 +458,7 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/stevanapter/hypercalc">hypercalc</a></td>
 <td>From a q table, create a view with calculated columns. <span class="author"><a href="https://github.com/stevanapter?tab=repositories">
 						(Stevan Apter)
+<i class="fa fa-star"></i>
 					</a></span>
 </td>
 </tr>
