@@ -147,7 +147,6 @@ pages:
       - 5. HDB: tutorials/startingq/hdb.md
       - 6. Kdb+tick: tutorials/startingq/tick.md
     - Views: tutorials/views.md
-  - Interface summary: interfaces.md
   - Machine learning:
     - Introduction: ml/index.md
     - embedPy:
@@ -158,6 +157,7 @@ pages:
       - Printing and help: ml/embedpy/printing.md
       - Closures and generators: ml/embedpy/closures.md
       - Reference: ml/embedpy/reference.md
+  - Interface summary: interfaces.md
   - Fusion for kdb+:
     - Introduction: interfaces/fusion.md
     - FFI: interfaces/ffi.md

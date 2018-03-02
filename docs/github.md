@@ -23,7 +23,11 @@ about new repositories.</div>
 </tr>
 <tr>
 	<td class="nowrap">[embedPy](https://github.com/KxSystems/embedPy) ==new==</td>
-	<td>calling Python from q</td>
+	<td>
+		calling Python from q 
+		[<i class="fa fa-share-alt"></i>](/ml "Machine learning")
+		[<i class="fa fa-superpowers"></i>](/interfaces/fusion "Fusion interfaces")
+	</td>
 </tr>
 <tr>
 	<td class="nowrap">[help](https://github.com/KxSystems/help)</td>
@@ -31,11 +35,10 @@ about new repositories.</div>
 </tr>
 <tr>
 	<td class="nowrap">[javakdb](https://github.com/KxSystems/javakdb)</td>
-	<td>Java client for kdb+</td>
-</tr>
-<tr>
-	<td class="nowrap">[javakdb](https://github.com/KxSystems/javakdb)</td>
-	<td>Java client for kdb+</td>
+	<td>
+		Java client for kdb+ 
+		[<i class="fa fa-superpowers"></i>](/interfaces/fusion "Fusion interfaces")
+	</td>
 </tr>
 <tr>
 	<td class="nowrap">[jupyterq](https://github.com/kxsystems/jupyterq) ==beta==</td>
@@ -43,7 +46,10 @@ about new repositories.</div>
 </tr>
 <tr>
 	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka)</td>
-	<td>kdb+ client for [Apache Kafka](https://kafka.apache.org)</td>
+	<td>
+		kdb+ client for [Apache Kafka](https://kafka.apache.org)
+		[<i class="fa fa-superpowers"></i>](/interfaces/fusion "Fusion interfaces")
+	</td>
 </tr>
 <tr>
 	<td class="nowrap">[kdb](https://github.com/KxSystems/kdb)</td>
@@ -59,11 +65,17 @@ about new repositories.</div>
 </tr>
 <tr>
 	<td class="nowrap">[pyq](https://github.com/KxSystems/pyq)</td>
-	<td>calling Python from q</td>
+	<td>
+		calling Python from q
+		[<i class="fa fa-superpowers"></i>](/interfaces/fusion "Fusion interfaces")
+	</td>
 </tr>
 <tr>
 	<td class="nowrap">[rkdb](https://github.com/KxSystems/rkdb)</td>
-	<td>R client for q</td>
+	<td>
+		R client for q
+		[<i class="fa fa-superpowers"></i>](/interfaces/fusion "Fusion interfaces")
+	</td>
 </tr>
 </table>
 
@@ -80,7 +92,7 @@ about new repositories.</div>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/LeslieGoldsmith/qprof">qprof</a> ==new==</td>
-<td>Profiler for q. <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
+<td>Code profiler <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
 					</a></span>
 </td>
@@ -258,8 +270,8 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/LeslieGoldsmith/dpy">dpy</a> ==new==</td>
 <td>General object display with type and structure <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
-<i class="fa fa-star"></i>
 					</a></span>
+	<i class="fa fa-star" title="Featured repository"></i>
 </td>
 </tr>
 <tr>
@@ -287,8 +299,9 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/MdSalih/Kdb-stuff">Kdb-stuff</a></td>
 <td>ServerChecker: how to execute commands on a remote box via SSH from within a q process and parse Linux system info (cpuinfo/meminfo/df). <span class="author"><a href="https://github.com/MdSalih?tab=repositories">
 						(Mohammad Noor)
-<i class="fa fa-star"></i>
-					</a></span>
+					</a>
+				</span>
+<i class="fa fa-star" title="Featured repository"></i>
 </td>
 </tr>
 <tr>
@@ -358,13 +371,20 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/LeslieGoldsmith/qprof">qprof</a> ==new==</td>
 <td>Code profiler <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
-<i class="fa fa-star"></i>
+					</a></span>
+	<i class="fa fa-star" title="Featured repository"></i>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/iuhh/qprofiler">qprofiler ==new==</a></td>
+<td>Production-safe profiler that can be used for live debugging and performance troubleshooting <span class="author"><a href="https://github.com/iuhh?tab=repositories">
+						(HL)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/patmok/qprofiler">qprofiler</a></td>
-<td>Simple code profiler for q <span class="author"><a href="https://github.com/patmok?tab=repositories">
+<td>Simple code profiler <span class="author"><a href="https://github.com/patmok?tab=repositories">
 						(patmok)
 					</a></span>
 </td>
@@ -394,8 +414,8 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/CharlesSkelton//studio">studio</a></td>
 <td>A rapid-development environment for q. <span class="author"><a href="https://github.com/CharlesSkelton/?tab=repositories">
 						(Charles Skelton)
-					<i class="fa fa-star"></i>
-</a></span>
+					</a></span>
+	<i class="fa fa-star" title="Featured repository"></i>
 </td>
 </tr>
 <tr>
@@ -423,8 +443,8 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/LeslieGoldsmith/ws">ws</a> ==new==</td>
 <td>Workspace utilities <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
-<i class="fa fa-star"></i>
 					</a></span>
+	<i class="fa fa-star" title="Featured repository"></i>
 </td>
 </tr>
 </table>
@@ -458,7 +478,6 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/stevanapter/hypercalc">hypercalc</a></td>
 <td>From a q table, create a view with calculated columns. <span class="author"><a href="https://github.com/stevanapter?tab=repositories">
 						(Stevan Apter)
-<i class="fa fa-star"></i>
 					</a></span>
 </td>
 </tr>
@@ -467,6 +486,7 @@ about new repositories.</div>
 <td>Recursive aggregating treetable and 3-D pivot table for hypergrid. <span class="author"><a href="https://github.com/stevanapter?tab=repositories">
 						(Stevan Apter)
 					</a></span>
+	<i class="fa fa-star" title="Featured repository"></i>
 </td>
 </tr>
 <tr>
@@ -788,7 +808,7 @@ about new repositories.</div>
 </table>
 
 
-## <i class="fa fa-share-alt"></i> kxcontrib
+## <i class="fa fa-share-alt-square"></i> kxcontrib
 
 !!! warning "Salvaged repositories"
 	<i class="fa fa-github"></i> [kxcontrib](https://github.com/kxcontrib) contains repositories salvaged from the former Subversion server for which we have been unable to identify current versions on GitHub. These repositories are not maintained. 
