@@ -156,13 +156,6 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/krish240574/lstmq">lstmq</a></td>
-<td>LSTM (Long short-term memory) neural network. <span class="author"><a href="https://github.com/krish240574?tab=repositories">
-						(Kumar Ramanathan)
-					</a></span>
-</td>
-</tr>
-<tr>
 <td class="nowrap"><a href="https://github.com/nperrem/mserve">mserve</a></td>
 <td>Enhanced mserve load-balanced solution. <span class="author"><a href="https://github.com/nperrem?tab=repositories">
 						(Nathan Perrem)
@@ -170,23 +163,9 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/shahrzl/qAutomatedTrading">qAutomatedTrading</a></td>
-<td>Automated trading platform based on Machine Learning algorithm. <span class="author"><a href="https://github.com/shahrzl?tab=repositories">
-						(Sharizal Shaari)
-					</a></span>
-</td>
-</tr>
-<tr>
 <td class="nowrap"><a href="https://github.com/chuchunf/qex">qex</a></td>
 <td>An equity exchange. <span class="author"><a href="https://github.com/chuchunf?tab=repositories">
 						(chuchunf)
-					</a></span>
-</td>
-</tr>
-<tr>
-<td class="nowrap"><a href="https://github.com/shahrzl/qPoliticalSentimentAnalysis">qPoliticalSentimentAnalysis</a></td>
-<td>Political Sentiment Analysis of Facebook comments using Boosting Algorithm. <span class="author"><a href="https://github.com/shahrzl?tab=repositories">
-						(Sharizal Shaari)
 					</a></span>
 </td>
 </tr>
@@ -261,7 +240,7 @@ about new repositories.</div>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/simongarland/dotz">dotz</a></td>
-<td>Control external (.z.p*) access to a q session, log access errors to file. <span class="author"><a href="https://github.com/simongarland?tab=repositories">
+<td>Control external (`.z.p*`) access to a q session, log access errors to file. <span class="author"><a href="https://github.com/simongarland?tab=repositories">
 						(Simon Garland)
 					</a></span>
 </td>
@@ -461,13 +440,6 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/psaris/funq">funq</a></td>
-<td>Functional Introduction to Machine Learning in q. <span class="author"><a href="https://github.com/psaris?tab=repositories">
-						(Nick Psaris)
-					</a></span>
-</td>
-</tr>
-<tr>
 <td class="nowrap"><a href="https://github.com/tjcelaya/game-of-life">game-of-life</a></td>
 <td>Conway’s [Game of Life](http://www.conwaylife.com/). <span class="author"><a href="https://github.com/tjcelaya?tab=repositories">
 						(Tomas Celaya)
@@ -511,13 +483,6 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/zakoud/mlq">mlq</a></td>
-<td>Machine Learning for q. <span class="author"><a href="https://github.com/zakoud?tab=repositories">
-						(Zak Oudrhiri)
-					</a></span>
-</td>
-</tr>
-<tr>
 <td class="nowrap"><a href="https://github.com/mortensorensen/projecteuler">projecteuler</a></td>
 <td>Solutions to [Project Euler](https://projecteuler.net/) problems. <span class="author"><a href="https://github.com/mortensorensen?tab=repositories">
 						(Morten Sorensen)
@@ -528,13 +493,6 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/kimtang/proto">proto</a></td>
 <td>Implementing EDSL. <span class="author"><a href="https://github.com/kimtang?tab=repositories">
 						(Kim Tang)
-					</a></span>
-</td>
-</tr>
-<tr>
-<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/pyq-market-prediction">pyq-market-prediction</a></td>
-<td>Predict the three-month price for Apple stock from 37 years of history (AAPL). <span class="author"><a href="https://github.com/t4joel?tab=repositories">
-						(Joel Oliveira)
 					</a></span>
 </td>
 </tr>
@@ -553,13 +511,6 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/nickolasbug/qnn">qnn</a></td>
-<td>Simple [neural network](https://en.wikipedia.org/wiki/Artificial_neural_network). <span class="author"><a href="https://github.com/nickolasbug?tab=repositories">
-						(Nickolas Bug)
-					</a></span>
-</td>
-</tr>
-<tr>
 <td class="nowrap"><a href="https://github.com/psaris/qtips">qtips</a></td>
 <td>Source files for “Q Tips: Fast, Scalable and Maintainable Kdb+”. <span class="author"><a href="https://github.com/psaris?tab=repositories">
 						(Nick Psaris)
@@ -570,13 +521,6 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/samkennerly/q_practice">q_practice</a></td>
 <td>Quick reference guide for some q tasks. <span class="author"><a href="https://github.com/samkennerly?tab=repositories">
 						(Sam Kennerly)
-					</a></span>
-</td>
-</tr>
-<tr>
-<td class="nowrap"><a href="https://github.com/t4joel/machine-learning/tree/master/kdb/ridge-regression-price-prediction">ridge-regression-price-prediction</a></td>
-<td>Predict Boston house prices using Ridge Regression. <span class="author"><a href="https://github.com/t4joel?tab=repositories">
-						(Joel Oliveira)
 					</a></span>
 </td>
 </tr>
@@ -606,6 +550,76 @@ about new repositories.</div>
 </td>
 </tr>
 </table>
+
+
+## <i class="fa fa-share-alt"></i> Machine learning
+
+<table class="kx-compact" markdown="1">
+<tr>
+<td class="nowrap">[funq](https://github.com/psaris/funq)</td>
+<td>Functional Introduction to Machine Learning in q. <span class="author"><a href="https://github.com/psaris?tab=repositories">
+						(Nick Psaris)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap">[lstmq](https://github.com/krish240574/lstmq)</td>
+<td>LSTM (Long short-term memory) neural network. <span class="author"><a href="https://github.com/krish240574?tab=repositories">
+						(Kumar Ramanathan)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap">[mlq](https://github.com/zakoud/mlq)</td>
+<td>Machine Learning for q <span class="author"><a href="https://github.com/zakoud?tab=repositories">
+						(Zak Oudrhiri)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap">[pyq-market-prediction](https://github.com/t4joel/machine-learning/tree/master/kdb/pyq-market-prediction)</td>
+<td>Predict the three-month price for Apple stock from 37 years of history (AAPL). <span class="author"><a href="https://github.com/t4joel?tab=repositories">
+						(Joel Oliveira)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap">[qAutomatedTrading](https://github.com/shahrzl/qAutomatedTrading)</td>
+<td>Automated trading platform based on Machine Learning algorithm. <span class="author"><a href="https://github.com/shahrzl?tab=repositories">
+						(Sharizal Shaari)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/nickolasbug/qnn">qnn</a></td>
+<td>Simple neural network <span class="author"><a href="https://github.com/nickolasbug?tab=repositories">
+						(Nickolas Bug)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap">[qPoliticalSentimentAnalysis](https://github.com/shahrzl/qPoliticalSentimentAnalysis)</td>
+<td>Political Sentiment Analysis of Facebook comments using Boosting Algorithm. <span class="author"><a href="https://github.com/shahrzl?tab=repositories">
+						(Sharizal Shaari)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap">[ridge-regression-price-prediction](https://github.com/t4joel/machine-learning/tree/master/kdb/ridge-regression-price-prediction)</td>
+<td>Predict Boston house prices using Ridge Regression. <span class="author"><a href="https://github.com/t4joel?tab=repositories">
+						(Joel Oliveira)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap">[tf](https://github.com/quintanar401/tf) ==new==</td>
+<td>Tensorflow q wrapper <span class="author"><a href="https://github.com/quintanar401?tab=repositories">
+						(Andrey Kozyrev)
+					</a></span>
+</td>
+</tr>
+</table>
+
 
 
 ## <i class="fa fa-superscript"></i> Mathematics
@@ -668,7 +682,7 @@ about new repositories.</div>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/bjconlan/kdb-jdbc">kdb-jdbc</a></td>
-<td>Packaged dependencies of the [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) driver &amp; protocol/connection classes as provided at [KxSystems/kdb/c](https://github.com/KxSystems/kdb/tree/master/c). <span class="author"><a href="https://github.com/bjconlan?tab=repositories">
+<td>Packaged dependencies of the [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) driver and protocol/connection classes as provided at [KxSystems/kdb/c](https://github.com/KxSystems/kdb/tree/master/c). <span class="author"><a href="https://github.com/bjconlan?tab=repositories">
 						(Benjamin Conlan)
 					</a></span>
 </td>
