@@ -52,6 +52,16 @@ code, kbd, pre {
 	margin-top: 0;
 }
 
+
+
+/* code listings
+--------------------------------------------- */
+code[class*="language-"],
+pre[class*="language-"] {
+	padding: 0;
+}
+
+
 /* front page
 --------------------------------------------- */
 .kx-flex-grid {
