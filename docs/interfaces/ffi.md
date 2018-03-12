@@ -17,48 +17,14 @@ The main purpose of the library is to build stable interfaces on top of external
 We are grateful to Alexander Belopolsky for allowing us to adapt and expand on his original codebase. 
 
 
-## Requirements
+## Requirements and Installation
 
-### Operating system
-<i class="fa fa-linux"></i> Linux, 
-<i class="fa fa-apple"></i> macOS 10.10+, 
-<i class="fa fa-windows"></i> Windows 7+
-
-
-### Libffi 3.1 or later
-environment                          | installation
--------------------------------------|----------------------------------------------------------
-Ubuntu Linux 64-bit with 64-bit kdb+ | `sudo apt-get install libffi-dev`
-Ubuntu Linux 64-bit with 32-bit kdb+ | `sudo apt-get install libffi-dev:i386`
-macOS                                | already installed, otherwise<br>`brew install libffi`(at time of writing is libffi 3.2.1)
-Windows                              | (no action required)
-
-
-### Kdb+ V3.4 or later
-
--    <i class="fa fa-download"></i> [Download](http://kx.com/download/)
--    <i class="fa fa-hand-o-right"></i> [Install](http://code.kx.com/q/tutorials/install/)
-
-
-## Installation
-
-<i class="fa fa-download"></i>
-Download the appropriate release archive from the [releases](https://github.com/KxSystems/ffi/releases) page. 
-
-Unpack and install the content of the archive: 
-
-environment     | action
-----------------|---------------------------------------------------------------------------------------
-Linux and macOS | `tar xzvf ffi_osx-v0.9.2.tar.gz -C $QHOME --strip 1`
-Windows         | Open the archive and copy the content of the `ffi` folder (`ffi\*`) to `%QHOME%` or `c:\q`
+Follow instructions provided in [ffi repository](https://github.com/KxSystems/ffi#requirements)
 
 
 ## API
 
-<i class="fa fa-hand-o-right"></i> [<i class="fa fa-github"></i> kxsystems/ffi/README.md](https://github.com/kxsystems/ffi/blob/master/README.md)
-
-<!-- `ffi.q` exposes two main functions in the `.ffi` namespace. See `test_ffi.q` for detailed examples of usage.
- -->
+`ffi.q` exposes two main functions in the `.ffi` namespace. See [`test_ffi.q`](/test_ffi.q) for detailed examples of usage.
 
 ### `cf` – call function
 
@@ -67,6 +33,7 @@ Simple function call, intended for one-off calls, and taking two arguments:
 1. Function name (symbol) or list of the return type char and the function name.
 2. Mixed list of arguments. The types of arguments passed to the function are inferred from the q types and should match the width of the arguments the C function expects. (If an argument is not a mixed list, append `(::)` to it.)
 
+Note: `cf` performs function lookup and on each call and has significant overhead. For hot-path functions use `bind`.
 
 ### `bind` – create projection with function resolved to call with arguments
 
@@ -76,30 +43,15 @@ Prepares a q function and binds it to the provided C function for future calls. 
 2. char array of argument types
 3. char with return type
 
-
-Some utility functions are provided as well:
-
-function | purpose
----------|-------------------------------------------------------------------------------------
-`cif`    | prepare the return and argument types to be used in `call`
-`call`   | call the function with the argument/s and the types prepared by `cif`
-`errno`  | return current `errno` global on \*nix OS
-`kfn`    | bind the function which returns and accepts K objects in current process. Similar to `2:`
-
-Function arguments should be passed as a generic list to `cf`, `call`, and the function created by `bind`.
-
-`cf` and `call` perform native function loading and resolution at the time of the call, which creates significant overhead. Use `bind` to perform this step in advance and reduce runtime overhead.
-
-
 ### Passing data and getting back results
 
 Throughout the library, characters are used to encode the types of data provided and expected as a result. These are based on the `c` column of [primitive data types](http://code.kx.com/q/ref/datatypes/#primitive-datatypes) and the corresponding upper case for vectors of the same type. The `sz` column is useful to work out what type can hold enough data passing to/from C.
 
 The argument types are derived from data passed to the function (in case of `cf`) or explicitly specified (in case of `bind`). The number of character types provided must match the number of arguments expected by the C function.
-The return type is specified as a single character and can be `' '` (space), which means to discard the result (i.e. `void`). If not provided, defaults to `int`.
+The return type is specified as a single character and can be `" "` (space), which means to discard the result (i.e. `void`). If not provided, defaults to `int`.
 
 char             | C type       
------------------| -------------------------
+-----------------| -------------------------|
 b, c, x          | unsigned int8
 h                | signed int16
 i                | signed int32
@@ -107,13 +59,26 @@ j                | signed int64
 e                | float
 f                | double
 g, s             | uint8*
-`' '` (space)    | void (only as return type)
+`" "` (space)    | void (only as return type)
 r                | raw pointer
+l                | size of pointer(size_t)
 k                | K object
 uppercase letter | pointer to the same type
 
 It is possible to pass a q function to C code as a callback (see `qsort` example below). The function must be presented as a mixed list `(func;argument_types;return_type)`, where `func` is a q function (type `100h`), `argument_types` is a char array with the types the function expects, and `return_type` is a char corresponding to the return type of the function. Note that, as callbacks potentially have unbounded life in C code, they are not deleted after the function completes.
 
+#### Some utility functions are provided as well:
+
+function | purpose
+---------|-------------------------------------------------------------------------------------
+`errno`  | return current `errno` global on \*nix OS
+`kfn`    | bind the function which returns and accepts K objects in current process. Similar to `2:`
+`ext`    | append shared library extension for current platform to library name. On Linux ```.ffi.ext[`libm]~`libm.so```
+`cvar`   | read global variable from the library ```.ffi.cvar`timezone```
+`ptrsize`| length of pointer in bytes on current platform
+`nil`    | null value on current platform
+
+Function arguments should be passed as a generic list to `cf`, `call`, and the function created by `bind`.
 
 ## Examples
 
