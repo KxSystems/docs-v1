@@ -318,6 +318,7 @@ q)(-22!v)=count -8!v
 Since V3.1t 2013.03.04
 
 Maps data into memory without copying.
+Sequentially faults any mapped memory backing `x`, to ensure it is resident in core.
 ```q
 q)/ previous tricks to force load included .. where i>=0
 q)-23!t:select from get`:t/; 
