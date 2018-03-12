@@ -2,7 +2,34 @@ hero: Fusion for kdb+
 
 # ![PyQ](../img/pyq.png) Version history
 
+## Version 4.1.3
 
+Released on 2018-03-06
+
+Bug fixes and enhancements
+
+- !604 - BUG #970 Ignore the first line in the `otool -L` output.
+- !608 - ENH #980 Implemented `K.guid.na`.
+- !610 - STY #916 C code reformat
+- !614 - ENH #919 Rewrote z2py entirely in C.
+- !616 - MNT #984 Speed up access to q builtins.
+- !617 - ENH #936 Support for kdb+ version 3.6
+- !622 - BUG #988 Use `/sbin/ldconfig` if `ldconfig` not in the PATH.
+- gh-33 - MNT Define `_GNU_SOURCE` conditionally.
+- gh-38 - MNT Update `k.h`.
+
+Documentation
+
+This is the last release, where documentation included with the PyQ source. Starting with PyQ 4.2.0 documentation will be available only at [code.kx.com](http://code.kx.com/q/interfaces/pyq/).
+
+- !621 - MNT Update metadata and authors list
+- gh-26 - MNT Updated the license entry in the package classifiers.
+
+CI
+
+- gh-27, gh-29, gh-46 - BLD Travis CI configuration.
+- gh-39 - BLD Blacklist pytest 3.3.0.
+- gh-45 - BLD Send coverage results to Codecov
 
 ## [Version 4.1.2](http://pyq.readthedocs.io/en/pyq-4.1.2/)
 Released 2017.10.12
@@ -48,7 +75,7 @@ New features
 
 -   !519 – #889: Multi-threading support.
 -   !542 – #917: traceback support.
--   Experimental Windows support  
+-   Experimental Windows support
     -   !507 – #900: Windows support.
     -   !508 – #900: Windows support py36.
     -   !527 – #900: Fixed a few tests that failed under Windows.
@@ -545,7 +572,7 @@ Released 2014.02.05.
 Released 2013.12.24.
 
 -   Issues fixed: #556, #559, #560, #561, #562, #564, #565, #566, #569, #570, #573
--   NEW: wrapper for python.q to use it under PyCharm  
+-   NEW: wrapper for python.q to use it under PyCharm
     Note: You will need to create symlink from python to python.py in order for this to work, i.e.: ln -s bin/python.py bin/python
 
 -   Support to use 32-bit Q under 64-bit OS X
@@ -598,4 +625,3 @@ implemented `K._ja`
 ## Version 0.2
 
 -   Implemented iterator protocol.
-
