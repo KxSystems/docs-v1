@@ -4,7 +4,7 @@ hero: Fusion for kdb+
 
 
 
-<i class="fa fa-github"></i> [KxSystems/ffi](https://github.com/kxsystems/ffi)
+FFI for kdb+ (<i class="fa fa-github"></i> [KxSystems/ffi](https://github.com/kxsystems/ffi))
 is an extension to kdb+ for loading and calling dynamic libraries using pure `q`. 
 
 The main purpose of the library is to build stable interfaces on top of external libraries, or to interact with the operating system from `q`. No compiler toolchain or writing C/C++ code is required to use this library.
@@ -17,33 +17,50 @@ The main purpose of the library is to build stable interfaces on top of external
 We are grateful to Alexander Belopolsky for allowing us to adapt and expand on his original codebase. 
 
 
-## Requirements and Installation
+## Requirements and installation
 
-Follow instructions provided in [ffi repository](https://github.com/KxSystems/ffi#requirements)
+See <i class="fa fa-github"></i> [KxSystems/ffi](https://github.com/KxSystems/ffi#requirements)
 
 
 ## API
 
-`ffi.q` exposes two main functions in the `.ffi` namespace. See [`test_ffi.q`](/test_ffi.q) for detailed examples of usage.
+`ffi.q` exposes two main functions in the `.ffi` namespace. See `test_ffi.q` for detailed examples of usage.
 
-### `cf` – call function
 
-Simple function call, intended for one-off calls, and taking two arguments:
+### `cf` (call function)
 
-1. Function name (symbol) or list of the return type char and the function name.
-2. Mixed list of arguments. The types of arguments passed to the function are inferred from the q types and should match the width of the arguments the C function expects. (If an argument is not a mixed list, append `(::)` to it.)
+_A simple function call, intended for one-off calls._
 
-Note: `cf` performs function lookup and on each call and has significant overhead. For hot-path functions use `bind`.
+Syntax: `cf[fn;args]`
 
-### `bind` – create projection with function resolved to call with arguments
+Where
 
-Prepares a q function and binds it to the provided C function for future calls. Useful for multiple calls to C lib. Takes three arguments:
+-   `fn` is either the symbol name of a function, or a list of the result type (char atom) and the function name
+-   `args` is a mixed list of arguments to the function
 
-1. function name: simple symbol or list of two symbols specifying library name 
-2. char array of argument types
-3. char with return type
+calls `fn` with the arguments. 
+The types of arguments passed to the function are inferred from the q types and should match the width of the arguments the C function expects. (If an argument is not a mixed list, append `(::)` to it.)
 
-### Passing data and getting back results
+!!! warning "Function lookup"
+    `cf` performs function lookup on each call and has significant overhead. For hot-path functions use `bind`.
+
+
+### `bind` (create projection) 
+
+_Creates a projection with the function resolved to call with arguments._
+
+Syntax: `bind[fn;types;rtype]`
+
+Where
+
+-   `fn` is either the function name (symbol atom), or the library and function names (symbol vector, length 2)
+-   `types` are the argument types (char vector)
+-   `rtype` is the return type (char atom)
+
+returns a q function, bound to the specifed C function for future calls. Useful for multiple calls to the C lib.
+
+
+### Passing data and getting results
 
 Throughout the library, characters are used to encode the types of data provided and expected as a result. These are based on the `c` column of [primitive data types](http://code.kx.com/q/ref/datatypes/#primitive-datatypes) and the corresponding upper case for vectors of the same type. The `sz` column is useful to work out what type can hold enough data passing to/from C.
 
@@ -51,7 +68,7 @@ The argument types are derived from data passed to the function (in case of `cf`
 The return type is specified as a single character and can be `" "` (space), which means to discard the result (i.e. `void`). If not provided, defaults to `int`.
 
 char             | C type       
------------------| -------------------------|
+-----------------| -------------------------
 b, c, x          | unsigned int8
 h                | signed int16
 i                | signed int32
@@ -67,7 +84,7 @@ uppercase letter | pointer to the same type
 
 It is possible to pass a q function to C code as a callback (see `qsort` example below). The function must be presented as a mixed list `(func;argument_types;return_type)`, where `func` is a q function (type `100h`), `argument_types` is a char array with the types the function expects, and `return_type` is a char corresponding to the return type of the function. Note that, as callbacks potentially have unbounded life in C code, they are not deleted after the function completes.
 
-#### Some utility functions are provided as well:
+#### Some utility functions
 
 function | purpose
 ---------|-------------------------------------------------------------------------------------
@@ -93,7 +110,7 @@ Bindings to [PCRE (POSIX variant)](https://www.pcre.org/original/doc/html/pcrepo
     [exponential run time](https://www.regular-expressions.info/catastrophic.html) 
     that leads to real [outages](http://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016).
 
-<i class="fa fa-github"></i> [FFI for kdb+](https://github.com/kxsystems/ffi) is required for this library. `pcre` is normally available on modern Linux distributions and macOS.
+[FFI for kdb+](https://github.com/kxsystems/ffi) is required for this library. `pcre` is normally available on modern Linux distributions and macOS.
 
 As any standard, PCRE POSIX has some [quirks](https://eli.thegreenplace.net/2012/11/14/some-notes-on-posix-regular-expressions) and differences between platforms ([Linux](https://linux.die.net/man/3/pcreposix)), which this library is trying to resolve.
 
