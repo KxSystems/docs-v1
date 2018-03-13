@@ -294,11 +294,10 @@ Derivative: `x d y` (binary)
 Where `f` is a **unary** function, the derivative `f/` 
 
 - (**converge**) applied **unary** applies `f` repeatedly to `y` until either (1) two successive results agree within comparison tolerance or (2) the result matches `y`. The latter will save you from some infinite cycles but not all.
-    <pre><code class="language-q">
+<pre><code class="language-q">
 q)(not/) 1b
 0b
-q)(not/) 42  /never returns
-    </code></pre>
+q)(not/) 42  /never returns </code></pre>
     The related form [_converge-iterate_](#converge-iterate) can be useful to see the intermediate results. (Set `\P 0` to see the convergence of your original computation.)
 
 - (**repeat**) applied **binary** where (a) `x` is a **positive int atom**, returns the result of `x` successive applications of `f` to `y`
@@ -384,33 +383,33 @@ Derivative: `x d y` (binary)
 Where `f` is a **unary** function, the derivative `f\`
 
 - (**converge**) applied **unary** calls `f` on `y` repeatedly until a value matching the `y` or the last result is produced. The result is `y` followed by all the results except the last.
-```q
-q)(neg\)1
+<pre><code class="language-q">
+q)(neg\\)1
 1 -1
-q)(rotate[1]\)"abcd"
+q)(rotate[1]\\)"abcd"
 "abcd"
 "bcda"
 "cdab"
 "dabc"
-q)({x*x}\)0.1
+q)({x*x}\\)0.1
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
-q){x*x}\[0.1]   / alternative syntax
+q){x*x}\\[0.1]
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
-```
+</code>
 
 - (**iterate**) applied **binary**, `x` can be either an integer number of iterations or a while-condition that returns an int or boolean which can be applied to the result of `f`. 
-```q
+<pre><code class="language-q">
 q)f:1+
-q)f\[3;100]
+q)f\\[3;100]
 100 101 102 103
-q)f\[105>;100]
+q)f\\[105>;100]
 100 101 102 103 104 105
-q)f\[105>sum@;84 20]
+q)f\\[105>sum@;84 20]
 84 20
 85 21
 q)3 f\100 /applied infix
 100 101 102 103
-```
+</code>
 
 ## `\` (scan)
 
@@ -425,29 +424,29 @@ r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
 
 Where `f\` is applied
 
-- **unary**
-    <pre><code class="language-q">
-    q)(+\)til 10
-    0 1 3 6 10 15 21 28 36 45
-    q)+\[til 10]
-    0 1 3 6 10 15 21 28 36 45
-    </code></pre>
+- **unary** 
+<pre><code class="language-q">
+q)(+\\)til 10
+0 1 3 6 10 15 21 28 36 45
+q)+\\[til 10]
+0 1 3 6 10 15 21 28 36 45
+</code></pre>
 
 - **binary**, `x` is used as the initial value.
-    <pre><code class="language-q">
-    q)1+\1 2 3
-    2 4 7
-    q)+\[1;1 2 3]
-    2 4 7
-    </code></pre>
+<pre><code class="language-q">
+q)1+\1 2 3
+2 4 7
+q)+\\[1;1 2 3]
+2 4 7
+</code></pre>
 
 - **&gt;rank 2**, `x` is used as the initial value and other arguments are corresponding items from the lists.
-    <pre><code class="language-q">
-    q){(x;y;z)}\[0;1 2 3;4 5 6]
-    0           1 4
-    0 1 4       2 5
-    (0 1 4;2;5) 3 6
-    </code></pre>
+<pre><code class="language-q">
+q){(x;y;z)}\\[0;1 2 3;4 5 6]
+0           1 4
+0 1 4       2 5
+(0 1 4;2;5) 3 6
+</code></pre>
 
 
 ### Finite-state machine
