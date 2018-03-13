@@ -13,17 +13,19 @@ System information                Callbacks
 .z.c    cores                     .z.exit  action on exit
 .z.D/d  date shortcuts            .z.pc    close
 .z.e    TLS connection status     .z.pd    peach handles
-.z.f    file                      .z pg    get
-.z.h    host                      .z.ph    HTTP get
-.z.i    PID                       .z.pi    input
-.z.K    version                   .z.po    open
-.z.k    release date              .z.pp    HTTP post
-.z.l    license                   .z.ps    set
-.z.N/n  local/UTC timespan        .z.pw    validate user
-.z.o    OS version                .z.ts    timer
-.z.P/p  local/UTC timestamp       .z.vs    value set
-.z.pm   HTTP options              .z.wc    WebSocket close
-.z.q    quiet mode                .z.wo    WebSocket open
+.z.ex   failed primitive          .z pg    get
+.z.ey   arg to failed primitive   .z.ph    HTTP get
+.z.f    file                      .z.pi    input
+.z.h    host                      .z.po    open
+.z.i    PID                       .z.pp    HTTP post
+.z.K    version                   .z.ps    set
+.z.k    release date              .z.pw    validate user
+.z.l    license                   .z.ts    timer
+.z.N/n  local/UTC timespan        .z.vs    value set
+.z.o    OS version                .z.wc    WebSocket close
+.z.P/p  local/UTC timestamp       .z.wo    WebSocket open
+.z.pm   HTTP options              
+.z.q    quiet mode                
 .z.s    self
 .z.T/t  time shortcuts
 .z.u    user ID
@@ -87,6 +89,24 @@ q)0N!h".z.e";
 `CIPHER`PROTOCOL!`AES128-GCM-SHA256`TLSV1.2
 ```
 Since V3.4 2016.05.16.
+
+
+### `.z.ex` (failed primitive)
+
+Syntax: `.z.ex`
+
+In a [debugger](debug/#debugger) session, `.z.ex` is set to the failed primitive.
+
+Since V3.5 2017.03.15.
+
+
+### `.z.ey` (argument to failed primitive)
+
+Syntax: `.z.ey`
+
+In a [debugger](debug/#debugger) session, `.z.ey` is set to the argument to failed primitive.
+
+Since V3.5 2017.03.15.
 
 
 ### `.z.f` (file)

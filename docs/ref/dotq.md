@@ -43,6 +43,44 @@ q)256 vs .Q.addr`localhost
 <i class="fa fa-hand-o-right"></i> [`vs`](casting/#vs), [`.Q.host`](#qhost-hostname) 
 
 
+### `.Q.bt` (backtrace)
+
+Syntax: `.Q.bt[]`
+
+Dumps the backtrace to stdout at any point during execution or debug. 
+```q
+q)f:{{.Q.bt[];x*2}x+1}
+q)f 4
+  [2]  f@:{.Q.bt[];x*2}
+           ^
+  [1]  f:{{.Q.bt[];x*2}x+1}
+          ^
+  [0]  f 4
+       ^
+10                   / (4+1)*2
+q)g[3;"hello"]
+'type
+  [2]  g:{a:x*2;a+y}
+                ^
+q)).Q.bt[]
+  [4]  .Q.bt[]
+       ^
+  [3]  (.Q.dbg)      / see note
+
+  [2]  g:{a:x*2;a+y}
+                ^
+  [1]  f:{g[x;2#y]}
+          ^
+  [0]  f[3;"hello"]
+       ^ 
+```
+Since V3.5 2017.03.15.
+
+!!! note 
+    The debugger itself occupies a stack frame, but its source is hidden.
+
+
+
 ### `.Q.chk` (fill HDB)
 
 Syntax: `.Q.chk x`
@@ -781,6 +819,79 @@ q).Q.s ([h:1 2 3] m: 4 5 6)
 "h| m\n-| -\n1| 4\n2| 5\n3| 6\n"
 ```
 Occasionally useful for undoing "Studio for kdb+" tabular formatting.
+
+
+### `.Q.sbt` (string back trace)
+
+Syntax: `.Q.sbt[y]`
+
+Where `y` is a [backtrace object](#qtrp-extend-trap) returns it as a string formatted for display.
+
+Since V3.5 2017.03.15.
+
+<i class="fa fa-hand-o-right"></i> [Debugging](debug)
+
+
+### `.Q.trp` (extend trap)
+
+Syntax: `.Q.trp[f;x;g]`
+
+Where
+
+-   `f` is a unary function and `x` is its argument
+-   `g` is a binary function
+
+extends [_trap_](errors/#trap) (`@[f;x;g]`) to collect backtrace: `g` gets called with arguments:
+
+1.   the error string
+2.   the backtrace object
+
+You can format the backtrace object with `.Q.sbt`.
+```q
+q)f:{`hello+x}
+q)           / print the formatted backtrace and error string to stderr
+q).Q.trp[f;2;{2@"error: ",x,"\nbacktrace:\n",.Q.sbt y;-1}]
+error: type
+backtrace:
+  [2]  f:{`hello+x}
+                ^
+  [1]  (.Q.trp)
+
+  [0]  .Q.trp[f;2;{2@"error: ",x,"\nbacktrace:\n",.Q.sbt y;-1}]
+       ^
+-1
+q)
+```
+`.Q.trp` can be used for remote debugging.
+```q
+q)h:hopen`::5001   / f is defined on the remote
+q)h"f `a"           
+'type              / q's IPC protocol can only get the error string back
+  [0]  h"f `a"
+       ^
+q)                 / a made up protocol: (0;result) or (1;backtrace string)
+q)h".z.pg:{.Q.trp[(0;)@value@;x;{(1;.Q.sbt y)}]}"
+q)h"f 3"
+0                  / result
+,9 9 9             
+q)h"f `a"
+1                  / failure
+"  [4]  f@:{x*y}\n            ^\n  [3..
+q)1@(h"f `a")1;    / output the backtrace string to stdout
+  [4]  f@:{x*y}
+            ^
+  [3]  f:{{x*y}[x;3#x]}
+          ^
+  [2]  f `a
+       ^
+  [1]  (.Q.trp)
+
+  [0]  .z.pg:{.Q.trp[(0;)@enlist value@;x;{(1;.Q.sbt y)}]}
+              ^
+```
+Since V3.5 2017.03.15.
+
+<i class="fa fa-hand-o-right"></i> [Debugging](debug)
 
 
 ### `.Q.ty` (type)

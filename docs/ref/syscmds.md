@@ -173,13 +173,19 @@ q.s)key`
 
 ## `\e` (error trap clients)
 
-Syntax: `\e [0|1]`
+Syntax: `\e [0|1|2]`
 
-This enables error trapping for client requests. The default is 0 (off).
+This sets the [error trap mode](debug/#error-trap-modes) for client requests. The default is 0.
+
+- `0`  abort execution (set by _trap_ `@` or `.`)
+- `1`  suspend execution and run the debugger
+- `2`  collect stack trace and abort (set by `.Q.trp`)
 
 When a client request has an error, by default the server clears the stack. This is appropriate for production use as it enables the server to continue processing other client requests.
 
 For development, you can set `\e 1` to enable debugging on the server. In this case, the server suspends on an error, and does not process other requests until the stack is cleared.
+
+<i class="fa fa-hand-o-right"></i> [Debugging](debug)
 
 
 ## `\f` (functions)
