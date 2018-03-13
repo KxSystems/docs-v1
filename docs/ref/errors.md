@@ -33,6 +33,7 @@ guest@localhost:~$ echo $?
 ```
 <i class="fa fa-hand-o-right"></i> [`.z.exit`](dotz/#zexit-action-on-exit) (action on exit)
 
+
 ## `'` (signal)
 
 Syntax: `'emsg`

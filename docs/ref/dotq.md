@@ -821,7 +821,7 @@ q).Q.s ([h:1 2 3] m: 4 5 6)
 Occasionally useful for undoing "Studio for kdb+" tabular formatting.
 
 
-### `.Q.sbt` (string back trace)
+### `.Q.sbt` (string backtrace)
 
 Syntax: `.Q.sbt[y]`
 

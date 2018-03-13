@@ -123,7 +123,7 @@ q)
 
 ## Backtrace
 
-`.Q.bt[]` will dump the backtrace to stdout at any point during execution or debug.
+[`.Q.bt[]`](dotq/#qbt-backtrace) will dump the backtrace to stdout at any point during execution or debug.
 ```q
 q)f:{{.Q.bt[];x*2}x+1}
 q)f 4
@@ -154,7 +154,7 @@ q)).Q.bt[]
 !!! note 
     The debugger itself occupies a stack frame, but its source is hidden.
 
-`.Q.trp[f;x;g]` extends trap (`@[f;x;g]`) to collect backtrace. Along with the error string, `g` gets called with the backtrace object as a second argument. You can format it with `.Q.sbt` to make it legible.
+[`.Q.trp[f;x;g]`](dotq/#qtrp-extend-trap) extends trap (`@[f;x;g]`) to collect backtrace. Along with the error string, `g` gets called with the backtrace object as a second argument. You can format it with `.Q.sbt` to make it legible.
 ```q
 q)f:{`hello+x}
 q)           / print the formatted backtrace and error string to stderr
@@ -209,7 +209,7 @@ At any point during execution, the behaviour of _signal_ (`'`) is determined by 
 
 During abort, the stack is unwound up to the nearest trap (`@` or `.` or `.Q.trp`). The error-trap mode is always initially set to 1 for console input and to 0 for sync message processing.
 
-`\e` sets the mode applied before async and HTTP callbacks run. Thus, `\e 1` will cause the relevant handlers to break into the debugger, while `\e 2` will dump the backtrace either to the server console (for async), or into the socket (for HTTP).
+[`\e`](syscmds/#e-error-trap-clients) sets the mode applied before async and HTTP callbacks run. Thus, `\e 1` will cause the relevant handlers to break into the debugger, while `\e 2` will dump the backtrace either to the server console (for async), or into the socket (for HTTP).
 ```q
 q)\e 2
 q)'type             / incoming async msg signals 'type
@@ -228,4 +228,8 @@ q))                 / the server is suspended in a debug session
 
 ## See also
 
-<i class="fa fa-hand-o-right"></i> _Q for Mortals 3:_ [10.2 Debugging](http://code.kx.com/q4m3/10_Execution_Control/#102-debugging)
+<i class="fa fa-hand-o-right"></i> _Q for Mortals 3:_ [10.2 Debugging](http://code.kx.com/q4m3/10_Execution_Control/#102-debugging),
+[`\e`](syscmds/#e-error-trap-clients "System command: error trap clients"),
+[`.Q.bt`](dotq/#qbt-backtrace "backtrace object"), 
+[`.Q.sbt`](dotq/#qsbt-string-backtrace "string backtrace object"), 
+[`.Q.trp`](dotq/#qtrp-extend-trap "extend trap")
