@@ -68,5 +68,5 @@ Start q.exe with the OS command `start` with the `/affinity` flag set
 ```dos
 C> start /affinity 3 c:\q\w64\q.exe 
 ```
-will run q on core 3.
+will run q on core 0 and 1.
 
