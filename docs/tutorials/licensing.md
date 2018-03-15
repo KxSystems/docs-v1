@@ -71,7 +71,18 @@ The default location for the license key file is the `QHOME` folder. You do not 
 
 If the license is for fewer cores than the total number on the machine, the number of cores available to kdb+ must be [restricted with OS programs](/cookbook/cpu-affinity/), or kdb+ will signal `'cores` and abort.
 
+As long as you task or numa correctly, the binary will not abort itself.
+
+You can see the number of cores entitled to a q process:
+
+-   by looking at the banner, e.g. `…w64/ 2(16)core…` – the 2 here is what the process is allowed to use, and the 16 is the licensed amount
+-   with [`.z.c`](/ref/dotz/#zc-cores) – not the physical cores of the system, but rather the number the process is allowed to use
+-   the first element of [`.z.l`](ref/dotz/#zl-license) 
+
+The number of licensed cores is always 16 for the on-demand license. 
+
 <i class="fa fa-hand-o-right"></i> [License errors](/ref/error-list/#license-errors)
+
 
 ## License questions
 
