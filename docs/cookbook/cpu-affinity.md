@@ -7,27 +7,11 @@ Typically, you can set the CPU affinity for the shell you are in, and then proce
 
 ## Linux
 
-When NUMA (Non-Uniform Access Memory) is not active, this is achieved through the `taskset` command, e.g.
-```bash
-$ taskset -c 0,1,2 q
-```
-will run q on cores 0,1 and 2. Or as follows
-```bash
-$ taskset -c 0,1,2 bash
-```
-and then all processes started from within that new shell will automatically be restricted to those cores.
+<i class="fa fa-hand-o-right"></i> [Non-Uniform Access Memory (NUMA)](linux-production/#non-uniform-access-memory-numa-hardware)
 
-Q and NUMA do not work well together. If NUMA is active, you should use `numactl` instead of `taskset`.
-```bash
-$ numactl --interleave=all --physcpubind=0,1,2 q
-```
-and set
-```bash
-$ echo 0 > /proc/sys/vm/zone_reclaim_mode
-```
-You can change `zone_reclaim_mode` without restarting q.
+### Detecting NUMA
 
-You can tell if NUMA is active via the following commands
+The following commands will show if NUMA is active.
 ```bash
 $ grep NUMA=y /boot/config-`uname -r`
 CONFIG_NUMA=y
@@ -35,7 +19,7 @@ CONFIG_AMD_NUMA=y
 CONFIG_X86_64_ACPI_NUMA=y
 CONFIG_ACPI_NUMA=y
 ```
-or testing for the presence of NUMA maps
+Or test for the presence of NUMA maps.
 ```
 $ find /proc -name numa_maps
 /proc/12108/numa_maps
@@ -44,10 +28,29 @@ $ find /proc -name numa_maps
 ...
 ```
 
-!!! tip "Other ways to limit resources"
-    On Linux systems, administrators might prefer [cgroups](https://en.wikipedia.org/wiki/Cgroups) as a way of limiting resources.
 
-    On Unix systems, memory usage can be constrained using `ulimit`, e.g.<pre><code class="language-bash">$ ulimit -v 262144</code></pre>limits virtual address space to 256MB.
+### Q and NUMA
+
+Until Linux kernels 3.x, q and NUMA did not work well together. 
+
+When activating NUMA, substitute parameter settings according to the [recommendations for different Linux kernels](linux-production/#non-uniform-access-memory-numa-hardware).
+
+
+### Activating NUMA
+
+When NUMA is 
+
+-   **not active**, use the `taskset` command, e.g.<pre><code class="language-bash">$ taskset -c 0,1,2 q</code></pre>will run q on cores 0, 1 and 2. Or<pre><code class="language-bash">$ taskset -c 0,1,2 bash</code></pre>and then all processes started from within that new shell will automatically be restricted to those cores.
+-   **active**, use `numactl` instead of `taskset`<pre><code class="language-bash">$ numactl --interleave=all --physcpubind=0,1,2 q</pre></code> and set<pre><code class="language-bash">$ echo 0 > /proc/sys/vm/zone_reclaim_mode</code></pre>
+
+You can change `zone_reclaim_mode` without restarting q.
+
+
+### Other ways to limit resources
+
+On Linux systems, administrators might prefer [cgroups](https://en.wikipedia.org/wiki/Cgroups) as a way of limiting resources.
+
+On Unix systems, memory usage can be constrained using `ulimit`, e.g.<pre><code class="language-bash">$ ulimit -v 262144</code></pre>limits virtual address space to 256MB.
 
 
 ## Solaris

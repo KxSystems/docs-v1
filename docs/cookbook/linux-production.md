@@ -6,12 +6,16 @@ One of the performance issues seen by q in this context is the same as the “sw
 However, with the introduction of new Linux distributions based on newer kernel versions we now recommend different NUMA settings, depending on the version of the distribution being used. The use of the interleave feature should still be considered for those cases where your code drives the q processes to write to memory pages in excess of the physical memory capacity of the node. 
 
 -   For distributions based on kernels **3.x**, please disable interleave, and enable zone_reclaim. For all situations where memory page demand is constrained to the physical memory space of the node, this should return a better overall performance.  
-
 -   For Linux distributions based on Linux kernel **2.6 or earlier** (e.g RHEL 6.7 or CentoS 6.7 or earlier), we recommend to disable NUMA, and instead set an interleave memory policy, especially in the use-case described above.
+
+Linux kernel   | NUMA    | interleave memory | zone-reclaimed
+---------------|---------|-------------------|---------------
+3.x            | enable  | disable           | enable        
+2.6 or earlier | disable | enable            |
 
 In both cases, q is unaware of whether NUMA is enabled or not.
 
-If possible, you should change the  NUMA settings via a BIOS setting, if that is supported by your system. Otherwise use the technique below.
+If possible, you should change the NUMA settings via a BIOS setting, if that is supported by your system. Otherwise use the technique below.
 
 To fully disable NUMA and enable an interleave memory policy, start q with the `numactl` command as follows
 ```bash
@@ -32,6 +36,9 @@ And to see if NUMA is enabled on a process basis
 ```bash
 $ numactl -s
 ```
+
+<i class="fa fa-hand-o-right"></i> [CPU affinity – Linux](cpu-affinity/#linux)
+
 
 ## Huge Pages and Transparent Huge Pages (THP)
 
