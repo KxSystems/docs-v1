@@ -6,8 +6,8 @@ How to update code.kx.com with the contents of this repo.
 
 ## Get server access
 
-You will need SSH access to the code.kx.com server. This is currently controlled by charlie@kx.com 
-
+You will need SSH access to the code.kx.com server. 
+(Consult the Chief Technical Officer.) 
 
 ## Install MkDocs
 
