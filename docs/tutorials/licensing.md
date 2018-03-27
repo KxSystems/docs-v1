@@ -5,6 +5,13 @@ Everyone. All use of kdb+ is governed by a license.
 Commercial versions of kdb+ also need a **license key file** (`k4lic`, or `kc.lic` for kdb+ on demand) to run.
 
 
+## Free, non-commercial, 64-bit kdb+ on demand
+
+kdb+ on demand 64-bit personal edition is for personal, non-commercial use. It may be used freely on up to 2 computers, and up to a maximum of 16 cores per computer, but is not licensed for use on any cloud – only personal computers. It may not be used for any commercial purposes.
+
+[kdb+ on demand](https://ondemand.kx.com/) requires an always-on internet connection to operate.
+
+
 ## Free, non-commercial, 32-bit kdb+
 
 Use of the free, non-commercial, 32-bit kdb+ distribution, is licenced by the terms and conditions on the [download page](https://kx.com/download/). 
