@@ -3,7 +3,19 @@
 
 ## 5.1 Overview
 
-<img src="/img/wstree.png" alt="database tree" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 5px 5px 0 rgba(0,0,0,.2); display: block; float: right; margin: 0 0 1em 3em; padding: 0 1em;"/>
+
+<style type="text/css">
+    .foo {
+        border: 1px solid #ccc; 
+        border-radius: 10px; 
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,.2); 
+        display: block; 
+        float: right; 
+        margin: 0 0 1em 3em;
+        padding: 0 1em;
+    }
+</style>
+![database tree](/img/wstree.png){.foo}
 
 A historical database (HDB) holds data before today, and its tables would be stored on disk, being much too large to fit in memory. Each new day’s records would be added to the HDB at the end of day.
 
