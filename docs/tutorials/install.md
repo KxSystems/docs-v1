@@ -1,7 +1,10 @@
 ## <i class="fa fa-download"></i> Download
 
 
-Free 32-bit version
+Free 64-bit kdb+ on-demand Personal Edition
+: Kdb+ on-demand 64-bit Personal Edition is for personal, non-commercial use. It may be used freely on up to 2 computers, and up to a maximum of 16 cores per computer, but is not licensed for use on any cloud – only personal computers. It requires an always-on internet connection to operate, and may be downloaded from [ondemand.kx.com](https://ondemand.kx.com/)
+
+Free 32-bit kdb+ Personal Edition
 : The free 32-bit version of kdb+ (for non-commercial use) can be downloaded from [kx.com](https://kx.com/download). Follow the instructions.
 
 Commercial versions
@@ -193,11 +196,13 @@ From your home folder open q, type an expression and recall it using the up-arro
 You’re done. You have completely installed kdb+. 
 
 
-## Licences
+## Licenses
+
+Usage of the free, non-commercial 64-bit distribution of kdb+ on demand is governed by the terms and conditions on the [download page](https://ondemand.kx.com/). 
 
 Usage of the free, non-commercial 32-bit distribution of kdb+ is governed by the terms and conditions on the [download page](https://kx.com/download). 
 
-Commercial distributions of kdb+ require a license file to run. Without it, they signal a license error and abort. 
+64-bit distributions of kdb+ [require a license file to run](licensing). Without it, they signal a license error and abort. 
 
 <i class="fa fa-hand-o-right"></i> [License errors](/ref/error-list/#license-errors), [Licenses](licensing), [Linux production notes](/cookbook/linux-production)
 

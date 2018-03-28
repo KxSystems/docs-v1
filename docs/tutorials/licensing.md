@@ -2,19 +2,19 @@
 
 Everyone. All use of kdb+ is governed by a license. 
 
-Commercial versions of kdb+ also need a **license key file** (`k4lic`, or `kc.lic` for kdb+ on demand) to run.
+64-bit versions of kdb+ also need a **license key file** (`k4lic`, or `kc.lic` for kdb+ on demand) to run.
 
 
-## Free, non-commercial, 64-bit kdb+ on demand
+### Free, non-commercial, 64-bit kdb+ on demand
 
 kdb+ on demand 64-bit personal edition is for personal, non-commercial use. It may be used freely on up to 2 computers, and up to a maximum of 16 cores per computer, but is not licensed for use on any cloud – only personal computers. It may not be used for any commercial purposes.
 
 [kdb+ on demand](https://ondemand.kx.com/) requires an always-on internet connection to operate.
 
 
-## Free, non-commercial, 32-bit kdb+
+### Free, non-commercial, 32-bit kdb+
 
-Use of the free, non-commercial, 32-bit kdb+ distribution, is licenced by the terms and conditions on the [download page](https://kx.com/download/). 
+Use of the free, non-commercial, 32-bit kdb+ distribution, is licensed by the terms and conditions on the [download page](https://kx.com/download/). 
 
 When you start kdb+ you will see on the banner that your license has no expiry date.
 ```q
@@ -26,9 +26,23 @@ Welcome to kdb+ 32bit edition
 Enjoy.
 
 
-## Commercial kdb+
+### Commercial 64-bit kdb+
 
-If you have a commercial distribution of kdb+, it will abort without a suitable license key file `k4.lic`  or `kc.lic`. For example, with no license key file:
+Use of commercial 64-bit kdb+ is licensed by your agreement with Kx.
+
+
+## License key files
+
+
+### 32-bit kdb+
+
+The 32-bit kdb+ distribution does not require a license key file.
+
+
+### 64-bit kdb+
+
+64-bit distributions of kdb+ (commercial and personal) require a valid license key file. 
+Without one, kdb+ signals an [error](/ref/error-list/#license-errors) `'k4.lic` and aborts.
 ```bash
 tom@mb13:~/q$ q
 ```
@@ -40,7 +54,8 @@ m64/ 2()core 8192MB tom mb13.local 192.168.1.44
 ```bash
 tom@mb13:~/q$ 
 ```
-Kdb+ signals the [error](/ref/error-list/#license-errors) `'k4.lic` and aborts. 
+The license key file is `k4.lic`, or `kc.lic` for kdb+ on demand.
+If both are found, the `k4.lic` file is used.
 
 
 ## Obtaining a license key file
@@ -72,6 +87,17 @@ The default location for the license key file is the `QHOME` folder. You do not 
 
 !!! tip "Folder not file"
     Like `QHOME`, `QLIC` points to a folder, not a file. For example,<pre><code class="language-bash">$ QLIC='/Users/simon/q'</code></pre>
+
+
+## Licensing server for kdb+ on demand
+
+As well as a license key file, kdb+ on demand also requires frequent contact with the licensing server. 
+For this you need an always-on Net connection.
+
+If kdb+ cannot contact the server it will abort with a timestamped message.
+```q
+'2018.03.28T11:20:03.831 couldn't connect to license daemon -- exiting
+```
 
 
 ## Core restrictions
