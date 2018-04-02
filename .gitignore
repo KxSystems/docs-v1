@@ -3,11 +3,12 @@ article_topics.md
 done.md
 5jt.txt
 todo.md
+
 scrap/
 site/
+src/
+
 migration.html
 build.sh
 send.sh
 *.zip
-docs copy/
-docx/
