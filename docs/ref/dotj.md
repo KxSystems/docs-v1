@@ -30,6 +30,7 @@ a b
 --------------
 1 "Greetings" 
 2 "Earthlings"
+q)x:.j.k read1 `:filename.json                     / JSON file
 ```
 
 !!! warning "Type conversions"
