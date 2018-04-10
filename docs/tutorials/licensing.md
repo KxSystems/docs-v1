@@ -55,7 +55,7 @@ m64/ 2()core 8192MB tom mb13.local 192.168.1.44
 tom@mb13:~/q$ 
 ```
 The license key file is `k4.lic`, or `kc.lic` for kdb+ on demand.
-If both are found, the `k4.lic` file is used.
+If both are found, the `kc.lic` file is used.
 
 
 ## Obtaining a license key file
