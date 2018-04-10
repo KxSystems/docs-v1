@@ -44,13 +44,14 @@ Functions of rank higher than 2 can be applied by enlisting their arguments and 
     </code></pre>
 
 !!! tip "Do it on disk"
-    Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, and not compressed. e.g.
+    Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, not an enumeration, and not compressed. e.g.
     <pre><code class="language-q">
     q)\`:data set til 20;
     q)@[\`:data;3 6 8;:;100 200 300]; 
     q)get\`:data 
     0 1 2 100 4 5 200 7 300 9 10 11 12 13 14 15 16 17 18 19
     </code></pre>
+
 
 ## `count`
 

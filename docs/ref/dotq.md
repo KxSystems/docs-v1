@@ -905,6 +905,11 @@ q).Q.ty 1 2
 q).Q.ty 1 2.
 "f"
 ```
+If the argument is a table column, returns upper case for mappable/uniform lists of vectors. (c.f. [`meta`](metadata/#meta))
+```q
+q).Q.ty ("ab";"cd")
+"C"
+```
 
 
 ### `.Q.v` (value)
