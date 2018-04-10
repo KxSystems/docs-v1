@@ -2,6 +2,8 @@
 
 Everyone. All use of kdb+ is governed by a license. 
 
+<i class="fa fa-hand-o-right"></i> [Licenses](https://kx.com/connect-with-us/licenses/) at kx.com
+
 64-bit versions of kdb+ also need a **license key file** (`k4lic`, or `kc.lic` for kdb+ on demand) to run.
 
 
