@@ -135,7 +135,7 @@ Where S3 definitely plays to its strengths, is that it can
 be considered for an **off-line deep archive** of your kdb+ formatted market
 data.
 
-Kx has not explored, nor makes recommendations with respect to
+Kx does not make recommendations with respect to
 the merits, or otherwise, of storing kdb+ HDB market data in a data
 retention type “WORM” model, as required by the regulations [SEC 17-a4](https://en.wikipedia.org/wiki/SEC_Rule_17a-4 "Wikipedia").
 
