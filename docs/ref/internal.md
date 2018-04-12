@@ -357,10 +357,11 @@ Handles should be a vector of int or longs &gt; 0.
 
 Just as with `neg[handles]@\:msg`, `-25!x` queues the msg as async on those handles – they don't get sent until the next spin of the main loop, or are flushed with `neg[handles]@\:(::)`.
 
+!!! tip "`-25!(::)` can also flush the handles"
+
 Possible error scenarios:
 
-1. from trying to serialize data for a handle whose remote end does not support a type, or size of the data.
-```q
+1.  from trying to serialize data for a handle whose remote end does not support a type, or size of the data.<pre><code class="language-q">
 / connect to 2.8 and 3.4
 q)h:hopen each 5000 5001
 q)h
@@ -370,13 +371,12 @@ q)(-5) 0Ng / 2.8 does not support guid
 q)(-6) 0Ng / 3.4 does support guid 
 q)-25!(h;0Ng)
 'type error serializing for handle 5
-```
+</code></pre>
 
-2. in case an int is passed which is not a handle
-```q
+2.  in case an int is passed which is not a handle<pre><code class="language-q">
 q)-25!(7 8;0Ng)
 '7 is not an ipc handle
-```
+</code></pre>
 
 
 
