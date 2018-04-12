@@ -245,10 +245,10 @@ q)flip{(neg x;upper .Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
 !!! Tip "String to symbol"
     Use `` `$y`` as shorthand for `"S"$y`.
     <pre><code class="language-q">
-    q)"S"$"hello"
-    `hello
-    q)`$"hello"
-    `hello
+    q)"S"\$"hello"
+    \`hello
+    q)\`\$"hello"
+    \`hello
     </code></pre>
 
 ```q
