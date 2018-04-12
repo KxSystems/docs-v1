@@ -26,7 +26,7 @@ q)rand 1 30 45 32
     `rand` is exactly equivalent to `{first 1?x}`. If you need a vector result, consider using _roll_ instead of `rand`. The following expressions all roll 100 six-sided dice.
     <pre><code class="language-q">
     rand each 100#6
-    {first 1?x} each 6
+    {first 1?x} each 100#6
     100?6
     </code></pre>
 
