@@ -532,13 +532,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/josepablocam/symfun">symfun</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/josepablocam/symfun">symfun</a></td>
 <td>Studies and classic problems. 
 <span class="author"><a href="https://github.com/josepablocam?tab=repositories">(José Cambronero)</a></span>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/josepablocam/telescope">telescope</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/josepablocam/telescope">telescope</a></td>
 <td>Simulate lexically scoped local variables in q functions. 
 <span class="author"><a href="https://github.com/josepablocam?tab=repositories">(José Cambronero)</a></span>
 </td>
@@ -768,6 +768,13 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/nugend/qutil">qutil</a></td>
 <td>Provides several different common utility functions. These currently include: an option-parsing facility as an alternative to .Q.opt; and a file-loading facility based on a pathlist and supporting version numbers. <span class="author"><a href="https://github.com/nugend?tab=repositories">
 						(Daniel Nugent)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/jonathonmcmurray/ws.q">ws.q</a> ==new==</td>
+<td>Simple library for websockets. <span class="author"><a href="https://github.com/jonathonmcmurray?tab=repositories">
+						(Jonathon McMurray)
 					</a></span>
 </td>
 </tr>
