@@ -203,15 +203,15 @@ q).z.p                         / UTC timestamp
     <pre><code class="language-q">
     q)v:5
     q).ns.v:6
-    q)`.[`v]      / value of v in root namespace
+    q)\`.[\`v]      / value of v in root namespace
     5
-    q)`.ns[`v]    / value of v in ns
+    q)\`.ns[\`v]    / value of v in ns
     6
-    q)`. `v       / indexed by juxtaposition
+    q)\`. \`v       / indexed by juxtaposition
     5
-    q)`.ns `v`v
+    q)\`.ns \`v\`v
     6 6
-    q)`.`.ns@\:`v
+    q)\`.\`.ns@\:\`v
     5 6
     </code></pre>
 
