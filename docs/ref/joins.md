@@ -351,10 +351,10 @@ MSFT 0.5433888 CME 250
 Syntax: `t1 lj t2`
 
 Where `t1` and `t2` are tables, `t2` is keyed, and the key column/s of `t2` are columns of `t1`, returns `t1` and `t2` joined on the key columns of `t2`. 
-For each record in `t1`, the result has one record with the columns of `t1` joined to columns of `t2`:
+For each record in `t1`, the result has one record with the columns of `t1` joined to columns of `t2`. If there is 
 
--   if there is a matching record in `t2`, it is joined to the `t1` record. Common columns are replaced.
--   if there is no matching record in `t2`, common columns are left unchanged, and new columns are null
+-   a matching record in `t2`, it is joined to the `t1` record: common columns of `t2` are replaced by columns of `t1`
+-   no matching record in `t2`, common columns are left unchanged, and new columns are null
 ```q
 q)show x:([]a:1 2 3;b:`x`y`z;c:10 20 30)
 a b c
