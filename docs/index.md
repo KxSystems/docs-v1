@@ -49,9 +49,9 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 
 !!! info "New on code.kx.com"
+    - [kdb+ on AWS](/cloud/aws/) <i class="fa fa-cloud"></i>
     - [Free, non-commercial, 64-bit kdb+ on demand](/tutorials/licensing/#free-non-commercial-64-bit-kdb-on-demand)
     - [New development tools](/about/site-news/#new-development-tools) from Leslie Goldsmith
-    - [Jupyter kernel for kdb+](https://github.com/kxsystems/jupyterq)
 
 !!! tip "[Careers at Kx and First Derivatives](http://www.firstderivatives.com/careers/)"
     

@@ -1,4 +1,4 @@
-hero: Cloud
+hero: <i class="fa fa-cloud"></i> Cloud
 
 # Observations from kdb+ testing 
 

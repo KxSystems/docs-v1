@@ -1,8 +1,9 @@
-hero: Cloud
+hero: <i class="fa fa-cloud"></i> Cloud
 
 # Migrating HDB to Amazon EC2 
 
 ![Amazon Elastic Compute Cloud](img/media/ec2.png)
+
 
 Migrating a kdb+ historical database (HDB) and analytics workloads to the [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/) (EC2), you need to consider:
 

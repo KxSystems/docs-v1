@@ -1,4 +1,4 @@
-hero: Cloud
+hero: <i class="fa fa-cloud"></i> Cloud
 
 # Appendix E - Goofys
 
