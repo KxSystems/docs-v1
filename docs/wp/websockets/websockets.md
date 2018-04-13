@@ -1050,3 +1050,12 @@ function generateTableHTML(data){
     return tableHTML;
 }
 ```
+
+
+## Authors
+
+Version 1.0
+: Chris Scott, who joined First Derivatives in 2013, works as a kdb+ consultant at one of the world’s largest financial institutions developing a range of kdb+ applications which use WebSockets as a form of communication.  Chris has also been involved in designing HTML5 training courses and building HTML5 mobile and desktop applications for _Platform for Kx_. 
+
+Version 1.1 (March 2018)
+: Michael Gracey also joined First Derivatives in 2013 and works as a front-end developer for one of the world’s largest financial institutions developing a performant Web interface for visualising real-time data via the use of WebSocket connections.  Michael has been involved in designing HTML5 training workshops and building HTML5 mobile and desktop applications for First Derivatives. 
