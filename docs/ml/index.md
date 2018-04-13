@@ -13,6 +13,14 @@ Machine-learning capabilities are at the heart of future technology development 
 -   Python code and files can be embedded within q code.
 -   Python functions can be called as q functions.
 
+
+[JupyterQ](jupyterq/) supports Jupyter notebooks for q
+
+-   Syntax highlighting, code completion and help
+-   Multiline input (script-like execution)
+-   Inline display of charts
+
+
 All machine-learning libraries are:
 
 -   well **documented**, with understandable and useful examples
