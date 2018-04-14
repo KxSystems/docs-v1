@@ -24,19 +24,19 @@ A constraint of EFS for kdb+ is that performance is limited by a predefined burs
 
 file-system size | aggregate read/write throughput
 -----------------|---------------------------------
-100 Gb | • burst to 100 Mb/s for up to 72 min a day<br>• drive up to 5 Mb/s continuously
-1 Tb | • burst to 100Mb/s for 12 hours a day<br>• drive 50 Mb/s continuously
-10 Tb | • burst to 1 Gb/s for 12 hours a day<br>• drive 500 Mb/s continuously
-larger | • burst to 100 Mb/s per Tb of storage for 12 hours a day<br>• drive 50 Mb/s per Tb of storage continuously
+100 GiB | • burst to 100&nbsp;MiB/s for up to 72 min a day<br>• drive up to 5&nbsp;MiB/s continuously
+1 TiB | • burst to 100&nbsp;MiB/s for 12 hours a day<br>• drive 50&nbsp;MiB/s continuously
+10 TiB | • burst to 1&nbsp;GiB/s for 12 hours a day<br>• drive 500&nbsp;MiB/s continuously
+larger | • burst to 100&nbsp;MiB/s per TiB of storage for 12 hours a day<br>• drive 50&nbsp;MiB/s per TiB of storage continuously
 
 So, the EFS solution offers a single name space for your HDB structure,
 and this can be shared around multiple instances including the ability
 for one or more nodes to be able to write to the space, which is useful
-for daily updates. We tested kdb+ performance with a 1Tb file system.
+for daily updates. We tested kdb+ performance with a 1-TB file system.
 Testing was done within the burst limit time periods.
 
-The EFS burst performance is limited to 72 minutes per day for a 100Gb
-file-system. Subsequent throughput is limited to 5Mb/s.
+The EFS burst performance is limited to 72 minutes per day for a 100-GB
+file system. Subsequent throughput is limited to 5&nbsp;MB/sec.
 
 ![](img/media/image29.png)![](img/media/image30.png)
 

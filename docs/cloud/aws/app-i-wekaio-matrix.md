@@ -2,6 +2,10 @@ hero: <i class="fa fa-cloud"></i> Cloud
 
 # Appendix I – WekaIO Matrix
 
+
+
+!!! info "WekaIO Matrix is qualified with kdb+."
+
 WekaIO Matrix is a commercial product from WekaIO. 
 Matrix uses a VFS driver, enabling Weka to support POSIX semantics with lockless queues for I/O. 
 The WekaIO POSIX system has the same runtime semantics as a local Linux file system.
@@ -17,8 +21,6 @@ This eliminates the need to create an independent file-system infrastructure und
 Secondly, the kdb+ clients can run on clients of the Matrix cluster, the client/server protocol elements being included as part of the Matrix solution, being installed on both server and client nodes.
 
 One nice feature is that WekaIO tiers its namespace with S3, and includes operator selectable tiering rules, and can be based on age of file and time in cache, and so on.
-
-!!! info "WekaIO Matrix is qualified with kdb+."
 
 The performance is at its best when running from the cluster’s erasure-coded SSD tier, exhibiting good metadata operational latency.
 
@@ -47,18 +49,18 @@ function       | latency (mSec) | function   | latency (mSec)
 
 <small>_WekaIO Matrix metadata operational latencies - mSecs (headlines)_</small>
 
-Streaming reads running in concert across multiple nodes of the cluster achieve 4.6 Gb/sec transfer rates, as measured across 8 nodes running kdb+, and on one file system. 
-What is interesting here is to observe there is no decline in scaling rate between 1 and 8 nodes. 
-This tested cluster had 12 nodes, running within that a 4+2 data protection across these nodes, each of instance type `r3.8xlarge` (based on the older Intel Ivy Bridge chipset), chosen for its modest SSD disks and not for its latest CPU/mem speeds.
+Streaming reads running in concert across multiple nodes of the cluster achieve 4.6&nbsp;GB/sec transfer rates, as measured across eight nodes running kdb+, and on one file system. 
+What is interesting here is to observe there is no decline in scaling rate between one and eight nodes. 
+This tested cluster had twelve nodes, running within that a 4+2 data protection across these nodes, each of instance type `r3.8xlarge` (based on the older Intel Ivy Bridge chipset), chosen for its modest SSD disks and not for its latest CPU/mem speeds.
 
-Streaming throughput on one client node is 1029 Mb/sec representing wire speed when considered as a client node. 
+Streaming throughput on one client node is 1029&nbsp;MB/sec representing wire speed when considered as a client node. 
 This indicates that the data is injected to the host running kdb+ from all of the Matrix nodes whilst still constructing sequential data from the remaining active nodes in the cluster, across the same network.
 
 Metadata operational latency: whilst noticeably worse than EBS, is one or two orders of magnitude better than EFS and Storage Gateway and all of the open source products.
 
-For the S3 tier, a single kdb+ thread on a one node will stream reads at 555 Mb/sec. 
-This rises to 1596 Mb/sec across 8 nodes, continuing to scale, but not linearly. 
-For 8 processes and 8 nodes throughput maximizes at a reasonable 1251 Mb/sec. 
+For the S3 tier, a single kdb+ thread on one node will stream reads at 555&nbsp;MB/sec. 
+This rises to 1596&nbsp;MB/sec across eight nodes, continuing to scale, but not linearly. 
+For eight processes and eight nodes throughput maximizes at a reasonable 1251&nbsp;MB/sec. 
 In a real-world setting, you are likely to see a blended figure improve with hits coming from the SSDs. 
 The other elements that distinguish this solution from others are “block-like” low operational latencies for some meta-data functions, and good aggregate throughputs for the small random reads with kdb+.
 

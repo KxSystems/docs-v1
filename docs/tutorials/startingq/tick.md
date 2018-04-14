@@ -12,7 +12,7 @@ A standard kdb+tick setup consists of
 - a real-time database (RDB) to store the current day’s data in memory and write it to the historical database (hdb) at the end of day
 - a historical database (HDB) to access all the data prior to the current day
 
-As a minimum, it is recommended to have RAM of at least 4× expected data size, so for 5Gb data per day, the RDB machine should have at least 20Gb RAM. In practice, much larger RAM might be used.
+As a minimum, it is recommended to have RAM of at least 4× expected data size, so for 5GB data per day, the RDB machine should have at least 20GB RAM. In practice, much larger RAM might be used.
 
 
 ## 6.2 Data feeds

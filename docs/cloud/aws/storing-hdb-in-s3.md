@@ -30,9 +30,9 @@ Alternatively, you can place the files on a remote independent file system, whic
 Finally, there is the ubiquitous Amazon S3 object store, available in all regions and zones of EC2. Amazon uses S3 to run its own global network of websites, and many high-visibility web-based services store their key data under S3. With S3 you can create and deploy your HDB data in buckets of S3 objects. 
 
 -   **Storage prices** are lower (as of January 2018): typically 10% of the costs of the Amazon EBS model.
--   S3 offers automatic **redundancy and replication** of object data, regionally and globally.
+-   S3 can be configured to offer **redundancy and replication** of object data, regionally and globally.
 
-Amazon duplicates your uploaded data across multiple geographically diverse repositories, according to the replication service selected at bucket-creation time. S3 promises [99.999999999%](https://aws.amazon.com/s3/faqs/) durability. 
+Amazon can  be configured to duplicate your uploaded data across multiple geographically diverse repositories, according to the replication service selected at bucket-creation time. S3 promises [99.999999999%](https://aws.amazon.com/s3/faqs/) durability. 
 
 <i class="fa fa-hand-o-right"></i> [AWS Lambda replication](https://aws.amazon.com/blogs/compute/content-replication-using-aws-lambda- and-amazon-s3/) ==FIXME 404==
 
@@ -110,7 +110,7 @@ itself.
 
 -   S3 employs an **eventual-consistency** model, meaning there is no guaranteed service time for placement of the object, or replication of the object, for access by other processes or threads.
 
--   S3 exhibits relatively low **streaming-read performance**. A RESTful, single S3 reader process is limited to a [read throughput](http://blog.zachbjornson.com/2015/12/29/cloud-storage-performance.html) of circa 0.07 Gb/sec. Some of the solutions reviewed in this paper use strategies to improve these numbers within one instance (e.g. raising that figure to the 100s Mb/sec - Gbs/sec range). There is also throughput scalability gained by reading the same bucket across multiple nodes. There is no theoretical limit on this bandwidth, but this has not been exhaustively tested by Kx.
+-   S3 exhibits relatively low **streaming-read performance**. A RESTful, single S3 reader process is limited to a [read throughput](http://blog.zachbjornson.com/2015/12/29/cloud-storage-performance.html) of circa 0.07&nbsp;GB/sec. Some of the solutions reviewed in this paper use strategies to improve these numbers within one instance (e.g. raising that figure to the 100s&nbsp;MB/sec – GB/sec range). There is also throughput scalability gained by reading the same bucket across multiple nodes. There is no theoretical limit on this bandwidth, but this has not been exhaustively tested by Kx.
 
 -   Certain **metadata operations**, such as kdb+’s append function, cause significant latency vs that observed on EBS or local attached storage, and your mileage depends on the file system under review.
 
@@ -125,7 +125,7 @@ and billions of time-series entries in an immutable read-only mode. Only
 updated new data that lands in the HDB needs to be written. S3 is a
 [shared nothing](https://en.wikipedia.org/wiki/Shared-nothing_architecture "Wikipedia") model. Therefore, splitting a single segment or
 partitioned column of data into one file, which in turn is segmented
-into a few objects of say 1Mb, should be a lightweight operation, as
+into a few objects of say 1&nbsp;MB, should be a lightweight operation, as
 there is no shared/locking required for previously written HDB data. So
 the HDB can easily tolerate this eventual consistency model. This does
 not apply to all use-cases for kdb+. For example, S3, with or without a

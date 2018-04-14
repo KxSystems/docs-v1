@@ -25,7 +25,7 @@ It scales up close to linearly for reads, as the number of reader nodes increase
 
 This shows that the read rates from the S3 buckets scale well when the number of nodes increases. 
 This is more noticeable than the read rate seen when measuring the throughput on one node with varying numbers of kdb+ processes. 
-Here it remains around the 260Mb/sec mark irrespective of the number of kdb+ processes reading.
+Here it remains around the 260&nbsp;MB/sec mark irrespective of the number of kdb+ processes reading.
 
 ![ObjectiveFS](img/media/image41.png)
 

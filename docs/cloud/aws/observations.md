@@ -3,9 +3,10 @@ hero: <i class="fa fa-cloud"></i> Cloud
 # Observations from kdb+ testing 
 
 
+
 ## CPU and memory speed
 
-For CPU and memory speed/latencies with kdb+, EC2 compute nodes performance for CPU/memory mirrors the capability of logically equivalent bare-metal servers. At time of writing, your main decision here is the selection of system instance. CPUs range from older generation Intel up to Haswell and Broadwell, and from 1 core up to 128 vcores (vCPU). Memory ranges from 1Gb up to 1952Gb RAM.
+For CPU and memory speed/latencies with kdb+, EC2 compute nodes performance for CPU/memory mirrors the capability of logically equivalent bare-metal servers. At time of writing, your main decision here is the selection of system instance. CPUs range from older generation Intel up to Haswell and Broadwell, and from 1 core up to 128 vcores (vCPU). Memory ranges from 1&nbsp;GB up to 1952&nbsp;GB RAM.
 
 
 ## Storage performance
@@ -15,7 +16,7 @@ The best storage performance was, as expected, achieved with locally-attached e
 
 ## Wire speeds
 
-Kdb+ reaches wire speeds on most streaming read tests to networked/shared storage, under kdb+, and in several cases we can reach wire speeds for random 1Mb reads using standard mapped reads into standard q abstractions, such as lists.
+Kdb+ reaches wire speeds on most streaming read tests to networked/shared storage, under kdb+, and in several cases we can reach wire speeds for random 1-MB reads using standard mapped reads into standard q abstractions, such as lists.
 
 
 ## `gp2` vs `io1`
@@ -25,7 +26,7 @@ EBS was tested for both `gp2` and its brethren the `io1` flash variation. Kdb+ a
 
 ## `st1`
 
-EBS results for the `st1` devices (low cost traditional disk drives, lower cost per Gb) show good (90th-percentile) results for streaming and random 1Mb read, but, as expected, significantly slower results for random 64Kb and 1Mb reads, and 4× the latencies for metadata ops. Consider these as a good candidate for storing longer term, older HDB data to reduce costs for owned EBS storage.
+EBS results for the `st1` devices (low cost traditional disk drives, lower cost per GB) show good (90th-percentile) results for streaming and random 1-MB reads, but, as expected, significantly slower results for random 64-KB and 1-MB reads, and 4× the latencies for metadata ops. Consider these as a good candidate for storing longer term, older HDB data to reduce costs for owned EBS storage.
 
 
 ## ObjectiveFS and WekaIO Matrix
@@ -56,7 +57,7 @@ Avoid [EFS](http://docs.aws.amazon.com/efs/latest/ug/performance.html) and AWS G
 
 ## Open-source products
 
-Although the open source products that front an S3 store (S3FS, S3QL and Goofys) do offer POSIX, they all fail to offer full POSIX semantics such as symbolic linking, hard lining and file locking. Although these may not be crucial for your use case, it needs consideration. 
+Although the open source products that front an S3 store (S3FS, S3QL and Goofys) do offer POSIX, they all fail to offer full POSIX semantics such as symbolic linking, hard linking and file locking. Although these may not be crucial for your use case, it needs consideration. 
 
 You might also want to avoid these, as performance of them is at best average, partly because they both employ user-level FUSE code for POSIX support.
 

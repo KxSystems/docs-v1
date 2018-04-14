@@ -20,7 +20,7 @@ In financial services this data is kept for research (quant analytics or back-te
 Carefully-architected cloud solutions are acceptable for parts of the
 application that are removed from from the cutting-edge performance and
 data-capture requirements often imposed on kdb+. For example, using
-parallel transfers with a proven simple technology such as rsync, that can
+parallel transfers with a proven simple technology such as `rsync`, that can
 take advantage of the kdb+ data structures (distinct columns that
 can safely be transferred in parallel) and the innate compressibility of
 some of the data types to transfer data to historical storage in a cloud
@@ -67,7 +67,7 @@ testing on single socket instances, with a limit of 16 vCPUs, meaning
 eight physical cores, thus:
 ```bash
 [centos@nano-client1 ~]$ lscpu
-Architecture: x86\_64
+Architecture: x86_64
 CPU op-mode(s): 32-bit, 64-bit
 Byte Order: Little Endian
 CPU(s): 16
@@ -88,7 +88,7 @@ Model name: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
 Memory sizes vary by the instance chosen. 
 
 !!! warning "Memory lost to hypervisor"
-    Memory is reduced from the nominal “power of two” RAM sizing, as some is set aside for the Xen hypervisor. For example, a nominal 128GB of RAM gets sized to approximately 120GB. 
+    Memory is reduced from the nominal “power of two” RAM sizing, as some is set aside for the Xen hypervisor. For example, a nominal 128 GB of RAM gets sized to approximately 120 GB. 
 
     Take account of this in your memory sizing exercises.
 
@@ -100,6 +100,9 @@ For CPU and memory, the EC2 performance matches that seen on physical systems, w
 There is one caveat to this, in testing kdb+ list creation speeds we observe a degradation of memory list creation times when the number of q processes running exceeds the number of vCPUs in the virtual machine. This is because the vCPU in EC2 is actually a single hyperthreaded core, and not a physical core. In this example, we see competition on the physical cores. For a 16 vCPU instance we notice this only when running above 8 q processes:
 
 ![](img/media/image4.png)
+
+!!! info "Megabytes and mebibytes"
+    Throughout this paper, MB and GB are used to refer to [MiBytes](https://en.wikipedia.org/wiki/Mebibyte "Wikipedia") and GiBytes respectively.
 
 
 ## Network and storage performance
@@ -114,9 +117,10 @@ rates
 
 These aspects, and inspection of metadata performance, are summarized in the tests. The term _metadata_ is used to refer to file operations such as listing files in a directory, gathering file size of a file, appending, finding modification dates, and so on.
 
-Because kdb+ does not directly support the use of an object store for its stored data, it cannot support direct use of an object-store model such as the Amazon S3. If you wish to use Amazon S3 as a data store, kdb+ historical data must be hosted on a POSIX-based file system layer fronting S3.
+!!! warning "Using Amazon S3 as a data store"
+    Because kdb+ does not directly support the use of an object store for its stored data, it cannot support direct use of an object-store model such as the Amazon S3. If you wish to use Amazon S3 as a data store, kdb+ historical data must be hosted on a POSIX-based file system layer fronting S3.
 
-Several solutions offer a POSIX interface layered over an underlying S3 storage bucket. These can be included alongside native file-system support that can also be hosted on EC2.
+    Several solutions offer a POSIX interface layered over an underlying S3 storage bucket. These can be included alongside native file-system support that can also be hosted on EC2.
 
 Although EC2 offers both physical systems and virtual systems within the Elastic Cloud, it is most likely customers will opt for a virtualized environment. There is also a choice in EC2 between spot pricing of an EC2, and deployed virtual instances. We focus here on the attribute and results achieved with the deployed virtual instance model. These are represented by instances that are tested in one availability zone and one placement group.
 

@@ -4,10 +4,10 @@ hero: <i class="fa fa-cloud"></i> Cloud
 
 
 
+!!! info "QuoByte is functionally qualified with kdb+."
+
 QuoByte offers a shared namespace solution based on either locally provisioned or EBS style storage. 
 It leverages an erasure-coding model around nodes of a QuoByte cluster.
-
-!!! info "QuoByte is functionally qualified with kdb+."
 
 test | result
 -----|-------

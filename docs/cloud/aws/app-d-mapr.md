@@ -2,6 +2,10 @@ hero: <i class="fa fa-cloud"></i> Cloud
 
 # Appendix D – MapR-FS
 
+
+!!! info "MapR is qualified with kdb+"
+    It offers the full POSIX semantics, including through the NFS interface.
+
 MapR is a commercial implementation of the Apache Hadoop open-source stack. Solutions such as MapR-FS were originally driven by the need to support Hadoop clusters alongside high-performance file-system capabilities. In this regard, MapR improved on the original HDFS implementation found in Hadoop distributions. MapR-FS is a core component of their stack. MapR AMIs are freely available on the Amazon marketplace.
 
 We installed version 6.0a1 of MapR, using the cloud formation templates published in EC2. We used the BYOL licensing model, using an evaluation enterprise license. We tested just the enterprise version of the NFS service for this test, as we were not able to test the POSIX fuse client at the time we went to press.
@@ -17,9 +21,6 @@ The reasons for considering something like MapR include:
     to consolidate or run Hadoop and kdb+ analytics independently of
     each other in your organization while sharing the
     same file-system infrastructure.
-
-!!! info "MapR is qualified with kdb+"
-	It offers the full POSIX semantics, including through the NFS interface.
 
 Locking semantics on files passed muster during testing, although thorough testing of region or file locking on shared files across multiple hosts was not fully tested for the purposes of this report.
 

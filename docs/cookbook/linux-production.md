@@ -105,7 +105,7 @@ You can check current settings with
 ```bash
 $ more /proc/sys/vm/max_map_count
 ```
-Assuming you are using 128Kb logical size blocks for your compressed files, a general guide is, at a minimum, set `max_map_count` to one map per 128Kb of memory, or 65530, whichever is higher.
+Assuming you are using 128-KB logical size blocks for your compressed files, a general guide is, at a minimum, set `max_map_count` to one map per 128&nbsp;KB of memory, or 65530, whichever is higher.
 
 If you are encountering a SIGBUS error, please check that the size of `/dev/shm` is large enough to accommodate the decompressed data. Typically, you should set the size of `/dev/shm` to be at least as large as a fully decompressed HDB partition.
 

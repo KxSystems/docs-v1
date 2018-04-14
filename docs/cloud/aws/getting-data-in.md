@@ -28,8 +28,7 @@ Private IP addresses refer to the locally defined IP addresses only
 visible to your cluster (e.g. the front/backend in diagram below).
 Private IP addresses are retained by that instance until the instance is
 terminated. Public access may be direct to either of these domains, or
-you may prefer to set up a classic ‘demilitarized zone’ for kdb+ access
-(see below).
+you may prefer to set up a classic [‘demilitarized zone’](security) for kdb+ access.
 
 An elastic IP address is usually your public IPv4 address, known to your
 quants/users/applications, and is reachable from the Internet and

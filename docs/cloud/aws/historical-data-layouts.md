@@ -42,8 +42,8 @@ we focused on just the raw throughput measurements.
 
 All of these measurements will directly correlate to the final
 operational latencies for your full analytics use-case, written in q. In
-other words, if a solution reported here shows throughput of 100Mb/sec
-for solution A, and shows 200Mb/sec for solution B, this will reflect
+other words, if a solution reported here shows throughput of 100&nbsp;MB/sec
+for solution A, and shows 200&nbsp;MB/sec for solution B, this will reflect
 the difference in time to complete the data fetch from backing store. Of
 course, as with any solution, you get what you pay for, but the
 interesting question is: how much more could you get within the

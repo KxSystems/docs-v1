@@ -30,7 +30,9 @@ rank cloud-services providers:
 2. Google Cloud Platform
 3. Microsoft Azure 
 
-Amazon was first to market, and has a strong global data-center presence and rich sets of APIs and tools.
+This is partly due to the fact that Amazon was first to market, and
+partly because of their strong global data-center presence and rich
+sets of APIs and tools.
 
 Amazon EC2 is one of many services available to AWS users, and is managed via the AWS console. EC2 is typically used to host public estates of Web and mobile-based applications. Many of these are ubiquitous and familiar to the public. EC2 forms a significant part of the “Web 2.0/Semantic Web” applications available for mobile and desktop computing.
 

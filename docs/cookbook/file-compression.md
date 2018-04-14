@@ -209,14 +209,14 @@ and on OSX, the OS command `purge` can be used.
 
 Yes. 
 
-For example, the AHA367-PCIe 10.0 Gbits/sec GZIP Compression/Decompression Accelerator Card.
+For example, the AHA367-PCIe 10.0&nbsp;Gbps GZIP Compression/Decompression Accelerator Card.
 V2.7 can use this card via the zlib shared library API. 
 The card may be obtained directly from [aha.com](http://aha.com/show_prod.php?id=38). 
-This card was observed to be compatible with V2.7 2010.08.24 on Linux 2.6.32-22-generic SMP Intel i5 750 @ 2.67GHz 8GB RAM.
+This card was observed to be compatible with V2.7 2010.08.24 on Linux 2.6.32-22-generic SMP Intel i5 750 @ 2.67&nbsp;GHz 8&nbsp;GB RAM.
 Using sample NYSE quote data from 2010.08.05, 482 million rows, compression ratios and timings were observed as below.
 
-The uncompressed size of the data was 12GB, which compressed to 1.7GB, yielding a compression ratio 7:1 (the card currently has a fixed compression level).
-The time taken to compress the data was 65077mS with the AHA card enabled versus 552506mS using zlib compression in pure software. i.e. using the AHA card took 12% of the time to compress the same amount of data to the same level, achieving approx. a 10× speed-up, using just one channel only. For those wishing to execute file compression in parallel using the `peach` command, all 4 channels on the card can be used.
+The uncompressed size of the data was 12GB, which compressed to 1.7&nbsp;GB, yielding a compression ratio 7:1 (the card currently has a fixed compression level).
+The time taken to compress the data was 65077 mS with the AHA card enabled versus 552506 mS using zlib compression in pure software. i.e. using the AHA card took 12% of the time to compress the same amount of data to the same level, achieving approx. a 10× speed-up, using just one channel only. For those wishing to execute file compression in parallel using the `peach` command, all 4 channels on the card can be used.
 
 The AHA zlib shared lib can be run in 3 modes – compression+decompression, compression-only or decompression-only. With q using just a single channel of the card, the decompression performance of the card was slightly slower than as in software, although when q was used in a multithreaded mode, increased overall performance was observed due to all 4 channels being used thereby freeing up the main CPU.
 

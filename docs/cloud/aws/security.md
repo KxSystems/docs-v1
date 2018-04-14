@@ -19,7 +19,7 @@ direct to either of these domains, or you may prefer to setup a classic
 Amazon has spent a lot of time developing [security features for EC2](https://aws.amazon.com/security/).
 Some key security attributes to consider are:
 
--   A newly provisioned node comes from a tried and trusted build image, for example, one found in the AWS Marketplace
+-   A newly-provisioned node comes from a tried and trusted build image, for example, one found in the AWS Marketplace
 -   The Amazon Linux AMI Security Center provides patch and fix lists, and these can be automatically inlaid by the AMI. The Amazon Linux AMI is a supported and maintained Linux image provided by AWS for use on EC2.
 -   Encryption at rest is offered by many of the storage interfaces covered in this report.
 
