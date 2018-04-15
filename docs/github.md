@@ -163,6 +163,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/psaris/mm">mm</a> ==new==</td>
+<td>A q implementation of the classic Mastermind game. <span class="author"><a href="https://github.com/psaris?tab=repositories">
+						(Nick Psaris)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/chuchunf/qex">qex</a></td>
 <td>An equity exchange. <span class="author"><a href="https://github.com/chuchunf?tab=repositories">
 						(chuchunf)
@@ -170,7 +177,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/jwbuitenhuis/q-chess">q-chess</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/jwbuitenhuis/q-chess">q-chess</a></td>
 <td>Simple chess engine. <span class="author"><a href="https://github.com/jwbuitenhuis?tab=repositories">
 						(Will Buitenhuis)
 					</a></span>
@@ -493,6 +500,13 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/kimtang/proto">proto</a></td>
 <td>Implementing EDSL. <span class="author"><a href="https://github.com/kimtang?tab=repositories">
 						(Kim Tang)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/psaris/q4q">q4q</a> ==new==</td>
+<td>Source code for “Q for Quants”. <span class="author"><a href="https://github.com/psaris?tab=repositories">
+						(Nick Psaris)
 					</a></span>
 </td>
 </tr>

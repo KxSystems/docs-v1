@@ -240,7 +240,7 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr><td>Eclipse</td><td>[qkdt.org](http://www.qkdt.org/features.html)</td></tr>
 <tr><td>Emacs</td>
     <td>
-<i class="fa fa-github"></i> [eepgwde/kdbp-mode](https://github.com/eepgwde/kdbp-mode) ==new==<br/>
+<i class="fa fa-github"></i> [eepgwde/kdbp-mode](https://github.com/eepgwde/kdbp-mode)<br/>
 <i class="fa fa-github"></i> [geocar/kq-mode](https://github.com/geocar/kq-mode)<br/>
 <i class="fa fa-github"></i> [indiscible/emacs](https://github.com/indiscible/emacs)<br/>
 <i class="fa fa-github"></i> [psaris/q-mode](https://github.com/psaris/q-mode)
@@ -258,12 +258,15 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr>
     <td>Sublime Text</td>
     <td>
-<i class="fa fa-github"></i> [smbody-mipt/kdb](https://github.com/smbody-mipt/kdb)<br/>
+<i class="fa fa-github"></i> [smbody-mipt/kdb](https://github.com/smbody-mipt/kdb) ==new==<br/>
 <i class="fa fa-github"></i> [kimtang/QStudio](https://github.com/kimtang/QStudio)<br/>
 <i class="fa fa-github"></i> [kimtang/sublime-q](https://github.com/kimtang/sublime-q)<br/>
 <i class="fa fa-github"></i> [kimtang/Q](https://github.com/kimtang/Q)<br/>
 <i class="fa fa-github"></i> [komsit37/sublime-q](https://github.com/komsit37/sublime-q)
     </td>
+</tr>
+<tr>
+    <td>TextMate</td><td><i class="fa fa-github"></i> [psaris/KX.tmbundle](https://github.com/psaris/KX.tmbundle) ==new==</td>
 </tr>
 <tr>
     <td>vim</td>
@@ -274,7 +277,10 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
     </td>
 </tr>
 <tr>
-    <td>Visual Studio Code</td><td><i class="fa fa-github"></i> [lwshang/vscode-q](https://github.com/lwshang/vscode-q) ==new==</td>
+    <td>Visual Studio Code</td><td><i class="fa fa-github"></i> [lwshang/vscode-q](https://github.com/lwshang/vscode-q)</td>
+</tr>
+<tr>
+    <td>WordPress</td><td><i class="fa fa-github"></i> [simongarland/Syntaxhighlighter-for-q](https://github.com/simongarland/Syntaxhighlighter-for-q) ==new==</td>
 </tr>
 </table>
 
