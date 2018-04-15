@@ -258,8 +258,7 @@ handle connectTime
 
 Here is an example of a simple client application connecting to a kdb+
 server using a WebSocket. This is a slightly modified version of the
-example that can be found on the code.kx.com WebSocket cookbook.
-<https://code.kx.com/q/cookbook/websockets/>
+example that can be found on the [WebSocket cookbook article](https://code.kx.com/q/cookbook/websockets/).
 
 First, start up a kdb+ server and set our `.z.ws` handler. Here we will
 also add some error trapping to the handler to send any error message to
@@ -469,9 +468,9 @@ However, Kx provides the script `c.js` which contains the functionality to
 serialize and deserialize data on the client side. The deserialize
 function converts kdb+ binary data into JSON, while the serialize
 function will convert our message into kdb+ binary format before sending
-it to the server. `c.js` can be found here:
+it to the server. `c.js` can be found at:
 
-<https://github.com/KxSystems/kdb/blob/master/c/c.js>
+<i class="fa fa-github"></i> [KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js)
 
 The previous section showed how we can parse q structures into JSON strings and
 send them to our client. In this example, we will instead do all of the
@@ -516,8 +515,7 @@ back into a string using `-9!` so that it can then be evaluated.
 ```q
 q).z.ws:{neg\[.z.w\] -8\! @\[value;-9\!x;{\`$ "'",x}\]} 
 ```
-More information on serialization can be found here:
-<https://code.kx.com/q/ref/ipc/>
+<i class="fa fa-hand-o-right"></i> [Serialization](https://code.kx.com/q/ref/ipc/)
 
 
 ## Viewing traffic over a WebSocket connection
@@ -561,8 +559,7 @@ The methods used to protect kdb+ processes can be extended to cover
 WebSockets. There is one caveat in terms of username/password
 authentication which we will discuss below. A full discussion on kdb+
 permissioning is beyond the scope of this whitepaper; instead, please
-refer to the July 2013 whitepaper:
-<https://code.kx.com/q/wp/permissions_with_kdb.pdf>
+refer to the [July 2013 whitepaper](https://code.kx.com/q/wp/permissions_with_kdb.pdf).
 
 
 ### Username and password 
@@ -607,8 +604,9 @@ As of kdb+ 3.4 we can use
 Secure Sockets Layer (SSL)/Transport Layer Security (TLS) to encrypt
 connections using OpenSSL. This process will secure any WebSocket server
 and upgrade its connection protocols to `wss://` and `https://`
-respectively. For more information on how to achieve this, please refer
-to <https://code.kx.com/q/cookbook/websockets/#secure-sockets-stunnel>
+respectively.
+
+<i class="fa fa-hand-o-right"></i> Cookbook: [Websockets](https://code.kx.com/q/cookbook/websockets/#secure-sockets-stunnel)
 
 
 ## A simple example – real-time data 
@@ -734,21 +732,19 @@ on the JavaScript client. Alternatively, the kdb+ `.j.j` and `.j.k`
 functions can be used in conjunction with a browser’s native JSON parser
 to achieve the same result.
 
-_Dashboards for Kx_ provide a range of great ways to visualize and analyze
+[_Dashboards for Kx_](http://kx.com/media/2016/07/Dashboards-for-Kx-Product-Overview.pdf) provide a range of great ways to visualize and analyze
 both real-time streaming data and highly-optimized polled queries on
 intra-day and historical data. Completely configurable, _Dashboards for
 Kx_ enable clients to quickly build powerful grids and charts of the
-underlying data stored within Kx and other databases. [For more
-information on Dashboards for Kx, please click
-here](http://kx.com/media/2016/07/Dashboards-for-Kx-Product-Overview.pdf)
+underlying data stored within Kx and other databases. 
 
 All tests were run using kdb+ version 3.5 (2017.11.30)
 
 
-## Appendices 
+## Appendixes 
 
-The following code is also available at
-<https://github.com/kxcontrib/websockets>
+The following code is also available at 
+<i class="fa fa-github"></i> [kxcontrib/websocket](https://github.com/kxcontrib/websocket).
 
 
 ### A. `SimpleDemo.html`
