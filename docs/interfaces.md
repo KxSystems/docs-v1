@@ -258,6 +258,7 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr>
     <td>Sublime Text</td>
     <td>
+<i class="fa fa-github"></i> [smbody-mipt/kdb](https://github.com/smbody-mipt/kdb)<br/>
 <i class="fa fa-github"></i> [kimtang/QStudio](https://github.com/kimtang/QStudio)<br/>
 <i class="fa fa-github"></i> [kimtang/sublime-q](https://github.com/kimtang/sublime-q)<br/>
 <i class="fa fa-github"></i> [kimtang/Q](https://github.com/kimtang/Q)<br/>
