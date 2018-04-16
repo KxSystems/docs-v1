@@ -41,7 +41,7 @@ about new repositories.</div>
 	</td>
 </tr>
 <tr>
-	<td class="nowrap">[jupyterq](/ml/jupyterq) ==new==</td>
+	<td class="nowrap">[jupyterq](https://github.com/kxsystems/jupyterq) ==new==</td>
 	<td>
 		Jupyter kernel for kdb+
 		[<i class="fa fa-share-alt"></i>](/ml "Machine learning")
