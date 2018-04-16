@@ -25,6 +25,9 @@ function       | latency (mSec) | function   | latency (mSec)
 
 <small>_Metadata operational latencies - mSecs (headlines)_</small>
 
+
+## Summary
+
 The throughput appears to run at about 50% of the line rates available, even when run at scale. 
 The AWS gateway exhibits significantly high operational latency. 
 This manifests as very long wait times when performing an interactive `ls -l` command from the root of the file system, while the file system is under load, sometimes taking several minutes to respond to the directory walk.

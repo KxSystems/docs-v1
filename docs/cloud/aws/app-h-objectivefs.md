@@ -50,6 +50,9 @@ function       | latency (mSec) | function   | latency (mSec)
 Note that ObjectiveFS encrypts and compresses the S3 objects using its own private keys plus your project’s public key. 
 This will require a valid license and functioning software for the length of time you use this solution in a production setting.
 
+
+## Summary
+
 This is a simple and elegant solution for the retention of old data on a slower, lower cost S3 archive, which can be replicated by AWS, geographically or within availability zones. 
 It magnifies the generically very low S3 read rates by moving a “parallelizing” logic layer into a kernel driver, and away from the FUSE layer. 
 It then multithreads the read tasks. 

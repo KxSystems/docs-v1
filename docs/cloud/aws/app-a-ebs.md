@@ -132,6 +132,8 @@ function       | latency (mSec) | function   | latency (mSec)
 <small>_EBS-ST1 metadata operational latencies - mSecs (headlines)_</small>
 
 
+## Summary 
+
 Kdb+ matches the expected throughput of EBS for all classifications,
 with no major deviations across all classes of read patterns required.
 EBS-IO1 achieves slightly higher throughput metrics over GP2, but
@@ -158,7 +160,7 @@ EBS for kdb+, take the following into consideration:
     peak throughput.
 
 -   Server-side kdb+ in-line compression works very well for streaming
-    and random 1&nbsp;MB read throughputs, whereby the CPU essentially keeps
+    and random 1-MB read throughputs, whereby the CPU essentially keeps
     up with the lower level of compressed data ingest from EBS, and for
     random reads with many processes, due to read-ahead and
     decompression running in-parallel being able to magnify the input

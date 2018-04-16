@@ -49,6 +49,9 @@ function       | latency (mSec) | function   | latency (mSec)
 
 <small>_WekaIO Matrix metadata operational latencies - mSecs (headlines)_</small>
 
+
+## Summary
+
 Streaming reads running in concert across multiple nodes of the cluster achieve 4.6&nbsp;GB/sec transfer rates, as measured across eight nodes running kdb+, and on one file system. 
 What is interesting here is to observe there is no decline in scaling rate between one and eight nodes. 
 This tested cluster had twelve nodes, running within that a 4+2 data protection across these nodes, each of instance type `r3.8xlarge` (based on the older Intel Ivy Bridge chipset), chosen for its modest SSD disks and not for its latest CPU/mem speeds.

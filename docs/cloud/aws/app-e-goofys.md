@@ -21,6 +21,9 @@ function       | latency (mSec) | function   | latency (mSec)
 
 <small>_Metadata operational latencies - mSecs (headlines)_</small>
 
+
+## Summary
+
 Operational latency is high. The natural streaming throughput seems to hover around 130&nbsp;MB/sec, or approximately a quarter of the EBS rate. The solution thrashes at 16 processes of streaming reads. Metadata latency figures are in the order of 100-200× higher that of EBS. 
 
 The compressed tests show that the bottleneck is per-thread read speeds, as the data when decompressed rates improve a lot over the uncompressed model.

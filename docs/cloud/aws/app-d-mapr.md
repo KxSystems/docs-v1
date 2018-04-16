@@ -39,9 +39,12 @@ function       | latency (mSec) | function   | latency (mSec)
 
 <small>_Metadata operational latencies - mSecs (headlines)_</small>
 
+
+## Summary
+
 The operational latency of this solution is significantly lower than seen with EFS and Storage Gateway, which is good for an underlying NFS protocol, but is beaten by WekaIO Matrix. 
 
 By way of contrast however, this solution scales very well horizontally and vertically when looking at the accumulated throughput numbers. It also appears to do very well with random reads, however there we are likely to be hitting server-side caches in a significant way, so mileage will vary. 
 
-We do plan to look at the POSIX MapR client in the future.
+We plan to look at the POSIX MapR client in the future.
 

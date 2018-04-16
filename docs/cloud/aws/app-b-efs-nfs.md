@@ -47,6 +47,10 @@ function       | latency (mSec) | function   | latency (mSec)
 
 <small>_Metadata operational latencies - mSecs (headlines)_</small>
 
+
+
+## Summary
+
 Note the low rate of streaming read performance, combined with very
 high metadata latencies (1000× that of EBS). The increase in transfer
 rate for many threaded compressed data indicates that there is a
