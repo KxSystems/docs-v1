@@ -22,7 +22,7 @@ about new repositories.</div>
 	<td>source files for this site</td>
 </tr>
 <tr>
-	<td class="nowrap">[embedPy](https://github.com/KxSystems/embedPy) ==new==</td>
+	<td class="nowrap">[embedPy](https://github.com/KxSystems/embedPy)</td>
 	<td>
 		calling Python from q 
 		[<i class="fa fa-share-alt"></i>](/ml "Machine learning")
@@ -41,8 +41,12 @@ about new repositories.</div>
 	</td>
 </tr>
 <tr>
-	<td class="nowrap">[jupyterq](https://github.com/kxsystems/jupyterq) ==beta==</td>
-	<td>Jupyter kernel for kdb+</td>
+	<td class="nowrap">[jupyterq](/ml/jupyterq) ==new==</td>
+	<td>
+		Jupyter kernel for kdb+
+		[<i class="fa fa-share-alt"></i>](/ml "Machine learning")
+		[<i class="fa fa-superpowers"></i>](/interfaces/fusion "Fusion interfaces")
+	</td>
 </tr>
 <tr>
 	<td class="nowrap">[kafka](https://github.com/KxSystems/kafka)</td>
