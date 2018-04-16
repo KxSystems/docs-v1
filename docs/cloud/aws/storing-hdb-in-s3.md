@@ -34,7 +34,7 @@ Finally, there is the ubiquitous Amazon S3 object store, available in all region
 
 Amazon can  be configured to duplicate your uploaded data across multiple geographically diverse repositories, according to the replication service selected at bucket-creation time. S3 promises [99.999999999%](https://aws.amazon.com/s3/faqs/) durability. 
 
-<i class="fa fa-hand-o-right"></i> [AWS Lambda replication](https://aws.amazon.com/blogs/compute/content-replication-using-aws-lambda- and-amazon-s3/) ==FIXME 404==
+<i class="fa fa-hand-o-right"></i> [AWS Lambda replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html)
 
 However, there are severe limitations on using S3 when it comes to kdb+.
 The main limitation is the API. 
