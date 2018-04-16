@@ -1,4 +1,4 @@
-hero: Fusion for kdb+
+hero: <i class="fa fa-superpowers"></i> Fusion for Kdb+ / PyQ
 
 # ![Python](../img/python.png) Using Python with kdb+ (PyQ)
 

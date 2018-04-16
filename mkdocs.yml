@@ -157,11 +157,20 @@ pages:
       - Printing and help: ml/embedpy/printing.md
       - Closures and generators: ml/embedpy/closures.md
       - Reference: ml/embedpy/reference.md
+    - JupyterQ:
+      - Overview: ml/jupyterq/index.md
+      - Running code: ml/jupyterq/running-code.md
+      - Completion and help: ml/jupyterq/completion-help.md
+      - Errors: ml/jupyterq/errors.md
+      - Load and save code: ml/jupyterq/load-save.md
+      - Python and inline display: ml/jupyterq/inline-display.md
+      - Command-line arguments: ml/jupyterq/command-line.md
   - Interface summary: interfaces.md
   - Fusion for kdb+:
     - Introduction: interfaces/fusion.md
     - FFI: interfaces/ffi.md
     - Java: interfaces/java-client-for-q.md
+    - Jupyter: interfaces/jupyterq.md
     - Kafka: interfaces/kafka.md
     - Python (embedPy): interfaces/embedpy.md
     - Python (PyQ):

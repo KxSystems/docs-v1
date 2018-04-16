@@ -1,4 +1,4 @@
-hero: Fusion for kdb+
+hero: <i class="fa fa-superpowers"></i> Fusion for Kdb+
 
 # ![Python](img/python.png) Calling Python from q (embedPy)
 
