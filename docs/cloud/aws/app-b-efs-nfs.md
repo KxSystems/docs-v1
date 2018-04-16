@@ -51,11 +51,5 @@ function       | latency (mSec) | function   | latency (mSec)
 
 ## Summary
 
-Note the low rate of streaming read performance, combined with very
-high metadata latencies (1000× that of EBS). The increase in transfer
-rate for many-threaded compressed data indicates that there is a
-capped bandwidth number having some influence on the results as well
-as the operational latency. Consider constraining any use of EFS to
-temporary store and not for runtime data access.
-
+Note the low rate of streaming read performance, combined with very high metadata latencies (1000× that of EBS). The increase in transfer rate for many-threaded compressed data indicates that there is a capped bandwidth number having some influence on the results as well as the operational latency. Consider constraining any use of EFS to temporary store and not for runtime data access.
 

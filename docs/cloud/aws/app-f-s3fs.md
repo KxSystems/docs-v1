@@ -8,7 +8,7 @@ S3FS is an open-source Linux client software layer that arbitrates between the A
 
 S3FS uses the Linux user-land FUSE layer. By default, it uses the POSIX handle mapped as an S3 object in a one-to-one map. It does not use the kernel cache buffer, nor does it use its own caching model by default.
 
-Due to S3's eventual consistency limitations file creation with S3FS can occasionally fail.
+Due to S3’s eventual consistency limitations file creation with S3FS can occasionally fail.
 
 Metadata operations with this FS are slow. The append function, although supported is not usable in a production setting due to the massive latency involved.
 
