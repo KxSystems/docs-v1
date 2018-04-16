@@ -1,4 +1,4 @@
-hero: Fusion for kdb+
+hero: <i class="fa fa-superpowers"></i> Fusion for Kdb+
 
 # ![Apache Kafka](img/kafka.png) Using Kafka with kdb+
 

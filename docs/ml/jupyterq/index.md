@@ -1,4 +1,4 @@
-hero: Machine learning
+hero: <i class="fa fa-share-alt"></i> Machine learning
 
 # ![Jupyter](/interfaces/img/jupyter.png) JupyterQ
 

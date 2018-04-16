@@ -1,3 +1,5 @@
+hero: <i class="fa fa-superpowers"></i> Fusion for Kdb+
+
 # ![R](img/r.png) Using R with kdb+
 
 
