@@ -31,11 +31,18 @@ offers an easy-to-use, yet powerful drag-and-drop interface to allow creators to
     (Kx Systems provides credentials to follow the links.) 
 
 
+## Stream for Kx
+
+_Stream for Kx_ is a platform for capturing, storing and enriching large volumes of data. It provides a framework to develop and deploy customized analytics that quickly perform complex calculations on large volumes of real-time and historical market data.
+
+![Stream for Kx](http://code.kx.com/platform/stream/img/stream.png)  
+<small>_Stream for Kx deployed in a financial market_</small>
+
+
 ## Coming soon
 
 _Flow for Kx_  
 _Monitoring for Kx_  
-_Stream for Kx_
 
 
 

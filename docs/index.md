@@ -6,6 +6,11 @@ description: Technical documentation and resources for q and kdb+
 
 Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
 
+!!! tip "New on code.kx.com"
+    - <big>[Stream for Kx](http://code.kx.com/platform/stream)</big>
+    - [Jupyter kernel for kdb+](ml/jupyterq)
+    - [Free, non-commercial, 64-bit kdb+ on demand](/tutorials/licensing/#free-non-commercial-64-bit-kdb-on-demand)
+
 <div class="kx-flex-grid" markdown="1">
 <div>
     [<i class="fa fa-download fa-border fa-5x"></i><br/>
@@ -48,12 +53,7 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 </div>
 </div>
 
-!!! info "New on code.kx.com"
-    - [Jupyter kernel for kdb+](ml/jupyterq)
-    - [Free, non-commercial, 64-bit kdb+ on demand](/tutorials/licensing/#free-non-commercial-64-bit-kdb-on-demand)
-    - [New development tools](/about/site-news/#new-development-tools) from Leslie Goldsmith
-
-!!! tip "[Careers at Kx and First Derivatives](http://www.firstderivatives.com/careers/)"
+!!! info "[Careers at Kx and First Derivatives](http://www.firstderivatives.com/careers/)"
     
 !!! caution "The Kx wiki"
     The documentation from the [Kx wiki](http://code.kx.com/wiki) has moved to this new platform. All source code can now be found on [GitHub](https://kxsystems.github.io). 
