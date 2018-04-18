@@ -1,15 +1,32 @@
 ----
-description: Technical documentation and resources for q and kdb+
+description: Technical documentation and resources for q and kdb+ developers
 ----
 
 # Get going with kdb+
 
-Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-series columnar database, an in-memory compute engine, and a real-time streaming processor – unified with an expressive query and programming language called q.
+<div style="display: flex"  flex-direction: row; flex-wrap: wrap; markdown="1">
 
-!!! tip "New on code.kx.com"
-    - <big>[Stream for Kx](http://code.kx.com/platform/stream)</big>
-    - [Jupyter kernel for kdb+](ml/jupyterq)
-    - [Free, non-commercial, 64-bit kdb+ on demand](/tutorials/licensing/#free-non-commercial-64-bit-kdb-on-demand)
+<div style="display: inline-flex;" markdown="1">
+Kdb+, from [Kx Systems](http://kx.com), is 
+
+-   a high-performance historical time-series columnar database
+-   an in-memory compute engine
+-   a real-time streaming processor
+-   an expressive query and programming language called q
+</div>
+
+<div style="display: inline-flex;" markdown="1">
+!!! tip "New"
+    <big><i class="fa fa-cloud"></i> kdb+ on the Cloud: [AWS/EC2](/cloud/aws/) </big>
+    
+    [Jupyter kernel for kdb+](ml/jupyterq)
+    
+    [Free, non-commercial, 64-bit kdb+ on demand](/tutorials/licensing/#free-non-commercial-64-bit-kdb-on-demand)
+</div>
+
+</div>
+
+<div style="clear: both">&nbsp;</div>
 
 <div class="kx-flex-grid" markdown="1">
 <div>
@@ -55,7 +72,7 @@ Kdb+, from [Kx Systems](http://kx.com), is a high-performance historical time-se
 
 !!! info "[Careers at Kx and First Derivatives](http://www.firstderivatives.com/careers/)"
     
-!!! caution "The Kx wiki"
+!!! warning "The Kx wiki"
     The documentation from the [Kx wiki](http://code.kx.com/wiki) has moved to this new platform. All source code can now be found on [GitHub](https://kxsystems.github.io). 
     The wiki remains in place for now, but is no longer maintained. 
 

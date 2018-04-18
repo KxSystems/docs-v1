@@ -102,7 +102,7 @@ This would execute a query for each date in parallel. The multithreaded HDB with
 
 ### Memory usage
 
-Each slave thread has its own heap, a minimum of 64Mb.
+Each slave thread has its own heap, a minimum of 64MB.
 
 Since V2.7 2011.09.21, [`.Q.gc[]`](dotq/#qgc-garbage-collect) in the main thread collects garbage in the slave threads too.
 

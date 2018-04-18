@@ -4,7 +4,7 @@ By default, q is single-threaded, and processes incoming queries sequentially.
 
 An additional mode exists, designed for serving in-memory static data to an externally constrained number of clients only; it is not intended for use as a gateway, or serving mutable data, or data from disk. Each incoming connection is executed in its own thread, and is unable to update globals – it is purely functional in the sense that the execution of a query should not have side-effects.
 
-There can be a maximum of 1020 concurrent connections, with each connection requiring a minimum of 64Mb, the real amount depending on the working space required by the query being executed. Each connection has its own thread, which is either reading, calculating or writing a response; in addition there is the main thread, which monitors stdin, invokes `.z.ts` on timer expiry and monitors other socket descriptors. (There should not be any). 
+There can be a maximum of 1020 concurrent connections, with each connection requiring a minimum of 64MB, the real amount depending on the working space required by the query being executed. Each connection has its own thread, which is either reading, calculating or writing a response; in addition there is the main thread, which monitors stdin, invokes `.z.ts` on timer expiry and monitors other socket descriptors. (There should not be any). 
 
 Updates to globals are allowed only if they occur from within `.z.ts`, or via a socket listed in `.z.W`, and even then they should not be frequent, as these wait for completion of exiting queries, blocking new queries (using multiple-read single-write lock). If an attempt is made to update globals from threads other than main, they should get a `'no update` error.
 
