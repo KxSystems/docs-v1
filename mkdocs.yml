@@ -172,7 +172,7 @@ pages:
       - G. S3QL: cloud/aws/app-g-s3ql.md
       - H. ObjectiveFS: cloud/aws/app-h-objectivefs.md
       - I. WekaIO Matrix: cloud/aws/app-i-wekaio-matrix.md
-      - J. QuoByte: cloud/aws/app-j-quobyte.md
+      - J. Quobyte: cloud/aws/app-j-quobyte.md
   - Machine learning:
     - Introduction: ml/index.md
     - embedPy:

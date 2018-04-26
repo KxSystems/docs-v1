@@ -1,13 +1,13 @@
 hero: <i class="fa fa-cloud"></i> Cloud
 
-# Appendix J – QuoByte 
+# Appendix J – Quobyte 
 
 
 
-!!! info "QuoByte is functionally qualified with kdb+."
+!!! info "Quobyte is functionally qualified with kdb+."
 
-QuoByte offers a shared namespace solution based on either locally-provisioned or EBS-style storage. 
-It leverages an erasure-coding model around nodes of a QuoByte cluster.
+Quobyte offers a shared namespace solution based on either locally-provisioned or EBS-style storage. 
+It leverages an erasure-coding model around nodes of a Quobyte cluster.
 
 test | result
 -----|-------
