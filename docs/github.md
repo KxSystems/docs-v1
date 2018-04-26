@@ -763,14 +763,14 @@ about new repositories.</div>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/nugend/qjson">qjson</a></td>
-<td>[JSON](http://www.json.org/) output. <span class="author"><a href="https://github.com/robknows?tab=repositories">
+<td>[JSON](http://www.json.org/) output. <span class="author"><a href="https://github.com/nugend?tab=repositories">
 						(Daniel Nugent)
 					</a></span>
 </td>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/robknows/qng">qng</a> ==new==</td>
-<td>Simple PNG tools. <span class="author"><a href="https://github.com/nugend?tab=repositories">
+<td>Simple PNG tools. <span class="author"><a href="https://github.com/robknows?tab=repositories">
 						(Robert Moore)
 					</a></span>
 </td>
