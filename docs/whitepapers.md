@@ -1,4 +1,6 @@
-# <i class="fa fa-map-o"></i> Technical white papers
+# <i class="fa fa-map-o"></i> Technical whitepapers
+
+These papers can all be downloaded as PDFs.
 
 ## Programming in q
 
@@ -19,8 +21,8 @@
 * [An introduction to **graphical interfaces** for kdb+ using C#](wp/an_introduction_to_graphical_interfaces_for_kdb_using_csharp.pdf)
 * [Building **real-time tick subscribers**](wp/building_real_time_tick_subscribers.pdf)
 * [**Socket sharding** with kdb+ and Linux](wp/socket-sharding.pdf) ==new==
-* [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
-
+<!-- * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
+ -->
 
 ## Applications
 
@@ -39,7 +41,7 @@
 * [Temporal Data: a kdb+ framework for **corporate actions**](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)
 * [Kdb+ **data-management sample customisation** techniques](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)
 * [**Data recovery** for kdb+tick](wp/data_recovery_for_kdb_tick.pdf)
-* [**Disaster-recovery planning** for kdb+ tick systems](wp/disaster_recovery_planning.pdf) ==new==
+* [**Disaster-recovery planning** for kdb+ tick systems](wp/disaster_recovery_planning.pdf)
 * [A natural query interface for **distributed systems**](wp/a_natural_query_interface_for_distributed_systems.pdf)
 * [A method for **dynamically shrinking big data** using time-series database kdb+](wp/time_series_simplification_in_kdb_a_method_for_dynamically_shrinking_big_data.pdf)
 * [Order Book: a kdb+ **intraday storage and access** methodology](wp/order_book_a_kdb_intraday_storage_and_access_methodology.pdf)

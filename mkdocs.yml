@@ -245,8 +245,9 @@ pages:
     - Analyst for Kx: platform/analyst.md
     - Control for Kx: platform/control.md
     - Dashboards for Kx: platform/dashboards.md
-  - White papers: #whitepapers.md
-    - WebSockets: wp/websockets/websockets.md
+  - White papers: 
+    - Index of PDFs: whitepapers.md
+    - WebSockets: wp/websockets/index.md
   - GitHub: github.md
   - Q for Mortals 3: q4m3.md
   - Support: support.md
