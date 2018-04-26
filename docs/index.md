@@ -17,7 +17,9 @@ Kdb+, from [Kx Systems](http://kx.com), is
 
 <div style="display: inline-flex;" markdown="1">
 !!! tip "New"
-    <big><i class="fa fa-cloud"></i> kdb+ on the Cloud: [AWS/EC2](/cloud/aws/) </big>
+    <big>[WebSockets](/wp/websockets/) whitepaper</big>
+    
+    [AWS/EC2](/cloud/aws/): kdb+ on the Cloud
     
     [Jupyter kernel for kdb+](ml/jupyterq)
     
