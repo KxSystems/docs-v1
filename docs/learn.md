@@ -1,12 +1,12 @@
 # Get started 
  
-<a href="https://kx.com/software-download.php" style="color: white"><div style="background: #0070cd; border-radius: 10px; display: inline-block; font-size: 2em; font-weight: bold; padding: 5px 1em; text-align: center;"><i class="fa fa-download"></i> DOWNLOAD</div></a>
+<a href="https://kx.com/connect-with-us/download/" style="color: white"><div style="background: #0070cd; border-radius: 10px; display: inline-block; font-size: 2em; font-weight: bold; padding: 5px 1em; text-align: center;"><i class="fa fa-download"></i> DOWNLOAD</div></a>
 
-the free 32-bit version of kdb+ for
+the free 32-bit or 64-bit, on-demand versions of kdb+ for
 <i class="fa fa-apple"></i> macOS, 
 <i class="fa fa-linux"></i> Linux, or
 <i class="fa fa-windows"></i> Windows
-for non-commercial use
+and non-commercial use
 
 
 ## <i class="fa fa-mortar-board"></i> Tutorials for beginners
