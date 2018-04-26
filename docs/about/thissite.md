@@ -42,6 +42,7 @@ We gratefully acknowledge contributions by pull requests from
 -   Alexander Belopolsky
 -   Aleks Bunin
 -   Geo Carncross
+-   Sean Keevey
 -   Sean O’Hagan
 -   Rikesh
 -   Thomas Smyth
