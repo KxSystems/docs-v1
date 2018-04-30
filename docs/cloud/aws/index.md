@@ -1,6 +1,6 @@
 hero: <i class="fa fa-cloud"></i> Cloud
 
-# Migrating HDB to Amazon EC2 
+# Migrating a kdb+ HDB to Amazon EC2 
 
 ![Amazon Elastic Compute Cloud](img/media/ec2.png)
 
