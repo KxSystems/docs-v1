@@ -310,7 +310,7 @@ q)\head test.txt
 
 Syntax: `.h.iso8601 x`
 
-Where `x` is nanoseconds since 1970.01.01 as an int atom, returns as a string a timestamp in ISO-8601 format. 
+Where `x` is nanoseconds since 2000.01.01 as an int atom, returns as a string a timestamp in ISO-8601 format.
 ```q
 q).h.iso8601 100
 "2000-01-01T00:00:00.000000100"
