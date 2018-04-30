@@ -260,19 +260,19 @@ Returns system localtime timestamp in nanoseconds.
 (Since V2.6.)
 ```q
 q).z.P
-2009.08.10D09:16:44.378274000
+2018.04.30D10:18:31.932126000
 ```
 
 
 ### `.z.p` (UTC timestamp)
 
-Syntax: `.z.P`
+Syntax: `.z.p`
 
-Returns system localtime timestamp in nanoseconds. 
+Returns UTC timestamp in nanoseconds. 
 (Since V2.6.)
 ```q
 q).z.p
-2009.08.10D09:16:44.378274000
+2018.04.30D09:18:38.117667000
 ```
 
 
