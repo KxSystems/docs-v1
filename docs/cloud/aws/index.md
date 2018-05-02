@@ -1,4 +1,7 @@
 hero: <i class="fa fa-cloud"></i> Cloud
+Title: Migrating a kdb+ HDB to Amazon EC2
+Author: Glenn Wright
+Date: March 2018
 
 # Migrating a kdb+ HDB to Amazon EC2 
 

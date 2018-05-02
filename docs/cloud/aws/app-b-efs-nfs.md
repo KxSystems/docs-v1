@@ -24,10 +24,10 @@ A constraint of EFS for kdb+ is that performance is limited by a predefined burs
 
 file-system size | aggregate read/write throughput
 -----------------|---------------------------------
-100 GiB | • burst to 100&nbsp;MiB/s for up to 72 min a day<br>• drive up to 5&nbsp;MiB/s continuously
-1 TiB | • burst to 100&nbsp;MiB/s for 12 hours a day<br>• drive 50&nbsp;MiB/s continuously
-10 TiB | • burst to 1&nbsp;GiB/s for 12 hours a day<br>• drive 500&nbsp;MiB/s continuously
-larger | • burst to 100&nbsp;MiB/s per TiB of storage for 12 hours a day<br>• drive 50&nbsp;MiB/s per TiB of storage continuously
+100 GiB | • burst to 100&nbsp;MiB/s for up to 72 min a day<br/>• drive up to 5&nbsp;MiB/s continuously
+1 TiB | • burst to 100&nbsp;MiB/s for 12 hours a day<br/>• drive 50&nbsp;MiB/s continuously
+10 TiB | • burst to 1&nbsp;GiB/s for 12 hours a day<br/>• drive 500&nbsp;MiB/s continuously
+larger | • burst to 100&nbsp;MiB/s per TiB of storage for 12 hours a day<br/>• drive 50&nbsp;MiB/s per TiB of storage continuously
 
 So, the EFS solution offers a single name space for your HDB structure,
 and this can be shared around multiple instances including the ability
