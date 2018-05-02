@@ -1,17 +1,33 @@
 # Get started 
+
+
+Kdb+ is a database. While you can use it through interfaces such as ODBC, its power and performance are best accessed through its own language, q.
+
+Q is a general-purpose programming language. You can write programs for anything in q. 
+
+You do not need prior programming experience to learn q. 
+But if you have some experience with mathematics, functional programming or SQL, you will find much that is familiar. 
+
+
+## Install
+
+You can download and install (for your personal, non-commercial use) a free 32-bit or 64-bit version
+for
+<i class="fa fa-apple"></i> macOS, 
+<i class="fa fa-linux"></i> Linux, or
+<i class="fa fa-windows"></i> Windows.
+These are full versions of the product. 
+The 64-bit version (on-demand) requires an always-on Internet connection.
+
  
 <a href="https://kx.com/connect-with-us/download/" style="color: white"><div style="background: #0070cd; border-radius: 10px; display: inline-block; font-size: 2em; font-weight: bold; padding: 5px 1em; text-align: center;"><i class="fa fa-download"></i> DOWNLOAD</div></a>
 
-the free 32-bit or 64-bit, on-demand versions of kdb+ for
-<i class="fa fa-apple"></i> macOS, 
-<i class="fa fa-linux"></i> Linux, or
-<i class="fa fa-windows"></i> Windows
-and non-commercial use
 
 
-## <i class="fa fa-mortar-board"></i> Tutorials for beginners
 
-<table class="kx-list" markdown="1">
+## <i class="fa fa-mortar-board"></i> Learning q
+
+<!-- <table class="kx-list" markdown="1">
 <tr>
 <td>[Install](/tutorials/install)</td>
 <td>[The basics](http://code.kx.com/wiki/Tutorials/The_Basics)</td>
@@ -25,7 +41,7 @@ and non-commercial use
 <td>[Tables II](http://code.kx.com/wiki/Tutorials/Tables_II)</td>
 </tr>
 </table>
-
+ -->
 
 ## <i class="fa fa-database"></i> Database tutorials
 
