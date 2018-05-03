@@ -176,6 +176,7 @@ pages:
       - J. Quobyte: cloud/aws/app-j-quobyte.md
   - Machine learning:
     - Introduction: ml/index.md
+    - Natural Language processing: ml/nlp.md
     - embedPy:
       - Overview: ml/embedpy/index.md
       - Running Python code: ml/embedpy/running.md
