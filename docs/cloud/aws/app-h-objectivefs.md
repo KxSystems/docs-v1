@@ -2,6 +2,9 @@ hero: <i class="fa fa-cloud"></i> Cloud
 
 # Appendix H - ObjectiveFS
 
+
+!!! info "ObjectiveFS is qualified with kdb+."
+
 ObjectiveFS is a commercial Linux client/kernel package. 
 It arbitrates between S3 storage (each S3 bucket is presented as a FS) and each AWS EC2 instance running ObjectiveFS.
 

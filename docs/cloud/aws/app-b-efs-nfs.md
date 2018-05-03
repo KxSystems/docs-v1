@@ -38,7 +38,9 @@ Testing was done within the burst limit time periods.
 The EFS burst performance is limited to 72 minutes per day for a 100-GB
 file system. Subsequent throughput is limited to 5&nbsp;MB/sec.
 
-![](img/media/image29.png)![](img/media/image30.png)
+![](img/media/image29.png)
+
+![](img/media/image30.png)
 
 function       | latency (mSec) | function   | latency (mSec) 
 ---------------|----------------|------------|---------------
