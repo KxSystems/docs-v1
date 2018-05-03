@@ -17,7 +17,9 @@ Kdb+, from [Kx Systems](http://kx.com), is
 
 <div style="display: inline-flex;" markdown="1">
 !!! tip "New"
-    <big>[WebSockets](/wp/websockets/) whitepaper</big>
+    <span class="nowrap"><big><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</big></span>
+    
+    [WebSockets](/wp/websockets/) whitepaper
     
     [AWS/EC2](/cloud/aws/): kdb+ on the Cloud
     

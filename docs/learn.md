@@ -9,9 +9,11 @@ You do not need prior programming experience to learn q.
 But if you have some experience with mathematics, functional programming or SQL, you will find much that is familiar. 
 
 
-## Install
+## <i class="fa fa-download"></i> Download and install
 
-You can download and install (for your personal, non-commercial use) a free 32-bit or 64-bit version
+You can [download](https://kx.com/connect-with-us/download/) and 
+[install](/tutorials/install) 
+(for your personal, non-commercial use) a free 32-bit or 64-bit version
 for
 <i class="fa fa-apple"></i> macOS, 
 <i class="fa fa-linux"></i> Linux, or
@@ -29,9 +31,9 @@ The 64-bit version (on-demand) requires an always-on Internet connection.
 ## <i class="fa fa-mortar-board"></i> Learn q
 
 -   See [Q by Examples](/tutorials/q-by-examples) for a quick taste of the language
+-   Watch Jeffry Borror’s [Q for All](tutorials/q-for-all), a two-hour introduction to kdb+ and q  in fifteen videos
 -   Bookmark the [Q Reference Card](/ref/card)
--   Watch Jeffry Borror’s [Introduction to kdb+](http://youtube.com) on YouTube (15 videos, 2 hours)
--   Study Jeffry Borror’s textbook _Q for Mortals, Version 3_, now [online](http://code.kx.com/q4m3)
+-   Study Jeffry Borror’s textbook [_Q for Mortals, Version 3_](http://code.kx.com/q4m3)
 
 
 

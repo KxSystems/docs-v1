@@ -138,6 +138,7 @@ pages:
     - Dictionaries & tables: tutorials/dictsandtables.md
     # - Idioms: tutorials/idioms.md
     - Q by examples: tutorials/q-by-examples.md
+    - An introduction to kdb+: tutorials/q-for-all.md
     - Shifts & scans: tutorials/shifts-scans.md
     - Starting kdb+:
       - 1. Introduction: tutorials/startingq/introduction.md
