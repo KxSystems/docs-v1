@@ -89,7 +89,9 @@ between two instance sizes.
 
 ![](img/media/image16.png)
 
-![](img/media/image17.png)![](img/media/image18.png)
+![](img/media/image17.png)
+
+![](img/media/image18.png)
 
 
 function       | latency (mSec) | function   | latency (mSec) 
@@ -102,9 +104,13 @@ function       | latency (mSec) | function   | latency (mSec)
 
 ## EBS-IO1
 
-![](img/media/image19.png)![](img/media/image20.png)
+![](img/media/image19.png)
 
-![](img/media/image21.png)![](img/media/image22.png)
+![](img/media/image20.png)
+
+![](img/media/image21.png)
+
+![](img/media/image22.png)
 
 function       | latency (mSec) | function   | latency (mSec) 
 ---------------|----------------|------------|---------------
