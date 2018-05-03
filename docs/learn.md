@@ -16,16 +16,24 @@ for
 <i class="fa fa-apple"></i> macOS, 
 <i class="fa fa-linux"></i> Linux, or
 <i class="fa fa-windows"></i> Windows.
+
 These are full versions of the product. 
 The 64-bit version (on-demand) requires an always-on Internet connection.
 
  
-<a href="https://kx.com/connect-with-us/download/" style="color: white"><div style="background: #0070cd; border-radius: 10px; display: inline-block; font-size: 2em; font-weight: bold; padding: 5px 1em; text-align: center;"><i class="fa fa-download"></i> DOWNLOAD</div></a>
+<a href="https://kx.com/connect-with-us/download/" style="color: white"><div style="background: #0070cd; border-radius: 10px; display: inline-block; font-size: 1.2em; font-weight: bold; padding: 5px 1em; text-align: center;"><i class="fa fa-download"></i> DOWNLOAD</div></a>
 
 
 
 
-## <i class="fa fa-mortar-board"></i> Learning q
+## <i class="fa fa-mortar-board"></i> Learn q
+
+-   See [Q by Examples](/tutorials/q-by-examples) for a quick taste of the language
+-   Bookmark the [Q Reference Card](/ref/card)
+-   Watch Jeffry Borror’s [Introduction to kdb+](http://youtube.com) on YouTube (15 videos, 2 hours)
+-   Study Jeffry Borror’s textbook _Q for Mortals, Version 3_, now [online](http://code.kx.com/q4m3)
+
+
 
 <!-- <table class="kx-list" markdown="1">
 <tr>
@@ -43,7 +51,7 @@ The 64-bit version (on-demand) requires an always-on Internet connection.
 </table>
  -->
 
-## <i class="fa fa-database"></i> Database tutorials
+## <i class="fa fa-database"></i> Learn kdb+
 
 [First steps](/tutorials/first-steps)
 : Run your first query.
@@ -55,7 +63,9 @@ The 64-bit version (on-demand) requires an always-on Internet connection.
 : Download a set of scripts to build and run queries against a large on-disk database. The dataset is from an imaginary smart-meter network. It includes a basic HTML5 Business Intelligence tool which queries the database directly.
 
 [Introduction to kdb+](http://code.kx.com/q4m3/14_Introduction_to_Kdb+/)
-: _Q for Mortals_, Chapter 14 by Jeffry A. Borror. “Roughly speaking, kdb+ is what happens when q tables are persisted and then mapped back into memory for operations.”
+: _Q for Mortals_, Chapter 14 by Jeffry A. Borror. 
+
+    > Roughly speaking, kdb+ is what happens when q tables are persisted and then mapped back into memory for operations.
 
 
 ## <i class="fa fa-book"></i> Books
@@ -67,7 +77,7 @@ The 64-bit version (on-demand) requires an always-on Internet connection.
 **Version 3**
 by Jeffry A. Borror, available from [Amazon.com](https://www.createspace.com/5843336) or [Amazon.co.uk](https://www.amazon.co.uk/d/Books/q-Mortals-Version-3-Introduction-Programming/0692573674/). Covers up to kdb+ V3.3. If you are a new kdb+ user, this is the book for you!
 
-[HTML edition](http://code.kx.com/q4m3/) ==now online==
+[HTML edition](http://code.kx.com/q4m3/) now online
 </div>
 
 <div style="display: inline-block; padding: 1em; vertical-align: top; width: 250px;" markdown="1">
