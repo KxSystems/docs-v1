@@ -1,6 +1,6 @@
-----
+---
 description: Technical documentation and resources for q and kdb+ developers
-----
+---
 
 # Get going with kdb+
 
@@ -17,7 +17,9 @@ Kdb+, from [Kx Systems](http://kx.com), is
 
 <div style="display: inline-flex;" markdown="1">
 !!! tip "New"
-    <span class="nowrap"><big><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</big></span>
+    <span class="nowrap"><big>==[25th birthday announcements](/about/site-news/#kx25)==</big></span>
+
+    <span class="nowrap"><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</span>
     
     [WebSockets](/wp/websockets/) whitepaper
     
@@ -25,7 +27,6 @@ Kdb+, from [Kx Systems](http://kx.com), is
     
     [Jupyter kernel for kdb+](ml/jupyterq)
     
-    [Free, non-commercial, 64-bit kdb+ on demand](/tutorials/licensing/#free-non-commercial-64-bit-kdb-on-demand)
 </div>
 
 </div>

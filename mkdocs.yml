@@ -28,7 +28,7 @@ markdown_extensions:
   - extra
   # - fenced_code
   - fontawesome_markdown
-  #- meta
+  - meta
   - pymdownx.arithmatex
   # - pymdownx.betterem(smart_enable=all)
   # - pymdownx.caret
@@ -193,6 +193,7 @@ pages:
       - Load and save code: ml/jupyterq/load-save.md
       - Python and inline display: ml/jupyterq/inline-display.md
       - Command-line arguments: ml/jupyterq/command-line.md
+      - FAQ: ml/jupyterq/faq.md
   - Interface summary: interfaces.md
   - Fusion for kdb+:
     - Introduction: interfaces/fusion.md

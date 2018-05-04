@@ -1,3 +1,19 @@
+# <i class="far fa-newspaper"></i> Site news
+
+
+## <i class="fas fa-birthday-cake"></i> Kx@25
+
+A glut of announcements to mark our 25th birthday:
+
+-   Kdb+ on Google Cloud Platform
+-   Version 3.6
+-   Anaconda
+-   [Natural Language Processing toolkit](/ml/nlp)
+-   Docker and Notebooks
+-   [JupyterQ FAQ](/ml/jupyterq/faq/)
+
+
+
 ## <i class="fa fa-github"></i> New development tools
 
 2018.03.01
