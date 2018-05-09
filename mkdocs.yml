@@ -300,3 +300,5 @@ pages:
       - Style: about/sg/style.md
       - Typography: about/sg/typography.md
       - Terminology: about/sg/terminology.md
+    - License agreements:
+      - GCP: license/gcp.md
