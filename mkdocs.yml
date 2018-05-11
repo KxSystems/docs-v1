@@ -174,8 +174,10 @@ pages:
       - H. ObjectiveFS: cloud/aws/app-h-objectivefs.md
       - I. WekaIO Matrix: cloud/aws/app-i-wekaio-matrix.md
       - J. Quobyte: cloud/aws/app-j-quobyte.md
+    - Google Cloud Launcher: cloud/gcl/index.md
   - Machine learning:
     - Introduction: ml/index.md
+    - Set up: ml/setup.md
     - Natural language processing: ml/nlp.md
     - embedPy:
       - Overview: ml/embedpy/index.md
