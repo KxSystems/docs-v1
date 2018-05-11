@@ -8,7 +8,7 @@ title: Kdb+ on Google Cloud Launcher
 
 
 
-Select kdb+ from the Google Cloud Launcher console and click _Launch on Compute Engine_
+Select `kdb+` from the Google Cloud Launcher console and click _Launch on Compute Engine_
 
 ![kdb+ on GCL](img/gcl-landing.png)
 
@@ -16,7 +16,7 @@ Select kdb+ from the Google Cloud Launcher console and click _Launch on Compute 
 ## Deploy kdb+
 
 1. Choose a name for your kdb+ instance
-2. Choose a machine type with at least 6GB of RAM; kdb+ charges you only based on the number of cores
+2. Choose a machine type with at least 6&nbsp;GB of RAM; kdb+ charges you only based on the number of cores
 3. Click _Deploy_
 
     ![GCL Deploy](img/gcl-deploy.png)
