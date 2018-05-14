@@ -284,15 +284,6 @@ You may not access the Kdb+ Software if you are a direct competitor of Kx.
     5. has been approved for release by written authorization of the communicating party, or 
     6. is required by law to be disclosed; provided that if a party is required to disclose the other party’s Confidential Information pursuant to an order under law, the disclosing party shall give the party owning the Confidential Information sufficient notice of such disclosure to allow the owning party reasonable opportunity to object to and take necessary legal action to prevent such disclosure.
 
-28. **Disclosure of Agreement Terms.** Each party agrees not to
-    publicize or disclose the terms of this Agreement to any third
-    party without the prior written consent of the other party,
-    except that disclosure may be made to a party’s attorneys,
-    investors, potential investors, investment bankers, lenders,
-    accountants, employees and other representatives (in each case
-    only where such persons or entities are under appropriate
-    non-disclosure obligations) as is reasonably necessary.
-
 29. **Benchmark Test Results.** User agrees not to disclose
     benchmark, test or performance information regarding the Kdb+
     Software to any third party except as explicitly authorized by
