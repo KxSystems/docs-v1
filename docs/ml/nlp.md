@@ -1,5 +1,5 @@
 ---
-hero: <i class="fa fa-share>"></i> Machine learning
+hero: <i class="fa fa-share-alt"></i> Machine learning
 author: Fionnuala Carr
 title: Natural-language processing toolkit
 date: May 2018
@@ -18,25 +18,16 @@ It can be applied to datasets such as emails, online articles and comments, twee
 
 Operations can be pre-run on a corpus, with the results cached to a table, which can be persisted.
 
-Below are the operations undertaken to parse the dataset.
+Operations undertaken to parse the dataset:
 
-Tokenization
-: splits the words; e.g. `John’s` becomes `John` as one token, and `‘s` as a second.
-
-Sentence detection
-: gives characters at which a sentence starts and ends
-
-Part of speech tagger
-: parses the sentences into tokens and gives each token a label e.g. `lemma`, `pos`, `tag` etc. 
-
-Parsing
-: assign dependency labels
-
-Lemmatization
-: converts it to a base form e.g. ran (verb) to run (verb)
-
-Named entity recognition
-: identifies people, locations, organizations, geopolitical entity etc. For example, this would return who `U.K.` is. This technique can be used in spaCy or openCalais. 
+operation               | effect
+------------------------|-------------------------------------------------
+Tokenization            | splits the words; e.g. `John’s` becomes `John` as one token, and `‘s` as a second
+Sentence detection      | characters at which a sentence starts and ends
+Part of speech tagger   | parses the sentences into tokens and gives each token a label e.g. `lemma`, `pos`, `tag` etc.
+Parsing                 | assign dependency labels
+Lemmatization           | converts to a base form e.g. `ran` (verb) to `run` (verb)
+Named entity recognition | identifies people, locations, organizations, geopolitical entity etc. For example, this would return who `U.K.` is. This technique can be used in spaCy or openCalais.
 
 <!-- 
 All function-name headers set as H4 (regardless of level of parent header)
@@ -75,7 +66,7 @@ field         | type                   | content
 
 The resulting function is applied to a string. 
 
-In the following example, a parser will be applied to the famous novel _Moby Dick_
+Parsing the novel _Moby Dick_: 
 ```q
 / creating a parsed table  
 myparser:.nlp.newParser[`en;`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords] 
@@ -88,7 +79,7 @@ cols corpus
 
 ### Finding part-of-speech tags in a corpus
 
-This is a quick way to find all of the nouns, adverbs, etc. in a corpus. There are two types of part-of-speech (pos) tags you can find: [Penn Tree tags](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html) and [Universal Tree tags](http://universaldependencies.org/docs/en/pos/all.html).
+This is a quick way to find all of the nouns, adverbs, etc. in a corpus. There are two types of part-of-speech (POS) tags you can find: [Penn Tree tags](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html) and [Universal Tree tags](http://universaldependencies.org/docs/en/pos/all.html).
 
 
 #### `.nlp.findPOSRuns`
@@ -108,7 +99,7 @@ returns a general list:
 1. text of the run (symbol vector)
 2. indexes of the first occurrence of each token (long vector)
 
-This example shows importing a novel from a plain text file, and finding all the proper nouns in the first chapter of _Moby Dick_.
+Importing a novel from a plain text file, and finding all the proper nouns in the first chapter of _Moby Dick_:
 ```q
 q)myparser:.nlp.parser.i.newParser[`en;`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords] 
 q)corpus:myparser mobyDick 
@@ -233,7 +224,7 @@ Where
 
 returns as a float the document’s significance to the rest of the corpus. 
 
-This is an example of comparing the first chapter with the rest of the book. 
+Comparing the first chapter with the rest of the book: 
 ```q
 q).nlp.compareDocToCorpus[corpus`keywords;0]
 0.03592943 0.04720108 0.03166343 0.02691693 0.03363885 0.02942622 0.03097797 0.04085023 0.04321152 0.02024251 0.02312604 0.03604447 0.02903568 0.02761553 0.04809854 0.03634777 0.02755392 0.02300291
@@ -262,7 +253,7 @@ Syntax: `.nlp.TFIDF x`
 
 Where `x` is a table of documents, returns for each document, a dictionary with the tokens as keys, and relevance as values.
 
-This example illustrates that you can extract a specific document and find the most significiant words in that document.
+Extract a specific document and find the most significiant words in that document:
 ```q
 q)queriedemail:jeffcorpus[where jeffcorpus[`text] like "*charity bike*"]`text;
 q)5#desc .nlp.TFIDF[jeffcorpus]1928
@@ -426,7 +417,7 @@ Where
 
 returns as a list of longs the document’s indexes, grouped into clusters.
 
-The following example clusters 2603 of Jeff Skillings emails and creates 398 clusters with the minimum threshold to be 0.25.
+Cluster 2603 of Jeff Skillings emails, creating 398 clusters with the minimum threshold at 0.25:
 ``` q
 q)clusterjeff:.nlp.cluster.similarity[jeffcorpus;0.25;0b]
 q)count clusterjeff
@@ -453,7 +444,7 @@ Where
 
 returns the document’s indexes, grouped into clusters.
 
-The example below partitions _Moby Dick_ into 15 clusters. We can see that there is one large cluster present in the book.
+Partition _Moby Dick_ into 15 clusters; we find there is one large cluster present in the book:
 ``` q
 q)clusters:.nlp.cluster.kmeans[corpus;15;30]
 q)count each clusters
@@ -532,7 +523,7 @@ Where
 
 returns, as a list of lists of longs, the documents’ indexes, grouped into clusters.
 
-In the example below, Jeff Skilling's emails are grouped into 60 clusters.
+Group Jeff Skilling’s emails into 60 clusters:
 ```
 q)count each .nlp.cluster.radix4[jeffcorpus;60]
 23 42 16 19 27 15 8 10 13 8 13 7 7 13 7 13 10 6 7 10 35 14 12 18 11 8 7 11 17
@@ -591,7 +582,7 @@ Where
 
 returns, as a list of lists of longs, document indexes where each list is a cluster.
 
-The following example matches the first centroid of the clusters with the rest of the corpus.
+Matches the first centroid of the clusters with the rest of the corpus:
 ```q
 q).nlp.cluster.groupByCentroids[[corpus clusters][0][`keywords];corpus`keywords]
 0 23 65 137
@@ -633,7 +624,7 @@ Where
 
 returns a dictionary with phrases as the keys and their relevance as the values.
 
-In this example, we search for the phrases that contain `captain` and see which phrase has the largest occurrence. We can see that `captain ahab` occurs most often in the book: 31 times.
+Search for the phrases that contain `captain` and see which phrase has the largest occurrence; we find `captain ahab` occurs most often in the book: 31 times.
 ```q
 q).nlp.extractPhrases[corpus;`captain]  
 "captain ahab"        | 31
@@ -665,7 +656,7 @@ Syntax: `.nlp.sentiment x`
 
 Where `x` is string or a list of strings (==dicts and tables??==), returns a dictionary or table containing the sentiment of the text.
 
-An example run of sentences from _Moby Dick_:
+An run of sentences from _Moby Dick_:
 ```q
 q).nlp.sentiment("Three cheers,men--all hearts alive!";"No,no! shame upon all cowards-shame upon them!")
 compound   pos       neg       neu      
