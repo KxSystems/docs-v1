@@ -11,11 +11,10 @@ Below is a summary of changes from V3.5. Commercially licensed users may obtain 
 
 ## Deferred response
 
-More efficient gateways!
+More efficient gateways: a server process can now use [`-30!x`](/ref/internal/#-30x-deferred-response) to defer responding to a sync query until, for example, worker process have completed their tasks. 
+
 
 ## 64-bit enumerations
-
-Saving an unmappable compound object with >2 billion elements as a single file is now supported.
 ```q
 q)`:f set t:([](1+prd 31#2)#"x"$til 256)
 q)t~get`:f
@@ -49,7 +48,7 @@ All symbol vectors/atoms within file are automatically enumerated against file##
 The underlying storage (file#) stays mapped as long as there exists a reference to any mapped object within.
 
 Care should be taken when working with compressed data, as anything ever decompressed in a file would stay in memory until the last reference is gone.
-At the moment, the format supports all types/attributes except types>99h (lambda, composition, parse tree, etc.).
+At the moment, the format supports all types/attributes except type 112h (dynamic load/foreign object).
 
 All attribute data, including that of type 77 lists, stays mapped. Small vectors and atoms have an unmappable compact representation. 
 
@@ -63,8 +62,6 @@ Improved the GUID hashing:
 -   It now considers all bits of the guid.
 -   Uses a new file format for guids with `u`, `p` or `g` attribute. This format is unreadable by previous versions.
 -   Guid files from previous versions are still readable.
-
-Modified the new enum file format introduced in 3.6t 2018.02.07, since appending to compressed enum files was problematic.
 
 Enums, and linked columns, now use 64-bit indexes:
 
@@ -86,7 +83,7 @@ q)a~ajf[`sym`time;b;c]
 
 ## Suggested upgrade process
 
-Even though we have run a wide range of tests on V3.5, and various customers have been kind enough to repeatedly run their own tests during the last few months of development, customers who wish to upgrade to V3.5 should run their own tests on their own data and code/queries before promoting to production usage. In the event that you do discover a suspected bug, please email tech@kx.com
+Even though we have run a wide range of tests on V3.6, and various customers have been kind enough to repeatedly run their own tests during the last few months of development, customers who wish to upgrade to V3.6 should run their own tests on their own data and code/queries before promoting to production usage. Most importantly, be aware that rolling back to a previous version will be complicated by the fact that files written by v3.6 are not readable by prior versions, hence users should test thoroughly prior to committing to an upgrade. In the event that you do discover a suspected bug, please email tech@kx.com
 
 
 ## Detailed change list

@@ -244,6 +244,7 @@ pages:
     - CPU affinity: cookbook/cpu-affinity.md
     - Custom web server: cookbook/custom-web.md
     - Daemon: cookbook/daemon.md
+    - Deferred response: cookbook/deferred-response.md
     - FAQ: cookbook/faq.md
     - FAQ from k4 listbox: cookbook/faq-listbox.md
     - File compression: cookbook/file-compression.md

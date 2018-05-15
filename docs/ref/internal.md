@@ -390,3 +390,17 @@ Since V3.4 2016.05.12. View TLS settings on a handle or current process `-26!han
 
 Since V3.3t 2015.02.17 underpins the JSON parser, `.j.k`.
 
+
+## `-30!x` (deferred response)
+
+Syntax: `-30!(::)`
+Syntax: `-30!(handle;isError;msg)`
+
+Where `handle` is an int, `isError` is a boolean, and `msg` is a string
+
+- `-30!(::)` allows the currently-executing callback to complete without responding
+- `-30!(handle;isError;msg)` responds to the deferred sync call
+
+Since V3.6 2018.05.18. 
+
+<i class="fa fa-hand-o-right"></i> Cookbook: [Deferred response](/cookbook/deferred-response)

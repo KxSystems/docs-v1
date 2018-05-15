@@ -302,7 +302,7 @@ Returns the [datatype](datatypes) of `x` as a short integer atom: negative for a
 <tr><td class="nowrap">18</td><td>v</td><td>second</td><td>4</td><td>`00:00:00`</td><td>`0Nv`</td><td/><td/><td/></tr>
 <tr><td class="nowrap">19</td><td>t</td><td>time</td><td>4</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
 <tr><td class="nowrap" colspan="2">20-76</td><td>enums</td><td/><td/><td/><td/><td/><td/></tr>
-<tr><td class="nowrap">77</td><td/><td colspan="7">(unused)</td><td/><td/><td/></tr>
+<tr><td class="nowrap">77</td><td/><td colspan="7">anymap</td><td/><td/><td/></tr>
 <tr><td class="nowrap" colspan="2">78-96</td><td colspan="7">77+t – mapped list of lists of type t</td><td/><td/><td/></tr>
 <tr><td class="nowrap">97</td><td/><td colspan="7">nested sym enum</td><td/><td/><td/></tr>
 <tr><td class="nowrap">98</td><td/><td colspan="7">table</td><td/><td/><td/></tr>
