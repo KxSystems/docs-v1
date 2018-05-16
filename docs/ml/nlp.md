@@ -25,9 +25,8 @@ operation               | effect
 Tokenization            | splits the words; e.g. `John’s` becomes `John` as one token, and `‘s` as a second
 Sentence detection      | characters at which a sentence starts and ends
 Part of speech tagger   | parses the sentences into tokens and gives each token a label e.g. `lemma`, `pos`, `tag` etc.
-Parsing                 | assign dependency labels
 Lemmatization           | converts to a base form e.g. `ran` (verb) to `run` (verb)
-Named entity recognition | identifies people, locations, organizations, geopolitical entity etc. For example, this would return who `U.K.` is. This technique can be used in spaCy or openCalais.
+
 
 <!-- 
 All function-name headers set as H4 (regardless of level of parent header)
@@ -64,16 +63,16 @@ field         | type                   | content
 `keywords`    | list of dictionaries   | significance of each term 
 `starts`      | long                   | index that a token starts at
 
-The resulting function is applied to a string. 
+The resulting function is applied to a list of strings. 
 
 Parsing the novel _Moby Dick_: 
 ```q
 / creating a parsed table  
-myparser:.nlp.newParser[`en;`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords] 
+fields:`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords
+myparser:.nlp.newParser[`en;fields] 
 corpus:myparser mobyDick 
 cols corpus
 `tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords`text
-
 ```
 
 
@@ -101,139 +100,17 @@ returns a general list:
 
 Importing a novel from a plain text file, and finding all the proper nouns in the first chapter of _Moby Dick_:
 ```q
-q)myparser:.nlp.parser.i.newParser[`en;`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords] 
+fields:`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords
+q)myparser:.nlp.parser.i.newParser[`en;fields] 
 q)corpus:myparser mobyDick 
 
 q).nlp.findPOSRuns[`pennPOS;`NNP`NNPS;corpus 0][;0]
 `loomings`ishmael`november`cato`manhattoes`circumambulate`sabbath`go`corlears`hook`coenties
 ```
 
-
-## Comparisons
-
-
-### Comparing corpora
-
-A quick way to compare corpora is to find words common to the whole dataset, but with a strong affinity to only one corpus. This is a function of how much higher their frequency is in that corpus than in the dataset.
-
-
-#### `.nlp.compareCorpora`
-
-_Terms’ comparative affinities to two corpora_
-
-Syntax: `.nlp.compareCorpora[corpus1;corpus2]`
-
-Where `corpus1` and `corpus2` are tables of lists of documents, returns a dictionary of terms and their affinity for `corpus2` over `corpus1`.
- 
-Enron CEO Jeff Skillings was a member of the Beta Theta Pi fraternity at Southern Methodist University (SMU). If we want to find secret fraternity code words used by the Betas, we can compare his fraternity emails (those containing _SMU_ or _Betas_) to his other emails. Sorting terms by their affinity towards the fraternity corpus, the first unusual word, the 10th-most polarized word, is _kai_, a greeting and sign-off used in fraternity emails. Also appearing near the top of this list are references to the fraternity’s ‘Eye of Wooglin’ ritual, and the fraternity code word _dorg_.
-```q
-q)fraternity:jeffcorpus i:where (jeffcorpus[`text] like "*Betas*")|jeffcorpus[`text] like "*SMU*"
-q)remaining:jeffcorpus til[count jeffcorpus]except i
-q)summaries:key each 10#/:.nlp.compareCorpora[fraternity;remaining]
-q)summaries 0  / summary of the fraternity corpus
-`beta`homecoming`betas`smu`yahoo`groups`tent`reunion`forget`crowd
-q)summaries 1  / summary of the remaining corpus
-`enron`jeff`business`information`please`market`services`energy`management`company
-```
-
-
-### Comparing documents
-
-This function allows you to calculate the similarity of two different documents. It finds the keywords that are present in both the corporas, and calculates the cosine similarity. 
-
-
-#### `.nlp.compareDocs`
-
-_Cosine similarity of two documents_
- 
-Syntax: `.nlp.compareDocs[dict1;dict2]`
-
-Where `dict1` and `dict2` are dictionaries that consist of the document‘s keywords, returns the cosine similarity of two documents.
-
-Given the queried email defined above,. and a random email from the corpus, we can calculate the cosine similarity between them. 
-```q 
-q)queryemail2:jeffcorpus[rand count jeffcorpus]
-q).nlp.compareDocs[queryemail`keywords;email2`keywords]
-0.1163404
-```
-
-
-### Searching
-
-Searching can be done using words, documents, or collections of documents as the query or dataset. To search for documents similar to a given document, you can represent all documents as feature vectors using TF-IDF (see below), then compare the cosine similarity of the query document to those in the dataset and find the most similar documents, with the cosine similarity giving a relevance score. 
- 
-The following example searches using `.nlp.compareDocs` for the document most similar to the below email where former Enron CEO Jeff Skilling is discussing finding a new fire chief.
-```q
-q)queryemail:first jeffcorpus where jeffcorpus[`text] like "Fire Chief Committee*"  
-q)-1 queryemail`text;
-q)mostsimilar:jeffcorpus first 1_idesc .nlp.compareDocs[queryemail`keywords]each jeffcorpus`keywords
-
-Select Comm AGENDA - Jan 25-Febr 1
-
-Houston Fire Chief Selection Committee Members: Jeff Skilling - Chairperson, 
-Troy Blakeney, Gerald Smith, Roel Campos and James Duke.
-
-Congratulations selection committee members! We have a very important and 
-exciting task ahead of us. 
-
-On the agenda for the next week are two important items - (1) the Mayor's 
-February 1 news conference announcing the Houston Fire Chief selection 
-committee and its members; and (2) coordination of an action plan, which we 
-should work out prior to the news conference.
-
-News Conference specifics:
-speakers - Mayor Brown and Jeff Skilling
-in attendance - all selection committee members
-location - Fire Station #6, 3402 Washington Ave.
-date - Thursday, February 1, 2001
-time - 2pm
-duration - approximately 30 minutes
-
-I'd like to emphasize that it would be ideal if all selection committee 
-members were present at the news conference. 
-
-I will need bios on each committee member emailed to me by close of business 
-Monday, January 29, 2001. These bios will be attached to a press release the 
-Mayor's Office is compiling.
-
-Coordination of action plan:
-Since we have only 1 week between now and the news conference, Jeff has 
-proposed that he take a stab at putting together an initial draft. He will 
-then email to all committee members for comments/suggestions and make changes 
-accordingly. Hope this works for everyone - if not, give me a call 
-(713)-345-4840.
-
-Thanks,
-Lisa
-```
-
-
-### Comparing documents to corpus
-
-
-#### `.nlp.compareDocToCorpus`
-
-_Cosine similarity between a document and other documents in the corpus_
-
-Syntax: `.nlp.compareDocToCorpus[keywords;idx]`
-
-Where 
-
-- `keywords` is a list of dictionaries of keywords and coefficients
-- `idx` is the index of the feature vector to compare with the rest of the corpus
-
-returns as a float the document’s significance to the rest of the corpus. 
-
-Comparing the first chapter with the rest of the book: 
-```q
-q).nlp.compareDocToCorpus[corpus`keywords;0]
-0.03592943 0.04720108 0.03166343 0.02691693 0.03363885 0.02942622 0.03097797 0.04085023 0.04321152 0.02024251 0.02312604 0.03604447 0.02903568 0.02761553 0.04809854 0.03634777 0.02755392 0.02300291
-```
-
-
 ## Feature vectors
 
-Similar to the process of comparing two corpora to generate a list of descriptive terms, other entities can be described as dictionaries of terms and their associated weights. These dictionaries are called _feature vectors_ and they are very useful as they give a uniform representation that can describe words, sentences, paragraphs, documents, collections of documents, clusters, concepts and queries. 
+We can generate a dictionary of descriptive terms, which consist of terms and their associated weights. These dictionaries are called _feature vectors_ and they are very useful as they give a uniform representation that can describe words, sentences, paragraphs, documents, collections of documents, clusters, concepts and queries. 
 
 
 ### Calculating feature vectors for documents
@@ -292,9 +169,11 @@ thou     | 32.05231
 ```
 
 
+
 ### Calculating feature vectors for words
 
 The feature vector for a word can be calculated as a collection of how well other words predict the given keyword. The weight given to these words is a function of how much higher the actual co-occurrence rate is from the expected co-occurrence rate the terms would have if they were randomly distributed.
+
 
 
 #### `.nlp.findRelatedTerms`
@@ -319,6 +198,42 @@ cabin | 0.9743517
 ```
 
 
+Phrases can be found by looking for runs of words with an above-average significance to the query term.
+
+
+#### `.nlp.extractPhrases`
+
+_Runs of tokens that contain the term where each consecutive word has an above-average co-occurrence with the term_
+
+Syntax: `.nlp.extractPhrases[corpus;term]`
+
+Where 
+
+-   `corpus` is a subcorpus (table)
+-   `term` is the term to extract phrases around (symbol)
+
+returns a dictionary with phrases as the keys and their relevance as the values.
+
+Search for the phrases that contain `captain` and see which phrase has the largest occurrence; we find `captain ahab` occurs most often in the book: 31 times.
+```q
+q).nlp.extractPhrases[corpus;`captain]  
+"captain ahab"        | 31
+"captain peleg"       | 12
+"captain bildad"      | 7
+"captain sleet"       | 5
+"stranger captain"    | 4
+"said the captain"    | 3
+"sea-captain"         | 2
+"whaling captain"     | 2
+"captain's cabin"     | 2
+"captain ahab,\" said"| 2
+"captain pollard"     | 2
+"captain d'wolf"      | 2
+"way, captain"        | 2
+```
+
+## Comparisons
+
 ### Comparing feature vectors  
 
 A vector can be thought of either as 
@@ -331,59 +246,76 @@ The view of a vector as a line segment starting at the origin is useful, as any 
 The _cosine similarity_ of two vectors is the dot product of two vectors over the product of their magnitudes. It is a standard distance metric for comparing documents.
 
 
-## Explaining similarities
+### Comparing corpora
 
-For any pair of documents or centroids (see below), the list of features can be sorted by how much they contribute to the similarity. 
-
-This example compares two of former Enron CEO Jeff Skilling’s emails, both of which have in common the subject of selecting Houston’s next fire chief.
+A quick way to compare corpora is to find words common to the whole dataset, but with a strong affinity to only one corpus. This is a function of how much higher their frequency is in that corpus than in the dataset.
 
 
-#### `.nlp.explainSimilarity`
+#### `.nlp.compareCorpora`
 
-Syntax: `.nlp.explainSimilarity[doc1;doc2]`
+_Terms’ comparative affinities to two corpora_
 
-Where `doc1` and `doc2` are dictionaries consisting of their associated documents’ keywords, returns a dictionary of how much of the similarity score each token is responsible for.
+Syntax: `.nlp.compareCorpora[corpus1;corpus2]`
+
+Where `corpus1` and `corpus2` are tables of lists of documents, returns a dictionary of terms and their affinity for `corpus2` over `corpus1`.
+ 
+Enron CEO Jeff Skillings was a member of the Beta Theta Pi fraternity at Southern Methodist University (SMU). If we want to find secret fraternity code words used by the Betas, we can compare his fraternity emails (those containing _SMU_ or _Betas_) to his other emails. 
 ```q
-q)10#.nlp.explainSimilarity . jeffcorpus[`keywords]568 358
-fire     | 0.2588778
-roel     | 0.1456685
-committee| 0.1298068
-mayor    | 0.1295087
-station  | 0.09342764
-chief    | 0.06948782
-select   | 0.04325209
-important| 0.03838308
-members  | 0.03530552
-plan     | 0.02459828
+q)fraternity:jeffcorpus i:where (jeffcorpus[`text] like "*Betas*")|jeffcorpus[`text] like "*SMU*"
+q)remaining:jeffcorpus til[count jeffcorpus]except i
+q)summaries:key each 10#/:.nlp.compareCorpora[fraternity;remaining]
+q)summaries 0  / summary of the fraternity corpus
+`beta`homecoming`betas`smu`yahoo`groups`tent`reunion`forget`crowd
+q)summaries 1  / summary of the remaining corpus
+`enron`jeff`business`information`please`market`services`energy`management`company
 ```
 
 
-## Finding outliers, and representative documents
+### Comparing documents
 
-The _centroid_ of a collection of documents is the average of their feature vectors. As such, documents close to the centroid are representative, while those far away are the outliers. Given a collection of documents, finding outliers can be a quick way to find interesting documents, those that have been mis-clustered, or those not relevant to the collection.
-	
-The emails of former Enron CEO Ken Lay contain 1124 emails with a petition. Nearly all of these use the default text, only changing the name, address and email address. To find those petitions which have been modified, sorting by distance from the centroid gives emails where the default text has been completely replaced, added to, or has had portions removed, with the emails most heavily modified appearing first.
+This function allows you to calculate the similarity of two different documents. It finds the keywords that are present in both the corporas, and calculates the cosine similarity. 
 
 
-#### `.nlp.compareDocToCentroid`
+#### `.nlp.compareDocs`
 
-_Cosine similarity of a document and a centroid, subtracting the document from the centroid_
+_Cosine similarity of two documents_
+ 
+Syntax: `.nlp.compareDocs[dict1;dict2]`
 
-Syntax: `.nlp.compareDocToCentroid[centroid;document]`
+Where `dict1` and `dict2` are dictionaries that consist of the document‘s keywords, returns the cosine similarity of two documents.
+
+Given the queried email defined above, and a random email from the corpus, we can calculate the cosine similarity between them. 
+```q 
+q)queryemail2:jeffcorpus[rand count jeffcorpus]
+q).nlp.compareDocs[queryemail`keywords;email2`keywords]
+0.1163404
+```
+
+
+
+### Comparing documents to corpus
+
+
+#### `.nlp.compareDocToCorpus`
+
+_Cosine similarity between a document and other documents in the corpus_
+
+Syntax: `.nlp.compareDocToCorpus[keywords;idx]`
 
 Where 
 
--   `centroid` is the sum of all documents in a cluster which is a dictionary 
--   `document` is a document in a cluster which is a dictionary 
+- `keywords` is a list of dictionaries of keywords and coefficients
+- `idx` is the index of the feature vector to compare with the rest of the corpus
 
-returns the cosine similarity of the two documents as a float.
+returns as a float the document’s significance to the rest of the corpus. 
+
+Comparing the first chapter with the rest of the book: 
 ```q
-q)petition:laycorpus where laycorpus[`subject] like "Demand Ken*"
-q)centroid:sum petition`keywords
-q).nlp.compareDocToCentroid[centroid]each petition`keywords
-0.2374891 0.2308969 0.2383573 0.2797052 0.2817323 0.3103245 0.279753 0.2396462 0.3534717 0.369767
-q)outliers:petition iasc .nlp.compareDocToCentroid[centroid]each petition`keywords
+q).nlp.compareDocToCorpus[corpus`keywords;0]
+0.03592943 0.04720108 0.03166343 0.02691693 0.03363885 0.02942622 0.03097797 0.04085023 0.04321152 0.02024251 0.02312604 0.03604447 0.02903568 0.02761553 0.04809854 0.03634777 0.02755392 0.02300291
 ```
+
+
 
 
 ## Clustering
@@ -399,11 +331,6 @@ MCL clustering, which takes document similarity as its only parameter other than
 
 
 #### `.nlp.cluster.MCL`
-
-==FIXME==
-
-
-#### `.nlp.cluster.similarity`
 
 _Cluster a subcorpus using graph clustering_
 
@@ -424,10 +351,42 @@ q)count clusterjeff
 398
 ```
 
+### Summarizing Cluster algorithm 
+
+This clustering algorithm finds the top ten keywords in each document, finds the average of these keywords and determines the top keyword. This is set to be the centroid and therefore finds the closest document. This process is repeated until the number of clusters are found. 
+
+#### `.nlp.cluster.summarize`
+
+_A clustering algorithm that works like many summarizing algorithms, by finding the most representative elements, then subtracting them from the centroid and iterating until the number of clusters has been reached_
+
+Syntax: `.nlp.cluster.summarize[docs;noOfClusters]`
+
+Where 
+
+-   `docs` is a list of documents or document keywords (table or list of dictionaries)
+-   `noOfClusters` is the number of clusters to return (long)
+
+returns the documents’ indexes, grouped into clusters. 
+```q
+q).nlp.cluster.summarize[jeffcorpus;30]
+
+0 31 47 127 361 431 513 615 724 786 929 933 1058..
+1 40 44 189 507 514 577 585 746 805 869 1042.. 
+2 3 4 6 7 9 10 13 16 17 19 20 22 23 24 28 33 34..
+5 27 30 39 393 611 641 654 670 782 820 1358..
+8 73 147 427 592 660 743 794 850
+11 26 113 236 263 280 281 340 391 414 429 478..
+12 14 38 43 49 52 89 173 232 278 325 328 
+15 18 21 25 32 45 100 119 168 202 285 298..
+29 159 386 430 459 499 508 597 659 731 
+68 83 105 132 141 152 177 182 185 226 257.. 
+78 91 219 225 231 239 244 255 401 477 524 551..
+```
+
 
 ### K-means clustering
  
-Given a set of  documents, K-means clustering aims to partition the documents into a number of sets. Its objective is to minimize the residual sum of squares, a measure of how well the centroids represent the members of their clusters. 
+Given a set of documents, K-means clustering aims to partition the documents into a number of sets. Its objective is to minimize the residual sum of squares, a measure of how well the centroids represent the members of their clusters. 
 
 
 #### `.nlp.cluster.kmeans`
@@ -455,13 +414,10 @@ q)count each clusters
 ### Bisecting K-means
 
 Bisecting K-means adopts the K-means algorithm and splits a cluster in two. This algorithm is more efficient when _k_ is large. For the K-means algorithm, the computation involves every data point of the data set and _k_ centroids. On the other hand, in each bisecting step of Bisecting K-means, only the data points of one cluster and two centroids are involved in the computation. Thus the computation time is reduced. Secondly, Bisecting K-means produce clusters of similar sizes, while K-means is known to produce clusters of widely differing sizes. 
-
-In the NLP library we have two functions that split on different clusters. 
  
-
 #### `.nlp.cluster.bisectingKmeans` 
 
-_The Bisecting K-means algorithm uses K-means repeatedly to split the largest cluster into two clusters_
+_The Bisecting K-means algorithm uses K-means repeatedly to split the most cohesive clusters into two clusters_
 
 Syntax: `.nlp.cluster.bisectingKmeans[docs;k;iters]`
 
@@ -473,66 +429,70 @@ Where
 
 returns, as a list of lists of longs, the documents’ indexes, grouped into clusters.
 ```q
-.nlp.cluster.bisectingKmean[corpus;15;30]
-3 1 5 2 1 2 4 1 4 2 6 3 1 113 2
-```
-
- 
-#### `.nlp.cluster.bisectingKmeans2` 
-
-_The Bisecting K-means algorithm uses K-means repeatedly to split the most cohesive clusters into two clusters_
-
-Syntax: `.nlp.cluster.bisectingKmeans2[docs;k;iters]`
-
-Where 
-
--    `docs` is a list of document keywords (table or list of dictionaries)
--    `k` is the number of clusters (long)
--    `iters` is the number of times to iterate the refining step
-
-returns, as a list of lists of longs, the documents’ indexes, grouped into clusters.
-```q
-q)count each .nlp.cluster.bisectingKMeans2[corpus;15;30]
+q)count each .nlp.cluster.bisectingKMeans[corpus;15;30]
 8 5 13 5 12 8 10 10 1 12 5 15 1 37 8
 ```
 
 
 ### Radix algorithm 
 
-The radix clustering algorithms are a set of non-comparison, binning-based clustering algorithms. Because they do no comparisons, they can be much faster than other clustering algorithms. In essence, they cluster via topic modeling, but without the complexity.
+The Radix clustering algorithms are a set of non-comparison, binning-based clustering algorithms. Because they do no comparisons, they can be much faster than other clustering algorithms. In essence, they cluster via topic modeling, but without the complexity.
 
 Radix clustering is based on the observation that Bisecting K-means clustering gives the best cohesion when the centroid retains only its most significant dimension, and inspired by the canopy-clustering approach of pre-clustering using a very cheap distance metric.
 
-At its simplest, radix clustering just bins on most significant term. A more accurate version uses the most significant _n_ terms in each document in the corpus as bins, discarding infrequent bins. Related terms can also be binned, and documents matching some percent of a bins keyword go in that bin. 
-
-This is a soft clustering algorithm, so bins can have significant overlap. As such, a merge step is needed; either to merge the bin keywords, or clusters or both.
-
-Because this produces a very high number of clusters, the harmonic mean of the normalized logs of sine and cohesion is used to score the bins, and only the highest scoring bins are returned.
+At its simplest, Radix clustering just bins on most significant term. A more accurate version uses the most significant _n_ terms in each document in the corpus as bins, discarding infrequent bins. Related terms can also be binned, and documents matching some percent of a bins keyword go in that bin. 
 
 
-#### `.nlp.cluster.radix4`
 
-_Uses the radix clustering algorithm. Bins are lists of co-occurring keywords. Documents matching x% of a bin’s labels go in that bin; overlapping bins are merged_
+#### Hard Clustering
 
-Syntax: `.nlp.cluster.radix4[docs;numOfClusters]`
+Hard Clustering means that each datapoint belongs to a cluster completely or not.
+
+
+#### `.nlp.cluster.fastradix`
+
+_Uses the Radix clustering algorithm and bins by the most significant term_
+
+Syntax: `.nlp.cluster.fastradix[docs;numOfClusters]`
 
 Where
 
 -   `docs` is a list of documents or document keywords (table or a list of dictionaries)
--   `numOfClusters` is the number of clusters (long), which should be large to cover the substantial amount of the corpus, as the clusters are small 
+-   `numOfClusters` is the number of clusters (long)
 
-returns, as a list of lists of longs, the documents’ indexes, grouped into clusters.
+returns a list of list of longs, the documents’ indexes, grouped into clusters.
+
+Group Jeff Skilling’s emails into 60 clusters: 
+```q
+q)count each .nlp.cluster.radix1[jeffcorpus;60]
+15 14 10 9 8 13 9 8 8 6 5 6 6 8 5 6 5 4 4 4 4 4 4 8 4 5 4 4 5 4 4 4 3 3 3 3 3..
+```
+
+
+#### Soft Clustering
+
+In Soft Clustering, a probability or likelihood of a data point to be in a clusters is assigned. This mean that some clusters can overlap.
+
+
+#### `.nlp.cluster.radix`
+
+_Uses the Radix clustering algorithm and bins are taken from the top 3 terms of each document_
+
+Syntax: `.nlp.cluster.radix[docs;numOfClusters]`
+
+Where
+
+-   `docs` is a list of documents or document keywords (table or a list of dictionaries)
+-   `numOfClusters` is the number of clusters (long), which should be large to cover the substantial amount of the corpus, as the clusters are small
+
+returns the documents’ indexes (as a list of longs), grouped into clusters.
 
 Group Jeff Skilling’s emails into 60 clusters:
+```q
+q)count each .nlp.cluster.radix2[jeffcorpus;60]
+9 7 6 7 10 12 6 5 5 5 6 8 6 5 8 5 6 5 5 5 6 7 5 5 5 6 9 6 5 5 9 5 5 8 17 7 37.
 ```
-q)count each .nlp.cluster.radix4[jeffcorpus;60]
-23 42 16 19 27 15 8 10 13 8 13 7 7 13 7 13 10 6 7 10 35 14 12 18 11 8 7 11 17
-```
 
-
-### Cluster validation
-
-==FIXME==
 
 
 ### Cluster cohesion
@@ -565,11 +525,6 @@ When you have a set of centroids and you would like to find out which centroid i
 
 
 #### `.nlp.cluster.groupByCentroid`
-
-==FIXME==
-
-
-#### `.nlp.cluster.matchDocswithCentroid`
 
 _Documents matched to their nearest centroid_
 
@@ -606,40 +561,110 @@ q).nlp.cluster.groupByCentroids[[corpus clusters][0][`keywords];corpus`keywords]
 ```
 
 
-## Finding related phrases
 
-Phrases can be found by looking for runs of words with an above-average significance to the query term.
+## Finding outliers, and representative documents
+
+The _centroid_ of a collection of documents is the average of their feature vectors. As such, documents close to the centroid are representative, while those far away are the outliers. Given a collection of documents, finding outliers can be a quick way to find interesting documents, those that have been mis-clustered, or those not relevant to the collection.
+	
+The emails of former Enron CEO Ken Lay contain 1124 emails with a petition. Nearly all of these use the default text, only changing the name, address and email address. To find those petitions which have been modified, sorting by distance from the centroid gives emails where the default text has been completely replaced, added to, or has had portions removed, with the emails most heavily modified appearing first.
 
 
-#### `.nlp.extractPhrases`
+#### `.nlp.compareDocToCentroid`
 
-_Runs of tokens that contain the term where each consecutive word has an above-average co-occurrence with the term_
+_Cosine similarity of a document and a centroid, subtracting the document from the centroid_
 
-Syntax: `.nlp.extractPhrases[corpus;term]`
+Syntax: `.nlp.compareDocToCentroid[centroid;document]`
 
 Where 
 
--   `corpus` is a subcorpus (table)
--   `term` is the term to extract phrases around (symbol)
+-   `centroid` is the sum of all documents in a cluster which is a dictionary 
+-   `document` is a document in a cluster which is a dictionary 
 
-returns a dictionary with phrases as the keys and their relevance as the values.
-
-Search for the phrases that contain `captain` and see which phrase has the largest occurrence; we find `captain ahab` occurs most often in the book: 31 times.
+returns the cosine similarity of the two documents as a float.
 ```q
-q).nlp.extractPhrases[corpus;`captain]  
-"captain ahab"        | 31
-"captain peleg"       | 12
-"captain bildad"      | 7
-"captain sleet"       | 5
-"stranger captain"    | 4
-"said the captain"    | 3
-"sea-captain"         | 2
-"whaling captain"     | 2
-"captain's cabin"     | 2
-"captain ahab,\" said"| 2
-"captain pollard"     | 2
-"captain d'wolf"      | 2
-"way, captain"        | 2
+q)petition:laycorpus where laycorpus[`subject] like "Demand Ken*"
+q)centroid:sum petition`keywords
+q).nlp.compareDocToCentroid[centroid]each petition`keywords
+0.2374891 0.2308969 0.2383573 0.2797052 0.2817323 0.3103245 0.279753 0.2396462 0.3534717 0.369767
+q)outliers:petition iasc .nlp.compareDocToCentroid[centroid]each petition`keywords
+```
+
+
+### Searching
+
+Searching can be done using words, documents, or collections of documents as the query or dataset. To search for documents similar to a given document, you can represent all documents as feature vectors using TF-IDF, then compare the cosine similarity of the query document to those in the dataset and find the most similar documents, with the cosine similarity giving a relevance score. 
+ 
+The following example searches using `.nlp.compareDocs` for the document most similar to the below email where former Enron CEO Jeff Skilling is discussing finding a new fire chief.
+```q
+q)queryemail:first jeffcorpus where jeffcorpus[`text] like "Fire Chief Committee*"  
+q)-1 queryemail`text;
+q)mostsimilar:jeffcorpus first 1_idesc .nlp.compareDocs[queryemail`keywords]each jeffcorpus`keywords
+
+Select Comm AGENDA - Jan 25-Febr 1
+
+Houston Fire Chief Selection Committee Members: Jeff Skilling - Chairperson, 
+Troy Blakeney, Gerald Smith, Roel Campos and James Duke.
+
+Congratulations selection committee members! We have a very important and 
+exciting task ahead of us. 
+
+On the agenda for the next week are two important items - (1) the Mayor's 
+February 1 news conference announcing the Houston Fire Chief selection 
+committee and its members; and (2) coordination of an action plan, which we 
+should work out prior to the news conference.
+
+News Conference specifics:
+speakers - Mayor Brown and Jeff Skilling
+in attendance - all selection committee members
+location - Fire Station #6, 3402 Washington Ave.
+date - Thursday, February 1, 2001
+time - 2pm
+duration - approximately 30 minutes
+
+I'd like to emphasize that it would be ideal if all selection committee 
+members were present at the news conference. 
+
+I will need bios on each committee member emailed to me by close of business 
+Monday, January 29, 2001. These bios will be attached to a press release the 
+Mayor's Office is compiling.
+
+Coordination of action plan:
+Since we have only 1 week between now and the news conference, Jeff has 
+proposed that he take a stab at putting together an initial draft. He will 
+then email to all committee members for comments/suggestions and make changes 
+accordingly. Hope this works for everyone - if not, give me a call 
+(713)-345-4840.
+
+Thanks,
+Lisa
+```
+
+
+
+## Explaining similarities
+
+For any pair of documents or centroids, the list of features can be sorted by how much they contribute to the similarity. 
+
+This example compares two of former Enron CEO Jeff Skilling’s emails, both of which have in common the subject of selecting Houston’s next fire chief.
+
+
+#### `.nlp.explainSimilarity`
+
+Syntax: `.nlp.explainSimilarity[doc1;doc2]`
+
+Where `doc1` and `doc2` are dictionaries consisting of their associated documents’ keywords, returns a dictionary of how much of the similarity score each token is responsible for.
+```q
+q)10#.nlp.explainSimilarity . jeffcorpus[`keywords]568 358
+fire     | 0.2588778
+roel     | 0.1456685
+committee| 0.1298068
+mayor    | 0.1295087
+station  | 0.09342764
+chief    | 0.06948782
+select   | 0.04325209
+important| 0.03838308
+members  | 0.03530552
+plan     | 0.02459828
 ```
 
 
@@ -654,7 +679,7 @@ _Sentiment of a sentence_
 
 Syntax: `.nlp.sentiment x`
 
-Where `x` is string or a list of strings (==dicts and tables??==), returns a dictionary or table containing the sentiment of the text.
+Where `x` is string or a list of strings, returns a dictionary or table containing the sentiment of the text.
 
 An run of sentences from _Moby Dick_:
 ```q
@@ -671,21 +696,22 @@ compound   pos       neg       neu
 The MBOX file is the most common format for storing email messages on a hard drive. All the messages for each mailbox are stored as a single, long, text file in a string of concatenated e-mail messages, starting with the _From_ header of the message. The NLP library allows the user to import these files and creates a kdb+ table. 
 
 
-#### renamed to loadEmails
+Column        | Type                              | Content
+--------------|-----------------------------------|---------------------------
+`sender`      | list of characters                | The name and email address of the sender
+`to`          | list of characters                | The name and email address of the reciever/recievers
+`date`        | timestamp                         | The date
+`subject`     | list of characters                | The subject of the email
+`text`        | list of characters                | The original text of the email
+`contentType` | list of characters                | The content type of the email
+`payload`     | list of characters or dictionaries| The payload of the email
 
-==FIXME==
 
-
-#### `.nlp.i.email.getMbox`
-
-==FIXME==
-
-
-#### `.nlp.email.getMboxText`
+#### `.nlp.loadEmails`
 
 _An MBOX file as a table of parsed metadata_
 
-Syntax: `.nlp.email.getMboxText x`
+Syntax: `.nlp.loadEmails x`
 
 Where `x` is a string of the filepath, returns a table.
 ```q
@@ -730,12 +756,7 @@ roger@tdwg.org                   Tdwg-img@lists.tdwg.org          1
 ```
 
 
-## Parsing emails in string format 
-
-
-==FIXME==
-
-need to find emails as strings
+## Parsing emails from a string format 
 
 
 #### `.nlp.email.parseMail`
@@ -746,8 +767,8 @@ Syntax: `.nlp.email.parseMail x`
 
 Where `x` is an email in a string format, returns a dictionary of the headers and content.
 ```q
-q).nlp.email.parseMail strings
-q)cols Table 
+q)table:.nlp.email.parseMail emailString
+q)table 
 `headers`content
 ```
 
@@ -820,7 +841,7 @@ _All the files in a directory, imported recursively_
 Syntax: `.nlp.loadTextFromDir x`
 
 Where `x` the directory’s filepath as a string, returns a table of filenames, paths and texts.
-```
+```q
 q).nlp.loadTextFromDir["./datasets/maildir/skilling-j"]
 
 fileName path                                           text                 ..
@@ -832,22 +853,4 @@ fileName path                                           text                 ..
 ```
 
 
-
-## Functions that require specific fields
-
-!!! warning 
-    ==Not sure if I should put this table in yet==
-
-function             | field/s
----------------------|---------------------------------------
-`compareCorpora`     | `tokens`, `isStop`
-`extractPhrases`     | `tokens`, `isStop`, `starts`, `text`
-`findDates`          | `text`
-`findPOSRun`         | `tokens` and (`uniPOS` or `pennPOS`)
-`findRelatedTerms`   | `tokens`, `sentIndices`, `isStop`
-`findTimes`          | `text`
-`getSentences`       | `text`, `sentChars`
-`keywordsContinuous` | `tokens`, `isStop`
-`TFIDF`              | `tokens`, `isStop`
-`clustering`         | `keywords`
 

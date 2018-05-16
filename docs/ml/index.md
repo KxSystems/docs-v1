@@ -19,6 +19,12 @@ Information can be found here on how to set up kdb+ to create a machine-learning
 -   Python code and files can be embedded within q code.
 -   Python functions can be called as q functions.
 
+<i class="fa fa-share-alt"></i> [Anaconda](setup/#download-via-anaconda) ==FIXME==
+
+-   this
+-   that
+-   t’other
+
 
 <i class="fa fa-share-alt"></i> [JupyterQ](jupyterq/) supports Jupyter notebooks for q, providing
 

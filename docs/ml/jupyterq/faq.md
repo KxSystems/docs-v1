@@ -13,9 +13,10 @@ Yes, see the Jupyter documentation [here](http://jupyter-notebook.readthedocs.io
 
 ### Additional setup for JupyterQ under JupyterHub
 
-If you see this error when running the Jupyter console on the server you're installing on
+If you see this error when running the Jupyter console on the server you're installing on:
 ```
-You may need to set LD_LIBRARY_PATH/DYLD_LIBRARY_PATH to your python distribution's library directory: $HOME/anaconda3/lib
+You may need to set LD_LIBRARY_PATH/DYLD_LIBRARY_PATH to your 
+python distribution's library directory: $HOME/anaconda3/lib
 ```
 You will need to export the `LD_LIBRARY_PATH` and add this to your configuration file for JupyterHub 
 ```python
@@ -34,8 +35,10 @@ To save the contents of individual cells as q scripts use `/%savescript` in a ce
 
 <i class="fa fa-hand-o-right"></i> [Loading and saving scripts](load-save)
 
+<!-- 
+FIXME
 ==Generating reports use case==
-
+ -->
 
 ## Can I mix Python and q code in the same notebook? 
 
