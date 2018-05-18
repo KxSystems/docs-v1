@@ -13,6 +13,7 @@ The historical database in a kdb+ solution is typically kept on a non-volatile p
 In financial services this data is kept for research (quant analytics or back-testing), algorithmic trading and for regulatory and compliance requirements.
 
 !!! warning "Low latency and the Cloud"
+
     In the current state of cloud infrastructure, Kx does not recommend keeping the high-performance, low-latency part of market data – or streaming data collection – applications in the Cloud.
 
     When speed translates to competitive advantage, using AWS (or cloud in general) needs to be considered carefully.
@@ -88,6 +89,7 @@ Model name: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
 Memory sizes vary by the instance chosen. 
 
 !!! warning "Memory lost to hypervisor"
+
     Memory is reduced from the nominal “power of two” RAM sizing, as some is set aside for the Xen hypervisor. For example, a nominal 128 GB of RAM gets sized to approximately 120 GB. 
 
     Take account of this in your memory sizing exercises.
@@ -102,6 +104,7 @@ There is one caveat to this, in testing kdb+ list creation speeds we observe a d
 ![](img/media/image4.png)
 
 !!! info "Megabytes and mebibytes"
+
     Throughout this paper, MB and GB are used to refer to [MiBytes](https://en.wikipedia.org/wiki/Mebibyte "Wikipedia") and GiBytes respectively.
 
 
@@ -118,6 +121,7 @@ rates
 These aspects, and inspection of metadata performance, are summarized in the tests. The term _metadata_ is used to refer to file operations such as listing files in a directory, gathering file size of a file, appending, finding modification dates, and so on.
 
 !!! warning "Using Amazon S3 as a data store"
+
     Because kdb+ does not directly support the use of an object store for its stored data, it cannot support direct use of an object-store model such as the Amazon S3. If you wish to use Amazon S3 as a data store, kdb+ historical data must be hosted on a POSIX-based file system layer fronting S3.
 
     Several solutions offer a POSIX interface layered over an underlying S3 storage bucket. These can be included alongside native file-system support that can also be hosted on EC2.

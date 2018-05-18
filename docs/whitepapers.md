@@ -23,6 +23,8 @@ These papers can all be downloaded as PDFs.
 * [**Socket sharding** with kdb+ and Linux](wp/socket-sharding.pdf) ==new==
 <!-- * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
  -->
+* [Kdb+ and **WebSockets**](/wp/websockets/websockets.pdf)
+
 
 ## Applications
 
@@ -38,6 +40,7 @@ These papers can all be downloaded as PDFs.
 
 ## Managing data and systems
 
+* [Migrating a kdb+ HDB to **Amazon EC2**](/cloud/aws/aws-ec2.pdf)
 * [Temporal Data: a kdb+ framework for **corporate actions**](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)
 * [Kdb+ **data-management sample customisation** techniques](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)
 * [**Data recovery** for kdb+tick](wp/data_recovery_for_kdb_tick.pdf)

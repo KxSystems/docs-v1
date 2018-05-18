@@ -4,6 +4,7 @@ hero: <i class="fa fa-cloud"></i> Cloud
 
 
 !!! info "MapR is qualified with kdb+"
+
     It offers the full POSIX semantics, including through the NFS interface.
 
 MapR is a commercial implementation of the Apache Hadoop open-source stack. Solutions such as MapR-FS were originally driven by the need to support Hadoop clusters alongside high-performance file-system capabilities. In this regard, MapR improved on the original HDFS implementation found in Hadoop distributions. MapR-FS is a core component of their stack. MapR AMIs are freely available on the Amazon marketplace.

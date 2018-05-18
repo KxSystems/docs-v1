@@ -38,6 +38,20 @@ $ echo 'p)print(1+2)' | docker run --rm -i -v `pwd`/q:/tmp/q kxsys/embedpy q -q
 ```
 
 
+### Alternative setup with JupyterQ
+
+Install Docker. Create a directory `q` and place your `kc.lic` (or `k4.lic`) and `l64.zip` files in it.
+
+Run 
+```bash
+docker run --rm -it -v `pwd`/q:/tmp/q -p 8888:8888 kxsys/jupyterq
+```
+Now point your browser at http://localhost:8888/notebooks/kdb%2BNotebooks.ipynb.
+
+<i class="fa fa-hand-o-right"></i> [Build instructions for the image](https://github.com/jhanna-kx/jupyterq/blob/master/docker/README.md)
+
+
+
 ## Download via Anaconda
 
 The three Kx packages can be downloaded from [anaconda.org/kx](https://anaconda.org/kx):
@@ -45,6 +59,8 @@ The three Kx packages can be downloaded from [anaconda.org/kx](https://anaconda.
 -   `kdb`
 -   `embedpy`
 -   `jupyterq`
+
+Currently available for Linux and macOS; soon to be available for Windows too.
 
 They are in a dependency tree. If you install `embedpy` it will automatically install `kdb`. If you install `jupyterq`  it will install `embedpy` and `kdb`. 
 
@@ -54,8 +70,15 @@ conda install -c kx kdb
 conda install -c kx embedpy
 conda install -c kx jupyterq
 ```
-When you first run q it will ask the following questions:
+At present, the packages work only from the base environment.
+
+Before starting q, please run the following commands:
+```anaconda
+source deactivate base
+source activate base
 ```
+When you first run q it will ask the following questions:
+```txt
 Please provide your email (requires validation):
 Please provide your name:
 If applicable please provide your company name (press enter for none):

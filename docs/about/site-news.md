@@ -8,10 +8,10 @@
 Announcements to mark our 25th birthday:
 
 -   [Kdb+ on Google Cloud Platform](/cloud/gcl)
--   [Version 3.6](/ref/releases/Changesin3.6)
+-   [Version 3.6](/ref/releases/ChangesIn3.6)
 -   [Anaconda](/ml)
 -   [Natural Language Processing toolkit](/ml/nlp)
--   Docker and Notebooks
+-   [Docker and Notebooks](/ml/setup/#docker-command)
 -   [JupyterQ FAQ](/ml/jupyterq/faq/)
 
 

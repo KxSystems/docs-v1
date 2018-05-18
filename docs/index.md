@@ -15,17 +15,18 @@ Kdb+, from [Kx Systems](http://kx.com), is
 -   an expressive query and programming language called q
 </div>
 
-<div style="display: inline-flex;" markdown="1">
+<div style="display: inline-flex; margin-left: 7px;" markdown="1">
 !!! tip "New"
-    <span class="nowrap"><big>==[25th birthday announcements](/about/site-news/#kx25)==</big></span>
+    <p style="margin: 10px; text-align: center;" markdown="1">
+        [<span class="nowrap"><big>**25th-birthday announcements**</big></span><br/>V3.6, Google Cloud, Docker, NLP, …](/about/site-news/#kx25)</p>
 
-    <span class="nowrap"><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</span>
+    <p style="text-align: center;" markdown="1"><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</p>
     
-    [WebSockets](/wp/websockets/) whitepaper
+    <p style="text-align: center;" markdown="1">[WebSockets](/wp/websockets/) whitepaper</p>
     
-    [AWS/EC2](/cloud/aws/): kdb+ on the Cloud
+    <p style="text-align: center;" markdown="1">[AWS/EC2](/cloud/aws/): kdb+ on Amazon</p>
     
-    [Jupyter kernel for kdb+](ml/jupyterq)
+    <p style="text-align: center;" markdown="1">[Jupyter kernel for kdb+](ml/jupyterq)</p>
     
 </div>
 
