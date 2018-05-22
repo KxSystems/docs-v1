@@ -334,7 +334,7 @@ read-only evaluation, underpinning the keyword "reval", similar to eval (-6!), w
 
 An example usage is inside the message handler `.z.pg`, useful for access control, here blocking sync messages from updating
 ```q
-q).z.pg:{reval(value;x)} / define on local process listening on port 500
+q).z.pg:{reval(value;enlist x)} / define on local process listening on port 5000
 q)h:hopen 5000 / from another process on localhost
 q)h"a:4"
 'noupdate: `. `a

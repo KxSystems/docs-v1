@@ -139,8 +139,9 @@ IBM  N  IBM.N
 
 Syntax: `.Q.def[x;y]`
 
-==FIXME==
+Provides defaults and types for command line arguments parsed with [``.Q.opt``](#qopt-command-parameters).
 
+<i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv)
 
 ### `.Q.dpft` (save table)
 
