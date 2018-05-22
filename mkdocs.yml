@@ -299,7 +299,7 @@ pages:
     - Dashboards for Kx: platform/dashboards.md
     - Stream for Kx: platform/stream.md
   - White papers: 
-    - Index of PDFs: whitepapers.md
+    - Index: whitepapers.md
     - WebSockets: wp/websockets/index.md
   - GitHub: github.md
   - Q for Mortals 3: q4m3.md
