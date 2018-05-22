@@ -1,6 +1,8 @@
 # <i class="fa fa-map-o"></i> Technical whitepapers
 
-These papers can all be downloaded as PDFs.
+Links are to PDFs except as marked: 
+<i class="fa fa-html5"></i> HTML;
+<i class="fa fa-file"></i> PDF.
 
 ## Programming in q
 
@@ -20,17 +22,17 @@ These papers can all be downloaded as PDFs.
 * [Common design principles for kdb+ **gateways**](wp/common_design_principles_for_kdb_gateways.pdf)
 * [An introduction to **graphical interfaces** for kdb+ using C#](wp/an_introduction_to_graphical_interfaces_for_kdb_using_csharp.pdf)
 * [Building **real-time tick subscribers**](wp/building_real_time_tick_subscribers.pdf)
-* [**Socket sharding** with kdb+ and Linux](wp/socket-sharding.pdf) ==new==
+* [**Socket sharding** with kdb+ and Linux](wp/socket-sharding.pdf) 
 <!-- * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
  -->
-* [Kdb+ and **WebSockets**](/wp/websockets/websockets.pdf)
+* ==new== Kdb+ and **WebSockets** [<i class="fa fa-html5"></i>](/wp/websockets "HTML") [<i class="fa fa-file"></i>](/wp/websockets/websockets.pdf "PDF")
 
 
 ## Applications
 
 * [Streaming **analytics**: detecting card counters in Blackjack](wp/card-counters-in-blackjack.pdf)
 * [Kdb+ in **astronomy**](wp/kdb_in_astronomy.pdf)
-* [**Machine learning** in kdb+: k-Nearest Neighbor classification and pattern recognition with q](wp/machine_learning_in_kdb.pdf) ==new==
+* [**Machine learning** in kdb+: k-Nearest Neighbor classification and pattern recognition with q](wp/machine_learning_in_kdb.pdf)
 * [Sample aggregation engine for **market depth**](wp/sample_aggregation_engine_for_market_depth.pdf)
 * [Market Fragmentation: a kdb+ framework for **multiple liquidity sources**](wp/market_fragmentation_a_kdb_framework_for_multiple_liquidity_sources.pdf)
 * [An introduction to **neural networks** with kdb+](wp/an_introduction_to_neural_networks_with_kdb.pdf)
@@ -40,7 +42,7 @@ These papers can all be downloaded as PDFs.
 
 ## Managing data and systems
 
-* [Migrating a kdb+ HDB to **Amazon EC2**](/cloud/aws/aws-ec2.pdf)
+* ==new== Migrating a kdb+ HDB to **Amazon EC2** [<i class="fa fa-html5"></i>](/cloud/aws/ "HTML") [<i class="fa fa-file"></i>](/cloud/aws/aws-ec2.pdf "PDF") 
 * [Temporal Data: a kdb+ framework for **corporate actions**](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)
 * [Kdb+ **data-management sample customisation** techniques](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)
 * [**Data recovery** for kdb+tick](wp/data_recovery_for_kdb_tick.pdf)

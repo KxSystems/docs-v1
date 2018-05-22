@@ -7,6 +7,7 @@ hero: <i class="fa fa-cloud"></i> Cloud
 !!! info "WekaIO Matrix is qualified with kdb+."
 
 WekaIO Matrix is a commercial product from WekaIO. 
+Version 3.1.2 was used for testing.
 Matrix uses a VFS driver, enabling Weka to support POSIX semantics with lockless queues for I/O. 
 The WekaIO POSIX system has the same runtime semantics as a local Linux file system.
 
