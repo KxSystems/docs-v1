@@ -44,6 +44,7 @@ We gratefully acknowledge contributions by pull requests from
 -   Geo Carncross
 -   Sean Keevey
 -   Sean O’Hagan
+-   David Z. Han
 -   Rikesh
 -   Thomas Smyth
 -   Sergey Vidyuk

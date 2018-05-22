@@ -270,13 +270,13 @@ q)0-':2 5 9
 q)-':[2 5 9]     /deltas
 2 3 4
 ```
-| form       | example                             |
-|------------|-------------------------------------|
-| `f':[y]`   | `-':[   1 4 9 16]` /unary           |
-| `(f':)y`   | `(-':)  1 4 9 16`  /juxtaposition   |
-| `x f': y`  | `9-':   1 4 9 16`  /infix (binary)  |
-| `f':[x;y]` | `-':[9; 1 4 9 16]` /prefix (binary) |
-| `f':[x;]y` | `-':[9;]1 4 9 16   /projection`     |
+form       | example            | note               
+-----------|--------------------|----------------
+`f':[y]`   | `-':[   1 4 9 16]` | unary          
+`(f':)y`   | `(-':)  1 4 9 16`  | juxtaposition  
+`x f': y`  | `9-':   1 4 9 16`  | infix (binary) 
+`f':[x;y]` | `-':[9; 1 4 9 16]` | prefix (binary)
+`f':[x;]y` | `-':[9;]1 4 9 16`  | projection    
 
 
 <div markdown="1" style="float: right; font-style: italic; font-size: 80%; margin-left: 1em; text-align: center; width: 150px">
@@ -333,13 +333,13 @@ _Map-reduce: applies a binary function between elements of the argument, working
 Syntax: `d:f/`  (unary, postfix)  
 Derivative: `x d y` (ambivalent, aggregate)
 
-Where `f` is a **binary** function
+Where `f` is a **binary** function and `y` has count `n`
 
 `f/[y]`
-: <code>f[f[…f[f[y<sub>0</sub>;y<sub>1</sub>];y<sub>2</sub>];…y<sub>n-1</sub>];y<sub>n</sub>]</code>
+: <code>f[f[…f[f[y<sub>0</sub>;y<sub>1</sub>];y<sub>2</sub>];…y<sub>n-2</sub>];y<sub>n-1</sub>]</code>
 
 `f/[x;y]`
-: <code>f[f[…f[f[x;y<sub>0</sub>];y<sub>1</sub>];…y<sub>n-1</sub>];y<sub>n</sub>]</code>
+: <code>f[f[…f[f[x;y<sub>0</sub>];y<sub>1</sub>];…y<sub>n-2</sub>];y<sub>n-1</sub>]</code>
 
 ```q
 q)(+/)2 3 4  /unary
@@ -363,7 +363,7 @@ Derivative: `d[x;y;z;…]` (same rank as `f`)
 Where `f` is a **function with rank above 2** and `y`, `z`, etc. conform, the derivative `f/` has the same rank as `f`. Example: for `f` of rank 3 and `y` and `z` of count `n`)
 
 `f/[x;y;z]` 
-: <code>f[f[… f[f[x;y<sub>0</sub>;z<sub>0</sub>];y<sub>1</sub>;z<sub>1</sub>]; … y<sub>n-1</sub>;z<sub>n-1</sub>];y<sub>n</sub>;z<sub>n</sub>]</code>
+: <code>f[f[… f[f[x;y<sub>0</sub>;z<sub>0</sub>];y<sub>1</sub>;z<sub>1</sub>]; … y<sub>n-2</sub>;z<sub>n-2</sub>];y<sub>n-1</sub>;z<sub>n-1</sub>]</code>
 
 ```q
 q){x+y+z}/[1 5 6;2 22;3 33]
@@ -418,7 +418,10 @@ Derivative: `d y` (unary, uniform)
 Derivative: `x d y` (binary, uniform)  
 Derivative: `d[x;y;z;…]` (uniform)
 
-Where `f` is a **binary** function (or **matrix** – see below), the derivative `f\` applies `f/` to successive items of `x`. Its result is a list of the same count, built up as follows:
+Where `f` is a **binary** function (or **matrix** – see below), the derivative `f\` applies `f/` to successive items of 
+<!-- `x`. --> 
+`x@/: {(1+x)#\:x} til count x`.
+Its result is a list of the same count, built up as follows:
 <code><pre>r<sub>0</sub> = x<sub>0</sub>
 r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
 
