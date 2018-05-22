@@ -349,7 +349,7 @@ Broadcast data as an async msg to specified handles. The advantage of using `-25
 
 Use as
 ```q
-q)-25!(handles;msg)
+q)-25!(handles; msg)
 ```
 Handles should be a vector of int or longs &gt; 0.
 
@@ -357,7 +357,7 @@ Handles should be a vector of int or longs &gt; 0.
 
 Just as with `neg[handles]@\:msg`, `-25!x` queues the msg as async on those handles – they don't get sent until the next spin of the main loop, or are flushed with `neg[handles]@\:(::)`.
 
-!!! tip "`-25!(::)` can also flush the handles"
+!!! tip "`-25!(handles; ::)` can also flush the handles"
 
 Possible error scenarios:
 
