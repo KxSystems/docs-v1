@@ -80,6 +80,17 @@ Since V3.5 2017.03.15.
     The debugger itself occupies a stack frame, but its source is hidden.
 
 
+### `.Q.btoa` (b64 encode)
+
+Syntax: `.Q.btoa x`
+
+```q
+q).Q.btoa"Hello World!"
+"SGVsbG8gV29ybGQh"
+```
+Since V3.6 2018.05.18.
+
+
 
 ### `.Q.chk` (fill HDB)
 
@@ -128,8 +139,9 @@ IBM  N  IBM.N
 
 Syntax: `.Q.def[x;y]`
 
-==FIXME==
+Provides defaults and types for command line arguments parsed with [``.Q.opt``](#qopt-command-parameters).
 
+<i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv)
 
 ### `.Q.dpft` (save table)
 
@@ -832,6 +844,17 @@ Since V3.5 2017.03.15.
 <i class="fa fa-hand-o-right"></i> [Debugging](debug)
 
 
+### `.Q.sha1` (SHA-1 encode)
+
+Syntax: `.Q.sha1 x`
+
+```q
+q).Q.sha1"Hello World!"
+0x2ef7bde608ce5404e97d5f042f95f89f1c232871
+```
+Since V3.6 2018.05.18.
+
+
 ### `.Q.trp` (extend trap)
 
 Syntax: `.Q.trp[f;x;g]`
@@ -892,6 +915,20 @@ q)1@(h"f `a")1;    / output the backtrace string to stdout
 Since V3.5 2017.03.15.
 
 <i class="fa fa-hand-o-right"></i> [Debugging](debug)
+
+
+### `.Q.ts` (time and space)
+
+Syntax: `.Q.ts[x;y]`
+
+Where `x` and `y` are valid arguments of _dot-apply_, adds [`\ts`](syscmds/#ts-time-and-space) functionality.
+```q
+q)\ts .Q.hg `:http://www.google.com
+148 131760
+q).Q.ts(.Q.hg;enlist`:http://www.google.com)
+148 131760
+```
+Since V3.6 2018.05.18.
 
 
 ### `.Q.ty` (type)

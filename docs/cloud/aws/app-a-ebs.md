@@ -4,6 +4,7 @@ hero: <i class="fa fa-cloud"></i> Cloud
 
 
 !!! info "EBS can be used to store HDB data, and is fully compliant with kdb+."
+
     It supports all of the POSIX semantics required.
 
 Three variants of the [Elastic Block Service](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html) (EBS) are all qualified by

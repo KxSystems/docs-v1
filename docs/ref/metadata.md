@@ -124,19 +124,19 @@ q)key`:foo
 
 - a **symbol atom** that is not a file or directory descriptor, nor the name of a dictionary or table, returns the original symbol if a variable of that name exists, otherwise an empty list. The name is interpreted relative to the current context if not fully qualified.
 ```q
-q)()~key`a.       /now you don't see it
+q)()~key`a        /now you don't see it
 1b
 q)a:1
-q)key`a.          /now you see it
+q)key`a           /now you see it
 `a
 q)\d .foo
-q.foo)key`a.      /now you don't
+q.foo)key`a       /now you don't
 q.foo)a:1 2!3 4
 q.foo)key`a       /this one has keys
 1 2
-q.foo)key`.foo.a. /fully qualified name
+q.foo)key`.foo.a  /fully qualified name
 1 2
-q.foo)key`..a.    /fully qualified name
+q.foo)key`..a     /fully qualified name
 `..a
 q.foo)\d .
 q)key`a
@@ -302,7 +302,7 @@ Returns the [datatype](datatypes) of `x` as a short integer atom: negative for a
 <tr><td class="nowrap">18</td><td>v</td><td>second</td><td>4</td><td>`00:00:00`</td><td>`0Nv`</td><td/><td/><td/></tr>
 <tr><td class="nowrap">19</td><td>t</td><td>time</td><td>4</td><td>`00:00:00.000`</td><td>`0Nt`</td><td>time</td><td>Time</td><td>TimeSpan</td></tr>
 <tr><td class="nowrap" colspan="2">20-76</td><td>enums</td><td/><td/><td/><td/><td/><td/></tr>
-<tr><td class="nowrap">77</td><td/><td colspan="7">(unused)</td><td/><td/><td/></tr>
+<tr><td class="nowrap">77</td><td/><td colspan="7">anymap</td><td/><td/><td/></tr>
 <tr><td class="nowrap" colspan="2">78-96</td><td colspan="7">77+t – mapped list of lists of type t</td><td/><td/><td/></tr>
 <tr><td class="nowrap">97</td><td/><td colspan="7">nested sym enum</td><td/><td/><td/></tr>
 <tr><td class="nowrap">98</td><td/><td colspan="7">table</td><td/><td/><td/></tr>

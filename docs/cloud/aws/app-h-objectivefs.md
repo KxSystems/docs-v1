@@ -17,7 +17,7 @@ ObjectiveFS contains a pluggable driver, which allows for multithreaded readers 
 This gives an increase in the concurrency of the reading of S3 data. 
 ObjectiveFS would be installed on each kdb+ node accessing the S3 bucket containing the HDB data.
 
-ObjectiveFS is qualified with kdb+. 
+ObjectiveFS V5.3.1 is qualified with kdb+. 
 ObjectiveFS achieves significantly better performance than EFS. 
 It also has significantly better metadata operation latency than all of the EFS and open source S3 gateway products. 
 ObjectiveFS also scales aggregate bandwidth as more kdb+ nodes use the same S3 bucket. 

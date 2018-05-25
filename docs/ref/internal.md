@@ -234,7 +234,9 @@ q)-16!a
 
 ## `-17!x` (flip endian-ess)
 
-Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ V2.6](releases/ChangesIn2.6)
+Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ V2.6](releases/ChangesIn2.6).
+
+Removed in V3.0; now signals `nyi`. 
 
 
 
@@ -334,7 +336,7 @@ read-only evaluation, underpinning the keyword "reval", similar to eval (-6!), w
 
 An example usage is inside the message handler `.z.pg`, useful for access control, here blocking sync messages from updating
 ```q
-q).z.pg:{reval(value;x)} / define on local process listening on port 500
+q).z.pg:{reval(value;enlist x)} / define on local process listening on port 5000
 q)h:hopen 5000 / from another process on localhost
 q)h"a:4"
 'noupdate: `. `a
@@ -349,7 +351,7 @@ Broadcast data as an async msg to specified handles. The advantage of using `-25
 
 Use as
 ```q
-q)-25!(handles;msg)
+q)-25!(handles; msg)
 ```
 Handles should be a vector of int or longs &gt; 0.
 
@@ -357,7 +359,7 @@ Handles should be a vector of int or longs &gt; 0.
 
 Just as with `neg[handles]@\:msg`, `-25!x` queues the msg as async on those handles – they don't get sent until the next spin of the main loop, or are flushed with `neg[handles]@\:(::)`.
 
-!!! tip "`-25!(::)` can also flush the handles"
+!!! tip "`-25!(handles; ::)` can also flush the handles"
 
 Possible error scenarios:
 
@@ -390,3 +392,17 @@ Since V3.4 2016.05.12. View TLS settings on a handle or current process `-26!han
 
 Since V3.3t 2015.02.17 underpins the JSON parser, `.j.k`.
 
+
+## `-30!x` (deferred response)
+
+Syntax: `-30!(::)`
+Syntax: `-30!(handle;isError;msg)`
+
+Where `handle` is an int, `isError` is a boolean, and `msg` is a string
+
+- `-30!(::)` allows the currently-executing callback to complete without responding
+- `-30!(handle;isError;msg)` responds to the deferred sync call
+
+Since V3.6 2018.05.18. 
+
+<i class="fa fa-hand-o-right"></i> Cookbook: [Deferred response](/cookbook/deferred-response)

@@ -47,14 +47,14 @@ In each case, the time column in the first argument specifies \[) intervals in t
 [`wj`, `wj1`](#wj-wj1-window-join) window-join
 : The most general forms of as-of join. Function parameters aggregate values in the time intervals of the second table. In `wj`, prevailing values on entry to each interval are considered. In `wj1`, only values occurring within each interval are considered.
 
-[`aj`,`aj0`](#aj-aj0-asof-join) asof-join
+[`aj`,`aj0`,`ajf`,`ajf0`](#aj-aj0-ajf-ajf0-asof-join) asof-join
 : Simpler window joins where only the last value in each interval is used. In the `aj` result, the time column is from the first table, while in the `aj0` result, the time column is from the second table.
 
 [`asof`](#asof) 
 : A simpler `aj` where all columns (or dictionary keys) of the second argument are used in the join.
 
 
-## `aj` `aj0` (asof-join )
+## `aj` `aj0` `ajf` `ajf0` (asof-join )
 
 Syntax: <code>aj[c<sub>1</sub>…c<sub>n</sub>;t1;t2]</code>
 
@@ -103,6 +103,15 @@ join  | time in result
 ------|------------------------
 `aj`  | boundary time from `t1`
 `aj0` | actual time from `t2`
+
+Since V3.6 2018.05.18 `ajf` and `ajf0` behave as V2.8 `aj` and `aj0`, i.e. they fill from LHS if RHS is null. e.g.
+```q
+q)t0:([]time:2#00:00:01;sym:`a`b;p:1 1;n:`r`s)
+q)t1:([]time:2#00:00:01;sym:`a`b;p:0 1)
+q)t2:([]time:2#00:00:00;sym:`a`b;p:1 0N;n:`r`s)
+q)t0~ajf[`sym`time;t1;t2]
+1b
+```
 
 
 **Performance** 

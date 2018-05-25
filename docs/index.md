@@ -1,13 +1,13 @@
-----
+---
 description: Technical documentation and resources for q and kdb+ developers
-----
+---
 
 # Get going with kdb+
 
 <div style="display: flex"  flex-direction: row; flex-wrap: wrap; markdown="1">
 
 <div style="display: inline-flex;" markdown="1">
-Kdb+, from [Kx Systems](http://kx.com), is 
+Kdb+, from [Kx&nbsp;Systems](http://kx.com), is 
 
 -   a high-performance historical time-series columnar database
 -   an in-memory compute engine
@@ -15,17 +15,19 @@ Kdb+, from [Kx Systems](http://kx.com), is
 -   an expressive query and programming language called q
 </div>
 
-<div style="display: inline-flex;" markdown="1">
+<div style="display: inline-flex; margin-left: 7px;" markdown="1">
 !!! tip "New"
-    <span class="nowrap"><big><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</big></span>
+    <p style="margin: 10px; text-align: center;" markdown="1">
+        [<span class="nowrap"><big>**25th-birthday announcements**</big></span><br/>V3.6, Google Cloud, Docker, NLP, …](/about/site-news/#kx25)</p>
+
+    <p style="text-align: center;" markdown="1"><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</p>
     
-    [WebSockets](/wp/websockets/) whitepaper
+    <p style="text-align: center;" markdown="1">[WebSockets](/wp/websockets/) whitepaper</p>
     
-    [AWS/EC2](/cloud/aws/): kdb+ on the Cloud
+    <p style="text-align: center;" markdown="1">[AWS/EC2](/cloud/aws/): kdb+ on Amazon</p>
     
-    [Jupyter kernel for kdb+](ml/jupyterq)
+    <p style="text-align: center;" markdown="1">[Jupyter kernel for kdb+](ml/jupyterq)</p>
     
-    [Free, non-commercial, 64-bit kdb+ on demand](/tutorials/licensing/#free-non-commercial-64-bit-kdb-on-demand)
 </div>
 
 </div>

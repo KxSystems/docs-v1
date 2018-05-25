@@ -1,6 +1,24 @@
+# <i class="far fa-newspaper"></i> Site news
+
+
+## <!-- <i class="fas fa-birthday-cake"></i> --> Kx@25
+
+<small>2018.05.18</small>
+
+Announcements to mark our 25th birthday:
+
+-   [Kdb+ on Google Cloud Platform](/cloud/gcl)
+-   [Version 3.6](/ref/releases/ChangesIn3.6)
+-   [Anaconda](/ml)
+-   [Natural Language Processing toolkit](/ml/nlp)
+-   [Docker and Notebooks](/ml/setup/#docker-command)
+-   [JupyterQ FAQ](/ml/jupyterq/faq/)
+
+
+
 ## <i class="fa fa-github"></i> New development tools
 
-2018.03.01
+<small>2018.03.01</small>
 
 Listed on [GitHub](/github/#development-tools): three new development tools  by legendary developer [Leslie Goldsmith](https://github.com/LeslieGoldsmith).
 
@@ -9,28 +27,28 @@ Listed on [GitHub](/github/#development-tools): three new development tools  by 
 
 ## <i class="fa fa-github"></i> Jupyter kernel for kdb+
 
-2018.01.30
+<small>2018.01.30</small>
 
 In beta on [GitHub](https://github.com/KxSystems/jupyterq): a Jupyter kernel for kdb+ 
 
 
 ## <i class="fa fa-map-o"></i> Socket sharding on Linux
 
-2018.01.25
+<small>2018.01.25</small>
 
 New whitepaper [Socket sharding with kdb+ on Linux](/wp/socket-sharding.pdf)
 
 
 ## <i class="fa fa-share-alt"></i> Machine learning
 
-2018.01.24
+<small>2018.01.24</small>
 
 New section on [Machine Learning](/ml) opens with the [embedPy](/ml/embedpy) library.
 
 
 ## <i class="fa fa-search"></i> Custom search engine
 
-2018.01.14
+<small>2018.01.14</small>
 
 We have replaced the native MkDocs client-side search engine with a custom search engine written in q. 
 
@@ -42,7 +60,7 @@ Please send your comments, suggestions and requests to librarian@kx.com.
 
 ## <i class="fa fa-superpowers"></i> Fusion interfaces
 
-2017.11.06
+<small>2017.11.06</small>
 
 The [Fusion interfaces](/interfaces/fusion) are libraries for connecting kdb+ to other technologies. The libraries are
 
@@ -81,7 +99,6 @@ Type a Return at the end of your query and it gets sent to Google Search. (Sadly
 
 For single-character queries such as `?`, `$` and `@` use the [Reference card](/ref/card). 
 
-<i class="fa fa-hand-o-right"></i> [Other search tips](thissite/#search-tips)
 
 
 ## <i class="fa fa-comment-o"></i> Terminology

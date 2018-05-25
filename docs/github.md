@@ -68,6 +68,20 @@ about new repositories.</div>
 	<td>ticker plant</td>
 </tr>
 <tr>
+	<td class="nowrap">[nlp](https://github.com/awilson-kx/nlp) ==new==</td>
+	<td>
+		demonstration notebook for [Natural-language processing](/ml/nlp)
+		[<i class="fa fa-share-alt"></i>](/ml "Machine learning")
+	</td>
+</tr>
+<tr>
+	<td class="nowrap">[notebooks](https://github.com/awilson-kx/notebooks) ==new==</td>
+	<td>
+		demonstration notebooks for [embedPy](/ml/embedpy)
+		[<i class="fa fa-share-alt"></i>](/ml "Machine learning")
+	</td>
+</tr>
+<tr>
 	<td class="nowrap">[pyq](https://github.com/KxSystems/pyq)</td>
 	<td>
 		calling Python from q
@@ -692,6 +706,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/asatirahul/cryptoq/">cryptoq</a> ==new==</td>
+<td>Cryptographic functions and binary operation. <span class="author"><a href="https://github.com/asatirahul?tab=repositories">
+						(Rahul Asati)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/tjcelaya/jwt.q">jwt.q</a></td>
 <td>[JSON Web Token](https://jwt.io/) signing and parsing for q. <span class="author"><a href="https://github.com/tjcelaya?tab=repositories">
 						(Tomas Celaya)
@@ -735,15 +756,22 @@ about new repositories.</div>
 </tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/effbiae/kx">kx</a></td>
-<td>Collection of code from code.kx.com and the lists. r is a small parser for [RPN](https://en.wikipedia.org/wiki/Reverse_Polish_notation). g is to g.k as x is to xterm. sc dynamically calls functions by their address on AMD_64. <span class="author"><a href="https://github.com/effbiae?tab=repositories">
+<td>Collection of code from code.kx.com and the lists. `r` is a small parser for [RPN](https://en.wikipedia.org/wiki/Reverse_Polish_notation). `g` is to `g.k` as `x` is to `xterm`. `sc` dynamically calls functions by their address on AMD_64. <span class="author"><a href="https://github.com/effbiae?tab=repositories">
 						(Jack Andrews)
 					</a></span>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/prodrive11/log4q">log4q ==new==</a></td>
+<td class="nowrap"><a href="https://github.com/prodrive11/log4q">log4q</a></td>
 <td>A concise logger for q/kdb+ applications. <span class="author"><a href="https://github.com/prodrive11?tab=repositories">
 						(Pat Bukowinski)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/robknows/Q-GeneticAlgo">Q-GeneticAlgo ==new==</a></td>
+<td>Functions for defining and running genetic algorithms for fixed length binary chromosomes. <span class="author"><a href="https://github.com/robknows?tab=repositories">
+						(Rob&nbsp;Moore)
 					</a></span>
 </td>
 </tr>
@@ -769,7 +797,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/robknows/qng">qng</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/robknows/qng">qng</a></td>
 <td>Simple PNG tools. <span class="author"><a href="https://github.com/robknows?tab=repositories">
 						(Robert Moore)
 					</a></span>
@@ -790,7 +818,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/jonathonmcmurray/ws.q">ws.q</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/jonathonmcmurray/ws.q">ws.q</a></td>
 <td>Simple library for websockets. <span class="author"><a href="https://github.com/jonathonmcmurray?tab=repositories">
 						(Jonathon McMurray)
 					</a></span>

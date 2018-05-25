@@ -1,3 +1,13 @@
+---
+hero: Interfaces
+title: Kdb+ and WebSockets
+author:
+    - Chris Scott
+    - Michael Gracey
+date: May 2018
+keywords: AJAX, asynchronous, connection, HTML5, JavaScript, security, WebSockets
+---
+
 # Kdb+ and WebSockets 
 
 
@@ -37,6 +47,7 @@ code) of a simple Web application which uses kdb+ to provide real-time
 updating of tables based on user queries.
 
 !!! tip "HTML, CSS and JavaScript"
+
     As well as q, this paper makes significant use of HTML, CSS and JavaScript. A basic understanding of these will be necessary to take full advantage of this paper, though any complex structures will be examined here in detail. For a crash course on the above languages, please refer to the following resources:
 
     -   [w3schools.com](http://www.w3schools.com/)
@@ -156,7 +167,7 @@ perhaps, more importantly, see a _Frames_ section which can be used to
 monitor traffic sent over the connection in real time. We will revisit
 the _Frames_ section later.
 
-![](img/image2.png)<br>
+![](img/image2.png)<br/>
 <small>_The Network tab in Chrome Developer Tools_</small>
 
 
@@ -278,7 +289,7 @@ console in that we can write some q commands in its input box, send that
 input as a string to the server by clicking a button and then see the
 returned result produced by the server evaluating those input commands.
 
-![](img/image3.jpg)<br>
+![](img/image3.jpg)<br/>
 <small>_A web console application which allows q commands to be executed from the browser_</small>
 
 
@@ -465,9 +476,8 @@ However, Kx provides the script `c.js` which contains the functionality to
 serialize and deserialize data on the client side. The deserialize
 function converts kdb+ binary data into JSON, while the serialize
 function will convert our message into kdb+ binary format before sending
-it to the server. `c.js` can be found at:
-
-<i class="fa fa-github"></i> [github.com/KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js)
+it to the server. `c.js` can be found on GitHub at:
+<i class="fa fa-github"></i> [KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js)
 
 The previous section showed how we can parse q structures into JSON strings and
 send them to our client. In this example, we will instead do all of the
@@ -531,7 +541,7 @@ happened, and how many characters long those messages were. The figure
 below shows us the traffic conducted while using our earlier web console
 application.
 
-![](img/image4.png)<br>
+![](img/image4.png)<br/>
 <small>_The sent and received messages over a connection as displayed in Google Chrome’s Network tab_</small>
 
 You can see above that the messages in green are query strings that we
@@ -617,7 +627,7 @@ features will be explained here. Once the example is successfully
 running you should be able to see the following tables in your browser
 continuously updating:
 
-![](img/image5.jpg)<br>
+![](img/image5.jpg)<br/>
 <small>_The web page shows the last quote and trade values for
 each symbol, and gives the user the ability to filter the syms
 in view_</small>
@@ -751,7 +761,7 @@ Michael Gracey also joined First Derivatives in 2013 and works as a front-end de
 
 ## Appendices 
 
-The following code is also available at
+The following code is also available on GitHub at
 <i class="fa fa-github"></i> [kxcontrib/websocket](https://github.com/kxcontrib/websocket).
 
 

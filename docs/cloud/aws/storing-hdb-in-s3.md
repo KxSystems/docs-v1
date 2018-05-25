@@ -46,7 +46,7 @@ An S3 object store is organized differently from a POSIX file system.
 
 [![S3 object store](img/media/image7.png)](img/media/image7.png "Click to expand")
 
-S3 uses a web-style [RESTful interface](https://en.m.wikipedia.org/wiki/Representational_state_transfer "Wikipedia") HTTP-style interface with [eventual-consistency](https://en.wikipedia.org/wiki/Eventual_consistency "Wikipedia") semantics of put and change. 
+S3 uses a web-style [RESTful interface](https://en.m.wikipedia.org/wiki/Representational_state_transfer "Wikipedia") HTTP-style interface with [eventual-&#8203;consistency](https://en.wikipedia.org/wiki/Eventual_consistency "Wikipedia") semantics of put and change. 
 This will always represent an additional level of abstraction for an application like kdb+ that directly manages its virtual memory. 
 S3 therefore exhibits slower per–process/thread performance than is usual for kdb+. The lack of POSIX interface and the semantics of RESTful interfaces prevents kdb+ and other high-performance databases from using S3 directly. 
 

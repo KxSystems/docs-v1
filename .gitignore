@@ -6,6 +6,8 @@ todo.md
 migration.html
 send.sh
 
+*.fo
+*.xml
 *.zip
 
 docs copy/

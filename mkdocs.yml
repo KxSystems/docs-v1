@@ -28,7 +28,7 @@ markdown_extensions:
   - extra
   # - fenced_code
   - fontawesome_markdown
-  #- meta
+  - meta
   - pymdownx.arithmatex
   # - pymdownx.betterem(smart_enable=all)
   # - pymdownx.caret
@@ -77,6 +77,7 @@ pages:
     - IPC protocol: ref/ipc.md
     - Internal functions: ref/internal.md
     - Releases:
+      - Changes in 3.6: ref/releases/ChangesIn3.6.md
       - Changes in 3.5: ref/releases/ChangesIn3.5.md
       - Changes in 3.4: ref/releases/ChangesIn3.4.md
       - Changes in 3.3: ref/releases/ChangesIn3.3.md
@@ -174,8 +175,21 @@ pages:
       - H. ObjectiveFS: cloud/aws/app-h-objectivefs.md
       - I. WekaIO Matrix: cloud/aws/app-i-wekaio-matrix.md
       - J. Quobyte: cloud/aws/app-j-quobyte.md
+    - Google Cloud Launcher: cloud/gcl/index.md
   - Machine learning:
     - Introduction: ml/index.md
+    - Set up: ml/setup.md
+    - Natural language processing:
+      - Preparing text: ml/nlp/index.md
+      - Feature vectors: ml/nlp/feature-vectors.md
+      - Comparisons: ml/nlp/comparisons.md
+      - Clustering: ml/nlp/clustering.md
+      - Finding outliers: ml/nlp/finding-outliers.md
+      - Explaining similarities: ml/nlp/explaining-similarities.md
+      - Sentiment analysis: ml/nlp/sentiment-analysis.md
+      - Importing MBOX files: ml/nlp/mbox.md
+      - Parsing emails: ml/nlp/parsing-emails.md
+      - Useful functions: ml/nlp/useful-functions.md
     - embedPy:
       - Overview: ml/embedpy/index.md
       - Running Python code: ml/embedpy/running.md
@@ -192,6 +206,7 @@ pages:
       - Load and save code: ml/jupyterq/load-save.md
       - Python and inline display: ml/jupyterq/inline-display.md
       - Command-line arguments: ml/jupyterq/command-line.md
+      - FAQ: ml/jupyterq/faq.md
   - Interface summary: interfaces.md
   - Fusion for kdb+:
     - Introduction: interfaces/fusion.md
@@ -239,6 +254,7 @@ pages:
     - CPU affinity: cookbook/cpu-affinity.md
     - Custom web server: cookbook/custom-web.md
     - Daemon: cookbook/daemon.md
+    - Deferred response: cookbook/deferred-response.md
     - FAQ: cookbook/faq.md
     - FAQ from k4 listbox: cookbook/faq-listbox.md
     - File compression: cookbook/file-compression.md
@@ -283,8 +299,21 @@ pages:
     - Dashboards for Kx: platform/dashboards.md
     - Stream for Kx: platform/stream.md
   - White papers: 
-    - Index of PDFs: whitepapers.md
-    - Java API: wp/java-api/index.md
+    - Index: whitepapers.md
+    - Java API: 
+      - Introduction: wp/java-api/index.md
+      - API overview: wp/java-api/api.md
+      - Models and type mapping: wp/java-api/models.md
+      - Practical examples: wp/java-api/examples.md
+      - Connecting to kdb+: wp/java-api/connecting.md
+      - Extracting data from returned objects: wp/java-api/extracting-data.md
+      - Creating and passing data objects: wp/java-api/data-objects.md
+      - Reconnecting automatically: wp/java-api/reconnect.md
+      - Kdb+ tickerplant overview: wp/java-api/tickerplant-overview.md
+      - Tickerplant subscriptions: wp/java-api/tickerplant-subscribe.md
+      - Tickerplant publishing: wp/java-api/tickerplant-publish.md
+      - Connecting to Java: wp/java-api/connect-from-kdb.md
+      - Conclusion : wp/java-api/conclusion.md
     - WebSockets: wp/websockets/index.md
   - GitHub: github.md
   - Q for Mortals 3: q4m3.md
@@ -301,3 +330,5 @@ pages:
       - Style: about/sg/style.md
       - Typography: about/sg/typography.md
       - Terminology: about/sg/terminology.md
+    - License agreements:
+      - GCP: license/gcp.md
