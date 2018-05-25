@@ -234,7 +234,9 @@ q)-16!a
 
 ## `-17!x` (flip endian-ess)
 
-Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ V2.6](releases/ChangesIn2.6)
+Flip endian-ness of kdb+ datafile `x`, see notes in [Changes in kdb+ V2.6](releases/ChangesIn2.6).
+
+Removed in V3.0; now signals `nyi`. 
 
 
 

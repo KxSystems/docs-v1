@@ -48,6 +48,7 @@ We gratefully acknowledge contributions by pull requests from
 -   Rikesh
 -   Thomas Smyth
 -   Sergey Vidyuk
+-   William Da Silva
 
 
 ## <i class="fa fa-balance-scale"></i> License 

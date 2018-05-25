@@ -769,6 +769,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/robknows/Q-GeneticAlgo">Q-GeneticAlgo ==new==</a></td>
+<td>Functions for defining and running genetic algorithms for fixed length binary chromosomes. <span class="author"><a href="https://github.com/robknows?tab=repositories">
+						(Rob&nbsp;Moore)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/komsit37/qchart">qchart</a></td>
 <td>Plot data directly from q (using JavaScript). Works well with sublime-q. Transform your data into [JSON](http://www.json.org/) and renders it into a HTML/JavaScript template. <span class="author"><a href="https://github.com/komsit37?tab=repositories">
 						(Eugene Kononov)
@@ -790,7 +797,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/robknows/qng">qng</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/robknows/qng">qng</a></td>
 <td>Simple PNG tools. <span class="author"><a href="https://github.com/robknows?tab=repositories">
 						(Robert Moore)
 					</a></span>
@@ -811,7 +818,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/jonathonmcmurray/ws.q">ws.q</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/jonathonmcmurray/ws.q">ws.q</a></td>
 <td>Simple library for websockets. <span class="author"><a href="https://github.com/jonathonmcmurray?tab=repositories">
 						(Jonathon McMurray)
 					</a></span>

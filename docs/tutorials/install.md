@@ -125,6 +125,7 @@ Open a Bash session (eg LXTerminal) in your home folder and `cd` to your Downloa
 
 ![cd ~/Downloads unzip linux-x86.zip cp -r q ~/. cd ~](img/install_linux_01.png "cd ~/Downloads unzip linux-x86.zip cp -r q ~/. cd ~")
 
+
 ### 32-bit or 64-bit?
 
 Use the `uname` command to determine whether your machine is using the 32-bit or 64-bit Linux distribution.
@@ -142,6 +143,7 @@ But if you are installing 32-bit kdb+ on a 64-bit Linux distribution, you will n
 sudo apt-get install libc6-i386
 ```
 
+<i class="fa fa-hand-o-right"></i> AskUbuntu: [How to run 32-bit app in Ubuntu 64-bit?](https://askubuntu.com/questions/454253/how-to-run-32-bit-app-in-ubuntu-64-bit)
 
 ### Minimum install and launch
 
