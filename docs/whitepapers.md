@@ -21,7 +21,7 @@ Links are to PDFs except as marked:
 * [Kdb+ and **FIX** messaging](wp/kdb_and_fix_messaging.pdf)
 * [Common design principles for kdb+ **gateways**](wp/common_design_principles_for_kdb_gateways.pdf)
 * [An introduction to **graphical interfaces** for kdb+ using C#](wp/an_introduction_to_graphical_interfaces_for_kdb_using_csharp.pdf)
-* ==new== **Java API** for kdb+ [<i class="fa fa-html5"></i>](wp/java-api "HTML") [<i class="fa fa-file"></i>](wp/java-api/java-api.pdf)
+* ==new== **Java API** for kdb+ [<i class="fa fa-html5"></i>](wp/java-api "HTML") [<i class="fa fa-file"></i>](wp/java-api/java-api.pdf "PDF")
 * [Building **real-time tick subscribers**](wp/building_real_time_tick_subscribers.pdf)
 * [**Socket sharding** with kdb+ and Linux](wp/socket-sharding.pdf) 
 <!-- * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
