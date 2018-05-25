@@ -83,7 +83,7 @@ q)show foo:42 43 44
 42 43 44
 q)foo[1]:100
 q)foo
-42 100 43
+42 100 44
 ```
 Amendment through assignment can be modified by any operator. 
 ```q
@@ -298,7 +298,7 @@ q)(reverse)(0 1 2)  /juxtaposition is application
 q)reverse 0 1 2     /the parens are redundant
 2 1 0
 ```
-A unary function `g` with argument `d` can be evaluated by `g@d` or `g.enlist d`.
+A unary function `g` with argument `d` can be evaluated by `g@d` or `g . enlist d`.
 ```q
 q)f:{x*2}
 q)f@42
