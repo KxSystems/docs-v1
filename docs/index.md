@@ -7,7 +7,7 @@ description: Technical documentation and resources for q and kdb+ developers
 <div style="display: flex"  flex-direction: row; flex-wrap: wrap; markdown="1">
 
 <div style="display: inline-flex;" markdown="1">
-Kdb+, from [Kx Systems](http://kx.com), is 
+Kdb+, from [Kx&nbsp;Systems](http://kx.com), is 
 
 -   a high-performance historical time-series columnar database
 -   an in-memory compute engine
