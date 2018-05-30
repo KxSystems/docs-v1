@@ -33,5 +33,5 @@ Particular consideration is given to how the API facilitates subscription and pu
 
 The examples presented here form a set of practical templates complementary to the [primary source of information](/interfaces/java-client-for-q) on code.kx.com.
 These templates can be combined and adapted to apply kdb+ across a
-broad range of problem domains. They are available on <i class="fa fa-github"></i> [GitHub](https://github.com/kxcontrib/javaapi).
+broad range of problem domains. They are available on <i class="fa fa-github"></i> [GitHub](https://github.com/KxSystems/javakdb).
 
