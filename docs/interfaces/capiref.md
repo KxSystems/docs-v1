@@ -439,7 +439,7 @@ Signature: `K kp(S x)`
 Create a char array from a string.
 
 
-#### `kpn` – create fixed string 
+#### `kpn` – create fixed-length string 
 
 Signature: `K kpn(S x, J n)`
 
