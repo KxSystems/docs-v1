@@ -35,8 +35,8 @@ Research](https://www.srgresearch.com/articles/microsoft-google-and-ibm-charge-p
 rank cloud-services providers:
 
 1. Amazon Web Services
-2. Google Cloud Platform
-3. Microsoft Azure 
+1. Microsoft Azure 
+1. Google Cloud Platform
 
 This is partly due to the fact that Amazon was first to market, and
 partly because of their strong global data-center presence and rich
