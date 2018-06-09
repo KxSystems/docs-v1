@@ -394,12 +394,36 @@ Signature: `I khpun(const S h, I p, const S u, I n)`
 Establish a connection to host `h` on port `p` providing credentials ("username:password" format) `u` with timeout `n`.
 
 On success, returns positive file descriptor for established connection. On error, 0 or a negative value is returned.
+```txt
+code | error
+-----|-------
+  0  | Authentication error
+ -1  | Connection error
+ -2  | Timeout error 
+```
 
-    code | error
-    -----|-------
-      0  | Authentication error
-     -1  | Connection error
-     -2  | Time out error 
+#### `khpunc` – connect with capability
+
+Signature: `I khpunc(S hostname, I port, S usernamepassword, I timeout, I capability)`
+
+`capability` is a bit field: 
+```txt
+value | effect
+------|-------
+  1   | 1 TB limit
+  2   | use TLS
+```
+A return value of -3 indicates the OpenSSL initialisation failed. 
+```txt
+code | error
+-----|-------
+  0  | Authentication error
+ -1  | Connection error
+ -2  | Timeout error 
+ -3  | OpenSSL initialisation failed
+```
+
+<i class="fa fa-hand-o-right"></i> [`sslInfo`](#sslinfo-ssl-info)
 
 
 #### `ki` – create int
@@ -629,6 +653,30 @@ Signature: `S ss(S)`
 Intern a null-terminated string. 
 
 Returns an interned string and should be used to store the string in a symbol vector.
+
+
+#### `sslInfo` – SSL info
+
+Signature: `K sslInfo(K x)`
+
+A dictionary of settings similar to [`-26!x`](/ref/internal/#-26x-ssl), or an error if SSL initialisation failed.
+```c
+extern I khpunc(S hostname,I port,S usernamepassword,I timeout,I capability);
+int handle=khpunc("remote host",5000,"user:password",timeout,2);
+extern K sslInfo(K x); 
+if(handle==-3){
+    K x=ee(sslInfo((K)0));
+    printf("Init error %s\n",xt==-128?x->s:"unknown");
+    r0(x);
+}
+```
+
+
+#### `ver` – release date
+
+Signature: `I ver()`
+
+Returns an int as yyyymmdd. 
 
 
 #### `xD` – create dictionary
