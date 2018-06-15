@@ -260,6 +260,7 @@ Where `x` is a list of 5 items:
     + 1: q IPC
     + 2: `gzip`
     + 3: [snappy](http://google.github.io/snappy) (since V3.4)
+    + 4: lz4hc (since V3.6)
 - _compression level_: an integer between 0 and 9 (valid only for `gzip`, use 0 for other algorithms)
 
 returns the target file as a file symbol. 

@@ -1,4 +1,4 @@
-Functions defined in q.k are loaded as part of the "bootstrap" of q. (They are of course written in k.) Some are exposed in the root namespace as the q language. Others are documented here as utility functions in the .Q namespace. 
+Functions defined in `q.k` are loaded as part of the "bootstrap" of q. (They are of course written in k.) Some are exposed in the root namespace as the q language. Others are documented here as utility functions in the `.Q` namespace. 
 
 !!! warning "Reserved"
     The `.Q` namespace is reserved for use by Kx, as are all single-letter namespaces. 
@@ -144,15 +144,26 @@ Provides defaults and types for command line arguments parsed with [``.Q.opt``](
 <i class="fa fa-hand-o-right"></i> [`.z.x`](dotz/#zx-argv)
 
 ### `.Q.dpft` (save table)
+### `.Q.dpfts` (save table with symtable)
 
-Syntax: ``.Q.dpft[directory;partition;`p#field;tablename]``
+Syntax: ``.Q.dpft[d;p;f;t]``  
+Syntax: ``.Q.dpfts[d;p;f;t;s]``
 
-Saves a simple table splayed to a specific `partition` of a database sorted (`` `p#``) on a specified `field`. 
+Where
 
-!!! warning 
-    The table cannot be keyed. This will signal an `'unmappable` error if there are columns which are not vectors or simple nested columns (e.g. char vectors for each row).
+-   `d` is a directory handle
+-   `p` is a partition of a database sorted (``p#´``) on 
+-   `f` a field of the table named by 
+-   `t`, a table handle
+-   `s` is the handle of a symtable
 
-It also rearranges the columns of the table so that the column specified by `field` is second in the table (the first column in the table will be the virtual column determined by the partitioning e.g. date).
+saves `t` splayed to partition `p`.
+
+!!! warning "Simple tables only"
+
+    The table cannot be keyed. This would signal an `'unmappable` error if there are columns which are not vectors or simple nested columns (e.g. char vectors for each row).
+
+It also rearranges the columns of the table so that the column specified by `f` is second in the table (the first column in the table will be the virtual column determined by the partitioning e.g. date).
 
 Returns the table name if successful.
 ```q
@@ -189,6 +200,26 @@ table columns
 -------------
 t     b
 ```
+`.Q.dpfts` allows the enum domain to be specified. Since V3.6 (2018.04.13)
+```q
+q)show t:([]a:10?`a`b`c;b:10?10)
+a b
+---
+c 8
+a 1
+b 9
+b 5
+c 4
+a 6
+b 6
+c 1
+b 8
+c 5
+q).Q.dpfts[`:db;2007.07.23;`a;`t;`mysym]
+`t
+q)mysym
+`c`a`b
+```
 
 
 ### `.Q.dsftg` (load process save)
@@ -197,13 +228,13 @@ Syntax: `.Q.dsftg[d;s;f;t;g]`
 
 Where 
 
-- `d` is `(dst;part;table)`
+- `d` is `(dst;part;table)` where `table` has `M` rows
 - `s` is `(src;offset;length)`
 - `f` is fields as a symbol vector
-- `t` is `(types;widths)
+- `t` is `(types;widths)`
 - `g` is a unary post-processing function
 
-loops M&1000000 rows at a time. 
+loops `M&1000000` rows at a time. 
 For example, loading TAQ DVD:
 ```q
 q)d:(`:/dst/taq;2000.10.02;`trade)
@@ -214,12 +245,27 @@ q)g:{x[`stop]=:240h;@[x;`price;%;1e4]}
 q).Q.dsftg[d;s;f;t;g]
 ```
 
+<!-- 
+### `.Q.dtps`
+
+==FIXME==
+ -->
 
 ### `.Q.en` (enumerate varchar cols)
 
 Syntax: `.Q.en[x;y]`
 
 <i class="fa fa-hand-o-right"></i> [Enumerating varchar columns in a table](/cookbook/splayed-tables/#enumerating-varchar-columns-in-a-table)
+
+
+### `.Q.ens` (enumerate against domain)
+
+Syntax: `.Q.ens[dir;table;name]` 
+
+allows enumeration against domains (and therefore filename) other than `` `sym``.  E.g. enumerate against contents of `` `:mysym``.
+```q
+q)([]sym:`mysym$`a`b`c)~.Q.ens[`:db;([]sym:`a`b`c);`mysym]
+```
 
 
 ### `.Q.f` (format)
@@ -569,7 +615,7 @@ Saves all tables by calling `.Q.dpft`, clears tables, and sends reload message t
 
 Syntax: `.Q.hg x`
 
-Where `x` is a URL as a symbol atom, returns as a list of strings the result of an HTTP[S] GET query.
+Where `x` is a URL as a symbol atom or (since V3.6) a string, returns as a list of strings the result of an HTTP[S] GET query.
 (Since V3.4)
 ```q
 q).Q.hg`:http://www.google.com
@@ -593,6 +639,15 @@ environment variable       | use
 N.B. HTTPS is not supported across proxies which require `CONNECT`.
 
 
+<!-- 
+### `.Q.hmb` (FIXME)
+
+Since V3.6 uses built-in btoa for Basic Authentication, e.g.
+```q
+ q).Q.hg`$":http://username:password@www.google.com"
+```
+
+ -->
 ### `.Q.host` (hostname)
 
 Syntax: `.Q.host x`
