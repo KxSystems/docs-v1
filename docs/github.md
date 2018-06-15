@@ -271,7 +271,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/dpy">dpy</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/dpy">dpy</a> </td>
 <td>General object display with type and structure <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
 					</a></span>
@@ -312,6 +312,13 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/srpeck/kwsrepl">kwsrepl</a></td>
 <td>Kdb+/k/q live REPL over web sockets. <span class="author"><a href="https://github.com/srpeck?tab=repositories">
 						(Stephen Peck)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/aa1024/nexusQ">nexusQ ==new==</a></td>
+<td>Visualizer for q process network. <span class="author"><a href="https://github.com/aa1024/?tab=repositories">
+						(Ali Kapadaya)
 					</a></span>
 </td>
 </tr>
@@ -372,7 +379,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/qprof">qprof</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/qprof">qprof</a> </td>
 <td>Code profiler <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
 					</a></span>
@@ -380,7 +387,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/iuhh/qprofiler">qprofiler ==new==</a></td>
+<td class="nowrap"><a href="https://github.com/iuhh/qprofiler">qprofiler </a></td>
 <td>Production-safe profiler that can be used for live debugging and performance troubleshooting <span class="author"><a href="https://github.com/iuhh?tab=repositories">
 						(HL)
 					</a></span>
@@ -415,7 +422,14 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/CharlesSkelton//studio">studio</a></td>
+<td class="nowrap"><a href="https://github.com/aa1024/sphinxQ">sphinxQ ==new==</a></td>
+<td>A [Sphinx](http://www.sphinx-doc.org/en/master/) documentation tool for q. <span class="author"><a href="https://github.com/aa1024/?tab=repositories">
+						(Ali Kapadaya)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/CharlesSkelton/studio">studio</a></td>
 <td>A rapid-development environment for q. <span class="author"><a href="https://github.com/CharlesSkelton/?tab=repositories">
 						(Charles Skelton)
 					</a></span>
@@ -444,7 +458,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/ws">ws</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/LeslieGoldsmith/ws">ws</a> </td>
 <td>Workspace utilities <span class="author"><a href="https://github.com/LeslieGoldsmith?tab=repositories">
 						(Leslie Goldsmith)
 					</a></span>
@@ -706,7 +720,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/asatirahul/cryptoq/">cryptoq</a> ==new==</td>
+<td class="nowrap"><a href="https://github.com/asatirahul/cryptoq/">cryptoq</a> </td>
 <td>Cryptographic functions and binary operation. <span class="author"><a href="https://github.com/asatirahul?tab=repositories">
 						(Rahul Asati)
 					</a></span>
@@ -769,7 +783,7 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/robknows/Q-GeneticAlgo">Q-GeneticAlgo ==new==</a></td>
+<td class="nowrap"><a href="https://github.com/robknows/Q-GeneticAlgo">Q-GeneticAlgo </a></td>
 <td>Functions for defining and running genetic algorithms for fixed length binary chromosomes. <span class="author"><a href="https://github.com/robknows?tab=repositories">
 						(Rob&nbsp;Moore)
 					</a></span>
@@ -814,6 +828,13 @@ about new repositories.</div>
 <td class="nowrap"><a href="https://github.com/nugend/qutil">qutil</a></td>
 <td>Provides several different common utility functions. These currently include: an option-parsing facility as an alternative to .Q.opt; and a file-loading facility based on a pathlist and supporting version numbers. <span class="author"><a href="https://github.com/nugend?tab=repositories">
 						(Daniel Nugent)
+					</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/aa1024/strQ">strQ</a> ==new==</td>
+<td>String helper functions. <span class="author"><a href="https://github.com/aa1024?tab=repositories">
+						(Ali Kapaya)
 					</a></span>
 </td>
 </tr>
