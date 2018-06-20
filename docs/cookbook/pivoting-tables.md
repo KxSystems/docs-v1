@@ -14,7 +14,7 @@ q)pvt:([k:1 2 3]xx:10 40 0N;yy:0N 20 50;zz:0N 0N 30)
 ```
 ![pivot table](/img/pivot-2.png)
 
-As originally suggested by Jeff Borror, we begin by getting the distinct pivot values – these will become our column names in addition to the key column `k`.
+As originally suggested by Jeff Borror, we begin by getting the distinct pivot values – these will become our column names in addition to the key column `k`. Note that `p` must be a column of symbols for this to work.
 ```q
 q)P:asc exec distinct p from t;
 ```
@@ -22,7 +22,7 @@ And then create the pivot table!
 ```q
 q)pvt:exec P#(p!v) by k:k from t;
 ```
-which can be read as: for each key `k`, create a dictionary of the present columns `p` and their values `v`, take the full list of columns from that dict, and finally collapse the list of dicts to a table.
+which can be read as: for each key `k`, create a dictionary of the present columns `p` and their values `v`, take the full list of columns from that dict, and finally collapse the list of dicts to a table. 
 
 Another variation on creating the pivot table
 ```q
