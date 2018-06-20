@@ -318,7 +318,7 @@ about new repositories.</div>
 <tr>
 <td class="nowrap"><a href="https://github.com/aa1024/nexusQ">nexusQ ==new==</a></td>
 <td>Visualizer for q process network. <span class="author"><a href="https://github.com/aa1024/?tab=repositories">
-						(Ali Kapadaya)
+						(Ali Kapadiya)
 					</a></span>
 </td>
 </tr>
@@ -424,7 +424,7 @@ about new repositories.</div>
 <tr>
 <td class="nowrap"><a href="https://github.com/aa1024/sphinxQ">sphinxQ ==new==</a></td>
 <td>A [Sphinx](http://www.sphinx-doc.org/en/master/) documentation tool for q. <span class="author"><a href="https://github.com/aa1024/?tab=repositories">
-						(Ali Kapadaya)
+						(Ali Kapadiya)
 					</a></span>
 </td>
 </tr>
@@ -834,7 +834,7 @@ about new repositories.</div>
 <tr>
 <td class="nowrap"><a href="https://github.com/aa1024/strQ">strQ</a> ==new==</td>
 <td>String helper functions. <span class="author"><a href="https://github.com/aa1024?tab=repositories">
-						(Ali Kapaya)
+						(Ali Kapadiya)
 					</a></span>
 </td>
 </tr>
