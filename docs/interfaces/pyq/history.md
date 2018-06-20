@@ -8,14 +8,14 @@ Released on 2018-06-18
 
 Bug fixes and enhancements
 
-- !629 - BUG #992 Fixed conversion of mixed lists with unicode entries to q.
-- !630 - ENH #994 Allow None and Python 2.x unicode in K._S accelerator.
+- !629 - BUG #992 Fixed conversion of mixed lists with Unicode entries to q.
+- !630 - ENH #994 Allow None and Python 2.x Unicode in `K._S` accelerator.
 - !633 - ENH #995 Optimize conversion for masked array.
-- !634 - BUG #996 Fixed getitem for kdb+ v3.6.
+- !634 - BUG #996 Fixed getitem for kdb+ V3.6.
 - !636 - MNT #000 Fix codestyle failures.
-- !640 - BUG #1003 Fixed getitem in the case of legacy 32-bit enums.
+- !640 - BUG #1003 Fixed `getitem` in the case of legacy 32-bit enums.
 - !641 - BUG #1005 Fix translation of Windows paths to k
-- !643 - ENH #0000 Updated k.h to the latest version 2018.05.24.
+- !643 - ENH #0000 Updated `k.h` to the latest version 2018.05.24.
 - !646 - BUG #957 Improve detection of standalone Python
 - !651 - BUG #1008 Added logic to find Python DLL from sysconfig.
 - !653 - ENH #703 Create conda package
@@ -26,9 +26,11 @@ CI
 - !654 - TST #1010 Skip infinite recursion tests when measuring coverage
 - !655 - BUG #997 Fixed wrongdoings in CI
 
+
 Documentation
 
 This is the last release series, where documentation is included with the PyQ source. Starting with PyQ 4.2.0 documentation will be available only at [code.kx.com](http://code.kx.com/q/interfaces/pyq/).
+
 
 ## Version 4.1.3
 
@@ -39,16 +41,17 @@ Bug fixes and enhancements
 - !604 - BUG #970 Ignore the first line in the `otool -L` output.
 - !608 - ENH #980 Implemented `K.guid.na`.
 - !610 - STY #916 C code reformat
-- !614 - ENH #919 Rewrote z2py entirely in C.
-- !616 - MNT #984 Speed up access to q builtins.
-- !617 - ENH #936 Support for kdb+ version 3.6
-- !622 - BUG #988 Use `/sbin/ldconfig` if `ldconfig` not in the PATH.
+- !614 - ENH #919 Rewrote `z2py` entirely in C.
+- !616 - MNT #984 Speed up access to q built-ins.
+- !617 - ENH #936 Support for kdb+ V3.6
+- !622 - BUG #988 Use `/sbin/ldconfig` if `ldconfig` not in the `PATH`.
 - gh-33 - MNT Define `_GNU_SOURCE` conditionally.
 - gh-38 - MNT Update `k.h`.
 
+
 Documentation
 
-This is the last release, where documentation included with the PyQ source. Starting with PyQ 4.2.0 documentation will be available only at [code.kx.com](http://code.kx.com/q/interfaces/pyq/).
+This is the last release, where documentation included with the PyQ source. Starting with PyQ 4.2.0, documentation will be available only at [code.kx.com](http://code.kx.com/q/interfaces/pyq/).
 
 - !621 - MNT Update metadata and authors list
 - gh-26 - MNT Updated the license entry in the package classifiers.
@@ -65,10 +68,10 @@ Released 2017.10.12
 
 Bug fixes and enhancements
 
-- !589 – BUG #955 Check for negative values (including 0Ni) in enums.
-- !590 – BUG #956 Do not use clr.
+- !589 – BUG #955 Check for negative values (including `0Ni`) in enums.
+- !590 – BUG #956 Do not use `clr`.
 - !591 – ENH #958 Support for building wheels.
-- !594 – BUG #960 Do not colorize the q) prompt on Windows.
+- !594 – BUG #960 Do not colorize the `q)` prompt on Windows.
 - !597 – BUG #962 Removed 'collections' from `lazy_converters`.
 - !598 – MNT #963 Fixed issue identified by lgtm.com.
 
@@ -78,13 +81,14 @@ Documentation
 - !595 – DOC #961 Fixed a typo in an introductory example.
 - !599 – DOC #964 Updated documentation in preparation for 4.1.2 release.
 
+
 ## [Version 4.1.1](http://pyq.readthedocs.io/en/pyq-4.1.1/)
 
 Released 2017.09.21
 
 Bug fixes and enhancements
 
-- !579 – BUG #948 Fixed compile errors on Windows with kdb+ version &lt; 3.5.
+- !579 – BUG #948 Fixed compile errors on Windows with kdb+ &lt; V3.5.
 - !577 – BUG #946 Fixed compilation errors for Python 2.7 on Windows.
 - !582 – ENH #950 Explain how to properly start PyQ when launching from stock Python.
 
@@ -95,6 +99,7 @@ Documentation
 CI
 
 - !584 – TST #952 Attempt to fix failing tests on Windows.
+
 
 ## [Version 4.1.0](http://pyq.readthedocs.io/en/pyq-4.1.0/)
 
@@ -148,6 +153,7 @@ CI
 - !570 – BLD Closes #940 Test using Python 2.7, 3.5 and 3.6; numpy 1.12 and 1.13.
 - !571 – BLD #867 Add setup option when we remove setuptools.
 - !531 – #909 Added ubuntu job to CI in develop branch
+
 
 ## [Version 4.0.3](http://pyq.readthedocs.io/en/pyq-4.0.3/)
 
@@ -245,7 +251,7 @@ Enhancements:
 - !394 – #823: Preload kdb+ database if provided on pyq command line.
 - !397 – #830: Make sure strings obtained from q symbols are interned.
 - !398 – #806: Added a simple word completer.
-- !399 – #819: Make K.string accept unicode in Python 2.x and bytes in Python 3.x.
+- !399 – #819: Make K.string accept Unicode in Python 2.x and bytes in Python 3.x.
 - !400 – #806: Clean python exit on `\\`
 - !405 – #836: Reimplemented `K.__bool__` in C.
 - !406 – #837: Reimplemented `K.__get__` in C.
@@ -432,7 +438,7 @@ Released 2015.02.12.
 - !244 – #701 Fixed using q datetime (z) objects in format().
 - !246 – Removed pytest-pyq code. pytest-pyq is now separate package.
 - !247 – #709 IPython q-magic improvements
-- !248 – #673 Implemented unicode to q symbol conversion in python 2.x.
+- !248 – #673 Implemented Unicode to q symbol conversion in python 2.x.
 - !249, !252 – #691 Improved test coverage
 - !250, !251 – #695 Use Tox as test-runner
 - !253 – #715 Fixed table size computation in getitem.
