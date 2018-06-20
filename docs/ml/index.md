@@ -13,18 +13,20 @@ keywords: Python, Jupyter, natyural laguage processing, nlp, machine learning, m
 
 ## Natural Language Processing 
 
-[NLP](nlp) is the first module in our machine-learning suite, and manages the common functions associated with processing unstructured text. Functions for searching, clustering, keyword extraction and sentiment are included.
-<i class="fa fa-hand-o-right"></i> [Demonstration notebook](https://github.com/awilson-kx/nlp)
+[NLP](nlp) is the first module in our machine-learning suite, and manages the common functions associated with processing unstructured text. Functions for searching, clustering, keyword extraction and sentiment are included, the library is available [here](https://github.com/KxSystems/nlp).
+
+<i class="fa fa-hand-o-right"></i> [Demonstration notebook](https://github.com/KxSystems/mlnotebooks/blob/master/notebooks/ML07%20Natural%20Language%20Processing.ipynb)
 
 
 ## embedPy
 
 [EmbedPy](embedpy) loads Python into kdb+, allowing access to a rich ecosystem of libraries such as scikit-learn, tensorflow and pytorch.
-<i class="fa fa-hand-o-right"></i> [Example notebooks of usage](https://github.com/awilson-kx/notebooks)
 
 -   Python variables and objects become q variables – and either language can act upon them. 
 -   Python code and files can be embedded within q code.
 -   Python functions can be called as q functions.
+
+<i class="fa fa-hand-o-right"></i> [Example notebooks using embedPy](https://github.com/KxSystems/mlnotebooks)
 
 
 ## Anaconda

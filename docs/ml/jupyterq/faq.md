@@ -23,6 +23,14 @@ You will need to export the `LD_LIBRARY_PATH` and add this to your configuration
 c.Spawner.env_keep.append('LD_LIBRARY_PATH')
 ```
 
+## Why is setting `LD_LIBRARY_PATH/DYLD_LIBRARY_PATH` required with Anaconda python?
+
+Anaconda packages libraries which may conflict with the system versions of these libraries loaded by q at startup e.g. `libssl` or `libz`. There is a `conda` packaged version of `q` which doesn't require setting `LD_LIBRARY_PATH`, if you are already using Anaconda then you can install it with
+
+```bash
+conda install -c kx kdb
+```
+
 
 ## How can I save the contents of a notebook to a q script?
 
@@ -49,13 +57,15 @@ Yes, either with `p)` or `/%python`.
 
 ## Is there a Docker image available?
 
-Yes, if you have [Docker](https://www.docker.com/community-edition) installed, you can create a directory called `q` and place your `kc.lic` (or `k4.lic`) and `l64.zip` (version 3.5+) files into a `q` directory and run:
+Yes, if you have [Docker](https://www.docker.com/community-edition) installed, you can run:
 ```bash
-docker run --rm -v $(pwd):/q:/tmp/q kxxys/jupyterq
+docker run -it --rm -p 8888:8888 kxsys/jupyterq
 ```
 
+Further instructions for running headless and building the image are [available](https://github.com/KxSystems/jupyterq/blob/master/README.md#docker)
+
 !!! note "Always Linux"
-    Even if you are running Docker on macOS or Windows the version of kdb+ required is 64-bit Linux, and the Docker image is Linux.
+    Even if you are running Docker on macOS or Windows the version of kdb+ is 64-bit Linux, and the Docker image is Linux.
 
 
 
