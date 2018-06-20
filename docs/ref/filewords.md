@@ -23,7 +23,7 @@ Where
 
 returns the list of table names, having saved the table/s as a side effect.
 
-The first column of each table saved has the `` `p `` attribute applied to it. If the path is a list, the first item is the HDB root (where the sym file, if any, will be stored), while the remaining ites are a path within the HDB (e.g. a partition).
+The first column of each table saved has the `` `p `` attribute applied to it. If the path is a list, the first item is the HDB root (where the sym file, if any, will be stored), while the remaining items are a path within the HDB (e.g. a partition).
 
 `dsave` provides roughly the same functionality as the combination of [`.Q.en`](dotq/#qen-enumerate-varchar-cols) and [`set`](#set) or [`.Q.dpft`](dotq/#qdpft-save-table), but in a simpler form.
 ```q
@@ -313,7 +313,7 @@ q)hsym`10.43.23.197
 
 ## `key`
 
-<i class="fa fa-hand-o-right"></i> [`key`](metadata/key) for
+<i class="fa fa-hand-o-right"></i> [`key`](metadata/#key) for
 
 -   contents of a directory
 -   existence of a file
