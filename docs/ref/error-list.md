@@ -60,7 +60,7 @@ Update not allowed when using [negative port number](syscmds/#p-port).
 <tr> <td>nosocket</td> <td class="nowrap">Can only open or use sockets in main thread.</td> </tr>
 <tr> <td>nyi</td> <td class="nowrap">`"a"like"**"`</td> <td>Not yet implemented: it probably makes sense, but it’s not defined nor implemented, and needs more thinking about as the language evolves</td> </tr>
 <tr> <td>os</td> <td>`\foo bar`</td> <td>Operating-system error or [license error](#license-errors)</td> </tr>
-<tr> <td>par</td> <td/> <td>Trying to update a partitioned table</td> </tr>
+<tr> <td>par</td> <td/> <td>Unsupported operation on a partitioned table or component thereof</td> </tr>
 <tr> <td>parse</td> <td/> <td>Invalid [syntax](syntax)</td> </tr>
 <tr> <td>part</td> <td/> <td>Something wrong with the partitions in the HDB</td> </tr> 
 <tr> <td>path too long</td> <td>`$":",1000#"a") set 1 2 3`</td> <td>File path too long</td> </tr> 
