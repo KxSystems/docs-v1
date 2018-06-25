@@ -192,7 +192,7 @@ alice SFO | 44
 
 ## Names and namespaces
 
-A [namespace](https://en.wikipedia.org/wiki/Namespace) is a container or context within which a name resolves to a unique value. Namespaces are children of the _root namespace_ (usually just _root_) and are designated by a dot prefix. Names in the root have no prefix. The root namespace of a q session is parent to multiple namespaces, e.g. `h`, `Q` and `z`. (Namespaces with 1-character names – of either case – are reserved for use by Kx.) 
+A [namespace](https://en.wikipedia.org/wiki/Namespace) is a container or context within which a name resolves to a unique value. Namespaces are children of the _default namespace_ and are designated by a dot prefix. Names in the default namespace have no prefix. The default namespace of a q session has sibling namespaces, e.g. `.h`, `.Q` and `.z`. (Namespaces with 1-character names – of either case – are reserved for use by Kx.) 
 ```q
 q).z.p                         / UTC timestamp
 2017.02.01D14:58:38.579614000
@@ -203,7 +203,7 @@ q).z.p                         / UTC timestamp
     <pre><code class="language-q">
     q)v:5
     q).ns.v:6
-    q)\`.[\`v]      / value of v in root namespace
+    q)\`.[\`v]      / value of v in default namespace
     5
     q)\`.ns[\`v]    / value of v in ns
     6

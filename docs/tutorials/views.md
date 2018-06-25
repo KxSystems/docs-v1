@@ -1,6 +1,7 @@
 A view is a calculation that is re-evaluated only if the values of the underlying dependencies have changed since its last evaluation. 
 
 !!! note "Splayed tables"
+
     To use views with splayed tables make sure you invalidate the data when it changes; this can be done for example by reloading the table.
 
 
@@ -10,6 +11,8 @@ Views can help avoid expensive calculations by delaying propagation of change un
 
 
 ## How is a view defined?
+
+Views and their dependencies can be defined only in the default namespace.
 
 The syntax for the definition is
 ```q

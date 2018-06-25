@@ -68,7 +68,7 @@ Names consist of upper- and lower-case alphabetics. They may contain, but not be
     </code></pre>
     Is `foo_bar` now `42` or `3 4 5`?
 
-Values may be named, using single or double colons. The double colon binds the value to a name in the session root; the single colon binds the name in the local context. In a session with no evaluation suspended their effects are the same.
+Values may be named, using single or double colons. The double colon binds the value to a name in the default namespace; the single colon binds the name in the local context. In a session with no evaluation suspended their effects are the same.
 ```q
 q)foo:42
 q)foo
@@ -394,7 +394,7 @@ q)c
 
 ### Name scope
 
-Within the context of a function, name assignments with `:` are _local_ to it and end after evaluation. Assignments with `::` are _global_ (in the session root) and persist after evaluation.
+Within the context of a function, name assignments with `:` are _local_ to it and end after evaluation. Assignments with `::` are _global_ (in the [default namespace](elements/#names-and-namespaces)) and persist after evaluation.
 ```q
 q)a:b:0                      / set globals a and b to 0
 q)f:{a:10+3*x;b::100+a;}     / f sets local a, global b
@@ -404,13 +404,13 @@ q)a                          / global a is unchanged
 q)b                          / global b is updated
 113 116 119
 ```
-References to names _not_ assigned locally are resolved in the session root. Local assignments are _strictly local_: invisible to other functions applied during evaluation. 
+References to names _not_ assigned locally are resolved in the default namespace. Local assignments are _strictly local_: invisible to other functions applied during evaluation. 
 ```q
-q)a:42           / assigned in root
+q)a:42           / assigned in default namespace
 q)f:{a+x}
-q)f 1            / f reads a in root
+q)f 1            / f reads a in default namespace
 43
-q){a:1000;f x}1  / f reads a in root
+q){a:1000;f x}1  / f reads a in default namespace
 43
 ```
 
