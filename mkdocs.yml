@@ -179,6 +179,7 @@ pages:
   - Machine learning:
     - Introduction: ml/index.md
     - Set up: ml/setup.md
+    - Demonstration notebooks: ml/notebooks.md
     - Natural language processing:
       - Preparing text: ml/nlp/index.md
       - Feature vectors: ml/nlp/feature-vectors.md
