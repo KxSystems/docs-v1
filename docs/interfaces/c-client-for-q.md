@@ -839,5 +839,5 @@ Summary
 
 ## Example
 
-- <i class="fa fa-github"></i> [csv.c](https://github.com/kxcontrib/wiki/blob/master/csv.c) – CSV export example in C <!--FIXME-->
+- <i class="fa fa-github"></i> [csv.c](https://github.com/KxSystems/cookbook/blob/master/c/csv.c) – CSV export example in C
 
