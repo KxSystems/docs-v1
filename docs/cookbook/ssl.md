@@ -26,6 +26,12 @@ This default can be overridden by setting the environment variables `SSL_CERT_FI
 $ export SSL_CERT_FILE=$HOME/certs/server-crt.pem
 $ export SSL_KEY_FILE=$HOME/certs/server-key.pem
 ```
+
+!!! info "Kx first"
+    Since V3.6, kdb+ gives preference to the `KX_` prefix for the `SSL_*` environment variables to avoid clashes with other OpenSSL based products. 
+
+    For example, the value for `` getenv`KX_SSL_CERT_FILE`` has a higher precedence than `` getenv`SSL_CERT_FILE`` for determining config.
+
 If you don't have a certificate, you can create a self-signed certificate using the openssl program. An example script to do so follows, which you should customize as necessary
 ```bash
 $ more makeCerts.sh
