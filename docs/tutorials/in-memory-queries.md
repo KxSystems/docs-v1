@@ -40,7 +40,7 @@ calls:([]
 / Create a lookup table of computer information
 computerlookup:([id:key startcpu] dept:n?depts; os:n?`win7`win8`osx`vista)
 ```
-Download [<i class="fa fa-download"></i> `calls.q`](assets.calls.q) into your `QHOME` folder, then [load it](/ref/syscmds/#l-load-file-or-directory):
+Download [<i class="fa fa-download"></i> `calls.q`](assets/calls.q) into your `QHOME` folder, then [load it](/ref/syscmds/#l-load-file-or-directory):
 ```q
 q)\l calls.q
 ```
