@@ -97,6 +97,7 @@ time       sym  qty px
 10:01:04 ge   150
 ```
 
+
 `aj` and `aj0` return different times in their results:
 
 join  | time in result
@@ -114,7 +115,9 @@ q)t0~ajf[`sym`time;t1;t2]
 ```
 
 
-**Performance** 
+### Performance
+
+Ensure that the first argument, the columns to search on, is in the correct order, e.g. `` `sym`time``. Otherwise you’ll suffer a severe performance hit.
 
 `aj` should run at a million or two trade records per second; whether the tables are mapped or not is irrelevant. However, for speed:
 
@@ -128,13 +131,16 @@ Departure from this incurs a severe performance penalty.
 Note that, on disk, the `g#` attribute does not help.
 
 !!! warning "Virtual partition column"
+
     Select the virtual partition column only if you need it. It is fabricated on demand, which can be slow for large partitions.
 
-**`select` from `t2`**
+
+### `select` from `t2`
 
 In memory, there is no need to select from `t2`. Irrespective of the number of records, use, e.g.:
 ```q
-aj[`sym`time;select … from trade where …;quote]
+aj[`sym`time;select … from trade where …;
+                           quote]
 ```
 instead of
 ```q
@@ -145,7 +151,8 @@ In contrast, on disk you must map in your splay or day-at-a-time partitioned dat
 
 Splay:
 ```q
-aj[`sym`time;select … from trade where …;select … from quote]
+aj[`sym`time;select … from trade where …;
+             select … from quote]
 ```
 Partitioned:
 ```q
@@ -153,10 +160,13 @@ aj[`sym`time;select … from trade where …;
              select … from quote where date = …]
 ```
 
-!!! warning "Further `where` constraints"
-    If further `where` constraints are used, the columns will be _copied_ instead of mapped into memory, slowing down the join.
+If further `where` constraints are used, the columns will be _copied_ instead of mapped into memory, slowing down the join.
 
-If you are using a database where an individual day’s data is spread over multiple partitions the on-disk `p#` will be lost when retrieving data with a constraint such as `…date=2011.08.05`. In this case you will have to reduce the number of quotes retrieved by applying further constraints – or by re-applying the attribute.
+!!! warning "One day, multiple partitions"
+
+    If you are using a database where an individual day’s data is spread over multiple partitions the on-disk `p#` will be lost when retrieving data with a constraint such as `…date=2011.08.05`. 
+
+    In this case you will have to reduce the number of quotes retrieved by applying further constraints – or by re-applying the attribute.
 
 
 ## `asof`
