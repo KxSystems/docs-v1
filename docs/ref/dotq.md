@@ -1,4 +1,4 @@
-Functions defined in `q.k` are loaded as part of the "bootstrap" of q. (They are of course written in k.) Some are exposed in the root namespace as the q language. Others are documented here as utility functions in the `.Q` namespace. 
+Functions defined in `q.k` are loaded as part of the "bootstrap" of q. (They are of course written in k.) Some are exposed in the default namespace as the q language. Others are documented here as utility functions in the `.Q` namespace. 
 
 !!! warning "Reserved"
     The `.Q` namespace is reserved for use by Kx, as are all single-letter namespaces. 

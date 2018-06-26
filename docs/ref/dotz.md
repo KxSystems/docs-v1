@@ -795,7 +795,7 @@ When kdb+ has completed executing a script passed as a command-line argument, an
 
 Syntax: `.z.vs:f`
 
-Where `f` is a binary function, `.z.vs` is evaluated _after_ a value is set globally in the root namespace (e.g. `a`, `a.b`): `x` is the symbol of the variable that is being modified and `y` is the index. This is not triggered for function-local variables, nor globals that are not in the root namespace (e.g. those prefixed with a dot such as .a.b) .
+Where `f` is a binary function, `.z.vs` is evaluated _after_ a value is set globally in the default namespace (e.g. `a`, `a.b`): `x` is the symbol of the variable that is being modified and `y` is the index. This is not triggered for function-local variables, nor globals that are not in the default namespace (e.g. those prefixed with a dot such as .a.b) .
 
 The following example sets `.z.vs` to display the symbol, the index and the value of the variable.
 ```q

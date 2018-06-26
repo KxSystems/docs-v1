@@ -103,7 +103,7 @@ The usual prompt is `q)`. Sometimes a different prompt is given; you need to und
 3. If you change namespace, then the prompt includes the namespace.  
     <pre><code class="language-q">
     q)\d .h                     / change to h namespace
-    q.h)\d .                    / change back to root namespace
+    q.h)\d .                    / change back to default namespace
     q)
     </code></pre>
     <i class="fa fa-hand-o-right"></i> [Reference/System commands `\d`](/ref/syscmds/#d-directory)

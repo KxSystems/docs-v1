@@ -24,7 +24,7 @@ q).p.help n / interactive help
 
 ## Aliases in the root
 
-For convenience, `p.q` defines `print` and `help` in the root namespace of q, as aliases for `.p.print` and `.p.help`. To prevent this, comment out the relevant code in p.q before loading.
+For convenience, `p.q` defines `print` and `help` in the default namespace of q, as aliases for `.p.print` and `.p.help`. To prevent this, comment out the relevant code in p.q before loading.
 ```q
 {@[`.;x;:;get x]}each`help`print; / comment to remove from global namespace
 ```

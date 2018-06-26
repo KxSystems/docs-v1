@@ -73,7 +73,7 @@ q)key `.
 q)key `.q
 ``neg`not`null`string`reciprocal`floor`ceiling`signum`mod`xbar`xlog`and`or`ea..
 ```
-So is the root namespace.
+So is the default namespace.
 ```q
 q)key `           /list namespaces in the root
 `q`Q`h`o`util`rx
@@ -261,9 +261,9 @@ Syntax: `tables x`
 Where `x` is a reference to a namespace, returns as a symbol vector a sorted list of the tables in `x`
 ```q
 q)\l sp.q
-q)tables `.       / tables in root namespace
+q)tables `.       / tables in default namespace
 `p`s`sp
-q)tables[]        / default is root namespace
+q)tables[]        / default is default namespace
 `p`s`sp
 q).work.tab:sp    / assign table in work namespace
 q)tables `.work   / tables in work
@@ -526,7 +526,7 @@ q)view `v                         / view the dependency expression
 
 Syntax: `views[]`
 
-Returns a sorted list of the views currently defined in the root namespace.
+Returns a sorted list of the views currently defined in the default namespace.
 ```q
 q)w::b*10
 q)v::2+a*3
