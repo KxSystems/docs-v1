@@ -1,5 +1,4 @@
 ---
-hero: Interfaces
 title: An introduction to graphical interfaces for kdb+ using C#
 author: Michael Reynolds
 date: May 2018

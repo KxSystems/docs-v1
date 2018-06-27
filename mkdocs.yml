@@ -301,6 +301,7 @@ pages:
     - Stream for Kx: platform/stream.md
   - White papers: 
     - Index: whitepapers.md
+    - C# GUIs: wp/gui/index.md
     - Java API: 
       - Introduction: wp/java-api/index.md
       - API overview: wp/java-api/api.md
