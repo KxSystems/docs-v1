@@ -221,6 +221,7 @@ Object[] twoNullIntegers = {NULL('i'), NULL('j')}; // i - int, j - long
 
 
 ## Testing for null
+
 An object can be tested where it is a q null using the `c` utility method
 ```java
 public static boolean qn(Object x);
@@ -228,6 +229,7 @@ public static boolean qn(Object x);
  
 
 ## SSL/TLS
+
 Secure, encrypted connections may be established using SSL/TLS, by specifying the `useTLS` argument to the `c` constructor as true, e.g.
 ```java
 c c=new c("localhost",12345,System.getProperty("user.name"),true);
@@ -238,9 +240,9 @@ Prior to using SSL/TLS, ensure that the server’s certificate has been imported
 ```bash
 keytool -printcert -rfc -sslserver localhost:5010 > example.pem
 keytool -importcert -file example.pem -alias example.com -storepass changeit -keystore ./keystore
-java -Djavax.net.ssl.trustStore=./keystore -Djavax.net.ssl.keystore=./keystore kx.c
+java -Djavax.net.ssl.trustStore=./keystore -Djavax.net.ssl.keyStore=./keystore kx.c
 ```
-To troubleshoot ssl, supply `-Djavax.net.debug=ssl` on the command line when invoking your Java application.
+To troubleshoot SSL, supply `-Djavax.net.debug=ssl` on the command line when invoking your Java application.
 
 
 
