@@ -320,7 +320,7 @@ and register the process.
 
 ## Load Balancer
 
-Within our Load Balancer there are two tables:
+Within our Load Balancer there are two tables and a list:
 
 ```q
 \p 1234
@@ -330,7 +330,12 @@ services:([handle:`int$()]
   gwHandle:`int$();
   sq:`in t$();
   udt:`timestamp$());
-serviceQueue:([gwHandle:`int$();sq:`int$()]source:`$();time:`timestamp$()) gateways:();
+
+serviceQueue:([gwHandle:`int$();sq:`int$()]
+  source:`$();
+  time:`timestamp$()); 
+
+gateways:();
 ```
 
 The `service` table maintains all available instances/resources of
