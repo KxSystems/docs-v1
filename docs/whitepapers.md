@@ -4,6 +4,7 @@ Links are to PDFs except as marked:
 <i class="fa fa-html5"></i> HTML;
 <i class="fa fa-file"></i> PDF.
 
+
 ## Programming in q
 
 * [Efficient use of **adverbs**](wp/efficient_use_of_adverbs.pdf)
@@ -54,7 +55,7 @@ Links are to PDFs except as marked:
 * [**Intraday writedown** solutions](wp/intraday_writedown_solutions.pdf)
 * [**Multi-partitioned** kdb+ databases: an equity options case study](wp/multi_partitioned_kdb_databases_an_equity_options_case_study.pdf)
 * [**Permissions** with kdb+](wp/permissions_with_kdb.pdf)
-* [Query Routing: a kdb+ framework for a **scalable load-balanced** system](wp/query_routing_a_kdb_framework_for_a_scalable_load_balanced_system.pdf)
+* Query Routing: a kdb+ framework for a **scalable load-balanced** system [<i class="fa fa-html5"></i>](wp/query-routing/ "HTML") [<i class="fa fa-file"></i>](wp/query-routing/query-routing.pdf "PDF")
 * [Kdb+tick profiling for **throughput optimization**](wp/kdbtick_profiling_for_throughput_optimization.pdf)
 
 
