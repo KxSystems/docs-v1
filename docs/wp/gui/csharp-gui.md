@@ -451,7 +451,6 @@ private string BuildQuery()
     {
         check3 = " not ";
     }
-
     if ((selectedCols.Text == null) || (selectedCols.Text == "*"))
     {
         queryString.Append("select from ");
@@ -470,14 +469,12 @@ private string BuildQuery()
         //Append the above strings and the text boxes of the UI into 
         //a single string query that can be sent to the kdb+ process
     }
-
     if ((argComboBox2.SelectedItem != null) && (argComboBox1.SelectedItem != null))
     {
         queryString.Append(andor1.SelectedItem + " (" + check2 +
             argComboBox2.SelectedItem + signComboBox2.SelectedItem + 
             argInput2.Text + ")");
     }
-
     if ((argComboBox2.SelectedItem != null) && (argComboBox1.SelectedItem != null) &&
         (argComboBox3.SelectedItem != null))
     {
