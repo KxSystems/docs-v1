@@ -1,8 +1,8 @@
 ---
 title: An introduction to graphical interfaces for kdb+ using C#
 author: Michael Reynolds
-date: May 2018
-keywords: AJAX, asynchronous, connection, HTML5, JavaScript, security, WebSockets
+date: May 2013
+keywords: analytics, connections, csharp, gui, kdb+, queries, validation
 ---
 
 # An introduction to graphical interfaces for kdb+ using C&#35;
