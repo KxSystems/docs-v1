@@ -1,3 +1,5 @@
+
+
 Evaluation is controlled by [adverbs](adverbs) and the following control words and functions.
 
 !!! note 
@@ -78,6 +80,35 @@ q)count each (1 2 3;"hello")  /count is the left-argument of each
 3 5
 ```
 <i class="fa fa-hand-o-right"></i> [_each-both_](adverbs/#each-both), [_each-left_](adverbs/#each-left), [_each-parallel_](adverbs/#each-parallel), [_each-prior_](adverbs/#each-prior), [_each-right_](adverbs/#each-right)
+
+
+## Expression list
+
+An expression list is evaluated left to right and returns the result of the last expression – or the generic null `(::)` if there is none.
+```q
+q)[0N!`hello;0N!`world;7]
+`hello
+`world
+7
+```
+Note that parser rules that interpret the expression list as an argument list preclude simply assigning this result, or using it as the right argument in infix notation. It can, however be used within an argument list.
+```q
+q)3+[[0N!1;0N!2;3]]
+1
+2
+'type
+  [0]  3+[[0N!1;0N!2;3]]
+       ^
+q)+[3;[0N!1;0N!2;3]]
+1
+2
+6
+q){3+x}[[0N!1;0N!2;3]]
+1
+2
+6
+```
+
 
 
 ## `if` 
