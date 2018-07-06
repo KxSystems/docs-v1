@@ -1,14 +1,14 @@
 ---
 hero: <i class="fa fa-cloud"></i> Cloud
-keywords: Cloud, Google
-title: Kdb+ on Google Cloud Launcher
+keywords: Cloud, Google Cloud Platform Marketplace
+title: Kdb+ on GCP Marketplace
 ---
 
-# Kdb+ on Google Cloud Launcher
+# Kdb+ on Google Cloud Platform Marketplace
 
 
 
-Select `kdb+` from the Google Cloud Launcher console and click _Launch on Compute Engine_
+Select `kdb+` from the [GCP Marketplace console](http://console.cloud.google.com/marketplace) and click _Launch on Compute Engine_
 
 ![kdb+ on GCL](img/gcl-landing.png)
 
