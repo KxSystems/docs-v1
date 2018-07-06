@@ -58,7 +58,7 @@ Locals and globals are different: locals don’t have symbols associated with th
 If you wish to query a column of strings for a single value either `like` or `~` (_match_) with an adverb can be used
 ```q
 q)e:([]c:("ams";"lon";"amS";"bar")) 
-q)select from e where ~\:"ams"
+q)select from e where c ~\:"ams"
 c
 -----
 "ams"
