@@ -90,6 +90,13 @@ Q must be restarted to pick up the new setting.
 In addition to monitoring free disk space for the usual partitions you write to, ensure you also monitor free space of `/tmp` on Unix, since q uses this area for capturing the output from system commands, such as `system "ls"`.
 
 
+## Back up the sym file
+
+The sym file is the key to the default enums. 
+
+!!! tip "We recommend you back up your sym file in the root of your HDB."
+
+
 ## Compression
 
 If you find that q is seg faulting (crashing) when accessing compressed files, try increasing the Linux kernel parameter `vm.max_map_count`. As root
