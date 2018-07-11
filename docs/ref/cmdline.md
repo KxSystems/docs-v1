@@ -301,9 +301,21 @@ Disables system commands from a remote (signals `'access`). As such, this includ
 
 ## `-u` (usr-pwd local)
 
-Syntax: `-u F`
+Syntax: `-u file`
   
-Sets usr:pwd file, no access above start directory
+Sets a password file; no access above start directory
+
+The password file is a text file with one credential on each line. 
+(No trailing blank line/s.)
+```txt
+user1:password1
+user2:password2
+```
+The password can be plain text, or an MD5 hash of the password.
+```q
+q)raze string md5 "this is my password"
+"210d53992dff432ec1b1a9698af9da16"
+```
 
 
 ## `-W` (start week)

@@ -185,7 +185,7 @@ q)
 
 ## Slamming the doors
 
-Another important use for modified `.z.p`? callbacks is to control access to a q session. Q contains some very coarse access controls settable by command line options – particularly `-u` or `-U` to enforce password-controlled access (with MD5’d passwords), `-b` to enforce read-only access and `-T` to set a maximum CPU time per single client call.
+Another important use for modified `.z.p`? callbacks is to control access to a q session. Q contains some very coarse access controls settable by command-line options – particularly [`-u`](/ref/cmdline/#-u-usr-pwd-local) or [`-U`](/ref/cmdline/#-u-usr-pwd) to enforce password-controlled access (with MD5 passwords), [`-b`](/ref/cmdline/#-b-blocked) to enforce read-only access and [`-T`](/ref/cmdline/#-t-timeout) to set a maximum CPU time per single client call.
 
 The password control in `-u` and `-U` is all done in the q executable, so completely outside user control. However as soon as the initial check (if any) has been done control is passed to `z.pw`, which can say if a connection is to be allowed. This can be via some session internal table or function, or can go outside to something like a central single-signon server.
 

@@ -402,7 +402,7 @@ q)\ts:10000 log til 1000           /same as \ts do[10000; log til 1000]
 
 Syntax: `\u`
 
-When q is invoked with the `-u` parameter specifying a user password file, then `\u` will reload the password file. This allows updates to the password file while the server is running.
+When q is invoked with the [`-u` parameter](cmdline/#-u-usr-pwd-local) specifying a user password file, then `\u` will reload the password file. This allows updates to the password file while the server is running.
 
 
 ## `\v` (variables)
