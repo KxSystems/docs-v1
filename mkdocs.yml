@@ -316,6 +316,7 @@ pages:
       - Tickerplant publishing: wp/java-api/tickerplant-publish.md
       - Connecting to Java: wp/java-api/connect-from-kdb.md
       - Conclusion : wp/java-api/conclusion.md
+    - Market fragmentation: wp/market-fragmentation/index.md
     - Query Routing: wp/query-routing/index.md
     - WebSockets: wp/websockets/index.md
   - GitHub: github.md
