@@ -459,9 +459,7 @@ private string BuildQuery()
     {
         queryString.Append("select " + selectedCols.Text + " from ");
     }
-
     queryString.Append(tableComboBox.SelectedItem);
-
     if (argComboBox1.SelectedItem != null)
     {
         queryString.Append(" where (" + check1 + argComboBox1.SelectedItem +
@@ -870,6 +868,6 @@ tests of C# were run using .NET version 4.0. The example applications
 were built with Visual Studio 2010. 
 
 The C# source code for this paper
-can be found at <i class="fa fa-github"></i>
+can be found on GitHub at <i class="fa fa-github"></i>
 [kxcontrib/csharpgui](https://github.com/kxcontrib/csharpgui).
 
