@@ -308,13 +308,6 @@ All tests were performed with kdb+ 3.0 (2012.09.26)
 The code in this appendix can be found on Github at <i class="fa fa-github"></i> [kxcontrib/market-fragmentation](https://github.com/kxcontrib/market-fragmentation).
 
 ```q
-///////////////////////////////////////////////////////////////////////////////////////
-// Script to accompany Technical Whitepaper
-// - Market Fragmentation: A kdb+ framework for multiple liquidity sources (Jan 2013)
-//
-// Author: James Corcoran (jcorcoran@kx.com)
-///////////////////////////////////////////////////////////////////////////////////////
-
 ////////////////////////////////
 // Set up configuration data
 ////////////////////////////////
@@ -426,7 +419,7 @@ trade:([]date:`date$();sym:`$();time:`time$();price:`float$();size:`int$());
 
 pi:acos -1;
 / Box-muller from kx.com/q/stat.q
-nor:{$[x=2*n:x div 2;raze sqrt[-2*log n?1f]*/:(sin;cos)@\:(2\*pi)\*n?1f;-1_.z.s 1+x]} 
+nor:{$[x=2*n:x div 2;raze sqrt[-2*log n?1f]*/:(sin;cos)@\:(2*pi)*n?1f;-1_.z.s 1+x]} 
 
 generateRandomPrices:{[s0;n] 
     dt:1%365*1000;
@@ -434,7 +427,7 @@ generateRandomPrices:{[s0;n]
     vol:.2; 
     mu:.01;
     randomnumbers:sums(timesteps;1)#(nor timesteps); 
-    s:s0\*exp[(dt*mu-xexp[vol;2]%2) + randomnumbers*vol*sqrt[dt]]; 
+    s:s0*exp[(dt*mu-xexp[vol;2]%2) + randomnumbers*vol*sqrt[dt]]; 
     raze s}
 
 n:1000;
