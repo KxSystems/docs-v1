@@ -1,4 +1,7 @@
+---
 hero: <i class="fa fa-share-alt"></i> Machine learning 
+keywords: embedpy, interface, kdb+, python
+---
 
 # ![Python](/interfaces/img/python.png) embedPy
 
@@ -12,30 +15,13 @@ Allows the kdb+ interpreter to manipulate Python objects and call Python functio
 
 ## Requirements
 
-- kdb+ >=3.5 64-bit
+- kdb+ ≥3.5 64-bit
 - Anaconda Python 3.x
-- macOS or Linux 
 
 
 ## Build and install
 
-<i class="fa fa-download"></i> Download the code from <i class="fa fa-github"></i> [KxSystems/embedPy](https://github.com/kxsystems/embedpy).
-
-Build the interface and run sanity checks with 
-
-```bash
-./configure && make test
-```
-If running in an environment without Internet access, you will need to download the kdb+ [C API header file](https://raw.githubusercontent.com/KxSystems/kdb/master/c/c/k.h) manually and place in the build directory.
-
-### Install
-
-place `p.q` and `p.k` in `$QHOME` and `p.so` in `$QHOME/{l64|m64}`.  
-
-!!! warning "`p.so`"
-    If you are currently using PyQ, it also has a file `p.so` in `$QHOME/{l64|m64}`. In this case, you may want to run initially from the local build directory without installing. 
-
-    Skip the install step and run q in the build directory to do this.
+<i class="fa fa-download"></i> Download the code from <i class="fa fa-github"></i> [KxSystems/embedPy](https://github.com/kxsystems/embedpy) and follow installation instructions there.
 
 
 ## Back-incompatible changes
