@@ -9,7 +9,6 @@ keywords: data, kdb+, ODBC, Tableau, visualization
 # Data visualization with kdb+ using ODBC: <br/>a Tableau case study
 
 
-
 Business intelligence (BI) tools are widely used across many industries
 for their interactive nature, which enables users to create and
 customize dynamic data visualizations easily. Kx provides its own
@@ -53,6 +52,11 @@ existing users, this paper aims to reduce the learning curve, boost
 efficiency and increase usability when combining these two technologies.
 
 All tests were run using kdb+ version 3.5 and Tableau 10.3.
+
+
+### Author
+
+Michaela Woods is a kdb+ consultant for Kx. Based in London for the past three years, she is now an industry leader in combining kdb+ with Tableau through her development of a data visualization platform currently used at one of the world’s leading investment banks.
 
 
 ## Connecting to kdb+ using ODBC
@@ -193,9 +197,8 @@ are:
 q('tablename')
 q('select from table where date in 2018.07.02')
 q('function',<Parameters.Date>)
-q('{[mydate] func[..]',<Parameters.Date>)
+q('{[mydate] func[…]}',<Parameters.Date>)
 ```
-==FIXME Unmatched brace in last line above==
 
 Queries can be a simple select statement or can become much more complex
 and flexible using inbuilt parameters supplied by Tableau, which will be
@@ -380,15 +383,11 @@ such methods are described.
 
 #### Predefining parameter options in a q function
 
-From the previous example, the input parameter `Category` is limited to
-selecting only one value at a time. This can be made more flexible by
-defining a range of acceptable values in the function. For example, if
-the user wanted the option of returning all categories, they could pick
-the value _all_ in the 
-==Category== <!-- FIXME _Current value_? _Allowable values_? _Display as_?--> field. 
-In the example below, when the
-==input value== <!-- FIXME --> 
-equals all, the lookup searches for all categories including `EQ`, `CORP`, and `GOV`.
+From the previous example, the input parameter Category is limited to
+single values. This can be made more flexible by
+defining in the function a range of acceptable values.
+In the example below, the
+argument `` `all`` leads to a select with no restriction on `category`.
 
 ```q
 func:{[mydate;mycategory]
@@ -398,8 +397,8 @@ func:{[mydate;mycategory]
   };
 ```
 
-This can then be added to the list of predefined values in the
-definition of Category in Tableau.
+Then `all` can be added to the list of predefined values in Tableau’s
+definition of Category:
 
 ![](img/image11.png)
 
@@ -500,9 +499,6 @@ there is no Executing Query time.
 Exploiting this feature can be hugely useful when working with kdb+ and
 Tableau where the volume of datasets can be very large.
 
-==I don’t think this section is needed – its just a promotion of what they
-have and not about ODBC integration==
-
 
 ## Publishing to Tableau Server
 
@@ -582,7 +578,7 @@ visualization front-end to a kdb+ back end.
     
     2.  Drag and drop `Number of Records` to _Rows_.
     
-    3.  Drag and drop `volume` to the _Marks_ pane ==on color== <!-- FIXME Eh? -->. Right-click
+    3.  Drag and drop `volume` to the _Marks_ pane on color. Right-click
         and pick _Discrete_.
 
 2.  Create `Sheet 2`

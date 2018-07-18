@@ -17,16 +17,14 @@ Kdb+, from [Kx&nbsp;Systems](http://kx.com), is
 
 <div style="display: inline-flex; margin-left: 7px;" markdown="1">
 !!! tip "New"
+    <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [Data visualization](wp/data-visualization/) whitepaper</p>
+    
     <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [Java API for kdb+](wp/java-api/) whitepaper</p>
     
     <p style="margin: 10px; text-align: center;" markdown="1">
         [<span class="nowrap"><big>**25th-birthday announcements**</big></span><br/>V3.6, Google Cloud, Docker, NLP, …](/about/site-news/#kx25)</p>
 
     <p style="text-align: center;" markdown="1"><i class="fa fa-youtube"></i> [Q for All](/tutorials/q-for-all/): an intro to kdb+</p>
-    
-    <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [WebSockets](/wp/websockets/) whitepaper</p>
-    
-    <p style="text-align: center;" markdown="1">[AWS/EC2](/cloud/aws/): kdb+ on Amazon</p>
     
 </div>
 
