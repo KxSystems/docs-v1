@@ -190,11 +190,18 @@ Once we have adjusted the parameters appropriately, we can dispatch the query to
 
 The final, and arguably the most critical step in consolidating the data is to aggregate our analytics at the entity level as opposed to the sym level.
 
-Having dispatched the query to the database/s, we now have our data held in memory in the gateway, aggregated on a per-sym basis. Assuming that all venues are trading in the same currency, all that remains is for us to aggregate this data further up to primary sym level[1]. We will use configuration data to define multi-market aggregation rules.
+Having dispatched the query to the database/s, we now have our data held in memory in the gateway, aggregated on a per-sym basis. Assuming that all venues are trading in the same currency, all that remains is for us to aggregate this data further up to primary sym level. We will use configuration data to define multi-market aggregation rules.
+
+>!!! detail "Multiple currencies"
+>
+>    If the various venues trade in different currencies, we would invoke a function in the gateway to convert all data to a common currency prior to aggregation. This method assumes that FX risk is hedged during the lifetime of the trade.
 
 The method of aggregation is dependent on the analytic in question. Therefore it is necessary for us to define these rules in a q file. For a volume analytic, the consolidated volume is simply the sum of the volume on all venues. The consolidated figure for a maximum or minimum analytic will be the maximum or minimum of all data points. We need to do a little more work however for a weighted-average analytic such as a VWAP. Given a set of VWAPs and volumes for a stock from different venues, the consolidated VWAP is given by the formula:
 
-FIXME
+
+<div markdown="1" style="text-align: center">
+( &Sigma; _vwap_ × _volume_ ) &divide; ( &Sigma; _volume_ )
+</div>
 
 It is evident that we need access to the venue volumes as well as the individually-calculated VWAPs in order to weight the consolidated analytic correctly. This means that when a consolidated VWAP is requested, we need the query to return a `volume` column as well as a `vwap` column to our gateway.
 
@@ -214,8 +221,6 @@ Here we present a list of consolidation rules for a few common analytics.
 .cfg.multiMarketAgg[`minask]:"min minask" 
 .cfg.multiMarketAgg[`lastmidprice]:"((max lastbid)+(min lastask))%2"
 ```
-
-[1]: If the various venues trade in different currencies, we would invoke a function in the gateway to convert all data to a common currency prior to aggregation. This method assumes that FX risk is hedged during the lifetime of the trade.
 
 With the consolidation rules defined, we can use them in the final aggregation before presenting the data. The un-aggregated data is presented as follows.
 

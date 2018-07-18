@@ -15,6 +15,7 @@
 
 ## Interfaces
 
+* ==new== [Data visualization with kdb+ using ODBC: a Tableau case study](wp/data-visualization) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/data-visualization/data-visualization-a4.pdf), [US&nbsp;Letter](wp/data-visualization/data-visualization-us.pdf)</small>
 * Kdb+ and **FIX** messaging &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdb_and_fix_messaging.pdf)
 * Common design principles for kdb+ **gateways** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/common_design_principles_for_kdb_gateways.pdf)
 * [An introduction to **graphical interfaces** for kdb+ using C#](wp/gui) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/gui/csharp-gui-a4.pdf), [US&nbsp;Letter](wp/gui/csharp-gui-us.pdf)</small>
@@ -23,7 +24,7 @@
 * **Socket sharding** with kdb+ and Linux &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/socket-sharding.pdf) 
 <!-- * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
  -->
-* ==new== [Kdb+ and **WebSockets**](/wp/websockets) &nbsp; <i class="fa fa-print"></i> <small>[A4](/wp/websockets/websockets-a4.pdf), [US&nbsp;Letter](/wp/websockets/websockets-us.pdf)</small>
+* [Kdb+ and **WebSockets**](/wp/websockets) &nbsp; <i class="fa fa-print"></i> <small>[A4](/wp/websockets/websockets-a4.pdf), [US&nbsp;Letter](/wp/websockets/websockets-us.pdf)</small>
 
 
 ## Applications
