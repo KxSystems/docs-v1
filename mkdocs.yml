@@ -175,7 +175,7 @@ pages:
       - H. ObjectiveFS: cloud/aws/app-h-objectivefs.md
       - I. WekaIO Matrix: cloud/aws/app-i-wekaio-matrix.md
       - J. Quobyte: cloud/aws/app-j-quobyte.md
-    - Google Cloud Launcher: cloud/gcl/index.md
+    - Google CPM: cloud/gcpm/index.md
   - Machine learning:
     - Introduction: ml/index.md
     - Set up: ml/setup.md

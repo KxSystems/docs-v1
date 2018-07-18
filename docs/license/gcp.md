@@ -1,6 +1,6 @@
 ---
 title: Kdb+ software end-user agreement for Google Cloud
-date: May 2018
+date: July 2018
 ---
 
 # Kdb+ software end-user agreement 
@@ -19,8 +19,8 @@ You may not access the Kdb+ Software if you are a direct competitor of Kx.
     between Kx Systems, Inc. (“Kx” or “We”) and you the person or
     entity which accesses the Kdb+ Software (“User” or “you”), with
     respect to Kx’s Kdb+ Software made available at the online
-    Google Cloud Launcher Platform at
-    https://cloud.google.com/launcher/ (“Google Platform”) owned and
+    GCP Marketplace at
+    http://console.cloud.google.com/marketplace/ (“Google Platform”) owned and
     controlled by Google Inc. You are required to have a Google
     account for the Google Platform in good standing prior to
     accessing the Kdb+ Software. Kx shall not in any way be liable
