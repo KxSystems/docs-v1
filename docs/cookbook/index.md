@@ -4,18 +4,16 @@
 
 The cookbook contains articles and recipes for getting things done with kdb+.
 
-Popular articles:
-
-- [Frequently-asked questions](faq)
-- [Get started](/learn)
-- [Interfaces/C client for q](/interfaces/c-client-for-q)
-- [Programming idioms](programming-idioms)
-- [Interfaces/Java client for q](/interfaces/java-client-for-q)
-- [Splayed tables](splayed-tables)
-- [Using q with R](/interfaces/with-r/)
-- [Loading from large files](loading-from-large-files)
-- [WebSockets](websockets)
-- [File compression](file-compression)
-- [Interprocess communication](ipc)
+popular | Big Data
+--------|----------------------------
+[Frequently-asked questions](faq) | [Splayed tables](splayed-tables)
+[Get started](/learn) | [Loading from large files](loading-from-large-files)
+[Interfaces/C client for q](/interfaces/c-client-for-q) | [Splaying large files](splaying-large-files)
+[Programming idioms](programming-idioms) | [Load balancing](load-balancing)
+[Interfaces/Java client for q](/interfaces/java-client-for-q) | [Splayed schema change](splayed-schema-change)
+[Using q with R](/interfaces/with-r/) | [Temporal data](temporal-data)
+[WebSockets](websockets) | [Bulk Copy Program](bulk-copy-program)
+[File compression](file-compression) | [Database partitioning with par.txt](/ref/unclassified/#partxt)
+[Interprocess communication](ipc)
 
 

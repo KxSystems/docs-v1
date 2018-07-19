@@ -45,12 +45,12 @@
 * Temporal Data: a kdb+ framework for **corporate actions** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/temporal_data_a_kdb_framework_for_corporate_actions.pdf)
 * Kdb+ **data-management sample customisation** techniques &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdb_data_management_sample_customisation_techniques_with_amendments.pdf)
 * **Data recovery** for kdb+tick &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/data_recovery_for_kdb_tick.pdf)
-* **Disaster-recovery planning** for kdb+ tick systems &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/disaster_recovery_planning.pdf)
+* [**Disaster-recovery planning** for kdb+ tick systems](wp/disaster-recovery/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/disaster-recovery/disaster-recovery-a4.pdf), [US Letter](wp/disaster-recovery/disaster-recovery-us.pdf) </small>
 * A natural query interface for **distributed systems** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/a_natural_query_interface_for_distributed_systems.pdf)
 * A method for **dynamically shrinking big data** using time-series database kdb+ &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/time_series_simplification_in_kdb_a_method_for_dynamically_shrinking_big_data.pdf)
 * Order Book: a kdb+ **intraday storage and access** methodology &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/order_book_a_kdb_intraday_storage_and_access_methodology.pdf)
 * **Intraday writedown** solutions &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/intraday_writedown_solutions.pdf)
-* **Multi-partitioned** kdb+ databases: an equity options case study &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/multi_partitioned_kdb_databases_an_equity_options_case_study.pdf)
+* [**Multi-partitioned** kdb+ databases: an equity options case study](wp/multi-partitioned-dbs/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/multi-partitioned-dbs/multi-partitioned-dbs-a4.pdf), [US Letter](wp/multi-partitioned-dbs/multi-partitioned-dbs-us.pdf)</small>
 * **Permissions** with kdb+ &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/permissions_with_kdb.pdf)
 * [**Query Routing**: a kdb+ framework for a scalable load-balanced system](wp/query-routing/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/query-routing/query-routing-a4.pdf), [US&nbsp;Letter](wp/query-routing/query-routing-us.pdf)</small>
 * Kdb+tick profiling for **throughput optimization** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdbtick_profiling_for_throughput_optimization.pdf)
