@@ -2,6 +2,10 @@ hero: Platform for Kx
 
 _Platform for Kx_ is a suite of products for building kdb+ user interfaces in HTML5/JS.
 
+!!! info "Sign in"
+    The User Guides are for Platform customers. 
+    (Kx Systems provides credentials to follow the links.) 
+
 
 ## Analyst for Kx
 
@@ -24,11 +28,6 @@ _Platform for Kx_ is a suite of products for building kdb+ user interfaces in HT
 
 [_Dashboards for Kx_](http://code.kx.com/platform/dashboards)
 offers an easy-to-use, yet powerful drag-and-drop interface to allow creators to build dashboards without the need for programming experience. 
-
-
-!!! info "Sign in"
-    The User Guides are for Platform customers. 
-    (Kx Systems provides credentials to follow the links.) 
 
 
 ## Stream for Kx
