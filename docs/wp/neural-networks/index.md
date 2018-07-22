@@ -21,7 +21,7 @@ action include:
 
 -   [Aiding in medical diagnostics](http://www.ijesit.com/Volume%202/Issue%202/IJESIT201302_33.pdf)
 
--   Interpreting art and painting images [1](http://googleresearch.blogspot.ca/2015/06/inceptionism-going-deeper-into-neural.html) [2](http://arxiv.org/pdf/1508.06576v1.pdf)
+-   Interpreting art and painting images \[[1](http://googleresearch.blogspot.ca/2015/06/inceptionism-going-deeper-into-neural.html)\] \[[2](http://arxiv.org/pdf/1508.06576v1.pdf)\]
 
 -   [Performing stock market predictions](http://reference.wolfram.com/applications/neuralnetworks/ApplicationExamples/12.2.0.html)
 
@@ -35,7 +35,9 @@ regression purposes and has been shown to be a universal approximator
 – an algorithm that can model any smooth function given enough
 hidden units.
 
-See Kurt Hornik, “Approximation Capabilities of Multilayer Feedforward  Networks”, _Neural Networks_, Vol. 4, pp. 251-257, 1991
+!!! note 
+
+    See Kurt Hornik, “Approximation Capabilities of Multilayer Feedforward  Networks”, _Neural Networks_, Vol. 4, pp. 251-257, 1991
 
 This design of feedforward networks can be represented through
 operations on matrices and vectors. Array programming languages such
@@ -82,12 +84,16 @@ function.
 <!-- 𝜎(𝑥) = 1 ÷ (1 + 𝑒<sup>−𝑥</sup>) -->
 </div>
 
+```q
+q)sigmoid:{1%1+exp neg x}
+q)output:sigmoid[inputs mmu weights]
+```
+
 This function provides a smooth curve bounded asymptotically
 by 0 and 1 on the vertical axis (Figure 2).
 
 ![](img/image5.png)  
 <small>_Figure 2: A plot of the sigmoid function_</small>
-
 
 ### Perceptrons as linear predictors
 
@@ -221,6 +227,24 @@ of a forward pass._</small>
 Once we have prepared the input data and the weights they can be
 applied to the network to provide output. We will use the network to
 predict the outputs of the XOR function.
+
+```q
+// weights between input layer and hidden layer (2 inputs + 1 bias neuron)
+ q)w:wInit[3;4]
+// weights between hidden layer and output layer (4 hidden neurons + 1 bias neuron)
+ q)v:wInit[5;1]
+ q)ffn:{[input;w;v]
+// Apply inputs and their weights to the hidden layer
+   z:sigmoid[input mmu w];
+// Use output from hidden layer to generate an output
+   sigmoid[z mmu v]
+  }
+ q)ffn[input;w;v]
+ 0.5028818
+ 0.5136649
+ 0.4891303
+0.5
+```
 
 The network has produced an output, but these values are not close to
 the target values. This is understandable as the weights have been
@@ -386,302 +410,267 @@ nonlinear regression outputs.
 
 ### Multiclass outputs
 
-> For multiclass outputs the goal is to determine the correct
-> classification of an input into three or more possible
-> classifications. Unlike the binary classification situation, in the
-> output layer there will be one neuron for each possible
-> classification. The target values are transformed using one-hot
-> encoding. This gives us a unique list of 0s and 1s for each possible
-> classification that is the same length as the number of possible
-> classifications. For example, if there are classifications A, B and C
-> the transformations are 0 0 1, 0 1 0 and 1 0 0 – giving the output
-> layer target patterns to match for training and testing. The output
-> function used is the softmax function:
+For multiclass outputs the goal is to determine the correct
+classification of an input into three or more possible
+classifications. Unlike the binary classification situation, in the
+output layer there will be one neuron for each possible
+classification. The target values are transformed using one-hot
+encoding. This gives us a unique list of 0s and 1s for each possible
+classification that is the same length as the number of possible
+classifications. For example, if there are classifications A, B and C
+the transformations are 0 0 1, 0 1 0 and 1 0 0 – giving the output
+layer target patterns to match for training and testing. The output
+function used is the softmax function:
 
-<span class="underline"> </span> exp 𝑆<sup>𝑡</sup>
-
-# 𝑦̂ =
-
+<div markdown="1" style="text-align: center;">
+![](img/formula5.png)
+<!--  # 𝑦̂ =
 𝑖 ∑<sub>𝑘</sub> 𝑒𝑥𝑝 𝑆<sup>𝑡</sup>
+ --></div>
 
-> Where 𝑦̂<sup>𝑡</sup> is the output from neuron *i* for sample *t*,
-> 𝑆<sup>𝑡</sup> is the linear combination of outputs from the
-> 
-> 𝑖 𝑖
-> 
-> hidden layer and the weights connecting the hidden layer to output
-> neuron *i* for sample *t* and 𝑆<sup>𝑡</sup> is the linear combination
-> of outputs from the hidden layer and the weights connecting the hidden
-> layer to output neuron *k* for sample *t*.
-> 
-> By using the softmax function we ensure that the sum of the outputs
-> from each of the neurons in the output layer is 1. That allows us to
-> pick the neuron with the highest output value as the most likely to be
-> the classification we expect for the given input; the ‘winning’ neuron
-> will be assigned a value of 1 and the other neurons a value of 0
-> resulting in a match to one of the one-hot encoded classifications.
-> The cross-entropy error function in this case is:
-> 
-> − ∑ ∑ 𝑦<sup>𝑡</sup> log 𝑦̂<sup>𝑡</sup>
-> 
-> 𝑖 𝑖
+Where 𝑦̂<sub>𝑖</sub><sup>𝑡</sup> is the output from neuron 𝑖 for sample 𝑡,
+𝑆<sub>𝑖</sub><sup>𝑡</sup> is the linear combination of outputs from the
+hidden layer and the weights connecting the hidden layer to output
+neuron 𝑖 for sample 𝑡 and 𝑆<sub>𝑘</sub><sup>𝑡</sup> is the linear combination
+of outputs from the hidden layer and the weights connecting the hidden
+layer to output neuron 𝑘 for sample 𝑡.
 
-𝑡 𝑖
+By using the softmax function we ensure that the sum of the outputs
+from each of the neurons in the output layer is 1. That allows us to
+pick the neuron with the highest output value as the most likely to be
+the classification we expect for the given input; the ‘winning’ neuron
+will be assigned a value of 1 and the other neurons a value of 0
+resulting in a match to one of the one-hot encoded classifications.
+The cross-entropy error function in this case is:
 
-> Where 𝑦<sup>𝑡</sup> is the target value for output neuron *i* with
-> sample *t*.
-> 
-> The update rules are:
-> 
-> ∆𝑣<sub>𝑖ℎ</sub> = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
-> 
-> 𝑖 𝑖 ℎ
-> 
-> 𝑡
-> 
-> ∆𝑤<sub>ℎ𝑗</sub> = ∑ \[∑(𝑦<sup>𝑡</sup> −
-> 𝑦̂<sup>𝑡</sup>)𝑣<sub>𝑖ℎ</sub>\] 𝑧<sup>𝑡</sup> (1 −
-> 𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
-
+<div markdown="1" style="text-align: center;">
+![](img/formula5.png)
+<!-- − ∑ ∑ 𝑦<sup>𝑡</sup> log 𝑦̂<sup>𝑡</sup>
 𝑖 𝑖
-
 𝑡 𝑖
+ --></div>
 
-> ℎ ℎ 𝑗
-> 
-> Where 𝑣𝑖ℎ is the weight between output neuron *i* and hidden neuron
-> *h*.
-> 
-> An example implementation of the softmax output will be shown in
-> Section 5.
+Where 𝑦<sup>𝑡</sup> is the target value for output neuron 𝑖 with
+sample 𝑡.
 
-## Nonlinear Regression Outputs
+The update rules are:
 
-> If the goal is to predict a real value, not necessarily constrained
-> within the boundaries imposed by a threshold function, the output
-> function is just the linear combination of the outputs from the hidden
-> layer.
-> 
-> 𝑦̂<sup>𝑡</sup> = 𝐯 ∙ 𝐳<sup>𝑡</sup>
-> 
-> Where **v** is the vector of weights between the hidden layer and the
-> output layer and 𝐳<sup>𝑡</sup> is the vector of outputs from the
-> hidden layer.
-> 
-> In this case we change the error function from cross-entropy to the
-> sum-of-squared errors:
-> 
-> 1 ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)<sup>2</sup>
+<div markdown="1" style="text-align: center;">
+![](img/formula5.png)
+<!-- ∆𝑣<sub>𝑖ℎ</sub> = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
+𝑖 𝑖 ℎ
+𝑡
+∆𝑤<sub>ℎ𝑗</sub> = ∑ \[∑(𝑦<sup>𝑡</sup> −
+𝑦̂<sup>𝑡</sup>)𝑣<sub>𝑖ℎ</sub>\] 𝑧<sup>𝑡</sup> (1 −
+𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
+𝑖 𝑖
+𝑡 𝑖
+ℎ ℎ 𝑗
+ --></div>
+Where 𝑣<sub>𝑖ℎ</sub> is the weight between output neuron 𝑖 and hidden neuron
+ℎ.
 
+An example implementation of the softmax output is shown below in
+_Classification for 3+ classes_.
+
+
+### Nonlinear regression outputs
+
+If the goal is to predict a real value, not necessarily constrained
+within the boundaries imposed by a threshold function, the output
+function is just the linear combination of the outputs from the hidden
+layer.
+
+<div markdown="1" style="text-align: center;">
+![](img/formula8.png)
+<!-- 𝑦̂<sup>𝑡</sup> = 𝐯 ∙ 𝐳<sup>𝑡</sup> -->
+</div>
+
+Where 𝐯 is the vector of weights between the hidden layer and the
+output layer and 𝐳<sup>𝑡</sup> is the vector of outputs from the
+hidden layer.
+
+In this case we change the error function from cross-entropy to the
+sum-of-squared errors:
+
+<div markdown="1" style="text-align: center;">
+![](img/formula9.png)
+<!-- 1 ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)<sup>2</sup>
 2
+𝑡
+ -->
+</div>
 
-> 𝑡
-> 
-> The update rules for a regression output are:
-> 
-> ∆𝑣ℎ = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
-> 
-> 𝑡
-> 
-> ∆𝑤ℎ𝑗 = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑣ℎ𝑧<sup>𝑡</sup>(1 −
-> 𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
-> 
-> ℎ ℎ 𝑗
-> 
-> 𝑡
-> 
-> It’s useful now to put the different functions for error and output in
-> dictionary format as this will allow us to use the same ffn function
-> for all 3 types of classification:
+The update rules for a regression output are:
 
-## CLASSIFICATION FOR 3+ CLASSES
+<div markdown="1" style="text-align: center;">
+![](img/formula10.png)
+<!-- ∆𝑣ℎ = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
+𝑡
+∆𝑤ℎ𝑗 = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑣ℎ𝑧<sup>𝑡</sup>(1 −
+𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
+ℎ ℎ 𝑗
+𝑡
+-->
+</div>
 
-> As an example, we will study a set of Iris flower data which was
-> originally introduced into research by Ronald Fisher in 1936. It
-> contains samples from three different species of the Iris flower and
-> has become a standard test case for many classification techniques
-> within machine learning. By taking measurements of certain metrics
-> (eg. length and width of sepals) the plants can be classified and
-> computationally distinguished from each other. The data and a
-> description of the data can be found in the links at
-> [<span class="underline">http://archive.ics.uci.edu/ml/machine-learning-databases/iris</span>.](http://archive.ics.uci.edu/ml/machine-learning-databases/iris)
-> 
-> We one-hot encode the different possible species of Iris, resulting in
-> a neural network with 5 inputs (including the bias neuron), 7 hidden
-> neurons (including the bias neuron) and 3 outputs. The data set is
-> randomly shuffled to reduce the likelihood of a biased output. From
-> this randomised selection of the data a random selection of 20 samples
-> is taken as the test set and the other 130 samples are used in
-> training.
-> 
-> // one-hot encoding of classes q)IrisOneH:oneHot\[distinct
-> Iris.species\] q)IrisOneH
-> 
-> Iris-setosa | 1 0 0
-> 
-> Iris-versicolor| 0 1 0
-> 
-> Iris-virginica | 0 0 1 q)Iris1h
-> 
-> slength swidth plength pwidth species onehot
-> 
-> \------------------------------------------------
+```q
+q)lin:{x}
+q)linErr:{0.5*sum sum a*a:x-y}
+```
 
-<table>
-<thead>
-<tr class="header">
-<th><blockquote>
-<p>5.1</p>
-</blockquote></th>
-<th><blockquote>
-<p>3.5</p>
-</blockquote></th>
-<th><blockquote>
-<p>1.4</p>
-</blockquote></th>
-<th>0.2</th>
-<th>Iris-setosa 1 0 0</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><blockquote>
-<p>4.9</p>
-</blockquote></td>
-<td><blockquote>
-<p>3</p>
-</blockquote></td>
-<td><blockquote>
-<p>1.4</p>
-</blockquote></td>
-<td>0.2</td>
-<td>Iris-setosa 1 0 0</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>4.7</p>
-</blockquote></td>
-<td><blockquote>
-<p>3.2</p>
-</blockquote></td>
-<td><blockquote>
-<p>1.3</p>
-</blockquote></td>
-<td>0.2</td>
-<td>Iris-setosa 1 0 0</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>..</p>
-</blockquote></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+It’s useful now to put the different functions for error and output in
+dictionary format as this will allow us to use the same ffn function
+for all 3 types of classification:
 
-> // Random permutation of the dataset q)IrisRP:Iris1h{neg\[x\]?til
-> x}count Iris1h
-> 
-> // Pick a test set – samples from data not used in training
-> q)IrisTest:IrisRP\[-20?count IrisRP\]
-> 
-> q)IrisTrain:IrisRP except IrisTest
-> 
-> // Init weights, input and output variables q)w:wInit\[5;6\]
-> 
-> q)v:wInit\[7;3\]
-> 
-> q)input:1.0,'flip flip\[IrisTrain\]\`slength\`swidth\`plength\`pwidth
-> q)output:IrisTrain.onehot
-> 
-> // Train network
-> q)resIris:(ffn\[input;output;0.01;\`smax\]/)\[800;\`o\`w\`v\`err\!(0;w;v;1f)\]
-> 
-> // After 800 iterations (or epochs) how well does it perform?
-> q)all(IrisOneH?"f"$"j"$resIris\`o)=IrisOneH?output
-> 
-> 0b
-> 
-> q)100\*sum\[(IrisOneH?"f"$"j"$resIris\`o)=IrisOneH?output\]%count
-> output 96.89922
-> 
-> // Init variables for test data
-> 
-> q)tinput:1.0,'flip flip\[IrisTest\]\`slength\`swidth\`plength\`pwidth
-> q)toutput:IrisTest.onehot
-> 
-> // Run test data through network without training
-> q)resIrisT:(ffn\[tinput;toutput;0.01;\`smax\]/)\[1;
-> 
-> \`o\`w\`v\`err\!(0;resIris\`w;resIris\`v;1f)\]
-> 
-> q)all (IrisOneH?"f"$"j"$resIrisT\`o)=IrisOneH?toutput 1b
-> 
-> ![](img/image9.png)Plot of error vs training epoch is given in
-> Figure 6. We see that the error settles into an oscillation pattern
-> around training epoch 700. While these oscillations are slowly
-> converging it is likely that overfitting begins to take place shortly
-> after the 700<sup>th</sup> iteration of training.
+```q
+// x is linear combination of hidden outputs and weights
+outputFuncs:`sig`smax`lin!
+  ({1%1+exp neg x};{exp[x]%sum flip exp x};{x})
+// x is target value, y is calculated
+errFuncs:`sig`smax`lin!
+  ({neg sum sum flip(x*log y)+(1-x)*log 1-y}; 
+  {neg sum sum flip x*log y};
+  {sum sum a*a:x-y})
+```
 
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
+```q
+ffn:{[inputs;targets;lr;of;d]
+  // Calculate the outputs of the hidden layer
+  // and add bias node
+  z:1.0,/:sigmoid[inputs mmu d`w];
+  o:outputFuncs[of][z mmu d`v];
+  // Error of output neurons
+  deltaO:(targets-o);
+  // Error of hidden neurons
+  // Hidden bias node is not connected to any 
+  // input layer nodes so we drop it   
+  deltaZ:1_/:$[deltaO;flip d`v]*z*1-z; 
+  `o`v`w`err!
+    (o; 
+    d[`v]+lr*flip[z] mmu deltaO;
+    d[`w]+lr*flip[inputs] mmu deltaZ;
+    errFuncs[of][targets;o])
+  }
+```
 
-> *Figure 6: Error while training network on Iris dataset*
 
-## STOCHASTIC GRADIENT DESCENT
+### Classification for 3+ classes
 
-> Often, in practice, computing the error and gradient for the entire
-> training set can be very slow and in some cases not possible if the
-> data will not fit entirely in memory. Stochastic gradient descent
-> solves this problem by performing the back-propagation training on
-> small batches of the training set chosen at random.
-> 
-> Randomly chosen batches simulate real-time streaming of data and help
-> to reduce bias in the final trained network (see chapter 7 in \[2\]
-> for more details on bias and variance in machine learning).
+As an example, we will study a set of Iris flower data which was
+originally introduced into research by Ronald Fisher in 1936. It
+contains samples from three different species of the Iris flower and
+has become a standard test case for many classification techniques
+within machine learning. By taking measurements of certain metrics
+(eg. length and width of sepals) the plants can be classified and
+computationally distinguished from each other. The data and a
+description of the data can be found in the links at
+[archive.ics.uci.edu](http://archive.ics.uci.edu/ml/machine-learning-databases/iris)
 
-## Classification for 3+ classes using stochastic batch training
+We one-hot encode the different possible species of Iris, resulting in
+a neural network with 5 inputs (including the bias neuron), 7 hidden
+neurons (including the bias neuron) and 3 outputs. The data set is
+randomly shuffled to reduce the likelihood of a biased output. From
+this randomised selection of the data a random selection of 20 samples
+is taken as the test set and the other 130 samples are used in
+training.
 
-> This time we will again use Fisher’s Iris dataset, but the network
-> will be trained using randomly selected small batches from the
-> training data.
+```q
+// one-hot encoding of classes
+q)IrisOneH:oneHot[distinct Iris.species] 
+q)IrisOneH
+Iris-setosa    | 1 0 0
+Iris-versicolor| 0 1 0
+Iris-virginica | 0 0 1
+q)Iris1h
+slength swidth plength pwidth species     onehot
+------------------------------------------------
+5.1     3.5    1.4     0.2    Iris-setosa 1 0 0
+4.9     3      1.4     0.2    Iris-setosa 1 0 0
+4.7     3.2    1.3     0.2    Iris-setosa 1 0 0
+..
+// Random permutation of the dataset
+q)IrisRP:Iris1h{neg[x]?til x}count Iris1h
+// Pick a test set – samples from data not used in training
+q)IrisTest:IrisRP[-20?count IrisRP]
+q)IrisTrain:IrisRP except IrisTest
+// Init weights, input and output variables
+q)w:wInit[5;6]
+q)v:wInit[7;3]
+q)input:1.0,'flip flip[IrisTrain]`slength`swidth`plength`pwidth 
+q)output:IrisTrain.onehot
+// Train network 
+q)resIris:(ffn[input;output;0.01;`smax]/)[800;`o`w`v`err!(0;w;v;1f)] 
+// After 800 iterations (or epochs) how well does it perform? 
+q)all(IrisOneH?"f"$"j"$resIris`o)=IrisOneH?output
+0b
+q)100*sum[(IrisOneH?"f"$"j"$resIris`o)=IrisOneH?output]%count output 
+96.89922
+// Init variables for test data
+q)tinput:1.0,'flip flip[IrisTest]`slength`swidth`plength`pwidth 
+q)toutput:IrisTest.onehot
+// Run test data through network without training 
+q)resIrisT:(ffn[tinput;toutput;0.01;`smax]/)[1;`o`w`v`err!(0;resIris`w;resIris`v;1f)] 
+q)all (IrisOneH?"f"$"j"$resIrisT`o)=IrisOneH?toutput
+1b
+```
 
-## CONCLUSION
+Plot of error vs training epoch is given in
+Figure 6. We see that the error settles into an oscillation pattern
+around training epoch 700. While these oscillations are slowly
+converging it is likely that overfitting begins to take place shortly
+after the 700th iteration of training.
 
-> In this whitepaper we have explored a proof-of-concept implementation
-> of a feedforward network in kdb+. By constructing the model for the
-> network using linear algebra (inputs, outputs and weights represented
-> by matrices) we have shown that an array processing language is well
-> suited to developing a complex system.
-> 
-> We have shown that multiple types of output functions can be easily
-> applied to the network depending on the desired result. This
-> generalisation demonstrates the flexibility of kdb+ to many problems
-> where numerical data can be arranged into lists, arrays or tables.
-> 
-> In the event that there is not enough main memory to carry out the
-> calculations on all the training data in one pass we presented an
-> alternative approach, stochastic gradient descent, which allows the
-> network to be trained on small batches of the data.
-> 
-> The network exhibited in this paper forms the groundwork for more
-> complicated networks. Adding additional hidden layers and different
-> options for threshold function will allow more complex convolutional
-> and deep networks to be developed.
-> 
-> All tests were run using kdb+ version 3.2 (2015.05.07) 
-> 
-> 
+![](img/image9.png)  
+<small>_Figure 6: Error while training network on Iris dataset_</small>
+
+
+### Stochastic gradient descent
+
+Often, in practice, computing the error and gradient for the entire
+training set can be very slow and in some cases not possible if the
+data will not fit entirely in memory. Stochastic gradient descent
+solves this problem by performing the back-propagation training on
+small batches of the training set chosen at random.
+
+Randomly chosen batches simulate real-time streaming of data and help
+to reduce bias in the final trained network (see chapter 7 in \[2\]
+for more details on bias and variance in machine learning).
+
+
+### Classification for 3+ classes using stochastic batch training
+
+This time we will again use Fisher’s Iris dataset, but the network
+will be trained using randomly selected small batches from the
+training data.
+
+
+## Conclusion
+
+In this whitepaper we have explored a proof-of-concept implementation
+of a feedforward network in kdb+. By constructing the model for the
+network using linear algebra (inputs, outputs and weights represented
+by matrices) we have shown that an array-processing language is well
+suited to developing a complex system.
+
+We have shown that multiple types of output functions can be easily
+applied to the network depending on the desired result. This
+generalisation demonstrates the adaptability of kdb+ to many problems
+where numerical data can be arranged into lists, arrays or tables.
+
+In the event that there is not enough main memory to carry out the
+calculations on all the training data in one pass we presented an
+alternative approach, stochastic gradient descent, which allows the
+network to be trained on small batches of the data.
+
+The network exhibited in this paper forms the groundwork for more
+complicated networks. Adding additional hidden layers and different
+options for threshold function will allow more complex convolutional
+and deep networks to be developed.
+
+All tests were run using kdb+ version 3.2 (2015.05.07) 
+
+
 ### Author
 
 James Neill works as a kdb+ consultant for one of the world’s largest
@@ -690,14 +679,13 @@ been involved in the design of training courses in data science and
 machine learning as part of the First Derivatives training programme.
 
 
-> References:
+## References
 
-1.  Murphy, K. P. (2012). *Machine Learning A Probabilistic
-    Perspective.* MIT Press.
+1.  Murphy, K. P. (2012). _Machine Learning: a probabilistic
+    perspective._ MIT Press.
 
-2.  Hastie, T., Tibshirani, R. and Friedman, J. *The Elements of
-    Statistical Learning.* Springer, New York. (link to online version:
-    [http://statweb.stanford.edu/~tibs/ElemStatLearn/)](http://statweb.stanford.edu/%7Etibs/ElemStatLearn/\))
+2.  Hastie, T., Tibshirani, R. and Friedman, J. _The Elements of
+    Statistical Learning._ Springer, New York. ([Online version](http://statweb.stanford.edu/~tibs/ElemStatLearn/))
 
-3.  Alpaydin, E. *Introduction to Machine Learning, Second Edition.* MIT
+3.  Alpaydin, E. _Introduction to Machine Learning, Second Edition._ MIT
     Press.
