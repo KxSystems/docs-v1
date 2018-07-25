@@ -21,9 +21,9 @@ action include:
 
 -   [Aiding in medical diagnostics](http://www.ijesit.com/Volume%202/Issue%202/IJESIT201302_33.pdf)
 
--   Interpreting art and painting images \[[1](http://googleresearch.blogspot.ca/2015/06/inceptionism-going-deeper-into-neural.html)\] \[[2](http://arxiv.org/pdf/1508.06576v1.pdf)\]
+-   Interpreting art and painting images \[[Mordvintsev _et al._](http://googleresearch.blogspot.ca/2015/06/inceptionism-going-deeper-into-neural.html)\] \[[Gatys _et al._](http://arxiv.org/pdf/1508.06576v1.pdf)\]
 
--   [Performing stock market predictions](http://reference.wolfram.com/applications/neuralnetworks/ApplicationExamples/12.2.0.html)
+-   Performing stock market predictions<!-- (http://reference.wolfram.com/applications/neuralnetworks/ApplicationExamples/12.2.0.html) -->
 
 A number of different algorithms have been developed around this field
 of research, and this paper is going to focus on the implementation of
@@ -35,12 +35,12 @@ regression purposes and has been shown to be a universal approximator
 – an algorithm that can model any smooth function given enough
 hidden units.
 
-!!! note 
+!!! note "Reference"
 
     See Kurt Hornik, “Approximation Capabilities of Multilayer Feedforward  Networks”, _Neural Networks_, Vol. 4, pp. 251-257, 1991
 
 This design of feedforward networks can be represented through
-operations on matrices and vectors. Array programming languages such
+operations on matrices and vectors. Array-programming languages such
 as q are well suited to computational implementations in this
 format due to the vectorised operations on lists.
 
@@ -80,7 +80,22 @@ on its inputs. A common choice for this function is the sigmoid
 function. 
 
 <div markdown="1" style="text-align: center">
-![](img/formula1.png)
+
+<!-- FIXME Get inline CMN to render in PDF.
+LaTeX not currently rendered. 
+Workaround: (1) use image files for equations, (2) replace inline expressions with HTML.
+(2) fails to render
+
+- combined subscripts and superscripts
+- &beta; character
+
+Currently using MathJAX for best results in HTML, but fails to compile in PDF.
+2018.07.26
+ -->
+
+$$\sigma(x) = \frac{1}{1+e^{-x}}$$
+
+<!-- ![](img/formula1.png) -->
 <!-- 𝜎(𝑥) = 1 ÷ (1 + 𝑒<sup>−𝑥</sup>) -->
 </div>
 
@@ -94,6 +109,7 @@ by 0 and 1 on the vertical axis (Figure 2).
 
 ![](img/image5.png)  
 <small>_Figure 2: A plot of the sigmoid function_</small>
+
 
 ### Perceptrons as linear predictors
 
@@ -157,13 +173,16 @@ to the input layer and one to each of the hidden layers. The value it
 passes to neurons in the next layer is always 1 and it receives no
 inputs from previous layers (see Figure 4). The purpose of bias
 neurons is analogous to the intercept parameter of a simple linear
-model – commonly written as 𝑦 = 𝑚𝑥 + 𝑐 = 𝛽₁𝑥₁ + 𝛽₀𝑥₀.
+model – commonly written as $y=mx+c=\beta_{1}x_{1}+\beta_{0}x_{0}$.
 
-The absence of 𝛽₀𝑥₀ in the simple linear model results in the
+<!-- _y_ = _mx_ + _c_ = <i>&#223;</i>₁<i>x</i>₁ + <i>&beta;</i>₀<i>x</i>₀. -->
+<!-- 𝑦 = 𝑚𝑥 + 𝑐 = 𝛽₁𝑥₁ + 𝛽₀𝑥₀. -->
+
+The absence of <!-- 𝛽₀𝑥₀ -->$\beta_{0}x_{0}$ in the simple linear model results in the
 predicted line always passing through (0, 0) and the model will
 perform poorly when attempting to predict unknown values. Hence we
-always set 𝑥₀ to 1 and alter 𝛽₀ as we find the line of best fit. In
-the neural network we represent the network’s version of the 𝛽₀𝑥₀ term
+always set <!-- 𝑥₀ -->$x_{0}$ to 1 and alter <!-- 𝛽₀ -->$\beta_{0}$ as we find the line of best fit. 
+In the neural network we represent the network’s version of the $\beta_{0}x_{0}$<!-- 𝛽₀𝑥₀ --> term
 as a bias neuron and associated weights. For more information on bias
 terms in statistical modelling see Chapter 3 in \[2\] and Chapter 7 in
 \[1\].
@@ -276,7 +295,10 @@ sigmoid function the error function is the cross-entropy error
 function defined as:
 
 <div markdown="1" style="text-align: center">
-![](img/formula2.png)
+  
+$$-\sum_{t}y^t\log \widehat{y}^t + (1-y^t)\log(1-\widehat{y}^t)$$
+
+<!-- ![](img/formula2.png) -->
 </div>
 
 <!-- − ∑ 𝑦<sup>𝑡</sup> log 𝑦̂<sup>𝑡</sup> + (1 − 𝑦<sup>𝑡</sup>) log(1 −
@@ -284,21 +306,42 @@ function defined as:
 𝑡
  -->
 This gives us the following update rule for adjusting the weights
-between the output node and the hidden layer<sup>2</sup>:
+between the output node and the hidden layer:
 
 <div markdown="1" style="text-align: center">
-![](img/formula3.png)
-</div>
+
+$$\Delta v_{h}=\sum_{t}z_{h}^t(y^t-\widehat{y}^t)$$
+
+$$v_h \leftarrow v_h + \alpha\Delta v_h$$
+
+<!-- ![](img/formula3.png) -->
 <!-- ∆𝑣ℎ = ∑ 𝑧<sup>𝑡</sup> (𝑦<sup>𝐭</sup> − 𝑦̂<sup>𝑡</sup>)
 𝑡
 𝑣ℎ ← 𝑣ℎ + 𝛼∆𝑣ℎ
  -->
+</div>
 
-Where 𝑧<sup>𝑡</sup><sub>_h_</sub> is the output after evaluating the hidden neuron
-_h_ for input sample _t_, 𝑣<sub>ℎ</sub> is the weight between the output neuron
-and hidden neuron _h_, 𝑦<sup>𝐭</sup> is the target for sample _t_,
-𝑦̂<sup>𝑡</sup> is the calculated output for sample _t_ and 𝛼 is the
-rate at which we adjust the weights (usually < 0.1).
+where: 
+
+$z^{t}_h$ <!-- 𝑧<sup>𝑡</sup><sub>_h_</sub>  -->
+
+: the output after evaluating the hidden neuron $h$ for input sample $t$
+
+$v_h$
+
+: the weight between the output neuron and hidden neuron $h$
+
+$y_t$
+
+: the target for sample $t$
+
+$\widehat{y}^t$
+
+: the calculated output for sample $t$
+
+$\alpha$ 
+
+: the rate at which we adjust the weights (usually < 0.1)
 
 !!! note "Update rules"
 
@@ -309,7 +352,12 @@ the error to the hidden layer and generate the update rule for the
 weights between the input layer and the hidden layer:
 
 <div markdown="1" style="text-align: center">
-![](img/formula4.png)
+
+$$\Delta w_{hj} = \sum_t(y^t-\widehat{y}^t) v_h z^t_h(1-z^t_h)x^t_j$$
+
+$$w_{hj} \leftarrow w_{hj}+\alpha\Delta w_{hj}$$
+
+<!-- ![](img/formula4.png) -->
 <!-- ∆𝑤ℎ𝑗 = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>) 𝑣ℎ𝑧<sup>𝑡</sup>(1 − 𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
 ℎ ℎ 𝑗
 𝑡
@@ -317,8 +365,15 @@ weights between the input layer and the hidden layer:
  -->
 </div>
 
-Where _w<sub>hj</sub>_ is the weight between hidden neuron _h_ and input neuron _j_
-and 𝑥<sup>𝑡</sup> is the input from neuron _j_ for some sample _t_.
+where:
+
+$w_{hj}$
+
+: the weight between hidden neuron $h$ and input neuron $j$
+
+$x^t_j$
+
+: the input from neuron $j$ for some sample $t$
 
 Using these formulas we can update our feedforward network function
 to implement back-propagation and allow training:
@@ -423,17 +478,27 @@ layer target patterns to match for training and testing. The output
 function used is the softmax function:
 
 <div markdown="1" style="text-align: center;">
-![](img/formula5.png)
+
+$$\widehat{y}^t_i = \frac{\exp{S^t_i}}{\sum_k\exp{S^t_k}}$$
+
+<!-- ![](img/formula5.png) -->
 <!--  # 𝑦̂ =
 𝑖 ∑<sub>𝑘</sub> 𝑒𝑥𝑝 𝑆<sup>𝑡</sup>
  --></div>
 
-Where 𝑦̂<sub>𝑖</sub><sup>𝑡</sup> is the output from neuron 𝑖 for sample 𝑡,
-𝑆<sub>𝑖</sub><sup>𝑡</sup> is the linear combination of outputs from the
-hidden layer and the weights connecting the hidden layer to output
-neuron 𝑖 for sample 𝑡 and 𝑆<sub>𝑘</sub><sup>𝑡</sup> is the linear combination
-of outputs from the hidden layer and the weights connecting the hidden
-layer to output neuron 𝑘 for sample 𝑡.
+where 
+
+$\widehat{y}^t_i$
+
+: the output from neuron $i$ for sample $t$
+
+$S^t_i$
+
+: the linear combination of outputs from the hidden layer and the weights connecting the hidden layer to output neuron $i$ for sample $t$
+
+$S^t_k$
+
+: the linear combination of outputs from the hidden layer and the weights connecting the hidden layer to output neuron $k$ for sample $t$
 
 By using the softmax function we ensure that the sum of the outputs
 from each of the neurons in the output layer is 1. That allows us to
@@ -444,19 +509,25 @@ resulting in a match to one of the one-hot encoded classifications.
 The cross-entropy error function in this case is:
 
 <div markdown="1" style="text-align: center;">
-![](img/formula5.png)
+
+$$-\sum_t\sum_i y^t_i\log\widehat{y}^t_i$$
+
 <!-- − ∑ ∑ 𝑦<sup>𝑡</sup> log 𝑦̂<sup>𝑡</sup>
 𝑖 𝑖
 𝑡 𝑖
  --></div>
 
-Where 𝑦<sup>𝑡</sup> is the target value for output neuron 𝑖 with
-sample 𝑡.
+where $\widehat{y}^t_i$ is the target value for output neuron $i$ with
+sample $t$.
 
 The update rules are:
 
 <div markdown="1" style="text-align: center;">
-![](img/formula5.png)
+
+$$\Delta v_{ih} = \sum_t(y^t_i - \widehat{y}^t_i)z^t_h$$
+
+$$\Delta w_{hj} = \sum_t\left[\sum_i(y^t_i-\widehat{y}^t_i)v_{ih}\right]z^t_h(1-z^t_h)x^t_j$$
+
 <!-- ∆𝑣<sub>𝑖ℎ</sub> = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
 𝑖 𝑖 ℎ
 𝑡
@@ -467,8 +538,8 @@ The update rules are:
 𝑡 𝑖
 ℎ ℎ 𝑗
  --></div>
-Where 𝑣<sub>𝑖ℎ</sub> is the weight between output neuron 𝑖 and hidden neuron
-ℎ.
+where $v_{ih}$ is the weight between output neuron $i$ and hidden neuron
+$h$.
 
 An example implementation of the softmax output is shown below in
 _Classification for 3+ classes_.
@@ -482,19 +553,31 @@ function is just the linear combination of the outputs from the hidden
 layer.
 
 <div markdown="1" style="text-align: center;">
-![](img/formula8.png)
+
+$$\widehat{y}^t=\textbf{v}\cdot\textbf{z}^t$$
+
+<!-- ![](img/formula8.png) -->
 <!-- 𝑦̂<sup>𝑡</sup> = 𝐯 ∙ 𝐳<sup>𝑡</sup> -->
 </div>
 
-Where 𝐯 is the vector of weights between the hidden layer and the
-output layer and 𝐳<sup>𝑡</sup> is the vector of outputs from the
-hidden layer.
+where 
+
+$\textbf{v}$ 
+
+: the vector of weights between the hidden layer and the output layer
+
+$\textbf{z}^t$
+
+: the vector of outputs from the hidden layer
 
 In this case we change the error function from cross-entropy to the
 sum-of-squared errors:
 
 <div markdown="1" style="text-align: center;">
-![](img/formula9.png)
+
+$$\frac{1}{2}\sum_t(y^t-\widehat{y}^t)^2$$
+
+<!-- ![](img/formula9.png) -->
 <!-- 1 ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)<sup>2</sup>
 2
 𝑡
@@ -504,7 +587,12 @@ sum-of-squared errors:
 The update rules for a regression output are:
 
 <div markdown="1" style="text-align: center;">
-![](img/formula10.png)
+
+$$\Delta v_h = \sum_t(y^t-\widehat{y}^t)z^t_h$$
+
+$$\Delta w_{hj} = \sum_t (y^t-\widehat{y}^t) v_h z^t_h (1-z^t_h) x^t_j$$
+
+<!-- ![](img/formula10.png) -->
 <!-- ∆𝑣ℎ = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
 𝑡
 ∆𝑤ℎ𝑗 = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑣ℎ𝑧<sup>𝑡</sup>(1 −
@@ -520,7 +608,7 @@ q)linErr:{0.5*sum sum a*a:x-y}
 ```
 
 It’s useful now to put the different functions for error and output in
-dictionary format as this will allow us to use the same ffn function
+dictionary format as this will allow us to use the same `ffn` function
 for all 3 types of classification:
 
 ```q
@@ -671,7 +759,7 @@ and deep networks to be developed.
 All tests were run using kdb+ version 3.2 (2015.05.07) 
 
 
-### Author
+## Author
 
 James Neill works as a kdb+ consultant for one of the world’s largest
 investment banks, developing a range of applications. James has also
