@@ -303,6 +303,7 @@ pages:
     - Index: whitepapers.md
     - C# GUIs: wp/gui/index.md
     - Data visualization: wp/data-visualization/index.md
+    - Disaster recovery: wp/disaster-recovery/index.md
     - Java API: 
       - Introduction: wp/java-api/index.md
       - API overview: wp/java-api/api.md
@@ -318,6 +319,8 @@ pages:
       - Connecting to Java: wp/java-api/connect-from-kdb.md
       - Conclusion : wp/java-api/conclusion.md
     - Market fragmentation: wp/market-fragmentation/index.md
+    - Multi partitions: wp/multi-partitioned-dbs/index.md
+    - Neural networks: wp/neural-networks/index.md
     - Query Routing: wp/query-routing/index.md
     - WebSockets: wp/websockets/index.md
   - GitHub: github.md
