@@ -23,7 +23,7 @@ action include:
 
 -   Interpreting art and painting images \[[Mordvintsev _et al._](http://googleresearch.blogspot.ca/2015/06/inceptionism-going-deeper-into-neural.html)\] \[[Gatys _et al._](http://arxiv.org/pdf/1508.06576v1.pdf)\]
 
--   Performing stock market predictions<!-- (http://reference.wolfram.com/applications/neuralnetworks/ApplicationExamples/12.2.0.html) -->
+-   [Performing stock market predictions](https://www.sciencedirect.com/science/article/pii/S2077188616300245)<!-- (http://reference.wolfram.com/applications/neuralnetworks/ApplicationExamples/12.2.0.html) -->
 
 A number of different algorithms have been developed around this field
 of research, and this paper is going to focus on the implementation of
