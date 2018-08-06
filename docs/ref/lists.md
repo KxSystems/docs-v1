@@ -248,6 +248,7 @@ c| 3
         </code></pre>
 
 - `x` is a **vector of keys** and `y` is a **table**, returns `y` without columns `x`.
+
     <pre><code class="language-q">q)t:([]a:1 2 3;b:4 5 6;c:\`d\`e\`f)
     q)\`a\`b _ t
     c
@@ -264,6 +265,7 @@ c| 3
     </code></pre>
 
 !!! tip "Drop in place"
+
     Assign through _drop_ to delete in place. 
     <pre><code class="language-q">
     q)show d:\`a\`b\`c\`x!(1;2 3;4;5)
@@ -291,7 +293,7 @@ q)a:10
 q)b:enlist a
 q)c:enlist b
 q)type each (a;b;c)
--6 6 0h
+-7 7 0h
 q)a~b
 0b
 q)a~first b

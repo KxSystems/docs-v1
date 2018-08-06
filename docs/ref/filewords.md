@@ -254,6 +254,12 @@ SSL/TLS
 : `` `:tcps://host:port[:user:password] `` 
 : <i class="fa fa-hand-o-right"></i> Cookbook: [SSL/TLS](/cookbook/ssl/)
 
+FIFO/named pipes
+
+: V3.4 Unix builds have support for reading from a FIFO/named pipe, where the `hopen` argument has the form `` `:fifo://filename``.
+    
+    <i class="fa fa-hand-o-right"></i> Cookbook: [Named pipes](/cookbook/named-pipes), [Client-server](/cookbook/client-server), [SSL/TLS](/cookbook/ssl)
+
 User and password are required if the server session has been started with the [`-u`](cmdline/#-u-usr-pwd-local) or [`-U`](cmdline/#-u-usr-pwd) command line options, and are passed to [`.z.pw`](dotz/#zpw-validate-user) for (optional) additional processing.
 
 The optional timeout applies to the initial connection, not subsequent use of it.
@@ -277,7 +283,7 @@ If only one synchronous query/request is to be run, then the single-shot synchro
 q)`:mydb.us.com:5010:elmo:sesame "1+1"
 2
 ```
-<i class="fa fa-hand-o-right"></i> Cookbook: [Client-server](/cookbook/client-server/), [`.Q.Xf`](dotq/#qxf-create-file) (create file)
+<i class="fa fa-hand-o-right"></i> Cookbook: [Client-server](/cookbook/client-server/)
 
 !!! note "File handles"
     A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
@@ -291,11 +297,6 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
     q)r:htxt "some text\n"
     q)r:htxt \` sv("asdf";"qwer")
     </code></pre>
-
-!!! tip "Fifo/named pipes"
-    V3.4 Unix builds have support for reading from a Fifo/named pipe, where the `hopen` argument has the form `` `:fifo://filename``.
-    
-    <i class="fa fa-hand-o-right"></i> Cookbook: [Named pipes](/cookbook/named-pipes), [Client-server](/cookbook/client-server), [SSL/TLS](/cookbook/ssl)
 
 
 ## `hsym`
@@ -397,7 +398,7 @@ q)`:foo 0: enlist "hello world"
 q)read0 (`:foo;6;5)
 "world"
 ```
-Starting with V3.4 2016.05.31 `read0` allows user to specify how many bytes to read from a Fifo.
+Starting with V3.4 2016.05.31 `read0` allows user to specify how many bytes to read from a FIFO.
 ```q
 q)h:hopen`$":fifo:///etc/redhat-release"
 q)read0(h;8)

@@ -776,16 +776,18 @@ Syntax: `.z.ts:f`
 
 Where `f` is a unary function, `.z.ts` is evaluated on intervals of the timer variable set by system command `\t`. 
 ```q
-/ set the timer to 1000 milliseconds
-\t 1000
-/ parameter x is the current timestamp - .z.ts is called once per second and outputs the current timestamp
-.z.ts:{0N!x}
-2010.12.16D17:12:12.849442000
+q)/ set the timer to 1000 milliseconds
+q)\t 1000
+q)/ argument x is the timestamp scheduled for the callback
+q)/ .z.ts is called once per second and returns the timestamp
+q).z.ts:{0N!x}
+q)2010.12.16D17:12:12.849442000
 2010.12.16D17:12:13.849442000
 2010.12.16D17:12:14.849442000
 2010.12.16D17:12:15.849442000
 2010.12.16D17:12:16.849442000
 ```
+
 When kdb+ has completed executing a script passed as a command-line argument, and if there are no open sockets nor a console, kdb+ will exit. The timer alone is not enough to stop the process exiting – it must have an event source which is a file descriptor (socket, console, or some plugin registering a file descriptor and callback via the C API `sd1` function).
 
 <i class="fa fa-hand-o-right"></i> [`\t`](syscmds/#t-timer)
