@@ -2,7 +2,7 @@
 
 
 
-Open a Bash session (eg LXTerminal) in your home folder and `cd` to your `Downloads` folder. Unzip the archive. A new folder `q` will appear in your `Downloads` folder. Copy it to your home folder and `cd` there.
+Open a Bash session (eg LXTerminal) in your home folder and `cd` to the folder where you downloaded your ZIP file. Unzip the archive. A new folder `q` will appear there. Copy it to your home folder and `cd` there.
 
 ```bash
 $ cd ~/Downloads
@@ -23,7 +23,7 @@ $
 <!-- ![cd ~/Downloads unzip linux-x86.zip cp -r q ~/. cd ~](img/install_linux_01.png "cd ~/Downloads unzip linux-x86.zip cp -r q ~/. cd ~") -->
 
 
-## 32-bit or 64-bit?
+## 64-bit or 32-bit?
 
 Use the `uname` command to determine whether your machine is using the 32-bit or 64-bit Linux distribution.
 ```bash
@@ -32,7 +32,7 @@ i686
 ```
 <!-- ![Determining the distribution bit size](img/install_linux_02.png "Determining the distribution bit size") -->
 
-If the result is `i686` or `i386` or similar, you are running a **32-bit** distribution. If the result is `x86_64`, you are running a **64-bit** distribution.
+If the result is `i686` or `i386` or similar, you are running a **32-bit** Linux distribution. If the result is `x86_64`, you are running a **64-bit** Linux distribution.
 
 If you are installing 32-bit kdb+ on a 32-bit Linux distribution, proceed to [Launch (minimum install)](#minimum-install-and-launch).
 
@@ -51,7 +51,7 @@ Type `til 6` to see the first six integers. Type `\\` to return to Linux.
 
 ```txt
 $ q/l32/q
-KDB+ 3.4 2016.06.14 Copyright (C) 1993-2016 Kx Systems
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
 m32/ 2()core 4096MB sjt mark.local 192.168.0.17 NONEXPIRE
 
 Welcome to kdb+ 32bit edition
@@ -74,7 +74,7 @@ You have completed the minimum installation. We recommend continuing with _Compl
 The minimum installation can be improved in two important ways. We strongly recommend them.
 
 * Call kdb+ within the `rlwrap` command, which will allow you to call back and edit previous lines
-* Define `q` as a command, allowing you to invoke kdb+ without specifying the path to it
+* Define `q` as a command alias, allowing you to invoke kdb+ without specifying the path to it
 
 
 ### Install Rlwrap
@@ -106,7 +106,8 @@ Open it with a text editor, append the following line
 ```bash
 alias q='QHOME=~/q rlwrap -r ~/q/l32/q'
 ```
-and save it. Tell Bash to use the revised profile: `source .bashrc`.
+and save it. 
+Start a new Bash session, or tell Bash to use the revised profile:
 
 ```bash
 $ source .bashrc
@@ -116,16 +117,16 @@ $ source .bashrc
 
 !!! tip "Installing elsewhere"
 
-    You can install kdb+ where you please. The environment variable `QHOME` (specified above) tells kdb+ where its home folder is. 
+    You can install kdb+ where you please. The environment variables `QHOME` (specified above) and `QLIC` tell kdb+ [where to find its files](/tutorials/licensing). 
 
 
-## Confirm installation
+## Confirm successful installation
 
 From your home folder, launch kdb+, type an expression and recall it using the up-arrow key. Exit kdb+.
 
 ```txt
 $ q
-KDB+ 3.4 2016.06.14 Copyright (C) 1993-2016 Kx Systems
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
 m32/ 2()core 4096MB sjt mark.local 192.168.0.17 NONEXPIRE
 
 Welcome to kdb+ 32bit edition

@@ -7,15 +7,17 @@
 
 Everyone. All use of kdb+ is governed by a license. 
 
+64-bit installations require a **license key file**: `k4.lic` or `kc.lic`.
+
 <i class="fa fa-hand-o-right"></i> [Licenses](https://kx.com/connect-with-us/licenses/) at kx.com
 
 
 ### Free, non-commercial, 64-bit kdb+ on demand
 
 Free 64-bit kdb+ On-Demand Personal Edition is for personal, non-commercial use. 
-It may be used on up to 2 computers, and up to a maximum of 16 cores per computer, but is not licensed for use on any cloud – only on personal computers. 
+Currently, it may be used on up to 2 computers, and up to a maximum of 16 cores per computer, but is not licensed for use on any cloud – only on personal computers. 
 It may not be used for any commercial purposes.
-See the [full terms and conditions](https://ondemand.kx.com/) 
+See the [full terms and conditions](https://ondemand.kx.com/). 
 
 It requires a `kc.lic` license key file and an always-on internet connection to operate.
 
@@ -28,7 +30,7 @@ No license key file is required.
 When you start kdb+ the banner shows your license has no expiry date.
 
 ```q
-KDB+ 3.5 2017.06.15 Copyright (C) 1993-2017 Kx Systems
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
 m32/ 4()core 8192MB sjt mint.local 192.168.0.39 NONEXPIRE
 
 Welcome to kdb+ 32bit edition
@@ -37,7 +39,7 @@ Welcome to kdb+ 32bit edition
 
 ### Commercial kdb+
 
-Use of commercial 64-bit kdb+ is licensed by your agreement with Kx.
+Use of commercial kdb+ is covered by your license agreement with Kx.
 
 Your copy of kdb+ will need access to a valid license key file.
 
@@ -49,7 +51,7 @@ Without one, kdb+ signals an [error](/ref/error-list/#license-errors) `'k4.lic` 
 
 ```txt
 tom@mb13:~/q$ q
-KDB+ 3.5 2017.06.15 Copyright (C) 1993-2017 Kx Systems
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
 m64/ 2()core 8192MB tom mb13.local 192.168.1.44
 'k4.lic
 tom@mb13:~/q$ 
@@ -80,22 +82,22 @@ License key files (`kc.lic`) are distributed by email.
 An unlicensed kdb+ session aborts: see above.
 The banner at the top of the aborted session contains machine-configuration information but no license information. 
 
-Your Designated Contact sends a copy of the banner to licadmin@kx.com to receive a license file in return. 
+Your Designated Contact sends a copy of the banner to licadmin@kx.com to request a license file by return. 
 
 !!! info "Designated Contact"
-    Each Kx customer designates to licadmin@kx.com **one** technical person as the Designated Contact for issues with kdb+, managing licenses and downloading software. 
+    Each Kx customer designates to licadmin@kx.com a couple of technical people as the Designated Contacts for issues with kdb+, managing licenses and downloading software. 
 
 
 ## Install the license key file
 
-Save a copy of the license key file in the `QHOME` folder. 
+Save a copy of the license key file (`k4.lic` or `kc.lic`) in the `QHOME` folder. 
 (See [installation instructions](/tutorials/install/#install) for your operating system.) 
-Restart kdb+ and note the change in the banner. 
+Restart your kdb+ session and note the change in the banner. 
 
 ```txt
 tom@mb13:~/q$ q
-KDB+ 3.5 2017.06.15 Copyright (C) 1993-2017 Kx Systems
-m64/ 2()core 8192MB tom mb13.local 192.168.1.44 EXPIRE 2018.05.15 tom@kx.com #400
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
+m64/ 2()core 8192MB tom mb13.local 192.168.1.44 EXPIRE 2019.05.15 tom@kx.com #400
 q)til 6
 0 1 2 3 4 5
 q)
@@ -103,7 +105,7 @@ q)
 
 Note the license number (`#400` in the example) and quote it in any correspondence about the license. 
 
-If you are sharing use of a commercial license, you will probably want to set the environment variable `QLIC` to the path of the `k4.lic` file, as below.
+If you are sharing use of a commercial license, you will probably want to set the environment variable `QLIC` to the path of the license key file, as below.
 
 
 ## Keeping the license key file elsewhere
@@ -116,10 +118,10 @@ The default location for the license key file is the `QHOME` folder. You do not 
 
 ## Licensing server for kdb+ On Demand
 
-As well as a license key file, kdb+ On Demand also requires frequent contact with the licensing server. 
+As well as a license key file, kdb+ On Demand also requires frequent contact with the Kx licensing server. 
 For this you need an always-on Net connection.
 
-If kdb+ cannot contact the server it will abort with a timestamped message.
+If kdb+ cannot contact the Kx server it will abort with a timestamped message.
 
 ```q
 '2018.03.28T11:20:03.831 couldn't connect to license daemon -- exiting
@@ -130,11 +132,18 @@ If kdb+ cannot contact the server it will abort with a timestamped message.
 
 If the license is for fewer cores than the total number on the machine, the number of cores available to kdb+ must be [restricted with OS programs](/cookbook/cpu-affinity/), or kdb+ will signal `'cores` and abort.
 
-As long as you `task` or `numa` correctly, the binary will not abort itself.
+```txt
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
+m64/ 4(3)core 16384MB simon simon-macos.local 127.0.0.1   simon@kx.com #40000
+
+'cores
+```
+
+As long as you use `taskset` or `numa` correctly, the binary will not abort itself.
 
 You can see the number of cores entitled to a q process:
 
--   by looking at the banner, e.g. `…w64/ 2(16)core…` – the 2 here is what the process is allowed to use, and the 16 is the licensed amount
+-   by looking at the banner, e.g. `…m64/ 4(3)core…` – the 4 here is the number of cores reported by the OS, and the 3 is the number of cores licensed 
 -   with [`.z.c`](/ref/dotz/#zc-cores) – not the physical cores of the system, but rather the number the process is allowed to use
 -   the first element of [`.z.l`](/ref/dotz/#zl-license) 
 

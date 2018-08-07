@@ -10,8 +10,7 @@ Next perform the _Minimum install and launch_. We then strongly recommend contin
 
 ## Minimum install and launch
 
-Open the Terminal application (Bash). 
-Answer the prompts as follows:
+Open the Terminal application and enter the following commands:
 
 ```bash
 $ cd ~/Downloads
@@ -20,7 +19,7 @@ $ cd ~/Downloads
 $ q/m32/q
 ```
 ```txt
-KDB+ 3.4 2016.06.14 Copyright (C) 1993-2016 Kx Systems
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
 m32/ 2()core 4096MB sjt mark.local 192.168.0.17 NONEXPIRE
 
 Welcome to kdb+ 32bit edition
@@ -48,12 +47,12 @@ To exit from kdb+, type `\\`
 The minimum installation can be improved in two important ways. We strongly recommend them.
 
 -   Call kdb+ within the `rlwrap` command, which will allow you to call back and edit previous lines
--   Define `q` as a command, allowing you to invoke kdb+ without specifying the path to it
+-   Define `q` as a command alias, allowing you to invoke kdb+ without specifying the path to it
 
 
 ### Install Rlwrap
 
-Exit kdb+ to return to the Bash prompt and your home folder. Ask for Rlwrap’s version number. If you see one, Rlwrap is already installed.
+Exit kdb+ to return to the command prompt and your home folder. Ask for Rlwrap’s version number. If you see one, Rlwrap is already installed.
 
 ```bash
 q)\\
@@ -71,10 +70,10 @@ Otherwise, you will be told `rlwrap: command not found`. Install Rlwrap using yo
 
 ### Edit your profile
 
-In Bash, open your profile `~/.bash_profile` with TextEdit (or your favourite text editor),
+In Terminal (Bash), open your profile `~/.bashrc` with TextEdit (or your favourite text editor),
 
 ```bash
-$ open -a "Sublime Text" .bash_profile
+$ open -a "Sublime Text" .bashrc
 ```
 
 <!-- ![open -a Textedit .bash\_profile](img/install_mac_04.png "open -a Textedit .bash_profile") -->
@@ -83,26 +82,26 @@ append the following line
 ```bash
 alias q='QHOME=~/q rlwrap -r ~/q/m32/q'
 ```
-and save it. Tell Bash to use the revised profile:
+and save it. Start a new Terminal session, or tell Bash to use the revised profile:
 
 ```bash
-$ source .bash_profile
+$ source .bashrc
 ```
 
 <!-- ![source .bash\_profile](img/install_mac_05.png "source .bash_profile") -->
 
 !!! tip "Installing elsewhere"
 
-    You can install kdb+ where you please. The environment variable `QHOME` (specified above) tells kdb+ where its home folder is. 
+    You can install kdb+ where you please. The environment variables `QHOME` (specified above) and `QLIC` tell kdb+ [where to find its files](/tutorials/licensing). 
 
 
-## Confirm installation
+## Confirm successful installation
 
 From your home folder, launch kdb+, type an expression and recall it using the up-arrow key:
 
 ```txt
 $ q
-KDB+ 3.4 2016.06.14 Copyright (C) 1993-2016 Kx Systems
+KDB+ 3.6 2018.07.30 Copyright (C) 1993-2018 Kx Systems
 m32/ 2()core 4096MB sjt mark.local 192.168.0.17 NONEXPIRE
 
 Welcome to kdb+ 32bit edition
