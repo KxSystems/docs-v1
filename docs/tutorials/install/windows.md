@@ -10,7 +10,7 @@ Extract the files to `C:\`, producing a new folder `C:\q`.
     You can install on a different filepath. If you do, in the following instructions simply replace `C:\q` with your filepath.
 
 
-## Confirm q is working
+## :fa-check: Confirm q is working
 
 Open a command shell window: type Windows-r (or click the Start button) and type `cmd`.
 
@@ -39,7 +39,7 @@ C:\Users\me>
 <!-- ![C:32](img/install_windows_01.png "C:32") -->
 
 
-## Define q as a command
+## :fa-code: Define q as a command
 
 Defining `q` as a command allows you to invoke kdb+ without specifying the path to it.
 

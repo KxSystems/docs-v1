@@ -8,7 +8,7 @@ After downloading, if necessary, unzip the archive. A new folder `q` will appear
 Next perform the _Minimum install and launch_. We then strongly recommend continuing to [Complete install and launch](#complete-install-and-launch).
 
 
-## Minimum install and launch
+## :fa-rocket: Minimum install and launch
 
 Open the Terminal application and enter the following commands:
 
@@ -50,7 +50,7 @@ The minimum installation can be improved in two important ways. We strongly reco
 -   Define `q` as a command alias, allowing you to invoke kdb+ without specifying the path to it
 
 
-### Install Rlwrap
+### :fa-plug: Install Rlwrap
 
 Exit kdb+ to return to the command prompt and your home folder. Ask for Rlwrap’s version number. If you see one, Rlwrap is already installed.
 
@@ -68,7 +68,7 @@ If Rlwrap is already installed you can go on to the next step.
 Otherwise, you will be told `rlwrap: command not found`. Install Rlwrap using your package manager. (Probably either [MacPorts](https://www.macports.org/install.php) or [Homebrew](http://brew.sh/))
 
 
-### Edit your profile
+### :fa-code: Edit your profile
 
 In Terminal (Bash), open your profile `~/.bashrc` with TextEdit (or your favourite text editor),
 
@@ -95,7 +95,7 @@ $ source .bashrc
     You can install kdb+ where you please. The environment variables `QHOME` (specified above) and `QLIC` tell kdb+ [where to find its files](/tutorials/licensing). 
 
 
-## Confirm successful installation
+## :fa-check: Confirm successful installation
 
 From your home folder, launch kdb+, type an expression and recall it using the up-arrow key:
 

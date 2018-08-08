@@ -135,6 +135,7 @@ pages:
       - Linux: tutorials/install/linux.md
       - macOS: tutorials/install/macos.md
       - Windows: tutorials/install/windows.md
+      - DigitalOcean: tutorials/install/digitalocean.md
     - Licensing: tutorials/licensing.md
     - A brief introduction:
       - First steps: tutorials/first-steps.md

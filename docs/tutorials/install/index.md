@@ -50,7 +50,7 @@ Follow the installation instructions for your operating system:
 -   :fa-windows: [Windows](windows)
 
 
-## Licenses
+## :fa-certificate: Licenses
 
 ### Personal, non-commercial
 

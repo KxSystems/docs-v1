@@ -43,7 +43,7 @@ sudo apt-get install libc6-i386
 
 <i class="fa fa-hand-o-right"></i> AskUbuntu: [How to run 32-bit app in Ubuntu 64-bit?](https://askubuntu.com/questions/454253/how-to-run-32-bit-app-in-ubuntu-64-bit)
 
-## Minimum install and launch
+## :fa-rocket: Minimum install and launch
 
 Confirm that kdb+ runs. In your home folder, type `q/l32/q`
 to see the kdb+ banner and the `q)` prompt. 
@@ -77,7 +77,7 @@ The minimum installation can be improved in two important ways. We strongly reco
 * Define `q` as a command alias, allowing you to invoke kdb+ without specifying the path to it
 
 
-### Install Rlwrap
+### :fa-plug: Install Rlwrap
 
 <!-- Exit kdb+ to return to the Bash prompt and your home folder.  -->
 Ask for Rlwrap’s version number. If you see one, Rlwrap is already installed
@@ -95,7 +95,7 @@ If Rlwrap is already installed you can go on to the next step.
 Otherwise, you will be told `rlwrap: command not found`. Install Rlwrap using your package manager.
 
 
-### Edit your profile
+### :fa-code: Edit your profile
 
 In the File Manager, find `.bashrc` in your home folder.
 
@@ -120,7 +120,7 @@ $ source .bashrc
     You can install kdb+ where you please. The environment variables `QHOME` (specified above) and `QLIC` tell kdb+ [where to find its files](/tutorials/licensing). 
 
 
-## Confirm successful installation
+## :fa-check: Confirm successful installation
 
 From your home folder, launch kdb+, type an expression and recall it using the up-arrow key. Exit kdb+.
 
