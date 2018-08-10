@@ -322,83 +322,104 @@ q)hsym`10.43.23.197
 
 ## `load`
 
+_Load data into the current session as a global._
+
 Syntax: `load x`
 
-Loads binary data from the filesystem and returns the name of the table loaded.
-```q
-q)t:([]x: 1 2 3; y: 10 20 30)
-q)save`t             / save to a binary file (same as `:t set t)
-`:t
-q)delete t from `.   / delete t
-`.
-q)t                  / not found
-'t
+Where `x` is a symbol or filepath corresponding to the location of the file or directory to be loaded, loads binary data from the filesystem and returns the name of the table loaded.
 
-q)load`t             / load from a binary file (same as t:get `:t)
-`t
-q)t
-x y
-----
-1 10
-2 20
-3 30
-```
-If `x` is a directory, a dictionary of that name is created and all data files are loaded into that dictionary, keyed by file name.
-```q
-q)\l sp.q
-q)\mkdir -p cb
-q)`:cb/p set p
-`:cb/p
-q)`:cb/s set s
-`:cb/s
-q)`:cb/sp set sp
-`:cb/sp
-q)load `cb
-`cb
-q)key cb
-`p`s`sp
-q)cb `s
-s | name  status city
---| -------------------
-s1| smith 20     london
-s2| jones 10     paris
-s3| blake 30     paris
-s4| clark 20     london
-s5| adams 30     athens
-```
+Where `x` is a symbol or a filepath to:
+
+-   a **file**, loads and returns the name of a table.
+
+    <pre><code class="language-q">
+    q)t:([]x: 1 2 3; y: 10 20 30)
+    q)save\`t             / save to a binary file (same as \`:t set t)
+    \`:t
+    q)delete t from \`.   / delete t
+    \`.
+    q)t                  / not found
+    't
+    q)load\`t             / load from a binary file (same as t:get \`:t)
+    \`t
+    q)t
+    x y
+    \----
+    1 10
+    2 20
+    3 30
+    </code></pre>
+
+-   a **directory**, creates a dictionary of that name and loads all data files into that dictionary, keyed by file name. (Include no trailing slash on the directory path.)
+
+    <pre><code class="language-q">
+    q)\l sp.q
+    q)\mkdir -p cb
+    q)\`:cb/p set p
+    \`:cb/p
+    q)\`:cb/s set s
+    \`:cb/s
+    q)\`:cb/sp set sp
+    \`:cb/sp
+    q)load \`cb
+    \`cb
+    q)key cb
+    \`p\`s\`sp
+    q)cb \`s
+    s | name  status city
+    --| -------------------
+    s1| smith 20     london
+    s2| jones 10     paris
+    s3| blake 30     paris
+    s4| clark 20     london
+    s5| adams 30     athens
+    </code></pre>
+
+!!! warning "Enumeration vectors"
+
+    Ensure there is no overlap between enumeration vectors (e.g. sym) if loading multiple HDBs.
+
 <i class="fa fa-hand-o-right"></i> [`.Q.dsftg`](dotq/#qdsftg-load-process-save) (load process save), [`.Q.fps`](dotq/#qfps-streaming-algorithm) (streaming algorithm), [`.Q.fs`](dotq/#qfs-streaming-algorithm) (streaming algorithm), [`.Q.fsn`](dotq/#qfsn-streaming-algorithm) (streaming algorithm) 
+
 
 ## `read0`
 
+_Return data from text file or handle._
+
 Syntax: `read0 x`
 
-Returns data from text file or handle. Where `x` is
+Where `x` is
 
-- a filename, returns the lines of the file as a list of strings. Lines are assumed delimited by either LF or CRLF, and the delimiters are removed.
-```q
-q)`:test.txt 0:("hello";"goodbye")  / write some text to a file
-q)read0`:test.txt
-("hello";"goodbye")
+-   a **filename**, returns the lines of the file as a list of strings. Lines are assumed delimited by either LF or CRLF, and the delimiters are removed.
 
-q)/ read 500000 lines, chunks of (up to) 100000 at a time
-q)d:raze{read0(`:/tmp/data;x;100000)}each 100000*til 5
-```
+    <pre><code class="language-q">
+    q)\`:test.txt 0:("hello";"goodbye")  / write some text to a file
+    q)read0\`:test.txt
+    ("hello";"goodbye")
 
-- a [handle](filenumbers) or the [console](filenumbers), returns a line of text from it.
-```q
-q)rl:{1">> ";read0 0}
-q)rl`
->> xiskso
-"xiskso"
-```
+    q)/ read 500000 lines, chunks of (up to) 100000 at a time
+    q)d:raze{read0(\`:/tmp/data;x;100000)}each 100000\*til 5
+    </code></pre>
 
-- a list of the form `(file; offset; length)`, returns bytes from `file`.
-```q
-q)`:foo 0: enlist "hello world"
-q)read0 (`:foo;6;5)
-"world"
-```
+-   a [**handle**](filenumbers) or the [**console**](filenumbers), returns a line of text from it.
+
+    <pre><code class="language-q">
+    q)rl:{1">> ";read0 0}
+    q)rl\`
+    \>> xiskso
+    "xiskso"
+    </code></pre>
+
+-   a **list** of the form `(file; offset; length)`, returns bytes from `file`.
+
+    <pre><code class="language-q">
+    q)\`:foo 0: enlist "hello world"
+    q)read0 (\`:foo;6;5)
+    "world"
+    </code></pre>
+
 Starting with V3.4 2016.05.31 `read0` allows user to specify how many bytes to read from a FIFO.
+
 ```q
 q)h:hopen`$":fifo:///etc/redhat-release"
 q)read0(h;8)
@@ -410,9 +431,10 @@ q)read0(h;8)
 
 ## `read1`
 
+_Return bytes from a file or named pipe._
+
 Syntax: `read1 x`
 
-Returns bytes from a file or named pipe. 
 
 Where `x` has the form `(file; offset; length)`, returns corresponding bytes from `file`. Where only `file` is supplied, the content of the entire file is returned.
 ```q
@@ -437,9 +459,11 @@ q)"c"$read1(h;8)
 
 ## `rload`
 
+_Load a splayed table._
+
 Syntax: `rload x`
 
-Load a splayed table: where `x` is the table name as a symbol, the table is read from a directory of the same name. `rload` is the converse of `rsave`. 
+Where `x` is the table name as a symbol, the table is read from a directory of the same name. `rload` is the converse of `rsave`. 
 
 The usual, and more general, way of doing this is to use `get`, which allows a table to be defined with a different name than the source directory.
 ```q
@@ -462,11 +486,14 @@ q)sp:get `:sp/        / equivalent to rload `sp
 ```
 <i class="fa fa-hand-o-right"></i> [`.Q.v`](dotq/#qv-value) (get splayed table)
 
+
 ## `rsave`
+
+_Save a table, splayed to a directory of the same name._
 
 Syntax: `rsave x`
 
-Save a table, splayed to a directory of the same name: where `x` is the table name as a symbol. The table must be fully enumerated and not keyed.
+Where `x` is the table name as a symbol, saves a table, splayed to a directory of the same name. The table must be fully enumerated and not keyed.
 
 The usual and more general way of doing this is to use `set` , which allows the target directory to be given.
 ```q
@@ -485,15 +512,19 @@ q)`:sp/ set sp        / equivalent to rsave `sp
 
 ## `save`
 
+_Save global data to file._
+
 Syntax: `save x`
 
-Save global data to file: where `x` is the filename as a symbol, returns the filename itself. The file shortname (ignoring path and extension) must match the name of a global table. The format used depends on the file extension:
+Where `x` is the filename as a symbol, saves global data to file and returns the filename itself. The file shortname (ignoring path and extension) must match the name of a global table. The format used depends on the file extension.
 
--   no extension – saved as binary
--   .csv – comma-separated values
--   .txt – plain text
--   .xls – Excel spreadsheet
--   .xml – Extensible Markup Language (XML)
+extension | saved as
+:--------:|---------------------------------
+(none)    | binary
+.csv      | comma-separated values
+.txt      | plain text
+.xls      | Excel spreadsheet
+.xml      | Extensible Markup Language (XML)
 
 ```q
 q)t:([]x:2 3 5;y:`ibm`amd`intel;z:"npn")
@@ -530,14 +561,18 @@ q)read0 `:t.xml    / tab separated
 "<r><x>5</x><y>intel</y><z>n</z></r>"
 "</R>"
 ```
+
 You can specify a path for the file:
+
 ```q
 q)save `$"/tmp/t"
 `:/tmp/t
 ```
 
 !!! tip "Saving local data"
+
     To save local data you can do explicitly what `save` is doing under the covers.
+
     <pre><code class="language-q">
     q)\`:t set t /save in binary format as a single file
     q)/ save in binary format as a splayed table 
