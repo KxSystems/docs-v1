@@ -1,9 +1,10 @@
 ---
+hero: <i class="fa fa-cloud"></i> Google Cloud Platform Marketplace
 title: Kdb+ software end-user agreement for Google Cloud
 date: July 2018
 ---
 
-# Kdb+ software end-user agreement 
+# Kdb+ software end-user agreement
 
 
 

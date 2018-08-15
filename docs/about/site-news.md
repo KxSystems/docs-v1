@@ -7,7 +7,7 @@
 
 Announcements to mark our 25th birthday:
 
--   [Kdb+ on Google Cloud Platform](/cloud/google)
+-   [Kdb+ on Google Cloud Platform](/cloud/gcpm)
 -   [Version 3.6](/ref/releases/ChangesIn3.6)
 -   [Anaconda](/ml)
 -   [Natural Language Processing toolkit](/ml/nlp)
