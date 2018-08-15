@@ -1,6 +1,14 @@
 Q has had built-in optional file compression since V2.7.
 
 
+## Nested data
+
+As of V2.8 2011.10.06, do not try to compress the associated _name#_ or _name##_ files for nested data explicitly, as they will be compressed as part of compressing the root name file; e.g.
+
+```q
+q)`:a set 1000#enlist asc 1000?10;-19!(`:a;`:za;17;2;9);0N!get[`:a]~get`:za;
+```
+
 ## How do I compress a file?
 
 Use the [`-19!` internal function](/ref/internal/#-19x-compress-file).
