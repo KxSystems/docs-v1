@@ -1,18 +1,18 @@
 Q has had built-in optional file compression since V2.7.
 
 
-## Nested data
-
-As of V2.8 2011.10.06, do not try to compress the associated _name#_ or _name##_ files for nested data explicitly, as they will be compressed as part of compressing the root name file; e.g.
-
-```q
-q)`:a set 1000#enlist asc 1000?10;-19!(`:a;`:za;17;2;9);0N!get[`:a]~get`:za;
-```
-
 ## How do I compress a file?
 
 Use the [`-19!` internal function](/ref/internal/#-19x-compress-file).
 
+
+!!! warning "Nested data"
+
+    As of V2.8 2011.10.06, do not try to compress the associated _name#_ or _name##_ files for nested data explicitly, as they will be compressed as part of compressing the root name file; e.g.
+
+    <pre><code class="language-q">
+    q)`:a set 1000#enlist asc 1000?10;-19!(`:a;`:za;17;2;9);0N!get[`:a]~get`:za;
+    </code></pre>
 
 ## How do I save directly to a compressed file?
 
@@ -44,7 +44,8 @@ Since V2.8 2011.11.28, the zip params can be a dictionary of `filenames!zipParam
 q)(`:splay/;``a`b!((17;2;9);(17;2;6);(17;2;6)))set([]a:asc 1000000?10;b:asc 1000000?10;c:asc 1000000?10)
 ```
 
-!!! warning
+!!! warning "Log files"
+
     Do not use streaming compression with log files. In the event of a crash, the log file will be unusable as it will be missing meta information from the end of the file. Streaming compression maintains the last block in memory and compresses/purges it as needed or latest on close of file handle.
 
 
