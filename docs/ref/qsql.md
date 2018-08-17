@@ -10,12 +10,12 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
     q)t1:t2:([]a:1 2;b:3 4)
     q)update a:neg a from t1
     a  b
-    ----
+    \----
     -1 3
     -2 4
     q)t1~t2
     1b
-    q)update a:neg a from `t1
+    q)update a:neg a from \`t1
     `t1
     q)t1~t2
     0b
