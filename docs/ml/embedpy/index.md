@@ -1,6 +1,7 @@
 ---
 hero: <i class="fa fa-share-alt"></i> Machine learning 
 keywords: embedpy, interface, kdb+, python
+title: embedPy
 ---
 
 # ![Python](/interfaces/img/python.png) embedPy
@@ -16,7 +17,7 @@ Allows the kdb+ interpreter to manipulate Python objects and call Python functio
 ## Requirements
 
 - kdb+ ≥3.5 64-bit
-- Anaconda Python 3.x
+- Python 3.5 or 3.6 (not 3.7)
 
 
 ## Build and install
