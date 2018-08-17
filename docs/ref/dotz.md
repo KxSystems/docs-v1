@@ -456,6 +456,28 @@ q)\x .z.zd            / unset
 ```
 <i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
 
+Logical block size
+
+: A power of 2 between 12 and 20: pageSize or allocation granularity to 1MB
+
+: PageSize for AMD64 is 4kB, SPARC is 8kB. Windows seems to have a default allocation granularity of 64kB. 
+
+: When choosing the logical block size, consider the minimum of all the platforms that will access the files directly – otherwise you may encounter `disk compression - bad logicalBlockSize`. Note this value affects both compression speed and compression ratio: larger blocks can be slower and better compressed.
+
+Compression algorithm
+
+: One of:
+
+    + 0: none
+    + 1: q IPC
+    + 2: `gzip`
+    + 3: [snappy](http://google.github.io/snappy) (since V3.4)
+    + 4: lz4hc (since V3.6)
+
+Compression level
+
+: For `gzip`, an integer between 0 and 9; otherwise 0.
+
 
 ### `.z.T` `.z.t` `.z.D` `.z.d` (time/date shortcuts)
 
