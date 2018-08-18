@@ -442,7 +442,7 @@ It is not necessary to assign data to a global variable before saving it to a fi
 >>> q.set(':0-9', range(10))
 k(':0-9')
 ```
-and read it back using the `pyq.q.set` function
+and read it back using the `pyq.q.get` function
 ```python
 >>> q.get(_)
 k('0 1 2 3 4 5 6 7 8 9')

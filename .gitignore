@@ -10,8 +10,7 @@ send.sh
 *.xml
 *.zip
 
-docs copy/
-docx/
+docs-adverb-mess/
 scrap/
 site/
 src/
