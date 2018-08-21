@@ -1,4 +1,8 @@
+---
 hero: <i class="fa fa-share-alt"></i> Machine learning / embedPy
+title: embedPy reference
+keywords: embedpy, kdb+, interface, python, q, reference
+---
 
 # Reference 
 
@@ -7,11 +11,11 @@ hero: <i class="fa fa-share-alt"></i> Machine learning / embedPy
 
 Foreign objects are retrieved from Python using one of the unary functions.
 
-function      | argument                                        | example
---------------|-------------------------------------------------|--------------
-`.p.pyimport` | symbol: name of a Python module or package      | ``.p.pyimport`numpy``
-`.p.pyget`    | symbol: name of a Python variable in `__main__` | ``.p.pyget`varName``
-`.p.pyeval`   | string: Python code to evaluate                 | `.p.pyeval"1+1"`
+function    | argument                                        | example
+------------|-------------------------------------------------|--------------
+.p.pyimport | symbol: name of a Python module or package      | ``.p.pyimport`numpy``
+.p.pyget    | symbol: name of a Python variable in `__main__` | ``.p.pyget`varName``
+.p.pyeval   | string: Python code to evaluate                 | `.p.pyeval"1+1"`
 
 
 ## Raw (foreign) API
@@ -82,6 +86,7 @@ q).p.py2q .p.call[.p.pyget`f4;1 2;`d`c!4 3]
 ### Getting attributes/properties
 
 Function `.p.getattr ` gets an attribute or property from a foreign object.  The result is another foreign.
+
 ```bash
 $ cat class.p 
 class obj:
@@ -123,6 +128,7 @@ Two functions retrieve keys and values directly from a foreign dictionary, witho
 -   `.p.pyvalue` returns the values
 
 In each case, the result is a `foreign` object.
+
 ```q
 q)d:.p.pyeval"{'key1':1,'key2':2}"
 q).p.py2q d
@@ -138,46 +144,38 @@ q).p.py2q .p.pyvalue d
 
 ## `.p` namespace 
 
-object               | description                                                                                                                             
----------------------|-----------------------------------------------------------------------------------------------------------------------------------------
-`.p.e`               | evaluate `x- string` as Python code (used for the `p)` language)
-`.p.qeval`           | evaluate `x- string` as Python code and return result as q
-`.p.import`          | import module `x - symbol` and return result as embedPy
-`.p.eval`            | evaluate `x- string` as Python code and return result as embedPy
-`.p.get`             | get `x - symbol` from Python `__main__`  and return result as embedPy
-`.p.set`             | set `x - symbol` variable in Python `__main__` , with value `y`
-`.p.pycallable`      | make `x` a callable embedPy object, which will return foreign results
-`.p.qcallable`       | make `x` a callable embedPy object, which will return q results
-`.p.key`             | get keys of dictionary `x` as embedPy
-`.p.value`           | get values of dictionary `x` as embedPy
-`.p.wrap`            | wrap `x -foreign` and return result as embedPy
-`.p.unwrap`          | unwrap `x` and return result as foreign
-`.p.helpstr`         | get docstring for `x` as q-string
-`.p.help`            | interactive help on `x`
-`.p.repr`            | get string representation of `x` as q-string
-`.p.printpy`         | print string representation of `x`
-`.p.closure`         | create closure with q function `x` and initial state `y`
-`.p.generator`       | create generator with q function `x`, initial state `y` and the max number of iterations `z` (`::` to run indefinitely)
-`.p.pyimport`        | import module `x - symbol` and return result as foreign
-`.p.pyeval`          | evaluate `x - string` as Python code and return result as foreign
-`.p.pyget`           | get `x - symbol` from Python `__main__`  and return result as foreign
-`.p.py2q`            | convert `x - foreign` to q
-`.p.q2py`            | convert `x - q` to foreign
-`.p.getattr`         | get attribute `y - symbol` from `x - foreign`
-`.p.setattr`         | set attribute `y - symbol` from `x - foreign` with value `z`
-`.p.call`            | calls function `x` with positional args `y - list` and keyword args `z - dict`
-`.p.pyfunc`          | make `x - foreign` a callable function, which will return foreign results
-`.p.pykey`           | get keys of dictionary `x - foreign` as foreign
-`.p.pyvalue`         | get values of dictionary `x - foreign` as foreign
-`.p.arraydims`       | get the shape of `x - foreign` (a numpy multi-dimensional array)
-`.p.i`               | internal functions and objects 
-`.p.type`            | [internal] type of `x - foreign` (used internally for `py2q` conversion)
-`.p.conv`            | [internal] dictionary from Python type to conversion function (used internally for `py2q` conversion)
-`.p.c`               | [internal] compose a list of functions
-`.p.ce`              | [internal] compose a list of functions with `enlist` appended to the end
-`.p.q2pargs`         | [internal] interpret parameters (positional and pykw/pyarglist/pykwargs) for passing to callables
-`.p.pykw`            | [internal] identify keyword parameter (also present in `.q` namespace to allow infix notation and prevent assignment in top level namespace)
-`.p.pyarglist`       | [internal] identify list of positional parameters (also present in `.q` namespace to prevent assignment in top level namespace)
-`.p.pykwargs`        | [internal] identify dictionary of keyword argument names to values (also present in `.q` namespace to prevent assignment in top level namespace)
-`.p.embedPy`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         | [internal] defines embedPy API
+object             | description                                                                                                                             
+-------------------|-----------------------------------------------------------------------------------------------------------------------------------------
+.p.call            | calls function `x` with positional args `y - list` and keyword args `z - dict`
+.p.closure         | create closure with q function `x` and initial state `y`
+.p.e               | evaluate `x- string` as Python code (used for the `p)` language)
+.p.eval            | evaluate `x- string` as Python code and return result as embedPy
+.p.generator       | create generator with q function `x`, initial state `y` and the max number of iterations `z` (`::` to run indefinitely)
+.p.get             | get `x - symbol` from Python `__main__`  and return result as embedPy
+.p.getattr         | get attribute `y - symbol` from `x - foreign`
+.p.help            | interactive help on `x`
+.p.helpstr         | get docstring for `x` as q-string
+.p.i               | internal functions and objects 
+.p.import          | import module `x - symbol` and return result as embedPy
+.p.printpy         | print string representation of `x`
+.p.py2q            | convert `x - foreign` to q
+<span class="nowrap">.p.pycallable</span> | make `x` a callable embedPy object, which will return foreign results
+.p.pyeval          | evaluate `x - string` as Python code and return result as foreign
+.p.pyfunc          | make `x - foreign` a callable function, which will return foreign results
+.p.pyget           | get `x - symbol` from Python `__main__`  and return result as foreign
+.p.pyimport        | import module `x - symbol` and return result as foreign
+.p.q2py            | convert `x - q` to foreign
+.p.qcallable       | make `x` a callable embedPy object, which will return q results
+.p.qeval           | evaluate `x- string` as Python code and return result as q
+.p.repr            | get string representation of `x` as q-string
+.p.set             | set `x - symbol` variable in Python `__main__` , with value `y`
+.p.setattr         | set attribute `y - symbol` from `x - foreign` with value `z`
+.p.unwrap          | unwrap `x` and return result as foreign
+.p.wrap            | wrap `x -foreign` and return result as embedPy
+.p.c               | [internal] compose a list of functions
+.p.ce              | [internal] compose a list of functions with `enlist` appended to the end
+.p.embedPy         | [internal] defines embedPy API
+.p.q2pargs         | [internal] interpret parameters (positional and pykw/pyarglist/pykwargs) for passing to callables
+
+
 
