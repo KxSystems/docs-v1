@@ -328,6 +328,7 @@ pages:
     - Multi partitions: wp/multi-partitioned-dbs/index.md
     - Neural networks: wp/neural-networks/index.md
     - Query Routing: wp/query-routing/index.md
+    - Signal processing and q: wp/signal-processing/index.md
     - WebSockets: wp/websockets/index.md
   - GitHub: github.md
   - Q for Mortals 3: q4m3.md

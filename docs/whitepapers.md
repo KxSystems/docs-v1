@@ -39,6 +39,7 @@ title: Index of whitepapers
 * Sample aggregation engine for **market depth** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/sample_aggregation_engine_for_market_depth.pdf)
 * [**Market Fragmentation**: a kdb+ framework for multiple liquidity sources](wp/market-fragmentation/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/market-fragmentation/market-fragmentation-a4.pdf), [US&nbsp;Letter](wp/market-fragmentation/market-fragmentation-us.pdf)</small>
 * [An introduction to **neural networks** with kdb+](wp/neural-networks/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/an_introduction_to_neural_networks_with_kdb.pdf)</small>
+* ==new== [**Signal processing and q**](wp/signal-processing/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/signal-processing/signal-processing-a4.pdf), [US&nbsp;Letter](wp/signal-processing/signal-processing-us.pdf)</small>
 * **Surveillance** techniques to effectively monitor algo and high-frequency trading &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/surveillance_techniques_to_effectively_monitor_algo_and_high_frequency_trading.pdf)
 * **Transaction-cost** analysis using kdb+ &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/transaction_cost_analysis_using_kdb.pdf)
 
