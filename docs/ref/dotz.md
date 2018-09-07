@@ -526,7 +526,7 @@ Syntax: `z.bm:x`
 
 Where `x` is a unary function. 
 
-Kdb+ before V2.7 was sensitive to being fed malformed data structures, sometimes resulting in a crash, but now validates incoming IPC messages to check that data structures are well formed, reporting `'badMsg` and disconnecting senders of malformed data structures. The raw message is captured for analysis via the callback `.z.bm`. The sequence upon receiving such a message is
+Kdb+ before V2.7 was sensitive to being fed malformed data structures, sometimes resulting in a crash, but now validates incoming IPC messages to check that data structures are well formed, reporting `'badmsg` and disconnecting senders of malformed data structures. The raw message is captured for analysis via the callback `.z.bm`. The sequence upon receiving such a message is
 
 1. calls `.z.bm` with a 2-item list: `(handle;msgBytes)`
 2. close the handle and call `.z.pc`
