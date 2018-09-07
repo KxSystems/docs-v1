@@ -71,9 +71,9 @@ ccc   0.159403     1
 ```
 
 
-### `tab2fd`
+### `tab2df`
 
-The `tab2fd` function converts both unkeyed and keyed tables to DataFrames.
+The `tab2df` function converts both unkeyed and keyed tables to DataFrames.
 
 ```q
 tab2df:{
