@@ -121,9 +121,10 @@ In addition to monitoring free disk space for the usual partitions you write to,
 
 ## Back up the sym file
 
-The sym file is the key to the default enums. 
+The sym file is found in the root of your HDB.
+It is the key to the default enums. 
 
-!!! tip "We recommend you back up your sym file in the root of your HDB."
+!!! tip "Regularly back up the sym file _outside_ the HDB."
 
 
 ## Compression

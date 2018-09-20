@@ -40,6 +40,7 @@
 <tr> <td>mismatch</td> <td class="nowrap">`([]a:til 4),([]b:til 3)`</td> <td>Columns that can't be aligned for R,R or K,K</td> </tr>
 <tr> <td>Mlim</td> <td/> <td>Too many nested columns in [splayed tables](/cookbook/splayed-tables). (Prior to V3.0, limited to 999; from V3.0, 251; from V3.3, 65530)</td> </tr>
 <tr> <td>mq</td> <td/> <td>Multi-threading not allowed</td> </tr>
+<tr> <td>name too long</td> <td/> <td>Filepath longer than 100 chars</td> </tr>
 <tr> <td>noamend</td> <td class="nowrap">`t:([]a:1 2 3)`<br />``n:`a`b`c``<br />``update b:{`n?`d;:`n?`d}[]``<br/>`` from `t``</td> <td>Cannot change global state from within an amend</td> </tr>
 <tr> <td>no append to zipped enums</td> <td class="nowrap">V2:<br/>`.z.zd:17 2 6`<br/>`` `:sym?`a`b``<br/>V3:<br/>`` `:sym?`c``</td> <td>Cannot append to zipped enum (from V3.0)</td> </tr>
 <tr>
@@ -63,7 +64,7 @@ Update not allowed when using [negative port number](syscmds/#p-port).
 <tr> <td>par</td> <td/> <td>Unsupported operation on a partitioned table or component thereof</td> </tr>
 <tr> <td>parse</td> <td/> <td>Invalid [syntax](syntax)</td> </tr>
 <tr> <td>part</td> <td/> <td>Something wrong with the partitions in the HDB</td> </tr> 
-<tr> <td>path too long</td> <td>`$":",1000#"a") set 1 2 3`</td> <td>File path too long</td> </tr> 
+<tr> <td>path too long</td> <td>``(`$":",1000#"a") set 1 2 3``</td> <td>File path too long</td> </tr> 
 <tr> <td>pl</td> <td/> <td>[`peach`](peach) can’t handle parallel lambdas (V2.3 only)</td> </tr>
 <tr><td>pwuid</td> <td/> <td>OS is missing libraries for `getpwuid`. (Most likely 32-bit app on 64-bit OS. Try to [install ia32-libs](/tutorials/install/#32-bit-or-64-bit).)</td> </tr>
 <tr><td>Q7</td><td/><td>nyi op on file nested array</td></tr>

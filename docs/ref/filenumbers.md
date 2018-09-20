@@ -68,6 +68,7 @@ String vector here
 ### `2` (stderr)
 
 File handles `2` and `-2` are stderr. The difference is that `-2` appends a newline after the string, whereas `2` does not. The return value is `2` or `-2` respectively, which will print (to stdout) if not suppressed.
+
 ```q
 q)2 "String vector here\n"
 String vector here
@@ -297,14 +298,21 @@ Syntax: `x 2: y`
 
 Where `x` is a file symbol and `y` is a 2-item list: the name of a C function (symbol) and its rank (int), returns a function that calls it.
 
-Suppose we have a C function in cpu.so with the prototype
+Suppose we have a C function in `cpu.so` with the prototype
+
 ```C
 K q_read_cycles_of_this_cpu(K x);
 ```
+
 assign it to `read_cycles`:
+
 ```q
 read_cycles:`cpu 2:(`q_read_cycles_of_this_cpu;1)
 ```
-<i class="fa fa-hand-o-right"></i> [Interfaces/Using C/C++ functions](/interfaces/using-c-functions/)
+
+If the shared library, as passed, does not exist, kdb+ will try to load it from `$QHOME/os`, where `os` is the operating system and architecture acronym, e.g. `l64`, `w64`, etc. If using a relative path which does not resolve to reside under `$QHOME/os`, ensure that `LD_LIBRARY_PATH` contains the required absolute search path for that library. On Windows, use `PATH` instead of `LD_LIBRARY_PATH`.
+
+<i class="fa fa-hand-o-right"></i> 
+[Interfaces/Using C/C++ functions](/interfaces/using-c-functions/)
 
 

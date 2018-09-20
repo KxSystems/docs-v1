@@ -369,24 +369,32 @@ MSFT 0.5433888 CME 250
 
 Syntax: `t1 lj t2`
 
-Where `t1` and `t2` are tables, `t2` is keyed, and the key column/s of `t2` are columns of `t1`, returns `t1` and `t2` joined on the key columns of `t2`. 
+Where 
+
+-   `t1` and `t2` are tables,
+-   `t2` is keyed
+-   the key column/s of `t2` are columns of `t1`
+
+returns `t1` and `t2` joined on the key columns of `t2`. 
+
 For each record in `t1`, the result has one record with the columns of `t1` joined to columns of `t2`. If there is 
 
--   a matching record in `t2`, it is joined to the `t1` record: common columns of `t2` are replaced by columns of `t1`
+-   a matching record in `t2`, it is joined to the `t1` record: common columns of `t1` are replaced by columns of `t2`
 -   no matching record in `t2`, common columns are left unchanged, and new columns are null
+
 ```q
-q)show x:([]a:1 2 3;b:`x`y`z;c:10 20 30)
+q)show t1:([]a:1 2 3;b:`x`y`z;c:10 20 30)
 a b c
 ------
 1 x 10
 2 y 20
 3 z 30
-q)show y:([a:1 3;b:`x`z]c:1 2;d:10 20)
+q)show t2:([a:1 3;b:`x`z]c:1 2;d:10 20)
 a b| c d
 ---| ----
 1 x| 1 10
 3 z| 2 20
-q)x lj y
+q)t1 lj t2
 a b c  d
 ---------
 1 x 1  10
@@ -395,7 +403,7 @@ a b c  d
 ```
 The `t2` columns joined to `t1` are given by:
 ```q
-q)y[select a,b from x]
+q)t2[select a,b from t1]
 c d
 ----
 1 10
@@ -513,10 +521,10 @@ a b| c  d
 	The union join of two keyed tables is equivalent to a left join of the two tables with the catenation of unmatched rows from the second table. As a result a change in the behaviour of `lj` causes a change in the behaviour of `uj`:
 
         q)show x:([a:1 2]b:`x`y;c:10 20)
-        a b c
-        ------
-        1 x 10
-        2 y 20
+        a| b c
+        -| ----
+        1| x 10
+        2| y 20
         q)show y:([a:1 2]b:``z;c:1 0N)
         a| b c
         -| ---
