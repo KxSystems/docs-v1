@@ -15,10 +15,10 @@ Syntax: `.nlp.findTimes x`
 
 Where `x` is a string, returns a general list:
 
-1. time  
-1. text of the time (string)
-1. start index (long)
-1. index after the end index (long)
+1.  time  
+1.  text of the time (string)
+1.  start index (long)
+1.  index after the end index (long)
 
 ```q
 q).nlp.findTimes "I went to work at 9:00am and had a coffee at 10:20"
@@ -37,11 +37,11 @@ Where `x` is a string
 
 returns a general list:
 
-1. start date of the range
-1. end date of the range
-1. text of the range
-1. start index of the date (long)
-1. index after the end index (long)
+1.  start date of the range
+1.  end date of the range
+1.  text of the range
+1.  start index of the date (long)
+1.  index after the end index (long)
 
 ```q
 q).nlp.findDates "I am going on holidays on the 12/04/2018 to New York and come back on the 18.04.2018"
@@ -57,6 +57,7 @@ _A document partitioned into sentences._
 Syntax: `.nlp.getSentences x`
 
 Where `x` is a dictionary or a table of document records or subcorpus, returns a list of strings.
+
 ```q
 /finds the sentences in the first chapter of MobyDick
 q) .nlp.getSentences corpus[0]
@@ -70,6 +71,7 @@ _All the files in a directory, imported recursively_
 Syntax: `.nlp.loadTextFromDir x`
 
 Where `x` the directory’s filepath as a string, returns a table of filenames, paths and texts.
+
 ```q
 q).nlp.loadTextFromDir["./datasets/maildir/skilling-j"]
 

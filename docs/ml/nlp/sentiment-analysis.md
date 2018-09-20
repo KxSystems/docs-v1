@@ -1,7 +1,11 @@
 ---
 hero: <i class="fa fa-share-alt"></i> Machine learning
 ---
+
 # Sentiment analysis
+
+
+
 
 Using a pre-built model of the degrees of positive and negative sentiment for English words and emoticons, as well as parsing to account for negation, adverbs and other modifiers, sentences can be scored for their negative, positive and neutral sentiment. The model included has been trained on social-media messages. 
 
@@ -15,6 +19,7 @@ Syntax: `.nlp.sentiment x`
 Where `x` is string or a list of strings, returns a dictionary or table containing the sentiment of the text.
 
 An run of sentences from _Moby Dick_:
+
 ```q
 q).nlp.sentiment("Three cheers,men--all hearts alive!";"No,no! shame upon all cowards-shame upon them!")
 compound   pos       neg       neu      

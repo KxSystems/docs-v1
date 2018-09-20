@@ -3,8 +3,9 @@ hero: <i class="fa fa-share-alt"></i> Machine learning
 author: Fionnuala Carr
 title: Natural-language processing toolkit
 date: May 2018
-keywords: machine learning, ml, nlp, sentiment analysis
+keywords: kdb+, machine learning, ml, nlp, q, sentiment analysis
 ---
+
 # Natural-language processing 
 
 
@@ -14,7 +15,7 @@ Natural-language processing (NLP) can be used to answer a variety of questions a
 It can be applied to datasets such as emails, online articles and comments, tweets, or novels. Although the source is text, transformations are applied to convert this data to vectors, dictionaries and symbols which can be handled very effectively by q. Many operations such as searching, clustering, and keyword extraction can all be done using very simple data structures, such as feature vectors and bag-of-words representations.
 
 
-# Preparing text
+## Preparing text
 
 Operations can be pre-run on a corpus, with the results cached to a table, which can be persisted.
 
@@ -66,6 +67,7 @@ field         | type                   | content
 The resulting function is applied to a list of strings. 
 
 Parsing the novel _Moby Dick_: 
+
 ```q
 / creating a parsed table  
 fields:`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords
@@ -99,9 +101,10 @@ returns a general list:
 2. indexes of the first occurrence of each token (long vector)
 
 Importing a novel from a plain text file, and finding all the proper nouns in the first chapter of _Moby Dick_:
+
 ```q
 fields:`text`tokens`lemmas`pennPOS`isStop`sentChars`starts`sentIndices`keywords
-q)myparser:.nlp.parser.i.newParser[`en;fields] 
+q)myparser:.nlp.newParser[`en;fields] 
 q)corpus:myparser mobyDick 
 
 q).nlp.findPOSRuns[`pennPOS;`NNP`NNPS;corpus 0][;0]

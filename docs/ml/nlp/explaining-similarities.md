@@ -1,7 +1,10 @@
 ---
 hero: <i class="fa fa-share-alt"></i> Machine learning
 ---
+
 # Explaining similarities
+
+
 
 For any pair of documents or centroids, the list of features can be sorted by how much they contribute to the similarity. 
 
@@ -13,6 +16,7 @@ This example compares two of former Enron CEO Jeff Skilling’s emails, both of 
 Syntax: `.nlp.explainSimilarity[doc1;doc2]`
 
 Where `doc1` and `doc2` are dictionaries consisting of their associated documents’ keywords, returns a dictionary of how much of the similarity score each token is responsible for.
+
 ```q
 q)10#.nlp.explainSimilarity . jeffcorpus[`keywords]568 358
 fire     | 0.2588778

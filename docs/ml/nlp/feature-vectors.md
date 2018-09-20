@@ -1,6 +1,7 @@
 ---
 hero: <i class="fa fa-share-alt"></i> Machine learning
 ---
+
 # Feature vectors
 
 We can generate a dictionary of descriptive terms, which consist of terms and their associated weights. These dictionaries are called _feature vectors_ and they are very useful as they give a uniform representation that can describe words, sentences, paragraphs, documents, collections of documents, clusters, concepts and queries. 
@@ -24,6 +25,7 @@ Syntax: `.nlp.TFIDF x`
 Where `x` is a table of documents, returns for each document, a dictionary with the tokens as keys, and relevance as values.
 
 Extract a specific document and find the most significiant words in that document:
+
 ```q
 q)queriedemail:jeffcorpus[where jeffcorpus[`text] like "*charity bike*"]`text;
 q)5#desc .nlp.TFIDF[jeffcorpus]1928
@@ -33,6 +35,7 @@ strenuous| 14.19154
 route    | 14.11932
 rode     | 14.11136
 ```
+
 In cases where the dataset is more similar to a single document than a collection of separate documents, a different algorithm can be used. This algorithm is taken from 
 Carpena, P., et al. “Level statistics of words: Finding keywords in literary texts and symbolic sequences.”. 
 The idea behind the algorithm is that more important words occur in clusters and less important words follow a random distribution. 
@@ -47,6 +50,7 @@ Syntax: `.nlp.keywordsContinuous x`
 Where `x` is a table of documents, returns a dictionary where the keys are keywords and the values are their significance.
 
 Treating all of _Moby Dick_ as a single document, the most significant keywords are _Ahab_, _Bildad_, _Peleg_ (the three captains on the boat) and _whale_.
+
 ```q
 q)10#keywords:.nlp.keywordsContinuous corpus
 ahab     | 65.23191
@@ -81,8 +85,9 @@ Where
 -   `y` is a symbol which is the token for which to find related terms 
 
 returns a dictionary of the related tokens and their relevances.
+
 ```q
-q).nlp.findRelated[corpus;`captain]
+q).nlp.findRelatedTerms[corpus;`captain]
 peleg | 1.653247
 bildad| 1.326868
 ahab  | 1.232073
@@ -108,6 +113,7 @@ Where
 returns a dictionary with phrases as the keys and their relevance as the values.
 
 Search for the phrases that contain `captain` and see which phrase has the largest occurrence; we find `captain ahab` occurs most often in the book: 31 times.
+
 ```q
 q).nlp.extractPhrases[corpus;`captain]  
 "captain ahab"        | 31
