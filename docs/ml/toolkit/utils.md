@@ -17,7 +17,7 @@ Within machine learning applications a number of procedures and analyses are ubi
 
 `.ml.util`
 
-: Functions for the manipulation and of data.
+: Functions for the manipulation and transformation of data.
 
 
 !!! note
@@ -28,7 +28,7 @@ Within machine learning applications a number of procedures and analyses are ubi
 
 | | |
 |:--------------------------------|:-------------------------------------------------|
-|`.ml namespace functions`| |
+|`.ml` namespace functions| |
 |[`.ml.accuracy`](utils.md#mlaccuracy)|Accuracy of classification results |
 |[`.ml.arange`](utils.md#mlarange)|Evenly-spaced values |
 |[`.ml.confdict`](utils.md#mlconfdict)|True/false positives and true/false negatives |
@@ -36,6 +36,7 @@ Within machine learning applications a number of procedures and analyses are ubi
 |[`.ml.corrmat`](utils.md#mlcorrmat)|Table-like correlation matrix for a simple table |
 |[`.ml.crossentropy`](utils.md#mlcrossentropy)|Categorical cross entropy |
 |[`.ml.describe`](utils.md#mldescribe)|Descriptive information |
+|[`.ml.eye`](utils.md#mleye)|Identity matrix|
 |[`.ml.linspace`](utils.md#mllinspace)|Array of evenly-spaced values |
 |[`.ml.logloss`](utils.md#mllogloss)|Logarithmic loss |
 |[`.ml.mse`](utils.md#mlmse)|Mean square error |
@@ -49,7 +50,7 @@ Within machine learning applications a number of procedures and analyses are ubi
 |[`.ml.sse`](utils.md#mlsse)|Sum squared error |
 |[`.ml.tscore`](utils.md#mltscore)|One-sample t-test score |
 |[`.ml.tscoreeq`](utils.md#mltscoreeq)|T-test for independent samples with unequal variances |
-|`.ml.util namespace functions`| |
+|`.ml.util` namespace functions| |
 |[`.ml.util.df2tab`](utils.md#mlutildf2tab)|Convert from a Pandas dataframe |
 |[`.ml.util.dropconstant`](utils.md#mlutildropconstant)|Remove columns with zero variance |
 |[`.ml.util.fillfn`](utils.md#mlutilfillfn)|Tailored filling of null values for a simple matrix |
@@ -277,9 +278,31 @@ x        x2
 84.72851 971
 ```
 
+
+## `.ml.eye`
+
+_Identity matrix_
+
+Syntax: `.ml.eye[x]`
+
+Where
+
+-  `x` is an integer atom
+
+returns an identity matrix of width `x`  
+
+```q
+q).ml.eye[5]
+1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 1 0
+0 0 0 0 1
+```
+
 ## `.ml.util.fillfn`
 
-_Tunable filling of null data for a simple table
+_Tunable filling of null data for a simple table_
 
 Syntax: `.ml.util.fillfn[t;tm;dict]`
 
@@ -287,9 +310,9 @@ Where
 
 -   `t` is a simple table
 -   `tm` is a time column in the data
--   `dict` is a modifyable dictionary in the .ml.utils
+-   `dict` is a modifyable dictionary in the .ml.util namespace
 
-returns a table with columns filled according to assignment of keys in the dictionary `.ml.utils.preprocdict`. The function defaults to forward folowed by back filling nulls however changes to the default dictionary allow for zero, median, mean or linear interpolation to be applied on individual columns.
+returns a table with columns filled according to assignment of keys in the dictionary `.ml.util.preprocdict`. The function defaults to forward folowed by back filling nulls however changes to the default dictionary allow for zero, median, mean or linear interpolation to be applied on individual columns.
 
 ```q
 q)n:1000000
@@ -772,7 +795,7 @@ q)-1"The forecasting frame contains ",(string count tabinit)," datapoints.";
 
 _Cast times to longs_
 
-Syntax: `.ml.utils.times2long[x]`
+Syntax: `.ml.util.times2long[x]`
 
 Where `x` is a table, returns `x` with all time columns converted to a long representation.
 
