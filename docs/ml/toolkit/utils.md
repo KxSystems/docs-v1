@@ -247,69 +247,6 @@ q).ml.eye[5]
 0 0 0 0 1
 ```
 
-## `.ml.util.fillfn`
-
-_Tunable filling of null data for a simple table_
-
-Syntax: `.ml.util.fillfn[t;tm;dict]`
-
-Where
-
--   `t` is a simple table
--   `tm` is a time column in the data
--   `dict` is a modifyable dictionary in the .ml.util namespace
-
-returns a table with columns filled according to assignment of keys in the dictionary `.ml.util.preprocdict`. The function defaults to forward folowed by back filling nulls however changes to the default dictionary allow for zero, median, mean or linear interpolation to be applied on individual columns.
-
-```q
-q)n:1000000
-q)show tab:([]time:asc n?10:00:00.000;@[n?1000f;2+til 3;:;0n];@[n?1000f;(100?10000),til 3;:;0n];@[n?1000f;(100?10000);:;0n])
-time         x        x1       x2      
----------------------------------------
-00:00:00.041 538.7384          692.6751
-00:00:00.091 613.7786          800.4231
-00:00:00.103                   934.321 
-00:00:00.154          895.7309 991.6671
-00:00:00.216          288.4304 963.1538
-00:00:00.293 618.6048 164.5617 252.6422
-00:00:00.374 145.8393 440.5396         
-00:00:00.380 473.4236 286.6571 107.0687
-
-q)show dict:.ml.util.preprocdict
-      | ::
-zero  | 0n
-median| 0n
-mean  | 0n
-fill  | 0n
-linear| 0n
-
-q)8#.ml.util.fillfn[tab;`time;dict]
-time         x        x1       x2      
----------------------------------------
-00:00:00.041 538.7384 895.7309 692.6751
-00:00:00.091 613.7786 895.7309 800.4231
-00:00:00.103 613.7786 895.7309 934.321 
-00:00:00.154 613.7786 895.7309 991.6671
-00:00:00.216 613.7786 288.4304 963.1538
-00:00:00.293 618.6048 164.5617 252.6422
-00:00:00.374 145.8393 440.5396 252.6422
-00:00:00.380 473.4236 286.6571 107.0687
-
-q)dict[`linear]:`x
-q)dict[`median]:`x1
-q)8#.ml.util.fillfn[tab;`time;dict]
-time         x        x1       x2      
----------------------------------------
-00:00:00.041 538.7384 500.079  692.6751
-00:00:00.091 613.7786 500.079  800.4231
-00:00:00.103 614.0653 500.079  934.321 
-00:00:00.154 615.2838 895.7309 991.6671
-00:00:00.216 616.7651 288.4304 963.1538
-00:00:00.293 618.6048 164.5617 252.6422
-00:00:00.374 145.8393 440.5396 252.6422
-00:00:00.380 473.4236 286.6571 107.0687
-```
-
 ## `.ml.linspace`
 
 _Array of evenly-spaced values_
@@ -622,6 +559,70 @@ x        x2
 90.72252 845
 84.72851 971
 ```
+
+## `.ml.util.fillfn`
+
+_Tunable filling of null data for a simple table_
+
+Syntax: `.ml.util.fillfn[t;tm;dict]`
+
+Where
+
+-   `t` is a simple table
+-   `tm` is a time column in the data
+-   `dict` is a modifyable dictionary in the .ml.util namespace
+
+returns a table with columns filled according to assignment of keys in the dictionary `.ml.util.preprocdict`. The function defaults to forward folowed by back filling nulls however changes to the default dictionary allow for zero, median, mean or linear interpolation to be applied on individual columns.
+
+```q
+q)n:1000000
+q)show tab:([]time:asc n?10:00:00.000;@[n?1000f;2+til 3;:;0n];@[n?1000f;(100?10000),til 3;:;0n];@[n?1000f;(100?10000);:;0n])
+time         x        x1       x2
+---------------------------------------
+00:00:00.041 538.7384          692.6751
+00:00:00.091 613.7786          800.4231
+00:00:00.103                   934.321
+00:00:00.154          895.7309 991.6671
+00:00:00.216          288.4304 963.1538
+00:00:00.293 618.6048 164.5617 252.6422
+00:00:00.374 145.8393 440.5396
+00:00:00.380 473.4236 286.6571 107.0687
+
+q)show dict:.ml.util.preprocdict
+      | ::
+zero  | 0n
+median| 0n
+mean  | 0n
+fill  | 0n
+linear| 0n
+
+q)8#.ml.util.fillfn[tab;`time;dict]
+time         x        x1       x2
+---------------------------------------
+00:00:00.041 538.7384 895.7309 692.6751
+00:00:00.091 613.7786 895.7309 800.4231
+00:00:00.103 613.7786 895.7309 934.321
+00:00:00.154 613.7786 895.7309 991.6671
+00:00:00.216 613.7786 288.4304 963.1538
+00:00:00.293 618.6048 164.5617 252.6422
+00:00:00.374 145.8393 440.5396 252.6422
+00:00:00.380 473.4236 286.6571 107.0687
+
+q)dict[`linear]:`x
+q)dict[`median]:`x1
+q)8#.ml.util.fillfn[tab;`time;dict]
+time         x        x1       x2
+---------------------------------------
+00:00:00.041 538.7384 500.079  692.6751
+00:00:00.091 613.7786 500.079  800.4231
+00:00:00.103 614.0653 500.079  934.321
+00:00:00.154 615.2838 895.7309 991.6671
+00:00:00.216 616.7651 288.4304 963.1538
+00:00:00.293 618.6048 164.5617 252.6422
+00:00:00.374 145.8393 440.5396 252.6422
+00:00:00.380 473.4236 286.6571 107.0687
+```
+
 
 ## `.ml.util.minmaxscaler`
 

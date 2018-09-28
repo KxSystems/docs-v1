@@ -101,11 +101,12 @@ Where
 ```q 
 /load in FRESH library from $QHOME
 q)\l ml/ml.q
-q).ml.loadfile'fresh/init.q'
+q).ml.loadfile`:fresh/init.q
+q)n:100
 q)table:([]date:asc raze {10#x}each rand each n#2000.01.01;time:raze flip 10#'(`time$1+til n);x:til (n*10);x1:(n*10)?1f;x2:(n*10)?1f)
 /Define extraction of features which do not take hyperparameters
 q)singleinputfeatures:.ml.fresh.getsingleinputfeatures[]
-q)show 6#cfeat:.ml.fresh.createfeatures[table;`date;2_ cols tabinit;singleinputfeatures]
+q)show 6#cfeat:.ml.fresh.createfeatures[table;`date;2_ cols table;singleinputfeatures]
 date      | absenergy_x absenergy_x1 absenergy_x2 abssumchange_x abssumchange_..
 ----------| -----------------------------------------------------------------..
 2000.01.15| 285         3.349372    3.448766     9              3.904357     ..
@@ -134,7 +135,7 @@ Both the calculation of p-values via the feature significance tests above and th
 
 Syntax: `.ml.fresh.significantfeatures[table;targets]`
 
-Returns a table containing a reduced number of features where the p-value calculated via the significance tests above met the conditions defined by the BHY procedure.
+Returns a list of the features deemed statistically significant based on if the p-value calculated via the significance tests above met the conditions defined by the BHY procedure.
 
 Where
 
@@ -145,7 +146,10 @@ Sample Code:
 ```q
 / using 'cfeat' as defined in the feature creation section above
 q)target:til (count cfeat) / this is chosen as a target as random generation of targets does not produce significant features
-q)show tabreduced:key[cfeat]!.ml.fresh.significantfeatures[value cfeat;target]
+q)t:value cfeat
+q)show sigfeats:.ml.fresh.significantfeatures[t;target]
+`absenergy_x`max_x`mean_x`med_x`min_x`sumval_x`lintrend_x_intercept
+q)show tabreduced:key[cfeat]!sigfeats#t
 date      |absenergy_x max_x mean_x med_x min_x sumval_x lintrend_x_intercept
 ----------| ------------------------------------------------------------------
 2000.01.15| 285         9     4.5    4.5   0     45       0                   
@@ -162,6 +166,16 @@ The number of numeric columns in the unfiltered dataset is: 108
 q)-1 "The number of numeric columns in the filtered dataset is: ",string count cols value tabreduced;
 The number of numeric columns in the filtered dataset is: 7
 ```
+
+!!! Tip "Significant feature generation"
+    It is advisable prior to attempting to create a table of significant features to check if significant features exist in your data failure to do so leads to the following error
+    <pre><code class="language-q">
+    q)target:(count cfeat)?1f
+    q)tabreduced:key[cfeat]!.ml.fresh.significantfeattures[t;target]#t:value cfeat
+    'rank
+    [0]  tabreduced:key[cfeat]!(.ml.fresh.significantfeatures[t;target])#t:value cfeat 
+    </code></pre>
+
 
 ## Fine Tuning
 
