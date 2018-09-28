@@ -185,6 +185,10 @@ pages:
     - Introduction: ml/index.md
     - Set up: ml/setup.md
     - Demonstration notebooks: ml/notebooks.md
+    - Toolkit:
+      - Overview: ml/toolkit/index.md
+      - Utilies: ml/toolkit/utils.md
+      - FRESH: ml/toolkit/fresh.md  
     - Natural language processing:
       - Preparing text: ml/nlp/index.md
       - Feature vectors: ml/nlp/feature-vectors.md
