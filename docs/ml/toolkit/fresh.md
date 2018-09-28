@@ -93,6 +93,7 @@ Syntax: `.ml.fresh.createfeatures[table;aggs;cnames;funcs]`
 This returns a table keyed by an identifying column containing the features extracted from an input table based on the unique elements of the identifying column.
 
 Where
+
 -   `table` is the input table containing numerical values and a leading identifying column
 -   `aggs` is the symbol associated with the identifying column from which aggregations will be performed
 -   `cnames` these are the columns on which extracted features will be calculated, these columns should contain only numerical values
@@ -135,12 +136,12 @@ Both the calculation of p-values via the feature significance tests above and th
 
 Syntax: `.ml.fresh.significantfeatures[table;targets]`
 
-Returns a list of the features deemed statistically significant based on if the p-value calculated via the significance tests above met the conditions defined by the BHY procedure.
-
 Where
 
 -   `table` is the unkeyed section of the table produced by the feature creation procedure.
 -   `targets` is the target vector associated with the predictions to be made for each of the rows of the table. 
+
+Returns a list of the features deemed statistically significant based on if the p-value calculated via the significance tests above met the conditions defined by the BHY procedure.
 
 Sample Code:
 ```q
@@ -168,7 +169,7 @@ The number of numeric columns in the filtered dataset is: 7
 ```
 
 !!! Tip "Significant feature generation"
-    It is advisable prior to attempting to create a table of significant features to check if significant features exist in your data failure to do so leads to the following error
+    It is advisable prior to attempting to create a table of significant features to check if significant features exist in your data when compared to the target vector, failure to do so leads to the following error
     <pre><code class="language-q">
     q)target:(count cfeat)?1f
     q)tabreduced:key[cfeat]!.ml.fresh.significantfeattures[t;target]#t:value cfeat
