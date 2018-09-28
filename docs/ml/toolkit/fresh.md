@@ -102,7 +102,8 @@ Where
 -   `funcs` this is the dictionary of functions which are applied to the table this can be the entire `.ml.fresh.feat` namespace or a subset therein contained. 
 
 ```q 
-q)\l ml/init.q /load in FRESH library from $QHOME
+q)\l ml/ml.q /load in FRESH library from $QHOME
+q).ml.loadfile`:fresh/init.q
 q)/load hourly amazon stock information 
 q)tabinit:{lower[cols x]xcol x}("DTFFFFII";enlist ",") 0:`amzn.us.txt
 q)/remove zero variance columns

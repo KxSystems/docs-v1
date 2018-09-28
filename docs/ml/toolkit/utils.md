@@ -59,7 +59,6 @@ Within machine learning applications a number of procedures and analyses are ubi
 |[`.ml.util.polytab`](utils.md#mlutilpolytab)|Produce polynomial features of degree n from a tabl |
 |[`.ml.util.stdscaler`](utils.md#mlutilstdscaler)|Standard scaler transform-based representation |
 |[`.ml.util.tab2df`](utils.md#mlutiltab2df)|Convert a q table to Pandas dataframe |
-|[`.ml.util.tablerolldrop`](utils.md#mlutiltablerolldrop)|Windowed table based on 'id' with n values per window |
 |[`.ml.util.times2long`](utils.md#mlutiltimes2long)|Cast times to longs |
 |[`.ml.util.traintestsplit`](utils.md#mlutiltraintestsplit)|Split into training and test sets |
 |[`.ml.util.traintestsplitseed`](utils.md#mlutiltraintestsplitseed)|Split into training and test sets with a seed |
@@ -227,58 +226,6 @@ max  | 9994.308 1000     999      99.98165
 ```
 
 
-## `.ml.util.df2tab`
-
-_Convert from a Pandas dataframe_
-
-Syntax: `.ml.util.df2tab[x]`
-
-Where `x` is a Pandas table, returns it as a q table.
-
-```q
-q)n:3
-q)table:([]x:n?10000f;x1:1+til n;x2:reverse til n;x3:n?100f) / q table for input
-q)print pdf:.ml.util.tab2df[table] / convert to pandas dataframe
-             x  x1  x2         x3
-0  2631.439704   1   4  78.719172
-1  1118.109056   2   3  80.093563
-2  3250.627243   3   2  16.710134
-
-q).ml.util.df2tab[pdf] /convert dataframe back to q table
-x        x1 x2 x3      
------------------------
-2631.44  1  4  78.71917
-1118.109 2  3  80.09356
-3250.627 3  2  16.71013
-```
-
-
-## `.ml.util.dropconstant`
-
-_Remove columns with zero variance_
-
-Syntax: `.ml.util.dropconstant[x]`
-
-Where `x` is a numerical table `x` returns it without columns that have zero variance.
-
-```q
-q)n:1000
-q)3#tab:([]n?100f;n#0n;n?1000;n#10;n#0N)
-x        x1 x2  x3 x4
----------------------
-27.05226    482 10   
-90.72252    845 10   
-84.72851    971 10   
-
-q)3#.ml.util.dropconstant[tab]
-x        x2 
-------------
-27.05226 482
-90.72252 845
-84.72851 971
-```
-
-
 ## `.ml.eye`
 
 _Identity matrix_
@@ -407,36 +354,6 @@ q).ml.logloss[x;y]
 
 
 
-## `.ml.util.minmaxscaler`
-
-_Scale data between 0-1_
-
-Syntax: `.ml.util.minmaxscaler[x]`
-
-Where `x` is a numerical table, returns a min-max scaled representation with values scaled between 0 and 1.
-
-```q
-q)n:5
-q)tab:([]n?100f;n?1000;n?100f;n?50f)
-x        x1  x2       x3       
-------------------------------
-5.131717 681 43.96318 23.40407
-50.60375 752 71.45967 40.97883
-34.9319  312 71.68448 37.79269
-71.23945 858 35.90727 13.17263
-43.51838 399 85.67067 32.51957
-
-q).ml.util.minmaxscaler[tab]
-x         x1        x2        x3       
----------------------------------------
-0         0.6758242 0.1618843 0.3679552
-0.6878474 0.8058608 0.7144287 1        
-0.450782  0         0.7189462 0.885416 
-1         1         0         0        
-0.5806683 0.1593407 1         0.6957777
-```
-
-
 ## `.ml.mse`
 
 _Mean square error_
@@ -457,78 +374,6 @@ q).ml.mse[x;y]
 452.4079
 ```
 
-
-## `.ml.util.onehot`
-
-_One-hot encoding_
-
-Syntax: `.ml.util.onehot[x]`
-
-Where `x` is a list of symbols, returns its one-hot encoded representation.
-
-```q
-q)x:`a`a`b`b`c`a
-q).ml.util.onehot[x]
-1 0 0
-1 0 0
-0 1 0
-0 1 0
-0 0 1
-1 0 0
-```
-
-
-## `.ml.util.polytab`
-
-_Tunable polynomial features from an input table_
-
-Syntax: `.ml.util.polytab[t;n]`
-
-Where
-
-- `t` is a table of numerical values
-- `n` is the order of the polynomial feature being created
-
-returns the polynomial derived features of degree `n` in the form of a table.
-```q
-q)n:100
-q)5#tab:(val:sin 0.001*til n;til n;n?100f;n?1000f;n?10)
-val          x  x1       x2       x3
---------------------------------------
-0            0  52.26479 990.7741 1 
-0.0009999998 1  2.740491 52.11973 1 
-0.001999999  2  42.23458 967.8194 8 
-0.002999996  3  23.54108 337.9137 0 
-
-q)5#.ml.util.polytab[tab;2]
-val_x        val_x1      val_x2     val_x3       x_x1     x_x2     x_x3 x1_x2..
------------------------------------------------------------------------------..
-0            0           0          0            0        0        0    51782..
-0.0009999998 0.002740491 0.05211972 0.0009999998 2.740491 52.11973 1    142.8..
-0.003999997  0.08446911  1.935637   0.01599999   84.46917 1935.639 16   40875..
-0.008999987  0.07062314  1.01374    0            70.62325 1013.741 0    7954...
-0.01599996   0.2569871   2.354285   0.01999995   256.9878 2354.291 20   37814..
-
-q)5#.ml.util.polytab[tab;3]
-val_x_x1    val_x_x2   val_x_x3     val_x1_x2 val_x1_x3   val_x2_x3  x_x1_x2 ..
------------------------------------------------------------------------------..
-0           0          0            0         0           0          0       ..
-0.002740491 0.05211972 0.0009999998 0.1428336 0.002740491 0.05211972 142.8337..
-0.1689382   3.871275   0.03199998   81.75084  0.6757529   15.4851    81750.9 ..
-0.2118694   3.041219   0            23.86453  0           0          23864.57..
-1.027948    9.41714    0.07999979   151.2556  1.284935    11.77143   151256  ..
-
-/this can be integrated with the original data via the syntax
-q)5#newtab:tab^.ml.util.polytab[tab;2]^.ml.util.polytab[tab;3]
-
-val          x  x1       x2       x3 val_x        val_x1    ..
-------------------------------------------------------------..
-0            0  52.26479 990.7741 1  0            0         ..
-0.0009999998 1  2.740491 52.11973 1  0.0009999998 0.00274049..
-0.001999999  2  42.23458 967.8194 8  0.003999997  0.08446911..
-0.002999996  3  23.54108 337.9137 0  0.008999987  0.07062314..
-0.003999989  4  64.24694 588.5728 5  0.01599996   0.2569871 ..
-```
 
 ## `.ml.precision`
 
@@ -690,6 +535,197 @@ q).ml.sse[x;y]
 ```
 
 
+## `.ml.tscore`
+
+_One-sample t-test score_
+
+Syntax: `.ml.tscore[x;y]`
+
+Where
+
+-   `x` is a distribution of values
+-   `y` is the population mean
+
+returns the one sample t-score for a distribution with less than 30 samples.
+
+```q
+q)x:25?100f
+q)y:15
+q).ml.tscore[x;y]
+7.634824
+```
+
+
+## `.ml.tscoreeq`
+
+_T-test for independent samples with unequal variances_
+
+Syntax: `.ml.tscoreeq[x;y]`
+
+Where `x` and `y` are independent sample distributions with non-equal variance, returns their t-test score.
+
+```q
+q)n:1000
+q)x:{x,(sum 20?1f) - 10}/[{not n~count x};()]  /Gaussian distribution
+q)y:{x,(sum 20?1f) - 10}/[{not n~count x};()]
+q).ml.tscoreeq[x;y]
+1.106935
+```
+
+## `.ml.util.df2tab`
+
+_Convert from a Pandas dataframe_
+
+Syntax: `.ml.util.df2tab[x]`
+
+Where `x` is a Pandas table, returns it as a q table.
+
+```q
+q)n:3
+q)table:([]x:n?10000f;x1:1+til n;x2:reverse til n;x3:n?100f) / q table for input
+q)print pdf:.ml.util.tab2df[table] / convert to pandas dataframe
+             x  x1  x2         x3
+0  2631.439704   1   4  78.719172
+1  1118.109056   2   3  80.093563
+2  3250.627243   3   2  16.710134
+
+q).ml.util.df2tab[pdf] /convert dataframe back to q table
+x        x1 x2 x3
+-----------------------
+2631.44  1  4  78.71917
+1118.109 2  3  80.09356
+3250.627 3  2  16.71013
+```
+
+
+## `.ml.util.dropconstant`
+
+_Remove columns with zero variance_
+
+Syntax: `.ml.util.dropconstant[x]`
+
+Where `x` is a numerical table `x` returns it without columns that have zero variance.
+
+```q
+q)n:1000
+q)3#tab:([]n?100f;n#0n;n?1000;n#10;n#0N)
+x        x1 x2  x3 x4
+---------------------
+27.05226    482 10
+90.72252    845 10
+84.72851    971 10
+
+q)3#.ml.util.dropconstant[tab]
+x        x2
+------------
+27.05226 482
+90.72252 845
+84.72851 971
+```
+
+## `.ml.util.minmaxscaler`
+
+_Scale data between 0-1_
+
+Syntax: `.ml.util.minmaxscaler[x]`
+
+Where `x` is a numerical table, returns a min-max scaled representation with values scaled between 0 and 1.
+
+```q
+q)n:5
+q)tab:([]n?100f;n?1000;n?100f;n?50f)
+x        x1  x2       x3
+------------------------------
+5.131717 681 43.96318 23.40407
+50.60375 752 71.45967 40.97883
+34.9319  312 71.68448 37.79269
+71.23945 858 35.90727 13.17263
+43.51838 399 85.67067 32.51957
+
+q).ml.util.minmaxscaler[tab]
+x         x1        x2        x3
+---------------------------------------
+0         0.6758242 0.1618843 0.3679552
+0.6878474 0.8058608 0.7144287 1
+0.450782  0         0.7189462 0.885416
+1         1         0         0
+0.5806683 0.1593407 1         0.6957777
+```
+
+
+## `.ml.util.onehot`
+
+_One-hot encoding_
+
+Syntax: `.ml.util.onehot[x]`
+
+Where `x` is a list of symbols, returns its one-hot encoded representation.
+
+```q
+q)x:`a`a`b`b`c`a
+q).ml.util.onehot[x]
+1 0 0
+1 0 0
+0 1 0
+0 1 0
+0 0 1
+1 0 0
+```
+
+
+## `.ml.util.polytab`
+
+_Tunable polynomial features from an input table_
+
+Syntax: `.ml.util.polytab[t;n]`
+
+Where
+
+- `t` is a table of numerical values
+- `n` is the order of the polynomial feature being created
+
+returns the polynomial derived features of degree `n` in the form of a table.
+```q
+q)n:100
+q)5#tab:(val:sin 0.001*til n;til n;n?100f;n?1000f;n?10)
+val          x  x1       x2       x3
+--------------------------------------
+0            0  52.26479 990.7741 1
+0.0009999998 1  2.740491 52.11973 1
+0.001999999  2  42.23458 967.8194 8
+0.002999996  3  23.54108 337.9137 0
+
+q)5#.ml.util.polytab[tab;2]
+val_x        val_x1      val_x2     val_x3       x_x1     x_x2     x_x3 x1_x2..
+-----------------------------------------------------------------------------..
+0            0           0          0            0        0        0    51782..
+0.0009999998 0.002740491 0.05211972 0.0009999998 2.740491 52.11973 1    142.8..
+0.003999997  0.08446911  1.935637   0.01599999   84.46917 1935.639 16   40875..
+0.008999987  0.07062314  1.01374    0            70.62325 1013.741 0    7954...
+0.01599996   0.2569871   2.354285   0.01999995   256.9878 2354.291 20   37814..
+
+q)5#.ml.util.polytab[tab;3]
+val_x_x1    val_x_x2   val_x_x3     val_x1_x2 val_x1_x3   val_x2_x3  x_x1_x2 ..
+-----------------------------------------------------------------------------..
+0           0          0            0         0           0          0       ..
+0.002740491 0.05211972 0.0009999998 0.1428336 0.002740491 0.05211972 142.8337..
+0.1689382   3.871275   0.03199998   81.75084  0.6757529   15.4851    81750.9 ..
+0.2118694   3.041219   0            23.86453  0           0          23864.57..
+1.027948    9.41714    0.07999979   151.2556  1.284935    11.77143   151256  ..
+
+/this can be integrated with the original data via the syntax
+q)5#newtab:tab^.ml.util.polytab[tab;2]^.ml.util.polytab[tab;3]
+
+val          x  x1       x2       x3 val_x        val_x1    ..
+------------------------------------------------------------..
+0            0  52.26479 990.7741 1  0            0         ..
+0.0009999998 1  2.740491 52.11973 1  0.0009999998 0.00274049..
+0.001999999  2  42.23458 967.8194 8  0.003999997  0.08446911..
+0.002999996  3  23.54108 337.9137 0  0.008999987  0.07062314..
+0.003999989  4  64.24694 588.5728 5  0.01599996   0.2569871 ..
+```
+
+
 ## `.ml.util.stdscaler`
 
 _Standard scaler transform-based representation_
@@ -701,7 +737,7 @@ Where `x` is a numerical table, returns a table where each column has undergone 
 ```q
 q)n:5
 q)tab:([]n?100f;n?1000;n?100f;n?50f)
-x        x1  x2       x3       
+x        x1  x2       x3
 ------------------------------
 5.131717 681 43.96318 23.40407
 50.60375 752 71.45967 40.97883
@@ -710,13 +746,13 @@ x        x1  x2       x3
 43.51838 399 85.67067 32.51957
 
 q).ml.util.stdscaler[tab]
-x          x1         x2         x3       
+x          x1         x2         x3
 ---------------------------------------
 -1.663252  0.3846187  -0.9502199 -0.6088642
-0.4403491  0.7234267  0.5197869  1.125582  
--0.2846532 -1.376229  0.5318052  0.8111424 
-1.394986   1.229253   -1.380902  -1.618601 
-0.11257    -0.9610695 1.27953    0.2907405 
+0.4403491  0.7234267  0.5197869  1.125582
+-0.2846532 -1.376229  0.5318052  0.8111424
+1.394986   1.229253   -1.380902  -1.618601
+0.11257    -0.9610695 1.27953    0.2907405
 
 ```
 
@@ -732,62 +768,18 @@ Where `x` is a table, returns it as a Pandas dataframe.
 ```q
 q)n:5
 q)table:([]x:n?10000f;x1:1+til n;x2:reverse til n;x3:n?100f) / q table for input
-x        x1 x2 x3      
+x        x1 x2 x3
 -----------------------
 2631.44  1  4  78.71917
 1118.109 2  3  80.09356
 3250.627 3  2  16.71013
 q)show pdf:.ml.util.tab2df[table] / convert to pandas dataframe and show it is an embedPy object
-{[f;x]embedPy[f;x]}[foreign]enlist 
+{[f;x]embedPy[f;x]}[foreign]enlist
 q)print pdf / display the python form of the dataframe
              x  x1  x2         x3
 0  2631.439704   1   4  78.719172
 1  1118.109056   2   3  80.093563
 2  3250.627243   3   2  16.710134
-```
-
-
-## `.ml.util.tablerolldrop`
-_Windowed table based on 'id' with n values per window_
-
-Syntax: `.ml.util.tablerolldrop[tab;id;roll]`
-
-Where
-
--  `tab` is the a simple table
--  `id` is the column on which the window naming will be based
--  `roll` is the number of  values per window
-
-Returns a sliding window derived table used in feature forecasting, incomplete windows are removed from the start of the table and the final window is removed as this would not be used in the majority of machine learning applications
-
-```q
-q)show amzndaydata:{lower[cols x]xcol x}("DFFFFJJ";enlist ",")0:`amzn_day.us.txt
-
-date       open high low  close volume   openint
-------------------------------------------------
-1997.05.16 1.97 1.98 1.71 1.73  14700000 0      
-1997.05.19 1.76 1.77 1.62 1.71  6106800  0      
-1997.05.20 1.73 1.75 1.64 1.64  5467200  0      
-1997.05.21 1.64 1.65 1.38 1.43  18853200 0      
-1997.05.22 1.44 1.45 1.31 1.4   11776800 0      
-1997.05.23 1.41 1.52 1.33 1.5   15937200 0
-
-q)-1!"This dataset contains stock information for ",(string count amzndaydata)," days."
-"This dataset contains stock information for 5170 days."
-
-q)show tabinit:.ml.util.tablerolldrop[amzndaydata;`date;3]
-
-date       open high low  close volume   openint
-------------------------------------------------
-t1997.05.20 1.97 1.98 1.71 1.73  14700000 0      
-t1997.05.20 1.76 1.77 1.62 1.71  6106800  0      
-t1997.05.20 1.73 1.75 1.64 1.64  5467200  0      
-t1997.05.21 1.76 1.77 1.62 1.71  6106800  0      
-t1997.05.21 1.73 1.75 1.64 1.64  5467200  0      
-t1997.05.21 1.64 1.65 1.38 1.43  18853200 0      
-
-q)-1"The forecasting frame contains ",(string count tabinit)," datapoints.";
-“The forecasting frame contains 15501 datapoints.”
 ```
 
 
@@ -826,11 +818,11 @@ Syntax: `.ml.util.traintestsplit[x;y;sz]`
 
 Where
 
--   `x` is a matrix 
+-   `x` is a matrix
 -   `y` is a boolean vector of the same count as `x`
 -   `sz` is a numeric atom in the range 0-100
 
-returns a dictionary containing the data matrix `x` and target `y`, split into a training and testing set according to the percentage `sz` of the data to be contained in the test set.  
+returns a dictionary containing the data matrix `x` and target `y`, split into a training and testing set according to the percentage `sz` of the data to be contained in the test set.
 
 ```q
 q)x:(30 20)#1000?10f
@@ -842,7 +834,6 @@ xtest | (8.379916 8.986609 7.06074 2.067817 5.468488 4.103195 0.1590803 0.259..
 ytest | 000001b
 ```
 
-
 ## `.ml.util.traintestsplitseed`
 
 _Split into training and test sets with a seed_
@@ -851,7 +842,7 @@ Syntax: `.ml.util.traintestsplitseed[x;y;sz;seed]`
 
 Where
 
--   `x` is a matrix 
+-   `x` is a matrix
 -   `y` is a boolean vector of the same count as `x`
 -   `sz` is a numeric atom in the range 0-1
 -   `seed` is a numeric atom
@@ -868,40 +859,3 @@ xtest | (4.204472 7.137387 1.163132 9.893949 4.504886 5.465625 8.298632 0.049..
 ytest | 000001b
 ```
 
-
-## `.ml.tscore`
-
-_One-sample t-test score_
-
-Syntax: `.ml.tscore[x;y]`
-
-Where
-
--   `x` is a distribution of values
--   `y` is the population mean
-
-returns the one sample t-score for a distribution with less than 30 samples.
-
-```q
-q)x:25?100f
-q)y:15
-q).ml.tscore[x;y]
-7.634824
-```
-
-
-## `.ml.tscoreeq`
-
-_T-test for independent samples with unequal variances_
-
-Syntax: `.ml.tscoreeq[x;y]`
-
-Where `x` and `y` are independent sample distributions with non-equal variance, returns their t-test score.
-
-```q
-q)n:1000
-q)x:{x,(sum 20?1f) - 10}/[{not n~count x};()]  /Gaussian distribution
-q)y:{x,(sum 20?1f) - 10}/[{not n~count x};()]
-q).ml.tscoreeq[x;y]
-1.106935
-```
