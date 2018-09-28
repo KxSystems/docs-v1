@@ -40,4 +40,5 @@ or via conda;
 conda install --file requirements.txt
 ```
 
-For the running of notebooks within the [Utilities](utils.md) and [FRESH](fresh.md) sections [JupyterQ](../jupyterq/) is required in addition to embedPy however this is not a .
+!!! warning "Running notebooks"
+	For the running of notebooks within the [Utilities](utils.md) and [FRESH](fresh.md) sections [JupyterQ](../jupyterq/) is required in addition to embedPy however this is not a requirement for the library itself.

@@ -16,10 +16,13 @@ Following feature extraction, statistical significance tests between the feature
 
 The purpose of feature selection from the standpoint of improving the accuracy of a machine learning algorithm are as follows
 
-- Simplify the models being used thus making them easier to interpret.
+- Simplifies the models being used thus making them easier to interpret.
 - Shortens the time needed to train a model.
 - Helps to avoid the curse of dimensionality.
 - Reduces variance in the dataset to reduce overfitting.
+
+!!! note
+	Examples of the use of this algorithm as it pertains to feature extraction and selection when applied to machine learning algorithms can be found [here](https://github.com/kxsystems/ml-toolkit/fresh/notebooks)
 
 <i class="fa fa-github"></i>
 [KxSystems/ml-toolkit](https://github.com/kxsystems/ml-toolkit)
@@ -79,8 +82,8 @@ The following is a table of a subset of the calculated features and a short desc
 |treverseasymstat[x;lag]          | Measure of the asymmetry of the time series based on lags applied to the data. |
 |vargtstdev[x]                    | Boolean defining if the variance of the dataset is larger than the standard deviation. |
 
-
-Given that the functions contained within in this namespace are not called individually but from the extraction procedure itself a detailed explanation of their individual operation is not provided here. Further information is available on request if required.
+!!! note
+	Given that the functions contained within in this namespace are not called individually but from the extraction procedure itself a detailed explanation of their individual operation is not provided here. Further information is available on request if required.
 
 ## Feature Extraction
 
@@ -153,6 +156,7 @@ Syntax: `.ml.fresh.significantfeatures[table;targets]`
 Returns a table containing a reduced number of features where the p-value calculated via the significance tests above met the conditions defined by the BHY procedure.
 
 Where
+
 -   `table` is the unkeyed section of the table produced by the feature creation procedure.
 -   `targets` is the target vector associated with the predictions to be made for each of the rows of the table. 
 

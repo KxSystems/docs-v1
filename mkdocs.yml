@@ -187,7 +187,7 @@ pages:
     - Demonstration notebooks: ml/notebooks.md
     - Toolkit:
       - Overview: ml/toolkit/index.md
-      - Utilies: ml/toolkit/utils.md
+      - Utilities: ml/toolkit/utils.md
       - FRESH: ml/toolkit/fresh.md  
     - Natural language processing:
       - Preparing text: ml/nlp/index.md

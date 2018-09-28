@@ -13,13 +13,15 @@ Within machine learning applications a number of procedures and analyses are ubi
 
 `.ml`
 
-: Functions that are fundamental to machine learning applications at present relating to statistical analysis, and array production.
+: Functions for statistical analysis and array production.
 
 `.ml.util`
 
-: More case specific utility functions for the manipulation of data.
+: Functions for the manipulation and of data.
 
-These namespaces will be expanded over time to include wider ranging functionality. The functions within these namespaces, and be used in conjunction with those in the [FRESH section](fresh.md) of the toolkit to apply machine-learning techniques to time-series data.
+
+!!! note
+	These namespaces will be expanded over time to include wider ranging functionality. The functions within these namespaces can be used in conjunction with those in the [FRESH section](fresh.md) of the toolkit to apply machine-learning techniques to time-series data.
 
 <i class="fa fa-github"></i>
 [KxSystems/ml-toolkit](https://github.com/kxsystems/ml-toolkit)
@@ -55,7 +57,7 @@ These namespaces will be expanded over time to include wider ranging functionali
 |[`.ml.util.onehot`](utils.md#mlutilonehot)|One-hot encoding |
 |[`.ml.util.polytab`](utils.md#mlutilpolytab)|Produce polynomial features of degree n from a tabl |
 |[`.ml.util.stdscaler`](utils.md#mlutilstdscaler)|Standard scaler transform-based representation |
-|[`.ml.util.tab2df`](utils.md#mlutiltab2df)|Windowed table based on 'id' with n values per window |
+|[`.ml.util.tab2df`](utils.md#mlutiltab2df)|Convert a q table to Pandas dataframe |
 |[`.ml.util.tablerolldrop`](utils.md#mlutiltablerolldrop)|Windowed table based on 'id' with n values per window |
 |[`.ml.util.times2long`](utils.md#mlutiltimes2long)|Cast times to longs |
 |[`.ml.util.traintestsplit`](utils.md#mlutiltraintestsplit)|Split into training and test sets |
