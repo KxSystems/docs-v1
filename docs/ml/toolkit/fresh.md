@@ -16,13 +16,10 @@ Following feature extraction, statistical significance tests between the feature
 
 The purpose of feature selection from the standpoint of improving the accuracy of a machine learning algorithm are as follows
 
-- Simplifies the models being used thus making them easier to interpret.
+- Simplify the models being used thus making them easier to interpret.
 - Shortens the time needed to train a model.
 - Helps to avoid the curse of dimensionality.
 - Reduces variance in the dataset to reduce overfitting.
-
-!!! note
-	Examples of the use of this algorithm as it pertains to feature extraction and selection when applied to machine learning algorithms can be found [here](https://github.com/kxsystems/ml-toolkit/fresh/notebooks)
 
 <i class="fa fa-github"></i>
 [KxSystems/ml-toolkit](https://github.com/kxsystems/ml-toolkit)
@@ -102,38 +99,21 @@ Where
 -   `funcs` this is the dictionary of functions which are applied to the table this can be the entire `.ml.fresh.feat` namespace or a subset therein contained. 
 
 ```q 
-q)\l ml/ml.q /load in FRESH library from $QHOME
-q).ml.loadfile`:fresh/init.q
-q)/load hourly amazon stock information 
-q)tabinit:{lower[cols x]xcol x}("DTFFFFII";enlist ",") 0:`amzn.us.txt
-q)/remove zero variance columns
-q)tabinit:(where 0=var each flip delete date,time from tabinit) _ tabinit
-date       time         open     high     low     close    volume
------------------------------------------------------------------
-2017.05.16 16:00:00.000 961      965.48   960.91  964.67   431465
-2017.05.16 17:00:00.000 964.68   968.2    963.18  966.64   547131
-2017.05.16 18:00:00.000 966.53   967.85   965.12  967.285  234450
-2017.05.16 19:00:00.000 967.11   970.06   966.26  967.9845 273555
-2017.05.16 20:00:00.000 968.0232 968.74   965.74  965.78   170741
-2017.05.16 21:00:00.000 965.765  967.92   965.57  966.94   138878
-2017.05.16 22:00:00.000 966.98   967.31   965.55  966.07   395476
-2017.05.17 16:00:00.000 954.7    960.3957 952.74  956.88   614193
-2017.05.17 17:00:00.000 957.42   959.64   952.065 952.74   529877
-2017.05.17 18:00:00.000 952.93   956.88   951.11  955.74   431709
-
+/load in FRESH library from $QHOME
+q)\l ml/ml.q
+q).ml.loadfile'fresh/init.q'
+q)table:([]date:asc raze {10#x}each rand each n#2000.01.01;time:raze flip 10#'(`time$1+til n);x:til (n*10);x1:(n*10)?1f;x2:(n*10)?1f)
 /Define extraction of features which do not take hyperparameters
 q)singleinputfeatures:.ml.fresh.getsingleinputfeatures[]
-
-q)show 6#tabraw:.ml.fresh.createfeatures[tabinit;`date;2_ cols tabinit;singleinputfeatures]
-
-date      | absenergy_open absenergy_high absenergy_low absenergy_close absenergy_volume abssumch..
-----------| -------------------------------------------------------------------------------------..
-2017.05.16| 6528432        6558328        6513445       6538611         8.201544e+11     10.4964 ..
-2017.05.17| 6376044        6411741        6327408       6355289         2.353128e+12     20.9    ..
-2017.05.18| 6374159        6434609        6359583       6399064         1.190324e+12     16.666  ..
-2017.05.19| 6533383        6561515        6507017       6528318         1.791927e+12     9.8768  ..
-2017.05.22| 6564285        6589820        6549129       6577656         6.661642e+11     9.29    ..
-2017.05.23| 6602406        6622096        6570649       6595882         5.312849e+11     14.049  ..
+q)show 6#cfeat:.ml.fresh.createfeatures[table;`date;2_ cols tabinit;singleinputfeatures]
+date      | absenergy_x absenergy_x1 absenergy_x2 abssumchange_x abssumchange_..
+----------| -----------------------------------------------------------------..
+2000.01.15| 285         3.349372    3.448766     9              3.904357     ..
+2000.01.26| 2185        3.605627    2.974653     9              2.94635      ..
+2000.02.06| 6085        3.837423    3.967064     9              3.821695     ..
+2000.03.02| 11985       3.626113    4.459719     9              3.821917     ..
+2000.04.02| 19885       1.968726    4.135093     9              2.219842     ..
+2000.04.26| 29785       2.602338    2.32609      9              3.027212     ..
 ```
 
 ## Feature Significance
@@ -163,22 +143,24 @@ Where
 
 Sample Code:
 ```q
-q) show tabreduced:key[tabraw]!.ml.fresh.significantfeatures[value tabraw;targets]
-date      | abssumchange_high countabovemean_open countabovemean_high countbelowmean_open firstma..
-----------| -------------------------------------------------------------------------------------..
-2017.05.16| 8.03              5                   3                   2                   0.57142..
-2017.05.17| 14.6657           4                   4                   3                   0.57142..
-2017.05.18| 16.72             5                   4                   2                   0.85714..
-2017.05.19| 4                 4                   5                   3                   0.28571..
-2017.05.22| 5.3956            6                   4                   1                   0.14285..
-2017.05.23| 9.1238            4                   3                   3                   0      ..
+/ using 'cfeat' as defined in the feature creation section above
+q)target:til (count cfeat) / this is chosen as a target as random generation of targets does not produce significant features
+q)show tabreduced:key[cfeat]!.ml.fresh.significantfeatures[value cfeat;target]
+date      |absenergy_x max_x mean_x med_x min_x sumval_x lintrend_x_intercept
+----------| ------------------------------------------------------------------
+2000.01.15| 285         9     4.5    4.5   0     45       0                   
+2000.01.26| 2185        19    14.5   14.5  10    145      10                  
+2000.02.06| 6085        29    24.5   24.5  20    245      20                  
+2000.03.02| 11985       39    34.5   34.5  30    345      30                  
+2000.04.02| 19885       49    44.5   44.5  40    445      40                  
+2000.04.26| 29785       59    54.5   54.5  50    545      50                  
 
-q)-1 "The number of columns in the initial dataset is: ",string count cols tabinit;
-The number of columns in the initial dataset is: 7
-q)-1 "The number of columns in the unfiltered dataset is: ",string count cols tabraw;
-The number of columns in the unfiltered dataset is: 201
-q)-1 "The number of columns in the filtered dataset is: ",string count cols tabreduced;
-The number of columns in the filtered dataset is: 45
+-1 "The number of numeric columns in the initial dataset is: ",string count 2 _ cols tabtable;
+The number of numeric columns in the initial dataset is: 3
+q)-1 "The number of numeric columns in the unfiltered dataset is: ",string count cols value cfeat;
+The number of numeric columns in the unfiltered dataset is: 108
+q)-1 "The number of numeric columns in the filtered dataset is: ",string count cols value tabreduced;
+The number of numeric columns in the filtered dataset is: 7
 ```
 
 ## Fine Tuning
