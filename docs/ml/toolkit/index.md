@@ -14,12 +14,13 @@ This toolkit contains:
 
 -   [Utility functions](utils.md) relating to important aspects of machine learning including data preprocessing and statistical testing, this also includes general use functions found to be useful in many machine learning applications.
 
--   An implementation of the [FRESH](fresh.md) (FeatuRe Extraction and Scalable Hypothesis testing) algorithm in q. This provides the q/kdb+ user with the ability to perform feature extraction and feature significance tests on structured time-series data in order to allow users to perform forecasting, regression and classification on time-series data.
+-   An implementation of the [FRESH](fresh.md) (FeatuRe Extraction and Scalable Hypothesis testing) algorithm in q. This algorithm provides the q/kdb+ user with the ability to perform feature extraction and feature significance tests on structured time-series data in order to allow users to perform forecasting, regression and classification on time-series data.
 
-Over time the machine-learning functionality in this library will be extended to include
+!!! note
+	Over time the machine-learning functionality in this library will be extended to include
 
--   q-specific implementations of machine-learning algorithms
--   Broader functionality
+	-   q-specific implementations of machine-learning algorithms
+	-   Broader functionality
 
 The toolkit is at:
 <i class="fa fa-github"></i>

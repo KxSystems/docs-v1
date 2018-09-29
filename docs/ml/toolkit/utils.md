@@ -30,12 +30,12 @@ Within machine learning applications a number of procedures and analyses are ubi
 |:--------------------------------|:-------------------------------------------------|
 |`.ml` namespace functions| |
 |[`.ml.accuracy`](utils.md#mlaccuracy)|Accuracy of classification results |
-|[`.ml.arange`](utils.md#mlarange)|Evenly-spaced values |
-|[`.ml.confdict`](utils.md#mlconfdict)|True/false positives and true/false negatives |
+|[`.ml.arange`](utils.md#mlarange)|Evenly-spaced values within a range |
+|[`.ml.confdict`](utils.md#mlconfdict)|True/false positives and true/false negatives as dictionary|
 |[`.ml.confmat`](utils.md#mlconfmat)|Confusion matrix |
 |[`.ml.corrmat`](utils.md#mlcorrmat)|Table-like correlation matrix for a simple table |
 |[`.ml.crossentropy`](utils.md#mlcrossentropy)|Categorical cross entropy |
-|[`.ml.describe`](utils.md#mldescribe)|Descriptive information |
+|[`.ml.describe`](utils.md#mldescribe)|Descriptive information about a table|
 |[`.ml.eye`](utils.md#mleye)|Identity matrix|
 |[`.ml.linspace`](utils.md#mllinspace)|Array of evenly-spaced values |
 |[`.ml.logloss`](utils.md#mllogloss)|Logarithmic loss |
@@ -56,8 +56,8 @@ Within machine learning applications a number of procedures and analyses are ubi
 |[`.ml.util.fillfn`](utils.md#mlutilfillfn)|Tailored filling of null values for a simple matrix |
 |[`.ml.util.minmaxscaler`](utils.md#mlutilminmaxscaler)|Scale data between 0-1 |
 |[`.ml.util.onehot`](utils.md#mlutilonehot)|One-hot encoding |
-|[`.ml.util.polytab`](utils.md#mlutilpolytab)|Produce polynomial features of degree n from a tabl |
-|[`.ml.util.stdscaler`](utils.md#mlutilstdscaler)|Standard scaler transform-based representation |
+|[`.ml.util.polytab`](utils.md#mlutilpolytab)|Produce polynomial features of degree n from a table |
+|[`.ml.util.stdscaler`](utils.md#mlutilstdscaler)|Standard scaler transform-based representation of a table |
 |[`.ml.util.tab2df`](utils.md#mlutiltab2df)|Convert a q table to Pandas dataframe |
 |[`.ml.util.times2long`](utils.md#mlutiltimes2long)|Cast times to longs |
 |[`.ml.util.traintestsplit`](utils.md#mlutiltraintestsplit)|Split into training and test sets |
@@ -320,8 +320,8 @@ Syntax: `.ml.precision[x;y;z]`
 
 Where
 
--   `x` is the predicted binary label
--   `y` is the true binary classification label
+-   `x` are the predicted binary labels
+-   `y` are the true binary classification labels
 -   `z` is the binary value defined to be true
 
 returns a measure of the precision associated with a classification problem.
@@ -331,6 +331,8 @@ q)xb:rand each 100#0b
 q)yb:rand each 100#0b
 q).ml.precision[xb;yb;1b]
 0.5090909
+q).ml.precision[xb;yb;0b]
+0.5483871
 ```
 
 
@@ -409,8 +411,10 @@ returns a measure of the sensitivity associated with a classification problem.
 ```q
 q)xb:rand each 100#0b
 q)yb:rand each 100#0b
-q).ml.sensitivity[xb;yb;1b]
-0.5957447
+q).ml.utils.sensitivity[x;y;0b]
+0.6415094
+q).ml.utils.sensitivity[x;y;1b]
+0.4042553
 ```
 
 
@@ -446,7 +450,9 @@ returns a measure of the specificity associated with a classification problem.
 ```q
 q)xb:rand each 100#0b
 q)yb:rand each 100#0b
-q).ml.specificity[xb;yb;1b]
+q).ml.utils.specificity[x;y;0b]
+0.5957447
+q).ml.utils.specificity[x;y;1b]
 0.490566
 ```
 
@@ -491,7 +497,8 @@ q)y:15
 q).ml.tscore[x;y]
 7.634824
 ```
-
+!!! note
+	Above 30 samples a one sample t-score is not statistically significant
 
 ## `.ml.tscoreeq`
 
