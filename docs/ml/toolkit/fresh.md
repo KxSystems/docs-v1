@@ -63,7 +63,7 @@ The following is a table of a subset of the calculated features and a short desc
 |fftcoeff[x;coeff]         | Fast fourier transform coefficients given real inputs and extract real, imaginary, absolute and angular components. |
 |hasdup[x]                        | If the time-series contains any duplicate values.|
 |hasdupmax[x]                     | Boolean value stating if a duplicate of the maximum value exists in the dataset. |
-|indexmassquantile[x;q]           | Relative index i where q% of the time series x’s mass lies left of i. |
+|indexmassquantile[x;q]           | Relative index i where q% of the time-series x’s mass lies left of i. |
 |kurtosis[x]                      | Adjusted G2 Fisher-Pearson kurtosis. |
 |lintrend[x]                      | Slope, intercept, r-value, p-value and standard error associated with the time series. |
 |longstrikelmean[x]               | Length of the longest subsequence in x less than the mean of x. | 
@@ -71,7 +71,7 @@ The following is a table of a subset of the calculated features and a short desc
 |mean2dercentral[x]               | Mean value of the central approximation of the second derivative of the time series. |
 |numcrossingm[x;m]                | Number of crossings in the dataset over a value m. A crossing is defined as sequential values either side of m, where the first is less than m and the second is greater or vice-versa. |
 |numcwtpeaks[x;width]             | Searches for peaks in the time-series following data smoothing via application of a ricker wavelet. |
-|numpeaks[x;support]              | Number of peaks of with a specified support in a time series x. |
+|numpeaks[x;support]              | Number of peaks with a specified support in a time series x. |
 |partautocorrelation[x;lag]       | Partial autocorrelation of the time series at a specified lag. |
 |perrecurtoalldata[x]             | [Count of values occurring more than once]%[count different values]. |
 |perrecurtoallval[x]              | [Count of values occurring more than once]%[count data]. |

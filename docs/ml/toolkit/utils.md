@@ -40,6 +40,7 @@ Within machine learning applications a number of procedures and analyses are ubi
 |[`.ml.linspace`](utils.md#mllinspace)|Array of evenly-spaced values |
 |[`.ml.logloss`](utils.md#mllogloss)|Logarithmic loss |
 |[`.ml.mse`](utils.md#mlmse)|Mean square error |
+|[`.ml.percentile`](utils.md#mlpercentile)|Percentile calculation for an array|
 |[`.ml.precision`](utils.md#mlprecision)|Precision of a binary classifier |
 |[`.ml.range`](utils.md#mlrange)|Range of values |
 |[`.ml.roc`](utils.md#mlroc)|X- and Y-axis values for an ROC curve |
@@ -59,7 +60,6 @@ Within machine learning applications a number of procedures and analyses are ubi
 |[`.ml.util.polytab`](utils.md#mlutilpolytab)|Produce polynomial features of degree n from a table |
 |[`.ml.util.stdscaler`](utils.md#mlutilstdscaler)|Standard scaler transform-based representation of a table |
 |[`.ml.util.tab2df`](utils.md#mlutiltab2df)|Convert a q table to Pandas dataframe |
-|[`.ml.util.times2long`](utils.md#mlutiltimes2long)|Cast times to longs |
 |[`.ml.util.traintestsplit`](utils.md#mlutiltraintestsplit)|Split into training and test sets |
 |[`.ml.util.traintestsplitseed`](utils.md#mlutiltraintestsplitseed)|Split into training and test sets with a seed |
 
@@ -311,6 +311,24 @@ q).ml.mse[x;y]
 452.4079
 ```
 
+## `.ml.percentile`
+
+_Percentile calculation for an array_
+
+Syntax:`.ml.percentile[x;y]
+
+Where
+
+-  `x` is a numerical array
+-  `y` is the percentile of interest
+
+returns the value below which `y` percent of the of the observations within the array are found.
+
+```q
+q)x:100?1000f
+q).ml.util.percentile[x;0.2]
+222.9274
+```
 
 ## `.ml.precision`
 
@@ -788,33 +806,6 @@ q)print pdf / display the python form of the dataframe
 0  2631.439704   1   4  78.719172
 1  1118.109056   2   3  80.093563
 2  3250.627243   3   2  16.710134
-```
-
-
-## `.ml.util.times2long`
-
-_Cast times to longs_
-
-Syntax: `.ml.util.times2long[x]`
-
-Where `x` is a table, returns `x` with all time columns converted to a long representation.
-
-```q
-q)n:1000
-q)3#tab:([]sym:n?`1;time:asc n?00:00:05.000;n?1000f;n?100)
-sym time         x        x1
-----------------------------
-p   00:00:00.002 37.74609 92
-a   00:00:00.007 135.1677 73
-b   00:00:00.015 838.3428 96
-
-
-q)3#.ml.util.times2long[tab]
-sym time x        x1
-----------------
-p   2    37.74609 92
-a   7    135.1677 73
-b   15   838.3428 96
 ```
 
 
