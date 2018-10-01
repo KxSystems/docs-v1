@@ -8,11 +8,11 @@ keywords: machine learning, ml, feature extraction, feature selection, time seri
 # FRESH: a feature extraction and feature significance toolkit
 
 
-Feature extraction and selection are vital components of many machine-learning pipelines. Here we outline an implementation of the [FRESH (FeatuRe Extraction and Scalable Hypothesis testing) algorithm](https://arxiv.org/pdf/1610.07717v3.pdf). This provides the opportunity to explore structured datasets in depth and to extract the most relevant features for predicting a target vector. 
+Feature extraction and selection are vital components of many machine-learning pipelines. Here we outline an implementation of the [FRESH](https://arxiv.org/pdf/1610.07717v3.pdf) (FeatuRe Extraction and Scalable Hypothesis testing) algorithm. This provides the opportunity to explore structured datasets in depth and to extract the most relevant features for predicting a target vector. 
 
-Feature extraction at a basic level is the process by which from an initial dataset we build derived values/features which may be informative when passed to a machine learning algorithm. It allows for information which may be pertinent to the prediction of an attribute of the system under investigation to be extracted. This information is often easier to interpret than the time series in its raw form. It also offers the chance to apply less complex machine learning models to our data as the important trends in the data do not have to be extracted from the data within more complex models.
+Feature extraction at a basic level is the process by which from an initial dataset we build derived values/features which may be informative when passed to a machine learning algorithm. It allows for information which may be pertinent to the prediction of an attribute of the system under investigation to be extracted. This information is often easier to interpret than the time series in its raw form. It also offers the chance to apply less complex machine learning models to our data as the important trends in the data do not have to be extracted from the data via complex algorithms.
 
-Following feature extraction, statistical significance tests between the feature and target vectors can be applied. This is required as within the features extracted from the initial data there may only be a small subsection of features of importance. Once statistical tests have been completed to find the relevance of the features as a p-value the Benjamini-Hochberg-Yekutieli procedure is applied to set a threshold for the features which are deemed to be important. 
+Following feature extraction, statistical significance tests between the feature and target vectors can be applied. This is required as within the features extracted from the initial data there may only be a small subsection of features of importance. Once statistical tests have been completed to find the relevance of the features (in the form of a p-value) the Benjamini-Hochberg-Yekutieli procedure is applied to set a threshold for the features which are deemed to be important. 
 
 The purpose of feature selection from the standpoint of improving the accuracy of a machine learning algorithm are as follows
 
@@ -21,19 +21,22 @@ The purpose of feature selection from the standpoint of improving the accuracy o
 - Helps to avoid the curse of dimensionality.
 - Reduces variance in the dataset to reduce overfitting.
 
+!!! note
+	Notebooks showing example implementations of this algorithm in machine learning applications can be found within the ML-Toolkit [here](https://github.com/kxsystems/ml-toolkit/fresh/notebooks)
+
 <i class="fa fa-github"></i>
 [KxSystems/ml-toolkit](https://github.com/kxsystems/ml-toolkit)
 
 
 ## Data formatting
 
-One of the key requirements of this library is that the data being passed to the feature extraction procedure contain a so called 'identifying' column which delimits the time series data into unique subsets from which features of this data can be extracted. This id column can be either inherent to the dataset or derived from the data for the specific use case through the application of a sliding window onto the table. Null values should also be removed from the data and filled with non null values that are relevant to the column being filled.
+One of the key requirements of this library is that the data being passed to the feature extraction procedure contain a so called 'identifying' column which delimits the time series data into unique subsets from which features of this data can be extracted. This id column can be either inherent to the dataset or derived from the data for a specific use case through application of a sliding window onto the table. Null values should also be removed from the data and filled with non null values that are relevant to the column being filled.
 
 The data should also not contain text in the form of strings or symbols (other than in the id column) as these cannot be passed to the feature calculation functions. If a text based feature is thought to be important however, one hot encoding can be completed to convert the text to numerical values if deemed particularly relevant.
 
-Data-types which are supported by the feature extraction procedure are boolean, int, real, long, short and float. Other datatypes should not passed to the extraction procedure as feature creation will not be supported under such conditions.
+Data-types which are supported by the feature extraction procedure are boolean, int, real, long, short and float. Other datatypes should not be passed to the extraction procedure as feature creation will not be supported under such conditions.
 
-Functions to complete the formatting above including the tailored filling of nulls and the application of a 'rolling window'  are supplied within the [Utilities section](utils.md) of the toolkit.
+Functions to complete the formatting above including the tailored filling of nulls and one-hot encoding are supplied within the [Utilities section](utils.md) of the toolkit.
 
 ## Calculated Features
 
@@ -49,7 +52,7 @@ The following is a table of a subset of the calculated features and a short desc
 |:--------------------------------|:-------------------------------------------------|
 |absenergy[x]                     | Absolute sum of the differences between successive datapoints. |
 |aggautocorr[x]             | Aggregation (mean/var etc.) of an autocorrelation over all possible lags 1 - length data. |
-|augfuller[x]                     | Hypothesis test to check for a unit root in time series dataset (This causes issues in statistical inference). |
+|augfuller[x]                     | Hypothesis test to check for a unit root in time series dataset. |
 |autocorr[x;lag]                  | Autocorrelation over specified lags. |
 |binnedentropy[x;#bins]           | System entropy of data binned into equidistant bins. |
 |c3[x;lag]                        | Measure of the non-linearity of the time series. |

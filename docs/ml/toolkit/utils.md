@@ -424,7 +424,7 @@ _Shape of a matrix_
 
 Syntax: `.ml.shape[x]`
 
-Where `x` is a matrix, returns its shape as a 2-list.
+Where `x` is a matrix, returns its shape as a 2-item list.
 
 ```q
 q)x:(30 20)#1000?10f
@@ -468,7 +468,7 @@ Where
 -   `x` is a vector of predicted values
 -   `y` are the true values of the quantity being predicted
 
-returns the sum squared error between predicted values and the true values in a machine-learning application.
+returns the sum squared error between predicted and true values.
 
 ```q
 q)x:asc 50?50f
@@ -518,7 +518,7 @@ q).ml.tscoreeq[x;y]
 
 ## `.ml.util.df2tab`
 
-_Convert from a Pandas dataframe_
+_Convert from a Pandas dataframe to q table_
 
 Syntax: `.ml.util.df2tab[x]`
 
@@ -548,7 +548,7 @@ _Remove columns with zero variance_
 
 Syntax: `.ml.util.dropconstant[x]`
 
-Where `x` is a numerical table `x` returns it without columns that have zero variance.
+Where `x` is a numerical table, returns `x` without columns of zero variance.
 
 ```q
 q)n:1000
@@ -579,7 +579,7 @@ Where
 -   `tm` is a time column in the data
 -   `dict` is a modifyable dictionary in the .ml.util namespace
 
-returns a table with columns filled according to assignment of keys in the dictionary `.ml.util.preprocdict`. The function defaults to forward folowed by back filling nulls however changes to the default dictionary allow for zero, median, mean or linear interpolation to be applied on individual columns.
+returns a table with columns filled according to assignment of keys in the dictionary `.ml.util.preprocdict`. The function defaults to forward, followed by back filling nulls. However changes to the default dictionary allow for zero, median, mean or linear interpolation to be applied on individual columns.
 
 ```q
 q)n:1000000
@@ -767,7 +767,7 @@ x          x1         x2         x3
 
 ## `.ml.util.tab2df`
 
-_Convert to a Pandas dataframe_
+_Convert a q table to Pandas dataframe_
 
 Syntax: `.ml.util.tab2df[x]`
 
@@ -865,5 +865,11 @@ xtrain| (8.752061 6.82448 3.992896 2.465234 8.599461 2.452222 6.070236 6.8686..
 ytrain| 000011101000001110111101b
 xtest | (4.204472 7.137387 1.163132 9.893949 4.504886 5.465625 8.298632 0.049..
 ytest | 000001b
+q).ml.util.traintestsplitseed[x;y;0.2;42] /show that the splitting on repetition is the same
+xtrain| (8.752061 6.82448 3.992896 2.465234 8.599461 2.452222 6.070236 6.8686..
+ytrain| 000011101000001110111101b
+xtest | (4.204472 7.137387 1.163132 9.893949 4.504886 5.465625 8.298632 0.049..
+ytest | 000001b
+
 ```
 
