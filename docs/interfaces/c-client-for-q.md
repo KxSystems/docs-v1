@@ -837,6 +837,13 @@ Summary
 ```
 
 
+## Troubleshooting: loading a library
+
+In some cases [`2:`](/ref/filenumbers.md#2-c-shared-objects) may fail because of missing dependencies. Sadly, OS error messages are not always helpful. 
+
+You can check dependencies using the methods described here: https://wiki.qt.io/Show_library_dependencies
+
+
 ## Example
 
 - <i class="fa fa-github"></i> [csv.c](https://github.com/KxSystems/cookbook/blob/master/c/csv.c) – CSV export example in C

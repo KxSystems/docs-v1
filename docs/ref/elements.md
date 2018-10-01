@@ -106,19 +106,18 @@ Char vectors are also known as _strings_.
 Attributes are metadata that apply to lists of special form. They are often used on a dictionary domain or a table column to reduce storage requirements or to speed retrieval.  
 <i class="fa fa-hand-o-right"></i> [`#` Set attribute](lists/#set-attribute)
 
-For 64-bit V3.0+, where `n` is the number of items and `d` is the number of distinct (unique) items, the byte overhead in memory is:
-
-| example       |         | byte overhead          |
-|---------------|---------|------------------------|
-| `` `s#2 2 3`` | sorted  | `0`                    |
-| `` `u#2 4 5`` | unique  | `32*d`                 |
-| `` `p#2 2 1`` | parted  | `(48*d)+8*n`     |
-| `` `g#2 1 2`` | grouped | `(16*d)+8*n` |
+example       | attribute
+--------------|---------
+`` `s#2 2 3`` | sorted  
+`` `u#2 4 5`` | unique  
+`` `p#2 2 1`` | parted  
+`` `g#2 1 2`` | grouped 
 
 
 Attribute `u` is for unique lists – where all items are distinct.
 
 !!! tip "Grouped and parted"
+
     Attributes `p` and `g` are useful for lists in memory with a lot of repetition.
 
     If the data can be sorted such that `p` can be applied, the `p` attribute effects better speedups than `g`, both on disk and in memory. 
@@ -133,6 +132,7 @@ Some q functions use attributes to work faster:
 -    Dictionaries: [`group`](dictsandtables/#group)
 
 !!! warning "Grouped attribute"
+
     The `g` attribute is presently unsuitable for cycling through a small window of a domain, due to the retention of keys backing the attribute.<pre><code class="language-q">q)v:\`g#1#0
     q)do[1000000;v[0]+:1];
     q)0N!.Q.w[]\`used; v:\`g#\`#v; .Q.w[]\`used
