@@ -30,7 +30,7 @@ The purpose of feature selection from the standpoint of improving the accuracy o
 
 ## Data formatting
 
-One of the key requirements of this library is that the data being passed to the feature extraction procedure contain a so called 'identifying' column which delimits the time series data into unique subsets from which features of this data can be extracted. This id column can be either inherent to the dataset or derived from the data for a specific use case through application of a sliding window onto the table. Null values should also be removed from the data and filled with non null values that are relevant to the column being filled.
+One of the key requirements of this library is that the data being passed to the feature extraction procedure contain a so called 'identifying' column which delimits the time series data into unique subsets from which features of the data can be extracted. This id column can be either inherent to the dataset or derived from the data for a specific use case through application of a sliding window onto the table. Null values should also be removed from the data and filled with non null values that are relevant to the column being filled.
 
 The data should also not contain text in the form of strings or symbols (other than in the id column) as these cannot be passed to the feature calculation functions. If a text based feature is thought to be important however, one hot encoding can be completed to convert the text to numerical values if deemed particularly relevant.
 
@@ -69,13 +69,13 @@ The following is a table of a subset of the calculated features and a short desc
 |longstrikelmean[x]               | Length of the longest subsequence in x less than the mean of x. | 
 |meanchange[x]                    | Mean over the absolute difference between subsequent t-series values. |
 |mean2dercentral[x]               | Mean value of the central approximation of the second derivative of the time series. |
-|numcrossingm[x;m]                | Number of crossings in the dataset of over a value m. A crossing is defined as sequential value where the first is less than m and the second is greater or vice-versa. |
+|numcrossingm[x;m]                | Number of crossings in the dataset over a value m. A crossing is defined as sequential values either side of m, where the first is less than m and the second is greater or vice-versa. |
 |numcwtpeaks[x;width]             | Searches for peaks in the time-series following data smoothing via application of a ricker wavelet. |
-|numpeaks[x;support]              | Number of peaks of with a specified support in time series x. |
-|partautocorrelation[x;lag]       | Partial autocorrelation of the time series at a specified lag. | 
+|numpeaks[x;support]              | Number of peaks of with a specified support in a time series x. |
+|partautocorrelation[x;lag]       | Partial autocorrelation of the time series at a specified lag. |
 |perrecurtoalldata[x]             | [Count of values occurring more than once]%[count different values]. |
 |perrecurtoallval[x]              | [Count of values occurring more than once]%[count data]. |
-|ratiobeyondrsigma[x;r]| Ratio of values more than rdev(x) from the mean of x. |
+|ratiobeyondrsigma[x;r]| Ratio of values more than r*dev(x) from the mean of x. |
 |ratiovalnumtserieslength[x]      | [Number of unique values]%[count values]. |
 |spktwelch[x;coeff]               | Cross power spectral density of the time series at different tunable frequencies. |
 |symmetriclooking[x]              | Boolean measure of if the data 'appears' symmetric. |
@@ -93,8 +93,6 @@ The function defined below can be be used to derive such features from the data,
 
 Syntax: `.ml.fresh.createfeatures[table;aggs;cnames;funcs]`
 
-This returns a table keyed by an identifying column containing the features extracted from an input table based on the unique elements of the identifying column.
-
 Where
 
 -   `table` is the input table containing numerical values and a leading identifying column
@@ -102,23 +100,40 @@ Where
 -   `cnames` these are the columns on which extracted features will be calculated, these columns should contain only numerical values
 -   `funcs` this is the dictionary of functions which are applied to the table this can be the entire `.ml.fresh.feat` namespace or a subset therein contained. 
 
+This returns a table keyed on an identifying column containing the features extracted from an input table based on the unique elements of the identifying column.
+
 ```q 
 /load in FRESH library from $QHOME
 q)\l ml/ml.q
 q).ml.loadfile`:fresh/init.q
 q)n:100
-q)table:([]date:asc raze {10#x}each rand each n#2000.01.01;time:raze flip 10#'(`time$1+til n);x:til (n*10);x1:(n*10)?1f;x2:(n*10)?1f)
+q)show table:([]date:asc raze {10#x}each rand each n#2000.01.01;time:raze flip 10#'(`time$1+til n);x:til (n*10);x1:(n*10)?1f;x2:(n*10)?1f)
+date       time         x  x1         x2        
+------------------------------------------------
+2000.02.21 00:00:00.001 0  0.1870281  0.3927524 
+2000.02.21 00:00:00.002 1  0.3595293  0.5170911 
+2000.02.21 00:00:00.003 2  0.4809078  0.5159796 
+2000.02.21 00:00:00.004 3  0.446898   0.4066642 
+2000.02.21 00:00:00.005 4  0.1316095  0.1780839 
+2000.02.21 00:00:00.006 5  0.6333324  0.3017723 
+2000.02.21 00:00:00.007 6  0.6990336  0.785033  
+2000.02.21 00:00:00.008 7  0.4418975  0.5347096 
+2000.02.21 00:00:00.009 8  0.7932503  0.7111716 
+2000.02.21 00:00:00.010 9  0.6648273  0.411597  
+2000.02.25 00:00:00.011 10 0.3791373  0.4931835 
+2000.02.25 00:00:00.012 11 0.6217243  0.5785203 
+2000.02.25 00:00:00.013 12 0.5569152  0.08388858
 /Define extraction of features which do not take hyperparameters
 q)singleinputfeatures:.ml.fresh.getsingleinputfeatures[]
 q)show 6#cfeat:.ml.fresh.createfeatures[table;`date;2_ cols table;singleinputfeatures]
-date      | absenergy_x absenergy_x1 absenergy_x2 abssumchange_x abssumchange_..
+date      | absenergy_x absenergy_x1 absenergy_x2 abssumchange_x abssumchange..
 ----------| -----------------------------------------------------------------..
-2000.01.15| 285         3.349372    3.448766     9              3.904357     ..
-2000.01.26| 2185        3.605627    2.974653     9              2.94635      ..
-2000.02.06| 6085        3.837423    3.967064     9              3.821695     ..
-2000.03.02| 11985       3.626113    4.459719     9              3.821917     ..
-2000.04.02| 19885       1.968726    4.135093     9              2.219842     ..
-2000.04.26| 29785       2.602338    2.32609      9              3.027212     ..
+2000.02.21| 285         2.768825     2.553397     9              1.947514    ..
+2000.02.25| 2185        2.700242     2.43137      9              2.348191    ..
+2000.03.09| 6085        4.397268     4.261188     9              1.965323    ..
+2000.03.24| 11985       3.687186     3.564347     9              1.79937     ..
+2000.04.14| 19885       4.099187     2.32924      9              2.412318    ..
+2000.05.06| 29785       2.7132       2.752038     9              2.745607    ..
 ```
 
 ## Feature Significance
