@@ -6,8 +6,6 @@
 [![Neal Stephenson thinks it's cute to name his labels 'dengo'](/img/goto.png "Neal Stephenson thinks it's cute to name his labels 'dengo'")](https://xkcd.com/292/)  
 _xkcd.com_
 
-==These should rarely – if ever – be used==, but in order to recognise them when seen in the wild, here is a partial list.
-
 
 ## `-1!x` (`hsym`)
 
@@ -114,6 +112,7 @@ Streaming-execute over file `x`, used for example in kdb+tick to replay logfiles
 A logfile is just a list of lists, and each list is read in turn and evaluated, either by [`value`](metadata/#value) or by [`.z.ps`](dotz/#zps-set) if it is defined.
 
 Here, for demonstration purposes, we manually create a logfile, and play it back through `-11!`. This is functionally equivalent to doing ``value each get `:logfile`` but uses far less memory.
+
 ```q
 q)`:logfile.2013.12.03 set () / create a new,empty log file
 `:logfile.2013.12.03
@@ -135,7 +134,9 @@ q)value each get `:logfile.2013.12.03
 `a 10
 `b 20
 ```
+
 If successful, the number of chunks executed is returned. If the end of the file is corrupt a `'badtail` error is signalled. In the event that the log file references an undefined function, the function name is signalled as an error. This can be confusing if the missing function name is `upd`, as it does not reflect the same situation as the license expiry 'upd error. e.g.
+
 ```q
 / Continuing the above example
 q)delete f from `.
@@ -143,6 +144,7 @@ q)delete f from `.
 q)-11!`:logfile.2013.12.03 / function f no longer defined, so it signals an error
 'f
 ```
+
 <i class="fa fa-github"></i> [github.com/simongarland/tickrecover/rescuelog.q](https://github.com/simongarland/tickrecover/blob/master/rescuelog.q) for examples of usage
 
 
@@ -158,11 +160,15 @@ Streaming-execute the first `n` chunks of logfile `x`, return the number of chun
 It's possible to leverage the above to playback `n` records from record `M` onwards. 
 
 Firstly create a sample log file, which contains 1000 records as 
+
 `((`f;0);(`f;1);(`f;2);..;(`f;999))`.
 ```q
 q)`:log set();h:hopen`:log;i:0;do[1000;h enlist(`f;i);i+:1];hclose h;
 ```
-then define function `f` to just print its arg, skip the first `M` records. If `.z.ps` is defined, `-11!` calls `.z.ps` for each record.
+
+then define function `f` to just print its arg, skip the first `M` records. If 
+
+`.z.ps` is defined, `-11!` calls `.z.ps` for each record.
 ```q
 q)m:0;M:750;f:0N!;.z.ps:{m+:1;if[m>M;value x;];};-11!(M+5-1;`:log)
 750
@@ -178,6 +184,7 @@ q)m:0;M:750;f:0N!;.z.ps:{m+:1;if[m>M;value x;];};-11!(M+5-1;`:log)
 Given a valid logfile, return the number of chunks.
 
 Given an invalid logfile, return the number of valid chunks and length of the valid part.
+
 ```q
 q)logfile:`:good.log / a non-corrupted logfile
 q)-11!(-2;logfile)
@@ -252,18 +259,22 @@ Syntax: `-19! x`
 
 Where `x` is a list of 5 items: 
 
-- _source file_: file symbol
-- _target file_: file symbol
-- _logical block size_: a power of 2 between 12 and 20 (pageSize or allocation granularity to 1MB – pageSize for AMD64 is 4kB, SPARC is 8kB. Windows seems to have a default allocation granularity of 64kB). When choosing the logical block size, consider the minimum of all the platforms that will access the files directly – otherwise you may encounter `"disk compression - bad logicalBlockSize"`. Note that this argument affects both compression speed and compression ratio: larger blocks can be slower and better compressed.
-- _compression algorithm_: one of:
+-   _source file_: file symbol
+-   _target file_: file symbol
+-   _logical block size_: a power of 2 between 12 and 20 (pageSize or allocation granularity to 1MB – pageSize for AMD64 is 4kB, SPARC is 8kB. Windows seems to have a default allocation granularity of 64kB). When choosing the logical block size, consider the minimum of all the platforms that will access the files directly – otherwise you may encounter `"disk compression - bad logicalBlockSize"`. Note that this argument affects both compression speed and compression ratio: larger blocks can be slower and better compressed.
+-   _compression algorithm_: one of:
     + 0: none
     + 1: q IPC
     + 2: `gzip`
     + 3: [snappy](http://google.github.io/snappy) (since V3.4)
-    + 4: lz4hc (since V3.6)
-- _compression level_: an integer between 0 and 9 (valid only for `gzip`, use 0 for other algorithms)
+    + 4: `lz4hc` (since V3.6)
+-   _compression level_: an integer 
+    +   for `gzip`: between 0 and 9 
+    +   for `lz4hc`: between 1 and 12 (int `x` taken as `12&x`) 
+    +   otherwise: 0
 
 returns the target file as a file symbol. 
+
 ```q
 q)`:test set asc 10000000?100; / create a test data file
 q) / compress input file test, to output file ztest
@@ -274,7 +285,9 @@ q) / check the compressed data is the same as the uncompressed data
 q)get[`:test]~get`:ztest 
 1b
 ```
-<i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
+
+<i class="fa fa-hand-o-right"></i> 
+[Cookbook/File compression](/cookbook/file-compression)
 
 
 

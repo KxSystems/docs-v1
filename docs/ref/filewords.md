@@ -205,6 +205,7 @@ q)hdel`:test.txt   / should generate an error
 ```
 
 !!! warning "hdel can delete folders only if empty"
+
     <pre><code class="language-q">
     q)hdel\`:mydir
     '​mydir​. OS reports: Directory not empty
@@ -212,7 +213,9 @@ q)hdel`:test.txt   / should generate an error
     </code></pre>
 
 !!! tip "Delete a folder and its contents"
+
     To delete a folder and its contents, [recursively](dotz/#zs-self) list the contents and delete in reverse order:
+
     <pre><code class="language-q">
     ​/diR gets recursive dir listing​
     q)diR:{$[11h=type d:key x;raze x,.z.s each\` sv/:x,/:d;d]}
@@ -222,6 +225,7 @@ q)hdel`:test.txt   / should generate an error
     </code></pre>
 
 For a general visitor pattern with `hdel`
+
 ```q
 ​q)visitNode:{if[11h=type d:key y;.z.s[x]each` sv/:y,/:d;];x y}
 q)nuke:visitNode[hdel]
@@ -234,9 +238,9 @@ Syntax: `hopen x`
 
 Where `x` is one of 
 
-- a process handle
-- a 2-item list of a process handle and a timeout in milliseconds
-- a filename
+-   a process handle
+-   a 2-item list of a process handle and a timeout in milliseconds
+-   a filename: symbol or (since V3.6 2017.09.26) string
 
 opens a file or a process handle, and returns a positive integer handle.
 
@@ -263,6 +267,7 @@ FIFO/named pipes
 User and password are required if the server session has been started with the [`-u`](cmdline/#-u-usr-pwd-local) or [`-U`](cmdline/#-u-usr-pwd) command line options, and are passed to [`.z.pw`](dotz/#zpw-validate-user) for (optional) additional processing.
 
 The optional timeout applies to the initial connection, not subsequent use of it.
+
 ```q
 q)h:hopen `:10.43.23.198:5010                    / IP address
 q)h:hopen `:mydb.us.com:5010                     / hostname
@@ -272,31 +277,50 @@ q)h:hopen `:unix://5010                          / localhost, Unix domain socket
 q)h:hopen `:tcps://mydb.us.com:5010              / SSL/TLS with hostname
 q)h:hopen (`:mydb.us.com:5010:elmo:sesame;10000) / full arg list, 10s timeout
 ```
+
 To send messages to the remote process:
+
 ```q
 q)h"2+2"          / synchronous (GET)   
 4
 q)(neg h)"a:2"    / asynchronous (SET)
 ```
+
 If only one synchronous query/request is to be run, then the single-shot synchronous request can be used to open a connection, send the query, get the results, then close the connection. It is more efficient to keep a connection open if there is an opportunity to re-use it for other queries.
+
 ```q
 q)`:mydb.us.com:5010:elmo:sesame "1+1"
 2
 ```
+
 <i class="fa fa-hand-o-right"></i> Cookbook: [Client-server](/cookbook/client-server/)
 
-!!! note "File handles"
-    A file handle is used for writing to a file. The `hopen` argument is a symbol filename:
-    <pre><code class="language-q">
-    q)hdat:hopen \`:f.dat             / data file (bytes)
-    q)htxt:hopen \`:c:/q/test.txt     / text file
-    </code></pre>
-    To append to these files, the syntax is the same as for IPC:
-    <pre><code class="language-q">
-    q)r:hdat 0x2324
-    q)r:htxt "some text\n"
-    q)r:htxt \` sv("asdf";"qwer")
-    </code></pre>
+
+### File handles
+
+A file handle is used for writing to a file. The `hopen` argument is a symbol or (since V3.6 2017.09.26) string filename:
+
+```q
+q)hdat:hopen `:f.dat             / data file (bytes)
+q)htxt:hopen `:c:/q/test.txt     / text file
+```
+
+Passing char vectors instead of symbols avoids interning of such symbols.
+This is useful if embedding frequently-changing tokens in the username or password fields.
+
+For IPC compatibility, it serializes to `{hopen x}`. e.g.
+
+```q
+q)hopen each(`:mysymbol;":mycharvector";`:localhost:5000;":localhost:5000";(`:localhost:5000;1000);(":localhost:5000";1000))
+```
+
+To append to these files, the syntax is the same as for IPC:
+
+```q
+q)r:hdat 0x2324
+q)r:htxt "some text\n"
+q)r:htxt ` sv("asdf";"qwer")
+```
 
 
 ## `hsym`
@@ -304,6 +328,7 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
 Syntax: `hsym x`
 
 Converts symbol `x` into a file name, or valid hostname, or IP address. Since V3.1, `x` can be a symbol list.
+
 ```q
 q)hsym`c:/q/test.txt
 `:c:/q/test.txt
