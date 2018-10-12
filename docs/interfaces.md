@@ -6,7 +6,8 @@ Repositories at :fa-github: [KxSystems](https://github.com/KxSystems) are mainta
 Other repositories are maintained by their owners. 
 
 !!! warning "Salvaged repositories"
-    :fa-github: [kxcontrib](https://github.com/kxcontrib) contains repositories salvaged from the former Subversion server for which we have been unable to identify current versions on GitHub. These repositories are not maintained. 
+
+    <i class="fa fa-github"></i> [kxcontrib](https://github.com/kxcontrib) contains repositories salvaged from the former Subversion server for which we have been unable to identify current versions on GitHub. These repositories are not maintained. 
 
 <div style="background-color: #efefef; border: 1px solid #005499; border-radius: 10px; display: inline-block; padding: 0 1em;" markdown="1">Please tell [librarian@kx.com](mailto:librarian@kx.com)
 about new repositories.</div>
@@ -170,15 +171,16 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr><td>Betfair</td><td>:fa-github: [picoDoc/betfair-data-capture](https://github.com/picoDoc/betfair-data-capture)</td></tr>
 <tr><td><i class="fa fa-bitcoin"></i> Bitcoin</td><td>:fa-github: [bitmx/btceQ](https://github.com/bitmx/btceQ)</td></tr>
 <tr><td>Bloomberg</td><td>[Q client for Bloomberg](/interfaces/q-client-for-bloomberg)</td></tr>
-<tr><td>[BosonNLP](http://bosonnlp.com/)</td><td>:fa-github: [FlyingOE/q_BosonNLP](https://github.com/FlyingOE/q_BosonNLP) ==new==</td></tr>
+<tr><td>[BosonNLP](http://bosonnlp.com/)</td><td>:fa-github: [FlyingOE/q_BosonNLP](https://github.com/FlyingOE/q_BosonNLP)</td></tr>
 <tr><td>CUDA</td><td>[GPUs](/interfaces/gpus/)</td></tr>
 <tr><td>Expat XML parser</td><td>:fa-github: [felixlungu/qexpat](https://github.com/felixlungu/qexpat)</td></tr>
-<tr><td>[Factom](https://www.factom.com/) blockchain</td><td>:fa-github: [jlucid/qfactom](https://github.com/jlucid/qfactom) ==new==</td></tr>
+<tr><td>[Factom](https://www.factom.com/) blockchain</td><td>:fa-github: [jlucid/qfactom](https://github.com/jlucid/qfactom)</td></tr>
 <tr><td>ForexConnect</td><td>:fa-github: [mortensorensen/qfxcm](https://github.com/mortensorensen/qfxcm)</td></tr>
 <tr><td>Interactive Brokers</td><td>:fa-github: [mortensorensen/QInteractiveBrokers](https://github.com/mortensorensen/QInteractiveBrokers)</td></tr>
-<tr><td>[IEX](https://iextrading.com)</td><td>:fa-github: [himoacs/iex_q](https://github.com/himoacs/iex_q) ==new==</td></tr>
+<tr><td>[IEX](https://iextrading.com)</td><td>:fa-github: [himoacs/iex_q](https://github.com/himoacs/iex_q)</td></tr>
 <tr><td>J</td><td>[Q client for J](/interfaces/q-client-for-j/)</td></tr>
-<tr><td>JDBC</td><td>:fa-github: [CharlesSkelton/babel](https://github.com/CharlesSkelton/babel)</i></td></tr>
+<tr><td>JDBC</td><td>:fa-github: [CharlesSkelton/babel](https://github.com/CharlesSkelton/babel)</td></tr>
+<tr><td>MQTT</td><td>:fa-github: [himoacs/mqtt-q](https://github.com/himoacs/mqtt-q) ==new==</td></tr>
 <tr><td>ODBC</td><td>[Q client for ODBC](/interfaces/q-client-for-odbc)<br/>
 :fa-github: [johnanthonyludlow/kdb/docs/odbc.pdf](https://github.com/johnanthonyludlow/kdb/blob/master/docs/odbc.pdf)</td></tr>
 <tr><td>Philips Hue</td><td>:fa-github: [jparmstrong/qphue](https://github.com/jparmstrong/qphue)</td></tr>
@@ -219,7 +221,14 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr><td>Regular Expressions</td><td>[Regex libraries](/cookbook/regex/#regex-libraries)</td></tr>
 <tr><td>R</td><td>:fa-github: [kimtang/rinit](https://github.com/kimtang/rinit)<br/>
 :fa-github: [rwinston/kdb-rmathlib](https://github.com/rwinston/kdb-rmathlib)</td></tr>
-<tr><td>Rust</td><td>:fa-github: [adwhit/krust](https://github.com/adwhit/krust)</td></tr>
+<tr>
+    <td>Rust</td>
+    <td>
+        :fa-github: [adwhit/krust](https://github.com/adwhit/krust)<br>
+        :fa-github: [redsift/rkdb](https://github.com/redsift/rkdb) ==new==<br>
+        :fa-github: [redsift/kdb-rs-hash](https://github.com/redsift/kdb-rs-hash) ==new==
+    </td>
+</tr>
 <tr><td>TA-Lib</td><td>:fa-github: [kxcontrib/zuoqianxu/qtalib](https://github.com/kxcontrib/zuoqianxu/tree/master/qtalib)</td></tr>
 <tr><td>ZeroMQ</td><td>:fa-github: [wjackson/qzmq](https://github.com/wjackson/qzmq)</td></tr>
 </table>
