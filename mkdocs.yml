@@ -56,6 +56,8 @@ site_url: 'http://code.kx.com'
 # repo_url: 'https://github.com/kxsystems/docs'
 theme: 
   favicon: './img/favicon.ico'
+  feature:
+    tabs: true
   name: 'material'
   logo: 'img/kx.jpeg'
   palette: 
@@ -65,6 +67,11 @@ pages:
   - Home: index.md
   - Get started: learn.md
   - Reference card: ref/card.md
+  - Platform for Kx: platform.md
+  - GitHub: github.md
+  - Q for Mortals 3: q4m3.md
+  - Support: support.md
+  - Archive: archive.md
   - Reference: 
     - Adverbs: ref/adverbs.md
     - Command line: ref/cmdline.md
@@ -218,40 +225,41 @@ pages:
       - Python and inline display: ml/jupyterq/inline-display.md
       - Command-line arguments: ml/jupyterq/command-line.md
       - FAQ: ml/jupyterq/faq.md
-  - Interface summary: interfaces.md
-  - Fusion for kdb+:
-    - Introduction: interfaces/fusion.md
-    - FFI: interfaces/ffi.md
-    - Java: interfaces/java-client-for-q.md
-    - Jupyter: interfaces/jupyterq.md
-    - Kafka: interfaces/kafka.md
-    - Python (embedPy): interfaces/embedpy.md
-    - Python (PyQ):
-      - Quick start: interfaces/pyq/index.md
-      - Installation: interfaces/pyq/install.md
-      - User guide: interfaces/pyq/user-guide.md
-      - Reference: interfaces/pyq/reference.md
-      - What’s new: interfaces/pyq/whats-new.md
-      - Version history: interfaces/pyq/history.md
-    - R: interfaces/with-r.md
-  - Interfaces to kdb+ for: 
-    - C: interfaces/c-client-for-q.md
-    - C API reference: interfaces/capiref.md
-    - C#: interfaces/csharp-client-for-q.md
-    - Excel: interfaces/excel-client-for-q.md
-    - J: interfaces/j-client-for-q.md
-    - JDBC: interfaces/jdbc-client-for-kdb.md
-    - Matlab: interfaces/matlab-client-for-q.md
-    - ODBC: interfaces/q-server-for-odbc.md
-    - ODBC3: interfaces/q-server-for-odbc3.md 
-    - Perl: interfaces/perl-client-for-q.md 
-    - Scala: interfaces/scala-client-for-q.md 
-  - Interfaces from q to: 
-    - Bloomberg: interfaces/q-client-for-bloomberg.md
-    - C/C++ functions: interfaces/using-c-functions.md
-    - GPUs: interfaces/gpus.md
-    - J: interfaces/q-client-for-j.md
-    - ODBC: interfaces/q-client-for-odbc.md
+  - Interfaces:
+    - Index: interfaces.md
+    - Fusion for kdb+:
+      - Introduction: interfaces/fusion.md
+      - FFI: interfaces/ffi.md
+      - Java: interfaces/java-client-for-q.md
+      - Jupyter: interfaces/jupyterq.md
+      - Kafka: interfaces/kafka.md
+      - Python (embedPy): interfaces/embedpy.md
+      - Python (PyQ):
+        - Quick start: interfaces/pyq/index.md
+        - Installation: interfaces/pyq/install.md
+        - User guide: interfaces/pyq/user-guide.md
+        - Reference: interfaces/pyq/reference.md
+        - What’s new: interfaces/pyq/whats-new.md
+        - Version history: interfaces/pyq/history.md
+      - R: interfaces/with-r.md
+    - Interfaces to kdb+ for: 
+      - C: interfaces/c-client-for-q.md
+      - C API reference: interfaces/capiref.md
+      - C#: interfaces/csharp-client-for-q.md
+      - Excel: interfaces/excel-client-for-q.md
+      - J: interfaces/j-client-for-q.md
+      - JDBC: interfaces/jdbc-client-for-kdb.md
+      - Matlab: interfaces/matlab-client-for-q.md
+      - ODBC: interfaces/q-server-for-odbc.md
+      - ODBC3: interfaces/q-server-for-odbc3.md 
+      - Perl: interfaces/perl-client-for-q.md 
+      - Scala: interfaces/scala-client-for-q.md 
+    - Interfaces from q to: 
+      - Bloomberg: interfaces/q-client-for-bloomberg.md
+      - C/C++ functions: interfaces/using-c-functions.md
+      - GPUs: interfaces/gpus.md
+      - J: interfaces/q-client-for-j.md
+      - ODBC: interfaces/q-client-for-odbc.md
   - Cookbook:
     - Introduction: cookbook/index.md
     - Alternative in-memory layouts: cookbook/alternative-in-memory-layouts.md
@@ -303,24 +311,18 @@ pages:
     - Write-only RDB: cookbook/w-q.md
     - WebSockets: cookbook/websockets.md
     - Windows Service: cookbook/windows-service.md
-  - Platform for Kx:
-    - Introduction: platform/index.md
-    - Analyst for Kx: platform/analyst.md
-    - Control for Kx: platform/control.md
-    - Dashboards for Kx: platform/dashboards.md
-    - Stream for Kx: platform/stream.md
   - White papers: 
     - Index: whitepapers.md
     - C# GUIs: wp/gui/index.md
     - Data visualization: wp/data-visualization/index.md
     - Disaster recovery: wp/disaster-recovery/index.md
-    # - embedpy and lasso: 
-    #   - Introduction: wp/embedpy-lasso/index.md
-    #   - EmbedPy basics: wp/embedpy-lasso/basics.md
-    #   - LASSO and house prices: wp/embedpy-lasso/lasso.md
-    #   - Clean & pre-process: wp/embedpy-lasso/clean.md
-    #   - Analysis: wp/embedpy-lasso/analysis.md
-    #   - Conclusion: wp/embedpy-lasso/conclusion.md
+    - EmbedPy and LASSO: 
+      - Introduction: wp/embedpy-lasso/index.md
+      - EmbedPy basics: wp/embedpy-lasso/basics.md
+      - LASSO and house prices: wp/embedpy-lasso/lasso.md
+      - Clean & pre-process: wp/embedpy-lasso/clean.md
+      - Analysis: wp/embedpy-lasso/analysis.md
+      - Conclusion: wp/embedpy-lasso/conclusion.md
     - Java API: 
       - Introduction: wp/java-api/index.md
       - API overview: wp/java-api/api.md
@@ -341,10 +343,6 @@ pages:
     - Query Routing: wp/query-routing/index.md
     - Signal processing and q: wp/signal-processing/index.md
     - WebSockets: wp/websockets/index.md
-  - GitHub: github.md
-  - Q for Mortals 3: q4m3.md
-  - Support: support.md
-  - Archive: archive.md
   - About: 
     - Kx technology: about/kxtechnology.md
     - Site news: about/site-news.md

@@ -1,6 +1,7 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Benchmarking methodology
+
+
+
 
 For testing raw storage performance, we used a
 lightweight test script developed by Kx, called `nano`, based on

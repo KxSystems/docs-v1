@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning
 author: Conor McCarthy
 date: August 2018
 keywords: machine learning, ml, feature extraction, feature selection, time series forecasting, interpolation

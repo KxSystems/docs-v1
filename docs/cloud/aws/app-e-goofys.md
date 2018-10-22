@@ -1,6 +1,5 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Appendix E - Goofys
+
 
 
 Goofys is an open-source Linux client distribution. 

@@ -13,7 +13,9 @@
 
  /* palette
 --------------------------------------------- */
- [data-md-color-primary=blue] .md-header
+ [data-md-color-primary=blue] .md-header,
+ [data-md-color-primary=blue] .md-hero,
+ [data-md-color-primary=blue] .md-tabs
  {
  	background: #0070cd; /* hsl(207, 100%, 40%) */
  }

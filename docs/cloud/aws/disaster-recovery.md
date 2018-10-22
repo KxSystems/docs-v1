@@ -1,6 +1,7 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Disaster recovery
+
+
+
 
 In addition to EC2’s built-in disaster-recovery features, when you use
 kdb+ on EC2, your disaster recovery process is eased by kdb+’s simple,

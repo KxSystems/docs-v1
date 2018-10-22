@@ -1,6 +1,6 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Getting your data out of EC2
+
+
 
 
 Storing billions and billions of records under kdb+ in EC2 is easily achievable. Pushing the data into EC2 can be easily done and in doing so incurs no data transfer charges from AWS. But AWS will charge you to extract this information from EC2. For example, network charges may apply if you wish to extract data to place into other visualization tools/GUIs, outside the domain of kdb+ toolsets.

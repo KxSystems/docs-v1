@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning / embedPy
 title: embedPy reference
 keywords: embedpy, kdb+, interface, python, q, reference
 ---

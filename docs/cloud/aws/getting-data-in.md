@@ -1,6 +1,7 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Getting your data into EC2 
+
+
+
 
 Let’s suppose you already have a lot of data for your historical
 database (HDB). You will need to know the achievable bandwidth for data

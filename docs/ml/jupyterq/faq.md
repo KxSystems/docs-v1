@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning / Jupyterq
 title: JupyterQ FAQ
 description: JupyterQ frequently-asked questions
 ---

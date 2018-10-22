@@ -1,6 +1,7 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Data locality
+
+
+
 
 Data locality is the basic architectural decision.
 

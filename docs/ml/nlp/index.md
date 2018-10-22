@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning
 author: Fionnuala Carr
 title: Natural-language processing toolkit
 date: May 2018

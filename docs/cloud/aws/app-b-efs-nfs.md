@@ -1,6 +1,6 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Appendix B – EFS (NFS)
+
+
 
 
 EFS is an NFS service owned and run by AWS that offers NFS service for

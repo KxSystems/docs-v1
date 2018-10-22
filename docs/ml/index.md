@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning
 title: Machine learning with kdb+
 keywords: Python, Jupyter, natyural laguage processing, nlp, machine learning, ml, sentiment, Anaconda, Docker
 ---

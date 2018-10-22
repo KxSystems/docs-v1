@@ -1,7 +1,7 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
-
 # Historical data layouts and performance testing
+
+
+
 
 The typical kdb+ database layout for a stock tick-based system is
 partitioned by date, although integer partitioning is also possible.

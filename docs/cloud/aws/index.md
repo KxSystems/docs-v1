@@ -1,9 +1,8 @@
 ---
-hero: <i class="fa fa-cloud"></i> Cloud
 title: Migrating a kdb+ HDB to Amazon EC2
 author: Glenn Wright
 date: March 2018
-keywords: Amazon, AWS, EC2, HDB, cloud
+keywords: Amazon, AWS, EC2, HDB, cloud, kdb+, q
 ---
 
 # Migrating a kdb+ HDB to Amazon EC2 

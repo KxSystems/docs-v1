@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning
 ---
 
 # Parsing emails from a string format 

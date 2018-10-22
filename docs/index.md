@@ -18,13 +18,13 @@ Kdb+, from [Kx&nbsp;Systems](http://kx.com), is
 <div style="display: inline-flex; margin-left: 7px;" markdown="1">
 !!! tip "New"
 
+    <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [embedPy and LASSO](wp/embedpy-lasso/)</p>
+    
     <p style="text-align: center;" markdown="1"><i class="fa fa-share-alt"></i> [Machine-learning toolkit](ml/toolkit/)</p>
     
     <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [Signal processing](wp/signal-processing/)</p>
     
     <p style="text-align: center;" markdown="1"><i class="fa fa-share-alt"></i> embedPy [Frequently-asked questions](ml/embedpy/faq/)</p>
-    
-    <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [Data visualization](wp/data-visualization/)</p>
     
 </div>
 

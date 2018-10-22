@@ -1,7 +1,7 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
-
 # In-house vs EC2
+
+
+
 
 Kdb+ is used to support 
 

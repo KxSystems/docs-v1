@@ -1,6 +1,7 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
 # Appendix C – Amazon Storage Gateway (File mode)
+
+
+
 
 Amazon Storage Gateway is a pre-prepared AMI/instance that can be
 provisioned on-demand. It allows you to present an NFS layer to the

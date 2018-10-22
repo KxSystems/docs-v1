@@ -1,8 +1,7 @@
----
-hero: Cloud
----
-
 # Security of your data and secure access
+
+
+
 
 The EC2 application machine image model (AMI) has tight security models in place. 
 You would have to work very hard to remove these.

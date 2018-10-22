@@ -19,13 +19,13 @@ title: Index of whitepapers
 
 ## Interfaces
 
-* ==new== [Data visualization with kdb+ using ODBC: a Tableau case study](wp/data-visualization) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/data-visualization/data-visualization-a4.pdf), [US&nbsp;Letter](wp/data-visualization/data-visualization-us.pdf)</small>
+* ==new== [**Data visualization** with kdb+ using ODBC: a Tableau case study](wp/data-visualization) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/data-visualization/data-visualization-a4.pdf), [US&nbsp;Letter](wp/data-visualization/data-visualization-us.pdf)</small>
 * Kdb+ and **FIX** messaging &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdb_and_fix_messaging.pdf)
 * Common design principles for kdb+ **gateways** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/common_design_principles_for_kdb_gateways.pdf)
 * [An introduction to **graphical interfaces** for kdb+ using C#](wp/gui) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/gui/csharp-gui-a4.pdf), [US&nbsp;Letter](wp/gui/csharp-gui-us.pdf)</small>
 * ==new== [**Java API** for kdb+](wp/java-api) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/java-api/java-api-a4.pdf), [US&nbsp;Letter](wp/java-api/java-api-us.pdf)</small>
 * Building **real-time tick subscribers** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/building_real_time_tick_subscribers.pdf)
-* **Socket sharding** with kdb+ and Linux &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/socket-sharding.pdf) 
+* **Socket sharding** with kdb+ and Linux &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/socket-sharding.pdf)
 <!-- * [Kdb+ and **WebSockets**](wp/kdb_and_websockets.pdf)
  -->
 * [Kdb+ and **WebSockets**](/wp/websockets) &nbsp; <i class="fa fa-print"></i> <small>[A4](/wp/websockets/websockets-a4.pdf), [US&nbsp;Letter](/wp/websockets/websockets-us.pdf)</small>
@@ -35,11 +35,12 @@ title: Index of whitepapers
 
 * Streaming **analytics**: detecting card counters in Blackjack &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/card-counters-in-blackjack.pdf)
 * Kdb+ in **astronomy** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdb_in_astronomy.pdf)
-* **Machine learning** in kdb+: k-Nearest Neighbor classification and pattern recognition with q &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/machine_learning_in_kdb.pdf)
+* ==new== Machine learning in kdb+: [**embedPy and LASSO**](wp/embedpy-lasso/) &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/embedpy-lasso/embedpy-lasso-a4.pdf), [<small>US&nbsp;Letter</small>](wp/embedpy-lasso/embedpy-lasso-us.pdf)
+* Machine learning in kdb+: **k-Nearest Neighbor classification and pattern recognition** with q &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/machine_learning_in_kdb.pdf)
 * Sample aggregation engine for **market depth** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/sample_aggregation_engine_for_market_depth.pdf)
 * [**Market Fragmentation**: a kdb+ framework for multiple liquidity sources](wp/market-fragmentation/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/market-fragmentation/market-fragmentation-a4.pdf), [US&nbsp;Letter](wp/market-fragmentation/market-fragmentation-us.pdf)</small>
 * [An introduction to **neural networks** with kdb+](wp/neural-networks/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/an_introduction_to_neural_networks_with_kdb.pdf)</small>
-* ==new== [**Signal processing and q**](wp/signal-processing/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/signal-processing/signal-processing-a4.pdf), [US&nbsp;Letter](wp/signal-processing/signal-processing-us.pdf)</small>
+* [**Signal processing and q**](wp/signal-processing/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/signal-processing/signal-processing-a4.pdf), [US&nbsp;Letter](wp/signal-processing/signal-processing-us.pdf)</small>
 * **Surveillance** techniques to effectively monitor algo and high-frequency trading &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/surveillance_techniques_to_effectively_monitor_algo_and_high_frequency_trading.pdf)
 * **Transaction-cost** analysis using kdb+ &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/transaction_cost_analysis_using_kdb.pdf)
 

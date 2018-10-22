@@ -1,7 +1,6 @@
-hero: <i class="fa fa-cloud"></i> Cloud
-
-
 # Appendix G - S3QL
+
+
 
 The code is perhaps the least-referenced open-source S3 gateway package, and from a vanilla RHEL 7.3 build we had to add a significant number of packages to get to the utility compiled and installed. 
 S3QL is written in Python. 

@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning
 title: Demonstration notebooks for machine learning
 keywords: embedPy, Jupyter, ml, machine learning, notebook, Python
 ---

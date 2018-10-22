@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning
 title: Set up your machine-learning environment
 keywords: Docker, embedPy, Jupyter, ml, machine learning, Python
 ---

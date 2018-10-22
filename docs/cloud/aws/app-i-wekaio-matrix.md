@@ -1,4 +1,3 @@
-hero: <i class="fa fa-cloud"></i> Cloud
 
 # Appendix I – WekaIO Matrix
 

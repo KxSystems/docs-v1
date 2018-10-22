@@ -1,5 +1,4 @@
 ---
-hero: <i class="fa fa-share-alt"></i> Machine learning / embedPy
 title: embedPy frequently-asked questions
 keywords: dataframe, date, datetime, embedpy,kdb+, month, numpy, pandas,python, q, timestamp
 ---

@@ -1,5 +1,3 @@
-hero: <i class="fa fa-share-alt"></i> Machine learning
-
 # ![Jupyter](/interfaces/img/jupyter.png) JupyterQ
 
 <div class="fusion" markdown="1">
