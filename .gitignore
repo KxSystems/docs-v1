@@ -1,3 +1,4 @@
+.DS_Store
 .gitignore
 article_topics.md
 done.md
@@ -10,7 +11,5 @@ send.sh
 *.xml
 *.zip
 
-docs-adverb-mess/
-scrap/
 site/
 src/
