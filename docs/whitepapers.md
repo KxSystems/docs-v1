@@ -35,14 +35,18 @@ title: Index of whitepapers
 
 * Streaming **analytics**: detecting card counters in Blackjack &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/card-counters-in-blackjack.pdf)
 * Kdb+ in **astronomy** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdb_in_astronomy.pdf)
-* ==new== Machine learning in kdb+: [**embedPy and LASSO**](wp/embedpy-lasso/) &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/embedpy-lasso/embedpy-lasso-a4.pdf), [<small>US&nbsp;Letter</small>](wp/embedpy-lasso/embedpy-lasso-us.pdf)
-* Machine learning in kdb+: **k-Nearest Neighbor classification and pattern recognition** with q &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/machine_learning_in_kdb.pdf)
 * Sample aggregation engine for **market depth** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/sample_aggregation_engine_for_market_depth.pdf)
 * [**Market Fragmentation**: a kdb+ framework for multiple liquidity sources](wp/market-fragmentation/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/market-fragmentation/market-fragmentation-a4.pdf), [US&nbsp;Letter](wp/market-fragmentation/market-fragmentation-us.pdf)</small>
-* [An introduction to **neural networks** with kdb+](wp/neural-networks/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/an_introduction_to_neural_networks_with_kdb.pdf)</small>
 * [**Signal processing and q**](wp/signal-processing/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/signal-processing/signal-processing-a4.pdf), [US&nbsp;Letter](wp/signal-processing/signal-processing-us.pdf)</small>
 * **Surveillance** techniques to effectively monitor algo and high-frequency trading &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/surveillance_techniques_to_effectively_monitor_algo_and_high_frequency_trading.pdf)
 * **Transaction-cost** analysis using kdb+ &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/transaction_cost_analysis_using_kdb.pdf)
+
+
+## Machine learning 
+
+* **K-Nearest Neighbor classification and pattern recognition** with q &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/machine_learning_in_kdb.pdf)
+* [An introduction to **neural networks** with kdb+](wp/neural-networks/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/an_introduction_to_neural_networks_with_kdb.pdf)</small>
+* ==new== [**Using embedPy to apply LASSO regression**](wp/embedpy-lasso/) &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/embedpy-lasso/embedpy-lasso-a4.pdf), [<small>US&nbsp;Letter</small>](wp/embedpy-lasso/embedpy-lasso-us.pdf)
 
 
 ## Managing data and systems
@@ -60,6 +64,7 @@ title: Index of whitepapers
 * **Permissions** with kdb+ &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/permissions_with_kdb.pdf)
 * [**Query Routing**: a kdb+ framework for a scalable load-balanced system](wp/query-routing/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/query-routing/query-routing-a4.pdf), [US&nbsp;Letter](wp/query-routing/query-routing-us.pdf)</small>
 * Kdb+tick profiling for **throughput optimization** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdbtick_profiling_for_throughput_optimization.pdf)
+* **Time-series simplification** in kdb+: a method for dynamically shrinking Big Data &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/time_series_simplification_in_kdb_a_method_for_dynamically_shrinking_big_data.pdf)</small>
 
 
 Some of these whitepapers originally appeared as the _q for Gods_ series from [First Derivatives](http://firstderivatives.com).
