@@ -720,6 +720,9 @@ Set whether interning symbols uses a lock: `m` is either 0 or 1.
 
 Returns the previously set value.
 
+<!-- FIXME
+there’s no need to call setm if the target is not a shared lib to load into kdb+; during the initial call to khp(..), the standalone c libs will initialize to default to using locks around ref counts and symbol interning
+ -->
 
 ### `sn` – intern chars
 
