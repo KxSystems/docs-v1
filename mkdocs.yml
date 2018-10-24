@@ -1,3 +1,7 @@
+# Title: Configuration of code.kx.com
+# Author: stephen@kx.com
+# Site version: 1
+# Date: 2018.10.24
 copyright: 'This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Kx® and kdb+ are registered trademarks of <a href="https://kx.com">Kx Systems, Inc.</a>, a subsidiary of <a href="http://www.firstderivatives.com/">First Derivatives plc</a>.'
 dev_addr: '0.0.0.0:8000'
 docs_dir: 'docs'
