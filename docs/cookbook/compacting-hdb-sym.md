@@ -1,3 +1,6 @@
+# Compacting the HDB sym file 
+
+
 Under some scenarios, the sym enum file in a HDB can become bloated – this is the sym file sitting in the root of the HDB folder. This is due to symbols no longer being used as earlier parts of a HDB may have been archived.
 
 Some users have expressed interest in being able to compact this sym enum file. This essentially requires re-enumeration of all enumerated columns against a new empty sym file. It can take some time to execute, and nothing else should try to read or write to the HDB area whilst this is running.
@@ -7,6 +10,7 @@ The code below is for a vanilla HDB, with date partitions, a single enumeration 
 This is an all-or-nothing approach. If you choose to run the code below, it is at your own risk, and you should make sure you understand everything it is doing, and test it against a dev HDB that you are happy to destroy in the event that it goes wrong.
 
 This should really ever only be a one-off process. If you find that your sym file is growing beyond reasonable sizes, you very likely have non-repeating strings which would be better stored as char vectors than symbols. This process is not a fix for a poor choice of schema!
+
 ```q
 /cd hdb
 /q
@@ -39,6 +43,14 @@ dates:files where files like "????.??.??";
 
 !!! tip
     Remember to `rm` the zym file at the end of processing.
+
+
+## Back up the sym file
+
+The sym file is found in the root of your HDB.
+It is the key to the default enums. 
+
+!!! tip "Regularly back up the sym file _outside_ the HDB."
 
 
 ## Multi-threaded sym rewrite code
