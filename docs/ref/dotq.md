@@ -1,6 +1,10 @@
+# Utilities 
+
+
 Functions defined in `q.k` are loaded as part of the "bootstrap" of q. (They are of course written in k.) Some are exposed in the default namespace as the q language. Others are documented here as utility functions in the `.Q` namespace. 
 
 !!! warning "Reserved"
+
     The `.Q` namespace is reserved for use by Kx, as are all single-letter namespaces. 
 
     Consider all undocumented functions in the namespace as its private API – and do not use them. 
@@ -462,11 +466,12 @@ Syntax: `.Q.ft[x;y]`
 
 Where 
 
-- `y` is a keyed table
-- `x` is a unary function `x[t]` in which `t` is a simple table, and the 
+-   `y` is a keyed table
+-   `x` is a unary function `x[t]` in which `t` is a simple table, and the 
 result is a table with at least as many key columns as `t` 
 
-As an example, note that you can index into a simple table with row indices, but not into a keyed table - for that you should use a select statement. However, to illustrate the method, we show an indexing function being applied to a keyed table.
+As an example, note that you can index into a simple table with row indices, but not into a keyed table – for that you should use a select statement. However, to illustrate the method, we show an indexing function being applied to a keyed table.
+
 ```q
 q)\l sp.q
 
@@ -479,7 +484,10 @@ s1 p4 200
 q)s 2 3            / index keyed table fails
 'length
 ```
-Now create an indexing function, and wrap it in `.Q.ft`. This works on both types of table:
+
+Now create an indexing function, and wrap it in `.Q.ft`. 
+This works on both types of table:
+
 ```q
 q).Q.ft[{x 2 3};s]
 s | name  status city
@@ -487,9 +495,11 @@ s | name  status city
 s3| blake 30     paris
 s4| clark 20     london
 ```
+
 Equivalent select statement:
+
 ```q
-q)select from s where i within 2 3
+q)select from s where i in 2 3
 s | name  status city
 --| -------------------
 s3| blake 30     paris
