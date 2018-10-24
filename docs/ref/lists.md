@@ -600,9 +600,9 @@ q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
 
 ## `sv`
 
-Syntax: `x sv y` 
+_‘Scalar from vector’ – joins stuff together_
 
-‘Scalar to vector’ – joins stuff together. 
+Syntax: `x sv y` 
 
 Where:
 
@@ -731,6 +731,7 @@ Where
     </code></pre>
 
     !!! note "Changes since V3.3"
+
         From V3.4, if `x` is a list of length 1, the result has a single dimension. 
         <pre><code class="language-q">
         q)enlist[2]#til 10
@@ -848,9 +849,9 @@ q)?[0b;"abcd";"ABCD"]
 
 ## `vs`
 
-Syntax: `x vs y` 
+_‘Vector from scalar’ – partitions list `y` according to `x`_
 
-Partition: returns list `y` partitioned according to `x`.
+Syntax: `x vs y` 
 
 Where 
 
