@@ -95,19 +95,6 @@ q)("*";0h)$\:"2012-02-02"
     Space rangers! The infinity corresponding to numeric `x` is `min 0#x`.
 
 
-## `\:` (int to byte)
-
-Syntax: `0x0\:x`
-
-Where `x` is an int.
-```q
-q)0x0\:1234605616436508552
-0x1122334455667788
-```
-
-==FIXME Signals `'\:`==
-
-
 ## `!` (ints to enum)
 
 Syntax: `` `x!y``
