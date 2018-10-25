@@ -103,7 +103,7 @@ a b  c
     3 30 z
     ```
 
-<i class="fa fa-hand-o-right"></i> [`.Q.fk`](dotq/#qfk-foreign-key) (foreign key), [`.Q.ft`](dotq/#qft-apply-simple) (apply simple), [`.Q.id`](dotq/#qid-purge) (purge)
+<i class="fa fa-hand-o-right"></i> [`.Q.fk`](dotq/#qfk-foreign-key) (foreign key), [`.Q.ft`](dotq/#qft-apply-simple) (apply simple), [`.Q.id`](dotq/#qid-sanitize) (sanitize)
 
 
 ## `ungroup`

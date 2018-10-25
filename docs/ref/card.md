@@ -25,7 +25,7 @@
 <tr><td>X</td><td>[`xasc`](dictsandtables/#xasc "table sorted ascending by columns") [`xbar`](arith-integer/#xbar "interval bar") [`xcol`](dictsandtables/#xcol "rename table columns") [`xcols`](dictsandtables/#xcols "re-order table columns") [`xdesc`](dictsandtables/#xdesc "table sorted descending by columns") [`xexp`](arith-float/#xexp "raised to a power") [`xgroup`](dictsandtables/#xgroup "table grouped by keys") [`xkey`](dictsandtables/#xkey "set primary keys of a table") [`xlog`](arith-float/#xlog "base-x logarithm") [`xprev`](select/#xprev "previous items") [`xrank`](sort/#xrank "items assigned to buckets")</td></tr>
 </table>
 
-<i class="fa fa-hand-o-right"></i> [`.Q.id`](dotq/#qid-purge) (purge), [`.Q.res`](dotq/#qres-k-words) (reserved words)
+<i class="fa fa-hand-o-right"></i> [`.Q.id`](dotq/#qid-sanitize) (sanitize), [`.Q.res`](dotq/#qres-k-words) (reserved words)
 
 
 ## Iteration
@@ -344,7 +344,7 @@ milliseconds: "i"$mod[;1000]"t"$datetime
 <tr><td>[`.Q.fu`](dotq/#qfu-apply-unique)</td><td>[apply unique](dotq/#qfu-apply-unique)</td><td>[`.Q.gc`](dotq/#qgc-garbage-collect)</td><td>[garbage collect](dotq/#qgc-garbage-collect)</td></tr>
 <tr><td>[`.Q.hdpf`](dotq/#qhdpf-save-tables)</td><td>[save tables](dotq/#qhdpf-save-tables)</td><td>[`.Q.hg`](dotq/#qhg-http-get)</td><td>[HTTP get](dotq/#qhg-http-get)</td></tr>
 <tr><td>[`.Q.host`](dotq/#qhost-hostname)</td><td>[hostname](dotq/#qhost-hostname)</td><td>[`.Q.hp`](dotq/#qhp-http-post)</td><td>[HTTP post](dotq/#qhp-http-post)</td></tr>
-<tr><td>[`.Q.id`](dotq/#qid-purge)</td><td>[purge](dotq/#qid-purge)</td><td>[`.Q.ind`](dotq/#qind-partitioned-index)</td><td>[partitioned index](dotq/#qind-partitioned-index)</td></tr>
+<tr><td>[`.Q.id`](dotq/#qid-sanitize)</td><td>[sanitize](dotq/#qid-sanitize)</td><td>[`.Q.ind`](dotq/#qind-partitioned-index)</td><td>[partitioned index](dotq/#qind-partitioned-index)</td></tr>
 <tr><td>[`.Q.j10`](dotq/#qj10-encode-binhex)</td><td>[encode binhex  ](dotq/#qj10-encode-binhex)</td><td>[`.Q.j12`](dotq/#qj12-encode-base64)</td><td>[encode base64  ](dotq/#qj12-encode-base64)</td></tr>
 <tr><td>[`.Q.k`](dotq/#qk-version)</td><td>[version ](dotq/#qk-version)</td><td>[`.Q.l`](dotq/#ql-load)</td><td>[load](dotq/#ql-load)</td></tr>
 <tr><td>[`.Q.M`](dotq/#qm-long-infinity)</td><td>[long infinity](dotq/#qm-long-infinity)</td><td>[`.Q.MAP`](dotq/#qmap-maps-partitions)</td><td>[maps partitions](dotq/#qmap-maps-partitions)</td></tr>
