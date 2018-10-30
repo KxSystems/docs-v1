@@ -185,7 +185,7 @@ the relationship between the data and sale price most accurately.
 polynom:{[t;c]
   a:raze(!).'(
     {`$string[x] ,/:("_2";"_3";"_sq")}; 
-    {((^;2;x);(^;3;x);(sqrt;x))}
+    {((xexp;x;2);(xexp;x;3);(sqrt;x))}
   )@\:/:c;
   ![t;();0b;a]}
 
