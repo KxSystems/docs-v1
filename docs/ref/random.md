@@ -105,12 +105,38 @@ q)-4?`Arthur`Steve`Dennis
 ```
 
 
+## `?` (permute)
 
-## Sowing the seed
+Syntax: `0N?x`
 
-_Deal_, `rand` and _roll_ use a constant seed on q invocation: scripts using them can be repeated with the same results. You can see and change the value of the seed by using system command ["\S"](syscmds/#s-random-seed).)
+Where `x` is
+
+-   a **non-negative int atom**, returns the items of `til x` in random order
+-   a **list**, returns the items of `x` in random order
+
+(Since V3.3.)
+
+```q
+q)0N?10                         / permute til 10
+8 2 4 1 6 0 5 3 7 9
+q)0N?5 4 2                      / permute items
+4 5 2
+q)0N?"abc"                      / permute items
+"bac"
+q)0N?("the";1 2 4;`ibm`goog)    / permute items
+`ibm`goog
+1 2 4
+"the"
+```
+
+
+
+## Setting the seed
+
+_Deal_, `rand`, _roll_, and _permute_ use a constant seed on q invocation: scripts using them can be repeated with the same results. You can see and change the value of the seed by using system command ["\S"](syscmds/#s-random-seed).)
 
 !!! warning
+
     To use GUIDs as identifiers, ensure `x` is negative. Otherwise, you will get duplicates, given the same seed:
     <pre><code>
     $ q
