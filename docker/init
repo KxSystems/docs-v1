@@ -1,7 +1,7 @@
 #!/bin/sh
 function usageexit(){
  printf "Run this docker image with\n" >&2
- printf "\tdocker run -it --rm -v \$(pwd):/docs -p 9000:9000 -e PORT=9000 kxsys/docs-$VERSION\n\n"  >&2
+ printf "\tdocker run -it --rm -v \$(pwd):/docs -p 9000:9000 -e PORT=9000 kxsys/docs-$SITEVERSION\n\n"  >&2
  exit
  }
 
