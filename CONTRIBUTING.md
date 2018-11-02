@@ -35,7 +35,8 @@ This will start a web server on `http://localhost:8000` where you could see the 
 
 If you have [Docker installed](https://www.docker.com/community-edition) you can alternatively run:
 
-    docker run --rm -it -v $(pwd):/docs -p 9000:9000 -e PORT=9000 kxsys/docs
+
+    ./docker_docs.sh serve
 
 This will start a web server in the docker container, where you can preview changes, the site can be accesses at `http://localhost:9000`.
 

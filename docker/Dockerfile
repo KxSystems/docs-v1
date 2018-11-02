@@ -2,8 +2,9 @@
 # Author: jhanna@kx.com
 # Date: 2018.10.14
 FROM python:2.7-alpine as base
-
-COPY docker/piprequirements.txt /tmp/piprequirements.txt
+ARG SITEVERSION=v1
+ENV SITEVERSION=$SITEVERSION
+COPY docker/piprequirements-${SITEVERSION}.txt /tmp/piprequirements.txt
 COPY docker/init /init
 FROM base
 
@@ -21,8 +22,9 @@ LABEL	org.label-schema.schema-version="1.0" \
 	org.label-schema.version="${VERSION:-dev}" \
 	org.label-schema.vcs-url="https://github.com/KxSystems/docs.git" \
 	org.label-schema.build-date="$BUILD_DATE" \
-	org.label-schema.docker.cmd="docker run -it --rm -v $(pwd):/docs -p 8888:8888 docs"
+	org.label-schema.docker.cmd="docker run -it --rm -v $(pwd):/docs -p 9000:9000 kxsys/docs-${SITEVERSION}"
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir --upgrade -r /tmp/piprequirements.txt
-CMD ["/init"]
+ENTRYPOINT ["/init"]
+CMD ["serve"]
 

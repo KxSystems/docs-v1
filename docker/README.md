@@ -12,11 +12,25 @@ Check out a copy of the project with:
 
 To build the project locally, change directory to the top level of your cloned repo and run:
 
-    docker build -t mydocs -f docker/Dockerfile .
+```bash
+docker build -t mydocs -f docker/Dockerfile .
+```
+To build version 2 of the site (taking requirements from `docker/piprequirements-v2.txt` run:
+```bash
+docker build -t mydocs -f docker/Dockerfile --build-arg SITEVERSION=v2 .
+```
 
-Once built, you should have a local `mydocs` image, you can run the following to use it:
+Once built, you should have a local `mydocs` image, you can run the following to use it to preview the site:
 
-    docker run --rm -it -v $(pwd):/docs -p 9000:9000 -e PORT=9000 mydocs
+```bash
+docker run --rm -it -v $(pwd):/docs -p 9000:9000 -e PORT=9000 mydocs serve
+```
+
+and to build the static HTML site in the `site` folder:
+```bash
+docker run --rm -it -v $(pwd):/docs -p 9000:9000 -e PORT=9000 mydocs build
+```
+
 
 
 ## Related Links

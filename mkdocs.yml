@@ -51,7 +51,7 @@ markdown_extensions:
 plugins: []
   # - search
 remote_branch: 'master'
-site_dir: '/var/www/html'
+site_dir: 'site'
 site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
 # config.site_name: 'code.kx.com'
