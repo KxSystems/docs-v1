@@ -1,15 +1,12 @@
 .DS_Store
 .gitignore
-article_topics.md
-done.md
-5jt.txt
-todo.md
-migration.html
-send.sh
+
+build
+send
+serve
 
 *.fo
 *.xml
 *.zip
 
 site/
-src/
