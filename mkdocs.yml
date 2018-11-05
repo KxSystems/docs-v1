@@ -214,11 +214,11 @@ pages:
       - Useful functions: ml/nlp/useful-functions.md
     - embedPy:
       - Overview: ml/embedpy/index.md
-      - Running Python code: ml/embedpy/running.md
-      - EmbedPy objects: ml/embedpy/objects.md
-      - Function calls: ml/embedpy/functions.md
-      - Printing and help: ml/embedpy/printing.md
-      - Closures and generators: ml/embedpy/closures.md
+      # - Running Python code: ml/embedpy/running.md
+      # - EmbedPy objects: ml/embedpy/objects.md
+      # - Function calls: ml/embedpy/functions.md
+      # - Printing and help: ml/embedpy/printing.md
+      # - Closures and generators: ml/embedpy/closures.md
       - FAQ: ml/embedpy/faq.md
       - Reference: ml/embedpy/reference.md
     - JupyterQ: ml/jupyterq/index.md
