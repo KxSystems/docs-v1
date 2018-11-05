@@ -12,7 +12,7 @@ Announcements to mark our 25th birthday:
 -   [Anaconda](/ml)
 -   [Natural Language Processing toolkit](/ml/nlp)
 -   [Docker and Notebooks](/ml/setup/#docker-command)
--   [JupyterQ FAQ](/ml/jupyterq/faq/)
+-   [JupyterQ FAQ](/ml/jupyterq/#frequently-asked-questions)
 
 
 

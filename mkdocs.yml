@@ -221,15 +221,7 @@ pages:
       - Closures and generators: ml/embedpy/closures.md
       - FAQ: ml/embedpy/faq.md
       - Reference: ml/embedpy/reference.md
-    - JupyterQ:
-      - Overview: ml/jupyterq/index.md
-      - Running code: ml/jupyterq/running-code.md
-      - Completion and help: ml/jupyterq/completion-help.md
-      - Errors: ml/jupyterq/errors.md
-      - Load and save code: ml/jupyterq/load-save.md
-      - Python and inline display: ml/jupyterq/inline-display.md
-      - Command-line arguments: ml/jupyterq/command-line.md
-      - FAQ: ml/jupyterq/faq.md
+    - JupyterQ: ml/jupyterq/index.md
   - Interfaces:
     - Index: interfaces.md
     - Fusion for kdb+:
