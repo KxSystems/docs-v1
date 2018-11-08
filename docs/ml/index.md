@@ -3,6 +3,8 @@ title: Machine learning with kdb+
 keywords: Python, Jupyter, natyural laguage processing, nlp, machine learning, ml, sentiment, Anaconda, Docker
 ---
 
+# <i class="fa fa-share-alt"></i> Machine learning
+
 ![Machine learning](/img/ml.png)
 
 
