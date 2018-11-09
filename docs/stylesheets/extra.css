@@ -1,6 +1,7 @@
 /*
 	Title: Extra CSS for code.kx.com in MkDocs
 	Author: stephen@kx.com
+	Date: 2018.11.09
  */
 
 /* countermand MkDocs insertion of href attribute after link anchor
@@ -28,6 +29,12 @@
  	color: #005499; /* hsl(207, 100%, 30%) */
  }
  
+/* suppress nav footer
+--------------------------------------------- */
+.md-footer-nav {
+	display: none;
+}
+
 /* type
 --------------------------------------------- */
 /* Override "Roboto Mono" from theme */
