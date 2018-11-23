@@ -6,7 +6,7 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
     - by value, the expression returns a result
     - by reference, the table is _replaced_ as a side effect, and its name returned
 
-    <pre><code>
+    <pre><code class="language-q">
     q)t1:t2:([]a:1 2;b:3 4)
     q)update a:neg a from t1
     a  b
@@ -23,7 +23,8 @@ Q-SQL expressions have their own syntax rules, with optional dependent clauses, 
 
 Q-SQL templates all have [functional forms](funsql), which can be used without performance penalty. 
 
-<i class="fa fa-hand-o-right"></i> [_Q for Mortals_: The `select` template](http://code.kx.com/q4m3/9_Queries_q-sql/#93-the-select-template)
+<i class="fa fa-hand-o-right"></i> 
+[_Q for Mortals_: The `select` template](http://code.kx.com/q4m3/9_Queries_q-sql/#93-the-select-template)
 
 
 
@@ -37,6 +38,7 @@ Syntax: `delete from x`
 Where 
 
 - `t` is a table and `{cond}` a condition, deletes rows matching `{cond}`
+
 ```q
 q)show table: ([] a: `a`b`c; n: 1 2 3)
 a n
@@ -52,6 +54,7 @@ b 2
 ```
 
 - `t` is a table and `cols` a list of column names, deletes `cols`
+
 ```q
 q)show delete n from table
 a
@@ -62,6 +65,7 @@ c
 ```
 
 - `x` and `keys` are a dictionary and a list of keys to it, deletes entries for `keys`
+
 ```q
 q)show d:`a`b`c!til 3
 a| 0
@@ -75,6 +79,7 @@ c| 2
 ```
 
 - `x` and `keys` are a namespace and a list of names defined in it, deletes the named objects
+
 ```q
 q)a:1
 q)\v
@@ -161,6 +166,7 @@ Where
 collects the items of `data` into sublists according to the corresponding items of `group`, applies `aggr` to each sublist, and returns the results as a vector with the same count as `data`.
 
 !!! tip
+
     `fby` is designed to collapse cascaded `select … from select … by … from t` expressions into a single `select … by … from … where … fby …`. Think of `fby` when you find yourself trying to apply a filter to the aggregated column of a table produced by `select … by …`.
 
 ```q
@@ -169,28 +175,36 @@ q)grp:`a`b`a`b`c`d`c`d`d`a
 q)(sum;dat) fby grp
 11 4 11 4 10 20 10 20 20 11
 ```
+
 Collect the items of `data` into sublists according to the items of `group`.
+
 ```q
 0 2 9  (`a)
 1 3    (`b)
 4 6    (`c)
 5 7 8  (`d)
 ```
+
 Apply `aggr` to each sublist.
+
 ```q
 sum 0 2 9 -> 11
 sum 1 3   -> 4
 sum 4 6   -> 10
 sum 5 7 8 -> 20
 ```
+
 The result is created by replacing each item of `group` with the result of applying `aggr` to its corresponding sublist. 
+
 ```q
 q)(sum;dat) fby grp
 11 4 11 4 10 20 10 20 20 11
 q)(sum each dat group grp)grp / w/o fby
 11 4 11 4 10 20 10 20 20 11
 ```
+
 When used in a `select`, usually a comparison function is applied to the results of `fby`.
+
 ```q
 q)select from t where 10 < (sum;d) fby a
 
@@ -218,7 +232,9 @@ s4 p2 200
 s4 p4 300
 s1 p5 400
 ```
+
 Sales where quantity &gt; average quantity by part:
+
 ```q
 q)select from sp where qty > (avg;qty) fby p
 s  p  qty
@@ -227,7 +243,9 @@ s2 p2 400
 s4 p4 300
 s1 p5 400
 ```
+
 Sales where quantity = maximum quantity by part:
+
 ```q
 q)select from sp where qty = (max;qty) fby p
 s  p  qty
@@ -240,7 +258,9 @@ s2 p2 400
 s4 p4 300
 s1 p5 400
 ```
+
 To group on multiple columns, tabulate them in `group`.
+
 ```q
 q)update x:12?3 from `sp
 `sp
@@ -272,7 +292,9 @@ s4 p2 200 2
 s4 p4 300 1
 s1 p5 400 1
 ```
+
 !!! note "`fby` before V2.7"
+
     In V2.6 and below, `fby`’s behaviour is undefined if the aggregation function returns a list; it usually signals an error from the k definition of `fby`. However, if the concatenation of all list results from the aggregation function results `raze` has the same length as the original vectors, a list of some form is returned, but the order of its items is not clearly defined.
 
 
@@ -281,6 +303,7 @@ s1 p5 400 1
 Syntax: `tname insert records`
 
 Insert or append records to a table. Where `tname` is a table name (as a symbol atom), and `records` is one or more records that match the table columns, returns the new row indexes. 
+
 ```q
 q)show x:([a:`x`y];b:10 20)
 a| b
@@ -296,12 +319,16 @@ x| 10
 y| 20
 z| 30
 ```
+
 If the table is keyed, the new records may not match existing keys.
+
 ```q
 q)`x insert (`z;30)
 'insert
 ```
+
 Several records may be appended at once:
+
 ```q
 q)`x insert (`s`t;40 50)
 3 4
@@ -316,9 +343,11 @@ t| 50
 ```
 
 !!! tip "Function-local tables"
+
     `insert` can insert to global variables only, due to the lookup of the symbol name. If you need to insert to function-local tables, use `table,:data` instead.
 
-<i class="fa fa-hand-o-right"></i> [`,` _join_](lists/#join)
+<i class="fa fa-hand-o-right"></i> 
+[`,` _join_](lists/#join)
 
 
 ## `select`
@@ -330,25 +359,30 @@ Syntax: `select [cols] [by groups] from t [where filters]`
 ### Limiting results
 
 To limit the returned results you can also use these forms:
+
 ```q
 select[n]
 select[m n]
 select[order]
 select[n;order]
 ```
+
 where 
 
 - `n` limits the result to the first `n` rows of the selection if positive, or the last `n` rows if negative 
 - `m` is the number of the first row to be returned: useful for stepping through query results one block of `n` at a time
 - `order` is a column (or table) and sort order: use `<` for ascending, `>` for descending
+
 ```q
 select[3;>price] from bids where sym=s,size>0
 ```
+
 This would return the three best prices for symbol `s` with a size greater than 0.
 
 This construct works on in-memory tables but not on memory-mapped tables loaded from splayed or partitioned files. 
 
 !!! tip "Performance characteristic"
+
     `select[n]` applies the where-clause on all rows of the table, and takes the first `n` rows, before applying the select-clause. So if you are paging it is better to store the result of the query somewhere and `select[n,m]` from there, rather than run the filter again.
 
 
@@ -361,6 +395,7 @@ This construct works on in-memory tables but not on memory-mapped tables loaded 
 - When aggregating, use the virtual field first in the by-clause. (E.g. `select .. by date,sym from …`)
 
 !!! tip 
+
     ``…where `g=,`s  within …``  
     Maybe rare to get much speedup, but if the `` `g `` goes to 100,000 and then `` `s `` is 1 hour of 24 you might see some overall improvement (with overall table of 30 million). 
 
@@ -368,16 +403,21 @@ This construct works on in-memory tables but not on memory-mapped tables loaded 
 ### Multithreading
 
 The following pattern will make use of slave threads via `peach`
+
 ```q
 select … by sym, … from t where sym in …, … 
 ```
+
 when `sym` has a `` `g`` or `` `p`` attribute. (Since V3.2 2014.05.02)
 
 It uses `peach` for both in-mem and on-disk tables. For single-threaded, this is approx 6&times; faster in-mem, 2&times; faster on disk, and uses less memory than previous releases – but mileage will vary. This is also applicable for partitioned DBs as
+
 ```q
 select … by sym, … from t where date …, sym in …, …
 ```
+
 <i class="fa fa-hand-o-right"></i> [Parallel processing](peach)
+
 
 ### Special functions
 
@@ -386,6 +426,7 @@ The following functions (essentially `.Q.a0` in q.k) receive special treatment w
 `count`, `first`, `last`, `sum`, `prd`, `min`, `max`, `med`, `avg`, `wsum`, `wavg`, `var`, `dev`, `cov`, `cor`
 
 When used explicitly, such that it can recognize the usage, q will perform additional steps, such as enlisting results or aggregating across partitions. However, when wrapped inside another function, q does not know that it needs to perform these additional steps, and it is then left to the programmer to insert them.
+
 ```q
 q)select sum a from ([]a:1 2 3)
 a
@@ -407,7 +448,9 @@ Resolution of a name within select/exec/update is as follows:
 1. global name in the current working namespace – not necessarily the space in which the function was defined
 
 !!! tip 
+
     You can [refer explicitly to namespaces](elements/#names-and-namespaces):
+
     <pre><code class="language-q">
     select (\`. \`toplevel) x from t
     </code></pre>
@@ -416,6 +459,7 @@ Resolution of a name within select/exec/update is as follows:
 ### Implicit arguments
 
 When compiling functions, the implicit args `x`, `y`, `z` are visible to the compiler only when they are not inside the select-, by- and where-clauses. The from-clause is not masked. This can be observed by taking the [`value`](metadata/#value) of the function and observing the second item: the args.
+
 ```q
 q)args:{(value x)1}
 q)args{} / no explicit args, so x is a default implicit arg of identity (::)
@@ -452,6 +496,7 @@ The `upsert` operator adds new records to a table.
 If the table is keyed, any new records that match on key are updated. Otherwise, new records are inserted.
 
 If the table is passed by reference, it is updated in place. Otherwise the updated table is returned.
+
 ```q
 q)show a:([s:`q`w`e]r:1 2 3;u:5 6 7)
 s| r u
@@ -469,4 +514,7 @@ r| 4  8
 q)`a upsert ([s:`e`r`q]r:30 4 10;u:70 8 50)   / same but updating table in place
 `a
 ```
-<i class="fa fa-hand-o-right"></i> [`,` _join_](lists/#join), [joins](joins)
+
+<i class="fa fa-hand-o-right"></i> 
+[`,` _join_](lists/#join), 
+[joins](joins)

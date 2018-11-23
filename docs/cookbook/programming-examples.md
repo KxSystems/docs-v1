@@ -1,20 +1,26 @@
 ## HTTP client request and parse string result into a table
 
 Q has a built-in HTTP request command, which follows the syntax
+
 ```q
 `:http://host:port "string to send as HTTP method etc"
 ```
+
 The string-to-send can be anything within the HTTP protocol the HTTP server will understand.  
+
 <i class="fa fa-hand-o-right"></i> [jmarshall.com/easy/http](http://www.jmarshall.com/easy/http)
 
 Q does not add to nor encode the string to send, and as it does not support ‘chunking’ you should specify HTTP 1.0 for your desired HTTP procotol. Q will signal a `'chunk error` if it encounters a chunked response – not possible with HTTP 1.0. Q doesn’t decode the response – it just returns the raw data. 
+
 ```q
 q)/ string to send
 q)s2s:"GET /mmz4281/1314/E0.csv HTTP/1.0\r\nhost:www.football-data.co.uk\r\n\r\n"
 q)data:(`$":http://www.football-data.co.uk") s2s
 q)(" SSSIIIIII IIIIIIIIIIII"; ",")0:data
 ```
-<i class="fa fa-github"></i> [KxSystems/cookbook/yahoo.q](https://github.com/KxSystems/cookbook/blob/master/yahoo.q)
+
+<i class="fa fa-github"></i> 
+[KxSystems/cookbook/yahoo.q](https://github.com/KxSystems/cookbook/blob/master/yahoo.q)
 
 This example function queries Yahoo Financials and produces a table of trading info for a list of stocks during the last few days. 
 The list of stocks and the number of days are parameters of the function.
@@ -30,6 +36,7 @@ The function definition contains examples of:
 - parsing dates from strings
 
 Sample use:
+
 ```q
 q)yahoo[10;`GOOG`AMZN]
 Date       Open   High   Low    Close  Volume   Sym
@@ -42,6 +49,7 @@ Date       Open   High   Low    Close  Volume   Sym
 2006.08.23 377.64 378.27 372.66 373.43 3642300  GOOG
 ...
 ```
+
 The above function definition has been adapted from a more compact one by Simon Garland. 
 The long version adds comments, renames variables, and splits computations into smaller steps so that the code is easier to follow.  
 Compact version: <i class="fa fa-github"></i> [KxSystems/cookbook/yahoo_compact.q](https://github.com/KxSystems/cookbook/blob/master/yahoo_compact.q)
@@ -50,30 +58,41 @@ Compact version: <i class="fa fa-github"></i> [KxSystems/cookbook/yahoo_compact.
 ## An efficient query to extract last n ticks for a particular stock from quote table
 
 The quote table is defined as follows:
+
 ```q
 q)quote: ([] stock:();time:();price())
 ```
+
 For fast (constant-time) continuous queries on last _n_ ticks we have to maintain the data nested. 
 For our quote table, we define
+
 ```q
 q)q: ([stock:()]time:();price:())
 ```
+
 where, for each row, the columns `time` and `price` contain a list, rather than an atom 
 (i.e., the columns `time` and `price` are lists of lists). This table is populated as follows:
+
 ```q
 q)q: select time, price by stock from quote
 ```
+
 Now, to get the last 5 quotes for Google
+
 ```q
 q)select -5#'time,-5#'price from q where stock=`GOOG
 ```
+
 This query executes in constant time. If you want the quotes LIFO,
+
 ```q
 q)select reverse each -5#'time, reverse each -5#'price from q where stock=`GOOG
 ```
+
 This one is also constant-time.
 
 !!! note "Those adverbs…"
+
     Why do we use `each` and _each-both_? Because the columns `time` and `price` are lists of lists, not lists of atoms.
 
 
@@ -87,6 +106,7 @@ The design of the following query is based on efficiency (both time and memory) 
 A straightforward implementation of this query takes over a second per month. 
 The version shown here takes 50ms for a whole year. 
 (There will be an initial warm-up cost for a new q instance, but once it has been issued, queries with other symbols take 50ms).
+
 ```q
 getDates:{[table;testSyms;startDate;endDate]
  symsByDate:select distinct sym by date from table[]where date within(startDate;endDate);
@@ -94,7 +114,9 @@ getDates:{[table;testSyms;startDate;endDate]
  val:(@[type[firstSymList]$;;`badCast]each(),testSyms)except`badCast;
  exec date from(select date,val{(x in y)|/}/:sym from symsByDate)where sym=1b}
 ```
+
 Sample usage:
+
 ```q
 q)getDates[`quote;`GOOG`AMZN;2005.01.01;2006.02.01]
 ```
@@ -120,7 +142,9 @@ toxml:{
   colNames: enlist cols x;
   tagit[`worksheet]tagit[`table]raze(tagit[`row] raze tagit[`cell] each typedData each)each colNames,f x}
 ```
+
 Sample usage:
+
 ```q
 q)t
 stock price
@@ -130,7 +154,9 @@ goog  103
 q)toxml t
 "<worksheet><table><row><cell><data ss:type='String'>stock</data></cell><cell..
 ```
+
 The result looks as follows after some space is added by hand:
+
 ```xml
 <worksheet>
 <table>
@@ -164,15 +190,18 @@ The result looks as follows after some space is added by hand:
 - a lower band at K times a N-period standard deviation below the middle band
 
 Typical values for N and K are 20 and 2, respectively.
-```
+
+```q
 bollingerBands: {[k;n;data]
       movingAvg: mavg[n;data];
       md: sqrt mavg[n;data*data]-movingAvg*movingAvg;
       movingAvg+/:(k*-1 0 1)*\:md}
 ```
+
 The above definition makes sure nothing is calculated twice, compared to a more naïve version.
 
 Sample usage:
+
 ```q
 q)vals: 20 + (100?5.0)
 q)vals
@@ -187,6 +216,7 @@ q)bollingerBands[2;20] vals
 ## Parallel correlation of time series
 
 Parallelism is achieved by the use of `peach`.
+
 ```q
 k)comb:{(,!0){,/(|!#y),''y#\:1+x}/x+\\(y-x-:1)#1}
 / d - date
@@ -212,7 +242,9 @@ matrix:{ / convert output from pcorr to matrix
     u:asc value distinct exec sym0 from x; / sym0 has 1 more element than sym1!
     exec u#(value sym1)!co by value sym0 from x}
 ```
+
 Sample usage:
+
 ```q
 d:first daily.date;
 st:10:00;

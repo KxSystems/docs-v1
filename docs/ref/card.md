@@ -1,4 +1,4 @@
-## Reserved words
+x## Reserved words
 
 <table class="kx-shrunk kx-tight" markdown="1">
 <tr><td>A</td><td>[`abs`](arith-integer/#abs "absolute value") [`acos`](trig/#acos "arc cosine") [`aj`](joins/#aj-aj0-asof-join "as-of join") [`aj0`](joins/#aj-aj0-asof-join "as-of join") [`all`](logic/#all "all nonzero") [`and`](logic/#and-minimum "minimum") [`any`](logic/#any "any item is non-zero") [`asc`](sort/#asc "ascending sort") [`asin`](trig/#asin "arc sine") [`asof`](joins/#asof "as-of operator") [`atan`](trig/#atan "arc tangent") [`attr`](metadata/#attr "attributes") [`avg`](stats-aggregates/#avg-average "arithmetic mean") [`avgs`](stats-aggregates/#avgs-averages "running averages")</td></tr>
@@ -127,7 +127,7 @@ The following glyphs denote operators, functions or adverbs – according to use
 
 ## Attributes
 
-```
+```txt
 `s  sorted     `u  unique
 `p  parted     `g  grouped
 ```
@@ -258,7 +258,7 @@ Nested types are 77+t (e.g. 78 is boolean. 96 is time.)
 
 **Cast and tok** `char$data:CHAR$string`
 
-```
+```txt
 date.(year month week mm dd)
 time.(hh minute second uu ss)
 milliseconds: "i"$time mod 1000
@@ -299,7 +299,8 @@ milliseconds: "i"$mod[;1000]"t"$datetime
 <tr><td>[`.z.x`](dotz/#zx-argv)</td><td>[argv](dotz/#zx-argv)</td><td>[`.z.X`](dotz/#zx-raw-command-line)</td><td>[raw command line](dotz/#zx-raw-command-line)</td></tr>
 <tr><td>[`.z.z`](dotz/#zz-utc-datetime)</td><td>[UTC datetime](dotz/#zz-utc-datetime)</td><td>[`.z.Z`](dotz/#zz-local-datetime)</td><td>[local datetime](dotz/#zz-local-datetime)</td></tr>
 <tr><td>[`.z.zd`](dotz/#zzd-zip-defaults)</td><td>[zip defaults](dotz/#zzd-zip-defaults)</td></tr> 
-<td colspan="2">[`.z.t`, `.z.T`, `.z.d`, `.z.D`](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td><td colspan="2">[time/date shortcuts](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td> </tr> </table>
+<tr><td colspan="2">[`.z.t`, `.z.T`, `.z.d`, `.z.D`](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td><td colspan="2">[time/date shortcuts](dotz/#zt-zt-zd-zd-timedate-shortcuts)</td> </tr> 
+</table>
 
 ### .h
 

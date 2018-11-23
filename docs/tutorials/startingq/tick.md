@@ -42,7 +42,8 @@ The demo scripts run a simple tickerplant/RDB configuration.
 <i class="fa fa-github"></i> [KxSystems/cookbook/start/tick](https://github.com/KxSystems/cookbook/tree/master/start/tick) 
 
 The layout is:
-```
+
+```txt
             feed
               |
          tickerplant
@@ -51,6 +52,7 @@ rdb   vwap  hlcv   tq    last  show
  /\   /\     /\    /\     /\
    ... client applications ...
 ```
+
 Where
 
 `feed`
@@ -93,21 +95,28 @@ The demo displays each q process in its own window.
 The calls starting each process are essentially:
 
 1. tickerplant – the tick.q script defines the tickerplant, and runs on port 5010
-    ```bash
+
+    <pre><code class="language-bash">
     ..$ q tick.q -p 5010
-    ```
+    </code></pre>
+
 2. feed – connects to the tickerplant and sends a new batch every 507 milliseconds
-    ```bash
+
+    <pre><code class="language-bash">
     ..$ q feed.q localhost:5010 -t 507
-    ```
+    </code></pre>
+
 3. rdb – the r.q script defines the real time database
-    ```bash
+
+    <pre><code class="language-bash">
     ..$ q tick/r.q -p 5011
-    ```
+    </code></pre>
+
 4. show – the `show` process, which does not need a port
-    ```bash
+
+    <pre><code class="language-bash">
     ..$ q cx.q show
-    ```
+    </code></pre>
 
 
 ## 6.6 Running processes manually
@@ -115,6 +124,7 @@ The calls starting each process are essentially:
 If the run scripts are unsuitable for your system, then you can call each process manually. In each case, open up a new terminal window, change to the q directory and enter the appropriate command. The tickerplant should be started first.
 
 Kdb+tick uses paths relative to the local directory. To run correctly, you should change directory such that tick.q is in the local directory. For example on a Mac, for each of the following commands, open a new terminal, change to ~/q/start/tick, then:
+
 ```bash
 ~/q/start/tick$ ~/q/m32/q tick.q -p 5010
 ~/q/start/tick$ ~/q/m32/q feed.q localhost:5010 -t 107
@@ -126,6 +136,7 @@ Refer to run1.sh for the remaining processes.
 ## 6.7 Process examples
 
 Set focus on the `last` window, and view the trade table. Note that each time the table is viewed, it will be updated with the latest data:
+
 ```q
 q)trade
 sym | time         price size stop cond ex
@@ -135,7 +146,9 @@ AIG | 14:36:02.870 19.92 86   0    P    O
 AMD | 14:36:03.405 23.21 94   1    W    N
 ...
 ```
+
 Set focus on the `vwap` window, and view the vwap table. Note that _price_ is actually `price*size`. This can be updated much more efficiently than storing actual prices and sizes.
+
 ```q
 q)vwap
 sym | price        size
@@ -145,7 +158,9 @@ AMD | 1.998351e+07 699901
 DOW | 1.709416e+07 705367
 ...
 ```
+
 To get the correct weighted-average price:
+
 ```q
 q)select sym,price%size,size from vwap
 sym  price    size
@@ -160,18 +175,24 @@ DOW  24.23159 705727
 ## 6.8 Kdb+tick modifications
 
 The standard components of kdb+tick support various options. In the basic set-up outlined here, the tickerplant publishes all data immediately, and does not create a log file. Optional parameters of
+
 ```bash
 ..$ ~/q/m32/q tick.q [schema] [destination directory] [-t N] -p 5010
 ```
 can be supplied. If the destination directory is set, then the schema must also be defined. To modify the supplied example to create a tickerplant log file and to publish data in 1 second batches rather than immediately, start the process with:
-```
+
+```bash
 ..$ ~/q/m32/q tick.q sym ./hdb -t 1000 -p 5010
 ```
+
 Similarly the real-time database can be started with optional host:port:user:pass of the tickerplant and historic database to reload at end-of-day:
+
 ```bash
 ..$ ~/q/m32/q tick/r.q [tickerplant host:port] [hdb host:port] -p 5011
 ```
+
 e.g.
+
 ```bash
 ..$ ~/q/m32/q tick/r.q :5010 :5012 -p 5011
 ```
@@ -182,6 +203,7 @@ e.g.
 The q processes communicate by sending a function with arguments using [Interprocess communication](ipc).
 
 For example, the tickerplant sends new data to the subscribers by calling the `upd` function with the table name and new data. In the last process, this is:
+
 ```q
 upd:{[t;x].[t;();,;select by sym from x]}]
 ```

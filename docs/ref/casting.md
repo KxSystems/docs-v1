@@ -1,10 +1,12 @@
 Casting converts data from one datatype to another.
 
+
 ## `$` (cast)
 
 Syntax: `x $ y`
 
 Where `x` is a lower-case letter, symbol or non-negative short, returns `y` cast according to `x`. A table of `x` values for _cast_:
+
 ```q
 q)flip{(x;.Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
 1h  "b" `boolean
@@ -26,19 +28,25 @@ q)flip{(x;.Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
 18h "v" `second
 19h "t" `time
 ```
+
 Cast to integer:
+
 ```q
 q)"i"$10
 10i
 q)(`int;"i";6h)$10
 10 10 10i
 ```
+
 Cast to boolean:
+
 ```q
 q)1h$1 0 2
 101b
 ```
+
 Find parts of time:
+
 ```q
 q)`hh`uu`ss$03:55:58.11
 3 55 58i
@@ -50,7 +58,7 @@ q)timestamp.year
 2018i
 ```
 
-```
+```txt
           | year | month | mm | week | dd | hh | uu | ss
 --------------------------------------------------------
 timestamp |  x   |   x   | x  |  x   | x  | x  | x  | x
@@ -69,13 +77,17 @@ nanoseconds: "i"$timestamp mod 1000000000
 ```
 
 !!! Note "Casting string to symbol"
+
     When converting a string to a symbol, leading and trailing blanks are automatically trimmed:
 
+    <pre><code class="language-q">
         q)`$"   IBM   "
         `IBM
+    </code></pre>
 
 Identity:
-```
+
+```q
 q)("*";0h)$1
 10 10
 q)("*";0h)$\:"2012-02-02"
@@ -84,14 +96,17 @@ q)("*";0h)$\:"2012-02-02"
 ```
 
 !!! warning "To infinity and beyond!"
+
     Casting an infinity from a narrower to a wider datatype does not always return another infinity.  
     <div style="display: block; float: left; padding-right: 1em; width: 140px;" markdown="1">
     [![Buzz Lightyear](/img/earthrise.jpg)](https://www.nasa.gov/multimedia/imagegallery/image_feature_1400.html "Earthrise: NASA galleries")
     </div>
+
     <pre><code class="language-q">
     q)\`float$0Wh
     32767f
     </code></pre>
+
     Space rangers! The infinity corresponding to numeric `x` is `min 0#x`.
 
 
@@ -100,6 +115,7 @@ q)("*";0h)$\:"2012-02-02"
 Syntax: `` `x!y``
 
 Where `` `x`` is the name of a symbol list and `y` is a non-negative int list, returns an enumerated symbol list.
+
 ```q
 q)x:`a`b`c`d
 q)`x!1 2 3
@@ -112,6 +128,7 @@ q)`x!1 2 3
 Syntax: `string x`
 
 Returns each item in list `x` as a string; applies to all data types.
+
 ```q
 q)string `ibm`goog
 "ibm"
@@ -124,7 +141,9 @@ q)string (2 3;"abc")
 (,"2";,"3")
 (,"a";,"b";,"c")
 ```
+
 It applies to the values of a dictionary, and the columns of a table:
+
 ```q
 q)string `a`b`c!2002 2004 2010
 a| "2002"
@@ -137,7 +156,12 @@ a    b
 ,"2" "goog"
 ,"3" "aapl"
 ```
-<i class="fa fa-hand-o-right"></i> [`.h.iso8601`](doth/#hiso8601-iso-timestamp), [`.Q.addr`](dotq/#qaddr-ip-address) (IP address), [`.Q.f`](dotq/#qf-format) (format), [`.Q.fmt`](dotq/#qfmt-format) (format)
+
+<i class="fa fa-hand-o-right"></i> 
+[`.h.iso8601`](doth/#hiso8601-iso-timestamp), 
+[`.Q.addr`](dotq/#qaddr-ip-address) (IP address), 
+[`.Q.f`](dotq/#qf-format) (format), 
+[`.Q.fmt`](dotq/#qfmt-format) (format)
 
 
 ## `sv`
@@ -147,6 +171,7 @@ Syntax: `x sv y`
 Decode – where
 
 - (**base to integer**) `x` and `y` are numeric, `y` is evaluated to base `x`, which may be a list.
+
 ```q
 q)10 sv 2 3 5 7
 2357
@@ -157,7 +182,9 @@ q)0 24 60 60 sv 2 3 5 7   / 2 days, 3 hours, 5 minutes, 7 seconds
 ```
 
 !!! note 
+
     when `x` is a list, the first number is not used. The calculation is done as:
+
     <pre><code class="language-q">
     q)baseval:{y wsum reverse prds 1,reverse 1_x}
     q)baseval[0 24 60 60;2 3 5 7]
@@ -165,6 +192,7 @@ q)0 24 60 60 sv 2 3 5 7   / 2 days, 3 hours, 5 minutes, 7 seconds
     </code></pre>
 
 - (**bytes to integer**) `x` is `0x0` and `y` is a vector of **bytes** of length 2, 4 or 8, returns `y` converted to the corresponding integer.
+
 ```q
 q)0x0 sv "x" $0 255           / short
 255h
@@ -179,7 +207,9 @@ q)256j sv til 8               / same calculation
 ```
 
 !!! tip "Converting non integers" 
+
     Use [`1:`](filenumbers/#1-binary-files) – eg:
+
     <pre><code class="language-q">
     q)show a:0x0 vs 3.1415
     0x400921cac083126f
@@ -188,6 +218,7 @@ q)256j sv til 8               / same calculation
     </code></pre>
 
 - (**bits to integer**) `x` is `0b` and `y` is a boolean vector of length 8, 16, 32, or 64, returns `y` converted to the corresponding integer or — in the case of 8 bits — a byte value.
+
 ```q
 q)0b sv 64#1b
 -1
@@ -198,6 +229,7 @@ q)0b sv 16#1b
 q)0b sv 8#1b
 0xff
 ```
+
 <i class="fa fa-hand-o-right"></i> [`sv` lists](lists/#sv)
 
 
@@ -207,6 +239,7 @@ Syntax: `x $ y`
 
 Where `x` is an upper-case letter or non-positive short, and `y` is a string, returns `y` interpreted as a value according to `x`. 
 A table of `x` values for _tok_:
+
 ```q
 q)flip{(neg x;upper .Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
 -1h  "B" `boolean
@@ -230,7 +263,9 @@ q)flip{(neg x;upper .Q.t x;key'[x$\:()])}5h$where" "<>20#.Q.t
 ```
 
 !!! Tip "String to symbol"
+
     Use `` `$y`` as shorthand for `"S"$y`.
+
     <pre><code class="language-q">
     q)"S"\$"hello"
     \`hello
@@ -256,28 +291,35 @@ q)"I"$"192.168.1.34" /an IP address as an int
 ```
 
 !!! tip "Truthy characters"
+
     These characters are recognized as boolean true:
+
     <pre><code class="language-q">
     q).Q.an where"B"$'.Q.an
     "txyTXY1"
     </code></pre>
 
 Parsing **Unix timestamps** (from seconds since Unix epoch), string with 9…11 digits:
+
 ```q
 q)"P"$"10129708800"
 2290.12.31D00:00:00.000000000
 q)"P"$"00000000000"
 1970.01.01D00:00:00.000000000
 ```
+
 If these digits are followed by a `.` it will parse what follows `.` as parts of second, e.g. 
+
 ```q
 q)"P"$"10129708800.123456789"
 2290.12.31D00:00:00.123456789
 q)"P"$"00000000000.123456789"
 1970.01.01D00:00:00.123456789
 ```
+
 `"D"$` will _tok_ **dates** with varied formats:
-```
+
+```txt
 [yy]yymmdd
 ddMMM[yy]yy
 yyyy/[mm|MMM]/dd
@@ -295,6 +337,7 @@ Syntax: `x vs y`
 Encode – where: 
 
 - `x` is `0b` and `y` is an integer, returns the **bit** representation of `y`.
+
 ```q
 q)0b vs 23173h
 0101101010000101b
@@ -303,6 +346,7 @@ q)0b vs 23173
 ```
 
 - `x` is `0x0` and `y` is a number, returns the **internal** representation of `y`, with each byte in hex.
+
 ```q
 q)0x0 vs 2413h
 0x096d
@@ -317,6 +361,7 @@ q)"."sv string"h"$0x0 vs .z.a / ip address string from .z.a
 ```
 
 - `x` and `y` are integer, the result is the representation of `y` in **base** `x`. (Since V3.4t 2015.12.13.)
+
 ```q
 q)10 vs 1995
 1 9 9 5
@@ -327,7 +372,9 @@ q)24 60 60 vs 3805
 q)"." sv string 256 vs .z.a / ip address string from .z.a
 "192.168.1.213"
 ```
+
 If `y` is an integer vector then the result is a matrix with `count[x]` items whose `i`<sup>th</sup> column `(x vs y)[;i]` is identical to `x vs y[i]`. More generally, `y` can be any list of integers, and each item of the result is identical to `y` in structure.
+
 ```q
 q)a:10 vs 1995 1996 1997
 q)a
@@ -344,7 +391,11 @@ q)10 vs(1995;1996 1997)
 5 6 7
 ```
 
-<i class="fa fa-hand-o-right"></i> [`.Q.j10`](dotq/#qj10-encode-binhex) (encode binhex), [`.Q.x10`](dotq/#qx10-decode-binhex) (decode binhex), [`.Q.j12`](dotq/#qj12-encode-base64) (encode base64), [`.Q.x12`](dotq/#qx12-decode-base64) (decode base64)
+<i class="fa fa-hand-o-right"></i> 
+[`.Q.j10`](dotq/#qj10-encode-binhex) (encode binhex), 
+[`.Q.x10`](dotq/#qx10-decode-binhex) (decode binhex), 
+[`.Q.j12`](dotq/#qj12-encode-base64) (encode base64), 
+[`.Q.x12`](dotq/#qx12-decode-base64) (decode base64)
 
 
 

@@ -32,14 +32,19 @@ The script buildhdb.q will build a sample HDB. It builds a month’s random data
 <i class="fa fa-github"></i> [KxSystems/cookbook/start/buildhdb.q](https://github.com/KxSystems/cookbook/blob/master/start/buildhdb.q) 
 
 Load q then:
+
 ```q
 q)\l start/buildhdb.q
 ```
+
 To load the database, enter:
+
 ```q
 q)\l start/db
 ```
+
 In q (actual values may vary):
+
 ```q
 q)count trade
 369149
@@ -79,7 +84,9 @@ minute| cnt size price wprice
 09:45 | 19  1099 47.84 47.78618
 ...
 ```
+
 Join trades with the most recent quote at time of trade (as-of join):
+
 ```q
 q)t:select time,price from trade where date=last date,sym=`IBM
 q)q:select time,bid,ask from quote where date=last date,sym=`IBM
@@ -101,6 +108,7 @@ The buildhdb.q script can be customized to build a segmented database. In practi
 For example, edit the first few lines of the script as below.
 
 Ensure that the directory given in `dsp` is the full pathname, and that it is created, writable and empty.
+
 ```q
 dst:`:start/dbs      / new database root
 dsp:`:/dbss          / database segments directory
@@ -110,17 +118,21 @@ bgn:2010.01.01       / set 4 years data
 end:2013.12.31
 ...
 ```
+
 For Windows, `dsp` might be: ``dsp:`:c:/dbss``.
 
 Load the modified script, which should now take a minute or so. This should write the partioned data to subdirectories of `dsp`, and create a par.txt file like:
-```
+
+```txt
 /dbss/d0
 /dbss/d1
 /dbss/d2
 /dbss/d3
 /dbss/d4
 ```
+
 Restart q, and load the segmented database:
+
 ```q
 q)\l start/dbs
 

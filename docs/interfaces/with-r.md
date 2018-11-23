@@ -67,13 +67,16 @@ Considering the potential size of the data, it is probably more likely that the 
 ### Performance testing
 
 Generally speaking, running analysis in q will be faster than R either by virtue of the implementation or due to the data being local to q. Both languages have similar facilities for testing the performance of code. The below code samples calculate the time taken to do matrix multiplication on identical 100×100 matrices, 1000 times. Q timings are in milliseconds, R timings are in seconds. For this operation, q is more than 5 times faster than R (238ms against 1240ms). In q:
+
 ```q
 q)a:100 100#`float$til 100000
 q)b:100 100#`float$til 100000
 q)\t do[1000;a mmu b]￼￼￼￼￼￼
 238
 ```
+
 and in R:
+
 ```r
 > a<-matrix(0:99999,ncol=100,nrow=100)
 > b<-matrix(0:99999,ncol=100,nrow=100)
@@ -119,12 +122,15 @@ Three methods are available:
     -   &lt;0, executes the request asynchronously; the result may arrive later
 
 To open and initialize a connection from R to a kdb+ process on `localhost` listening on port 5000, with a trade table loaded:
+
 ```r
 library(rkdb)
 test.rkdb()  # run kdb+ on localhost:5000 for this
 h<-open_connection("127.0.0.1",5000,"testusername:testpassword") 
 ```
+
 To request data and plot it:
+
 ```r
 > execute(h,"select count i by date from trade")
 date x
@@ -146,6 +152,7 @@ head(res)
 6 2014-01-14 09:55:00        573  44591 1131.100 1129.720
 > plot(res$time ,res$price ,type="l",xlab="time",ylab="price")
 ```
+
 which produces the plot in Figure 1: 
 
 ![Last-traded price plot drawn from R](/img/r/figure1.svg)  
@@ -153,6 +160,7 @@ _Figure 1: Last-traded price plot drawn from R_
 
 More comprehensive graphing is available in additional R packages, which can be freely downloaded. 
 For example, using the [xts](http://r-forge.r-project.org/projects/xts) package:
+
 ```r
 > library(xts)
 # extract the HLOC buckets in 5-minute intervals
@@ -166,12 +174,14 @@ For example, using the [xts](http://r-forge.r-project.org/projects/xts) package:
 # display the candle graph with approrpiate labels
 > plot.xts(resxts, type='candles', width=100, candle.col=candlecolors, bar.col='BLACK', xlab="time", ylab="price", main="GOOG HLOC")
 ```
+
 produces the plot in Figure 2: 
 
 ![Candlestick plot using xts package](/img/r/figure2.png)  
 _Figure 2: Candlestick plot using xts package_
 
 Another popular package is the [quantmod](http://www.quantmod.com) package which contains the `chartSeries` function.
+
 ```r
 > library(quantmod)
 # extract the last closing price in 30 second buckets
@@ -182,17 +192,21 @@ Another popular package is the [quantmod](http://www.quantmod.com) package which
 # add additional Relative Strength Indicator and Rate Of Change graphs
 > chartSeries(closes,theme=chartTheme("white"),TA=c(addBBands(),addTA(RSI( closes)),addTA(ROC(closes))))
 ```
+
 This produces the plot shown in Figure 3: 
 
 ![Chart example from quantmod package](/img/r/figure3.svg)  
 _Figure 3: Chart example from quantmod package_
 
 Close the connection when done: ￼
+
 ```r
 ￼> close_connection(h)
 [1] 0
 ```
+
 Help with more details and some examples is available via `R` help facilities.
+
 ```r
 ?close_connection
 close_connection            package:rkdb            R Documentation
@@ -233,7 +247,8 @@ Although it is not the recommended method, if R is running on Windows, the q ODB
 <i class="fa fa-hand-o-right"></i> [Kdb+ server for ODBC](/interfaces/q-server-for-odbc)
 
 The RODBC package should be installed in R. An example is given below.
-```
+
+```r
 # install RODBC￼￼￼
 > install.packages("RODBC")
 # load it
@@ -274,17 +289,22 @@ Using this method means data is not passed between remote processes. The library
 
 The `R_HOME` environment variable must be set prior to starting q. 
 To find out what that should be, run R from the Bash shell and see the result of `R.home()`
+
 ```r
 > R.home()
 [1] "/Library/Frameworks/R.framework/Resources"
 ```
+
 and then set it accordingly in your environment; e.g. for macOS with a Bash shell
+
 ```bash
 $export R_HOME=/Library/Frameworks/R.framework/Resources
 ```
+
 Optional additional environment variables are `R_SHARE_DIR`, `R_INCLUDE_DIR`, `LD_LIBRARY_PATH` (for libR.so).
 
 An example is outlined below, using q to subselect some data and then passing it to R for graphical display.
+
 ```q
 q)select count i by date from trade
 date      | x       
@@ -321,25 +341,31 @@ q)Rset["mids";mids]￼￼￼￼￼
 /- Graph it
 q)Rcmd["plot(mids$time,mids$mid,type=\"l\",xlab=\"time\",ylab=\"price\")"]
 ```
+
 This will produce a plot as shown in Figure 4: 
 
 ![Quote mid price plot drawn from q](/img/r/figure4.svg)  
 _Figure 4: Quote mid price plot drawn from q_
 
 To close the graphics window, use `dev.off()` rather than the close button on the window.
+
 ```q
 q)Roff[]
 ```
+
 Alternatively, the table can be written to a file with
+
 ```q
 q)Rcmd["pdf('test.pdf')"]
 q)Rcmd["plot(mids$time,mids$mid,type='l',xlab='time',ylab='price')"]
 q)Roff[]
 ```
+
 If the q and R installations are running remotely from the user on a Linux machine, the graphics can be seen locally using X11 forwarding over SSH.
 
 Aside from using R’s powerful graphics, this mechanism also allows you to call R analytics from within q. 
 Using a rather simple example of an average
+
 ```q
 q)\l rinit.q
 q)prices:10?100
@@ -350,7 +376,9 @@ q)Rget"meanPrices"
 q)avg prices / agrees with q?
 55.6
 ```
-That's a trivial example to demonstrate the mechanism in which you can leverage the 5,000 libraries available to R from within q.
+
+That’s a trivial example to demonstrate the mechanism in which you can leverage the 5,000 libraries available to R from within q.
+
 
 ### Embedded R maths library
 
@@ -358,6 +386,7 @@ R contains a maths library which can be compiled standalone.
 The functions can then be exposed to q by wrapping them in C code which handles the mapping between R datatypes and q datatypes (K objects). 
 See <i class="fa fa-github"></i> [github.com/rwinston/kdb-rmathlib](https://github.com/rwinston/kdb-rmathlib)
 for an example of integrating q with the R API (i.e. making use of some statistical functions from q).
+
 ```q
 q)\l rmath.q
 q)x:rnorm 1000     / create 1000 normal variates
@@ -368,6 +397,7 @@ q)quantile[x;.5]   / calculate the 50% quantile
 q)pnorm[0;1.5;1.5] / cdf value for 0 for a N(1.5,1.5) distribution
 q)dnorm[0;1.5;1.5] / normal density at 0 for N(1.5;1.5) distribution
 ```
+
 <i class="fa fa-hand-o-right"></i> Andrey’s [althenia.net/qml](http://althenia.net/qml)
 for an embedded math lib
 
@@ -397,6 +427,7 @@ for a set of financial instruments. Possible approaches are:
 4.  Calculate the correlations in q
 
 We will use a randomly-created set of equities data, with prices ticking between 8am and 5pm.
+
 ```q
 q)select count i by date from trade where date.month=2014.01m
 date      | x       
@@ -419,10 +450,12 @@ date      | x
 2014.01.14| 39853
 2014.01.15| 30136
 ```
+
 We will use the R interface defined above.
 The R and q installations are on the same host, so data-extract timings do not include network transfer time 
 but do include the standard serialization and de-serialization of data. 
 We will load the interface and connect to q with:
+
 ```r
 > library(rkdb)
 > h <- open_connection("127.0.0.1",9998,NULL)
@@ -434,11 +467,13 @@ We will load the interface and connect to q with:
 Retrieving raw data into R and doing all the processing on the R side is the least efficient way to approach this task 
 as regards processing time, network utilization, and memory usage. 
 To illustrate, we can time how long it takes to extract one day’s worth of data for one symbol from q to R.
+
 ```r
 > system.time(res <- execute(h, "select time,sym,price from trade where date=2014.01.09,sym=`GOOG"))
    user  system elapsed 
   0.011   0.001   0.049
 ```
+
 Given we wish to process over multiple dates and instruments, we will discount this method.
 
 
@@ -447,13 +482,16 @@ Given we wish to process over multiple dates and instruments, we will discount t
 The second approach is to extract aggregated statistics from q to R. 
 The required statistics in this case are the price returns between consecutive time buckets for each instrument. 
 The following q function extracts time bucketed data:
+
 ```q
 timebucketedstocks:{[startdate; enddate; symbols; timebucket]
  data:select last price by date,sym,time:timebucket xbar date+time from trade where date within (startdate;enddate),sym in symbols;  / extract the time bucketed data
  () xkey update return:1^price%prev price by sym from data /  calculate returns between prices in consecutive buckets and return the results unkeyed
  }
 ```
+
 An example is:
+
 ```
 q)timebucketedstocks[2014.01.09;2014.01.13;`GOOG`IBM;0D00:05]
 date       sym  time                         price    return   
@@ -466,8 +504,10 @@ date       sym  time                         price    return
 2014.01.09 GOOG 2014.01.09D04:55:00.000000000 1144     1       
 ..
 ```
+
 Once the data is in R it needs to be aligned and correlated. 
 To align the data we will use a pivot function defined in the reshape package.
+
 ```r
 # Reduce the dataset as much as possible
 # only extract the columns we will use
@@ -501,7 +541,9 @@ GOOG 1.0000000 0.2625370 0.1577429
 IBM  0.2625370 1.0000000 0.2568469
 MSFT 0.1577429 0.2568469 1.0000000
 ```
+
 An interesting consideration is the timing for each of the steps and how that changes when the dataset gets larger.
+
 ```r
 > system.time(res <- execute(h,"select time,sym,return from timebucketedstocks[2014.01.09; 2014.01.15; `GOOG`IBM`MSFT; 0D00:05]"))
    user  system elapsed 
@@ -513,19 +555,23 @@ An interesting consideration is the timing for each of the steps and how that ch
    user  system elapsed 
    0.04    0.00    0.04 
 ```
+
 We can see that
 
 - the data extract to R takes 145 ms. Much of this time is taken up by q producing the dataset. There is minimal transport cost (as the processes are on the same host);
+
 ```q
 q)\t select time,sym,return from timebucketedstocks[2014.01.09; 2014.01.15; `GOOG`IBM`MSFT; 0D00:05]
 134
 ```
+
 - the pivot takes approximately 36 ms
 - the correlation time is negligible
 
 We can also analyze how these figures change as the dataset grows. 
 If we choose a more granular time period for bucketing the data set will be larger. 
 In our case we will use 10-second buckets rather than 5-minute buckets, meaning the result data set will be 30× larger.
+
 ```r
 > system.time(res <- execute(h,"select time,sym,return from timebucketedstocks[2014.01.09; 2014.01.15; `GOOG`IBM`MSFT; 0D00:00:10]"))
 user system elapsed
@@ -535,12 +581,15 @@ Using return as value column. Use the value argument to cast to override this ch
   ￼user  system elapsed
   0.950   0.048   0.998 
 ```    ￼￼￼￼
+
 We can see that the time to extract the data increases by ~90 ms. 
 The q query time increases by 4 ms, so the majority of the increase is due to shipping the larger dataset from q to R.
+
 ```q
 q)\t select time,sym,return from timebucketedstocks[2014.01.09; 2014.01.15; `GOOG`IBM`MSFT; 0D00:00:10]
 138
 ```
+
 The pivot time on the larger data set grows from 40 ms to ~1000 ms giving a total time to do the analysis of approximately 2300 ms. 
 As the dataset grows, the time to pivot the data in R starts to dominate the overall time.
 
@@ -551,6 +600,7 @@ Given the pivot performance in R, an alternative is to pivot the data on the q s
 This has the added benefit of reducing the volume of data transported 
 due to the fact that we can drop the time and sym identification columns as the data is already aligned. 
 The q function below pivots the data. 
+
 ```q
 timebucketedpivot:{[startdate; enddate; symbols; timebucket]
  / Extract the time bucketed data
@@ -561,9 +611,11 @@ timebucketedpivot:{[startdate; enddate; symbols; timebucket]
  () xkey 1^exec colheaders#(sym!return) by time:time from data
  }
 ```
+
 <i class="fa fa-hand-o-right"></i> [Pivoting tables](/cookbook/pivoting-tables)
 
 An example is:
+
 ```q
 q)timebucketedpivot[2014.01.09;2014.01.13;`GOOG`IBM;0D00:05]
 time                          GOOG      IBM      
@@ -577,7 +629,9 @@ time                          GOOG      IBM
 2014.01.09D10:00:00.000000000 1.000775  0.9992017
 ..
 ```
+
 Using the larger dataset example, we can then do
+
 ```r
 > system.time(res <- execute(h,"delete time from timebucketedpivot [2014.01.09; 2014.01.15; `GOOG`IBM`MSFT; 0D00:00:10]"))
    user  system elapsed
@@ -588,6 +642,7 @@ GOOG 1.0000000 0.15336531 0.03471400
 IBM  0.1533653 1.00000000 0.02585773
 MSFT 0.0347140 0.02585773 1.00000000
 ```
+
 thus reducing the total query time from 2300 ms to 860 ms and also reducing the network usage.
 
 
@@ -596,6 +651,7 @@ thus reducing the total query time from 2300 ms to 860 ms and also reducing the 
 A final approach is to calculate the correlations in q, meaning that R is not used for any statistical analysis. 
 The below function invokes the previously defined functions and creates the correlation matrix. 
 Utilizing the function `timebucketedpivot` defined above, and
+
 ```q
 correlationmatrix:{[startdate; enddate; symbols; timebucket]
  / Extract the pivoted data
@@ -615,7 +671,9 @@ correlationmatrix:{[startdate; enddate; symbols; timebucket]
  unkey () xkey 1f^pivot
  }
 ```
+
 which can be run like this:
+
 ```q
 q)correlationmatrix[2014.01.09; 2014.01.15; `GOOG`IBM`MSFT; 0D00:00:10]
 sym  GOOG      IBM        MSFT
@@ -626,6 +684,7 @@ MSFT 0.034714  0.02585773 1
 q)\t correlationmatrix[2014.01.09; 2014.01.15; `GOOG`IBM`MSFT; 0D00:00:10]
 181
 ```
+
 This solution executes quickest and with the least network usage, as the resultant correlation matrix returned to the user is small.
 
 
@@ -658,6 +717,7 @@ Users are encouraged to experiment with:
 The data can be extracted from R for further analysis or visualisation. 
 As an example, the code below will generate an average daily usage profile 
 for each customer type (res = residential, com = commercial, ind = industrial) over a 10 day period.
+
 ```r
 # load the xtsExtra package
 # this will overwrite some of the implementations
@@ -675,6 +735,7 @@ for each customer type (res = residential, com = commercial, ind = industrial) o
 # plot it
 > plot.xts(dxts, screens=1, ylim=c(0,500000), auto.legend=TRUE, main=" Usage Profile by Customer Type")
 ```
+
 which produces the plot in Figure 5: 
 
 ![Customer usage profiles generated in q and drawn in R](/img/r/figure5.png)  
@@ -684,11 +745,14 @@ _Figure 5: Customer usage profiles generated in q and drawn in R_
 ### Timezones
 
 Note that R’s timezone setting affects date transfers between R and q. In R:
+
 ```r
 > Sys.timezone()               # reads current timezone
 > Sys.setenv(TZ = "GMT")       # sets GMT ("UTC" is the same)
 ```
+
 For example, in the R server:
+
 ```q
 q)Rcmd "Sys.setenv(TZ='GMT')"
 q)Rget "date()"
@@ -697,4 +761,6 @@ q)Rcmd "Sys.setenv(TZ='EST')"
 q)Rget "date()"
 "Fri Feb  3 01:33:57 2012"
 ```
-<i class="fa fa-hand-o-right"></i> [Cookbook/Timezones and Daylight Saving Time](/cookbook/timezones)
+
+<i class="fa fa-hand-o-right"></i> [
+Cookbook/Timezones and Daylight Saving Time](/cookbook/timezones)

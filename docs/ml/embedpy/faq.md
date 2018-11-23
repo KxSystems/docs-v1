@@ -374,7 +374,7 @@ q)pydates[`:astype;"int64"]`
 
 Adjust for the Unix epoch (as `date`).
 
-```
+```q
 q)(pydates[`:astype;"int64"]`)+1970.01.01
 2000.12.11 2000.01.15 2000.02.02 2003.08.16 2002.04.24 2000.03.22
 ```

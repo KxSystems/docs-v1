@@ -4,13 +4,16 @@
 <i class="fa fa-github"></i> [KxSystems/kdb/c/jdbc.java](https://github.com/KxSystems/kdb/blob/master/c/jdbc.java)
 
 Compile:
+
 ```bash
 $ java jdbc.java
 $ jar cf jdbc.jar *.class
 ```
+
 and use as normal.
 
 !!! note "Implementation"
+
     This is a pure Java native-protocol driver (type 4) JDBC driver. The implementation builds on the lower-level [javakdb API](java-client-for-q), which is somewhat simpler, and a good choice for application development when support for legacy code is not a consideration.
 
 The JDBC driver implements only the minimal core of the JDBC feature set. 
@@ -24,6 +27,7 @@ In practice, this means that any single query (or sequence of queries if execute
 without noticing the effects of other queries, and modifications made to the database will always be permanent.
 
 !!! tip "Connection pooling"
+
     If little work is being performed per interaction via the JDBC driver, 
     that is, few queries and each query is very quick to execute, 
     then there is a significant advantage to using connection pooling. 
@@ -100,14 +104,17 @@ public class JDBCTest{
   }
 }
 ```
+
 when run should print something like
-```
+
+```txt
 Connecting to database...
 Creating statement...
 ID: 0, Age: 10, FirstName: Charlie, LastName: Skelton, Timestamp: 2014-09-02 08:28:11.688024
 ID: 1, Age: 20, FirstName: Arthur, LastName: Whitney, Timestamp: 2014-09-02 08:28:11.688024001
 ID: 2, Age: 30, FirstName: Simon, LastName: Garland, Timestamp: 2014-09-02 08:28:11.688024002
 ```
+
 ```java
 #!java
 

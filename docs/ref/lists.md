@@ -16,13 +16,14 @@ returns `x` with its values at indexes `i` changed.
 
 For `ind` in `til count i`, `x[i ind]` becomes
 
-```
+```txt
 expression   x[i ind]
 -----------------------------
 @[x;i;f]     f[x i ind] 
 @[x;i;f;a]   f[x i ind][a]
 @[x;i;f;v]   f[x i ind][v ind]
 ```
+
 ```q
 q)d:("quick";"";"brown";"fox")
 q)@[d;where"b"$count each d;,[;"..."]] / unary f
@@ -34,17 +35,22 @@ q)d:((1 2 3;4 5 6 7);(8 9;10;11 12);(13 14;15 16 17 18;19 20))
 q)@[d;1 1 1;+;3] / binary f
 ((1 2 3;4 5 6 7);(17 18;19;20 21);(13 14;15 16 17 18;19 20))
 ```
+
 Functions of rank higher than 2 can be applied by enlisting their arguments and using [_apply_](unclassified/#apply).
 
 !!! warning "Projections"
+
     For a general list `x`, omitting `a` or `v` when `f` is binary returns projections at the indexes `i`:
+
     <pre><code class="language-q">
     q)0N!@[("ssd";"bsd");0;+];
     (+["ssd"];"bsd")
     </code></pre>
 
 !!! tip "Do it on disk"
+
     Since V3.4 certain vectors can be updated directly on disk without the need to fully rewrite the file. Such vectors must have no attribute, be of a mappable type, not nested, not an enumeration, and not compressed. e.g.
+
     <pre><code class="language-q">
     q)\`:data set til 20;
     q)@[\`:data;3 6 8;:;100 200 300]; 
@@ -59,6 +65,7 @@ Syntax: `count x` (unary, aggregate)
 
 Returns the number of items in `x` (rows for a table and entries for dictionary). 
 Use with `each` to count the number of items at each level of a list or dictionary.
+
 ```q
 q)count 42  / an atom has 1 item
 1
@@ -87,6 +94,7 @@ q)count sp
 Syntax: `x cross y`
 
 Returns the cross-product (i.e. all possible combinations) of `x` and `y`.
+
 ```q
 q)1 2 3 cross 10 20
 1 10
@@ -103,7 +111,9 @@ q)(cross/)(2 3;10;"abc")
 3 10 "b"
 3 10 "c"
 ```
+
 `cross` can work on tables and dictionaries. 
+
 ```q
 q)s:`IBM`MSFT`AAPL
 q)v:1 2
@@ -128,6 +138,7 @@ Cuts a list or table into a matrix of `x` columns – or close as can be.
 Where 
 
 - `x` is an **integer atom**, returns `y` splits into a list of lists, all (except perhaps the last) of count `x`.
+
 ```q
 q)4 cut til 10
 0 1 2 3
@@ -145,6 +156,7 @@ Syntax: `x _ y`
 Cuts a list or table into sub-arrays.
 
 Where `x` is a **non-decreasing list of integers** in the domain `til count y`, and `y` is a list or table, returns `y` cut at the indexes given in `x`. The result is a list with the same count as `x`.
+
 ```q
 q)2 4 9 _ til 10           /first result item starts at index 2
 2 3
@@ -192,16 +204,19 @@ Drops items from a list, entries from a dictionary or columns from a table.
 Where
 
 - `x` is an **int atom** and `y` a **list or dictionary**, returns `y` without the first or last `x` items.
-<pre><code class="language-q">q)5_0 1 2 3 4 5 6 7 8      /drop the first 5 items
-5 6 7 8
-q)-5_0 1 2 3 4 5 6 7 8     /drop the last 5 items
-0 1 2 3
-q)1 _ \`a\`b\`c!1 2 3
-b| 2
-c| 3
-</code></pre>
+
+    <pre><code class="language-q">
+    q)5_0 1 2 3 4 5 6 7 8      /drop the first 5 items
+    5 6 7 8
+    q)-5_0 1 2 3 4 5 6 7 8     /drop the last 5 items
+    0 1 2 3
+    q)1 _ \`a\`b\`c!1 2 3
+    b| 2
+    c| 3
+    </code></pre>
 
     !!! tip "Drop from string"
+
         <pre><code class="language-q">
         q)b:"apple: banana: cherry"
         q)/ find the first ":" and remove the prior portion of the sentence.
@@ -210,16 +225,19 @@ c| 3
         </code></pre>
 
 - `x` is a **list or dictionary** and `y` is an **index or key** of `x`, returns `x` without `y`.
-<pre><code class="language-q">q)0 1 2 3 4 5 6 7 8_5      /drop the 5th item
-0 1 2 3 4 6 7 8
-q)(\`a\`b\`c!1 2 3)_\`a        /drop the entry for \`a\`
-b| 2
-c| 3
-</code></pre>
+
+    <pre><code class="language-q">
+    q)0 1 2 3 4 5 6 7 8_5      /drop the 5th item
+    0 1 2 3 4 6 7 8
+    q)(\`a\`b\`c!1 2 3)_\`a        /drop the entry for \`a\`
+    b| 2
+    c| 3
+    </code></pre>
 
 - `x` is an **atom or vector of keys** to **dictionary** `y`, returns `y` without the entries for `x`. 
 
-    <pre><code class="language-q">q)\`a _ \`a\`b\`c!1 2 3
+    <pre><code class="language-q">
+    q)\`a _ \`a\`b\`c!1 2 3
     b| 2
     c| 3
     q)\`a\`b _ \`a\`b\`c!1 2 3
@@ -227,11 +245,15 @@ c| 3
     q)(\`a\`b\`c!1 2 3) _ \`a\`b
     'type
     </code></pre>
+
     <i class="fa fa-hand-o-right"></i> _Q for Mortals_: [5. Dictionaries](http://code.kx.com/q4m3/5_Dictionaries/#522-extracting-a-sub-dictionary)
 
     !!! warning "Dropping dictionary entries with integer arguments"
+
         With dictionaries, distinguish the roles of integer arguments to _drop_.
-        <pre><code class="language-q">q)d:100 200!\`a\`b
+
+        <pre><code class="language-q">
+        q)d:100 200!\`a\`b
         q)1 _ d            /drop the first entry
         200| b
         q)d _ 1            /drop where key=1
@@ -249,7 +271,8 @@ c| 3
 
 - `x` is a **vector of keys** and `y` is a **table**, returns `y` without columns `x`.
 
-    <pre><code class="language-q">q)t:([]a:1 2 3;b:4 5 6;c:\`d\`e\`f)
+    <pre><code class="language-q">
+    q)t:([]a:1 2 3;b:4 5 6;c:\`d\`e\`f)
     q)\`a\`b _ t
     c
     -
@@ -267,6 +290,7 @@ c| 3
 !!! tip "Drop in place"
 
     Assign through _drop_ to delete in place. 
+
     <pre><code class="language-q">
     q)show d:\`a\`b\`c\`x!(1;2 3;4;5)
     a| 1
@@ -288,6 +312,7 @@ Syntax: `enlist x`
 Returns its argument/s in a list. 
 
 An atom is not a one-item list. `enlist` and `first` will convert between the two.
+
 ```q
 q)a:10
 q)b:enlist a
@@ -303,7 +328,9 @@ q)b~c
 q)b~first c
 1b
 ```
+
 With multiple arguments returns a single list.
+
 ```q
 q)show a:enlist[til 5;`ibm`goog;"hello"]
 0 1 2 3 4
@@ -312,7 +339,9 @@ q)show a:enlist[til 5;`ibm`goog;"hello"]
 q)count a
 3
 ```
+
 Where `x` is a dictionary, the result is the corresponding table.
+
 ```q
 q)enlist `a`b`c!(1;2 3; 4)
 a b   c
@@ -321,6 +350,7 @@ a b   c
 ```
 
 !!! tip "Atoms to lists"
+
     If you need to ensure, say, all items in a list are themselves lists and not atoms, use `(),`, which leaves lists unchanged. 
 
     For example, `{(),x} each foo` converts any atoms in list `foo` into singleton lists.
@@ -331,6 +361,7 @@ a b   c
 Syntax: `x^y` (atomic) 
 
 Returns `y` with any nulls replaced by the corresponding item of `x`.
+
 ```q
 q)0^1 2 3 0N
 1 2 3 0
@@ -343,7 +374,9 @@ q)`nobody^`tom`dick``harry
 q)1 2 3 4 5^6 0N 8 9 0N
 6 2 8 9 5
 ```
+
 Integer `x` items are promoted when `y` is float or real.
+
 ```q
 q)a:11.0 2.1 3.1 0n 4.5 0n
 q)type a
@@ -353,7 +386,9 @@ q)10^a
 q)type 10^a
 9h
 ```
+
 When `x` and `y` are dictionaries, both null and missing values in `y` are filled with those from `x`.
+
 ```q
 q)(`a`b`c!1 2 3)^`b`c!0N 30
 a| 1
@@ -361,7 +396,8 @@ b| 2
 c| 30
 ```
 
-<i class="fa fa-hand-o-right"></i> [`^` _coalesce_](joins/#coalesce) where `x` and `y` are keyed tables
+<i class="fa fa-hand-o-right"></i> 
+[`^` _coalesce_](joins/#coalesce) where `x` and `y` are keyed tables
 
 
 ## `fills`
@@ -369,13 +405,16 @@ c| 30
 Syntax: `fills x` (uniform)
 
 Returns `x` with any nulls replaced by their preceding non-null values, if any.
+
 ```q
 q)fills 0N 2 3 0N 0N 7 0N
 0N 2 3 3 3 7 7
 ```
 
 !!! Tips
+
     To back-fill, reverse the list and the result:
+
     <pre><code class="language-q">
     q)reverse fills reverse 0N 2 3 0N 0N 7 0N
     2 2 3 7 7 7 0N
@@ -394,13 +433,16 @@ Syntax: `flip x`
 Returns `x` transposed, where `x` may be a list of lists, a dictionary or a table. 
 
 In a list of lists, each list must be the same length.
+
 ```q
 q)flip (1 2 3;4 5 6)
 1 4
 2 5
 3 6
 ```
+
 The flip of a dictionary is a table, and vice versa. If `x` is a dictionary where the keys are a list of symbols, and the values are lists of the same count (or atoms), then `flip x` will return a table. The flip of a table is a dictionary.
+
 ```q
 q)D:`sym`price`size!(`IBM`MSFT;10.2 23.45;100 100)
 q)flip D
@@ -420,6 +462,7 @@ Syntax: `x join y`
 Joins list, dictionaries or tables. 
 
 Where `x` and `y` are atoms, lists, dictionaries or tables returns `x` joined to `y`. 
+
 ```q
 q)1 2 3,4
 1 2 3 4
@@ -428,7 +471,9 @@ q)1 2,3 4
 q)(0;1 2.5;01b),(`a;"abc")
 (0;1.00 2.50;01b;`a;"abc")
 ```
+
 The result is a vector if both arguments are vectors or atoms of the same type.
+
 ```q
 q)1 2.4 5,-7.9 10               /float vectors
 1.00 2.40 5.00 -7.90 10.00
@@ -437,7 +482,9 @@ q)1 2.4 5,-7.9                  /float vector and atomatom
 q)1 2.4 5, -7.9 10e             /float and real vectors
 (1.00;2.40;5.00;-7.90e;10.00e)
 ```
+
 Cast arguments to ensure vector results.
+
 ```q
 q)v:1 2.34 -567.1 20e
 q)v,(type v)$789                / cast an int to a real
@@ -447,7 +494,9 @@ q)v,(type v)$1b                 / cast a boolean to a real
 q)v,(type v)$0xab
 1.00 2.34 -567.1 20.00 171e
 ```
+
 Tables can be joined row-wise. 
+
 ```q
 q)t:([]a:1 2 3;b:`a`b`c)
 q)s:([]a:10 11;b:`d`e)
@@ -460,7 +509,9 @@ a  b
 10 d
 11 e
 ```
+
 Tables of the same count can be joined column-wise with `,'`.
+
 ```q
 q)r:([]c:10 20 30;d:1.2 3.4 5.6)
 q)show t,'r
@@ -471,9 +522,12 @@ a b c  d
 2 b 20 3.4
 3 c 30 5.6
 ```
+
 _Join_ for keyed tables is strict; both the key and data columns must match in names and datatypes.
 
-<i class="fa fa-hand-o-right"></i> [Joins](joins), [`.Q.dd`](dotq/#qdd-join-symbols) (join symbols)
+<i class="fa fa-hand-o-right"></i> 
+[Joins](joins), 
+[`.Q.dd`](dotq/#qdd-join-symbols) (join symbols)
 
 
 ## `raze`
@@ -483,6 +537,7 @@ Syntax: `raze x`
 Returns the items of `x` joined, collapsing one level of nesting. 
 
 To collapse all levels, use [converge](adverbs/#converge-iterate) i.e. `raze/[x]`.
+
 ```q
 q)raze (1 2;3 4 5)
 1 2 3 4 5
@@ -499,7 +554,9 @@ q)raze/[b]               / flatten all levels
 q)raze 42                / atom returned as a list
 ,42
 ```
+
 Returns the flattened values from a dictionary.
+
 ```q
 q)d:`q`w`e!(1 2;3 4;5 6)
 q)value d
@@ -511,7 +568,9 @@ q)raze d
 ```
 
 !!! warning "Use only on items that can be joined"
+
     `raze` is defined in k as `,/` and requires items that can be joined together. 
+
     <pre><code class="language-q">
     q)d:\`a\`b!(1 2;3 5)
     q)10,d          / cannot join integer and dictionary
@@ -526,11 +585,14 @@ q)raze d
 Syntax: `reverse x` (uniform) 
 
 Returns the items of `x` in reverse order.
+
 ```q
 q)reverse 1 2 3 4
 4 3 2 1
 ```
+
 On atoms, returns the atom; on dictionaries, reverses the keys; and on tables, reverses the columns:
+
 ```q
 q)d:`a`b!(1 2 3;"xyz")
 q)reverse d
@@ -553,6 +615,7 @@ a b
 Syntax: `x rotate y` (uniform)
 
 Returns list or table `y` rotated by `x` items: to the ‘left’ for positive `x`, to the ‘right’ for negative `x`.
+
 ```q
 q)2 rotate 2 3 5 7 11    / rotate a list
 5 7 11 2 3
@@ -583,6 +646,7 @@ q)`s#1 2 3
 q)`#`s#1 2 3
 1 2 3
 ```
+
 Setting or unsetting an attribute other than `s` (i.e. `upg`) causes a copy of the object to be made. 
 
 Setting/unsetting the `s` attribute on a list which is already sorted will not cause a copy to be made, and hence will affect the original list in-place. 
@@ -591,10 +655,12 @@ Setting the `s` attribute on a dictionary or table, where the key is already in 
 
 `s`, `u` and `g` are preserved on append in memory, if possible.
 Only `s` is preserved on append to disk.
+
 ```q
 q)t:([1 2 4]y:7 8 9);`s#t;attr each (t;key t)
 ``s
 ```
+
 <i class="fa fa-hand-o-right"></i> [Attributes](elements/#attributes)
 
 
@@ -607,6 +673,7 @@ Syntax: `x sv y`
 Where:
 
 - (**join strings**) `y` is a list of strings, and `x` is a character or string, returns the strings in `y`, separated by `x`. Where `x` is the back tick `` ` ``, the strings are separated by the host line separator  – `\n` on Unix, `\r\n` on Windows.
+
     <pre><code class="language-q"> 
     q)"," sv ("one";"two";"three")    / comma separated
     "one,two,three"
@@ -621,17 +688,21 @@ Where:
     </code></pre>
 
 - (**join path components**) `y` is a symbol list of which the first item is a file handle, it returns a file handle where the items of the list are joined, separated by slashes. This is useful when building file paths.
+
     <pre><code class="language-q"> 
     q)\` sv \`:/home/kdb/q\`data\`2010.03.22\`trade
     \`:/home/kdb/q/data/2010.03.22/trade
     </code></pre>
+
     If the first item is not a file handle, returns a symbol where the items are joined, separated by `.` (dot). This is useful for building filenames with a given extension:
+
     <pre><code class="language-q"> 
     q)\` sv \`mywork\`dat
     \`mywork.dat
     </code></pre>
 
-<i class="fa fa-hand-o-right"></i> [`sv` decode](casting/#sv)
+<i class="fa fa-hand-o-right"></i> 
+[`sv` decode](casting/#sv)
 
 
 ## `#` (take)
@@ -643,13 +714,16 @@ Returns `y` as a list, dictionary or table described or selected by `x`.
 Where 
 
 - `x` is an **int atom**, and `y` is an **atom or list**, returns a list of length `x` filled from `y`, starting at the front if `x` is positive and the end if negative.
+
     <pre><code class="language-q"> 
     q)5#0 1 2 3 4 5 6 7 8      /take the first 5 items
     0 1 2 3 4
     q)-5#0 1 2 3 4 5 6 7 8     /take the last 5 items
     4 5 6 7 8
     </code></pre>
+
     If `x>count y`, `y` is treated as circular.
+
     <pre><code class="language-q"> 
     q)5#\`Arthur\`Steve\`Dennis
     \`Arthur\`Steve\`Dennis\`Arthur\`Steve
@@ -660,7 +734,9 @@ Where
     q)2#\`a
     \`a\`a
     </code></pre>
+
     If `x` is 0, an empty list is returned.
+
     <pre><code class="language-q"> 
     q)trade:([]time:();sym:();price:();size:())  /columns can hold anything
     q)trade
@@ -672,6 +748,7 @@ Where
     </code></pre>
 
 - `x` is an **int atom** and `y` is a **dictionary**, `x` entries are returned.
+
     <pre><code class="language-q"> 
     q)d:\`a\`b\`c!1 2 3
     q)2#d
@@ -680,6 +757,7 @@ Where
     </code></pre>
 
 - `x` is an **int atom** and `y` is a **table**, `x` rows are returned.
+
     <pre><code class="language-q"> 
     q)\l sp.q
     ..
@@ -694,6 +772,7 @@ Where
     </code></pre>
 
 - `x` is an **int vector** and `y` is an **atom or list**, returns a matrix or higher-dimensional array; `count x` gives the number of dimensions. (Since V2.3)
+
     <pre><code class="language-q"> 
     q)2 5#"!"
     "!!!!!"
@@ -701,12 +780,16 @@ Where
     q)2 3#til 6
     (0 1 2;3 4 5)
     </code></pre>
+
     A 2&times;4 matrix taken from the list `` `Arthur`Steve`Dennis``
+
     <pre><code class="language-q"> 
     q)2 4#\`Arthur\`Steve\`Dennis
     (\`Arthur\`Steve\`Dennis\`Arthur;\`Steve\`Dennis\`Arthur\`Steve)
     </code></pre>
+
     Higher dimensions are not always easy to see.
+
     <pre><code class="language-q"> 
     q)2 3 4#"a"
     "aaaa" "aaaa" "aaaa"
@@ -721,7 +804,9 @@ Where
     4 0 1 2
     3 4 0 1
     </code></pre>
+
     A null in `x` will cause that dimension to be maximal.
+
     <pre><code class="language-q"> 
     q)0N 3#til 10
     0 1 2
@@ -733,11 +818,14 @@ Where
     !!! note "Changes since V3.3"
 
         From V3.4, if `x` is a list of length 1, the result has a single dimension. 
+
         <pre><code class="language-q">
         q)enlist[2]#til 10
         0 1
         </code></pre>
+
         From V3.4, `x` can have length greater than 2 – but may not contain nulls.
+
         <pre><code class="language-q">
         q)(2 2 3#til 5)~((0 1 2;3 4 0);(1 2 3;4 0 1))
         1b
@@ -746,9 +834,11 @@ Where
         q)all\`domain=@[;1 2;{\`$x}]each(#)@'(1 0 2;2 3 0N;0N 2 1;-1 2 3)
         1b
         </code></pre>
+
         The effect of nulls in `x` changed in V3.3.
             
         Prior to V3.3:
+
         <pre><code class="language-q">
         q)3 0N # til 10
         (0 1 2 3;4 5 6 7;8 9)
@@ -759,7 +849,9 @@ Where
         3 4 5
         6 7 8
         </code></pre>
+
         From V3.3:
+
         <pre><code class="language-q">
         q)3 0N#til 10
         (0 1 2;3 4 5;6 7 8 9)
@@ -775,6 +867,7 @@ Where
         </code></pre>
 
 - `x` is a **symbol vector** and `y` is a **dictionary**, returns entries for `x`.
+
     <pre><code class="language-q"> 
     q)d:\`a\`b\`c!1 2 3
     q)\`a\`b#d
@@ -783,6 +876,7 @@ Where
     </code></pre>
 
 - `x` is a **symbol vector** and `y` is a **table**, returns columns `x`.
+
     <pre><code class="language-q"> 
     q)\`p\`qty#sp
     p  qty
@@ -802,6 +896,7 @@ Where
     </code></pre>
 
 - `x` is a **table** and `y` is a **keyed table**, where columns of `x` are keys of `y`, returns matching rows, together with the respective keys. This is similar to retrieving multiple records through the square brackets syntax, except _take_ also returns the keys. 
+
     <pre><code class="language-q"> 
     q)([]s:\`s1\`s2)#s
     s | name  status city  
@@ -809,6 +904,7 @@ Where
     s1| smith 20     london
     s2| jones 10     paris 
     </code></pre>
+
     <i class="fa fa-hand-o-right"></i> _Q for Mortals_: [8.4.5 Retrieving Multiple Records](http://code.kx.com/q4m3/8_Tables/#845-retrieving-multiple-records)
 
 
@@ -820,6 +916,7 @@ Syntax: `?[x;y;z]`
 Braids two vectors. 
 
 Where `x`, `y` and `z` are conforming vectors or atoms, `x` is boolean, and `y` and `z` are of the same type, returns a vector with items of `y` where `x` is `1b`, otherwise of `z`. All three arguments are evaluated.
+
 ```q
 q)?[1100b;"abcd";"ABCD"]
 "abCD"
@@ -836,7 +933,9 @@ q)?[0b;"abcd";"ABCD"]
 ```
 
 !!! tip "Not this, not that"
+
     It can be useful to have more than just a true/false selection, e.g. match1/match2/match3/others mapping to result1/result2/result3/default. This can be achieved with _find_.
+
     <pre><code class="language-q">
     q)input:10?\`m1\`m2\`m3\`other\`yetanother
     q)input
@@ -844,6 +943,7 @@ q)?[0b;"abcd";"ABCD"]
     q)\`r1\`r2\`r3\`default \`m1\`m2\`m3?input
     \`default\`r1\`r3\`r2\`r3\`r2\`r3\`default\`r3\`default
     </code></pre>
+
     This avoids nesting _vector conditional_, and scales better.
 
 
@@ -856,6 +956,7 @@ Syntax: `x vs y`
 Where 
 
 - `x` is a **char atom or string**, and `y` is a **string**, returns a list of strings: `y` cut using `x` as the delimiter.
+
     <pre><code class="language-q"> 
     q)"," vs "one,two,three"
     "one"
@@ -874,18 +975,21 @@ Where
     </code></pre>
 
 - `x` is the **empty symbol** `` ` ``, and `y` is a **symbol**, returns as a symbol vector `y` split on `` `.` ``.
+
     <pre><code class="language-q"> 
     q)\` vs \`mywork.dat 
     \`mywork\`dat
     </code></pre>
 
 - `x` is the **empty symbol** `` ` ``, and `y` is a **file handle**, returns as a symbol vector `y` split into directory and  file parts.
+
     <pre><code class="language-q"> 
     q)\` vs \`:/home/kdb/data/mywork.dat
     \`:/home/kdb/data\`mywork.dat
     </code></pre>
 
 - `x` is the **empty symbol** `` ` ``, and `y` is a **string**, returns as a list of strings `y` partitioned on embedded line terminators into lines. (Recognizes both Unix `\n` and Windows `\r\n` terminators).
+
     <pre><code class="language-q"> 
     q)\` vs "abc\ndef\nghi"
     "abc"

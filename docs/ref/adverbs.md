@@ -16,7 +16,7 @@ q)*/[2 3 4]      /reduce 2 3 4 with *
 | `'[f;g][x;y;…]` | [compose](#compose)           | compose `f` with `g`                               |
 | `x f'y`         | [each-both](#each-both)       | apply `f` between items of `x` and `y`             |
 | `x f\:y`        | [each-left](#each-left)       | apply `f` between `y` and items of `x`             |
-| `x f/:y`        | [each-right](#each-right)     | apply ``f between `x` and items of `y`             |
+| `x f/:y`        | [each-right](#each-right)     | apply `f` between `x` and items of `y`             |
 | `f':x`          | [each-parallel](#each-right)  | apply `f` to items of `x` in parallel tasks        |
 | `f':x`          | [each-prior](#each-prior)     | apply `f` between successive pairs of items of `x` |
 | `f/x`           | [converge](#converge-repeat)  | apply `f` to `x` until converges                   |
@@ -181,7 +181,8 @@ q)(til 5),/:0 1
     _Each-left_ combined with _each-right_
     <pre><code class="language-q">
     q){}0N!(til 4),\:/: til 4
-    ((0 0;1 0;2 0;3 0);(0 1;1 1;2 1;3 1);(0 2;1 2;2 2;3 2);(0 3;1 3;2 3;3 3))    </code></pre>
+    ((0 0;1 0;2 0;3 0);(0 1;1 1;2 1;3 1);(0 2;1 2;2 2;3 2);(0 3;1 3;2 3;3 3))    
+    </code></pre>
     resembles the result obtained by `cross`
     <pre><code class="language-q">
     q){}0N!cross[til 4;til 4]
@@ -297,7 +298,8 @@ Where `f` is a **unary** function, the derivative `f/`
 <pre><code class="language-q">
 q)(not/) 1b
 0b
-q)(not/) 42  /never returns </code></pre>
+q)(not/) 42  /never returns 
+</code></pre>
     The related form [_converge-iterate_](#converge-iterate) can be useful to see the intermediate results. (Set `\P 0` to see the convergence of your original computation.)
 
 - (**repeat**) applied **binary** where (a) `x` is a **positive int atom**, returns the result of `x` successive applications of `f` to `y`
@@ -395,7 +397,7 @@ q)({x\*x}\\)0.1
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
 q){x\*x}\\[0.1]
 0.1 0.01 0.0001 1e-08 1e-16 1e-32 1e-64 1e-128 1e-256 0
-</code>
+</code></pre>
 
 - (**iterate**) applied **binary**, `x` can be either an integer number of iterations or a while-condition that returns an int or boolean which can be applied to the result of `f`. 
 <pre><code class="language-q">
@@ -409,7 +411,7 @@ q)f\\[105>sum@;84 20]
 85 21
 q)3 f\100 /applied infix
 100 101 102 103
-</code>
+</code></pre>
 
 ## `\` (scan)
 
@@ -422,8 +424,7 @@ Where `f` is a **binary** function (or **matrix** – see below), the derivative
 <!-- `x`. --> 
 `x@/: {(1+x)#\:x} til count x`.
 Its result is a list of the same count, built up as follows:
-<code><pre>r<sub>0</sub> = x<sub>0</sub>
-r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
+<code><pre>r<sub>0</sub> = x<sub>0</sub> r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
 
 Where `f\` is applied
 
@@ -518,19 +519,3 @@ q)2 total 3 4 5   /but not infix
     </code></pre>
 
 
-<!-- ## Ambivalent functions
-
-Some binary derivatives are _ambivalent_: unary application does not return a unary projection but takes the binary function’s identity element as `x`. 
-```q
-q)+/[2 3 4]
-9
-q)+/[0;2 3 4]  /0 is identity element for +
-9
-q)*/[2 3 4]
-24
-q)*/[1;2 3 4]  /1 is identity element for *
-24
-```
-The _identity element_ of a function is the value `x` such that, for all `y`, `y~f[x;y]`. 
-
- -->

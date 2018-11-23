@@ -14,32 +14,42 @@ Use the [`-19!` internal function](/ref/internal/#-19x-compress-file).
     q)`:a set 1000#enlist asc 1000?10;-19!(`:a;`:za;17;2;9);0N!get[`:a]~get`:za;
     </code></pre>
 
+
 ## How do I save directly to a compressed file?
 
 Since V2.8 2011.11.21, q supports streaming file compression, i.e. the data is compressed as it is written to disk.
 
 This is achieved through the overriding of `set`, in that the left argument of `set` can be a list describing the file or splay target, with the compression parameters. For example
+
 ```q
 (`:ztest;17;2;6) set asc 10000?`3 
 (`:zsplay/;17;2;6) set .Q.en[`:.;([]sym:asc 10000?`3;time:.z.p+til 10000;price:10000?1000.;size:10000?100)]
 ```
+
 Q compressed files/splays can also be appended to.
+
 ```q
 q)(`:zippedTest;17;2;6) set 100000?10;`:zippedTest upsert 100000?10;-21!`:zippedTest
 ```
+
 Appending to files with an attribute (e.g. `` `p#`` on sym) causes the whole file to be read and rewritten. Currently, unless `.z.zd` is set accordingly, this would be rewritten in a non-compressed format regardless of its original format.
 
 'compress new files' mode is active if `.z.zd` (zip defaults) is present and valid. `.z.zd` can be set to an int vector of (blockSize;algo;zipLevel) to apply to all new files which do not have a file extension.
+
 ```q
 q).z.zd:(17;2;6);`:zfile set asc 10000?`3 
 ```
+
 `-19!x` and ``(`:file;size;algo;level) set x`` take precedence over `.z.zd`.
 
 To reset to not compress new files, use `\x`.
+
 ```q
 q)\x .z.zd
 ```
-Since V2.8 2011.11.28, the zip params can be a dictionary of `filenames!zipParams`. The null `` ` `` entry in the dict is the default `zipParams`, or if no `` ``` specified, then default will be: do not compress.
+
+Since V2.8 2011.11.28, the zip params can be a dictionary of `filenames!zipParams`. The null `` ` `` entry in the dict is the default `zipParams`, or if no `` ` `` specified, then default will be: do not compress.
+
 ```q
 q)(`:splay/;``a`b!((17;2;9);(17;2;6);(17;2;6)))set([]a:asc 1000000?10;b:asc 1000000?10;c:asc 1000000?10)
 ```
@@ -52,10 +62,13 @@ q)(`:splay/;``a`b!((17;2;9);(17;2;6);(17;2;6)))set([]a:asc 1000000?10;b:asc 10
 ## How do I decompress a file?
 
 Just read the file, e.g.
+
 ```q
 get`:compressedFile
 ```
+
 If you want to store it again decompressed, then use
+
 ```q
 `:uncompressedFile set get `:compressedFile
 ```
@@ -71,6 +84,7 @@ For Windows, q is compatible with the pre-built zlib DLLs from [winimage.com/zLi
 For Linux and Solaris you may find it convenient to install zlib using your package manager, or consult your system administrator for assistance. 
 
 !!! note "Like for like"
+
     You will require the matching 32- or 64-bit libs: i.e. 32-bit libs for 32-bit q; 64-bit libs for 64-bit q.
 
 
@@ -85,9 +99,11 @@ Yes, but they may already be installed on your system, and can be utilized in V3
 Consult your system administrator for assistance. 
 
 !!! note "Like for like"
+
     You will require the matching 32- or 64-bit libs: i.e. 32-bit libs for 32-bit q; 64-bit libs for 64-bit q.
 
 To install snappy on OSX, the simplest method is to use Macports:
+
 ```bash
 $sudo port install snappy +universal
 $export LD_LIBRARY_PATH=/opt/local/lib
@@ -102,6 +118,7 @@ The compression routine is reading from the source file, compressing the data an
 ## How can I tell if a file is compressed?
 
 The [`21!` internal function](/ref/internal/#-21x-compression-stats) returns a dictionary of compression statistics, or an empty dictionary if the file is not compressed. 
+
 ```q
 q)-21!`:ztest       / compressed
 compressedLength  | 137349
@@ -175,7 +192,8 @@ The `logicalBlockSize` represents how much data is taken as a compression unit, 
 ## ``hcount`:compressedFile`` returns the uncompressed file length. Is this intentional?
 
 Yes. In our defense, ZFS has similar issues.  
-<i class="fa fa-hand-o-right"></i> [blog.buttermountain.co.uk](http://blog.buttermountain.co.uk/2008/05/10/zfs-compression-when-du-and-ls-appear-to-disagree)
+<i class="fa fa-hand-o-right"></i> 
+[blog.buttermountain.co.uk](http://blog.buttermountain.co.uk/2008/05/10/zfs-compression-when-du-and-ls-appear-to-disagree)
 
 Compressed file size can be obtained from the [`-21!` internal function](/ref/internal/#-21x-compression-stats). 
 
@@ -185,6 +203,7 @@ Compressed file size can be obtained from the [`-21!` internal function](/ref/in
 For releases prior to V3.1 2013.02.21 the limit is 4096 files; releases since then are limited by the environment/OS only (e.g. `ulimit -n`). There is no practical internal limit on the number of uncompressed files.
 
 !!! note
+
     If using compressed files, please note V3.2 onwards uses two file descriptors per file, so you may need to increase the `ulimit` that was used in prior versions.
 
 
@@ -197,7 +216,8 @@ However, this is reservation of memory only, and can be accommodated by increasi
 If you experience wsfull even when sufficient swap space is configured, check whether you have any soft/hard limits imposed with `ulimit -v`. 
 
 !!! warning "Memory overcommit settings on Linux"
-    /proc/sys/vm/overcommit\_memory and /proc/sys/vm/overcommit\_ratio – these control how careful Linux is when allocating address space with respect to available physical memory plus swap.
+
+    `/proc/sys/vm/overcommit\memory` and `/proc/sys/vm/overcommit\ratio` – these control how careful Linux is when allocating address space with respect to available physical memory plus swap.
 
 
 ## What compression ratios should I expect?
@@ -208,9 +228,11 @@ Using real NYSE trade data, we observed the gzip algorithm at level 9 compressin
 ## Do you have any benchmarking tips?
 
 Perform your benchmarks on the same hardware setup as you would use for production and be aware of the disk cache – flush the cache before each test. The disk cache can be flushed on Linux using
+
 ```bash
 sync ; sudo echo 3 | sudo tee /proc/sys/vm/drop_caches
 ```
+
 and on OSX, the OS command `purge` can be used.
 
 
@@ -234,15 +256,20 @@ AHA also offers other cards, the AHA360PCIe (1 channel) and the AHA363PCIe (2 ch
 Installation is very straightforward: unpack and plug in the card, compile and load the driver, compile and install the zlib shared library. As a reference, it took less than 30 minutes from opening the box to having q use it for compression. A very smooth installation.
 
 !!! tip "Runtime troubleshooting for the AHA 367 card"
+
     If you see the error message
-    <pre><code>
+
+    <pre><code class="language-bash">
     aha367 - ahagz\_api.c: open() call failed with error: 2 on device /dev/aha367\_board
     </code></pre>
+
     it likely means the kernel module has not been loaded. Remedy: go to the aha install dir:
+    
     <pre><code class="language-bash">
     aha_install_dir$ cd bin
     aha_install_dir$ sudo ./load_module 
     </code></pre>
+    
     and select the 367 card option.
 
 Another accelerator card vendor (untested) – [<http://www.indranetworks.com/SCMX3.html>](http://www.indranetworks.com/SCMX3.html)
@@ -258,7 +285,8 @@ On Linux, perhaps – it really depends on the size and number of compressed fil
 You should only ever need to run gdb if you are debugging your own custom shared libs loaded into q.
 
 gdb will intercept SIGSEGV which should be passed to q. To tell it to do so, issue the following command at the gdb prompt
-```
+
+```txt
 (gdb) handle SIGSEGV nostop noprint
 ```
 
@@ -268,17 +296,21 @@ gdb will intercept SIGSEGV which should be passed to q. To tell it to do so, iss
 R uses signal handling to detect stack overflows. This conflicts with q’s use of signals for handling compressed files, causing q to crash. R’s use of signals can be suppressed by setting the variable `R_SignalHandlers` (declared in Rinterface.h) to 0 when compiling the relevant R library.
 
 
-## I'd like to use Transparent Huge Pages (THP) on Linux. Is this compatible with the q file compression?
+## I’d like to use Transparent Huge Pages (THP) on Linux. Is this compatible with the q file compression?
 
 No. We have had reports of systems stalling due to THP fragmentation. Disable THP either with the shell command
+
 ```bash
 $ echo never >/sys/kernel/mm/redhat_transparent_hugepage/enabled
 ```
+
 or more permanently via grub at boot time
-```
+
+```txt
 transparent_hugepage=never
 ```
 
 Q must be restarted to pick up the new setting. 
 
-<i class="fa fa-hand-o-right"></i> [Linux production notes/Huge Pages and Transparent Huge Pages](linux-production/#huge-pages-and-transparent-huge-pages-thp)
+<i class="fa fa-hand-o-right"></i> 
+[Linux production notes/Huge Pages and Transparent Huge Pages](linux-production/#huge-pages-and-transparent-huge-pages-thp)

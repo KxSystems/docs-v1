@@ -6,15 +6,20 @@
 ## Comments
 
 Line comment
+
 ```q
 q)/Oh what a lovely day
 ```
+
 Trailing comment
+
 ```q
 q)2+2  /I know this one
 4
 ```
+
 Multiline comment
+
 ```q
 /
     Oh what a beautiful morning
@@ -51,11 +56,14 @@ An _atom_ is a single number, character, boolean, symbol, timestamp… a single
 ### Lists
 
 Lists are zero or more items, separated by semicolons, and enclosed in parentheses. An item can be any noun. 
+
 ```q
 q)count(42;`ibm;2012.08.17)    /list of 3 items
 3
 ```
+
 A list may have 0, 1 or more items. 
+
 ```q
 q)count()              /empty list
 0
@@ -66,13 +74,16 @@ q)count(42;43;44;45)   /4-list
 ```
 
 !!! warning "An atom is not a 1-list"
+
     A list with 1 item is not an atom. The `enlist` function makes a 1-list from an atom.
+
     <pre><code class="language-q">
     q)42~enlist 42
     0b
     </code></pre>
 
 A list item may be a noun, function or adverb.
+
 ```q
 q)count("abc";0000111111b;42)  /2 vectors and an atom
 3
@@ -133,16 +144,21 @@ Some q functions use attributes to work faster:
 
 !!! warning "Grouped attribute"
 
-    The `g` attribute is presently unsuitable for cycling through a small window of a domain, due to the retention of keys backing the attribute.<pre><code class="language-q">q)v:\`g#1#0
+    The `g` attribute is presently unsuitable for cycling through a small window of a domain, due to the retention of keys backing the attribute.
+
+    <pre><code class="language-q">
+    q)v:\`g#1#0
     q)do[1000000;v[0]+:1];
     q)0N!.Q.w[]\`used; v:\`g#\`#v; .Q.w[]\`used
     74275344
-    332368</code></pre>
+    332368
+    </code></pre>
 
 
 ### Dictionaries
 
 A _dictionary_ is a map from a list of keys to a list of values. (The keys should be unique, though q does not enforce this.) The values of a dictionary can be any data structure. 
+
 ```q
 q)/4 keys and 4 atomic values
 q)`bob`carol`ted`alice!42 39 51 44   
@@ -160,6 +176,7 @@ ages | 42  39    51  44
 ### Tables
 
 A dictionary in which the values are all lists of the same count can be flipped into a table. 
+
 ```q
 q)count each kids
 names| 4
@@ -172,13 +189,17 @@ carol 39
 ted   51
 alice 44
 ```
+
 Or the table specified directly using [table syntax](syntax/#simple-tables), e.g.
+
 ```q
 q)/a flipped dictionary is a table
 q)tkids~([]names:`bob`carol`ted`alice; ages:42 39 51 44)
 1b
 ```
+
 Table syntax can declare one or more columns of a table as a _key_. The values of the key column/s of a table are unique. 
+
 ```q
 q)([names:`bob`carol`bob`alice;city:`NYC`CHI`SFO`SFO]; ages:42 39 51 44)
 names city| ages
@@ -195,6 +216,7 @@ alice SFO | 44
 A [namespace](https://en.wikipedia.org/wiki/Namespace) is a container or context within which a name resolves to a unique value. Namespaces are siblings of the _default namespace_ and are designated by a dot prefix. 
 
 The default kdb+ session has built-in namespaces, e.g. `.h`, `.Q` and `.z`. Namespaces with 1-character names – of either case – are reserved for use by Kx. 
+
 ```q
 q).z.p                         / UTC timestamp
 2017.02.01D14:58:38.579614000
@@ -272,6 +294,7 @@ The following reserved words denote functions that are _not_ also operators.
 ## Operators
 
 Operators are primitive binary functions that may be applied infix. 
+
 ```q
 q)|[2;3]                 / maximum, prefix form
 3
@@ -282,10 +305,12 @@ q)rotate[2;0 1 2 3 4 5]  / prefix form
 q)2 rotate 0 1 2 3 4 5   / infix form
 2 3 4 5 0 1
 ```
+
 Operators are denoted by glyphs or reserved words or both – see note below on _minimum_ and _maximum_. 
 (They cannot be defined using the [lambda notation](syntax/#definition).) 
 
 ### Glyphs
+
 <table class="kx-compact" markdown="1">
 <tr><td>[`=`](comparison)</td><td>[equal](comparison)</td><td>[`<>`](comparison)</td><td>[not equal](comparison)</td><td>[`~`](comparison)</td><td>[match](comparison)</td></tr>
 <tr><td>[`<`](comparison)</td><td>[less than](comparison)</td><td>[`<=`](comparison)</td><td>[less than or equal](comparison)</td><td>[`>`](comparison)</td><td>[greater than](comparison)</td><td>[`>=`](comparison)</td><td>[greater than or equal](comparison)</td></tr>
@@ -296,6 +321,7 @@ Operators are denoted by glyphs or reserved words or both – see note below on
 </table>
 
 !!! note "Minimum and maximum"
+
     The _minimum_ operator is denoted by both the `&` glyph and the reserved word `and`. The _maximum_ operator is denoted by both the `|` glyph and the reserved word `or`. 
 
 
@@ -328,12 +354,14 @@ The following reserved words denote operators.
 ## Adverbs 
 
 [Adverbs](adverbs) are primitive higher-order functions: they return _derivatives_ (derived functions). They are denoted by six overloaded glyphs: `'`, `/`, `\`, `':`, `/:` and `\:`. 
+
 ```q
 q)+/[2 3 4]  / reduce 2 3 4 with +
 9
 q)*/[2 3 4]  / reduce 2 3 4 with *
 24
 ```
+
 <i class="fa fa-hand-o-right"></i> [Adverbs](adverbs), [Adverb syntax](syntax/#adverbs)
 
 
@@ -348,14 +376,17 @@ A view is a calculation that is re-evaluated only if the values of the underlyin
 Views can help avoid expensive calculations by delaying propagation of change until a result is demanded. 
 
 The syntax for the definition is
+
 ```q
 q)viewname::[expression;expression;…]expression
 ```
+
 The act of defining a view does not trigger its evaluation.
 
 A view should not have side-effects, i.e. should not update global variables. 
 
 !!! warning "In functions"
+
     Inside a lambda, `::` assigns a global variable. It does not define a view.
 
 <i class="fa fa-hand-o-right"></i> [Views tutorial](/tutorials/views), [`view`](metadata/#view), [`views`](metadata/#views), [`.Q.view`](dotq/#qview-subview) (subview) 
@@ -365,6 +396,7 @@ A view should not have side-effects, i.e. should not update global variables.
 ## System commands
 
 Expressions beginning with `\` are [system commands](syscmds) or multiline comments (see above). 
+
 ```q
 q)/ load the script in file my_app.q
 q)\l my_app.q

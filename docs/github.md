@@ -114,6 +114,7 @@ about new repositories.</div>
 						(Leslie Goldsmith)
 					</a></span>
 </td>
+</tr>
 <tr>
 <td class="nowrap"><a href="https://github.com/CharlesSkelton//studio">studio</a></td>
 <td>A rapid-development environment for q. 
@@ -628,6 +629,7 @@ about new repositories.</div>
 						(Juan Lasheras)
 					</a></span>
 </td>
+</tr>
 <tr>
 <td class="nowrap">[mlq](https://github.com/zakoud/mlq)</td>
 <td>Machine Learning for q <span class="author"><a href="https://github.com/zakoud?tab=repositories">

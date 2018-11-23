@@ -1,29 +1,19 @@
 Q functionality can be extended using dynamically-loaded modules. 
 
 To make a function `foo` defined in a shared object `bar.so` available in a q session, we use [2:](/ref/filenumbers/#2-c-shared-objects) to load the function dynamically.
+
 ```q
 q)foo:`bar 2:(`foo;n)
 ```
+
 where `n` is the number of arguments that `foo` accepts.
 
 If a path to `bar` is specified, kdb+ will first attempt to load `bar` from that directory, and if `bar` is not found, then it will try the default directory.
 
 If the shared library is not to be loaded from the default directory, then (on Unix) `LD_LIBRARY_PATH` should include the directory containing the shared library, and the path to `bar` must be specified.
 
-<!-- 
-If no path to `bar` is specified, kdb+ will attempt to load `bar` from the default directory.
-
-Note that if no path to `bar` is specified, q will attempt to load `bar.[so|dll]` from the current working directory and then the default directory 
-```
-$QHOME/\[l|w|s|v|m\]\[32|64\] 
-```
-where l=Linux, w=Windows, m=macOS, s=Solaris(SPARC), v=Solaris(x86) and 32=32-bit, 64=64-bit. e.g. `$QHOME/l32`).
-
-If a path to `bar` is specified, q will attempt to load `bar` from that directory, and then the default directory.
-
-If the shared library is _not_ to be loaded from the default directory, then (on Unix) `LD_LIBRARY_PATH` should include the directory containing the shared library.
- -->
 !!! warning "Working directory not in `LD_LIBRARY_PATH`"
+
     A common error is that, during development, the shared library might exist in _both_ the current working directory and the default directory, in which case q attempts to load the shared library from the current working directory but fails if `LD_LIBRARY_PATH` does not include the current working directory.
 
 In this article we explain how to write functions in C that can be used in this manner.
@@ -31,30 +21,36 @@ In this article we explain how to write functions in C that can be used in this 
 ## Compiling extension modules
 
 ### Windows
+
 ```powershell
 cl /LD bar.c bar.def q.lib
 ```
 
 
 ### Linux
+
 ```bash
 gcc -shared -fPIC bar.c -o bar.so
 ```
 
 
 ### Solaris
+
 ```bash
 gcc -G -fPIC  bar.c -o bar.so
 ```
 
 
 ### macOS
+
 ```bash
 gcc -bundle -undefined dynamic_lookup bar.c -o bar.so
 ```
+
 The resulting binary should be placed in the same directory as the q executable. Solaris x86\_64 may require `-nostdlib` as that lib may not have been pic-compiled. MacOS seems to require explicit `-m64` flag for 64-bit builds.
 
 !!! warning "Static libraries"
+
     The C-API functions (e.g. `kj`, `kf`, etc) are dynamically linked when loading your shared library into q, hence you should not link with the static libraries c.o, c.obj or c.lib/c.dll when creating a shared library to load into q.
 
 
@@ -68,6 +64,7 @@ and familiarity with [C client for q](/interfaces/c-client-for-q).
 `add()` adds two q integers and returns the result. The code is portable across all platforms supported by q.
 
 **add.c**
+
 ```c
 #include"k.h"
 #ifdef __cplusplus
@@ -85,24 +82,29 @@ K add(K x,K y)
 }
 #endif
 ```
+
 Note that if compiling C (not C++), you may omit the `extern "C"`.
 
 ### Linux
+
 ```bash
 gcc -shared -fPIC -DKXVER=3 add.c -o add.so
 ```
 
 
 ### Solaris
+
 ```bash
 gcc -G -fPIC -DKXVER=3 add.c -o add.so
 ```
 
 
 ### macOS
+
 ```bash
 gcc -bundle -undefined dynamic_lookup -DKXVER=3 add.c -o add.so
 ```
+
 The resulting binary may be placed in the same directory as the q executable.
 Solaris x86\_64 may require `-nostdlib` as that lib may not have been pic-compiled.
 
@@ -114,17 +116,22 @@ MacOS seems to require explicit `-m64` flag for 64-bit builds.
 An additional file (add.def) is required, unless you add `declspec`s to the code.
 
 **add.def**
+
 ```def
 EXPORTS
 add
 ```
+
 To ensure that the linker can find `kj()`, we link with <i class="fa fa-github"></i> [KxSystems/kdb/w32/q.lib](https://github.com/KxSystems/kdb/blob/master/w32/q.lib) or [KxSystems/kdb/w64/q.lib](https://github.com/KxSystems/kdb/blob/master/w64/q.lib) The .lib contains stub code that links to the `kj()` function in q.exe.
 
-Now, with k.h, add.c, add.def, q.lib we can build a C extension:
+Now, with `k.h`, `add.c`, `add.def`, `q.lib` we can build a C extension:
+
 ```dos
 cl /LD  /DKXVER=3 add.c add.def q.lib
 ```
+
 Now, with q in your path and your current directory containing `add.dll`:
+
 ```q
 q)(`add 2:(`add;2))[3;4]
 7
@@ -132,11 +139,13 @@ q)(`add 2:(`add;2))[3;4]
 
 
 ### Windows: MinGW-64
+
 ```dos
 /c/q$ echo 'LIBRARY q.exe'>q.def;  echo EXPORTS>>q.def;  nm -p w32/q.lib |egrep 'T _' |sed 's/0* T _//' >>q.def
 /c/q$ dlltool -v -l libq.a -d q.def
 /c/q$ gcc -shared -DKXVER=3 add.c -L. -lq -o add.dll
 ```
+
 Tested using [MinGW-64](http://mingw-w64.sourceforge.net/) with q/w32.
 
 
@@ -158,6 +167,7 @@ Some implementations tied the rate of increase of the register to the operating 
 Applications should rarely depend directly on the TSC for timekeeping, and instead use the applicable operating system calls. However, the extreme granularity (around a third of a nanosecond on a 3GHz processor) of the count is useful in certain situations where small instruction sequences need to be timed, or events logged with a very fine-grained timestamp. Note that in the latter case the TSC value cannot be used by itself as a timestamp due to multiple TSC registers being in the system, TSC drift, and 64-bit rollover.
 
 The value of the register is read in the following C code segment using a GCC-compatible inline assembly directive to execute the RDTSC instruction. The value is then wrapped as a “J” value in a K object, with potential loss of accuracy (the J type is the largest integral type wrappable in a K object).
+
 ```c
 #include <k.h>
 
@@ -177,15 +187,21 @@ K q_read_cycles_of_this_cpu(K x)
   return kj((J)reading);
 }
 ```
+
 Note that the function takes and returns a K object. At least one K argument is required for integration into q. We compile as follows:
+
 ```bash
 $ cc -I. -fPIC -shared -o ~/q/l64/cpu.so cpu.c
 ```
+
 and the function may be loaded into q:
+
 ```q
 read_cycles:`cpu 2:(`q_read_cycles_of_this_cpu;1)
 ```
+
 A sample execution which counts the cycles taken between two executions of function:
+
 ```q
 q)read_cycles[]-read_cycles[]
 1377j
@@ -195,6 +211,7 @@ q)read_cycles[]-read_cycles[]
 ### Reading CPU frequency on Linux
 
 Under the Linux operating system, the file /proc/cpuinfo contains many useful pieces of information on the processor cores in the system. Here we illustrate reading the current operating frequency of the first core found in this file. Note that the operating frequency may change on recent IA-32 implementations so this reading is valid only at the instant it was taken. The following function:
+
 ```c
 #include <fcntl.h>
 #include <string.h>
@@ -228,13 +245,17 @@ K q_get_first_cpu_frequency(K x)
   return kf(frequency);
 }
 ```
+
 opens and parses the processor information file and extracts the first frequency reading. This is then wrapped as a double precison floating point number in a K object and returned.
 
 Compile as follows, and place in the l64 directory (which is searched for extensions by default):
+
 ```bash
 $ cc -I. -fPIC -DKXVER=3 -shared -o $QHOME/l64/cpu.so cpu.c
 ```
+
 Then at a q prompt, we can load the function and use it to find the current processor frequency:
+
 ```q
 q)cpu_frequency:`cpu 2:(`q_get_first_cpu_frequency;1)
 q)cpu_frequency[]
@@ -245,6 +266,7 @@ q)cpu_frequency[]
 ### Reading CPU frequency on macOS
 
 MacOS does not have /proc interface. One can create one in user space using [MacFUSE](http://osxbook.com/book/bonus/chapter11/procfs), but it is easier to use `sysctl`:
+
 ```c
 #include <sys/types.h>
 #include <sys/sysctl.h>
@@ -265,6 +287,7 @@ q)cpuf[]
 ## High-precision wall time on Linux
 
 The built-in `.z.p` currently returns up to &mu;S, as returned by `gettimeofday`. For those who would like higher precision, below is a possible solution. Note that cores on a multicore machine can each have slightly different times.
+
 ```c
 #include<time.h>
 K getTime(K x){struct timespec ts;clock_gettime(CLOCK_REALTIME,&ts);R ktj(-KP,(ts.tv_sec-10957*86400)*1000000000LL+ts.tv_nsec);}
@@ -274,6 +297,7 @@ K getTime(K x){struct timespec ts;clock_gettime(CLOCK_REALTIME,&ts);R ktj(-KP,(t
 ## Generating sequential numbers (or sets of)
 
 Here’s a simple method to generate sequential numbers in a thread-safe manner.
+
 ```q
 q){x set`:./seq 2:x,y}[`seq;1]; / bind to the shared lib
 q)seq[] / no arg means generate just 1 number
@@ -285,6 +309,7 @@ q)seq 6 // generate next 6 numbers
 q)seq 10
 8 9 10 11 12 13 14 15 16 17
 ```
+
 ```c
 // compile with gcc -DKXVER=3 seq.c -seq.so -shared -fPIC -O2
 #include<inttypes.h>
@@ -307,9 +332,11 @@ K seq(K x){
 
 A little bit of fun – usually the OK LED on the Raspberry Pi flashes whenever there is disk I/O. 
 You can also control it through mapping the GPIO memory, and writing directly to it as below.
+
 ```q
 q){x set`:./a 2:x,1}each`init`led  / here it expects shared lib name is a.so
 ```
+
 ```c
 // btw, the following c libs are useful for accessing gpio 
 // http://www.open.com.au/mikem/bcm2835
