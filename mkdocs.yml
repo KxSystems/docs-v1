@@ -335,4 +335,5 @@ pages:
       - Typography: about/sg/typography.md
       - Terminology: about/sg/terminology.md
     - License agreements:
+      - AWS: license/aws.md
       - GCP: license/gcp.md
