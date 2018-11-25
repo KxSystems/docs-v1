@@ -496,14 +496,22 @@ q)value("{x+y}";1;2)
 ```
 The string form can be useful as a kind of ‘prepared statement’ from the Java client API since the Java serializer doesn’t support lambdas and verbs.
 
+
 !!! note "`value` and `get`"
+
     The function `value` is the same as [`get`](filewords/#get). By convention `get` is used for file I/O but the two are interchangeable.
+
     <pre><code class="language-q">
     q)get "2+3"                / same as value
     5
     q)value each (get;value)   / same internal code
     19 19
     </code></pre>
+
+
+!!! tip "Local values in suspended functions"
+
+    See changes since V3.5 that support [debugging](debug.md#debugger).
 
 
 ## `view`
