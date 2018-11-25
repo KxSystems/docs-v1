@@ -1,6 +1,7 @@
 Q-SQL expressions have their own syntax rules, with optional dependent clauses, such as `from` and `where`. Q-SQL column lists are comma-separated lists of column names, not symbol vectors, and can include definitions of new, _derived_ columns. 
 
 !!! note "Call by value, call by reference"
+
     In Q-SQL expressions, where a table is called
 
     - by value, the expression returns a result
@@ -437,6 +438,31 @@ a b
 0 2
 ```
 
+
+### _cond_
+
+The tertiary conditional _cond_ is not supported inside q-SQL expressions.
+
+```q
+q)u:([]a:raze ("ref/";"kb/"),\:/:"abc"; b:til 6)
+q)select from u where a like $[1b;"ref/*";"kb/*"]
+'rank
+  [0]  select from u where a like $[1b;"ref/*";"kb/*"]
+                                  ^
+```
+
+Enclose in a lambda
+
+```q
+q)select from u where a like {$[x;"ref/*";"kb/*"]}1b
+a       b
+---------
+"ref/a" 0
+"ref/b" 2
+"ref/c" 4
+```
+
+or use the [_vector conditional_](lists.md#vector-conditional) instead.
 
 ## `update`
 

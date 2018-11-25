@@ -39,6 +39,11 @@ q)$[0;a;r;b;c]
 q)    $[r;b;c]
 ```
 
+!!! warning "Q-SQL"
+
+    Not supported inside `select` and other q-SQL expressions.
+    See [_vector conditional_](lists.md#vector-conditional) as an alternative.
+
 
 ## `do`
 
