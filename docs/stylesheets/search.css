@@ -29,12 +29,12 @@ h1 {
 h2 {
 	font-family: "Georgia", serif;
 	font-size: 1.8em;
-	margin: 1rem 0 1.6rem;
+	margin: 1rem 0 0;
 	line-height: 1.4;
 }
 
 dl {
-	font-size: 1.6rem;
+	font-size: 0;
 	line-height: 1.6;
 	margin: 1em 1em 0 0;
 }
@@ -53,14 +53,23 @@ dd.href {
 p {
 	/* No results */
 	font-size: 1.4em;
-	margin: 1em;
 }
 p.colophon {
         color: gray;
         font-size: 1em;
         margin-top: 2em;
 }
-
+p.extract {
+	color: rgba(0,0,0,.5);
+	margin-top: .5rem;
+}
+p.more {
+	color: rgba(0,0,0.8);
+	margin-top: .5rem;
+}
+p.path {
+	color: rgb(0,128,0);
+}
 ul {
 	border: 1px solid #CCC;
 	border-radius: 5px;
@@ -104,6 +113,7 @@ input {
 	font-size: 1.2em;
 	margin: 0 1em;
 }
+
 #kx-logo {
     position: absolute; top: 12px; left: 12px;
 }
@@ -111,9 +121,13 @@ input {
     width: 25px;
 }
 
+#kxsearch-colophon {
+	margin: 2em;
+}
 #kxsearch-results-wrapper {
-	border: 1px solid red;
-	padding: 5px;
+	margin: 0 auto;
+	max-width: 60rem;
+	padding: 10px;
 }
 /*#kxsearch-results-wrapper {
         display: flex; 
