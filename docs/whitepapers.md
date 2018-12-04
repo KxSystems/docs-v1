@@ -35,6 +35,7 @@ title: Index of whitepapers
 
 * Streaming **analytics**: detecting card counters in Blackjack &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/card-counters-in-blackjack.pdf)
 * Kdb+ in **astronomy** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/kdb_in_astronomy.pdf)
+* ==new== [Storing and exploring the **Bitcoin blockchain**](wp/blockchain/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/blockchain/blockchain-a4.pdf), [US&nbsp;Letter](wp/blockchain/blockchain-us.pdf)</small>
 * Sample aggregation engine for **market depth** &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/sample_aggregation_engine_for_market_depth.pdf)
 * [**Market Fragmentation**: a kdb+ framework for multiple liquidity sources](wp/market-fragmentation/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/market-fragmentation/market-fragmentation-a4.pdf), [US&nbsp;Letter](wp/market-fragmentation/market-fragmentation-us.pdf)</small>
 * [**Signal processing and q**](wp/signal-processing/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/signal-processing/signal-processing-a4.pdf), [US&nbsp;Letter](wp/signal-processing/signal-processing-us.pdf)</small>

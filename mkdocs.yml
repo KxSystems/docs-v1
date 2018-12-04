@@ -300,6 +300,7 @@ pages:
     - Windows Service: cookbook/windows-service.md
   - White papers: 
     - Index: whitepapers.md
+    - Bitcoin blockchain: wp/blockchain/index.md
     - C# GUIs: wp/gui/index.md
     - Data visualization: wp/data-visualization/index.md
     - Disaster recovery: wp/disaster-recovery/index.md
