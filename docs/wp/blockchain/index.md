@@ -244,8 +244,8 @@ txindex=1
 # [rpc]
 # Accept command line and JSON-RPC commands.
 server=1
-rpcuser=&lt;username&gt;
-rpcpassword=&lt;password&gt;
+rpcuser=<username>
+rpcpassword=<password>
 ```
 
 Start up the Bitcoin Core daemon.
