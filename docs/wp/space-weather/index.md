@@ -1,14 +1,12 @@
 ---
-title: NASA Frontier Development Lab – Space Weather Challenge
+title: NASA Frontier Development Lab Space Weather Challenge
 keywords: kdb+, q, space, NASA, machine learning
 author: Deanna Morgan
 date: November 2018
 ---
 
-# Space Weather Challenge
+# NASA Frontier Development Lab Space Weather Challenge
 
-
-## NASA Frontier Development Lab
 
 The NASA Frontier Development Lab (FDL) is an applied artificial intelligence (AI) research accelerator, hosted by the SETI Institute in partnership with NASA Ames Research Centre. The programme brings commercial and private partners together with researchers to solve challenges in the space science community using new AI technologies.
 
@@ -54,7 +52,7 @@ During the initial stages of pre-processing, the following steps were taken:
 ### CHAIN
 
 -   Only data with a lock-time of greater than 200 seconds was included to account for ‘loss of lock’ events, where receivers stop receiving satellite signals due to significant signal irregularities. [6]
--   Satellites travelling at low elevations experience ‘multi-path’ irregularities where signals have to travel longer distances through the ionosphere and are therefore reflected and follow multiple paths before reaching receivers. [7] To differentiate between multi-path and scintillation irregularities, data with an elevation of greater than 30 degrees was selected and the phase and amplitude scintillation indices ($\sigma_\phi$ and S4 respectively) were projected to the vertical.
+-   Satellites travelling at low elevations experience ‘multi-path’ irregularities where signals have to travel longer distances through the ionosphere and are therefore reflected and follow multiple paths before reaching receivers. [7] To differentiate between multi-path and scintillation irregularities, data with an elevation of greater than 30 degrees was selected and the phase and amplitude scintillation indices (&sigma;<sub>&phi;</sub> and S4 respectively) were projected to the vertical.
 -   Latitude and longitude for each station were also added to the data [2].
 -   The median value was calculated for each feature at each timestep.
 
@@ -140,7 +138,7 @@ dt                            doy cs  tec      dtec   SI    specSlope s4        
 
 ### Target data
 
-The occurrences of scintillation events are shown by sudden irregularities in a number of features, specifically the phase scintillation index, which was projected to the vertical throughout this work (`sigPhiVer`). As the baseline looks at predicting scintillation 1 hour ahead, the value of $\sigma_\phi$ 1 hour ahead of the current timestep, `sigPhiVer1hr`, was used as target data for the models.
+The occurrences of scintillation events are shown by sudden irregularities in a number of features, specifically the phase scintillation index, which was projected to the vertical throughout this work (`sigPhiVer`). As the baseline looks at predicting scintillation 1 hour ahead, the value of &sigma;<sub>&phi;</sub> 1 hour ahead of the current timestep, `sigPhiVer1hr`, was used as target data for the models.
 
 A phase scintillation event is said to be occurring when `sigPhiVer` has a value of greater than 0.1 radians. The target data is therefore assigned a value of 1 (positive class) if it has a value greater than 0.1 radians and 0 (negative class) if it has a value less than 0.1 radians. The percentage of scintillation events present in the SVM data are shown below.
 
@@ -165,15 +163,30 @@ As only 3% of the data represented scintillation occurring, it would have been e
 
 In addition to accuracy, the True Skill Statistic (TSS) has been used throughout this paper to evaluate model performance. The TSS calculates the difference between recall and the false positive rate and produces values ranging from -1 to 1, with 1 being the perfect score. [8]
 
-$$\begin{equation}TSS=\frac{TP}{TP+FN}-\frac{FP}{FP+TN}\end{equation}$$
+<div style="text-align: center" markdown="1">
+_TSS_ = (_TP_ &divide; (_TP_+_FN_)) – (_FP_ &divide; (_FP_+_TN_))
+</div>
 
-where $TP$, $TN$, $FP$ and $FN$ are true positives, true negatives, false positives and false negatives respectively.
+<!--
+$$\begin{equation}TSS=\frac{TP}{TP+FN}-\frac{FP}{FP+TN}\end{equation}$$
+-->
+where _TP_, _TN_, _FP_ and _FN_ are true positives, true negatives, false positives and false negatives respectively.
 
 
 ### Additional features
 
 Scintillation events are subject to diurnal and seasonal variations, caused by the inclination of the Earth in relation to the Sun. When either hemisphere of the Earth is tilted towards the Sun, increased solar radiation causes greater ionization in the upper atmosphere. This leads to higher scintillation indices and thus more scintillation events.[9] To account for such variations, the sine and cosine local time of day and day of year were added to the dataset. For the baseline, only the cosine day of year was added.
 
+<div style="text-align: center" markdown="1">
+_cosdoy_ = _cos_ ( (2&pi;_doy_) &div; _D<sub>tot</sub>_ )
+
+_sindoy_ = _sin_ ( (2&pi;_doy_) &div; _D<sub>tot</sub>_ )
+
+_costime_ = _cos_ ( (2&pi;_dt_) &div; _T<sub>tot</sub>_ )
+
+_sintime_ = _sin_ ( (2&pi;_dt_) &div; _T<sub>tot</sub>_ )
+</div>
+<!-- 
 $$cosdoy = cos{\frac{2 \pi doy}{D_{tot}}}$$
 
 $$sindoy = sin{\frac{2 \pi doy}{D_{tot}}}$$
@@ -181,8 +194,9 @@ $$sindoy = sin{\frac{2 \pi doy}{D_{tot}}}$$
 $$costime = cos{\frac{2 \pi dt}{T_{tot}}}$$
 
 $$sintime = sin{\frac{2 \pi dt}{T_{tot}}}$$
+-->
 
-where $doy$ is the day of year,  $D_{tot}$ is the number of days in the year (365 for the SVM model, 365.25 for the neural network model), $dt$ is the time in minutes and $T_{tot}$ is the total number of minutes in a day.
+where _doy_ is the day of year,  _D<sub>tot</sub>_ is the number of days in the year (365 for the SVM model, 365.25 for the neural network model), _dt_ is the time in minutes and _T<sub>tot</sub>_ is the total number of minutes in a day.
 
 ```q
 q)completeSVM:update cosdoy:cos 2*pi*doy%365 from completeSVM
@@ -191,7 +205,7 @@ q)completeSVM:update cosdoy:cos 2*pi*doy%365 from completeSVM
 
 ### Feature engineering
 
-To account for gaps in both feature and target data, rows containing nulls were dropped. As ML models are sensitive to inputs with large ranges, some features in the input data were $log(1+x)$ scaled (as defined in the SVM configuration table).
+To account for gaps in both feature and target data, rows containing nulls were dropped. As ML models are sensitive to inputs with large ranges, some features in the input data were _log_(1+_x_) scaled (as defined in the SVM configuration table).
 
 ```q
 q)completeSVM@:where not any flip null completeSVM
@@ -419,7 +433,7 @@ For this model, X data was exponentially weighted to give the most recent data t
 q)xdata:flip(reverse ema[.1]reverse@)each flip xdata
 ```
 
-Target data was log scaled to prevent negative predictions for $\sigma_\phi$, which is always positive. A train-test split of 80%/20% was again used.
+Target data was log scaled to prevent negative predictions for &sigma;<sub>&phi;</sub>, which is always positive. A train-test split of 80%/20% was again used.
 
 To overcome the small fraction of data representing scintillation events, oversampling was used on the training set. A random sample taken from the positive class was re-added to the training dataset, giving a final training set with 50% positive samples.
 
@@ -585,7 +599,7 @@ in the Capital Markets Training Program.
 
 [2] Canadian High Arctic Ionospheric Network: [Stations](http://chain.physics.unb.ca/chain/pages/stations/), accessed 30 October 2018.
 
-[3] [OMNI Web](ftp://spdf.gsfc.nasa.gov/pub/data/omni/), accessed 30 October 2018.
+[3] OMNI Web: <ftp://spdf.gsfc.nasa.gov/pub/data/omni/>, accessed 30 October 2018.
 
 [4] National Oceanic and Atmospheric Administration: [GOES SEM Data Files]( https://satdat.ngdc.noaa.gov/sem/goes/data/full/), accessed 30 October 2018.
 
@@ -593,10 +607,20 @@ in the Capital Markets Training Program.
 
 [6] Kintner, P., Ledvina, B. and de Paula, E. “GPS and ionospheric scintillations”, _Space Weather_, 5(9), 2007.
 
-[7] Tinin, M. and I.Knizhin, S. _Eliminating the Effects of Multipath Signal Propagation in a Smoothly Inhomogeneous Medium. Radiophysics and Quantum Electronics, 56(7), pp.413-421._, 2013.
+[7] Tinin, M. and I.Knizhin, S. “Eliminating the Effects of Multipath Signal Propagation in a Smoothly Inhomogeneous Medium”, _Radiophysics and Quantum Electronics_, 56(7), pp.413-421, 2013.
 
 [8] Bobra, M. and Couvidat, S. _Solar Flare Prediction Using SDO/HMI Vector Magnetic Field Data with a Machine-Learning Algorithm_, 2015.
 
-[9] Jin, Y., Miloch, W. J., Moen, J. I. AND Clausen, L. B. “Solar cycle and seasonal variations of the GPS phase scintillation at high latitudes”, _Journal of Space Weather and Space Climate_, 8, p.A48., 2018.
+[9] Jin, Y., Miloch, W. J., Moen, J. I. and Clausen, L. B. “Solar cycle and seasonal variations of the GPS phase scintillation at high latitudes”, _Journal of Space Weather and Space Climate_, 8, p.A48., 2018.
+
+
+### Code
 
 The code presented in this paper is available on GitHub at [kxcontrib/space-weather](https://github.com/kxcontrib/space-weather).
+
+
+### Acknowledgements
+
+I gratefully acknowledge the Space Weather 1 team at FDL – Danny Kumar, Karthik Venkataramani, Kibrom Ebuy Abraha and Laura Hayes – for their contributions and support.
+
+
