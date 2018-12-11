@@ -181,7 +181,7 @@ q)(til 5),/:0 1
     _Each-left_ combined with _each-right_
     <pre><code class="language-q">
     q){}0N!(til 4),\:/: til 4
-    ((0 0;1 0;2 0;3 0);(0 1;1 1;2 1;3 1);(0 2;1 2;2 2;3 2);(0 3;1 3;2 3;3 3))    
+    ((0 0;1 0;2 0;3 0);(0 1;1 1;2 1;3 1);(0 2;1 2;2 2;3 2);(0 3;1 3;2 3;3 3))
     </code></pre>
     resembles the result obtained by `cross`
     <pre><code class="language-q">
@@ -424,7 +424,9 @@ Where `f` is a **binary** function (or **matrix** – see below), the derivative
 <!-- `x`. --> 
 `x@/: {(1+x)#\:x} til count x`.
 Its result is a list of the same count, built up as follows:
-<code><pre>r<sub>0</sub> = x<sub>0</sub> r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0</pre></code>
+<pre><code class="language-txt">
+r<sub>0</sub> = x<sub>0</sub> r<sub>i</sub> = f[r<sub>i-1</sub>;x<sub>i</sub>] for i > 0
+</code></pre>
 
 Where `f\` is applied
 
@@ -519,3 +521,19 @@ q)2 total 3 4 5   /but not infix
     </code></pre>
 
 
+<!-- ## Ambivalent functions
+
+Some binary derivatives are _ambivalent_: unary application does not return a unary projection but takes the binary function’s identity element as `x`. 
+```q
+q)+/[2 3 4]
+9
+q)+/[0;2 3 4]  /0 is identity element for +
+9
+q)*/[2 3 4]
+24
+q)*/[1;2 3 4]  /1 is identity element for *
+24
+```
+The _identity element_ of a function is the value `x` such that, for all `y`, `y~f[x;y]`. 
+
+ -->
