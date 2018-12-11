@@ -1,7 +1,7 @@
 ## Reserved words
 
 <table class="kx-shrunk kx-tight" markdown="1">
-<tr><td>A</td><td>[`abs`](arith-integer/#abs "absolute value") [`acos`](trig/#acos "arc cosine") [`aj`](joins/#aj-aj0-asof-join "as-of join") [`aj0`](joins/#aj-aj0-asof-join "as-of join") [`all`](logic/#all "all nonzero") [`and`](logic/#and-minimum "minimum") [`any`](logic/#any "any item is non-zero") [`asc`](sort/#asc "ascending sort") [`asin`](trig/#asin "arc sine") [`asof`](joins/#asof "as-of operator") [`atan`](trig/#atan "arc tangent") [`attr`](metadata/#attr "attributes") [`avg`](stats-aggregates/#avg-average "arithmetic mean") [`avgs`](stats-aggregates/#avgs-averages "running averages")</td></tr>
+<tr><td>A</td><td>[`abs`](arith-integer/#abs "absolute value") [`acos`](trig/#acos "arc cosine") [`aj` `aj0` `ajf` `ajf0`](joins/#aj-aj0-ajf-ajf0-asof-join "as-of join") [`all`](logic/#all "all nonzero") [`and`](logic/#amp-and-minimum "minimum") [`any`](logic/#any "any item is non-zero") [`asc`](sort/#asc "ascending sort") [`asin`](trig/#asin "arc sine") [`asof`](joins/#asof "as-of operator") [`atan`](trig/#atan "arc tangent") [`attr`](metadata/#attr "attributes") [`avg`](stats-aggregates/#avg-average "arithmetic mean") [`avgs`](stats-aggregates/#avgs-averages "running averages")</td></tr>
 <tr><td>B</td><td>[`bin`](search/#bin-binr "binary search") [`binr`](search/#bin-binr "binary search right")</td></tr>
 <tr><td>C</td><td>[`ceiling`](arith-integer/#ceiling "lowest integer above") [`cols`](metadata/#cols "column names of a table") [`cor`](stats-aggregates/#cor-correlation "correlation") [`cos`](trig/#cos "cosine") [`count`](lists/#count "number of items") [`cov`](stats-aggregates/#cov-covariance "statistical covariance") [`cross`](lists/#cross "cross product") [`csv`](filewords/#csv "comma delimiter") [`cut`](lists/#cut "cut array into pieces")</td></tr>
 <tr><td>D</td><td>[`delete`](qsql/#delete "delete rows or columns from a table") [`deltas`](arith-integer/#deltas "differences between consecutive pairs") [`desc`](sort/#desc "descending sort") [`dev`](stats-aggregates/#dev-standard-deviation "standard deviation") [`differ`](comparison/#differ "flag differences in consecutive pairs") [`distinct`](search/#distinct "unique items") [`div`](arith-integer/#div "integer division") [`do`](control/#do "control word") [`dsave`](filewords/#dsave "save global tables to disk")</td></tr>
@@ -73,7 +73,7 @@
 <tr><td>[`<`](comparison/#six-comparison-operators)</td><td>[less than](comparison/#six-comparison-operators)</td><td>[`<=`](comparison/#six-comparison-operators)</td><td>[less than or equal](comparison/#six-comparison-operators)</td><td>[`>`](comparison/#six-comparison-operators)</td><td>[greater than](comparison/#six-comparison-operators)</td><td>[`>=`](comparison/#six-comparison-operators)</td><td>[greater than or equal](comparison/#six-comparison-operators)</td></tr>
 <tr><td>[`+`](arith-integer/#add)</td><td>[plus](arith-integer/#add)</td><td>[`-`](arith-integer/#-minus)</td><td>[minus](arith-integer/#-minus)</td><td>[`*`](arith-integer/#multiply)</td><td>[times](arith-integer/#multiply)</td><td>[`%`](arith-float/#divide)</td><td>[divided by](arith-float/#divide)</td></tr>
 <tr><td>[`#`](lists/#take)</td><td>[set attribute](lists/#set-attribute), [take](lists/#take)</td><td>[`,`](lists/#join)</td><td>[join](lists/#join)</td><td>`^`</td><td>[fill](lists/#fill), [coalesce](joins/#coalesce)</td><td>`_`</td><td>[drop](lists/#_-drop); [cut](lists/#_-cut)</td></tr>
-<tr><td>`|`</td><td>[maximum](arith-integer/#or-maximum), [`or`](logic/#or-maximum)</td><td>`&`</td><td>[minimum](arith-integer/#and-minimum), [`and`](logic/#and-minimum)</td></tr>
+<tr><td>`|`</td><td>[maximum](arith-integer/#or-maximum), [`or`](logic/#or-maximum)</td><td>`&`</td><td>[minimum `and`](logic/#amp-and-minimum)</td></tr>
 </table>
 
 
@@ -94,8 +94,6 @@ The following glyphs denote operators, functions or adverbs – according to use
 <tr><td class="kx-big kx-nowrap">`$`</td><td>[cast](casting/#cast), [tok](casting/#tok), [enum](enums/#enum), [pad](strings/#pad), [product](matrixes/#product), [`mmu`](matrixes/#mmu)</td><td>[cond](control/#cond)</td><td/></tr>
 <tr><td class="kx-big kx-nowrap">`:`</td><td>[assign/amend](syntax/#naming-and-assignment)</td><td>[return](syntax/#definition)</td><td/></tr>
 <tr><td class="kx-big kx-nowrap">`'`</td><td/><td>[signal](errors/#signal), [compose](adverbs/#compose)</td><td>[case](adverbs/#case), [each-both](adverbs/#each-both)</td></tr>
-<tr><td class="kx-big kx-nowrap">`\:`</td><td>[int to byte](casting/#int-to-byte)</td><td/><td>[each-left](adverbs/#each-left)</td></tr>
-<tr><td class="kx-big kx-nowrap">`/:`</td><td/><td/><td>[each-right](adverbs/#each-right)</td></tr>
 <tr><td class="kx-big kx-nowrap">`':`</td><td/><td/><td>[each-parallel](adverbs/#each-parallel), [each-prior](adverbs/#each-prior)</td></tr>
 <tr><td class="kx-big kx-nowrap">`/`</td><td/><td>(see note below)</td><td>[converge-repeat](adverbs/#converge-repeat), [over](adverbs/#over), [fold](adverbs/#fold)</td></tr>
 <tr><td class="kx-big kx-nowrap">`\`</td><td/><td>(see note below)</td><td>[converge-iterate](adverbs/#converge-iterate), [scan](adverbs/#scan)</td></tr>
@@ -127,7 +125,7 @@ The following glyphs denote operators, functions or adverbs – according to use
 
 ## Attributes
 
-```
+```txt
 `s  sorted     `u  unique
 `p  parted     `g  grouped
 ```
@@ -258,7 +256,7 @@ Nested types are 77+t (e.g. 78 is boolean. 96 is time.)
 
 **Cast and tok** `char$data:CHAR$string`
 
-```
+```txt
 date.(year month week mm dd)
 time.(hh minute second uu ss)
 milliseconds: "i"$time mod 1000
