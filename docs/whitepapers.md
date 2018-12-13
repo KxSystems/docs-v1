@@ -47,7 +47,8 @@ title: Index of whitepapers
 
 * **K-Nearest Neighbor classification and pattern recognition** with q &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/machine_learning_in_kdb.pdf)
 * [An introduction to **neural networks** with kdb+](wp/neural-networks/) &nbsp; <i class="fa fa-print"></i> <small>[A4](wp/an_introduction_to_neural_networks_with_kdb.pdf)</small>
-* ==new== [NASA Frontier Development Lab **Space Weather** Challenge](wp/space-weather/) &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/space-weather/space-weather-a4.pdf), [<small>US&nbsp;Letter</small>](wp/space-weather/space-weather-us.pdf)
+* [NASA Frontier Development Lab **Space Weather** Challenge](wp/space-weather/) &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/space-weather/space-weather-a4.pdf), [<small>US&nbsp;Letter</small>](wp/space-weather/space-weather-us.pdf)
+* ==new== [NASA Frontier Development Lab **Exoplanets** Challenge](wp/exoplanets/) &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/exoplanets/exoplanets-a4.pdf), [<small>US&nbsp;Letter</small>](wp/exoplanets/exoplanets-us.pdf)
 * [**Using embedPy to apply LASSO regression**](wp/embedpy-lasso/) &nbsp; <i class="fa fa-print"></i> [<small>A4</small>](wp/embedpy-lasso/embedpy-lasso-a4.pdf), [<small>US&nbsp;Letter</small>](wp/embedpy-lasso/embedpy-lasso-us.pdf)
 
 

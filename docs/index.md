@@ -18,13 +18,13 @@ Kdb+, from [Kx&nbsp;Systems](http://kx.com), is
 <div style="display: inline-flex; margin-left: 7px;" markdown="1">
 !!! tip "New"
 
+    <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [NASA Exoplanets Challenge](wp/exoplanets/)</p>
+    
     <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [Exploring the Bitcoin blockchain](wp/blockchain/)</p>
     
     <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [NASA Space Weather Challenge](wp/space-weather/)</p>
     
     <p style="text-align: center;" markdown="1"><i class="fa fa-map-o"></i> [embedPy and LASSO](wp/embedpy-lasso/)</p>
-    
-    <p style="text-align: center;" markdown="1"><i class="fa fa-share-alt"></i> [Machine-learning toolkit](ml/toolkit/)</p>
     
 </div>
 
