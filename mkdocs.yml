@@ -55,7 +55,7 @@ site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
 # config.site_name: 'code.kx.com'
 site_name: 'code.kx.com'
-site_url: 'http://code.kx.com'
+site_url: 'http://code.kx.com/q'
 # repo_name: 'GitHub'
 # repo_url: 'https://github.com/kxsystems/docs'
 theme: 
