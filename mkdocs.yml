@@ -55,7 +55,7 @@ site_author: 'Kx Systems'
 site_description: Resources for kdb+ programmers
 # config.site_name: 'code.kx.com'
 site_name: 'code.kx.com'
-site_url: 'http://code.kx.com'
+site_url: 'http://code.kx.com/v2'
 # repo_name: 'GitHub'
 # repo_url: 'https://github.com/kxsystems/docs'
 theme: 
@@ -169,19 +169,6 @@ pages:
   - Cloud: 
     - Amazon EC2: 
       - Migrating a kdb+ HDB to Amazon EC2: cloud/aws/index.md
-      # - In-house vs EC2: cloud/aws/in-house-vs-ec2.md
-      # - Historical data layouts: cloud/aws/historical-data-layouts.md
-      # - Data locality: cloud/aws/data-locality.md
-      # - Getting data into EC2: cloud/aws/getting-data-in.md
-      # - Security: cloud/aws/security.md
-      # - Getting data out of EC2: cloud/aws/getting-data-out.md
-      # - Storing HDB in S3: cloud/aws/storing-hdb-in-s3.md
-      # - Disaster recovery: cloud/aws/disaster-recovery.md
-      # - Licensing: cloud/aws/licensing.md
-      # - Encryption: cloud/aws/encryption.md
-      # - Benchmarking: cloud/aws/benchmarking.md
-      # - Observations: cloud/aws/observations.md
-      # - Network configuration: cloud/aws/network-configuration.md
       - A. Elastic Block Store (EBS): cloud/aws/app-a-ebs.md
       - B. EFS (NFS): cloud/aws/app-b-efs-nfs.md
       - C. Amazon Storage Gateway: cloud/aws/app-c-asg.md
@@ -204,11 +191,6 @@ pages:
     - Natural language processing: ml/nlp.md
     - embedPy:
       - Overview: ml/embedpy/index.md
-      # - Running Python code: ml/embedpy/running.md
-      # - EmbedPy objects: ml/embedpy/objects.md
-      # - Function calls: ml/embedpy/functions.md
-      # - Printing and help: ml/embedpy/printing.md
-      # - Closures and generators: ml/embedpy/closures.md
       - FAQ: ml/embedpy/faq.md
       - Reference: ml/embedpy/reference.md
     - JupyterQ: ml/jupyterq/index.md
@@ -305,18 +287,6 @@ pages:
     - Disaster recovery: wp/disaster-recovery/index.md
     - EmbedPy and LASSO: wp/embedpy-lasso/index.md
     - Java API: wp/java-api/index.md
-      # - API overview: wp/java-api/api.md
-      # - Models and type mapping: wp/java-api/models.md
-      # - Practical examples: wp/java-api/examples.md
-      # - Connecting to kdb+: wp/java-api/connecting.md
-      # - Extracting data from returned objects: wp/java-api/extracting-data.md
-      # - Creating and passing data objects: wp/java-api/data-objects.md
-      # - Reconnecting automatically: wp/java-api/reconnect.md
-      # - Kdb+ tickerplant overview: wp/java-api/tickerplant-overview.md
-      # - Tickerplant subscriptions: wp/java-api/tickerplant-subscribe.md
-      # - Tickerplant publishing: wp/java-api/tickerplant-publish.md
-      # - Connecting to Java: wp/java-api/connect-from-kdb.md
-      # - Conclusion : wp/java-api/conclusion.md
     - Market fragmentation: wp/market-fragmentation/index.md
     - Multi partitions: wp/multi-partitioned-dbs/index.md
     - Neural networks: wp/neural-networks/index.md

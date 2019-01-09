@@ -1,4 +1,4 @@
-x## Reserved words
+## Reserved words
 
 <table class="kx-shrunk kx-tight" markdown="1">
 <tr><td>A</td><td>[`abs`](arith-integer/#abs "absolute value") [`acos`](trig/#acos "arc cosine") [`aj`](joins/#aj-aj0-asof-join "as-of join") [`aj0`](joins/#aj-aj0-asof-join "as-of join") [`all`](logic/#all "all nonzero") [`and`](logic/#and-minimum "minimum") [`any`](logic/#any "any item is non-zero") [`asc`](sort/#asc "ascending sort") [`asin`](trig/#asin "arc sine") [`asof`](joins/#asof "as-of operator") [`atan`](trig/#atan "arc tangent") [`attr`](metadata/#attr "attributes") [`avg`](stats-aggregates/#avg-average "arithmetic mean") [`avgs`](stats-aggregates/#avgs-averages "running averages")</td></tr>

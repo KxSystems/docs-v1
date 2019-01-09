@@ -1,7 +1,7 @@
 /*
  * Custom script for code.kx.com/q
  * Author: stephen@kx.com
- * Version: 2018.11.14
+ * Version: 2018.12.20
  * https://gist.github.com/wpscholar/4637176#file-jquery-external-links-new-window-js-L4
  * Open all external links in a new window
  */
@@ -14,7 +14,8 @@ $(function() {
 	});
 	// var serviceRoot = "http://139.59.172.244"; // search engine on DigitalOcean VPS
 	// var serviceRoot = window.location.host; // queries revert to originating site for redirection by reverse proxy
-	var serviceRoot = 'https://code.kx.com/q/search'; // >>> reverse-proxy directive on Apache httpd
+	// var serviceRoot = 'https://code.kx.com/q/search'; // >>> reverse-proxy directive on Apache httpd
+	var serviceRoot = 'http://178.62.21.29/q/search'; // >>> reverse-proxy on Nginx at code.kx.v2 
 	var srchHandler =function( evt ) {
 		// console.log(evt.which);
 		if( evt.which===13 ) {
