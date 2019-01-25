@@ -85,6 +85,7 @@ The banner at the top of the aborted session contains machine-configuration info
 Your Designated Contact sends a copy of the banner to licadmin@kx.com to request a license file by return. 
 
 !!! info "Designated Contact"
+
     Each Kx customer designates to licadmin@kx.com a couple of technical people as the Designated Contacts for issues with kdb+, managing licenses and downloading software. 
 
 
@@ -113,7 +114,12 @@ If you are sharing use of a commercial license, you will probably want to set th
 The default location for the license key file is the `QHOME` folder. You do not have to keep the license key file there. You can use the environment variable `QLIC` to specify a different filepath.
 
 !!! tip "Folder not file"
-    Like `QHOME`, `QLIC` points to a folder, not a file. For example,<pre><code class="language-bash">$ QLIC='/Users/simon/q'</code></pre>
+
+    Like `QHOME`, `QLIC` points to a folder, not a file. For example,
+
+    <pre><code class="language-bash">
+    $ QLIC='/Users/simon/q'
+    </code></pre>
 
 
 ## Licensing server for kdb+ On Demand

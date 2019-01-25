@@ -32,10 +32,11 @@ Download the code from
 ### V0.2-beta -> V1.0
 
 - Attribute access from embedPy object 
-<pre><code class="language-q">
+
+```q
 q)obj\`ATTRNAME     / old
 q)obj\`:ATTRNAME    / new
-</code></pre>
+```
 
 - embedPy objects can be called directly without explicitly specifying the call return type, the default return type is an embedPy object
 
@@ -141,7 +142,7 @@ More commonly, embedPy objects are retrieved directly from Python using one of t
 
 function    | argument                                         | example
 ------------|--------------------------------------------------|-----------------------
-<code style="white-space: nowrap">.p.import</code> | symbol: name of a Python module or package, optional second argument is the name of an object within the module or package | <code style="white-space: nowrap">np:.p.import`numpy</code>
+<code style="white-space: nowrap">.p.import</code> | symbol: name of a Python module or package, optional second argument is the name of an object within the module or package | ``np:.p.import`numpy``
 `.p.get`    | symbol: name of a Python variable in `__main__`  | ``v:.p.get`varName``
 `.p.eval`   | string: Python code to evaluate                  | `x:.p.eval"1+1"`
 

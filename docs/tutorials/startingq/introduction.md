@@ -37,14 +37,6 @@ This site is the best resource for learning q, and includes:
 - [user-contributed repositories](https:///kxsystems.github.io)
 
 
-<!--
-### Kx Html Pages
-
-Some older, but still useful, html pages are at [kx.com/documentation.php](http://kx.com/documentation.php). 
-See in particular, Dennis Shasha’s <i class="fa fa-github"></i> [Kdb+ Database and Language Primer](https://github.com/KxSystems/kdb/blob/master/d/primer.htm).
--->
-
-
 ### Other material
 
 Several background articles and links can be found in the [Archive](/archive). For example, the Thalesians’ [Knowledge Base Kdb](http://www.thalesians.com/finance/index.php/Knowledge_Base/Databases/Kdb) has a good overview.
@@ -54,13 +46,6 @@ Several background articles and links can be found in the [Archive](/archive). F
 
 - The main discussion forum is the [k4 listbox](http://www.listbox.com/subscribe/?listname=k4). This is available only to licensed customers – please use a work email address to apply for access.
 - The [Kdb+ Personal Developers](http://groups.google.com/group/personal-kdbplus) forum is an open Google discussion group for users of the free 32-bit system.
-
-<!--
-### Additional files
-
-The [kx.com/q](http://www.kx.com/q) directory has various supporting files, for example the script sp.q referenced in this guide (which is also included with the free 32-bit system). These files are also copied to the svn repository, so for example, the sp.q script can also be found at [kx/kdb+/sp.q](source:kx/kdb%2B/sp.q "wikilink").
--->
-
 
 ## 1.4 Install free 32-bit system
 
@@ -81,12 +66,14 @@ Two sets of scripts are referenced in this guide:
 2. Other example files are in the <i class="fa fa-github"></i> [KxSystems/cookbook/start](https://github.com/KxSystems/cookbook/tree/master/start) directory. 
 
     Move the start directory under your q directory, i.e. q/start. For example, there should be a file:
-    ```
+
+    ```txt
     c:\q\start\buildhdb.q         / Windows
     ~/q/start/buildhdb.q          / Linux and macOS
     ```
 
 !!! tip "Text editor for Windows"
+
     <i class="fa fa-windows"></i> Since q source is in plain text files, it is worthwhile installing a good text editor such as Notepad++ or Notepad2.
 
 

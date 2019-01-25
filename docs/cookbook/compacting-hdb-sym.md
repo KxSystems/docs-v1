@@ -42,6 +42,7 @@ dates:files where files like "????.??.??";
 ```
 
 !!! tip
+
     Remember to `rm` the zym file at the end of processing.
 
 
@@ -57,6 +58,7 @@ It is the key to the default enums.
 
 Here's some multi-threaded (can run single threaded) and more memory-intensive but hugely faster sym file rewrite code that handles partitioned and splayed tables and par.txt. 
 Note you lose the `` `g#``, which isn't supported in threads, so you’ll have to apply it later.
+
 ```q
 system"l ." /load the HDB - can change this if you don't start Q from your hdb root
 allpaths:{[dbdir;table] / from dbmaint.q + an extra check for paths that exist (to support .Q.bv)
@@ -85,24 +87,31 @@ system"mv sym zym" /make backup of sym file
   0N!"re-enumerated ", string file;
   } peach symFiles
 ```
+
 [<i class="fa fa-download"></i> Multi-threaded sym rewrite code](assets/multi-threaded-sym-rewrite-code.q)
 
 !!! tip "Take backups!"
 
 !!! warning "Error writing file?"
+
     In the multi-threaded script, a `'cast` could happen if this line fails on a file:
     
-        allsyms:distinct raze{[file] :distinct @[value get@;file;`symbol$()] } peach symFiles; 
-        /symbol files we're dealing with - memory intensive
-    
+    <pre><code class="language-q">
+    allsyms:distinct raze{[file] :distinct @[value get@;file;`symbol$()] } peach symFiles; 
+    /symbol files we're dealing with - memory intensive
+    </code></pre>
+
     So perhaps check the integrity of your HDB (perhaps change the above line to help debug):
 
-        allsyms:distinct raze{[file] :distinct @[value get@;file;{0N!(x;y);`symbol$()}[file;]] } peach symFiles; 
+    <pre><code class="language-q">
+    allsyms:distinct raze{[file] :distinct @[value get@;file;{0N!(x;y);`symbol$()}[file;]] } peach symFiles; 
+    </code></pre>
 
     would print the file and error.
 
 
 !!! tip 
+
     The script deliberately has no `;` at the end of lines. 
     It’s important you understand what’s going on, not just run the whole thing blindly.
 

@@ -14,12 +14,16 @@ The items of `x` should be sorted ascending although `bin` does not verify that;
 
 The result `r` can be interpreted as follows: for an atom `y`, `r` is an integer atom whose value is either a valid index of `x` or `-1`. In general:
 
-    r[i]=-1            iff y[i]<x[0]
-    r[i]=i             iff x[i]<=y[i]<x[i+1]
+```txt
+r[i]=-1            iff y[i]<x[0]
+r[i]=i             iff x[i]<=y[i]<x[i+1]
+```
 
 and
 
-    r[j]=x bin y[j]    for all j in index of y
+```txt
+r[j]=x bin y[j]    for all j in index of y
+```
 
 Essentially `bin` gives a half-open interval on the left. `bin` is _right-atomic_, i.e. the result has the same shape as `y`.
 
@@ -66,11 +70,14 @@ q)\t t bin t
 Syntax: `distinct x`
 
 Returns the distinct (unique) items of `x`.
+
 ```q
 q)distinct 2 3 7 3 5 3
 2 3 7 5
 ```
+
 Returns the distinct rows of a table.
+
 ```q
 q)distinct flip `a`b`c!(1 2 1;2 3 2;"aba")
 a b c
@@ -78,13 +85,18 @@ a b c
 1 2 a
 2 3 b
 ```
+
 It does not use comparison tolerance:
+
 ```q
 q)\P 14
 q)distinct 2 + 0f,10 xexp -13
 2 2.0000000000001
 ```
-<i class="fa fa-hand-o-right"></i> [`.Q.fu`](dotq/#qfu-apply-unique) (apply unique)
+
+<i class="fa fa-hand-o-right"></i> 
+[`.Q.fu`](dotq/#qfu-apply-unique) (apply unique)
+
 
 ## `?` (find)
 
@@ -96,6 +108,7 @@ Where:
 - `y` is any data object
 
 returns the lowest index for which `y` matches an item of `x` – the ‘first occurrence’. If there is no match the result is the count of `x`. Comparisons are exact, and are not subject to comparison tolerance.
+
 ```q
 q)w:10 -8 3 5 -1 2 3
 q)w?-8
@@ -111,9 +124,11 @@ q)w[7]
 q)"abcde"?"d"
 3
 ```
+
 _Find_ is type-specific relative to `x`. Where:
 
 - `x` is a simple list and `y` a list whose atoms are all the same type as `x`, the result corresponds to `x` item-by-item.
+
 ```q
 q)rt:(10 5 -1;-8;3 17)
 q)i:w?rt
@@ -124,6 +139,7 @@ q)w[i]
 ```
 
 - `x` is a list of lists and `y` is a simple list, items of `x` are matched with the whole of `y`.
+
 ```q
 q)u:("abcde";10 2 -6;(2 3;`ab))
 q)u?10 2 -6
@@ -133,14 +149,18 @@ q)u?"abcde"
 ```
 
 - where `x` is a mixed list then items of `x` are matched with items of `y`.
+
 ```q
 q)u?(2 3;`ab)
 3 3
 ```
-In this case _find_ matches items of `x` with `2` `3` and `` `ab `` , not `(2 3;`ab) ``.
+
+In this case _find_ matches items of `x` with `2` `3` and `` `ab `` , not ``(2 3;`ab) ``.
 
 !!! Note "_Find_ is rank-sensitive"
+
     `x?y` can’t deal with mixed-rank `x`. If rank `x` is _n_ then `x?y` looks for objects of rank _n_-1.
+
     <pre><code class="language-q">
     2 3?2 3#til 6  / looks for rank 0 objects
     (0 1 2;4 5)?2 3#til 6 / looks for rank 1 objects
@@ -153,7 +173,9 @@ In this case _find_ matches items of `x` with `2` `3` and `` `ab `` , not `(2 3;
     </code></pre>
 
 !!! note "Searching tables"
+
     Where `x` is a table then `y` must be a compatible record (dictionary or list) or table. That is, each column of `x`, paired with the corresponding item of `y`, must be valid arguments of _find_.
+
     <pre><code class="language-q">
     q)\l sp.q
     q)sp?(\`s1;\`p4;200)
@@ -196,7 +218,12 @@ p2| bolt  green 17     paris
 p3| screw blue  17     rome
 p5| cam   blue  12     paris
 ```
-<i class="fa fa-hand-o-right"></i> [`except`](select/#except), [`inter`](select/#inter), [`union`](select/#union), [`within`](#within)
+
+<i class="fa fa-hand-o-right"></i> 
+[`except`](select/#except), 
+[`inter`](select/#inter), 
+[`union`](select/#union), 
+[`within`](#within)
 
 
 ## `within`
@@ -207,6 +234,7 @@ Syntax: `x within y` (uniform)
 Where `x` is an atom or list of sortable type/s and
 
 - `y` is an ordered pair (i.e. `(</)y` is true) of the same type, the result is a boolean for each item of `x` indicating whether it is within the inclusive bounds given by `y`.
+
 ```q
 q)1 3 10 6 4 within 2 6
 01011b
@@ -220,6 +248,7 @@ ccc
 ```
 
 - `y` is a pair of lists of length _n_, and `x` a list of length _n_ or an atom, the result is a boolean list of length _n_. 
+
 ```q
 q)5 within (1 2 6;3 5 7)
 010b
@@ -230,6 +259,10 @@ q)(1 3 10 6 4;"acyxmpu") within ((2;"b");(6;"r"))
 0100110b
 ```
 
-<i class="fa fa-hand-o-right"></i> [`except`](select/#except), [`in`](#in), [`inter`](select/#inter), [`union`](select/#union) 
+<i class="fa fa-hand-o-right"></i> 
+[`except`](select/#except), 
+[`in`](#in), 
+[`inter`](select/#inter), 
+[`union`](select/#union) 
 
 

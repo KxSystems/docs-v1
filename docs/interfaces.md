@@ -26,8 +26,8 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 
 <table class="kx-compact" markdown="1">
 <tr><td>FFI</td><td>[Using foreign functions with kdb+](/interfaces/ffi)</td></tr>
-<tr><td>Java</td><td>[Java client for kdb+](/interfaces/java-client-for-q)</td>
-<tr><td>Jupyter</td><td>[Jupyter kernel for kdb+](/ml/jupyterq) ==new==</td>
+<tr><td>Java</td><td>[Java client for kdb+](/interfaces/java-client-for-q)</td></tr>
+<tr><td>Jupyter</td><td>[Jupyter kernel for kdb+](/ml/jupyterq) ==new==</td></tr>
 <tr><td>Kafka</td><td>[Q client for Kafka](/interfaces/kafka)</td></tr>
 <tr><td>Python</td>
     <td>
@@ -53,7 +53,7 @@ The [Fusion interfaces](interfaces/fusion) to kdb+ are
 <tr><td>amCharts</td><td>:fa-github: [kxcontrib/cburke/amcharts](https://github.com/kxcontrib/cburke/tree/master/amcharts/)</td></tr>
 <tr><td>AQuery</td><td>:fa-github: [josepablocam/aquery](https://github.com/josepablocam/aquery) ==new==</td></tr>
 <tr><td>C</td><td>[C client for kdb+](/interfaces/c-client-for-q)</td></tr>
-<tr><td>CZMQ</td><td>:fa-github: [jaeheum/qzmq](https://github.com/jaeheum/qzmq)</i></td></tr>
+<tr><td>CZMQ</td><td>:fa-github: [jaeheum/qzmq](https://github.com/jaeheum/qzmq)</td></tr>
 <tr><td>C#</td><td>[C# client for kdb+](/interfaces/csharp-client-for-q/)<br/>
 :fa-github: [exxeleron/qSharp](https://github.com/exxeleron/qSharp)</td></tr>
 <tr>

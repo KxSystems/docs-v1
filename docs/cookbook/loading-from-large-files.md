@@ -6,7 +6,8 @@ Instead, we need to break the large CSV file into manageable chunks and process 
 ## Using `.Q.fs`
 
 Assume that our CSV file contains the following:
-```
+
+```csv
 2006-10-03, 24.5,  24.51, 23.79, 24.13, 19087300, AMD
 2006-10-03, 27.37, 27.48, 27.21, 27.37, 39386200, MSFT
 2006-10-04, 24.1,  25.1,  23.95, 25.03, 17869600, AMD
@@ -16,25 +17,33 @@ Assume that our CSV file contains the following:
 2006-10-06, 24.66, 24.8,  23.96, 24.01, 17299800, AMD
 2006-10-06, 27.76, 28,    27.65, 27.87, 36452200, MSFT
 ```
+
 If you call `.Q.fs` with the function `0N!`, you get a list with the rows as elements:
+
 ```q
 q).Q.fs[0N!]`:file.csv
 ("2006-10-03,24.5,24.51,23.79,24.13,19087300,AMD";"2006-10-03,27.37,27.48,27...
 387j
 ```
+
 You can get a list with the columns as elements like this:
+
 ```q
 q).Q.fs[{0N!("DFFFFIS";",")0:x}]`:file.csv
 (2006.10.03 2006.10.03 2006.10.04 2006.10.04 2006.10.05 2006.10.05 2006.10.06..
 387j
 ```
+
 Having that, the next step is to table it:
+
 ```q
 q).Q.fs[{0N! flip `date`open`high`low`close`volume`sym!("DFFFFIS";",")0:x}]`:file.csv
 +`date`open`high`low`close`volume`sym!(2006.10.03 2006.10.03 2006.10.04 2006...
 387j
 ```
+
 And finally we can insert each row into a table
+
 ```q
 q).Q.fs[{`trade insert flip `date`open`high`low`close`volume`sym!("DFFFFIS";",")0:x}]`:file.csv
 387j
@@ -50,7 +59,9 @@ date       open  high  low   close volume   sym
 2006.10.06 24.66 24.8  23.96 24.01 17299800 AMD
 2006.10.06 27.76 28    27.65 27.87 36452200 MSFT
 ```
+
 The above sequence has created the table in memory. As explained above, sometimes the data is too large to fit in RAM. What we can do is insert the rows directly into a table on disk, like this:
+
 ```q
 q)colnames: `date`open`high`low`close`volume`sym
 q).Q.fs[{`:newfile upsert flip colnames!("DFFFFIS";",")0:x}]`:file.csv
@@ -67,7 +78,9 @@ date       open  high  low   close volume   sym
 2006.10.06 24.66 24.8  23.96 24.01 17299800 AMD
 2006.10.06 27.76 28    27.65 27.87 36452200 MSFT
 ```
+
 To write to a partitioned database, some utility functions generalizing [`.Q.dpft`](/ref/dotq/#qdpft-save-table) are useful.
+
 ```q
 $ cat fs.q
 \d .Q
@@ -89,9 +102,11 @@ r:flip`date`open`high`low`close`volume`sym!("DFFFFIS";",")0:
 w:.Q.dcfgnt[`:db;`date;`sym;,;`stats]
 .Q.fs[w r@]`:file.csv
 ```
+
 ```bash
 $ q fs.q
 ```
+
 ```q
 KDB+ 2.7 2011.11.22 Copyright (C) 1993-2011 Kx Systems
 l64/
@@ -165,10 +180,12 @@ Data loaders should always have plenty of meaningful debug information. Each ste
 ### Example
 
 Run gencsv.q to build the raw data files. You can modify the config to change the size, location or number of files generated.
+
 ```bash
 kdb$ q gencsv.q 
 KDB+ 3.1 2014.02.08 Copyright (C) 1993-2014 Kx Systems
 ```
+
 ```q
 2014.02.25T14:21:00.477 writing 1000000 rows to :examplecsv/trades2014_01.csv for date 2014.01.01
 2014.02.25T14:21:02.392 writing 1000000 rows to :examplecsv/trades2014_01.csv for date 2014.01.02
@@ -182,11 +199,14 @@ KDB+ 3.1 2014.02.08 Copyright (C) 1993-2014 Kx Systems
 2014.02.25T14:23:34.404 writing 1000000 rows to :examplecsv/trades2014_03.csv for date 2014.03.30
 2014.02.25T14:23:36.113 writing 1000000 rows to :examplecsv/trades2014_03.csv for date 2014.03.31
 ```
-Run loader.q to load the data. You might want to modify the config at the top of the loader to change the HDB destination, compression options, and the size of the data chunks read at once.
+
+Run `loader.q` to load the data. You might want to modify the config at the top of the loader to change the HDB destination, compression options, and the size of the data chunks read at once.
+
 ```bash
 kdb$ q loader.q 
 KDB+ 3.1 2014.02.08 Copyright (C) 1993-2014 Kx Systems
 ```
+
 ```q
 2014.02.25T14:24:54.201 **** LOADING :examplecsv/trades2014_01.csv ****
 2014.02.25T14:24:55.116 Reading in data chunk
@@ -250,9 +270,11 @@ Aborting the load (e.g. Ctrl-c, `kill -9`, and errors such as `wsfull`) is gener
 ## In-memory enumeration
 
 With some loader scripts the enumeration step can become a bottleneck. One approach to this is to enumerate in-memory only, write the data to disk, then update the sym file on disk when done. The below function will enumerate in-memory rather than on-disk and can replace the call to `.Q.en.`
+
 ```q
 enm:{@[x;f where 11h=type each x f:key flip 0!x;`sym?]}  
 ```
+
 This may improve performance, but has the side effects that the loading is no longer parallelizable, and if the loader fails before it completes then all the newly loaded data must be deleted (as the enumerations will have been lost).
 
 ## Utilities

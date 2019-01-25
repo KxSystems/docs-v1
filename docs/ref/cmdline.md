@@ -334,9 +334,16 @@ Workspace limit in MB for the heap per thread. Default is 0: no limit.
 As reported by system command [`\w`](syscmds/#w-workspace) and utility [`.Q.w`](dotq/#qw-memory-stats).
 
 !!! tip "Other ways to limit resources"
+
     On Linux systems, administrators might prefer [cgroups](https://en.wikipedia.org/wiki/Cgroups) as a way of limiting resources.
 
-    On Unix systems, memory usage can be constrained using `ulimit`, e.g.<pre><code class="language-bash">$ ulimit -v 262144</code></pre>limits virtual address space to 256MB.
+    On Unix systems, memory usage can be constrained using `ulimit`, e.g.
+
+    <pre><code class="language-bash">
+    $ ulimit -v 262144
+    </code></pre>
+
+    limits virtual address space to 256MB.
 
 
 ## `-z` (date format)

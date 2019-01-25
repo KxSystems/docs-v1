@@ -1,6 +1,7 @@
 The `.h` namespace contains functions for converting files into various formats and for web-console display. 
 
 !!! warning "Reserved"
+
     The `.h` namespace is reserved for use by Kx, as are all single-letter namespaces. 
 
     Consider all undocumented functions in the namespace as its private API – and do not use them. 
@@ -33,6 +34,7 @@ Returns as a symbol a web color used by the web console.
 Syntax: `.h.cd x`
 
 CSV from data: where `x` is a table or a list of columns returns a matrix of comma-separated values.
+
 ```q
 q).h.cd ([]a:1 2 3;b:`x`y`z)
 "a,b"
@@ -62,6 +64,7 @@ q).h.cd (`a`b`c;1 2 3;"xyz")
 Syntax: `.h.ed x`
 
 Where `x` is a table, returns as a list of strings the XML for an Excel workbook. 
+
 ```q
 q).h.ed ([]a:1 2 3;b:`x`y`z)
 "<?xml version=\"1.0\"?><?mso-application progid=\"Excel.Sheet\"?>"
@@ -86,6 +89,7 @@ Creates an HTML page with two frames. Takes three string arguments: the title; t
 Syntax: `.h.ha[x;y]`
 
 Where `x` is the `href` attribute as a symbol atom or a string, and `y` is the link text as a string, returns as a string an HTML `A` element.
+
 ```q
 q).h.ha[`http://www.example.com;"Example.com Main Page"]
 "<a href=http://www.example.com>Example.com Main Page</a>"
@@ -111,6 +115,7 @@ q).h.hb["http://www.example.com";"Example.com Main Page"]
 Syntax: `.h.hc x`
 
 Where `x` is a string, returns `x` with any `<` chars escaped.
+
 ```q
 q).h.hc "<foo>"
 "&lt;foo>"
@@ -122,6 +127,7 @@ q).h.hc "<foo>"
 Syntax: `.h.he x`
 
 Where `x` is a string, escapes `"<"` characters, adds a `"'"` at the front, and returns an HTTP 400 error (Bad Request) with that content.
+
 ```q
 q).h.he "<rubbish>"
 "HTTP/1.1 400 Bad Request\r\nContent-Type: text/plain\r\nConnection: close\r\..
@@ -139,10 +145,12 @@ Where
 -   `z` is the error message (string) 
 
 returns as a string an HTTP error response.
+
 ```q
 q).h.hn["404";`txt;"Not found: favicon.ico"]
 "HTTP/1.1 404\r\nContent-Type: text/plain\r\nConnection: close\r\nContent-Len..
 ```
+
 <i class="fa fa-hand-o-right"></i> [Content types](#hty-mime-types)
 
 
@@ -151,6 +159,7 @@ q).h.hn["404";`txt;"Not found: favicon.ico"]
 Syntax: `.h.hp x`
 
 Where `x` is a list of strings, returns as a string a valid HTTP response displaying them.
+
 ```q
 q).h.hp("foo";"bar")
 "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nConnection: close\r\nContent-L..
@@ -162,6 +171,7 @@ q).h.hp("foo";"bar")
 Syntax: `.h.hr x`
 
 Where `x` is a string, returns a string of the same length filled with `"-"`.
+
 ```q
 q).h.hr "foo"
 "---"
@@ -194,6 +204,7 @@ Basic Marqdown formatting rules:
 Syntax: `.h.hta[x;y]`
 
 Where `x` is the element as a symbol atom, and `y` is a dictionary of attributes and values, returns as a string an opening HTML tag for element `x`. 
+
 ```q
 q).h.hta[`a;(`href`target)!("http://www.example.com";"_blank")]
 "<a href=\"http://www.example.com\" target=\"_blank\">"
@@ -205,6 +216,7 @@ q).h.hta[`a;(`href`target)!("http://www.example.com";"_blank")]
 Syntax: `.h.tac[x;y;z]`
 
 Where `x` is the element as a symbol atom, `y` is a dictionary of attributes and their values, and `z` is the content of the node as a string, returns as a string the HTML element. 
+
 ```q
 q).h.htac[`a;(`href`target)!("http://www.example.com";"_blank");"Example.com Main Page"]
 "<a href=\"http://www.example.com\" target=\"_blank\">Example.com Main Page</..
@@ -216,6 +228,7 @@ q).h.htac[`a;(`href`target)!("http://www.example.com";"_blank");"Example.com Mai
 Syntax: `.h.htc[x;y]`
 
 Where `x` is the HTML element as a symbol atom, and `y` is the content of the node as a string, returns as a string the HTML node. 
+
 ```q
 q).h.htc[`tag;"value"]
 "<tag>value</tag>"
@@ -227,6 +240,7 @@ q).h.htc[`tag;"value"]
 Syntax: `.h.html x`
 
 Where `x` is the body of an HTML document as a string, returns as a string an HTML document with fixed style rules. 
+
 ```html
 <html>
   <head>
@@ -239,6 +253,7 @@ Where `x` is the body of an HTML document as a string, returns as a string an HT
    </body>
 </html>
 ```
+
 ```q
 q).h.html "<p>Hello world!</p>"
 "<html><head><style>a{text-decoration:none}a:link{color:024C7E}a:visited{colo..
@@ -250,6 +265,7 @@ q).h.html "<p>Hello world!</p>"
 Syntax: `.h.http x`
 
 Where `x` is a string, returns `x` with embedded URLs beginning `"http://"` converted to HTML hyperlinks.
+
 ```q
 q).h.http "The main page is http://www.example.com"
 "The main page is <a href=\"http://www.example.com\">http://www.example.com</..
@@ -261,6 +277,7 @@ q).h.http "The main page is http://www.example.com"
 Syntax: `.h.hu x`
 
 Where `x` is a string, returns `x` with URI-unsafe characters replaced with safe equivalents.
+
 ```q
 q).h.hu "http://www.kx.com"
 "http%3a%2f%2fwww.kx.com"
@@ -279,6 +296,7 @@ Where `x` is a char vector, returns a mapping from characters to `%`*xx* escape 
 Syntax: `.h.hy[x;y]`
 
 Where `x` is a symbol atom and `y` is a string, returns as a string `y` as an HTTP response for content-type `x`.
+
 ```q
 q)show t:([]idx: 1 2 3 4 5;val: `a`b`c`d`e)
 idx val
@@ -311,6 +329,7 @@ q)\head test.txt
 Syntax: `.h.iso8601 x`
 
 Where `x` is nanoseconds since 2000.01.01 as an int atom, returns as a string a timestamp in ISO-8601 format.
+
 ```q
 q).h.iso8601 100
 "2000-01-01T00:00:00.000000100"
@@ -322,6 +341,7 @@ q).h.iso8601 100
 Syntax: `.h.jx[x;y]`
 
 Where `x` is an int atom, and `y` is the name of a table, returns a list of strings representing the records of `y`, starting from row `x`.
+
 ```q
 q)a:([] a:100*til 1000;b:1000?1000;c:1000?1000)
 q){(where x="<")_x}first .h.jx[0;`a]
@@ -372,6 +392,7 @@ Returns as a string the kx.com logo in HTML format.
 Syntax: `.h.nbr x`
 
 Where `x` is a string, returns `x` as the content of a `nobr` element.
+
 ```q
 q).h.nbr "foo bar"
 "<nobr>foo bar</nobr>"
@@ -383,6 +404,7 @@ q).h.nbr "foo bar"
 Syntax: `.h.pre x`
 
 Where `x` is a list of strings, returns `x` as a string with embedded newlines with a `pre` HTML element.
+
 ```q
 q).h.pre("foo";"bar")
 "<pre>foo\nbar\n</pre>"
@@ -394,6 +416,7 @@ q).h.pre("foo";"bar")
 Syntax: `.h.sa`
 
 Returns CSS style rules used in the web console.
+
 ```q
 q).h.sa
 "a{text-decoration:none}a:link{color:024C7E}a:visited{color:024C7E}a:active{c..
@@ -405,6 +428,7 @@ q).h.sa
 Syntax: `.h.sb`
 
 Returns CSS style rules used in the web console.
+
 ```q
 q).h.sb
 "body{font:10pt verdana;text-align:justify}"
@@ -416,11 +440,14 @@ q).h.sb
 Syntax: `.h.sc`
 
 Returns as a char vector a list of characters that do not need to be escaped in URIs.  
+
 ```q
 q).h.sc
 "$-.+!*'(),abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789"
 ```
-<i class="fa fa-hand-o-right"></i> [`.h.hu`](#hhu-uri-escape)
+
+<i class="fa fa-hand-o-right"></i> 
+[`.h.hu`](#hhu-uri-escape)
 
 
 ## `.h.td` (TSV)
@@ -442,6 +469,7 @@ q).h.td ([]a:1 2 3;b:`x`y`z)
 Syntax: `.h.text x`
 
 Where `x` is a list of strings, returns as a string, `x` with each item as the content of a `p` element. 
+
 ```q
 q).h.text("foo";"bar")
 "<p>foo</p>\n<p>bar</p>\n"
@@ -453,6 +481,7 @@ q).h.text("foo";"bar")
 Syntax: `.h.tx`
 
 Returns a dictionary of file types and corresponding conversion functions (`.h.cd`, `.h.td`, `.h.xd`, `.h.ed`).
+
 ```q
 q).h.tx
 raw | ,:
@@ -464,28 +493,30 @@ xls | k){ex eb es[`Sheet1]x}
 ```
 
 !!! tip "Streaming and static JSON"
+
     The result of ``.h.tx[`json]`` is designed for streaming as [JSON Lines](http://jsonlines.org/). For static JSON, enlist its argument:
 
-        q).h.tx[`json] ([] 0 1)  / JSON Lines
-        "{\"x\":0}"
-        "{\"x\":1}"
-        q).h.tx[`json] enlist ([] 0 1) / static JSON
-        "[{\"x\":0},\n {\"x\":1}]"
-        q)show t:flip`items`sales`prices!(`nut`bolt`cam`cog;6 8 0 3;10 20 15 20)
-        items sales prices
-        ------------------
-        nut   6     10
-        bolt  8     20
-        cam   0     15
-        cog   3     20
-        q).h.tx[`json] t  / JSON Lines
-        "{\"items\":\"nut\",\"sales\":6,\"prices\":10}"
-        "{\"items\":\"bolt\",\"sales\":8,\"prices\":20}"
-        "{\"items\":\"cam\",\"sales\":0,\"prices\":15}"
-        "{\"items\":\"cog\",\"sales\":3,\"prices\":20}"
-        q).h.tx[`json] enlist t // static JSON
-        "[{\"items\":\"nut\",\"sales\":6,\"prices\":10},\n {\"items\":\"bolt\",\"sale..
-
+    <pre><code class="language-q">
+    q).h.tx[`json] ([] 0 1)  / JSON Lines
+    "{\"x\":0}"
+    "{\"x\":1}"
+    q).h.tx[`json] enlist ([] 0 1) / static JSON
+    "[{\"x\":0},\n {\"x\":1}]"
+    q)show t:flip`items`sales`prices!(`nut`bolt`cam`cog;6 8 0 3;10 20 15 20)
+    items sales prices
+    ------------------
+    nut   6     10
+    bolt  8     20
+    cam   0     15
+    cog   3     20
+    q).h.tx[`json] t  / JSON Lines
+    "{\"items\":\"nut\",\"sales\":6,\"prices\":10}"
+    "{\"items\":\"bolt\",\"sales\":8,\"prices\":20}"
+    "{\"items\":\"cam\",\"sales\":0,\"prices\":15}"
+    "{\"items\":\"cog\",\"sales\":3,\"prices\":20}"
+    q).h.tx[`json] enlist t // static JSON
+    "[{\"items\":\"nut\",\"sales\":6,\"prices\":10},\n {\"items\":\"bolt\",\"sale..
+    </code></pre>
 
 
 ## `.h.ty` (MIME types)
@@ -493,6 +524,7 @@ xls | k){ex eb es[`Sheet1]x}
 Syntax: `.h.ty`
 
 Returns a dictionary of content types (e.g. `` `csv``, `` `bmp``, `` `doc``) and corresponding [Media Types](https://en.wikipedia.org/wiki/MIME).
+
 ```q
 q).h.ty
 htm | "text/html"
@@ -511,6 +543,7 @@ gif | "image/gif"
 Syntax: `.h.uh x`
 
 Where `x` is a string, returns `x` with `%`*xx* hex sequences replaced with character equivalents.
+
 ```q
 q).h.uh "http%3a%2f%2fwww.kx.com"
 "http://www.kx.com"
@@ -522,6 +555,7 @@ q).h.uh "http%3a%2f%2fwww.kx.com"
 Syntax: `.h.xd x`
 
 Where `x` is a table, returns as a list of strings, `x` as an XML table. 
+
 ```q
 q).h.xd ([]a:1 2 3;b:`x`y`z)
 "<R>"
@@ -537,6 +571,7 @@ q).h.xd ([]a:1 2 3;b:`x`y`z)
 Syntax: `.h.xmp x`
 
 Where `x` is a list of strings, returns as a string `x` as the newline-separated content of an HTML `xmp` element.
+
 ```q
 q).h.xmp("foo";"bar")
 "<xmp>foo\nbar\n</xmp>"
@@ -548,6 +583,7 @@ q).h.xmp("foo";"bar")
 Syntax: `.h.xs x`
 
 Where `x` is a string, returns `x` with characters XML-escaped where necessary. 
+
 ```q
 q).h.xs "Arthur & Co."
 "Arthur &amp; Co."
@@ -559,6 +595,7 @@ q).h.xs "Arthur & Co."
 Syntax: `.h.xt[x;y]`
 
 Where `x` is `` `json`` and `y` is a list of JSON strings, returns `y` as a list of dictionaries.
+
 ```q
 q).h.xt[`json;("{\"foo\":\"bar\"}";"{\"this\":\"that\"}")]
 (,`foo)!,"bar"

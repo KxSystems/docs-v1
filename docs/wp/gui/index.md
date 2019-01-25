@@ -259,11 +259,7 @@ public c(string h, int p, string u, string pw, int maxBufferSize)
 }
 ```
 
-We have specified a new variable `pw`, which is now being read into the
-byte stream along with `u`. In particular, it is `w(u + ":" + pw +
-"\x3")` that will be interpreted by `.z.pw` or the `-u` argument
-as a username and password. We can use a simple definition for `.z.pw`
-to query the users table whenever a connection is made through C#.
+We have specified a new variable `pw`, which is now being read into the byte stream along with `u`. In particular, it is `w(u + ":" + pw + "\x3")` that will be interpreted by `.z.pw` or the `-u` argument as a username and password. We can use a simple definition for `.z.pw` to query the users table whenever a connection is made through C#.
 
 This will return `0b` if the user does not have permission to access the
 process. Within C#, this will throw a KException with the message

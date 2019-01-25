@@ -15,12 +15,15 @@ Views can help avoid expensive calculations by delaying propagation of change un
 Views and their dependencies can be defined only in the default namespace.
 
 The syntax for the definition is
+
 ```q
 q)viewname::[expression;expression;…]expression
 ```
 
 !!! warning "Terminating semicolon"
+
     The result returned by a view is the result of the last expression in the list, just as in a lambda.
+
     <pre><code class="language-q">
     q)a: til 5
     q)uu:: a
@@ -31,9 +34,11 @@ q)viewname::[expression;expression;…]expression
     q)vv ~ (::)
     1b
     q)vv ~ {[];}[]
-    1b </code></pre>
+    1b 
+    </code></pre>
 
 The following defines a view called `myview` which depends on vars `a` and `b`.
+
 ```q
 q)myview::a+b
 q)a:1
@@ -41,11 +46,13 @@ q)b:2
 q)myview
 3
 ```
+
 Defining a view does not trigger its evaluation.
 
 A view should not have side-effects, i.e. should not update global variables. Although `;` is permitted at the end of the definition, it would mean the view returns `(::)`. As a view should have no side-effects, returning `(::)` would make the purpose of the view redundant.
 
 A view definition can be spread over multiple lines in a script as long as it is indented accordingly (e.g. exactly like a function definition). e.g.
+
 ```bash
 $cat v.q
 t:([]a:til 10)
@@ -55,6 +62,7 @@ $q v.q
 KDB+ 3.2 2014.08.26 Copyright (C) 1993-2014 Kx Systems
 m64/...
 ```
+
 ```q
 q)myview
 a
@@ -65,7 +73,9 @@ a
 3
 4
 ```
+
 Within a lambda, `::` amends a global variable. It does not define a view.
+
 ```q
 q)x:2
 q)y:3
@@ -87,6 +97,7 @@ q)v                /global variable, no longer depends on x
 ## How to list views
 
 Invoke the `views` function (or `\b`) to get a list of the defined views.
+
 ```q
 q)a::b+c
 q)d::b+a
@@ -100,7 +111,8 @@ q)views`
 Invalidated (pending) views are awaiting recalculation. 
 
 Invoking `\B` will return a list of pending views.
-```
+
+```q
 q)a::b+c
 q)\B
 ,`a
@@ -117,17 +129,21 @@ q)\B
 ## How to see the definition of a view
 
 The text definition of a view can be seen with ``view `viewname``.
+
 ```q
 q)a::b+c
 q)view`a
 "b+c"
 ```
+
 The following `view` command has the form `` `. `viewName``. Note the space between `` `.`` and `` `viewname``.
+
 ```q
 q)d::b+a
 q)`. `d
 b+a
 ```
+
 `value` on that reveals the underlying representation: 
 
 - (last result|::)
@@ -142,7 +158,9 @@ q)value`. `d
 `b`a
 "b+a"
 ```
+
 If previously evaluated, the last result can be seen here as the first element.
+
 ```q
 q)b:1;a:2
 q)d
@@ -153,7 +171,9 @@ q)value`. `d
 `b`a
 "b+a"
 ```
+
 A view which uses select/exec/update/delete is worth mentioning as it may not be immediately obvious what dependencies are present. e.g. in the following example, `t` is the only dependency, as `a` and `b` may be columns in `t`, or globals – this is not known until the `select` is evaluated and hence cannot be inferred as dependencies.
+
 ```q
 q)v::select from t where a in b
 q)value`. `v
@@ -162,7 +182,9 @@ q)value`. `v
 ,`t
 "select from t where a in b"
 ```
+
 If `a` or `b` are globals to be dependencies, a workaround is for these is to be mentioned at the beginning of the definition, e.g.
+
 ```q
 q)v::a;b;select from t where a in b
 q)value`. `v
@@ -171,7 +193,9 @@ q)value`. `v
 `a`b`t
 "a;b;select from t where a in b"
 ```
+
 If a function is used within a view, that does not become a dependency. The following view would not be invalidated unless the `f` were redefined.
+
 ```q
 q)v::f[]+1
 q)f:{42}
@@ -188,6 +212,7 @@ q)value`. `v
 ## Self-referencing views
 
 Self-referencing views are allowed since V3.2. A self-referencing view is a view that includes itself as part of the calculation. In such a case, the view uses its previous value as part of the evaluation if it exists, otherwise it signals `'loop`. e.g.
+
 ```q
 q)v::$[b;1;v+1]
 q)b:1;0N!v;b:0;v
@@ -195,13 +220,15 @@ q)v::$[b;1;v+1]
 q)v
 'loop
 ```
+
 From V3.2 view-loop detection is no longer performed during view creation; it is checked during the view recalc.
 
 
 ## Dot notation
 
 Views do not support dot notation.
-```
+
+```q
 q)t:.z.p
 q)t1::t
 q)t.date
@@ -214,11 +241,13 @@ q)t1.date
 ## Multithreading
 
 Views must be evalulated on the main thread, otherwise the calculation will signal `'threadview`. E.g. with q using 2 slave threads
+
 ```bash
 $q -s 2
 KDB+ 3.2 2014.08.26 Copyright (C) 1993-2014 Kx Systems
 m64/...
 ```
+
 ```q
 q)a::b+c
 q)b:c:1

@@ -90,8 +90,8 @@ function | purpose
 ---------|-------------------------------------------------------------------------------------
 `errno`  | return current `errno` global on \*nix OS
 `kfn`    | bind the function which returns and accepts K objects in current process. Similar to `2:`
-`ext`    | append shared library extension for current platform to library name. On Linux ```.ffi.ext[`libm]~`libm.so```
-`cvar`   | read global variable from the library ```.ffi.cvar`timezone```
+`ext`    | append shared library extension for current platform to library name. On Linux ``.ffi.ext[`libm]~`libm.so``
+`cvar`   | read global variable from the library ``.ffi.cvar`timezone``
 `ptrsize`| length of pointer in bytes on current platform
 `nil`    | null value on current platform
 
@@ -106,6 +106,7 @@ Bindings to [PCRE (POSIX variant)](https://www.pcre.org/original/doc/html/pcrepo
 `pcreposix` is a set of functions providing a POSIX-style API for the PCRE regular-expression 8-bit library.  
 
 !!! warning "Complex regular expressions"
+
     Complex regular expressions can be catastrophic, exhibiting
     [exponential run time](https://www.regular-expressions.info/catastrophic.html) 
     that leads to real [outages](http://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016).
@@ -115,6 +116,7 @@ Bindings to [PCRE (POSIX variant)](https://www.pcre.org/original/doc/html/pcrepo
 As any standard, PCRE POSIX has some [quirks](https://eli.thegreenplace.net/2012/11/14/some-notes-on-posix-regular-expressions) and differences between platforms ([Linux](https://linux.die.net/man/3/pcreposix)), which this library is trying to resolve.
 
 Script to match multiline email:
+
 ```q
 reg:.pcre.regcomp["From:([^@]+)@([^\r]+)";2 sv sum 2 vs .pcre[`REG_EXTENDED`REG_NEWLINE]]  // compile regex
 show "Regex compiled";
@@ -130,11 +132,13 @@ Bindings to [Rmath](https://cran.r-project.org/doc/manuals/r-release/R-admin.htm
 `Rmath` provides the routines supporting the distribution and special (e.g. Bessel, beta and gamma functions) functions in `R`. 
 
 Using this library requires the stand-alone Rmath library to be installed as well as FFI for kdb+. On Ubuntu:
+
 ```bash
 sudo apt-get install r-mathlib
 ```
 
 Generate 100K numbers from normal distribution:
+
 ```q
 q)do[100000;r,:.rm.rnorm[0f;1f]]   // generate 100K N(0,1) random numbers
 q)(avg;dev)@\:r                    // verify that avg and dev are 0 and 1
@@ -145,6 +149,7 @@ q)(avg;dev)@\:r                    // verify that avg and dev are 0 and 1
 ### BLAS 
 
 All arguments should be vectors (i.e. pointers to appropriate type).
+
 ```q
 q)x:10#2f;
 q).ffi.cf[("f";`libblas.so`ddot_)](1#count x; x;1#1;x;1#1)
@@ -156,6 +161,7 @@ q)x / <- a*x+y, a=x=y=2
 
 
 ### Callbacks
+
 ```q
 q)cmp:{0N!x,y;(x>y)-x<y} 
 q)x:3 1 2i;
@@ -175,7 +181,9 @@ q).ffi.cf[(" ";`qsort)](x;3i;8i;(cmp;"SS";"i"))
 q)x
 `a`b`c
 ```
+
 Register a callback on a handle
+
 ```q
 // h is handle to some other process
 r:{b:20#"\000";n:.ffi.cf[`read](x;b;20);0N!n#b;0}

@@ -19,16 +19,20 @@ To install, download
 | &le;V2.8 | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/l32/odbc.so) | [odbc.so <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/l64/odbc.so) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/w32/odbc.dll) | [odbc.dll <i class="fa fa-download"></i>](https://github.com/KxSystems/kdb/blob/fe18dbf88816e8b09f081493ee3ea099acce1af3/w64/odbc.dll) |
 
 !!! warning "Mixed versions"
+
     If you mix up the library versions, you’ll likely observe a type error when opening the connection.
 
 Start q and load odbc.k – this populates the `.odbc` context.
 
 !!! tip "Unix systems"
+
     Ensure you have [unixODBC](http://www.unixodbc.com) installed, 
     and that `LD_LIBRARY_PATH` includes the path to the odbc.so, e.g. for 64-bit Linux
+
     <pre><code class="language-bash">
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QHOME/l64
     </code></pre>
+
     <i class="fa fa-hand-o-right"></i> [unixODBC configuration guide](http://www.easysoft.com/developer/interfaces/odbc/linux.html)
 
 
@@ -37,6 +41,7 @@ Start q and load odbc.k – this populates the `.odbc` context.
 First open an ODBC connection to a database. 
 To do so, define a [DSN](http://en.wikipedia.org/wiki/Database_Source_Name) (database source name), and then connect to the DSN using `.odbc.open`. 
 This returns a connection handle, which is used for subsequent ODBC calls:
+
 ```q
 q)\l odbc.k
 q)h:.odbc.open `northwind               / open northwind database
@@ -50,7 +55,9 @@ OrderID CustomerID EmployeeID OrderDate  RequiredDate..
 10250   HANAR      4          1996.07.08 1996.08.05  ..
 ..
 ```
+
 Alternatively, use `.odbc.load` to load the entire database into q:
+
 ```q
 q)\l odbc.k
 q).odbc.load `northwind                 / load northwind database
@@ -66,18 +73,13 @@ OrderID| CustomerID EmployeeID OrderDate  RequiredDate ..
 
 ## ODBC functions
 
-<!-- WTF?
-```
-#!comment
-[#fkey fkey], [#fkeys fkeys], [#keys keys], [[#skey skey], [#xfkey xfkey]
-```
--->
 Functions defined in the `.odbc` context:
 
 
 ### `close`
 
 Closes an ODBC connection handle:
+
 ```q
 q).odbc.close h
 ```
@@ -86,6 +88,7 @@ q).odbc.close h
 ### `eval`
 
 Evaluate a SQL expression:
+
 ```q
 q)sel:"select CompanyName,Phone from Customers where City='London'"
 q)b:.odbc.eval[h;sel]
@@ -109,6 +112,7 @@ CompanyName          Phone
 ### `load`
 
 Loads an entire database into the session:
+
 ```q
 q).odbc.load `northwind
 q)\a
@@ -125,6 +129,7 @@ ShipperID| CompanyName        Phone
 ### `open`
 
 Open a connection to a database, returning an ODBC connection handle. For example:
+
 ```q
 q)h:.odbc.open `northwind
 q)h
@@ -144,7 +149,8 @@ q).odbc.tables h
 ### `views`
 
 List views in database:
-```
+
+```q
 q).odbc.views h
 `Alphabetical List of Products`Category Sales for 1997`Current...
 ```
@@ -155,12 +161,14 @@ q).odbc.views h
 ODBC has the capability to trace the ODBC API calls to a log file; 
 sometimes this can be helpful in resolving unusual or erroneous behaviour. 
 On Unix, you can activate the tracing by adding
-```
+
+```txt
 [ODBC]
 Trace         = 1
 TraceFile     =/tmp/odbc.log
 ```
-to the odbcinst.ini file, which can typically be found in /etc or /usr/local/etc.
+
+to the `odbcinst.ini` file, which can typically be found in `/etc` or `/usr/local/etc`.
 
 <i class="fa fa-hand-o-right"></i> [MSDN](http://msdn.microsoft.com/en-us/library/windows/desktop/ms711034(v=vs.85).aspx)
 for tracing on Windows

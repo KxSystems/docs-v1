@@ -7,7 +7,9 @@ Syntax: `csv` (constant)
 
 A synonym for `","` for use in preparing text for CSV files, or reading them. 
 
-<i class="fa fa-hand-o-right"></i> [`.h.cd`](doth/#hcd-csv-from-data), [`.h.td`](doth/#htd-tsv) 
+<i class="fa fa-hand-o-right"></i> 
+[`.h.cd`](doth/#hcd-csv-from-data), 
+[`.h.td`](doth/#htd-tsv) 
 
 
 ## `dsave`
@@ -26,6 +28,7 @@ returns the list of table names, having saved the table/s as a side effect.
 The first column of each table saved has the `` `p `` attribute applied to it. If the path is a list, the first item is the HDB root (where the sym file, if any, will be stored), while the remaining items are a path within the HDB (e.g. a partition).
 
 `dsave` provides roughly the same functionality as the combination of [`.Q.en`](dotq/#qen-enumerate-varchar-cols) and [`set`](#set) or [`.Q.dpft`](dotq/#qdpft-save-table), but in a simpler form.
+
 ```q
 q)t:flip`sym`price`size!100?'(-10?`3;1.0;10)
 q)q:flip`sym`bid`ask`bsize`asize!900?'(distinct t`sym;1.0;1.0;10;10)
@@ -82,7 +85,9 @@ bsize| 7
 asize| 7
 q)
 ```
+
 In the following, the left argument is a list, of which the second item is a partition name.
+
 ```q
 q)t:flip`sym`price`size!100?'(-10?`3;1.0;10)
 q)q:flip`sym`bid`ask`bsize`asize!900?'(distinct t`sym;1.0;1.0;10;10)
@@ -131,7 +136,10 @@ bsize| j
 asize| j    
 ```
 
-<i class="fa fa-hand-o-right"></i> [set](#set), [.Q.en](dotq/#qen-enumerate-varchar-cols), [.Q.dpft](dotq/#qdpft-save-table), [.Q.hdpf](dotq/#qhdpf-save-tables)
+<i class="fa fa-hand-o-right"></i> 
+[set](#set), [.Q.en](dotq/#qen-enumerate-varchar-cols), 
+[.Q.dpft](dotq/#qdpft-save-table), 
+[.Q.hdpf](dotq/#qhdpf-save-tables)
 
 
 
@@ -142,6 +150,7 @@ Syntax: `get x`
 Reads or memory maps kdb+ data file `x`. A type error is signalled if the file is not a kdb+ data file.
 
 Used to map columns of databases in and out of memory when querying splayed databases, and can be used to read q log files etc.
+
 ```q
 q)\l trade.q
 q)`:NewTrade set trade                  / save trade data to file
@@ -153,7 +162,9 @@ q)s:get`:SNewTrade/                     / s has columns mapped on demand
 ```
 
 !!! Note "get and value"
+
     `get` has several other uses. However, the function [`value`](metadata/#value) is a synonym for `get` and by convention is used for other purposes. But the two are completely interchangeable.
+
     <pre><code class="language-q">
     q)value "2+3"
     5
@@ -169,6 +180,7 @@ FIXME: describe other uses.
 Syntax: `hclose x`
 
 Closes file or process handle `x`.
+
 ```q
 q)h:hopen `::5001
 q)h"til 5"
@@ -189,10 +201,12 @@ If the handle refers to
 Syntax: `hcount x`
 
 Returns as a long integer the size in bytes of file `x`.
+
 ```q
 q)hcount`:c:/q/test.txt
 42j
 ```
+
 On a compressed file returns the size of the original uncompressed file.
 
 
@@ -202,6 +216,7 @@ On a compressed file returns the size of the original uncompressed file.
 Syntax: `hdel x`
 
 Where `x` is a file or folder symbol, deletes it.
+
 ```q
 q)hdel`:test.txt   / delete test.txt in current working directory
 `:test.txt
@@ -298,7 +313,8 @@ q)`:mydb.us.com:5010:elmo:sesame "1+1"
 2
 ```
 
-<i class="fa fa-hand-o-right"></i> Cookbook: [Client-server](/cookbook/client-server/)
+<i class="fa fa-hand-o-right"></i> 
+Cookbook: [Client-server](/cookbook/client-server/)
 
 
 ### File handles
@@ -344,7 +360,8 @@ q)hsym`10.43.23.197
 
 ## `key`
 
-<i class="fa fa-hand-o-right"></i> [`key`](metadata/#key) for
+<i class="fa fa-hand-o-right"></i> 
+[`key`](metadata/#key) for
 
 -   contents of a directory
 -   existence of a file
@@ -409,7 +426,11 @@ Where `x` is a symbol or a filepath to:
 
     Ensure there is no overlap between enumeration vectors (e.g. sym) if loading multiple HDBs.
 
-<i class="fa fa-hand-o-right"></i> [`.Q.dsftg`](dotq/#qdsftg-load-process-save) (load process save), [`.Q.fps`](dotq/#qfps-streaming-algorithm) (streaming algorithm), [`.Q.fs`](dotq/#qfs-streaming-algorithm) (streaming algorithm), [`.Q.fsn`](dotq/#qfsn-streaming-algorithm) (streaming algorithm) 
+<i class="fa fa-hand-o-right"></i> 
+[`.Q.dsftg`](dotq/#qdsftg-load-process-save) (load process save), 
+[`.Q.fps`](dotq/#qfps-streaming-algorithm) (streaming algorithm), 
+[`.Q.fs`](dotq/#qfs-streaming-algorithm) (streaming algorithm), 
+[`.Q.fsn`](dotq/#qfsn-streaming-algorithm) (streaming algorithm) 
 
 
 ## `read0`
@@ -525,6 +546,7 @@ Syntax: `rload x`
 Where `x` is the table name as a symbol, the table is read from a directory of the same name. `rload` is the converse of `rsave`. 
 
 The usual, and more general, way of doing this is to use `get`, which allows a table to be defined with a different name than the source directory.
+
 ```q
 q)\l sp.q
 q)rsave `sp           / save splayed table
@@ -543,7 +565,9 @@ s1 p2 200
 s1 p3 400
 q)sp:get `:sp/        / equivalent to rload `sp
 ```
-<i class="fa fa-hand-o-right"></i> [`.Q.v`](dotq/#qv-value) (get splayed table)
+
+<i class="fa fa-hand-o-right"></i> 
+[`.Q.v`](dotq/#qv-value) (get splayed table)
 
 
 ## `rsave`
@@ -555,6 +579,7 @@ Syntax: `rsave x`
 Where `x` is the table name as a symbol, saves a table, splayed to a directory of the same name. The table must be fully enumerated and not keyed.
 
 The usual and more general way of doing this is to use `set` , which allows the target directory to be given.
+
 ```q
 q)\l sp.q
 q)rsave `sp           / save splayed table
@@ -566,7 +591,9 @@ q)\ls sp
 q)`:sp/ set sp        / equivalent to rsave `sp
 `:sp/
 ```
-<i class="fa fa-hand-o-right"></i> [`.Q.dpft`](dotq/#qchk-fill-hdb) (save table)
+
+<i class="fa fa-hand-o-right"></i> 
+[`.Q.dpft`](dotq/#qchk-fill-hdb) (save table)
 
 
 ## `save`
@@ -643,7 +670,8 @@ q)save `$"/tmp/t"
     q)\`:t.xls 0:.h.tx[\`xls;t] / save in xls format
     </code></pre>
 
-<i class="fa fa-hand-o-right"></i> [`.Q.Xf`](dotq/#qxf-create-file) (create file)
+<i class="fa fa-hand-o-right"></i> 
+[`.Q.Xf`](dotq/#qxf-create-file) (create file)
 
 
 ## `set`
@@ -651,6 +679,7 @@ q)save `$"/tmp/t"
 Syntax: `x set y`
 
 Assigns the value of `y` to variable name or filename `x`
+
 ```q
 q)`a set 1 2 3            / set name a
 `a
@@ -667,14 +696,18 @@ q)a:"t"
 q)a set 1 2 3             / fails, as name must be a symbol
 :["type"]
 ```
+
 If `x` is a filename, the values are written to file:
+
 ```q
 q)`:work.dat set 1 2 3    / write values to file
 `:work.dat
 q)get `:work.dat
 1 2 3
 ```
+
 Write a table to a single file:
+
 ```q
 q)\l sp.q
 q)`:mytable.dat set sp
@@ -687,7 +720,9 @@ s1 p2 200
 s1 p3 400
 ..
 ```
+
 To save a table splayed across a directory, `x` must be a path (i.e. ends with a `/`), and the table must be fully enumerated, with no primary keys:
+
 ```q
 q)`:mydata/ set sp
 `:mydata/
@@ -705,5 +740,6 @@ s1 p3 400
 ```
 
 !!! warning "Watch out"
+
     Avoid setting variables in the `.q` namespace, as undesired and confusing behaviour can result.
 

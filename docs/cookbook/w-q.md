@@ -7,10 +7,13 @@ w.q connects to the tickerplant just like r.q, but it buffers up requests and, e
 Note that it makes no sense to query the task running w.q as it will have a small (and variable-sized) selection of records. Although it wouldn’t be difficult to modify it to keep say the last 5 minutes of data, that sort of custom collection is probably better housed in a task running a c.q-like aggregation.
 
 Syntax:
-```
+
+```txt
 / q tick/w.q [tickerplanthost]:port[:usr:pwd] [hdbhost]:port[:usr:pwd] [-koe|keeponexit]
 ```
+
 ```q
 q tick/w.q :5010 :5012
 ```
+
 The `-koe` or `-keeponexit` parameter governs the behaviour when a w.q task is exited at user request – i.e. `.z.exit` is called. By default the data saved so far is deleted, as if the task were restarted it would be difficult to ensure it restarted from exactly the right place – it’s easier to replay the log and (re)write the data. If the flag is provided – or the `KEEPONEXIT` global set to `1b` – the data will not be removed.

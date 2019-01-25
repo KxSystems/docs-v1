@@ -21,6 +21,7 @@ For example:
 > The adverb _over_ (`/`) is to be preferred over the operator `over`.
 
 !!! important "The value of consistency"
+
     Consistent observation of the conventions relieves the reader of the cognitive load of resolving ambiguities, and raises the value of the documentation. 
 
 
@@ -34,7 +35,7 @@ Here are the most important – or the most commonly neglected – rules.
 -   Use **italic type** for emphasis and **bold type** for keywords to assist a visual search. 
 -   Use **spaced endashes** for parenthetical phrases – such as this – not spaced hyphens and not emdashes, spaced or unspaced. 
 -   Use **numbered lists** (or headings) only when there are multiple references to the numbers; otherwise use bulleted lists. 
--   In Markdown use **code fences** to delimit code blocks, and label them with the corresponding language, e.g. ` ```q `.
+-   In Markdown use **code fences** to delimit code blocks, and label them with the corresponding language, e.g. <code>&#96;&#96;&#96;q</code>.
 -   Use [Grammarly](https://www.grammarly.com/) to proof your text before submitting it for review. 
 
 

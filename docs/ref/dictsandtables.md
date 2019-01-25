@@ -3,14 +3,17 @@
 Syntax: `x ! y`
 
 Where `x` and `y` are two [lists](elements/#lists) of the same length, returns a [dictionary](elements/#dictionaries)
+
 ```q
 q)`a`b`c!1 2 3
 a| 1
 b| 2
 c| 3
 ```
+
 Because [tables](elements/#tables) are lists of dictionaries with the same keys, `!` applied to each member of a list will return a table of that list. For example:
-```
+
+```q
 q)(`a`b`c!)each(0 0 0;1 2 3;2 4 6)
 a b c
 -----
@@ -20,14 +23,17 @@ a b c
 ```
 
 !!! tip "Flip me"
+
     The same result may be achieved with `flip`:
 
-        q)flip`a`b`c!flip(0 0 0;1 2 3;2 4 6)
-        a b c
-        -----
-        0 0 0
-        1 2 3
-        2 4 6
+    <pre><code class="language-q">
+    q)flip`a`b`c!flip(0 0 0;1 2 3;2 4 6)
+    a b c
+    -----
+    0 0 0
+    1 2 3
+    2 4 6
+    </code></pre>
 
 <i class="fa fa-hand-o-right"></i> [`.h.xt`](doth/#hxt-json) (JSON), [`.Q.qt`](dotq/#qqt-is-table) (is table), [`.Q.V`](dotq/#qv-table-to-dict) (table to dictionary) 
 
@@ -37,6 +43,7 @@ a b c
 Syntax: `group x`
 
 Returns a dictionary in which the keys are the distinct items of `x`, and the values the indices where the distinct items occur. The order of the keys is the order in which they appear in `x`.
+
 ```q
 q)group "mississippi"
 m| ,0
@@ -44,7 +51,9 @@ i| 1 4 7 10
 s| 2 3 5 6
 p| 8 9
 ```
+
 To count the number of occurrences of each distinct item:
+
 ```q
 q)count each group "mississippi"
 m| 1
@@ -52,7 +61,9 @@ i| 4
 s| 4
 p| 2
 ```
+
 To get the index of the first occurrence of each distinct item:
+
 ```q
 q)first each group "mississippi"
 m| 0
@@ -69,6 +80,7 @@ Syntax: `x ! y`
 Where `x` is a non-negative integer atom and `y` is a table, returns a table:
 
 - if `x` is positive and `y` is simple, returns `y` with `x` key columns.
+
 ```q
 q)t:([]a:1 2 3;b:10 20 30;c:`x`y`z)
 q)2!t
@@ -78,7 +90,9 @@ a b | c
 2 20| y
 3 30| z
 ```
+
 - if `x` is 0, returns a simple table.
+
 ```q
 q)t:([a:1 2 3]b:10 20 30;c:`x`y`z)
 q)0!t
@@ -90,8 +104,10 @@ a b  c
 ```
 
 !!! tip "amending in place"
+
     If `y` is a table name, instead of returning a table `!` amends `y`
-    ```q
+
+    <pre><code class="language-q">
     q)t:([a:1 2 3]b:10 20 30;c:`x`y`z)
     q)0!`t
     `t
@@ -101,7 +117,7 @@ a b  c
     1 10 x
     2 20 y
     3 30 z
-    ```
+    </code></pre>
 
 <i class="fa fa-hand-o-right"></i> [`.Q.fk`](dotq/#qfk-foreign-key) (foreign key), [`.Q.ft`](dotq/#qft-apply-simple) (apply simple), [`.Q.id`](dotq/#qid-sanitize) (sanitize)
 
@@ -111,6 +127,7 @@ a b  c
 Syntax: `ungroup x`
 
 Where `x` is a table, in which some cells are lists, but for any row, all lists are of the same length, returns the normalized table, with one row for each item of a lists.
+
 ```q
 q)p:((enlist 2);5 7 11;13 17)
 q)r:((enlist"A");"CDE";"FG")
@@ -130,7 +147,9 @@ b 11 20 E
 c 13 30 F
 c 17 30 G
 ```
+
 Typically used on the result of `xgroup` or `select`.
+
 ```q
 q)\l sp.q
 q)show t:select p,qty by s from sp where qty>200
@@ -170,6 +189,7 @@ Where `x` is a symbol vector of column names defined in `y`, which is passed by
 
 The `` `s# `` attribute is set on the first column given (if possible).
 The sort is stable, i.e. it preserves order amongst equals.
+
 ```q
 q)\l sp.q
 q)s
@@ -224,36 +244,38 @@ city  | s
 ```
 
 !!! note "Sorting data on disk"
+
     `xasc` can sort data on disk directly, without loading the entire table into memory.
 
-        q)t:([]b:`s`g`a`s`a;c:30 10 43 13 24;g:til 5)
-        q)`:dat/t/ set .Q.en[`:dat]t     / write splayed table
-        `:dat/t/
-        q)\ls dat/t                      / splayed columns
-        ,"b"
-        ,"c"
-        ,"g"
-        q)`c xasc `:dat/t                / sort table on disk by column c
-        `:dat/t
-        q)t                              / in-memory table is unsorted
-        b c  g
-        ------
-        s 30 0
-        g 10 1
-        a 43 2
-        s 13 3
-        a 24 4
-        q)\l dat/t                      / load table from disk
-        `t
-        q)t                             / table is sorted
-        b c  g
-        ------
-        g 10 1
-        s 13 3
-        a 24 4
-        s 30 0
-        a 43 2
-
+    <pre><code class="language-q">
+    q)t:([]b:`s`g`a`s`a;c:30 10 43 13 24;g:til 5)
+    q)`:dat/t/ set .Q.en[`:dat]t     / write splayed table
+    `:dat/t/
+    q)\ls dat/t                      / splayed columns
+    ,"b"
+    ,"c"
+    ,"g"
+    q)`c xasc `:dat/t                / sort table on disk by column c
+    `:dat/t
+    q)t                              / in-memory table is unsorted
+    b c  g
+    ------
+    s 30 0
+    g 10 1
+    a 43 2
+    s 13 3
+    a 24 4
+    q)\l dat/t                      / load table from disk
+    `t
+    q)t                             / table is sorted
+    b c  g
+    ------
+    g 10 1
+    s 13 3
+    a 24 4
+    s 30 0
+    a 43 2
+    </code></pre>
 
 
 ## `xcol`
@@ -287,6 +309,7 @@ A b C
 Syntax: `x xcols y`
 
 Where `y` is a simple table (passed by value) of which symbol vector `x` lists some or all of the column names, returns `y` with `x` as its first column/s.
+
 ```q
 q)\l trade.q
 q)cols trade
@@ -298,6 +321,7 @@ q)trade:`sym xcols trade                / move sym to the front
 q)cols trade
 `sym`size`price`time
 ```
+
 <i class="fa fa-hand-o-right"></i> [`.Q.V`](dotq/#qv-table-to-dict) (table to dictionary) 
 
 ## `xdesc`
@@ -313,6 +337,7 @@ Where `x` is a symbol vector of column names defined in `y`, which is passed by
 
 The `` `s# `` attribute is not set.
 The sort is stable, i.e. it preserves order amongst equals.
+
 ```q
 q)\l sp.q
 q)s
@@ -347,6 +372,7 @@ Syntax: `x xgroup y`
 
 Where `y` is a table (passed by value) and symbol atom or vector `x` a list of column names in it, returns `y` grouped by `x`.
 It is equivalent to doing a `select … by` on `y`, except that all the remaining columns are grouped without having to be listed explicitly.
+
 ```q
 q)`a`b xgroup ([]a:0 0 1 1 2;b:`a`a`c`d`e;c:til 5)
 a b| c  
@@ -404,6 +430,7 @@ Where symbol atom or vector `x` lists columns in table `y`, which is passed by
 - reference, updates 
 
 `y` with `x` set as the primary keys.
+
 ```q
 q)\l trade.q
 q)keys trade

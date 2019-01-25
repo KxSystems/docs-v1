@@ -33,6 +33,7 @@ In each case, the result has the merge of columns from both arguments. Where nec
 : Can be used to join two tables with matching columns (as well as add new records to a table). If the first table is keyed, any records that match on key are updated. The remaining records are appended.
 
 !!! tip "_Join_ operator"
+
     The [_join_ operator](lists/#join) `,` joins tables and dictionaries as well as lists. For tables `t1` and `t2`:
     
     - `t1,t2` is `t1 upsert t2`
@@ -71,6 +72,7 @@ For each record in `t1`, the result has one record with the items in `t1`, and
 
 - if there are matching records in `t2`, the items of the last (in row order) matching record are appended to those of `t1`;
 - otherwise the remaining columns are null.
+
 ```q
 q)t:([]time:10:01:01 10:01:03 10:01:04;sym:`msft`ibm`ge;qty:100 200 150)
 q)t
@@ -106,6 +108,7 @@ join  | time in result
 `aj0` | actual time from `t2`
 
 Since V3.6 2018.05.18 `ajf` and `ajf0` behave as V2.8 `aj` and `aj0`, i.e. they fill from LHS if RHS is null. e.g.
+
 ```q
 q)t0:([]time:2#00:00:01;sym:`a`b;p:1 1;n:`r`s)
 q)t1:([]time:2#00:00:01;sym:`a`b;p:0 1)
@@ -138,23 +141,30 @@ Note that, on disk, the `g#` attribute does not help.
 ### `select` from `t2`
 
 In memory, there is no need to select from `t2`. Irrespective of the number of records, use, e.g.:
+
 ```q
 aj[`sym`time;select … from trade where …;
                            quote]
 ```
+
 instead of
+
 ```q
 aj[`sym`time;select … from trade where …;
              select … from quote where …]
 ```
+
 In contrast, on disk you must map in your splay or day-at-a-time partitioned database:
 
 Splay:
+
 ```q
 aj[`sym`time;select … from trade where …;
              select … from quote]
 ```
+
 Partitioned:
+
 ```q
 aj[`sym`time;select … from trade where …;
              select … from quote where date = …]
@@ -180,6 +190,7 @@ Where
 -   the last key or column of `t2` corresponds to a time column in `t1`
 
 returns the values from the last rows matching the rest of the keys and time &le; the time in `t2`.
+
 ```q
 q)show trade asof`sym`time!(`IBM;09:30:00.0)
 price| 96.3e
@@ -194,7 +205,9 @@ price size stop corr cond
 78.14 100  0    0    T
 96.3  200  0    0    T
 ```
+
 The following examples use the `mas` table from TAQ.
+
 ```q
 q)`date xasc`mas       / sort by date
 `mas
@@ -229,6 +242,7 @@ A   2000.08.04| 00846U101 AGILENT TECHNOLOGIES  INC      0  N  100
 Syntax: `t1 ^ t2`
 
 Where `t1` and `t2` are keyed tables returns them merged.
+
 ```q
 q)kt1:([k:1 2 3] c1:10 20 30;c2:`a`b`c)
 q)kt2:([k:3 4 5] c1:300 400 500;c2:`cc`dd`ee)
@@ -250,7 +264,9 @@ k| c1  c2
 4| 400 dd
 5| 500 ee
 ```
+
 When `t2` has null column values, the column values of `t1` are only updated with non-null values of the right operand.
+
 ```q
 q)kt3:([k:2 3] c1:0N 3000;c2:`bbb`)
 q)kt3
@@ -275,6 +291,7 @@ k| c1   c2
 ```
 
 !!! note "Speed"
+
     The performance of `^` is slower than that of `,` since each column value of the right operand must be checked for null.
 
 
@@ -284,6 +301,7 @@ Syntax: `ej[c;t1;t2]`
 
 Where `c` is a list of column names (or a single column name) and `t1` and `t2` are tables, returns `t1` and `t2` joined on column/s `c`.
 The result has one combined record for each row in `t1` that matches `t2` on columns `c`. (Since V2.6.)
+
 ```q
 q)t:([]sym:`IBM`FDP`FDP`FDP`IBM`MSFT;price:0.7029677 0.08378167 0.06046216 0.658985 0.2608152 0.5433888)
 q)s:([]sym:`IBM`MSFT;ex:`N`CME;MC:1000 250)
@@ -309,11 +327,13 @@ IBM  0.2608152 N   1000
 MSFT 0.5433888 CME 250
 ```
 
+
 ## `ij` `ijf` (inner-join)
 
 Syntax: `t1 ij t2`
 
 Where `t1` and `t2` are tables, `t2` is keyed, and its key columnns are columns of `t1`, returns two tables joined on the key columns of the second table. The result has one combined record for each row in `t1` that matches a row in `t2`.
+
 ```q
 q)t
 sym  price
@@ -338,29 +358,32 @@ MSFT 0.5433888 CME 250
 ```
 
 !!! note "Changes in V3.0"
+
     Since V3.0, `ij` has changed behavior (similarly to `lj`): when there are nulls in `t2`, `ij` uses the `t2` null, where the earlier version left the corresponding value in `t1` unchanged:
 
-        q)show x:([]a:1 2;b:`x`y;c:10 20)
-        a b c
-        ------
-        1 x 10
-        2 y 20
-        q)show y:([a:1 2]b:``z;c:1 0N)
-        a| b c
-        -| ---
-        1|   1
-        2| z
-        q)x ij y        /V3.0
-        a b c
-        -----
-        1   1
-        2 z
-        q)x ij y        /V2.8
-        a b c
-        ------
-        1 x 1
-        2 z 20
-        q)
+    <pre><code class="language-q">
+    q)show x:([]a:1 2;b:`x`y;c:10 20)
+    a b c
+    ------
+    1 x 10
+    2 y 20
+    q)show y:([a:1 2]b:``z;c:1 0N)
+    a| b c
+    -| ---
+    1|   1
+    2| z
+    q)x ij y        /V3.0
+    a b c
+    -----
+    1   1
+    2 z
+    q)x ij y        /V2.8
+    a b c
+    ------
+    1 x 1
+    2 z 20
+    q)
+    </code></pre>
 
     Since 2016.02.17, the earlier version is available in all V3.4 and later versions as `ijf`.
 
@@ -401,7 +424,9 @@ a b c  d
 2 y 20
 3 z 2  20
 ```
+
 The `t2` columns joined to `t1` are given by:
+
 ```q
 q)t2[select a,b from t1]
 c d
@@ -415,26 +440,28 @@ c d
 
     Prior to V3.0, `lj` had similar behavior, with one difference - when there are nulls in the right argument, `lj` in V3.0 uses the right-argument null, while the earlier version left the corresponding value in the left argument unchanged:
 
-        q)show x:([]a:1 2;b:`x`y;c:10 20)
-        a b c
-        ------
-        1 x 10
-        2 y 20
-        q)show y:([a:1 2]b:``z;c:1 0N)
-        a| b c
-        -| ---
-        1|   1
-        2| z
-        q)x lj y        / kdb+ 3.0
-        a b c
-        -----
-        1   1
-        2 z
-        q)x lj y        / kdb+ 2.8 
-        a b c
-        ------
-        1 x 1
-        2 z 20
+    <pre><code class="language-q">
+    q)show x:([]a:1 2;b:`x`y;c:10 20)
+    a b c
+    ------
+    1 x 10
+    2 y 20
+    q)show y:([a:1 2]b:``z;c:1 0N)
+    a| b c
+    -| ---
+    1|   1
+    2| z
+    q)x lj y        / kdb+ 3.0
+    a b c
+    -----
+    1   1
+    2 z
+    q)x lj y        / kdb+ 2.8 
+    a b c
+    ------
+    1 x 1
+    2 z 20
+    </code></pre>
 
     Since 2014.05.03, the earlier version is available in all V3.x versions as `ljf`.
 
@@ -471,6 +498,7 @@ a b c  d
 2 y 20 0
 3 z 32 20
 ```
+
 In the example above, `pj` is equivalent to `` x+0^y[`a`b#x] `` (compute the value of `y` on `a` and `b` columns of `x`, fill the result with zeros and add to `x`).
 
 
@@ -514,32 +542,36 @@ a b| c  d
 ```
 
 !!! note "Generalizing the `,` operator"
+
     The `uj` operator is a type of union join that generalizes the [`,` _join_ operator](lists/#join)
 
 
 !!! note "Changes in V3.0"
+
 	The union join of two keyed tables is equivalent to a left join of the two tables with the catenation of unmatched rows from the second table. As a result a change in the behaviour of `lj` causes a change in the behaviour of `uj`:
 
-        q)show x:([a:1 2]b:`x`y;c:10 20)
-        a| b c
-        -| ----
-        1| x 10
-        2| y 20
-        q)show y:([a:1 2]b:``z;c:1 0N)
-        a| b c
-        -| ---
-        1|   1
-        2| z
-		q)x uj y		/ kdb+ 3.0
-		a| b c
-		-| ---
-		1|   1
-		2| z
-        q)x uj y        / kdb+ 2.8
-		a| b c
-		-| ----
-		1| x 1
-		2| z 20
+    <pre><code class="language-q">
+    q)show x:([a:1 2]b:`x`y;c:10 20)
+    a| b c
+    -| ----
+    1| x 10
+    2| y 20
+    q)show y:([a:1 2]b:``z;c:1 0N)
+    a| b c
+    -| ---
+    1|   1
+    2| z
+	q)x uj y		/ kdb+ 3.0
+	a| b c
+	-| ---
+	1|   1
+	2| z
+    q)x uj y        / kdb+ 2.8
+	a| b c
+	-| ----
+	1| x 1
+	2| z 20
+    </code></pre>
 
     Since 2017.04.10, the earlier version is available in all V3.5 and later versions as `ujf`.
 
@@ -558,12 +590,15 @@ Where:
 returns for each record in `t`, a record with additional columns `c0` and `c1`, which are the results of the aggregation functions applied to values over the matching intervals in `w`.
 
 Typically. this might be:
+
 ```q
 wj[w;`sym`time;trade;(quote;(max;`ask);(min;`bid))]
 ```
+
 A quote is understood to be in existence until the next quote.
 
 !!! note "Interval behaviour"
+
     Since V3.0, `wj` and `wj1` are both \[\] interval, i.e. they consider quotes&gt;=beginning and &lt;=end of the interval.
     
     For `wj`, the prevailing quote on entry to the window is considered valid as quotes are a step function.
@@ -611,7 +646,9 @@ ibm 10:01:01 100   103 98
 ibm 10:01:04 101   104 99
 ibm 10:01:08 105   108 104
 ```
+
 The interval values may be seen as:
+
 ```q
 q)wj[w;f;t;(q;(::;`ask);(::;`bid))]
 sym time     price ask             bid
@@ -622,11 +659,14 @@ ibm 10:01:08 105   107 108 107 108 104 106 106 107
 ```
 
 !!! warning "Joining on multiple symbols"
+
     Window-joins with multiple symbols should be used only with a `` `p#sym`` like schema. (Typical RTD-like `` `g#`` gives undefined results.) 
 
 !!! warning "Integral windows"
+
     Only integral types are supported for the column to do the windowing on – no reals, floats or datetimes.
 
 !!! note "A generalization of _asof-join_"
+
     _Window-join_ is a generalization of _asof-join_, and is available from V2.6. _Asof-join_ takes a snapshot of the current state, while _window-join_ aggregates all values of specified columns within intervals. (Since V3.0, `wj` and `wj1` are both implemented with `ww`.)
 

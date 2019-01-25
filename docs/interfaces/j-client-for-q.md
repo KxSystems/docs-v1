@@ -8,10 +8,13 @@ JQ is a socket interface to q from [J](http://jsoftware.com), for example to pro
 ## Sample session
 
 Start a q session, listening on a given port. Load J, then:
+
 ```j
 load 'qclient.ijs'           NB. load JQ client application
 ```
+
 Create a client instance, defining cover functions in `z`:
+
 ```j
    1 conew 'cqclient'
 +-+
@@ -21,6 +24,7 @@ Create a client instance, defining cover functions in `z`:
 
    cmd 'trade:([]time:();sym:();price:();size:())' NB. create trade database
 ```
+
 Send a command string to insert a record:
 
 ```j
@@ -35,6 +39,7 @@ Send a command string to insert a record:
 ```
 
 Get database in extended format. Each item is a pair: Qdatatype;value. The display shows that trade is the flip (type 98) of a dict (type 99). The dict is a pair: varchar, object list.
+
 ```j
    getx 'trade'
 +--+------------------------------------------------------------------------------+
@@ -51,19 +56,25 @@ Get database in extended format. Each item is a pair: Qdatatype;value. The displ
 |  |+--+-------------------------------------------------------------------------+|
 +--+------------------------------------------------------------------------------+
 ```
+
 Insert records using the `insert` function. The result is the record number:
+
 ```j
    execr 'insert';(s:<'trade');<('09:31:12';(s:<'a');11.01;200)
 1
    execr 'insert';(s:<'trade');<('09:31:15';(s:<'bc');10.80;150)
 2
 ```
+
 The next example has a numeric time field, and integer price field. Extended format ensures the correct datatypes are sent:
+
 ```j
    execr 'insert';(s:<'trade');<((,:18;34301);(s:<'bc');(,:9;22);500)
 3
 ```
-The utility col, defined below, formats cells into columns:
+
+The utility `col`, defined below, formats cells into columns:
+
 ```j
    col=: ,.@:>L:0
 
@@ -77,7 +88,9 @@ The utility col, defined below, formats cells into columns:
 |09:31:41|`bc |   22 |500  |
 +--------+----+------+-----+
 ```
+
 The next result is displayed as a pair – key columns and data columns.
+
 ```j
    col cmdr 'select sum size by sym from trade'
 +------+-------+
@@ -89,11 +102,15 @@ The next result is displayed as a pair – key columns and data columns.
 |+----+|+-----+|
 +------+-------+
 ```
-Send command string to load the sp.q database:
+
+Send command string to load the `sp.q` database:
+
 ```j
 cmd '\l sp.q'
 ```
-Query the sp.q database:
+
+Query the `sp.q` database:
+
 ```j
    col cmdr 'select sum qty by p.color from sp'
 +--------+------+
@@ -123,7 +140,8 @@ Query the sp.q database:
 
 ## Load client
 
-The client is in script qclient.ijs. This populates locale `cqclient`.
+The client is in script `qclient.ijs`. This populates locale `cqclient`.
+
 ```j
 load 'qclient.ijs'
 ```
@@ -168,6 +186,7 @@ The response variants are described in section [Datatypes](#datatypes) below.
 
 When used under program control, create an instance of `cqclient` and use the instance handle when calling methods. 
 Your application should check the return code of each command, for example:
+
 ```j
 q=: conew 'cqclient'
 connect__q 'robot';5001;'elmo'
@@ -182,6 +201,7 @@ For interactive use, you can define cover verbs of the same name in `z`, by call
 For a zero returncode, the result is the method result, otherwise the result is the returncode and error message.
 
 The examples in the rest of this manual use these cover verbs. The above example showing session output is:
+
 ```j
    1 conew 'cqclient'     NB. result is the instance locale
 +-+
@@ -220,6 +240,7 @@ Closes the session and erases the instance locale. Same as calling `codestroy` i
 The argument is a text string to be executed in q. No response is expected from q (an asynchronous message). The method result simply indicates whether the string was sent successfully.
 
 For example:
+
 ```j
 cmd 'val: sum key 100'
 ```
@@ -235,11 +256,13 @@ Sends a function name and parameters to be executed in q.
 As with `cmd`, no response is expected from q, and the method result simply indicates whether the message was sent successfully.
 
 For example, load the `trade` table, and add a record using the `insert` function:
+
 ```j
 cmd '\l trade.q'
 
 exec 'insert';(s:<'trade');<('09:31:15';(s:<'bc');10.80;150)
 ```
+
 
 ### `execr execrf execrx`
 
@@ -252,9 +275,11 @@ Identical to `cmdr`, `cmdrf`, `cmdrx`.
 ### `set`
 
 Dyad with form:
+
 ```j
 'name' set value
 ```
+
 Calls the `set` function, and checks the name was set in q.
 
 
@@ -279,6 +304,7 @@ J datatypes that are in the range of q mappings can be mapped back to q. Other d
 
 The next sections discuss primitive datatypes (e.g. boolean, byte etc), complex datatypes (flip, dict, keyed table), and object lists.
 
+
 ### Primitive datatypes
 
 <!-- FIXME
@@ -292,7 +318,8 @@ terrific official flat fissures
 -->
 
 The following is a summary:
-```
+
+```txt
  Qname     Qexample             Jraw       Jfmt      Jnull
 ---------------------------------------------------------
 boolean   1b                   boolean    as Jraw   n/a
@@ -311,6 +338,7 @@ minute    08:31                integer    as Q           ditto
 second    08:31:53             integer    as Q           ditto
 time      09:10:35.000         integer    as Q           ditto
 ```
+
 Raw invertible datatypes are: boolean, int, long, float, char, varchar. Formatted invertible datatypes are all except: byte, short, real.
 
 Q atoms, lists and empties are mapped into J atoms, lists and empties. The only exception is the formatted values for temporal types – in this case, q atoms are mapped to J character strings, and q lists to J character tables.
@@ -318,9 +346,11 @@ Q atoms, lists and empties are mapped into J atoms, lists and empties. The only 
 Q long is mapped into J extended integer in the range +/- 2^56x.
 
 Use extended notation when mapping back non-invertible datatypes, for example, the following sets a list of short:
+
 ```j
 'xx' set ,:5;2 3 5 7
 ```
+
 Enumerations are mapped into J lists.
 
 
@@ -333,6 +363,7 @@ Q real and float nulls are mapped into J negative infinity.
 Formatted temporal nulls have `"n"` in each numeric position.
 
 Example of nulls:
+
 ```j
    get 'trade[99]'
 +------+-----------+
@@ -350,6 +381,7 @@ Example of nulls:
 ### Complex datatypes
 
 Flips and dicts are mapped to J boxed tables. Examples:
+
 ```j
    cmd 'd:`x`y`z!(("two";"three";"five";"seven");2 3 5 7;`pi`hk`de`hk)'
 
@@ -384,7 +416,9 @@ Flips and dicts are mapped to J boxed tables. Examples:
 |+---+-----+----+-----+|       |               |
 +----------------------+-------+---------------+
 ```
+
 Key tables are mapped to a 2-item list: primary key columns;data columns. Example:
+
 ```j
    cmd '`y xkey `f'                NB. convert to keyed table
    get 'f'
@@ -419,6 +453,7 @@ Key tables are mapped to a 2-item list: primary key columns;data columns. Exampl
 ### Object lists
 
 Object lists are mapped to J boxed lists. For example:
+
 ```j
    cmdr '(`one;(2 3 5;"seven");01100b)'
 +----+-------------+---------+
@@ -434,6 +469,7 @@ Object lists are mapped to J boxed lists. For example:
 Day zero is 2000 1 1.
 
 Dates are integer day numbers, months are integer month numbers. For example:
+
 ```j
    get '1999.01.01,2000.01.01,2003.03.23'
 _365 0 1177
@@ -441,7 +477,9 @@ _365 0 1177
    get '1999.01m,2000.01m,2003.03m'
 _12 0 38
 ```
+
 Minutes, second, time are all integers. For example:
+
 ```j
    get '00:00,01:00,08:31'
 0 60 511
@@ -449,7 +487,9 @@ Minutes, second, time are all integers. For example:
    get '00:00:00.123,08:31:24.000'
 123 30684000
 ```
+
 Datetime is a float: day number + seconds as a fraction of day. For example:
+
 ```j
    0j6 ":  get '2003.03.23T08:31:24'
 1177.355139
@@ -485,6 +525,7 @@ The rest of the message is the data.
 ### Atoms
 
 Atoms have a single byte giving the type (e.g. int is 250 = 256-6), followed by the data. The data size is fixed except for varchar which is zero-terminated. For example, using the `toQ` verb in the J client:
+
 ```j
    a. i. toQ 123456
 250 64 226 1 0
@@ -497,6 +538,7 @@ Atoms have a single byte giving the type (e.g. int is 250 = 256-6), followed by 
 ### Lists
 
 Lists have a byte giving the type (e.g. int is 6), followed by 0, followed by the length of the list in 4 bytes. The data size is the length times the fixed size for an atom, except for varchar, for which individual atoms are zero-terminated. For example:
+
 ```j
    a. i. toQ 123456 + i.3
 6 0 3 0 0 0 64 226 1 0 65 226 1 0 66 226 1 0
@@ -512,25 +554,34 @@ Lists have a byte giving the type (e.g. int is 6), followed by 0, followed by th
 ### Dict, flip, keyed table
 
 Dict has a byte giving the type (99), followed by two lists. For example, the dictionary:
+
 ```q
 `x`y!(`a;10)
 ```
+
 has representation:
-```
+
+```txt
 99 11 0 2 0 0 0 120 0 121 0 0 0 2 0 0 0 245 97 0 250 10 0 0 0
 ```
+
 Therefore it is a list of varchar, followed by an object list consisting of an atom varchar and an atom integer.
 
 A flip has a two-byte header, type 98 followed by 0, followed by the representation of its dictionary contents. For example, the flip:
+
 ```q
 flip(`x`y!(`a`b;10 11))
 ```
+
 has representation:
-```
+
+```txt
 98 0 99 11 0 2 0 0 0 120 0 121 0 0 0 2 0 0 0 11 0 2 ...
 ```
+
 A keyed table is like a dict, except that the two lists are two flips, the key columns and the data columns. For example, if `y` is set as a key field in the above flip, the representation is:
-```
+
+```txt
 99 98 0 99 11 0 1 0 0 0 121 0 0 0 1 0 0 0 6 0 2 0 0 0 ...
 ```
 
@@ -540,6 +591,7 @@ A keyed table is like a dict, except that the two lists are two flips, the key c
 Object lists have a header of length 6, followed by each data item.
 
 The header is two 0 bytes, followed by the length of the object (i.e. number of top level items). For example:
+
 ```j
    a. i. toQ 10;(s:<'papa');'0'
 0 0 3 0 0 0 250 10 0 0 0 245 112 97 112 97 0 246 48
@@ -554,6 +606,7 @@ These are sent as a character string, and evaluated by the q `value` function.
 ### Synchronous messages
 
 These are sent as an object list. The first item is the function name as a text string, and the remaining items are the parameter list. For example, the J client `set` method sends an object list in the form:
+
 ```j
 "set";`abc;1 2 3
 ```

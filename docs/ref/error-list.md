@@ -125,7 +125,7 @@ From file ops and [IPC](/ref/ipc)
 </tbody>
 </table>
 
-`XXX` from addr, close, conn, p(from `-p`), snd, rcv or (invalid) filename, e.g. `read0`:invalidname.txt`
+`XXX` from addr, close, conn, p(from `-p`), snd, rcv or (invalid) filename, e.g. ``read0`:invalidname.txt``
 
 
 

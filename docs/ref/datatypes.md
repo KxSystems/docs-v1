@@ -72,12 +72,14 @@ RO: read only; RW: read-write
 
 
 !!! note "Strings"
+
     There is no string datatype. The nearest equivalent to a string is a symbol, or a char vector. On this site, _string_ is a synonym for character vector.
 
 ### Temporal
 
 The valid date range for parsing is ​1709.01.01 to 2290.12.31.
 Date arithmetic is not checked, so you can go out of this range.
+
 ```q
 q)2290.12.31
 2290.12.31
@@ -88,7 +90,9 @@ q)2290.12.31+0 1
 q)2000.01.01+2000.01.01-1709.01.01
 2290.12.31
 ```
+
 Valid ranges can be seen by incrementing or decrementing the infinities.
+
 ```q
 q)-0W 0Wp+1 -1      / limit of timestamp type
 1707.09.22D00:12:43.145224194 2292.04.10D23:47:16.854775806
@@ -103,13 +107,16 @@ q)-0W 0Wn+1 -1      / coincide with the min/max for timespan
 ### Symbols
 
 A back tick `` ` `` followed by a series of characters represents a _symbol_, which is not the same as a string. 
+
 ```q
 q)`symbol ~ "symbol"
 0b
 ```
+
 A back tick without characters after it represents the _empty symbol_: `` ` ``. 
 
 !!! tip "Cast string to symbol"
+
     The empty symbol can be used with [_cast_](casting/#cast) to cast a string into a symbol, creating symbols whose names could not otherwise be written, such as symbols containing spaces. `` `$x`` is shorthand for `"S"$x`. 
     <pre><code class="language-q">
     q)s:\`hello world
@@ -125,6 +132,7 @@ A back tick without characters after it represents the _empty symbol_: `` ` ``.
 ### Filepaths
 
 Filepaths are a special form of symbol. 
+
 ```q
 q)count read0 `:path/to/myfile.txt  / count lines in myfile.txt
 ```
@@ -134,21 +142,26 @@ q)count read0 `:path/to/myfile.txt  / count lines in myfile.txt
 
 Note that arithmetic for integer infinities (`0Wh`,`0Wi`,`0Wj`) is undefined, and does not retain the concept when cast.
 
-    q)0Wi+5
-    2147483652
-    q)0Wi+5i
-    -2147483644i
-    q)`float$0Wj
-    9.223372e+18
-    q)`float$0Wi
-    2.147484e+09
+```q
+q)0Wi+5
+2147483652
+q)0Wi+5i
+-2147483644i
+q)`float$0Wj
+9.223372e+18
+q)`float$0Wi
+2.147484e+09
+```
 
 Arithmetic for float infinities (`0we`,`0w`) behaves as expected.
 
-    q)0we + 5
-    0we
-    q)0w + 5
-    0w
+```q
+q)0we + 5
+0we
+q)0w + 5
+0w
+```
+
 <i class="fa fa-hand-o-right"></i> [`.Q.M`](dotq/#qm-long-infinity) (long infinity)
 
 ### Guid
@@ -156,14 +169,18 @@ Arithmetic for float infinities (`0we`,`0w`) behaves as expected.
 The guid type (since V3.0) is a 16-byte type, and can be used for storing arbitrary 16-byte values, typically transaction IDs.
 
 !!! tip "Generation"
+
     Use [_deal_](random/#deal) to generate a guid (global unique: uses `.z.a .z.i .z.p`).
+
     <pre><code class="language-q">
     q)-2?0Ng
     337714f8-3d76-f283-cdc1-33ca89be59e9 0a369037-75d3-b24d-6721-5a1d44d4bed5
     </code></pre>
+
     If necessary, manipulate the bytes to make the uuid a [Version-4 'standard' uuid](http://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29).
     
     Guids can also be created from strings or byte vectors, using `sv` or `"G"$`, e.g.
+
     <pre><code class="language-q">
     q)0x0 sv 16?0xff
     8c680a01-5a49-5aab-5a65-d4bfddb6a661
@@ -172,12 +189,14 @@ The guid type (since V3.0) is a 16-byte type, and can be used for storing arbitr
     </code></pre>
 
 `0Ng` is null guid. 
+
 ```q
 q)0Ng
 00000000-0000-0000-0000-000000000000
 q)null 0Ng
 1b
 ```
+
 There is no literal entry for a guid, it has no conversions, and the only scalar primitives are `=`, `<` and `>` (similar to sym). In general, since V3.0, there should be no need for char vectors for IDs. IDs should be int, sym or guid. Guids are faster (much faster for `=`) than the 16-byte char vecs and take 2.5 times less storage (16 per instead of 40 per).
 
 
@@ -188,10 +207,12 @@ There is no literal entry for a guid, it has no conversions, and the only scalar
 
 Enumerated types are numbered from `20h` up to `76h`. For example, in a new session with no enumerations defined:
 
-    q)type `sym$10?sym:`AAPL`AIG`GOOG`IBM
-    20h
-    q)type `city$10?city:`london`paris`rome
-    21h
+```q
+q)type `sym$10?sym:`AAPL`AIG`GOOG`IBM
+20h
+q)type `city$10?city:`london`paris`rome
+21h
+```
 
 (Since V3.0, type `20h` is reserved for `` `sym$``.)
 
@@ -199,6 +220,7 @@ Enumerated types are numbered from `20h` up to `76h`. For example, in a new sess
 ### Nested types
 
 These types are used for mapped lists of lists of the same type. The numbering is 77 + primitive type (e.g. 78 is boolean, 96 is time and 97 is `` `sym$`` enumeration.)
+
 ```q
 q)`:t1.dat set 2 3#til 6
 `:t1.dat
@@ -214,6 +236,7 @@ q)a
 ### Dictionary and table
 
 Dictionary is `99h` and table is `98h`.
+
 ```q
 q)type d:`a`b`c!(1 2;3 5;7 11)     / dict
 99h
@@ -225,6 +248,7 @@ q)type flip d                      / table
 ### Functions, adverbs, derivatives
 
 Functions, lambdas, operators, adverbs, projections, compositions and derivatives have types in the range [100–112].
+
 ```q
 q)type each({x+y};neg;-;\;+[;1];<>;,';+/;+\;prev;+/:;+\:;`f 2:`f,1)
 100 101 102 103 104 105 106 107 108 109 110 111 112h

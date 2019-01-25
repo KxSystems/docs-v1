@@ -7,6 +7,7 @@ These functions return integer results from integer arguments.
 Syntax: `abs x` (atomic)
 
 Returns the absolute value of `x`. Null is returned if `x` is null.
+
 ```q
 q)abs -1.0
 1f
@@ -20,12 +21,14 @@ q)abs 10 -43 0N
 Syntax: `x + y` (atomic) 
 
 Where `x` and `y` are numerics, returns their sum.
+
 ```q
 q)2+3 4 5
 5 6 7
 q)2000.11.22 + 03:44:55.666
 2000.11.22T03:44:55.666
 ```
+
 `+` is faster than `-`.
 
 <i class="fa fa-hand-o-right"></i> [`.Q.addmonths`](dotq/#qaddmonths)
@@ -36,18 +39,23 @@ q)2000.11.22 + 03:44:55.666
 Syntax: `ceiling x` (atomic)
 
 Returns the least integer greater than or equal to `x`. 
+
 ```q
 q)ceiling -2.1 0 2.1
 -2 0 3
 ```
 
 !!! note "Comparison tolerance; datetime"
+
     Prior to V3.0, `ceiling` used [comparison tolerance](/cookbook/precision/#comparison-tolerance).
+
     <pre><code class="language-q">
     q)ceiling 2 + 10 xexp -12 -13
     3 2
     </code></pre>
+
     Prior to V3.0, `ceiling` accepted datetime. Since V3.0, use `"d"$23:59:59.999+` instead.
+
     <pre><code class="language-q">
     q)ceiling 2010.05.13T12:30:59.999
     2010.05.14
@@ -66,26 +74,33 @@ Returns differences between consecutive pairs of items of `y`. It applies to all
 Where applied as 
 
 - a binary function, the result is
-```
+
+```q
 (-[y 0;x];-[y 1;y 0];-[y 2;y 1];…;-[y n-1;y n-2])
 ```
+
 ```q
 q)deltas[0N;1 4 9 16]
 0N 3 5 7
 ```
 
 - a unary function, 0 replaces the `x` in the binary application. 
+
 ```q
 q)deltas 1 4 9 16
 1 3 5 7
 ```
 
 !!! tip "Examples"
+
     In a query to get price movements:
+
     <pre><code class="language-q">
     q)update diff:deltas price by sym from trade
     </code></pre>
+
     With `signum` to count the number of up/down/same ticks:
+
     <pre><code class="language-q">
     q)select count i by signum deltas price from trade
     price| x
@@ -103,11 +118,14 @@ q)deltas 1 4 9 16
 Syntax: `x div y` (atomic) 
 
 **Integer division**: returns `floor x%y`.
+
 ```q
 q)7 div 3
 2
 ```
+
 Preserves (except for char, byte and short) the type of the first argument.
+
 ```q
 q)7f div 2
 3f
@@ -116,7 +134,9 @@ q)6i div 4
 q)2014.10.13 div 365
 2000.01.15
 ```
+
 The exceptions are as usual char/byte/short which get converted to ints.
+
 ```q
 q)7h div 3
 2i
@@ -125,6 +145,7 @@ q)0x80 div 16
 q)"\023" div 8
 2i
 ```
+
 <i class="fa fa-hand-o-right"></i> [`%` float division](arith-float/#divide)
 
 
@@ -133,18 +154,23 @@ q)"\023" div 8
 Syntax: `floor x` (atomic)
 
 Returns the greatest integer less than or equal to `x`. 
+
 ```q
 q)floor -2.1 0 2.1
 -3 0 2
 ```
 
 !!! note "Comparison tolerance; datetime"
+
     Prior to V3.0, `floor` used [comparison tolerance](/cookbook/precision/#comparison-tolerance).
+
     <pre><code class="language-q">
     q)floor 2 - 10 xexp -12 -13
     1 2
     </code></pre>
+
     Prior to V3.0, `floor` accepted datetime. Since V3.0, use `"d"$` instead.
+
     <pre><code class="language-q">
     q)floor 2009.10.03T13:08:00.222
     2009.10.03
@@ -159,6 +185,7 @@ Syntax: `x | y` (atomic)
 Syntax: `x or y` (atomic) 
 
 Returns the maximum of `x` and `y`. 
+
 ```q
 q)2|3
 3
@@ -181,6 +208,7 @@ Returns the difference between conforming numerics `x` and `y`. Slower than `+`.
 Syntax: `x mod y` (atomic) 
 
 Where `x` and `y` are numeric types, returns the remainder of `x%y`.
+
 ```q
 q)-3 -2 -1 0 1 2 3 4 mod 3
 0 1 2 0 1 2 0 1
@@ -193,6 +221,7 @@ Syntax: `x and y` (atomic)
 Syntax: `x & y` (atomic)
 
 Returns the minimum of `x` and `y`. 
+
 ```q
 q)2&3
 2
@@ -215,12 +244,14 @@ Returns the product of conforming numeric atoms or lists `x` and `y`.
 Syntax: `neg x` (atomic)
 
 Returns the negation of `x`. Applies to all data types except sym and char. Applies item-wise to lists, dict values and table columns.
+
 ```q
 q)neg -1 0 1 2
 1 0 -1 -2
 ```
 
 !!! note "Why not `-`?"
+
     This is needed because q has no ambivalence for primitives, and `-` is already in use as an operator, i.e. in infix form. 
 
 
@@ -229,6 +260,7 @@ q)neg -1 0 1 2
 Syntax: `signum x` (atomic)
 
 Returns -1, 0 or 1 where `x` is negative, zero or positive respectively. Applies item-wise to lists, dictionaries and tables, and to all data types except symbol. Returns -1 for nulls. 
+
 ```q
 q)signum -2 0 1 3
 -1 0 1 1
@@ -237,7 +269,9 @@ q)signum (0n;0N;0Nt;0Nd;0Nz;0Nu;0Nv;0Nm;0Nh;0Nj;0Ne)
 ```
 
 !!! tip
+
     Find counts of price movements by direction:
+
     <pre><code class="language-q">
     q)select count i by signum deltas price from trade
     </code></pre>
@@ -254,6 +288,7 @@ Where `x` is
 - a list of numeric lists, returns their sums
 
 Nulls are treated as zeros.
+
 ```q
 q)sum 7                         / sum atom (returned unchanged)
 7
@@ -289,6 +324,7 @@ q)sum each flip(0n 8;8 0n) /do this to fall back to vector case
 Syntax: `sums x` (uniform)
 
 Returns the cumulative sums of the items of `x`. The sum of an atom is itself. Nulls are treated as zeros.
+
 ```q
 q)sums 7                        / cumulative sum atom (returned unchanged)
 7
@@ -319,6 +355,7 @@ q)sums "abc"                    / type error if list is not numeric
 Syntax: `til x` 
 
 **Natural numbers until**: where `x` is a non-negative integer, returns the first `x` integers. 
+
 ```q
 q)til 0
 `long$()
@@ -340,13 +377,16 @@ q)til 5f
 Syntax: `x xbar y` 
 
 **Round down**: returns numeric `y` rounded down to the nearest multiple of integer `x`; `y` can be any numeric or temporal type.
+
 ```q
 q)3 xbar til 16
 0 0 0 3 3 3 6 6 6 9 9 9 12 12 12 15
 q)5 xbar 11:00 + 0 2 3 5 7 11 13
 11:00 11:00 11:00 11:05 11:05 11:10 11:10
 ```
+
 Interval bars are useful in aggregation queries. To get last price and total size in 10-minute bars:
+
 ```q
 q)select last price, sum size by 10 xbar time.minute from trade where sym=`IBM
 minute| price size
@@ -357,7 +397,9 @@ minute| price size
 10:00 | 55.23 35768
 ...
 ```
+
 Group symbols by closing price:
+
 ```q
 q)select sym by 5 xbar close from daily where date=last date
 close| sym
@@ -369,7 +411,9 @@ close| sym
 ```
 
 !!! tip "Grouping at irregular intervals"
+
     To group at irregular intervals, one solution is to use `bin`.
+
     <pre><code class="language-q">
     q)x:\`s#10:00+00:00 00:08 00:13 00:27 00:30 00:36 00:39 00:50
     q)select count i by x x bin time.minute from ([]time:\`s#10:00:00+asc 100?3600)

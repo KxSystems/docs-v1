@@ -7,13 +7,16 @@ Syntax: `h x`
 Where `x` is a noun and `h` is 
 
 - an integer file handle returned by [`hopen`](filewords/#hopen), `x` is written to the file.
+
 ```q
 q)a:hopen`:file.txt
 q)a "first "
 q)a "word\n"
 q)hclose a
 ```
+
 If `h` is negative and points to an existing file, then a newline is included.
+
 ```q
 q)a:hopen`:file.txt
 q)neg[a] "first line"
@@ -37,13 +40,16 @@ A file descriptor is either
 ### `0` (console)
 
 File handle zero is the console process. Writing to it executes an expression in the main thread.
+
 ```q
 q)0 "1 \"hello\""
 hello1
 q)0 (+;2;2)
 4
 ```
+
 Reading from it using [`read0`](filewords/#read0) permits interactive input.
+
 ```q
 q)1">> ";a:read0 0
 >> whatever
@@ -55,6 +61,7 @@ q)a[4+til 4]
 ### `1` (stdout)
 
 File handles `1` and `-1` are stdout. The difference is that `-1` appends a newline after the string, whereas `1` does not. The return value is `1` or `-1` respectively, which will print if not suppressed.
+
 ```q
 q)1 "String vector here\n"
 String vector here
@@ -86,6 +93,7 @@ String vector here
 Syntax: `delimiter 0: t`
 
 Where `delimiter` is a char atom and `t` is a table, returns a list of character strings containing text representations of the rows of `t` separated by `delimiter`. 
+
 ```q
 q)csv 0: ([]a:1 2 3;b:`x`y`z)
 "a,b"
@@ -98,7 +106,9 @@ q)"|" 0: (`a`b`c;1 2 3;"xyz")
 "b|2|y"
 "c|3|z"
 ```
+
 Any cells containing `delimiter` will be embraced with `"` and any embedded `"` doubled.
+
 ```q
 q)t:([]x:("foo";"bar,baz";"qu\"ux";"fred\",barney"))
 q)t
@@ -125,7 +135,8 @@ Test to see if file _handles_ actually work in the following, all the examples a
 Syntax: `filehandle 0: strings`
 
 Where `filehandle` is a file handle and `strings` a list of character strings, `strings` are saved as lines in the file. The result of _prepare-text_ can be used as `strings`.
-```
+
+```q
 q)`:test.txt 0: enlist "text to save"
 `:test.txt
 q)`:status.txt 0: string system "w"
@@ -150,13 +161,17 @@ If `delimiter` is enlisted, the first row of the content of `y` is read as colum
 /load 2 columns from space-delimited file with header 
 q)t:("SS";enlist" ")0:`:/tmp/txt
 ```
+
 Use optional arg `allowEmbeddedLineReturns` to allow line returns embedded within strings.
+
 ```q
 q)("I*";",";1)0:("0,\"ab\nc\"";"1,\"def\"")
 0       1
 "ab\nc" "def"
 ```
+
 Where `y` is a string and `delimiter` an atom, returns a single list of the data split and parsed accordingly. 
+
 ```q
 q)("DT";",")0:"20130315,185540686"
 2013.03.15
@@ -185,7 +200,9 @@ q)dates:("Tue, 04 Jun 2013 07:00:13 +0900";"Tue, 04 Jun 2013 07:00:13 -0500")
 q)sum(" Z T";5 20 1 5)0:dates
 2013.06.04T16:00:13.000 2013.06.04T02:00:13.000
 ```
+
 _Load-fixed_ expects either a \n after every record, or none at all.
+
 ```q
 /reads a text file containing fixed-length records
 q)t:("IFC D";4 8 10 6 4) 0: `:/q/Fixed.txt 
@@ -206,6 +223,7 @@ Where `x` is a 3- or 4-char string:
 (key-type field-separator [asterisk] record-separator) 
 
 and key-type is `S` for symbol, `I` for integer, or `J` for long, returns a 2-row matrix of the keys and values. 
+
 ```q
 q)"S=;"0:"one=1;two=2;three=3"
 one  two  three
@@ -228,7 +246,9 @@ q)(!/)"I=\001"0:s
 49| "JM_TEST1"
 52| "20130425-06:46:46.387"
 ```
+
 The inclusion of an asterisk as the third character allows the delimiter character to appear harmlessly in quoted strings. (Since V3.5.)
+
 ```q
 q)0N!"I=*,"0:"5=\"hello,world\",6=1";
 (5 6i;("hello,world";,"1"))
@@ -238,7 +258,10 @@ q)0N!"S=*,"0:"a=\"hello,world\",b=1";
 (`a`b;("hello,world";,"1"))
 ```
 
-<i class="fa fa-hand-o-right"></i> [casting](casting), [datatypes](datatypes), [How do I import a CSV file into a table](/cookbook/faq/#how-do-i-import-a-csv-file-into-a-table)
+<i class="fa fa-hand-o-right"></i> 
+[casting](casting), 
+[datatypes](datatypes), 
+[How do I import a CSV file into a table](/cookbook/faq/#how-do-i-import-a-csv-file-into-a-table)
 
 
 ## `1:` (Binary files)
@@ -253,6 +276,7 @@ Where
 - `y` is a file descriptor (see above) or string, or byte sequence
 
 returns the content of `y` as atom, list or matrix.
+
 ```q
 q)(enlist 4;enlist"i")1:0x01000000 / big endian
 16777216
@@ -261,7 +285,9 @@ q)(enlist"i";enlist 4)1:0x01000000 / little endian
 q)(enlist"f";enlist 8)1:0x7fbdc282fb210940 / pi as little endian 64bit float
 3.141593
 ```
+
 Read two records containing an integer, a character and a short from a byte sequence. Note the integer is read with a 4 byte width, the character with 1 byte and the short with 2 bytes. (When reading byte sequences it is helpful to recall that a byte is 2 hex digits.)
+
 ```q
 q)("ich";4 1 2)1:0x00000000410000FF00000042FFFF
 0 255
@@ -273,7 +299,9 @@ q)("ich";4 1 2)1:"arthur!"
 u
 8562
 ```
+
 With `offset` and `length`:
+
 ```q
 /load 500000 records, 100000 at a time
 q)d:raze{("ii";4 4)1:(`:/tmp/data;x;100000)}each 100000*til 5
@@ -285,6 +313,7 @@ q)d:raze{("ii";4 4)1:(`:/tmp/data;x;100000)}each 100000*til 5
 Syntax: `x 1: y` 
 
 writes bytes `y` to file `x`.
+
 ```q
 `:hello 1: 0x68656c6c6f776f726c64
 ```
@@ -300,7 +329,7 @@ Where `x` is a file symbol and `y` is a 2-item list: the name of a C function (s
 
 Suppose we have a C function in `cpu.so` with the prototype
 
-```C
+```c
 K q_read_cycles_of_this_cpu(K x);
 ```
 

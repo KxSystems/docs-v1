@@ -91,12 +91,10 @@ Workaround: (1) use image files for equations, (2) replace inline expressions wi
 
 Currently using MathJAX for best results in HTML, but fails to compile in PDF.
 2018.07.26
- -->
+-->
 
 $$\sigma(x) = \frac{1}{1+e^{-x}}$$
 
-<!-- ![](img/formula1.png) -->
-<!-- 𝜎(𝑥) = 1 ÷ (1 + 𝑒<sup>−𝑥</sup>) -->
 </div>
 
 ```q
@@ -298,13 +296,8 @@ function defined as:
   
 $$-\sum_{t}y^t\log \widehat{y}^t + (1-y^t)\log(1-\widehat{y}^t)$$
 
-<!-- ![](img/formula2.png) -->
 </div>
 
-<!-- − ∑ 𝑦<sup>𝑡</sup> log 𝑦̂<sup>𝑡</sup> + (1 − 𝑦<sup>𝑡</sup>) log(1 −
-𝑦̂<sup>𝑡</sup>)
-𝑡
- -->
 This gives us the following update rule for adjusting the weights
 between the output node and the hidden layer:
 
@@ -314,16 +307,11 @@ $$\Delta v_{h}=\sum_{t}z_{h}^t(y^t-\widehat{y}^t)$$
 
 $$v_h \leftarrow v_h + \alpha\Delta v_h$$
 
-<!-- ![](img/formula3.png) -->
-<!-- ∆𝑣ℎ = ∑ 𝑧<sup>𝑡</sup> (𝑦<sup>𝐭</sup> − 𝑦̂<sup>𝑡</sup>)
-𝑡
-𝑣ℎ ← 𝑣ℎ + 𝛼∆𝑣ℎ
- -->
 </div>
 
 where: 
 
-$z^{t}_h$ <!-- 𝑧<sup>𝑡</sup><sub>_h_</sub>  -->
+$z^{t}_h$ 
 
 : the output after evaluating the hidden neuron $h$ for input sample $t$
 
@@ -357,12 +345,6 @@ $$\Delta w_{hj} = \sum_t(y^t-\widehat{y}^t) v_h z^t_h(1-z^t_h)x^t_j$$
 
 $$w_{hj} \leftarrow w_{hj}+\alpha\Delta w_{hj}$$
 
-<!-- ![](img/formula4.png) -->
-<!-- ∆𝑤ℎ𝑗 = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>) 𝑣ℎ𝑧<sup>𝑡</sup>(1 − 𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
-ℎ ℎ 𝑗
-𝑡
-𝑤ℎ𝑗 ← 𝑤ℎ𝑗 + 𝛼∆𝑤ℎ𝑗
- -->
 </div>
 
 where:
@@ -481,10 +463,7 @@ function used is the softmax function:
 
 $$\widehat{y}^t_i = \frac{\exp{S^t_i}}{\sum_k\exp{S^t_k}}$$
 
-<!-- ![](img/formula5.png) -->
-<!--  # 𝑦̂ =
-𝑖 ∑<sub>𝑘</sub> 𝑒𝑥𝑝 𝑆<sup>𝑡</sup>
- --></div>
+</div>
 
 where 
 
@@ -512,10 +491,7 @@ The cross-entropy error function in this case is:
 
 $$-\sum_t\sum_i y^t_i\log\widehat{y}^t_i$$
 
-<!-- − ∑ ∑ 𝑦<sup>𝑡</sup> log 𝑦̂<sup>𝑡</sup>
-𝑖 𝑖
-𝑡 𝑖
- --></div>
+</div>
 
 where $\widehat{y}^t_i$ is the target value for output neuron $i$ with
 sample $t$.
@@ -528,16 +504,8 @@ $$\Delta v_{ih} = \sum_t(y^t_i - \widehat{y}^t_i)z^t_h$$
 
 $$\Delta w_{hj} = \sum_t\left[\sum_i(y^t_i-\widehat{y}^t_i)v_{ih}\right]z^t_h(1-z^t_h)x^t_j$$
 
-<!-- ∆𝑣<sub>𝑖ℎ</sub> = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
-𝑖 𝑖 ℎ
-𝑡
-∆𝑤<sub>ℎ𝑗</sub> = ∑ \[∑(𝑦<sup>𝑡</sup> −
-𝑦̂<sup>𝑡</sup>)𝑣<sub>𝑖ℎ</sub>\] 𝑧<sup>𝑡</sup> (1 −
-𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
-𝑖 𝑖
-𝑡 𝑖
-ℎ ℎ 𝑗
- --></div>
+</div>
+   
 where $v_{ih}$ is the weight between output neuron $i$ and hidden neuron
 $h$.
 
@@ -556,8 +524,6 @@ layer.
 
 $$\widehat{y}^t=\textbf{v}\cdot\textbf{z}^t$$
 
-<!-- ![](img/formula8.png) -->
-<!-- 𝑦̂<sup>𝑡</sup> = 𝐯 ∙ 𝐳<sup>𝑡</sup> -->
 </div>
 
 where 
@@ -577,11 +543,6 @@ sum-of-squared errors:
 
 $$\frac{1}{2}\sum_t(y^t-\widehat{y}^t)^2$$
 
-<!-- ![](img/formula9.png) -->
-<!-- 1 ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)<sup>2</sup>
-2
-𝑡
- -->
 </div>
 
 The update rules for a regression output are:
@@ -592,14 +553,6 @@ $$\Delta v_h = \sum_t(y^t-\widehat{y}^t)z^t_h$$
 
 $$\Delta w_{hj} = \sum_t (y^t-\widehat{y}^t) v_h z^t_h (1-z^t_h) x^t_j$$
 
-<!-- ![](img/formula10.png) -->
-<!-- ∆𝑣ℎ = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑧<sup>𝑡</sup>
-𝑡
-∆𝑤ℎ𝑗 = ∑(𝑦<sup>𝑡</sup> − 𝑦̂<sup>𝑡</sup>)𝑣ℎ𝑧<sup>𝑡</sup>(1 −
-𝑧<sup>𝑡</sup> )𝑥<sup>𝑡</sup>
-ℎ ℎ 𝑗
-𝑡
--->
 </div>
 
 ```q

@@ -261,9 +261,7 @@ q)delete Id from `train
 q)delete from `train where GrLivArea > 4000
 ```
 
-Next, null data points within the features are assumed to mean that it
-does not have that feature. Any `` `NA`` values are filled with `` `No`` or ``
-`None``, depending on category.
+Next, null data points within the features are assumed to mean that it does not have that feature. Any `` `NA`` values are filled with `` `No`` or `` `None``, depending on category.
 
 ```q
 updateNulls:{[t]

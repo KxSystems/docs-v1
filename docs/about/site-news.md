@@ -109,7 +109,7 @@ For single-character queries such as `?`, `$` and `@` use the [Reference card](/
     <p style="display: inline-block;">
         And the words that are used for to get this ship confused<br>  
         Will not be understood as they are spoken<br>
-        — <i>Bob Dylan</i> “When the ship comes in” 
+        — <em>Bob Dylan</em> “When the ship comes in” 
     </p>
     <p style="display: inline-block; padding: 0 1em;">
         <a href="//bobdylan.com/albums/the-times-they-are-a-changin/" title="The Times they Are A’Changin’"><img alt="Bob Dylan" src="//code.kx.com/q/img/dylan.png" style="height: 70px"/></a>

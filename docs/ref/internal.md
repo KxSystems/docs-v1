@@ -1,6 +1,7 @@
 `!` with a negative integer as left-argument calls a k internal function.
 
 !!! warning 
+
     `-n!` bindings are subject to change. If a cover function is provided in the `.q` or `.Q` namespaces – use that instead!
 
 [![Neal Stephenson thinks it's cute to name his labels 'dengo'](/img/goto.png "Neal Stephenson thinks it's cute to name his labels 'dengo'")](https://xkcd.com/292/)  
@@ -28,6 +29,7 @@ Strictly, this is `.Q.s1`, but it's better to use [.Q.s](dotq/#qs-plain-text)
 ## `-4!x` (tokens)
 
 Returns the list of q tokens found in string `x`. (Note the q parsing of names with embedded underscores.)
+
 ```q
 q)-4!"select this from that"
 "select"
@@ -86,13 +88,15 @@ q)-8!1 2 3
 
 Create data from IPC byte representation `x`
 
-    q)-9!-8!1 2 3
-    1 2 3
-
+```q
+q)-9!-8!1 2 3
+1 2 3
+```
 
 ## `-10!x` (type enum)
 
 Resolve a type number to an enum vector and check if it’s available
+
 ```q
 q)-10!20h
 1b
@@ -162,6 +166,7 @@ It's possible to leverage the above to playback `n` records from record `M` onwa
 Firstly create a sample log file, which contains 1000 records as 
 
 `((`f;0);(`f;1);(`f;2);..;(`f;999))`.
+
 ```q
 q)`:log set();h:hopen`:log;i:0;do[1000;h enlist(`f;i);i+:1];hclose h;
 ```
@@ -169,6 +174,7 @@ q)`:log set();h:hopen`:log;i:0;do[1000;h enlist(`f;i);i+:1];hclose h;
 then define function `f` to just print its arg, skip the first `M` records. If 
 
 `.z.ps` is defined, `-11!` calls `.z.ps` for each record.
+
 ```q
 q)m:0;M:750;f:0N!;.z.ps:{m+:1;if[m>M;value x;];};-11!(M+5-1;`:log)
 750
@@ -230,6 +236,7 @@ Handle `"` escaping in strings: used to prepare data for CSV export.
 ## `-16!x` (ref count)
 
 Return the reference count for a variable
+
 ```q
 q)-16!a
 1
@@ -302,6 +309,7 @@ q)get[`:test]~get`:ztest
 Syntax: `-21! x`
 
 Where `x` is a file symbol, returns a dictionary of compression statistics for it.
+
 ```q
 q)-21!`:ztest
 compressedLength  | 137349
@@ -310,6 +318,7 @@ algorithm         | 2i
 logicalBlockSize  | 17i
 zipLevel          | 6i
 ```
+
 <i class="fa fa-hand-o-right"></i> [Cookbook/File compression](/cookbook/file-compression)
 
 
@@ -317,6 +326,7 @@ zipLevel          | 6i
 ## `-22!x` (uncompressed length)
 
 An optimized shortcut to obtain the length of uncompressed serialized `x`, i.e. `count -8!x`
+
 ```q
 q)v:til 100000
 q)\t do[5000;-22!v]
@@ -335,6 +345,7 @@ Since V3.1t 2013.03.04
 
 Maps data into memory without copying.
 Sequentially faults any mapped memory backing `x`, to ensure it is resident in core.
+
 ```q
 q)/ previous tricks to force load included .. where i>=0
 q)-23!t:select from get`:t/; 
@@ -349,6 +360,7 @@ Since V3.3t 2014.10.07.
 read-only evaluation, underpinning the keyword "reval", similar to eval (-6!), which behaves as if the cmd line option `-b` were active for the duration of the `-24!` call.
 
 An example usage is inside the message handler `.z.pg`, useful for access control, here blocking sync messages from updating
+
 ```q
 q).z.pg:{reval(value;enlist x)} / define on local process listening on port 5000
 q)h:hopen 5000 / from another process on localhost
@@ -364,9 +376,11 @@ Since V3.4
 Broadcast data as an async msg to specified handles. The advantage of using `-25!(handles;msg)` over `neg[handles]@\:msg` is that `-25!msg` will serialize `msg` just once – thereby reducing CPU and memory load.
 
 Use as
+
 ```q
 q)-25!(handles; msg)
 ```
+
 Handles should be a vector of int or longs &gt; 0.
 
 `msg` will be serialized just once, to the lowest capability of the list of handles. I.e. if handles are connected to a mix of versions of kdb+, it will serialize limited to the types supported by the lowest version. If there is an error, no messages will have been sent, and it will return the handle whose cap caused the error.
@@ -377,22 +391,24 @@ Just as with `neg[handles]@\:msg`, `-25!x` queues the msg as async on those hand
 
 Possible error scenarios:
 
-1.  from trying to serialize data for a handle whose remote end does not support a type, or size of the data.<pre><code class="language-q">
-/ connect to 2.8 and 3.4
-q)h:hopen each 5000 5001
-q)h
-5 6i 
-q)(-5) 0Ng / 2.8 does not support guid
-'type
-q)(-6) 0Ng / 3.4 does support guid 
-q)-25!(h;0Ng)
-'type error serializing for handle 5
-</code></pre>
+1.  from trying to serialize data for a handle whose remote end does not support a type, or size of the data.
+    <pre><code class="language-q">
+    / connect to 2.8 and 3.4
+    q)h:hopen each 5000 5001
+    q)h
+    5 6i 
+    q)(-5) 0Ng / 2.8 does not support guid
+    'type
+    q)(-6) 0Ng / 3.4 does support guid 
+    q)-25!(h;0Ng)
+    'type error serializing for handle 5
+    </code></pre>
 
-2.  in case an int is passed which is not a handle<pre><code class="language-q">
-q)-25!(7 8;0Ng)
-'7 is not an ipc handle
-</code></pre>
+2.  in case an int is passed which is not a handle
+    <pre><code class="language-q">
+    q)-25!(7 8;0Ng)
+    '7 is not an ipc handle
+    </code></pre>
 
 
 
