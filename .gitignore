@@ -11,6 +11,8 @@ serve
 *.fo
 *.xml
 *.zip
+*-a4.pdf
+*-us.pdf
 
 site/
 pages
