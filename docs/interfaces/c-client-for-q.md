@@ -24,17 +24,17 @@ Let’s explore the basic types and their synonyms that you will commonly encoun
 To provide succinct composable names, the q header defines synonyms for the common types as in the following table:
 
 
-| Type          | Synonym |
-|---------------|---------|
-| 16 bit int    | `H`     |
-| 32 bit int    | `I`     |
-| 64 bit int    | `J`     |
-| char\*        | `S`     |
-| unsigned char | `G`     |
-| char          | `C`     |
-| 32 bit float  | `E`     |
-| 64 bit double | `F`     |
-| void          | `V`     |
+type          | synonym
+--------------|--------
+16 bit int    | `H`    
+32 bit int    | `I`    
+64 bit int    | `J`    
+char\*        | `S`    
+unsigned char | `G`    
+char          | `C`    
+32 bit float  | `E`    
+64 bit double | `F`    
+void          | `V`    
 
 With this basic knowledge, we can now tackle the types available in q and their matching C types and accessor functions provided in the C interface. We will see shortly how the accessor functions are used in practice.
 
@@ -125,15 +125,15 @@ For example, given a K object containing a vector of floats, we can access `kF(x
 For accessing atoms, use the following accessors:
 
 
-| type   | accessor | additional types                  |
-|--------|----------|-----------------------------------|
-| byte   | `x->g`   | boolean, char                     |
-| short  | `x->h`   |                                   |
-| int    | `x->i`   | month, date, minute, second, time |
-| long   | `x->j`   | timestamp, timespan               |
-| real   | `x->e`   |                                   |
-| float  | `x->f`   | datetime                          |
-| symbol | `x->s`   | error                             |
+type   | accessor | additional types                 
+-------|----------|----------------------------------
+byte   | `x->g`   | boolean, char                    
+short  | `x->h`   |                                  
+int    | `x->i`   | month, date, minute, second, time
+long   | `x->j`   | timestamp, timespan              
+real   | `x->e`   |                                  
+float  | `x->f`   | datetime                         
+symbol | `x->s`   | error                            
 
 !!! warning "Changes in V3.0"
 
@@ -181,12 +181,12 @@ Although memory in q is managed for the programmer implicitly, when interfacing 
 The following functions are provided to interface with the q memory manager.
 
 
-| purpose                                        | function  |
-|------------------------------------------------|-----------|
-| Increment the object‘s reference count         | `r1(K)`   |
-| Decrement the object‘s reference count         | `r0(K)`   |
-| Free up memory allocated for the thread‘s pool | `m9()`    |
-| Set whether interning symbols uses a lock      | `setm(I)` |
+purpose                                        | function 
+-----------------------------------------------|----------
+Increment the object‘s reference count         | `r1(K)`  
+Decrement the object‘s reference count         | `r0(K)`  
+Free up memory allocated for the thread‘s pool | `m9()`   
+Set whether interning symbols uses a lock      | `setm(I)`
 
 A reference count indicates the usage of an object, allowing the same object to be used by more than one piece of code.
 
@@ -270,24 +270,24 @@ K r=k(handle,"functionname",r1(param),(K)0);
 To create atom values the following functions are available. Function `ka` creates an atom of the given type, and the rest create an atom with the given value:
 
 
-| purpose                | call            |
-|------------------------|-----------------|
-| Create an atom of type | `K ka(I);`      |
-| Create a boolean       | `K kb(I);`      |
-| Create a guid          | `K ku(U);`      |
-| Create a byte          | `K kg(I);`      |
-| Create a short         | `K kh(I);`      |
-| Create an int          | `K ki(I);`      |
-| Create a long          | `K kj(J);`      |
-| Create a real          | `K ke(F);`      |
-| Create a float         | `K kf(F);`      |
-| Create a char          | `K kc(I);`      |
-| Create a symbol        | `K ks(S);`      |
-| Create a timestamp     | `K ktj(-KP,J);` |
-| Create a time          | `K kt(I);`      |
-| Create a date          | `K kd(I);`      |
-| Create a timespan      | `K ktj(-KN,J);` |
-| Create a datetime      | `K kz(F);`      |
+purpose                | call           
+-----------------------|----------------
+Create an atom of type | `K ka(I);`     
+Create a boolean       | `K kb(I);`     
+Create a guid          | `K ku(U);`     
+Create a byte          | `K kg(I);`     
+Create a short         | `K kh(I);`     
+Create an int          | `K ki(I);`     
+Create a long          | `K kj(J);`     
+Create a real          | `K ke(F);`     
+Create a float         | `K kf(F);`     
+Create a char          | `K kc(I);`     
+Create a symbol        | `K ks(S);`     
+Create a timestamp     | `K ktj(-KP,J);`
+Create a time          | `K kt(I);`     
+Create a date          | `K kd(I);`     
+Create a timespan      | `K ktj(-KN,J);`
+Create a datetime      | `K kz(F);`     
 
 An example of creating an atom:
 
@@ -355,14 +355,14 @@ jv(&syms,more); // append a vector with two symbols to syms
 
 Strings and datetimes are special cases and extra utility functions are provided:
 
-| purpose                            |                          |
-|------------------------------------|--------------------------|
-| Create a char array from string    | `K kp(string);`          | 
-| Create a char array from string of length n | `K kpn(string, n);`|
-| Intern a string                    | `S ss(string);`          |
-| Intern n chars from a string       | `S sn(string,n);`        |
-| Convert q date to yyyymmdd integer | `I dj(date);`            |
-| Encode a year/month/day as q date <br/>`0==ymd(2000,1,1)`| `I ymd(year,month,day);` |
+purpose                                     | function
+--------------------------------------------|--------------------------
+Create a char array from string             | `K kp(string);`           
+Create a char array from string of length n | `K kpn(string, n);`      
+Intern a string                             | `S ss(string);`          
+Intern n chars from a string                | `S sn(string,n);`        
+Convert q date to yyyymmdd integer          | `I dj(date);`            
+Encode a year/month/day as q date <br/>`0==ymd(2000,1,1)`| `I ymd(year,month,day);` 
 
 Recall that Unix time is the number of seconds since `1970.01.01D00:00:00` while q time types have an epoch of `2000.01.01D00:00:00`.
 
@@ -546,6 +546,43 @@ int main(){
   kclose(fd);
   return 0;
 }
+```
+
+## SSL/TLS
+
+To use this feature, you must link with one of the “e” libs.
+
+-   `e.dll`
+-   `e.lib`
+-   `est.dll`
+-   `est.lib`
+-   `e_static.lib`
+-   `est_static.lib`
+-   `e.o`
+
+Encrypted connections may be requested via the capability parameter of the new `khpunc` function, e.g.
+
+```c
+extern I khpunc(S hostname,I port,S usernamepassword,I timeout,I capability); 
+// capability is a bit field (1 - 1TB limit, 2 - use TLS)
+int handle=khpunc("remote host",5000,"user:password",timeout,2);
+```
+
+There’s an additional return value for TLS connections, `-3`, which indicates the `openssl init` failed. This can be checked via
+
+```c
+extern K sslInfo(K x); // returns an error if init fails, or a dict of settings similar to -26!x
+if(handle==-3){K x=ee(sslInfo((K)0));printf("Init error %s\n",xt==-128?x->s:"unknown");r0(x);}
+```
+
+A restriction for SSL/TLS connections – these can be used from the initialization thread only, i.e. the thread which first calls any `khp` function since the start of the application.
+
+The lib is sensitive to the same environment variables as kdb+, noted at [Knowledge Base: SSL/TLS](../../cookbook/ssl).
+
+The OpenSSL libs are loaded dynamically,  the first time a TLS connection is requested. It may be forced on startup with
+
+```c
+int h=khpunc("",-1,"",0,2); // remember to test the return value for -3
 ```
 
 
