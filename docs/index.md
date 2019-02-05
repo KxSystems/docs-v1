@@ -38,7 +38,7 @@ Kdb+, from [Kx&nbsp;Systems](http://kx.com), is
     Download kdb+<br/>
     <i class="fa fa-apple"></i>
     <i class="fa fa-linux"></i>
-    <i class="fa fa-windows"></i>](https://kx.com/download "Download free 32-bit kdb+ for non-commercial use")
+    <i class="fa fa-windows"></i>](https://kx.com/connect-with-us/download/  "Download free kdb+ for non-commercial use")
 </div>
 <div>
     [<i class="fa fa-question-circle fa-border fa-5x"></i><br/>
