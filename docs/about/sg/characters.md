@@ -10,9 +10,9 @@ Prefer **actual Unicode characters** – which a modern text editor will display
 -   <i class="fa fa-windows"></i> Windows allows many characters to be typed as ASCII codes from the numeric keyboard, eg Alt+0215 for ×. (See the [W3C list of HTML character entity references](http://www.w3.org/TR/html401/sgml/entities.html#h-24.2) for codes.) 
 -   <i class="fa fa-apple"></i> Mac OS X provides a graphical palette of Unicode characters. 
 
-If a character proves particularly difficult to source (for example, the romaji O-micron) try using its character entity, displaying the result in a browser, then copying and pasting the character from the browser back into the source. (A good idea in such cases to leave the character entity embedded as a comment.)
+If a character proves particularly difficult to source (for example, the romaji O-micron), try using its character entity, displaying the result in a browser, then copying and pasting the character from the browser back into the source. (It is a good idea in such cases to leave the character entity embedded as a comment.)
 
-Use real **ellipses** (…) because three periods can be broken across lines or pages. 
+Use **real ellipses** (…) because three periods can be broken across lines or pages. 
 
 -   <i class="fa fa-windows"></i> In Windows Alt+0133 on the numeric keypad 
 -   <i class="fa fa-apple"></i> On Mac, Opt+;
@@ -62,7 +62,7 @@ The **Oxford comma** cannot safely be used without thought.
 
 -   It can resolve ambiguity in a list.
 -   It can introduce ambiguity into a list.
--   Some lists have ambiguities that its use or omission do not resolve. The ambiguity can be resolved only by rephrasing.
+-   Some lists have ambiguities that its use or omission do not resolve; such ambiguity may be resolved only by rephrasing.
 
 <i class="fa fa-hand-o-right"></i> _Wikipedia:_ [Serial comma](https://en.wikipedia.org/wiki/Serial_comma)
 
@@ -74,13 +74,13 @@ Commas can have semantic force outside lists, e.g. _Let’s eat, Grandma!_
 
 Hyphenate **adjectival phrases**, e.g. _real-time systems do things in real time_. 
 
-Use **spaced endashes** for parenthetical remarks – such as this one – but never hyphens or unspaced emdashes. (The longer emdash—like this—is the more common style in American typography.) 
+Use **spaced endashes** for parenthetical remarks – such as this one – but never hyphens or unspaced emdashes. (The longer emdash—like this—is the more common style in American typography.)
 
 
 ## Ampersands
 
 Use sparingly, not simply as a synonym for _and_, but to mark an association closer than conjunction.
 
-Thus, _Kernigan & Ritchie_, and _Proctor & Gamble_, but _authentication and access control_.
+Thus, _Kernigan & Ritchie_ and _Proctor & Gamble_, but _authentication and access control_.
 
-**Exception** Wherean ampersand is part of a label on a UI control, reprosduce it faithfully.
+**Exception** Where an ampersand is part of a label on a UI control, reproduce it faithfully.
