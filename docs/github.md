@@ -502,8 +502,8 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/robknows/JsonRestApi">JsonRestApi</a> ==new==</td>
-<td>Server–as-a-function interface <span class="author"><a href="https://github.com/robknows?tab=repositories">
+<td class="nowrap"><a href="https://github.com/robmoore-i/JsonRestApi">JsonRestApi</a></td>
+<td>Server–as-a-function interface <span class="author"><a href="https://github.com/robmoore-i?tab=repositories">
 						(Rob Moore)
 					</a></span>
 </td>
@@ -600,6 +600,12 @@ about new repositories.</div>
 <tr>
 <td class="nowrap"><a href="https://github.com/eepgwde/ticker-planto">ticker-planto</a></td>
 <td>Simplified version of kdb+tick. 
+<span class="author"><a href="https://github.com/eepgwde?tab=repositories">(Walter Eaves)</a></span>
+</td>
+</tr>
+<tr>
+<td class="nowrap"><a href="https://github.com/eepgwde/vivas">vivas</a> ==new==</td>
+<td>Charting: kdb+ WebSockets push to a JavaScript client.
 <span class="author"><a href="https://github.com/eepgwde?tab=repositories">(Walter Eaves)</a></span>
 </td>
 </tr>
@@ -798,8 +804,8 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/robknows/Q-GeneticAlgo">Q-GeneticAlgo </a></td>
-<td>Functions for defining and running genetic algorithms for fixed length binary chromosomes. <span class="author"><a href="https://github.com/robknows?tab=repositories">
+<td class="nowrap"><a href="https://github.com/robmoore-i/Q-GeneticAlgo">Q-GeneticAlgo </a></td>
+<td>Functions for defining and running genetic algorithms for fixed length binary chromosomes. <span class="author"><a href="https://github.com/robmoore-i?tab=repositories">
 						(Rob&nbsp;Moore)
 					</a></span>
 </td>
@@ -826,8 +832,8 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
-<td class="nowrap"><a href="https://github.com/robknows/qng">qng</a></td>
-<td>Simple PNG tools. <span class="author"><a href="https://github.com/robknows?tab=repositories">
+<td class="nowrap"><a href="https://github.com/robmoore-i/qng">qng</a></td>
+<td>Simple PNG tools. <span class="author"><a href="https://github.com/robmoore-i?tab=repositories">
 						(Robert Moore)
 					</a></span>
 </td>
