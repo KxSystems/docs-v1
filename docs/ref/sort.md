@@ -189,3 +189,8 @@ bucket| Min Max Count
 
     Duplicate keys in a dictionary or duplicate column names in a table will cause sorts and grades to return unpredictable results.
 
+
+!!! warning "Compressed data"
+
+    Re-sorting or applying an attribute to data compressed on disk decompresses it. 
+
