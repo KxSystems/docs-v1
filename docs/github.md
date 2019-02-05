@@ -565,6 +565,13 @@ about new repositories.</div>
 </td>
 </tr>
 <tr>
+<td class="nowrap"><a href="https://github.com/robmoore-i/qtest/">qtest</a> ==new==</td>
+<td>Test-driven development <span class="author"><a href="https://github.com/robmoore-i?tab=repositories">
+						(Rob Moore)
+					</a></span>
+</td>
+</tr>
+<tr>
 <td class="nowrap"><a href="https://github.com/psaris/qtips">qtips</a></td>
 <td>Source files for “Q Tips: Fast, Scalable and Maintainable Kdb+”. <span class="author"><a href="https://github.com/psaris?tab=repositories">
 						(Nick Psaris)
