@@ -41,15 +41,15 @@ To enable error reporting, try:
 ```
 
 
-## c.js (no AJAX required)
+## `c.js` (no AJAX required)
 
 c.js provides functions `serialize` and `deserialize` to simplify IPC between the browser and a q server. An example, wslogin.htm shows how to send a JavaScript dictionary to q. It receives an echo of the dictionary and turns it back into a JavaScript dictionary.
 
 To run this example
 
-1. restart the server
-2. download wslogin.htm and c.js to the same location
-4. open wslogin.htm in your browser
+1.  restart the server
+2.  download `wslogin.htm` and `c.js` to the same location
+4.  open `wslogin.htm` in your browser
 
 A byte vector is passed to `.z.ws` when using the c.js function `serialize`. To decode a *serialized* string, use `-9!` and to encode, use `-8!`.
 
@@ -63,16 +63,16 @@ This example works, because the default `.z.ws` echoes the byte vector over the 
 
 <i class="fa fa-download"></i> **Downloads**
 
-- <i class="fa fa-github"></i> [KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js)
-- <i class="fa fa-github"></i> [KxSystems/cookbook/wslogin.htm](https://github.com/KxSystems/cookbook/blob/master/wslogin.htm)
+-   <i class="fa fa-github"></i> [KxSystems/kdb/c/c.js](https://github.com/KxSystems/kdb/blob/master/c/c.js)
+-   <i class="fa fa-github"></i> [KxSystems/cookbook/wslogin.htm](https://github.com/KxSystems/cookbook/blob/master/wslogin.htm)
 
 
 ## JSON
 
-A small utility to parse and generate JSON is shipped in q.k. (Since V3.2 2014.08.22.) For prior releases, it can be found at:
+A small utility to parse and generate JSON is shipped in `q.k`. (Since V3.2 2014.08.22.) For prior releases, it can be found at:
 <i class="fa fa-github"></i> [KxSystems/kdb/e/json.k](https://github.com/KxSystems/kdb/blob/master/e/json.k)
 
-After loading json.k, example data is in `.j.x`
+After loading `json.k`, example data is in `.j.x`
 
 ```q
 q).j.x
@@ -91,39 +91,38 @@ C    b j z
 ""   1 2 "2014-05-08T16:45:16.025"
 ```
 
-!!! note
+If your JSON data is spread over multiple lines, reduce those to a single char vector with `raze`.
 
-    If your JSON data is spread over multiple lines, reduce those to a single char vector with `raze`.
-    <pre><code class="language-bash">
-    $ cat t1.json 
-    {
-        "code" : 3,
-        "message" : "This request requires authorization"
-    }
-    </code></pre>
-    
-    <pre><code class="language-q">
-    q).j.k raze read0`:t1.json
-    code   | 3f
-    message| "This request requires authorization"
-    </code></pre>
+```bash
+$ cat t1.json 
+{
+    "code" : 3,
+    "message" : "This request requires authorization"
+}
+```
 
-    Otherwise you’ll encounter an error similar to:
+```q
+q).j.k raze read0`:t1.json
+code   | 3f
+message| "This request requires authorization"
+```
+
+Otherwise you’ll encounter an error similar to:
     
-    <pre><code class="language-q">
-    q).j.k read0`:t1.json
-    k){=\~("\"=-1_q,x)<q=x}
-    'length
-    <
-    (0b;,0b;000000000000b;00000000000000000000000000000000000000000000000000b)
-    (,0b;010000100000b;01000000010001000000000000000000000000000000000001b;,0b)
-    q.j))\\
-    </code></pre>
+```q
+q).j.k read0`:t1.json
+k){=\~("\"=-1_q,x)<q=x}
+'length
+<
+(0b;,0b;000000000000b;00000000000000000000000000000000000000000000000000b)
+(,0b;010000100000b;01000000010001000000000000000000000000000000000001b;,0b)
+q.j))\\
+```
 
 
 ## Compression
 
-V3.2t 2014.05.08 added ‘permessage-deflate’ WebSockets compression. One way to observe whether compression is active on a connection is to observe the queued data. For example
+V3.2t 2014.05.08 added ‘permessage-deflate’ WebSockets compression. One way to observe whether compression is active on a connection is to observe the queued data. For example:
 
 ```q
 / generate some compressible data
@@ -201,7 +200,7 @@ Both client and server support permessage-deflate compression.
 
 ## Secure sockets: stunnel
 
-[Stunnel](http://en.wikipedia.org/wiki/Stunnel) <i class="fa fa-wikipedia-w"></i> will provide secure sockets (TLS/SSL) using the OpenSSL library. Stunnel will take any WebSocket server, HTTP server, or similar and secure it – you get `https://` and `wss://` for free.
+[Stunnel](http://en.wikipedia.org/wiki/Stunnel "Wikipedia") will provide secure sockets (TLS/SSL) using the OpenSSL library. Stunnel will take any WebSocket server, HTTP server, or similar and secure it – you get `https://` and `wss://` for free.
 
 <i class="fa fa-github"></i> [github.com/cesanta/ssl_wrapper](https://github.com/cesanta/ssl_wrapper)
 
