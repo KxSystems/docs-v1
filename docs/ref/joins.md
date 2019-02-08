@@ -584,7 +584,7 @@ Where:
 
 - `t` and `q` are simple tables to be joined. (`q` should be sorted `` `sym`time `` with `` `p# `` on sym)
 - `w` is a pair of lists of times/timestamps, begin and end
-- `c` are the names of the two common columns, syms and times
+- `c` are the names of the common columns, syms and times
 - `f0`,`f1` are aggregation functions applied to values in q columns `c0`,`c1` over the intervals
 
 returns for each record in `t`, a record with additional columns `c0` and `c1`, which are the results of the aggregation functions applied to values over the matching intervals in `w`.
@@ -597,20 +597,30 @@ wj[w;`sym`time;trade;(quote;(max;`ask);(min;`bid))]
 
 A quote is understood to be in existence until the next quote.
 
-!!! note "Interval behaviour"
 
-    Since V3.0, `wj` and `wj1` are both \[\] interval, i.e. they consider quotes&gt;=beginning and &lt;=end of the interval.
-    
-    For `wj`, the prevailing quote on entry to the window is considered valid as quotes are a step function.
-    
-    `wj1` considers quotes on or after entry to the window. If the join is to consider quotes that arrive from the beginning of the interval, use `wj1`.
-    
-    Prior to V3.0, `wj1` considers only quotes in the window except for the window end (i.e. quotes &gt;= start and &lt; end).
-    
-    | version | wj1  |  wj               |
-    |---------|------|-------------------|
-    | 3.0     | `[]` | prevailing + `[]` |
-    | 2.7/2.8 | `[)` | prevailing + `[]` |
+### Multi-column arguments 
+
+Since 3.6 2018.12.24, `wj` and `wj1` support multi-col args, forming the resulting column name from the last argument e.g.
+
+```q
+q)wj[w;f;t;(q;(wavg;`asize;`ask);(wavg;`bsize;`bid))]
+```
+
+
+### Interval behaviour
+
+Since V3.0, `wj` and `wj1` are both \[\] interval, i.e. they consider quotes ≥beginning and ≤end of the interval.
+
+For `wj`, the prevailing quote on entry to the window is considered valid as quotes are a step function.
+
+`wj1` considers quotes on or after entry to the window. If the join is to consider quotes that arrive from the beginning of the interval, use `wj1`.
+
+Prior to V3.0, `wj1` considers only quotes in the window except for the window end (i.e. quotes ≥start and &lt;end).
+
+version | wj1  |  wj              
+--------|------|------------------
+3.0     | `[]` | prevailing + `[]`
+2.7/2.8 | `[)` | prevailing + `[]`
 
 
 ```q
