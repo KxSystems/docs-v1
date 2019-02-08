@@ -19,13 +19,13 @@ System information                Callbacks
 .z.f    file                      .z.pi    input
 .z.h    host                      .z.po    open
 .z.i    PID                       .z.pp    HTTP post
-.z.K    version                   .z.ps    set
-.z.k    release date              .z.pw    validate user
-.z.l    license                   .z.ts    timer
-.z.N/n  local/UTC timespan        .z.vs    value set
-.z.o    OS version                .z.wc    WebSocket close
-.z.P/p  local/UTC timestamp       .z.wo    WebSocket open
-.z.pm   HTTP options              
+.z.K    version                   .z.pq    qcon
+.z.k    release date              .z.ps    set
+.z.l    license                   .z.pw    validate user
+.z.N/n  local/UTC timespan        .z.ts    timer
+.z.o    OS version                .z.vs    value set
+.z.P/p  local/UTC timestamp       .z.wc    WebSocket close
+.z.pm   HTTP options              .z.wo    WebSocket open
 .z.q    quiet mode                
 .z.s    self
 .z.T/t  time shortcuts
@@ -851,6 +851,18 @@ See `.z.ph` for details of the argument.
 
 <i class="fa fa-hand-o-right"></i> 
 [`.h`](doth)
+
+
+###`.z.pq` (qcon)
+
+Syntax: `.z.pq:f`
+
+Since V3.5+3.6 2019.01.31, remote connections using the "qcon" text protocol are routed to `.z.pq`, which defaults to calling `.z.pi`.
+
+This allows a user to handle remote qcon connections (via `.z.pq`) without defining special handling for console processing (via `.z.pi`).
+
+<i class="fa fa-hand-o-right"></i> 
+[Firewalling](/cookbook/firewalling) for locking down message handlers.
 
 
 ### `.z.ps` (set)

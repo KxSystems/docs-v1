@@ -19,6 +19,7 @@ Restrict input by defining at least:
 - [.z.pm](/ref/dotz/#zpm-http-options "HTTP options"):{}
 - [.z.po](/ref/dotz/#zpo-open "open"):{}
 - [.z.pp](/ref/dotz/#zpp-http-post "HTTP post"):{}
+- [.z.pq](/ref/dotz/#zpq-qcon "qcon"):{}
 - [.z.ps](/ref/dotz/#zps-set "set"):{}
 
 If you want to allow certain IPC calls, implement only the ones you want. Trying to blacklist functions is tricky because some otherwise useful functions may have a mode that accesses the disk which may cause information leak (e.g. [key](/ref/metadata/#key)). It is much easier to use a whitelist approach. Whitepaper [Permissions with kdb+](/wp/permissions_with_kdb.pdf) has some suggestions here.
