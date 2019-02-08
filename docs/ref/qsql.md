@@ -357,6 +357,18 @@ Syntax: `select [cols] [by groups] from t [where filters]`
 
 `select` retrieves specified columns from a table. It has many forms; not all are described here. 
 
+A `by` clause with no `cols` specified returns the last row in each group.
+
+```q
+q)tbl:([] id:1 1 2 2 2;val:100 200 300 400 500)
+q)select by id from tbl
+id| val
+--| ---
+1 | 200
+2 | 500
+```
+
+
 ### Limiting results
 
 To limit the returned results you can also use these forms:
