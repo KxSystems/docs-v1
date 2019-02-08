@@ -7,7 +7,7 @@ keywords: embedpy, interface, kdb+, python
 
 <div class="fusion" markdown="1">
 <i class="fa fa-superpowers"></i> 
-[Fusion for kdb+](../interfaces/fusion)
+[Fusion for kdb+](/interfaces/fusion)
 </div>
 
 Allows the kdb+ interpreter to manipulate Python objects and call Python functions.
