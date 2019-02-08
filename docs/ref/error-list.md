@@ -138,11 +138,11 @@ On execute or load
 </thead>
 <tbody>
 <tr> <td class="nowrap">`[({])}"`</td> <td class="nowrap">`"hello`</td> <td>Open `([{` or `"`</td> </tr>
-<tr> <td>branch</td> <td class="nowrap">`a:"1;",65024#"0;"`<br/>`value "{if[",a,"]}"`</td> <td>A branch (if;do;while;$[.;.;.]) more than 65025 byte codes away (255 before V3.5 2017.09.26)</td> </tr>
+<tr> <td>branch</td> <td class="nowrap">`a:"1;",65024#"0;"`<br/>`value "{if[",a,"]}"`</td> <td>A branch (if;do;while;$[.;.;.]) more than 65025 byte codes away (255 before V3.6 2017.09.26)</td> </tr>
 <tr> <td>char</td> <td class="nowrap">`value "\000"`</td> <td>Invalid character</td> </tr>
-<tr> <td>constants</td> <td class="nowrap">`a:";"sv string 2+til 97;`<br/>`value"{",a,"}"`</td> <td>Too many constants (max locals+globals+constants: 240; 95 before V3.5 2017.09.26)</td> </tr>
-<tr> <td>globals</td> <td class="nowrap">`a:"::a"sv string til 111;`<br/>`value"{a",a,"::0}"`</td> <td>Too many global variables (110 max; 31 before V3.5 2017.09.26)</td> </tr>
-<tr> <td>locals</td> <td class="nowrap">`a:":a"sv string til 111;`<br/>`value"{a",a,":0}"`</td> <td>Too many local variables (110 max; 23 before V3.5 2017.09.26)</td> </tr>
+<tr> <td>constants</td> <td class="nowrap">`a:";"sv string 2+til 97;`<br/>`value"{",a,"}"`</td> <td>Too many constants (max locals+globals+constants: 240; 95 before V3.6 2017.09.26)</td> </tr>
+<tr> <td>globals</td> <td class="nowrap">`a:"::a"sv string til 111;`<br/>`value"{a",a,"::0}"`</td> <td>Too many global variables (110 max; 31 before V3.6 2017.09.26)</td> </tr>
+<tr> <td>locals</td> <td class="nowrap">`a:":a"sv string til 111;`<br/>`value"{a",a,":0}"`</td> <td>Too many local variables (110 max; 23 before V3.6 2017.09.26)</td> </tr>
 <tr> <td>params</td> <td class="nowrap">`f:{[a;b;c;d;e;f;g;h;e]}`</td> <td>Too many parameters (8 max)</td> </tr>
 </tbody>
 </table>
