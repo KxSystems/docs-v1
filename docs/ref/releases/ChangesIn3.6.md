@@ -50,9 +50,20 @@ q)`:file set((`a`b;`b`c);0 1) / symbols cause a 3rd file to be created, file##, 
 ```
 - The underlying storage (`file#`) stays mapped as long as there exists a reference to any mapped object within. Hence, care should be taken when working with compressed data, as anything ever decompressed in a file would stay in memory until the last reference is gone.
 
+
 ## GUID hashing
 
 Hash now considers all bits of the guid. Guids with `u`, `p` or `g` attribute use a new file format, unreadable by previous versions.
+
+
+## File compression
+
+Added `lz4hc` as file-compression algorithm #4. e.g.
+
+```q
+q).z.zd:17 4 16;`:z set z:100000?200;z~get`:z
+```
+
 
 ## NUCs – not upwardly compatible
 
