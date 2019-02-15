@@ -36,10 +36,10 @@ Use numbered lists only
 Where 
 
 -   a list has no more than five items; 
--   the items are short;
+-   the items are short; and
 -   its items are clauses of a single sentence
 
-suffix all but the last item with a semicolon, as in this sentence. 
+suffix all but the last item with a semicolon, and use "and" or "or" before the last item if desired, as in this sentence. 
 Otherwise, leave the ends of list items unpunctuated. 
 
 
