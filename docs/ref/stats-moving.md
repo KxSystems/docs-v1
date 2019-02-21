@@ -103,7 +103,7 @@ q)3 mmax 0N -3 -2 0N 1 0  / initial null returns negative infinity
 
 **Moving minimums**
 
-Syntax: `x mdev y` (binary, uniform)
+Syntax: `x mmin y` (binary, uniform)
 
 Returns the `x`-item moving minimums of numeric list `y`, with nulls treated as the minimum value. The first `x` items of the result are the minimums of the terms so far, and thereafter the result is the moving minimum.
 ```q
