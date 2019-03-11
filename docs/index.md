@@ -4,6 +4,14 @@ description: Technical documentation and resources for q and kdb+ developers
 
 # Get going with kdb+
 
+<div markdown="1" style="background: yellow; padding: 0.5em 2em;">
+**Version 2.0**
+The current documentation site is at 
+[code.kx.com/v2](/v2/).<br>
+This version remains for now to protect old bookmarks but is no longer updated. 
+2019.03.07
+</div>
+
 <div style="display: flex"  flex-direction: row; flex-wrap: wrap; markdown="1">
 
 <div style="display: inline-flex;" markdown="1">
