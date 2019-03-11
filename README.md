@@ -1,5 +1,19 @@
-# Kdb+ documentation
-Rebuild of [code.kx.com](http://code.kx.com/) using the [MkDocs](http://mkdocs.org) static site generator. 
+Kdb+ documentation
+==================
+
+
+
+This is Version 1 of the documentation site at [code.kx.com](https://code.kx.com).
+
+It has now been frozen, but can be found online at [code.kx.com/q](https://code.kx.com/q/).
+
+The current version of the site is in the `master` branch. 
+
+
+Version 1.0
+-----------
+
+Rebuild of [code.kx.com/wiki](http://code.kx.com/wiki) using the [MkDocs](http://mkdocs.org) static site generator. 
 
 The wiki enabled the kdb+ documentation to grow organically over the years. It is well organised for finding all uses of a word or glyph. 
 Its replacement aims to 
