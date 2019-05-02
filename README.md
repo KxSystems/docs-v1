@@ -5,9 +5,9 @@ Kdb+ documentation
 
 This is Version 1 of the documentation site at [code.kx.com](https://code.kx.com).
 
-It has now been frozen, but can be found online at [code.kx.com/q](https://code.kx.com/q/).
+It has now been taken offline.
 
-The current version of the site is in the `master` branch. 
+The current version of the site is in the `master` branch of the `docs` repository. 
 
 
 Version 1.0
